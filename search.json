@@ -96,11 +96,11 @@
     ]
   },
   {
-    "objectID": "semaines/s01-rentree/vendredi.html#activité-1-le-sandwich-20-min",
-    "href": "semaines/s01-rentree/vendredi.html#activité-1-le-sandwich-20-min",
+    "objectID": "semaines/s01-rentree/vendredi.html#activité-1-le-sandwich-15-min",
+    "href": "semaines/s01-rentree/vendredi.html#activité-1-le-sandwich-15-min",
     "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
-    "section": "Activité 1 — Le sandwich (20 min)",
-    "text": "Activité 1 — Le sandwich (20 min)\n\nLe formateur joue un robot qui prépare une tartine.\nLe groupe lui dicte les instructions, une par une.\nLe robot fait exactement ce qu’on lui dit.\nEn binôme : réécrivez des instructions qui marchent.\nDémonstration adaptée de CS50 (2017, 2014).",
+    "section": "Activité 1 — Le sandwich (15 min)",
+    "text": "Activité 1 — Le sandwich (15 min)\n\nLe formateur joue un robot qui prépare une tartine.\nLe groupe lui dicte les instructions, une par une.\nLe robot fait exactement ce qu’on lui dit.\nEn binôme : réécrivez des instructions qui marchent.\nDémonstration adaptée de CS50 (2017, 2014).",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -252,11 +252,23 @@
     ]
   },
   {
-    "objectID": "semaines/s01-rentree/vendredi.html#pas-de-cours-cet-après-midi",
-    "href": "semaines/s01-rentree/vendredi.html#pas-de-cours-cet-après-midi",
+    "objectID": "semaines/s01-rentree/vendredi.html#au-programme",
+    "href": "semaines/s01-rentree/vendredi.html#au-programme",
     "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
-    "section": "Pas de cours cet après-midi",
-    "text": "Pas de cours cet après-midi\n\nSport, ou soutien au choix.\nEn soutien : terminez les exercices Scratch.\nOu reprenez les exercices de jeudi qui vous ont bloqué.",
+    "section": "Au programme",
+    "text": "Au programme\n\nTerminer : les exercices Scratch 1 et 2, lien déposé.\nConsolider : reprenez un exercice de jeudi noté « bloqué ».\nApprofondir : les défis de « Pour aller plus loin ».\nMontrer (16 h 15) : votre projet, en binôme, 5 min chacun.\n\nRien de ce qui se fait cet après-midi n’est nécessaire lundi : le groupe B retrouvera les mêmes défis dans le parcours de remédiation de mercredi. Commencez par ce qui n’est pas terminé, puis choisissez vos défis : le dessin dicté se fait à deux, la lecture en anglais seul.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#critères-de-réussite-de-laprès-midi",
+    "href": "semaines/s01-rentree/vendredi.html#critères-de-réussite-de-laprès-midi",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Critères de réussite de l’après-midi",
+    "text": "Critères de réussite de l’après-midi\n\nLes exercices 1 et 2 fonctionnent, le lien est déposé\nUn exercice « bloqué » de jeudi est repris et compris\nAu moins un défi de « Pour aller plus loin » est terminé",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -325,11 +337,11 @@
     "text": "L’ordinateur ne devine rien\n\nIl exécute les instructions exactement, dans l’ordre.\nRésultat faux ? Les instructions sont fausses ou incomplètes.\nPensée computationnelle : découper un problème en étapes.\nDes étapes assez précises pour qu’une machine les suive."
   },
   {
-    "objectID": "semaines/s01-rentree/vendredi.slides.html#activité-1-le-sandwich-20-min",
-    "href": "semaines/s01-rentree/vendredi.slides.html#activité-1-le-sandwich-20-min",
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#activité-1-le-sandwich-15-min",
+    "href": "semaines/s01-rentree/vendredi.slides.html#activité-1-le-sandwich-15-min",
     "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
-    "section": "Activité 1 — Le sandwich (20 min)",
-    "text": "Activité 1 — Le sandwich (20 min)\n\nLe formateur joue un robot qui prépare une tartine.\nLe groupe lui dicte les instructions, une par une.\nLe robot fait exactement ce qu’on lui dit.\nEn binôme : réécrivez des instructions qui marchent.\nDémonstration adaptée de CS50 (2017, 2014)."
+    "section": "Activité 1 — Le sandwich (15 min)",
+    "text": "Activité 1 — Le sandwich (15 min)\n\nLe formateur joue un robot qui prépare une tartine.\nLe groupe lui dicte les instructions, une par une.\nLe robot fait exactement ce qu’on lui dit.\nEn binôme : réécrivez des instructions qui marchent.\nDémonstration adaptée de CS50 (2017, 2014)."
   },
   {
     "objectID": "semaines/s01-rentree/vendredi.slides.html#activité-2-trouver-un-nom-dans-lannuaire-20-min",
@@ -416,11 +428,18 @@
     "text": "Pour aller plus loin — Getting Started with Scratch (anglais)\nLisez Getting Started with Scratch (Scratch Wiki, s. d.).\n\nQuel bloc lance un script au drapeau vert ? En anglais ?\nD’après la page, qu’est-ce qu’un sprite ? Et le stage ?\nAvantage et limite de l’éditeur en ligne (online editor) ?\nQue veut dire « remixer » un projet ? Comment fait-on ?"
   },
   {
-    "objectID": "semaines/s01-rentree/vendredi.slides.html#pas-de-cours-cet-après-midi",
-    "href": "semaines/s01-rentree/vendredi.slides.html#pas-de-cours-cet-après-midi",
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#au-programme",
+    "href": "semaines/s01-rentree/vendredi.slides.html#au-programme",
     "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
-    "section": "Pas de cours cet après-midi",
-    "text": "Pas de cours cet après-midi\n\nSport, ou soutien au choix.\nEn soutien : terminez les exercices Scratch.\nOu reprenez les exercices de jeudi qui vous ont bloqué."
+    "section": "Au programme",
+    "text": "Au programme\n\nTerminer : les exercices Scratch 1 et 2, lien déposé.\nConsolider : reprenez un exercice de jeudi noté « bloqué ».\nApprofondir : les défis de « Pour aller plus loin ».\nMontrer (16 h 15) : votre projet, en binôme, 5 min chacun."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#critères-de-réussite-de-laprès-midi",
+    "href": "semaines/s01-rentree/vendredi.slides.html#critères-de-réussite-de-laprès-midi",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Critères de réussite de l’après-midi",
+    "text": "Critères de réussite de l’après-midi\n\nLes exercices 1 et 2 fonctionnent, le lien est déposé\nUn exercice « bloqué » de jeudi est repris et compris\nAu moins un défi de « Pour aller plus loin » est terminé"
   },
   {
     "objectID": "semaines/s01-rentree/vendredi.slides.html#sources",
@@ -467,7 +486,7 @@
     "href": "semaines/s01-rentree/index.html#programme",
     "title": "Semaine 1 — Rentrée",
     "section": "Programme",
-    "text": "Programme\n\n\n\nJour\nMatin\nAprès-midi\n\n\n\n\nJeudi 08/10\nRentrée — présentation de la formation, du calendrier et de la charte IA\nPositionnement — exercices pratiques\n\n\nVendredi 09/10\nPositionnement — CS50 Week 0 : pensée computationnelle (activités débranchées & Scratch)\nSport ou soutien",
+    "text": "Programme\n\n\n\nJour\nMatin\nAprès-midi\n\n\n\n\nJeudi 08/10\nRentrée — présentation de la formation, du calendrier et de la charte IA\nPositionnement — exercices pratiques\n\n\nVendredi 09/10\nPositionnement — CS50 Week 0 : pensée computationnelle (activités débranchées & Scratch)\nGroupe A : projet & consolidation · groupe B : sport (13 h 15 – 16 h)",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée"
@@ -543,7 +562,7 @@
     "href": "index.html#comment-ça-marche",
     "title": "Formation Développeur web et web mobile",
     "section": "Comment ça marche",
-    "text": "Comment ça marche\n\nPratique au maximum : chaque demi-journée alterne des apports courts et beaucoup de pratique.\nUne page par jour : objectifs, exercices guidés, TP ou étape de projet, critères de réussite.\nMercredi : autonomie & soutien. Vendredi matin : 30 min de veille technologique.\nProjets fil rouge : un explorateur open data (#1), puis une application complète front React (#2) + API (#3).",
+    "text": "Comment ça marche\n\nPratique au maximum : chaque demi-journée alterne des apports courts et beaucoup de pratique.\nUne page par jour : objectifs, exercices guidés, TP ou étape de projet, critères de réussite.\nMercredi : atelier guidé le matin, autonomie l’après-midi. Vendredi : 30 min de veille technologique le matin ; l’après-midi, projet et consolidation pour un groupe, sport pour l’autre.\nProjets fil rouge : un explorateur open data (#1), puis une application complète front React (#2) + API (#3).",
     "crumbs": [
       "Accueil"
     ]
@@ -606,11 +625,11 @@
     "text": "Objectifs\n\nExpliquer le titre DWWM et le déroulé de la formation.\nConnaître les grandes dates du calendrier.\nDire si un usage de l’IA est autorisé, selon la période.\nFaire le point sur son niveau de départ."
   },
   {
-    "objectID": "semaines/s01-rentree/jeudi.slides.html#tour-de-table-deux-vérités-un-mensonge-30-min",
-    "href": "semaines/s01-rentree/jeudi.slides.html#tour-de-table-deux-vérités-un-mensonge-30-min",
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#tour-de-table-deux-vérités-un-mensonge-25-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#tour-de-table-deux-vérités-un-mensonge-25-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
-    "section": "Tour de table — « Deux vérités, un mensonge » (30 min)",
-    "text": "Tour de table — « Deux vérités, un mensonge » (30 min)\n\nÉcrivez trois phrases sur vous : deux vraies, une fausse.\nPrésentez-vous : prénom, ancien métier, pourquoi le web.\nLisez vos trois phrases : le groupe trouve le mensonge."
+    "section": "Tour de table — « Deux vérités, un mensonge » (25 min)",
+    "text": "Tour de table — « Deux vérités, un mensonge » (25 min)\n\nÉcrivez trois phrases sur vous : deux vraies, une fausse.\nPrésentez-vous : prénom, ancien métier, pourquoi le web.\nLisez vos trois phrases : le groupe trouve le mensonge."
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#apport-1-la-formation-dwwm-15-min",
@@ -641,18 +660,18 @@
     "text": "La certification\n\nFin juin – début juillet 2027.\nPrésentation d’un projet, puis entretien technique.\nQuestionnaire professionnel sans internet, entretien final.\nAppui : le dossier de projet et le dossier professionnel.\nLe jury vous interroge sur votre code."
   },
   {
-    "objectID": "semaines/s01-rentree/jeudi.slides.html#lire-le-calendrier-10-min",
-    "href": "semaines/s01-rentree/jeudi.slides.html#lire-le-calendrier-10-min",
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#lire-le-calendrier-5-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#lire-le-calendrier-5-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
-    "section": "Lire le calendrier (10 min)",
-    "text": "Lire le calendrier (10 min)\n\nMercredi : autonomie et soutien, chaque semaine.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027."
+    "section": "Lire le calendrier (5 min)",
+    "text": "Lire le calendrier (5 min)\n\nMercredi : atelier guidé le matin, autonomie l’après-midi.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027."
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#apport-2-le-rythme-dune-semaine-15-min",
     "href": "semaines/s01-rentree/jeudi.slides.html#apport-2-le-rythme-dune-semaine-15-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Apport 2 — Le rythme d’une semaine (15 min)",
-    "text": "Apport 2 — Le rythme d’une semaine (15 min)\n\nDemi-journée : apport court, pratique (70 %), débrief.\nMercredi : autonomie et soutien.\nVendredi : veille, cours, puis sport ou soutien.\nDès la S7 : projets fil rouge, en sprints d’une semaine.\nECF réguliers, suivis d’un groupe de soutien."
+    "text": "Apport 2 — Le rythme d’une semaine (15 min)\n\nDemi-journée : apport court, pratique (70 %), débrief.\nAncrages de 5 min à 9 h, 11 h et 14 h.\nMardi 15 h 30 : chorale ou soutien pair à pair (A / B).\nMercredi : atelier guidé, puis autonomie.\nVendredi : veille, cours ; l’après-midi, projet ou sport.\nECF réguliers, suivis d’un groupe de soutien."
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#activité-la-charte-ia-45-min",
@@ -690,11 +709,11 @@
     "text": "La règle d’or\n\nUn usage de l’IA déclaré et conforme n’est jamais reproché.\nChaque projet aura une section « Usage de l’IA » dans son README."
   },
   {
-    "objectID": "semaines/s01-rentree/jeudi.slides.html#si-le-temps-le-permet-installation-du-poste-20-min",
-    "href": "semaines/s01-rentree/jeudi.slides.html#si-le-temps-le-permet-installation-du-poste-20-min",
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#si-le-temps-le-permet-explorer-le-site-du-cours",
+    "href": "semaines/s01-rentree/jeudi.slides.html#si-le-temps-le-permet-explorer-le-site-du-cours",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
-    "section": "Si le temps le permet — Installation du poste (20 min)",
-    "text": "Si le temps le permet — Installation du poste (20 min)\n\nMettez à jour votre navigateur (Firefox ou Chrome).\nCréez les dossiers dwwm/semaine-01 dans vos documents.\nCréez un compte sur scratch.mit.edu.\nAjoutez ce site de cours à vos favoris."
+    "section": "Si le temps le permet — Explorer le site du cours",
+    "text": "Si le temps le permet — Explorer le site du cours\n\nOuvrez la page d’accueil : trouvez la semaine 7.\nQuel jour a lieu le premier ECF ? Et le stage ?\nAjoutez ce site de cours à vos favoris."
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#débrief",
@@ -823,11 +842,18 @@
     "text": "Exercice 5 — Aisance numérique (facile)\n\nCréez dwwm/semaine-01 si besoin, puis presentation.txt dedans.\nÉcrivez-y votre prénom, ancien métier, un site favori.\nRenommez-le moi.txt ; notez son chemin complet.\nComplétez le tableau des raccourcis clavier.\nSur MDN Web Docs, trouvez ce que signifie HTML."
   },
   {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#installation-du-poste-30-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#installation-du-poste-30-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Installation du poste (30 min)",
+    "text": "Installation du poste (30 min)\n\nMettez à jour votre navigateur (Firefox ou Chrome).\nCréez un compte sur scratch.mit.edu.\nOuvrez l’éditeur Scratch : il servira dès vendredi matin.\nAjoutez ce site de cours à vos favoris."
+  },
+  {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#critères-de-réussite",
     "href": "semaines/s01-rentree/jeudi.slides.html#critères-de-réussite",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Critères de réussite",
-    "text": "Critères de réussite\n\nLe questionnaire est rempli honnêtement\nChaque exercice est tenté, démarche notée\nLe fichier moi.txt existe dans dwwm/semaine-01\nLa fiche est remise au formateur"
+    "text": "Critères de réussite\n\nLe questionnaire est rempli honnêtement\nChaque exercice est tenté, démarche notée\nLe fichier moi.txt existe dans dwwm/semaine-01\nLa fiche est remise au formateur\nLe navigateur est à jour, l’éditeur Scratch s’ouvre"
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#pour-aller-plus-loin",
@@ -848,7 +874,7 @@
     "href": "semaines/s01-rentree/jeudi.html",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "",
-    "text": "Compétences visées : communiquer en français · résolution de problème Livrable : la fiche de positionnement, remise à 16 h.",
+    "text": "Compétences visées : communiquer en français · résolution de problème Livrable : la fiche de positionnement, remise à 16 h ; votre poste prêt pour vendredi.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -868,11 +894,11 @@
     ]
   },
   {
-    "objectID": "semaines/s01-rentree/jeudi.html#tour-de-table-deux-vérités-un-mensonge-30-min",
-    "href": "semaines/s01-rentree/jeudi.html#tour-de-table-deux-vérités-un-mensonge-30-min",
+    "objectID": "semaines/s01-rentree/jeudi.html#tour-de-table-deux-vérités-un-mensonge-25-min",
+    "href": "semaines/s01-rentree/jeudi.html#tour-de-table-deux-vérités-un-mensonge-25-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
-    "section": "Tour de table — « Deux vérités, un mensonge » (30 min)",
-    "text": "Tour de table — « Deux vérités, un mensonge » (30 min)\n\nÉcrivez trois phrases sur vous : deux vraies, une fausse.\nPrésentez-vous : prénom, ancien métier, pourquoi le web.\nLisez vos trois phrases : le groupe trouve le mensonge.\n\nExemples de phrases : « J’ai travaillé dix ans dans la restauration », « J’ai déjà créé un site avec WordPress », « Je parle japonais ».",
+    "section": "Tour de table — « Deux vérités, un mensonge » (25 min)",
+    "text": "Tour de table — « Deux vérités, un mensonge » (25 min)\n\nÉcrivez trois phrases sur vous : deux vraies, une fausse.\nPrésentez-vous : prénom, ancien métier, pourquoi le web.\nLisez vos trois phrases : le groupe trouve le mensonge.\n\nExemples de phrases : « J’ai travaillé dix ans dans la restauration », « J’ai déjà créé un site avec WordPress », « Je parle japonais ».",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -928,11 +954,11 @@
     ]
   },
   {
-    "objectID": "semaines/s01-rentree/jeudi.html#lire-le-calendrier-10-min",
-    "href": "semaines/s01-rentree/jeudi.html#lire-le-calendrier-10-min",
+    "objectID": "semaines/s01-rentree/jeudi.html#lire-le-calendrier-5-min",
+    "href": "semaines/s01-rentree/jeudi.html#lire-le-calendrier-5-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
-    "section": "Lire le calendrier (10 min)",
-    "text": "Lire le calendrier (10 min)\n\nMercredi : autonomie et soutien, chaque semaine.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027.\n\nLe formateur présente ces repères à partir du calendrier de la formation (Formation DWWM 2026-2027 2026a). Le calendrier complet, semaine par semaine, est sur la page d’accueil du site : gardez-la dans vos favoris.",
+    "section": "Lire le calendrier (5 min)",
+    "text": "Lire le calendrier (5 min)\n\nMercredi : atelier guidé le matin, autonomie l’après-midi.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027.\n\nLe formateur présente ces repères à partir du calendrier de la formation (Formation DWWM 2026-2027 2026a). Le calendrier complet, semaine par semaine, est sur la page d’accueil du site : gardez-la dans vos favoris.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -944,7 +970,7 @@
     "href": "semaines/s01-rentree/jeudi.html#apport-2-le-rythme-dune-semaine-15-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Apport 2 — Le rythme d’une semaine (15 min)",
-    "text": "Apport 2 — Le rythme d’une semaine (15 min)\n\nDemi-journée : apport court, pratique (70 %), débrief.\nMercredi : autonomie et soutien.\nVendredi : veille, cours, puis sport ou soutien.\nDès la S7 : projets fil rouge, en sprints d’une semaine.\nECF réguliers, suivis d’un groupe de soutien.\n\nEn détail :\n\nChaque demi-journée : des apports de 15 à 20 minutes, puis beaucoup de pratique, puis un débrief collectif. Vous passerez au moins 70 % du temps à faire.\nLe mercredi : une page vous donne les consignes, l’outil à utiliser et l’objectif à atteindre ; le formateur passe pour aider. Si vous êtes en difficulté, un parcours de remédiation vous attend.\nLe vendredi matin : 30 minutes de veille technologique (actualité du web et de la sécurité), puis le cours.\nLes projets fil rouge : une revue de sprint chaque vendredi. Le projet #2 (interface en React) et le projet #3 (serveur, en binôme) forment une seule application, que vous pourrez présenter au jury.\nLes ECF : certains se font sans IA. Après chaque ECF, un groupe de soutien permet de retravailler ce qui n’est pas acquis.",
+    "text": "Apport 2 — Le rythme d’une semaine (15 min)\n\nDemi-journée : apport court, pratique (70 %), débrief.\nAncrages de 5 min à 9 h, 11 h et 14 h.\nMardi 15 h 30 : chorale ou soutien pair à pair (A / B).\nMercredi : atelier guidé, puis autonomie.\nVendredi : veille, cours ; l’après-midi, projet ou sport.\nECF réguliers, suivis d’un groupe de soutien.\n\nEn détail :\n\nChaque demi-journée : des apports de 15 à 20 minutes, puis beaucoup de pratique, puis un débrief collectif. Vous passerez au moins 70 % du temps à faire.\nLes horaires : le matin de 9 h à 11 h 45, l’après-midi à partir de 12 h 45 ; la fin de journée dépend du jour (16 h le lundi, 15 h 15 le mardi, 17 h les autres jours). Trois ancrages de 5 minutes, à 9 h, 11 h et 14 h, rythment la journée.\nLes groupes A et B : ils alternent chaque semaine. Les semaines impaires (S1, S3…), le groupe A va à la chorale le mardi à 15 h 30 pendant que le groupe B fait du soutien pair à pair en salle ; le vendredi après-midi, le groupe A est en formation et le groupe B au sport (13 h 15 – 16 h). Les semaines paires, on inverse.\nLe mercredi : le matin, un atelier guidé avec le formateur ; l’après-midi, en autonomie, une page vous donne les consignes, l’outil à utiliser, l’objectif à atteindre et la preuve à déposer. Si vous êtes en difficulté, un parcours de remédiation vous attend.\nLe vendredi : 30 minutes de veille technologique (actualité du web et de la sécurité), puis le cours. L’après-midi, le groupe en formation termine et consolide le travail de la semaine, sans notion nouvelle : rien de ce qui s’y fait ne manquera à l’autre groupe.\nLes projets fil rouge : dès la semaine 7, en sprints d’une semaine, avec une revue de sprint le vendredi matin. Le projet #2 (interface en React) et le projet #3 (serveur, en binôme) forment une seule application, que vous pourrez présenter au jury.\nLes ECF : certains se font sans IA. Après chaque ECF, un groupe de soutien permet de retravailler ce qui n’est pas acquis.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -1012,11 +1038,11 @@
     ]
   },
   {
-    "objectID": "semaines/s01-rentree/jeudi.html#si-le-temps-le-permet-installation-du-poste-20-min",
-    "href": "semaines/s01-rentree/jeudi.html#si-le-temps-le-permet-installation-du-poste-20-min",
+    "objectID": "semaines/s01-rentree/jeudi.html#si-le-temps-le-permet-explorer-le-site-du-cours",
+    "href": "semaines/s01-rentree/jeudi.html#si-le-temps-le-permet-explorer-le-site-du-cours",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
-    "section": "Si le temps le permet — Installation du poste (20 min)",
-    "text": "Si le temps le permet — Installation du poste (20 min)\n\nMettez à jour votre navigateur (Firefox ou Chrome).\nCréez les dossiers dwwm/semaine-01 dans vos documents.\nCréez un compte sur scratch.mit.edu.\nAjoutez ce site de cours à vos favoris.\n\nSi le temps manque, rien n’est perdu : le dossier se crée cet après-midi (exercice 5), et Scratch fonctionne vendredi sans compte.",
+    "section": "Si le temps le permet — Explorer le site du cours",
+    "text": "Si le temps le permet — Explorer le site du cours\n\nOuvrez la page d’accueil : trouvez la semaine 7.\nQuel jour a lieu le premier ECF ? Et le stage ?\nAjoutez ce site de cours à vos favoris.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -1240,11 +1266,23 @@
     ]
   },
   {
+    "objectID": "semaines/s01-rentree/jeudi.html#installation-du-poste-30-min",
+    "href": "semaines/s01-rentree/jeudi.html#installation-du-poste-30-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Installation du poste (30 min)",
+    "text": "Installation du poste (30 min)\n\nMettez à jour votre navigateur (Firefox ou Chrome).\nCréez un compte sur scratch.mit.edu.\nOuvrez l’éditeur Scratch : il servira dès vendredi matin.\nAjoutez ce site de cours à vos favoris.\n\nCette installation se fait après la remise de la fiche et le débrief. Sans compte Scratch, l’éditeur fonctionne quand même : il faudra seulement télécharger vos projets.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
     "objectID": "semaines/s01-rentree/jeudi.html#critères-de-réussite",
     "href": "semaines/s01-rentree/jeudi.html#critères-de-réussite",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Critères de réussite",
-    "text": "Critères de réussite\n\nLe questionnaire est rempli honnêtement\nChaque exercice est tenté, démarche notée\nLe fichier moi.txt existe dans dwwm/semaine-01\nLa fiche est remise au formateur",
+    "text": "Critères de réussite\n\nLe questionnaire est rempli honnêtement\nChaque exercice est tenté, démarche notée\nLe fichier moi.txt existe dans dwwm/semaine-01\nLa fiche est remise au formateur\nLe navigateur est à jour, l’éditeur Scratch s’ouvre",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -1268,7 +1306,7 @@
     "href": "semaines/s01-rentree/jeudi.html#sources",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Sources",
-    "text": "Sources\n\n\nFormation DWWM 2026-2027. 2026a. Calendrier de la formation, version 8.\n\n\nFormation DWWM 2026-2027. 2026b. Charte IA de la formation.\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280).\n\n\nWikipedia. s. d. « Fizz buzz ». Consulté le 26 septembre 2026. https://en.wikipedia.org/wiki/Fizz_buzz.",
+    "text": "Sources\n\n\nFormation DWWM 2026-2027. 2026a. Calendrier de la formation, version 12.\n\n\nFormation DWWM 2026-2027. 2026b. Charte IA de la formation.\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280).\n\n\nWikipedia. s. d. « Fizz buzz ». Consulté le 26 septembre 2026. https://en.wikipedia.org/wiki/Fizz_buzz.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
