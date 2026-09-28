@@ -1,0 +1,1278 @@
+[
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html",
+    "href": "semaines/s01-rentree/vendredi.html",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "",
+    "text": "Compétences visées : résolution de problème · communiquer · apprendre en continu Livrable : votre projet Scratch (lien ou fichier .sb3), déposé à 11 h 45.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#objectifs",
+    "href": "semaines/s01-rentree/vendredi.html#objectifs",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nCiter deux sources de veille sur la sécurité du web.\nExpliquer ce qu’est un algorithme.\nDonner des instructions précises, sans ambiguïté.\nComparer des méthodes de recherche en comptant les pages.\nProgrammer un événement, une boucle et une condition.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#pourquoi-faire-de-la-veille",
+    "href": "semaines/s01-rentree/vendredi.html#pourquoi-faire-de-la-veille",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pourquoi faire de la veille ?",
+    "text": "Pourquoi faire de la veille ?\n\nLes outils du web changent sans cesse.\nDe nouvelles failles sont découvertes chaque semaine.\nLa veille : suivre des sources fiables, régulièrement.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#en-groupe-15-min",
+    "href": "semaines/s01-rentree/vendredi.html#en-groupe-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "En groupe (15 min)",
+    "text": "En groupe (15 min)\n\nGroupe 1 : une alerte récente du CERT-FR (s. d.).\nQuel logiciel est concerné ? Que conseille-t-on ?\nGroupe 2 : l’OWASP Top 10 (2025), en anglais.\nChoisissez un risque, expliquez-le avec vos mots.\n\nLe CERT-FR, rattaché à l’ANSSI, publie les alertes et avis de sécurité officiels en France. L’OWASP Top 10:2025 liste les risques les plus critiques pour les applications web : lisez les titres des dix risques et choisissez celui qui vous semble le plus facile à comprendre.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#mise-en-commun-et-trace-écrite-15-min",
+    "href": "semaines/s01-rentree/vendredi.html#mise-en-commun-et-trace-écrite-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Mise en commun et trace écrite (15 min)",
+    "text": "Mise en commun et trace écrite (15 min)\n\nChaque groupe présente ce qu’il a trouvé en 3 minutes.\nSeul : notez une info qui touche un site que vous utilisez.\n\n\n\n\n\n\n\nNote\n\n\n\nGardez votre feuille : ce sera la première entrée de votre journal de veille.\n\n\nLa question exacte : « Citez une information trouvée ce matin qui pourrait concerner un site web que vous utilisez. » Le journal de veille en ligne sera créé en semaine 4.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#doù-vient-cette-matinée",
+    "href": "semaines/s01-rentree/vendredi.html#doù-vient-cette-matinée",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "D’où vient cette matinée ?",
+    "text": "D’où vient cette matinée ?\n\nDu cours d’introduction CS50 de Harvard (CS50 2026a).\nSandwich : une démonstration de CS50 (CS50 2017).\nDessin dicté, en bonus : adapté de CS Unplugged (s. d.).\n\nL’annuaire et la découverte de Scratch reprennent la première séance de CS50 (CS50 2026b). La démonstration du sandwich figure dans les notes de 2017 et de 2014 (CS50 2017, 2014). Le dessin dicté reprend l’idée de l’activité 12 « Marching Orders » de CS Unplugged, reformulée.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#apport-1-quest-ce-quun-algorithme-15-min",
+    "href": "semaines/s01-rentree/vendredi.html#apport-1-quest-ce-quun-algorithme-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Apport 1 — Qu’est-ce qu’un algorithme ? (15 min)",
+    "text": "Apport 1 — Qu’est-ce qu’un algorithme ? (15 min)\n\nUn algorithme résout un problème par des instructions.\nIl suit le schéma entrée → traitement → sortie.\nUne recette : ingrédients → étapes → plat.\nUn GPS : départ et arrivée → calcul → trajet.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#lordinateur-ne-devine-rien",
+    "href": "semaines/s01-rentree/vendredi.html#lordinateur-ne-devine-rien",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "L’ordinateur ne devine rien",
+    "text": "L’ordinateur ne devine rien\n\nIl exécute les instructions exactement, dans l’ordre.\nRésultat faux ? Les instructions sont fausses ou incomplètes.\nPensée computationnelle : découper un problème en étapes.\nDes étapes assez précises pour qu’une machine les suive.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#activité-1-le-sandwich-20-min",
+    "href": "semaines/s01-rentree/vendredi.html#activité-1-le-sandwich-20-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Activité 1 — Le sandwich (20 min)",
+    "text": "Activité 1 — Le sandwich (20 min)\n\nLe formateur joue un robot qui prépare une tartine.\nLe groupe lui dicte les instructions, une par une.\nLe robot fait exactement ce qu’on lui dit.\nEn binôme : réécrivez des instructions qui marchent.\nDémonstration adaptée de CS50 (2017, 2014).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#activité-2-trouver-un-nom-dans-lannuaire-20-min",
+    "href": "semaines/s01-rentree/vendredi.html#activité-2-trouver-un-nom-dans-lannuaire-20-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Activité 2 — Trouver un nom dans l’annuaire (20 min)",
+    "text": "Activité 2 — Trouver un nom dans l’annuaire (20 min)\n\nUn annuaire trié de 1 000 pages : trouvez un nom.\nPage par page : combien de pages tourner, au pire ?\nDeux pages à la fois : combien de pages ? Quel risque ?\nCouper en deux : ouvrir au milieu, garder la bonne moitié.\nComptez les pages de chaque méthode. Et avec 2 000 pages ?\nAdapté de l’exemple de l’annuaire de CS50 (2026a).\n\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nAvec « couper en deux », chaque page ouverte divise par deux le nombre de pages qui restent : 1 000 → 500 → 250 → … Comptez combien de fois on peut diviser par deux avant d’arriver à une seule page.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#apport-2-scratch-en-15-minutes-15-min",
+    "href": "semaines/s01-rentree/vendredi.html#apport-2-scratch-en-15-minutes-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Apport 2 — Scratch en 15 minutes (15 min)",
+    "text": "Apport 2 — Scratch en 15 minutes (15 min)\n\nScratch : programmer avec des blocs, sans rien taper.\nLa scène (en haut à droite) : où le programme s’exécute.\nUn sprite (le personnage ou l’objet qu’on anime).\nLes catégories de blocs (à gauche) : Mouvement, Apparence…\nLa zone de code (au centre) : on y emboîte les blocs.\n\nScratch (Scratch Foundation, s. d.-a) est un langage de programmation visuel développé par le MIT (CS50 2026a). Ouvrez-le avec le formateur et repérez chaque zone.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#tout-commence-par-un-événement",
+    "href": "semaines/s01-rentree/vendredi.html#tout-commence-par-un-événement",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Tout commence par un événement",
+    "text": "Tout commence par un événement\n\nUn programme démarre par un événement (bloc jaune).\nExemple : « quand ⚑ est cliqué » (⚑ = drapeau vert).\nSans événement, les blocs ne s’exécutent jamais.\nCréez un projet « Semaine 1 — Prénom ».\nEnregistrez régulièrement.\n\nLes noms des blocs et des menus de cette page suivent la traduction française officielle de Scratch (Scratch Foundation, s. d.-c, s. d.-b).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#exercice-1-le-sprite-se-présente-facile",
+    "href": "semaines/s01-rentree/vendredi.html#exercice-1-le-sprite-se-présente-facile",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Exercice 1 — Le sprite se présente (facile)",
+    "text": "Exercice 1 — Le sprite se présente (facile)\n\nAu drapeau vert, le chat va au centre, avance de 100 pas.\nPuis il dit « Bonjour, je m’appelle … » pendant 2 secondes.\nVérifiez : cliquez plusieurs fois sur le drapeau vert.\nLe chat doit repartir du centre à chaque fois.\n\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nLe bloc « aller à x: 0 y: 0 » (catégorie Mouvement) place le sprite au centre. Le bloc « dire … pendant 2 secondes » est dans Apparence. Si le chat sort de la scène à force de cliquer, c’est qu’il manque la mise au centre au départ.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#exercice-2-le-rebond-moyen",
+    "href": "semaines/s01-rentree/vendredi.html#exercice-2-le-rebond-moyen",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Exercice 2 — Le rebond (moyen)",
+    "text": "Exercice 2 — Le rebond (moyen)\n\nAu drapeau vert, le chat avance indéfiniment.\nIl rebondit quand il atteint un bord.\nSi il touche le pointeur de la souris, il dit « Aïe ! ».\nVérifiez : il va et vient, et réagit à la souris.\nLe bouton rouge arrête tout.\n\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nTout se passe dans un bloc « répéter indéfiniment » (catégorie Contrôle). À l’intérieur : « avancer de 5 pas », « rebondir si le bord est atteint », et un bloc « si … alors » avec la condition « touche le (pointeur de souris) ? » (catégorie Capteurs). Si le chat marche la tête en bas, cherchez le bloc « fixer le sens de rotation ».",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#partager-le-projet",
+    "href": "semaines/s01-rentree/vendredi.html#partager-le-projet",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Partager le projet",
+    "text": "Partager le projet\n\nCliquez sur Partager.\nCopiez l’adresse de la page du projet.\nDéposez-la auprès du formateur.\nSans compte : Fichier, puis Sauvegarder sur votre ordinateur.\nDéposez alors le fichier .sb3.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#débrief",
+    "href": "semaines/s01-rentree/vendredi.html#débrief",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Débrief",
+    "text": "Débrief\n\nPoints communs entre le sandwich et Scratch ?\nExercice 2 : que répète-t-on ? Qu’exécute-t-on seulement parfois ?\nPourquoi « couper en deux » exige-t-il un annuaire trié ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#critères-de-réussite",
+    "href": "semaines/s01-rentree/vendredi.html#critères-de-réussite",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Critères de réussite",
+    "text": "Critères de réussite\n\nUne réponse de veille est écrite sur papier\nLes deux exercices Scratch fonctionnent\nLe lien du projet (ou le .sb3) est déposé",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#pour-aller-plus-loin",
+    "href": "semaines/s01-rentree/vendredi.html#pour-aller-plus-loin",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nPiloter au clavier : les flèches déplacent le sprite.\nLe dessin dicté, en binôme.\nAnglais : lire Getting Started with Scratch.\nLe chat et la souris : une souris qui suit le pointeur.\nTutoriels : un tutoriel du menu Tutoriels de Scratch.\n\nLe chat et la souris : ajoutez une souris qui suit le pointeur ; si le chat la touche, il dit « Attrapée ! » et tout s’arrête. Les trois premiers défis sont détaillés ci-dessous.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#pour-aller-plus-loin-piloter-au-clavier",
+    "href": "semaines/s01-rentree/vendredi.html#pour-aller-plus-loin-piloter-au-clavier",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin — Piloter au clavier",
+    "text": "Pour aller plus loin — Piloter au clavier\n\nChaque flèche du clavier déplace le chat de 10 pas.\nUne flèche = une direction : haut, bas, gauche, droite.\nVérifiez : cliquez sur la scène, puis utilisez les flèches.\n\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nUtilisez l’événement « quand la touche … est pressée ». Pour aller vers le haut ou le bas, le bloc « ajouter 10 à y » (ou « ajouter -10 à y ») est plus simple que de tourner le chat.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#pour-aller-plus-loin-le-dessin-dicté-en-binôme",
+    "href": "semaines/s01-rentree/vendredi.html#pour-aller-plus-loin-le-dessin-dicté-en-binôme",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin — Le dessin dicté (en binôme)",
+    "text": "Pour aller plus loin — Le dessin dicté (en binôme)\n\nEn binôme, dos à dos : l’un décrit une figure, sans gestes.\nL’autre la dessine, sans poser de question. On compare.\nNouvelle figure, rôles échangés : les questions sont permises.\nDébrief : quelles instructions étaient ambiguës ?\nAdapté de CS Unplugged, activité 12 (s. d.).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#anglais",
+    "href": "semaines/s01-rentree/vendredi.html#anglais",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin — Getting Started with Scratch (anglais)",
+    "text": "Pour aller plus loin — Getting Started with Scratch (anglais)\nLisez Getting Started with Scratch (Scratch Wiki, s. d.).\n\nQuel bloc lance un script au drapeau vert ? En anglais ?\nD’après la page, qu’est-ce qu’un sprite ? Et le stage ?\nAvantage et limite de l’éditeur en ligne (online editor) ?\nQue veut dire « remixer » un projet ? Comment fait-on ?\n\nLa page du Scratch Wiki est en anglais et écrite pour les grands débutants. Ne traduisez pas tout : cherchez les réponses dans les titres de sections (The Interface, Sprites, Remixing…) et répondez en français. Bonus : relevez trois mots anglais nouveaux pour vous, avec leur traduction.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#pas-de-cours-cet-après-midi",
+    "href": "semaines/s01-rentree/vendredi.html#pas-de-cours-cet-après-midi",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pas de cours cet après-midi",
+    "text": "Pas de cours cet après-midi\n\nSport, ou soutien au choix.\nEn soutien : terminez les exercices Scratch.\nOu reprenez les exercices de jeudi qui vous ont bloqué.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.html#sources",
+    "href": "semaines/s01-rentree/vendredi.html#sources",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Sources",
+    "text": "Sources\n\n\nCERT-FR. s. d. « CERT-FR – Cert national et gouvernemental français ». Consulté le 26 septembre 2026. https://www.cert.ssi.gouv.fr/.\n\n\nCS Unplugged. s. d. « Programming Languages — Marching Orders ». Consulté le 26 septembre 2026. https://classic.csunplugged.org/activities/programming-languages/.\n\n\nCS50. 2014. « Week 0, continued ». https://cdn.cs50.net/2014/fall/lectures/0/f/notes0f/notes0f.pdf.\n\n\nCS50. 2017. « Lecture0 ». https://docs.cs50.net/2017/fall/notes/0/lecture0.html.\n\n\nCS50. 2026a. « Lecture 0 - CS50x 2026 ». https://cs50.harvard.edu/x/notes/0/.\n\n\nCS50. 2026b. « This is CS50 ». https://cs50.harvard.edu/x/.\n\n\nOWASP Foundation. 2025. « OWASP Top 10:2025 ». https://top10.owasp.org/2025.\n\n\nScratch Foundation. s. d.-a. « Scratch - Imagine, Program, Share ». Consulté le 26 septembre 2026. https://scratch.mit.edu/.\n\n\nScratch Foundation. s. d.-b. « scratch-l10n : traduction française de l’interface (editor/interface/fr.json) ». Consulté le 26 septembre 2026. https://raw.githubusercontent.com/scratchfoundation/scratch-l10n/master/editor/interface/fr.json.\n\n\nScratch Foundation. s. d.-c. « scratch-l10n : traduction française des blocs (editor/blocks/fr.json) ». Consulté le 26 septembre 2026. https://raw.githubusercontent.com/scratchfoundation/scratch-l10n/master/editor/blocks/fr.json.\n\n\nScratch Wiki. s. d. « Getting Started with Scratch ». Consulté le 26 septembre 2026. https://en.scratch-wiki.info/wiki/Getting_Started_with_Scratch.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Vendredi 09/10 — Pensée computationnelle et Scratch"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#objectifs",
+    "href": "semaines/s01-rentree/vendredi.slides.html#objectifs",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nCiter deux sources de veille sur la sécurité du web.\nExpliquer ce qu’est un algorithme.\nDonner des instructions précises, sans ambiguïté.\nComparer des méthodes de recherche en comptant les pages.\nProgrammer un événement, une boucle et une condition."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#pourquoi-faire-de-la-veille",
+    "href": "semaines/s01-rentree/vendredi.slides.html#pourquoi-faire-de-la-veille",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pourquoi faire de la veille ?",
+    "text": "Pourquoi faire de la veille ?\n\nLes outils du web changent sans cesse.\nDe nouvelles failles sont découvertes chaque semaine.\nLa veille : suivre des sources fiables, régulièrement."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#en-groupe-15-min",
+    "href": "semaines/s01-rentree/vendredi.slides.html#en-groupe-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "En groupe (15 min)",
+    "text": "En groupe (15 min)\n\nGroupe 1 : une alerte récente du CERT-FR (s. d.).\nQuel logiciel est concerné ? Que conseille-t-on ?\nGroupe 2 : l’OWASP Top 10 (2025), en anglais.\nChoisissez un risque, expliquez-le avec vos mots."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#mise-en-commun-et-trace-écrite-15-min",
+    "href": "semaines/s01-rentree/vendredi.slides.html#mise-en-commun-et-trace-écrite-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Mise en commun et trace écrite (15 min)",
+    "text": "Mise en commun et trace écrite (15 min)\n\nChaque groupe présente ce qu’il a trouvé en 3 minutes.\nSeul : notez une info qui touche un site que vous utilisez.\n\n\n\n\n\n\n\nNote\n\n\nGardez votre feuille : ce sera la première entrée de votre journal de veille."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#doù-vient-cette-matinée",
+    "href": "semaines/s01-rentree/vendredi.slides.html#doù-vient-cette-matinée",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "D’où vient cette matinée ?",
+    "text": "D’où vient cette matinée ?\n\nDu cours d’introduction CS50 de Harvard (CS50 2026).\nSandwich : une démonstration de CS50 (CS50 2017).\nDessin dicté, en bonus : adapté de CS Unplugged (s. d.)."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#apport-1-quest-ce-quun-algorithme-15-min",
+    "href": "semaines/s01-rentree/vendredi.slides.html#apport-1-quest-ce-quun-algorithme-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Apport 1 — Qu’est-ce qu’un algorithme ? (15 min)",
+    "text": "Apport 1 — Qu’est-ce qu’un algorithme ? (15 min)\n\nUn algorithme résout un problème par des instructions.\nIl suit le schéma entrée → traitement → sortie.\nUne recette : ingrédients → étapes → plat.\nUn GPS : départ et arrivée → calcul → trajet."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#lordinateur-ne-devine-rien",
+    "href": "semaines/s01-rentree/vendredi.slides.html#lordinateur-ne-devine-rien",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "L’ordinateur ne devine rien",
+    "text": "L’ordinateur ne devine rien\n\nIl exécute les instructions exactement, dans l’ordre.\nRésultat faux ? Les instructions sont fausses ou incomplètes.\nPensée computationnelle : découper un problème en étapes.\nDes étapes assez précises pour qu’une machine les suive."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#activité-1-le-sandwich-20-min",
+    "href": "semaines/s01-rentree/vendredi.slides.html#activité-1-le-sandwich-20-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Activité 1 — Le sandwich (20 min)",
+    "text": "Activité 1 — Le sandwich (20 min)\n\nLe formateur joue un robot qui prépare une tartine.\nLe groupe lui dicte les instructions, une par une.\nLe robot fait exactement ce qu’on lui dit.\nEn binôme : réécrivez des instructions qui marchent.\nDémonstration adaptée de CS50 (2017, 2014)."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#activité-2-trouver-un-nom-dans-lannuaire-20-min",
+    "href": "semaines/s01-rentree/vendredi.slides.html#activité-2-trouver-un-nom-dans-lannuaire-20-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Activité 2 — Trouver un nom dans l’annuaire (20 min)",
+    "text": "Activité 2 — Trouver un nom dans l’annuaire (20 min)\n\nUn annuaire trié de 1 000 pages : trouvez un nom.\nPage par page : combien de pages tourner, au pire ?\nDeux pages à la fois : combien de pages ? Quel risque ?\nCouper en deux : ouvrir au milieu, garder la bonne moitié.\nComptez les pages de chaque méthode. Et avec 2 000 pages ?\nAdapté de l’exemple de l’annuaire de CS50 (2026)."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#apport-2-scratch-en-15-minutes-15-min",
+    "href": "semaines/s01-rentree/vendredi.slides.html#apport-2-scratch-en-15-minutes-15-min",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Apport 2 — Scratch en 15 minutes (15 min)",
+    "text": "Apport 2 — Scratch en 15 minutes (15 min)\n\nScratch : programmer avec des blocs, sans rien taper.\nLa scène (en haut à droite) : où le programme s’exécute.\nUn sprite (le personnage ou l’objet qu’on anime).\nLes catégories de blocs (à gauche) : Mouvement, Apparence…\nLa zone de code (au centre) : on y emboîte les blocs."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#tout-commence-par-un-événement",
+    "href": "semaines/s01-rentree/vendredi.slides.html#tout-commence-par-un-événement",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Tout commence par un événement",
+    "text": "Tout commence par un événement\n\nUn programme démarre par un événement (bloc jaune).\nExemple : « quand ⚑ est cliqué » (⚑ = drapeau vert).\nSans événement, les blocs ne s’exécutent jamais.\nCréez un projet « Semaine 1 — Prénom ».\nEnregistrez régulièrement."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#exercice-1-le-sprite-se-présente-facile",
+    "href": "semaines/s01-rentree/vendredi.slides.html#exercice-1-le-sprite-se-présente-facile",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Exercice 1 — Le sprite se présente (facile)",
+    "text": "Exercice 1 — Le sprite se présente (facile)\n\nAu drapeau vert, le chat va au centre, avance de 100 pas.\nPuis il dit « Bonjour, je m’appelle … » pendant 2 secondes.\nVérifiez : cliquez plusieurs fois sur le drapeau vert.\nLe chat doit repartir du centre à chaque fois."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#exercice-2-le-rebond-moyen",
+    "href": "semaines/s01-rentree/vendredi.slides.html#exercice-2-le-rebond-moyen",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Exercice 2 — Le rebond (moyen)",
+    "text": "Exercice 2 — Le rebond (moyen)\n\nAu drapeau vert, le chat avance indéfiniment.\nIl rebondit quand il atteint un bord.\nSi il touche le pointeur de la souris, il dit « Aïe ! ».\nVérifiez : il va et vient, et réagit à la souris.\nLe bouton rouge arrête tout."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#partager-le-projet",
+    "href": "semaines/s01-rentree/vendredi.slides.html#partager-le-projet",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Partager le projet",
+    "text": "Partager le projet\n\nCliquez sur Partager.\nCopiez l’adresse de la page du projet.\nDéposez-la auprès du formateur.\nSans compte : Fichier, puis Sauvegarder sur votre ordinateur.\nDéposez alors le fichier .sb3."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#débrief",
+    "href": "semaines/s01-rentree/vendredi.slides.html#débrief",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Débrief",
+    "text": "Débrief\n\nPoints communs entre le sandwich et Scratch ?\nExercice 2 : que répète-t-on ? Qu’exécute-t-on seulement parfois ?\nPourquoi « couper en deux » exige-t-il un annuaire trié ?"
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#critères-de-réussite",
+    "href": "semaines/s01-rentree/vendredi.slides.html#critères-de-réussite",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Critères de réussite",
+    "text": "Critères de réussite\n\nUne réponse de veille est écrite sur papier\nLes deux exercices Scratch fonctionnent\nLe lien du projet (ou le .sb3) est déposé"
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#pour-aller-plus-loin",
+    "href": "semaines/s01-rentree/vendredi.slides.html#pour-aller-plus-loin",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nPiloter au clavier : les flèches déplacent le sprite.\nLe dessin dicté, en binôme.\nAnglais : lire Getting Started with Scratch.\nLe chat et la souris : une souris qui suit le pointeur.\nTutoriels : un tutoriel du menu Tutoriels de Scratch."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#pour-aller-plus-loin-piloter-au-clavier",
+    "href": "semaines/s01-rentree/vendredi.slides.html#pour-aller-plus-loin-piloter-au-clavier",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin — Piloter au clavier",
+    "text": "Pour aller plus loin — Piloter au clavier\n\nChaque flèche du clavier déplace le chat de 10 pas.\nUne flèche = une direction : haut, bas, gauche, droite.\nVérifiez : cliquez sur la scène, puis utilisez les flèches."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#pour-aller-plus-loin-le-dessin-dicté-en-binôme",
+    "href": "semaines/s01-rentree/vendredi.slides.html#pour-aller-plus-loin-le-dessin-dicté-en-binôme",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin — Le dessin dicté (en binôme)",
+    "text": "Pour aller plus loin — Le dessin dicté (en binôme)\n\nEn binôme, dos à dos : l’un décrit une figure, sans gestes.\nL’autre la dessine, sans poser de question. On compare.\nNouvelle figure, rôles échangés : les questions sont permises.\nDébrief : quelles instructions étaient ambiguës ?\nAdapté de CS Unplugged, activité 12 (s. d.)."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#anglais",
+    "href": "semaines/s01-rentree/vendredi.slides.html#anglais",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pour aller plus loin — Getting Started with Scratch (anglais)",
+    "text": "Pour aller plus loin — Getting Started with Scratch (anglais)\nLisez Getting Started with Scratch (Scratch Wiki, s. d.).\n\nQuel bloc lance un script au drapeau vert ? En anglais ?\nD’après la page, qu’est-ce qu’un sprite ? Et le stage ?\nAvantage et limite de l’éditeur en ligne (online editor) ?\nQue veut dire « remixer » un projet ? Comment fait-on ?"
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#pas-de-cours-cet-après-midi",
+    "href": "semaines/s01-rentree/vendredi.slides.html#pas-de-cours-cet-après-midi",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Pas de cours cet après-midi",
+    "text": "Pas de cours cet après-midi\n\nSport, ou soutien au choix.\nEn soutien : terminez les exercices Scratch.\nOu reprenez les exercices de jeudi qui vous ont bloqué."
+  },
+  {
+    "objectID": "semaines/s01-rentree/vendredi.slides.html#sources",
+    "href": "semaines/s01-rentree/vendredi.slides.html#sources",
+    "title": "Vendredi 09/10 — Pensée computationnelle et Scratch",
+    "section": "Sources",
+    "text": "Sources\n\n\nCERT-FR. s. d. « CERT-FR – Cert national et gouvernemental français ». Consulté le 26 septembre 2026. https://www.cert.ssi.gouv.fr/.\n\n\nCS Unplugged. s. d. « Programming Languages — Marching Orders ». Consulté le 26 septembre 2026. https://classic.csunplugged.org/activities/programming-languages/.\n\n\nCS50. 2014. « Week 0, continued ». https://cdn.cs50.net/2014/fall/lectures/0/f/notes0f/notes0f.pdf.\n\n\nCS50. 2017. « Lecture0 ». https://docs.cs50.net/2017/fall/notes/0/lecture0.html.\n\n\nCS50. 2026. « Lecture 0 - CS50x 2026 ». https://cs50.harvard.edu/x/notes/0/.\n\n\nOWASP Foundation. 2025. « OWASP Top 10:2025 ». https://top10.owasp.org/2025.\n\n\nScratch Wiki. s. d. « Getting Started with Scratch ». Consulté le 26 septembre 2026. https://en.scratch-wiki.info/wiki/Getting_Started_with_Scratch."
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html",
+    "href": "semaines/s01-rentree/index.html",
+    "title": "Semaine 1 — Rentrée",
+    "section": "",
+    "text": "À la fin de la semaine, vous saurez :\n\nexpliquer comment se déroule la formation ;\nsituer les grandes dates du calendrier et appliquer la charte IA ;\ndécomposer un problème et suivre un algorithme à la main ;\nréaliser un premier programme Scratch.\n\nConcrètement : les compétences du titre, le rythme d’une semaine, les projets et la certification ; ce que la charte IA autorise à chaque période ; un sprite Scratch (le personnage ou l’objet qu’on anime) qui bouge, parle et rebondit.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#objectifs-de-la-semaine",
+    "href": "semaines/s01-rentree/index.html#objectifs-de-la-semaine",
+    "title": "Semaine 1 — Rentrée",
+    "section": "",
+    "text": "À la fin de la semaine, vous saurez :\n\nexpliquer comment se déroule la formation ;\nsituer les grandes dates du calendrier et appliquer la charte IA ;\ndécomposer un problème et suivre un algorithme à la main ;\nréaliser un premier programme Scratch.\n\nConcrètement : les compétences du titre, le rythme d’une semaine, les projets et la certification ; ce que la charte IA autorise à chaque période ; un sprite Scratch (le personnage ou l’objet qu’on anime) qui bouge, parle et rebondit.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#compétences-du-référentiel",
+    "href": "semaines/s01-rentree/index.html#compétences-du-référentiel",
+    "title": "Semaine 1 — Rentrée",
+    "section": "Compétences du référentiel",
+    "text": "Compétences du référentiel\n\nAucune compétence C1 à C8 cette semaine.\nRésolution de problème : suivre un algorithme, trouver un bug.\nCommuniquer : se présenter, expliquer, lire en anglais.\nApprendre en continu : découvrir la veille.\n\nLa semaine pose les bases des trois compétences transversales du titre (Ministère du Travail 2023) :\n\n\n\n\n\n\n\nCompétence\nCe qui est travaillé cette semaine\n\n\n\n\nMettre en œuvre une démarche de résolution de problème\nDécomposer un problème, suivre un algorithme pas à pas, trouver la cause d’un résultat faux en choisissant les bons cas à tester\n\n\nCommuniquer en français et en anglais\nSe présenter au groupe, expliquer sa démarche à l’oral, donner des consignes sans ambiguïté, lire une page en anglais\n\n\nApprendre en continu\nDécouvrir ce qu’est la veille technologique et ses sources, repérer l’information utile dans une documentation",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#programme",
+    "href": "semaines/s01-rentree/index.html#programme",
+    "title": "Semaine 1 — Rentrée",
+    "section": "Programme",
+    "text": "Programme\n\n\n\nJour\nMatin\nAprès-midi\n\n\n\n\nJeudi 08/10\nRentrée — présentation de la formation, du calendrier et de la charte IA\nPositionnement — exercices pratiques\n\n\nVendredi 09/10\nPositionnement — CS50 Week 0 : pensée computationnelle (activités débranchées & Scratch)\nSport ou soutien",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#veille-du-vendredi",
+    "href": "semaines/s01-rentree/index.html#veille-du-vendredi",
+    "title": "Semaine 1 — Rentrée",
+    "section": "Veille du vendredi",
+    "text": "Veille du vendredi\n\n30 minutes de découverte, sur papier.\nDeux sources : CERT-FR (s. d.) et OWASP (2025).\nLe journal de veille en ligne commence en semaine 4.\n\nLe CERT-FR publie les alertes de sécurité officielles en France ; l’OWASP Top 10, en anglais, liste les risques les plus critiques pour les applications web. Question à laquelle répondre sur papier : « Citez une information trouvée ce matin qui pourrait concerner un site web que vous utilisez. »",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#anglais-technique",
+    "href": "semaines/s01-rentree/index.html#anglais-technique",
+    "title": "Semaine 1 — Rentrée",
+    "section": "Anglais technique",
+    "text": "Anglais technique\n\nVendredi, pendant la veille : l’OWASP Top 10, en anglais.\nPour aller plus loin : lire Getting Started with Scratch (Scratch Wiki, s. d.).\nPour les curieux : les notes de CS50 (CS50 2026).\n\nLa page du Scratch Wiki est en anglais et écrite pour les grands débutants. Vous y cherchez le vocabulaire de base : sprite, stage, éditeur en ligne ou hors ligne, remix. Les questions sont sur la page du vendredi, dans « Pour aller plus loin ».",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#évaluation",
+    "href": "semaines/s01-rentree/index.html#évaluation",
+    "title": "Semaine 1 — Rentrée",
+    "section": "Évaluation",
+    "text": "Évaluation\n\nRien n’est noté cette semaine.\nLe positionnement de jeudi est diagnostique.\nIl sert à adapter le soutien : répondez honnêtement.\nIl se fait sans IA, sur papier et au clavier.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#politique-ia-de-la-semaine",
+    "href": "semaines/s01-rentree/index.html#politique-ia-de-la-semaine",
+    "title": "Semaine 1 — Rentrée",
+    "section": "Politique IA de la semaine",
+    "text": "Politique IA de la semaine\n\n\n\n\n\n\nImportant\n\n\n\nPalier IA en vigueur : palier 0 — sans IA (semaines 1 à 3).\n\nAucun assistant IA, ni pour écrire ni pour expliquer.\nAutocomplétion par IA désactivée.\nAutorisé : documentation, recherche web, forums, camarades.\n\n\n\nLa charte complète (Formation DWWM 2026-2027 2026) est présentée jeudi matin.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/index.html#sources",
+    "href": "semaines/s01-rentree/index.html#sources",
+    "title": "Semaine 1 — Rentrée",
+    "section": "Sources",
+    "text": "Sources\n\n\nCERT-FR. s. d. « CERT-FR – Cert national et gouvernemental français ». Consulté le 26 septembre 2026. https://www.cert.ssi.gouv.fr/.\n\n\nCS50. 2026. « Lecture 0 - CS50x 2026 ». https://cs50.harvard.edu/x/notes/0/.\n\n\nFormation DWWM 2026-2027. 2026. Charte IA de la formation.\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280).\n\n\nOWASP Foundation. 2025. « OWASP Top 10:2025 ». https://top10.owasp.org/2025.\n\n\nScratch Wiki. s. d. « Getting Started with Scratch ». Consulté le 26 septembre 2026. https://en.scratch-wiki.info/wiki/Getting_Started_with_Scratch.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Formation Développeur web et web mobile",
+    "section": "",
+    "text": "Bienvenue sur les supports de la formation DWWM (titre professionnel de niveau 5).",
+    "crumbs": [
+      "Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#comment-ça-marche",
+    "href": "index.html#comment-ça-marche",
+    "title": "Formation Développeur web et web mobile",
+    "section": "Comment ça marche",
+    "text": "Comment ça marche\n\nPratique au maximum : chaque demi-journée alterne des apports courts et beaucoup de pratique.\nUne page par jour : objectifs, exercices guidés, TP ou étape de projet, critères de réussite.\nMercredi : autonomie & soutien. Vendredi matin : 30 min de veille technologique.\nProjets fil rouge : un explorateur open data (#1), puis une application complète front React (#2) + API (#3).",
+    "crumbs": [
+      "Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#les-semaines",
+    "href": "index.html#les-semaines",
+    "title": "Formation Développeur web et web mobile",
+    "section": "Les semaines",
+    "text": "Les semaines\n\n\n\n\nSemaine\nDébut\nThème\nCompétences\n\n\n\n\n1\n08/10/2026\nRentrée\n—\n\n\n2\n12/10/2026\nPositionnement — fondations à la CS50 (Scratch, JavaScript) (à venir)\n—\n\n\n3\n19/10/2026\nFondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes) (à venir)\n—\n\n\n4\n26/10/2026\nC1 - Installer et configurer son environnement de travail (à venir)\nC1\n\n\n5\n02/11/2026\nC3 - Réaliser des interfaces utilisateur statiques (à venir)\nC3\n\n\n6\n09/11/2026\nC4 - Développer la partie dynamique des interfaces (JavaScript avancé) (à venir)\nC4\n\n\n7\n16/11/2026\nC4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1) (à venir)\nC4\n\n\n8\n23/11/2026\nC4 - Développer la partie dynamique des interfaces (l’asynchrone) (à venir)\nC4\n\n\n9\n30/11/2026\nC4 - Développer la partie dynamique des interfaces (API REST & modules dans le projet #1) (à venir)\nC4\n\n\n10\n07/12/2026\nC3 / C4 - Projet #1 : qualité, SEO, éco-conception & RGPD (à venir)\nC3, C4\n\n\n11\n14/12/2026\nC4 - Développer la partie dynamique des interfaces (ECF) (à venir)\nC4\n\n\n12\n04/01/2027\nC4 - Développer la partie dynamique des interfaces (TypeScript) (à venir)\nC4\n\n\n13\n11/01/2027\nC2 - Maquetter des interfaces utilisateur · C4 - React (fondamentaux) (à venir)\nC2, C4\n\n\n14\n18/01/2027\nC4 - React (état, effets & données) (à venir)\nC4\n\n\n15\n25/01/2027\nC3 / C4 - Navigation, formulaires, état partagé & accessibilité (à venir)\nC3, C4\n\n\n16\n01/02/2027\nC4 - Tests & livraison du projet #2 (ECF) (à venir)\nC4\n\n\n17\n08/02/2027\nC7 - Développer des composants métier côté serveur (lancement du projet #3) (à venir)\nC7\n\n\n18\n15/02/2027\nC5 - Mettre en place une base de données relationnelle (à venir)\nC5\n\n\n19\n22/02/2027\nC5 / C6 - Développer des composants d’accès aux données SQL (à venir)\nC5, C6\n\n\n20\n01/03/2027\nC7 - Composants métier sécurisés (authentification & sécurité) (à venir)\nC7\n\n\n21\n08/03/2027\nC8 - Documenter le déploiement · départ en stage (à venir)\nC8\n\n\n22\n17/05/2027\nRetour de stage & dossiers (à venir)\n—\n\n\n23\n24/05/2027\nDossiers · C6 - NoSQL · consolidation ciblée (à venir)\nC6\n\n\n24\n31/05/2027\nOutillage IA professionnel · C3 - CMS & e-commerce (à venir)\nC3\n\n\n25\n07/06/2027\nC8 - Documenter le déploiement (Podman & CI/CD) (à venir)\nC8\n\n\n26\n14/06/2027\nPréparation à la certification (à venir)\n—\n\n\n27\n21/06/2027\nPréparation à la certification (à venir)\n—\n\n\n\n\nStage en entreprise du 15/03/2027 au 14/05/2027. Certifications du 28/06/2027 au 08/07/2027. Fin de formation le 09/07/2027.",
+    "crumbs": [
+      "Accueil"
+    ]
+  },
+  {
+    "objectID": "ressources/carnet-de-projet.html",
+    "href": "ressources/carnet-de-projet.html",
+    "title": "Carnet de projet",
+    "section": "",
+    "text": "Le carnet de projet garde la trace de votre travail semaine après semaine. En fin de formation, il sert de base à votre dossier de projet : le jury y attend des maquettes, des captures web et mobile, des extraits de code argumentés, un jeu d’essai et votre veille sécurité. Si vous notez tout au fil de l’eau, vous n’aurez qu’à assembler et rédiger.",
+    "crumbs": [
+      "Carnet de projet"
+    ]
+  },
+  {
+    "objectID": "ressources/carnet-de-projet.html#comment-lutiliser",
+    "href": "ressources/carnet-de-projet.html#comment-lutiliser",
+    "title": "Carnet de projet",
+    "section": "Comment l’utiliser",
+    "text": "Comment l’utiliser\n\nCréez un fichier carnet.md à la racine du dépôt de votre projet.\nChaque vendredi, après la revue de sprint, copiez-y le modèle ci-dessous et remplissez-le (15 minutes suffisent).\nCommitez le carnet avec le reste du projet.",
+    "crumbs": [
+      "Carnet de projet"
+    ]
+  },
+  {
+    "objectID": "ressources/carnet-de-projet.html#modèle-dune-page",
+    "href": "ressources/carnet-de-projet.html#modèle-dune-page",
+    "title": "Carnet de projet",
+    "section": "Modèle d’une page",
+    "text": "Modèle d’une page\n## Sprint du JJ/MM — Projet #N\n\n### Ce que j'ai réalisé\n- (fonctionnalités, avec le lien des Pull Requests)\n\n### Captures\n- (une capture web et une capture mobile de ce qui a changé)\n\n### Un choix technique argumenté\n- Problème :\n- Solutions envisagées :\n- Choix retenu et pourquoi (y compris pour la sécurité) :\n\n### Un cas du jeu d'essai\n| Donnée en entrée | Résultat attendu | Résultat obtenu | Écart et correction |\n|---|---|---|---|\n|  |  |  |  |\n\n### Veille sécurité\n- Source (en anglais si possible) :\n- Ce que j'en retiens pour mon projet :\n\n### Difficultés et prochain sprint\n-",
+    "crumbs": [
+      "Carnet de projet"
+    ]
+  },
+  {
+    "objectID": "ressources/carnet-de-projet.html#projet-3-en-binôme",
+    "href": "ressources/carnet-de-projet.html#projet-3-en-binôme",
+    "title": "Carnet de projet",
+    "section": "Projet #3 en binôme",
+    "text": "Projet #3 en binôme\nNotez précisément ce que vous avez codé vous-même : ressources, routes, composants d’accès aux données, tests. Au jury, chacun présente son propre travail.",
+    "crumbs": [
+      "Carnet de projet"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#objectifs",
+    "href": "semaines/s01-rentree/jeudi.slides.html#objectifs",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nExpliquer le titre DWWM et le déroulé de la formation.\nConnaître les grandes dates du calendrier.\nDire si un usage de l’IA est autorisé, selon la période.\nFaire le point sur son niveau de départ."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#tour-de-table-deux-vérités-un-mensonge-30-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#tour-de-table-deux-vérités-un-mensonge-30-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Tour de table — « Deux vérités, un mensonge » (30 min)",
+    "text": "Tour de table — « Deux vérités, un mensonge » (30 min)\n\nÉcrivez trois phrases sur vous : deux vraies, une fausse.\nPrésentez-vous : prénom, ancien métier, pourquoi le web.\nLisez vos trois phrases : le groupe trouve le mensonge."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#apport-1-la-formation-dwwm-15-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#apport-1-la-formation-dwwm-15-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Apport 1 — La formation DWWM (15 min)",
+    "text": "Apport 1 — La formation DWWM (15 min)\n\nTitre professionnel de niveau 5 (bac+2), ministère du Travail.\nMétier : des applications web sécurisées, de bout en bout.\n8 compétences en 2 blocs (Ministère du Travail 2023).\nPlus 3 compétences transversales."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#bloc-1-le-front-end-ce-que-voit-lutilisateur",
+    "href": "semaines/s01-rentree/jeudi.slides.html#bloc-1-le-front-end-ce-que-voit-lutilisateur",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Bloc 1 — Le front-end : ce que voit l’utilisateur",
+    "text": "Bloc 1 — Le front-end : ce que voit l’utilisateur\n\nC1 : installer et configurer son environnement\nC2 : maquetter les interfaces\nC3 : réaliser des interfaces statiques (HTML, CSS)\nC4 : rendre les interfaces dynamiques (JavaScript)"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#bloc-2-le-back-end-ce-qui-tourne-sur-le-serveur",
+    "href": "semaines/s01-rentree/jeudi.slides.html#bloc-2-le-back-end-ce-qui-tourne-sur-le-serveur",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Bloc 2 — Le back-end : ce qui tourne sur le serveur",
+    "text": "Bloc 2 — Le back-end : ce qui tourne sur le serveur\n\nC5 : mettre en place une base de données relationnelle\nC6 : accéder aux données SQL et NoSQL\nC7 : développer les composants métier côté serveur\nC8 : documenter le déploiement"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#la-certification",
+    "href": "semaines/s01-rentree/jeudi.slides.html#la-certification",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "La certification",
+    "text": "La certification\n\nFin juin – début juillet 2027.\nPrésentation d’un projet, puis entretien technique.\nQuestionnaire professionnel sans internet, entretien final.\nAppui : le dossier de projet et le dossier professionnel.\nLe jury vous interroge sur votre code."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#lire-le-calendrier-10-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#lire-le-calendrier-10-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Lire le calendrier (10 min)",
+    "text": "Lire le calendrier (10 min)\n\nMercredi : autonomie et soutien, chaque semaine.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#apport-2-le-rythme-dune-semaine-15-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#apport-2-le-rythme-dune-semaine-15-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Apport 2 — Le rythme d’une semaine (15 min)",
+    "text": "Apport 2 — Le rythme d’une semaine (15 min)\n\nDemi-journée : apport court, pratique (70 %), débrief.\nMercredi : autonomie et soutien.\nVendredi : veille, cours, puis sport ou soutien.\nDès la S7 : projets fil rouge, en sprints d’une semaine.\nECF réguliers, suivis d’un groupe de soutien."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#activité-la-charte-ia-45-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#activité-la-charte-ia-45-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Activité — La charte IA (45 min)",
+    "text": "Activité — La charte IA (45 min)\n\n15 min : lecture en groupes, un palier par groupe.\n15 min : restitution, 2 min par groupe (paliers 0 → 3).\n15 min : quiz « autorisé ou interdit ? », seul puis à deux."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#les-quatre-paliers-de-la-charte",
+    "href": "semaines/s01-rentree/jeudi.slides.html#les-quatre-paliers-de-la-charte",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Les quatre paliers de la charte",
+    "text": "Les quatre paliers de la charte\n\nPalier 0 (S1 à S3) : sans IA.\nPalier 1 (S4 à S11) : l’IA tutrice.\nPalier 2 (S12 à S20) : l’IA assistante.\nPalier 3 (dès S21, stage compris) : l’IA outil professionnel."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#quiz-autorisé-ou-interdit-12",
+    "href": "semaines/s01-rentree/jeudi.slides.html#quiz-autorisé-ou-interdit-12",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Quiz — autorisé ou interdit ? (1/2)",
+    "text": "Quiz — autorisé ou interdit ? (1/2)\n\nS2 : ChatGPT m’explique un message d’erreur.\nS5 : l’IA m’explique la « cascade » en CSS.\nS6 : je colle l’énoncé et je demande la solution.\nS8 : j’active Copilot dans mon éditeur."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#quiz-autorisé-ou-interdit-22",
+    "href": "semaines/s01-rentree/jeudi.slides.html#quiz-autorisé-ou-interdit-22",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Quiz — autorisé ou interdit ? (2/2)",
+    "text": "Quiz — autorisé ou interdit ? (2/2)\n\nS14 : l’IA génère 20 utilisateurs fictifs de test.\nS15 : je commite sans le relire un formulaire écrit par l’IA.\nECF « sans IA » : l’IA vérifie seulement ma réponse.\nS19 : je colle ma configuration et ma clé d’API dans l’IA."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#la-règle-dor",
+    "href": "semaines/s01-rentree/jeudi.slides.html#la-règle-dor",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "La règle d’or",
+    "text": "La règle d’or\n\nUn usage de l’IA déclaré et conforme n’est jamais reproché.\nChaque projet aura une section « Usage de l’IA » dans son README."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#si-le-temps-le-permet-installation-du-poste-20-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#si-le-temps-le-permet-installation-du-poste-20-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Si le temps le permet — Installation du poste (20 min)",
+    "text": "Si le temps le permet — Installation du poste (20 min)\n\nMettez à jour votre navigateur (Firefox ou Chrome).\nCréez les dossiers dwwm/semaine-01 dans vos documents.\nCréez un compte sur scratch.mit.edu.\nAjoutez ce site de cours à vos favoris."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#débrief",
+    "href": "semaines/s01-rentree/jeudi.slides.html#débrief",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Débrief",
+    "text": "Débrief\n\nQu’est-ce qui vous surprend dans l’organisation ?\nPourquoi, selon vous, commence-t-on sans IA ?\nUn mot chacun : ce qui vous inquiète, ce qui vous motive."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#consignes",
+    "href": "semaines/s01-rentree/jeudi.slides.html#consignes",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Consignes",
+    "text": "Consignes\n\nCe n’est pas un examen : on cherche votre point de départ.\nTravaillez seul, sans IA, sur papier.\nBloqué plus de 10 minutes ? Notez « bloqué », passez à la suite.\nPour chaque exercice, notez comment vous avez cherché."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#questionnaire-dauto-positionnement-15-min",
+    "href": "semaines/s01-rentree/jeudi.slides.html#questionnaire-dauto-positionnement-15-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Questionnaire d’auto-positionnement (15 min)",
+    "text": "Questionnaire d’auto-positionnement (15 min)\n\nNotez-vous de 1 (jamais fait) à 4 (je sais faire seul).\nTrois questions : parcours, attentes, façon d’apprendre.\nTout est sur la fiche papier."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-1-le-robot-sur-la-grille-facile",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-1-le-robot-sur-la-grille-facile",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 1 — Le robot sur la grille (facile)",
+    "text": "Exercice 1 — Le robot sur la grille (facile)\n\nLe robot part de A1 et regarde vers la droite.\nLes cases # sont des murs.\nIl doit atteindre l’étoile ★ en E2.\nIl ne comprend que AVANCER, GAUCHE et DROITE.\nGAUCHE et DROITE : un quart de tour, sur place."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-1-la-grille",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-1-la-grille",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 1 — La grille",
+    "text": "Exercice 1 — La grille\n      A   B   C   D   E\n  1   R   .   #   .   .\n  2   .   .   #   .   ★\n  3   .   .   .   .   #\n  4   #   .   .   .   .\n  5   .   .   .   .   ."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-1-à-faire",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-1-à-faire",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 1 — À faire",
+    "text": "Exercice 1 — À faire\n\nÉcrivez les instructions jusqu’à l’étoile. Comptez-les.\nRéécrivez-les avec RÉPÉTER n FOIS [ … ] : plus court ?\nQue fait le programme AVANCER, AVANCER, DROITE, AVANCER ?"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-2-suites-et-motifs-facile-à-moyen",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-2-suites-et-motifs-facile-à-moyen",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 2 — Suites et motifs (facile à moyen)",
+    "text": "Exercice 2 — Suites et motifs (facile à moyen)\nTrouvez l’élément suivant, puis écrivez la règle.\n\n2, 4, 6, 8, …\n1, 2, 4, 8, 16, …\n1, 1, 2, 3, 5, 8, …\n3, 6, 5, 10, 9, 18, …\n▲ ● ● ▲ ● ● ▲ …"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-2-le-20e-symbole",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-2-le-20e-symbole",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 2 — Le 20e symbole",
+    "text": "Exercice 2 — Le 20e symbole\n\nDans la suite 5, quel sera le 20e symbole ?\nExpliquez comment vous l’avez trouvé sans tout écrire."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-3-suivre-un-algorithme-moyen",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-3-suivre-un-algorithme-moyen",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — Suivre un algorithme (moyen)",
+    "text": "Exercice 3 — Suivre un algorithme (moyen)\n\nUn algorithme : une suite d’instructions.\nIci en pseudo-code : du français structuré.\n← signifie « prend la valeur ».\nExécutez chaque algorithme à la main.\nNotez les variables à chaque tour, puis ce qui est affiché."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-3-la-somme",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-3-la-somme",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — La somme",
+    "text": "Exercice 3 — La somme\ntotal ← 0\nPOUR i DE 1 À 4\n    total ← total + i\nFIN POUR\nAFFICHER total"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-3-diviser-ou-tripler",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-3-diviser-ou-tripler",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — Diviser ou tripler",
+    "text": "Exercice 3 — Diviser ou tripler\nn ← 13 ; compteur ← 0\nTANT QUE n &gt; 1\n    SI n est pair ALORS\n        n ← n / 2\n    SINON\n        n ← 3 × n + 1\n    FIN SI\n    compteur ← compteur + 1\nFIN TANT QUE\nAFFICHER compteur"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-3-parcourir-une-liste",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-3-parcourir-une-liste",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — Parcourir une liste",
+    "text": "Exercice 3 — Parcourir une liste\nliste ← [7, 3, 12, 5, 12, 1]\nresultat ← premier élément de liste\nPOUR CHAQUE nombre DANS liste\n    SI nombre &gt; resultat ALORS\n        resultat ← nombre\n    FIN SI\nFIN POUR\nAFFICHER resultat\n\nÀ quoi sert cet algorithme ? Répondez en une phrase.\nDonnez à resultat un nom plus clair."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-4-trouver-le-bug-moyen",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-4-trouver-le-bug-moyen",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — Trouver le bug (moyen)",
+    "text": "Exercice 4 — Trouver le bug (moyen)\n\nChaque algorithme suivant contient une erreur.\nTrouvez des valeurs qui la montrent.\nNotez l’entrée, le résultat attendu, le résultat obtenu.\nProposez comment corriger l’algorithme."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-4-la-moyenne-de-trois-notes",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-4-la-moyenne-de-trois-notes",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — La moyenne de trois notes",
+    "text": "Exercice 4 — La moyenne de trois notes\nmoyenne ← note1 + note2 + note3 / 3"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-4-le-compte-à-rebours",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-4-le-compte-à-rebours",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — Le compte à rebours",
+    "text": "Exercice 4 — Le compte à rebours\nn ← 10\nTANT QUE n &gt; 0\n    AFFICHER n\nFIN TANT QUE\nAFFICHER \"Décollage !\""
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-4-la-majorité",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-4-la-majorité",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — La majorité",
+    "text": "Exercice 4 — La majorité\nSI age &gt; 18 ALORS\n    AFFICHER \"majeur\"\nSINON\n    AFFICHER \"mineur\"\nFIN SI"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-4-la-recette-des-pâtes",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-4-la-recette-des-pâtes",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — La recette des pâtes",
+    "text": "Exercice 4 — La recette des pâtes\n\nÉgoutter les pâtes.\nFaire bouillir de l’eau salée.\nPlonger les pâtes dans l’eau pendant 10 minutes."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#exercice-5-aisance-numérique-facile",
+    "href": "semaines/s01-rentree/jeudi.slides.html#exercice-5-aisance-numérique-facile",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 5 — Aisance numérique (facile)",
+    "text": "Exercice 5 — Aisance numérique (facile)\n\nCréez dwwm/semaine-01 si besoin, puis presentation.txt dedans.\nÉcrivez-y votre prénom, ancien métier, un site favori.\nRenommez-le moi.txt ; notez son chemin complet.\nComplétez le tableau des raccourcis clavier.\nSur MDN Web Docs, trouvez ce que signifie HTML."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#critères-de-réussite",
+    "href": "semaines/s01-rentree/jeudi.slides.html#critères-de-réussite",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Critères de réussite",
+    "text": "Critères de réussite\n\nLe questionnaire est rempli honnêtement\nChaque exercice est tenté, démarche notée\nLe fichier moi.txt existe dans dwwm/semaine-01\nLa fiche est remise au formateur"
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#pour-aller-plus-loin",
+    "href": "semaines/s01-rentree/jeudi.slides.html#pour-aller-plus-loin",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nDéjà programmé ? Deux défis sur papier, en pseudo-code.\nFizz et Buzz : multiples de 3 et de 5, de 1 à 30.\nCombien de tours ? : deux boucles imbriquées."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.slides.html#sources",
+    "href": "semaines/s01-rentree/jeudi.slides.html#sources",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Sources",
+    "text": "Sources\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280)."
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html",
+    "href": "semaines/s01-rentree/jeudi.html",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "",
+    "text": "Compétences visées : communiquer en français · résolution de problème Livrable : la fiche de positionnement, remise à 16 h.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#objectifs",
+    "href": "semaines/s01-rentree/jeudi.html#objectifs",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nExpliquer le titre DWWM et le déroulé de la formation.\nConnaître les grandes dates du calendrier.\nDire si un usage de l’IA est autorisé, selon la période.\nFaire le point sur son niveau de départ.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#tour-de-table-deux-vérités-un-mensonge-30-min",
+    "href": "semaines/s01-rentree/jeudi.html#tour-de-table-deux-vérités-un-mensonge-30-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Tour de table — « Deux vérités, un mensonge » (30 min)",
+    "text": "Tour de table — « Deux vérités, un mensonge » (30 min)\n\nÉcrivez trois phrases sur vous : deux vraies, une fausse.\nPrésentez-vous : prénom, ancien métier, pourquoi le web.\nLisez vos trois phrases : le groupe trouve le mensonge.\n\nExemples de phrases : « J’ai travaillé dix ans dans la restauration », « J’ai déjà créé un site avec WordPress », « Je parle japonais ».",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#apport-1-la-formation-dwwm-15-min",
+    "href": "semaines/s01-rentree/jeudi.html#apport-1-la-formation-dwwm-15-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Apport 1 — La formation DWWM (15 min)",
+    "text": "Apport 1 — La formation DWWM (15 min)\n\nTitre professionnel de niveau 5 (bac+2), ministère du Travail.\nMétier : des applications web sécurisées, de bout en bout.\n8 compétences en 2 blocs (Ministère du Travail 2023).\nPlus 3 compétences transversales.\n\nLe développeur web construit l’application de l’écran de l’utilisateur jusqu’au serveur et à la base de données. Les trois compétences transversales : communiquer (en français et en anglais), résoudre des problèmes, apprendre en continu.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#bloc-1-le-front-end-ce-que-voit-lutilisateur",
+    "href": "semaines/s01-rentree/jeudi.html#bloc-1-le-front-end-ce-que-voit-lutilisateur",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Bloc 1 — Le front-end : ce que voit l’utilisateur",
+    "text": "Bloc 1 — Le front-end : ce que voit l’utilisateur\n\n\n\n\n\n\n\nCompétence\nEn clair\n\n\n\n\nC1 — Installer et configurer son environnement de travail\nPréparer ses outils : éditeur, terminal, Git…\n\n\nC2 — Maquetter des interfaces utilisateur\nDessiner les écrans avant de les coder\n\n\nC3 — Réaliser des interfaces statiques\nCoder les pages en HTML et CSS\n\n\nC4 — Développer la partie dynamique des interfaces\nRendre les pages interactives en JavaScript",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#bloc-2-le-back-end-ce-qui-tourne-sur-le-serveur",
+    "href": "semaines/s01-rentree/jeudi.html#bloc-2-le-back-end-ce-qui-tourne-sur-le-serveur",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Bloc 2 — Le back-end : ce qui tourne sur le serveur",
+    "text": "Bloc 2 — Le back-end : ce qui tourne sur le serveur\n\n\n\n\n\n\n\nCompétence\nEn clair\n\n\n\n\nC5 — Mettre en place une base de données relationnelle\nOrganiser et stocker les données\n\n\nC6 — Développer des composants d’accès aux données SQL et NoSQL\nLire et écrire ces données depuis le code\n\n\nC7 — Développer des composants métier côté serveur\nCoder les règles de l’application, la sécurité\n\n\nC8 — Documenter le déploiement\nExpliquer comment mettre l’application en ligne",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#la-certification",
+    "href": "semaines/s01-rentree/jeudi.html#la-certification",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "La certification",
+    "text": "La certification\n\nFin juin – début juillet 2027.\nPrésentation d’un projet, puis entretien technique.\nQuestionnaire professionnel sans internet, entretien final.\nAppui : le dossier de projet et le dossier professionnel.\nLe jury vous interroge sur votre code.\n\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\nLe jury vérifie ce que vous savez faire. C’est pour cela que la formation est surtout faite de pratique, et que l’IA arrive progressivement.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#lire-le-calendrier-10-min",
+    "href": "semaines/s01-rentree/jeudi.html#lire-le-calendrier-10-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Lire le calendrier (10 min)",
+    "text": "Lire le calendrier (10 min)\n\nMercredi : autonomie et soutien, chaque semaine.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027.\n\nLe formateur présente ces repères à partir du calendrier de la formation (Formation DWWM 2026-2027 2026a). Le calendrier complet, semaine par semaine, est sur la page d’accueil du site : gardez-la dans vos favoris.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#apport-2-le-rythme-dune-semaine-15-min",
+    "href": "semaines/s01-rentree/jeudi.html#apport-2-le-rythme-dune-semaine-15-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Apport 2 — Le rythme d’une semaine (15 min)",
+    "text": "Apport 2 — Le rythme d’une semaine (15 min)\n\nDemi-journée : apport court, pratique (70 %), débrief.\nMercredi : autonomie et soutien.\nVendredi : veille, cours, puis sport ou soutien.\nDès la S7 : projets fil rouge, en sprints d’une semaine.\nECF réguliers, suivis d’un groupe de soutien.\n\nEn détail :\n\nChaque demi-journée : des apports de 15 à 20 minutes, puis beaucoup de pratique, puis un débrief collectif. Vous passerez au moins 70 % du temps à faire.\nLe mercredi : une page vous donne les consignes, l’outil à utiliser et l’objectif à atteindre ; le formateur passe pour aider. Si vous êtes en difficulté, un parcours de remédiation vous attend.\nLe vendredi matin : 30 minutes de veille technologique (actualité du web et de la sécurité), puis le cours.\nLes projets fil rouge : une revue de sprint chaque vendredi. Le projet #2 (interface en React) et le projet #3 (serveur, en binôme) forment une seule application, que vous pourrez présenter au jury.\nLes ECF : certains se font sans IA. Après chaque ECF, un groupe de soutien permet de retravailler ce qui n’est pas acquis.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#activité-la-charte-ia-45-min",
+    "href": "semaines/s01-rentree/jeudi.html#activité-la-charte-ia-45-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Activité — La charte IA (45 min)",
+    "text": "Activité — La charte IA (45 min)\n\n15 min : lecture en groupes, un palier par groupe.\n15 min : restitution, 2 min par groupe (paliers 0 → 3).\n15 min : quiz « autorisé ou interdit ? », seul puis à deux.\n\nLa charte IA (Formation DWWM 2026-2027 2026b) fixe ce que vous pouvez faire avec les outils d’intelligence artificielle (ChatGPT, Copilot…) pendant la formation. Elle s’assouplit en quatre paliers. Le formateur forme quatre groupes et donne à chacun la partie de la charte qui concerne un palier. Préparez une présentation de 2 minutes : quand commence votre palier, ce qui est autorisé, ce qui est interdit, et pourquoi. Pour le quiz, répondez autorisé ou interdit et justifiez en une phrase.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#les-quatre-paliers-de-la-charte",
+    "href": "semaines/s01-rentree/jeudi.html#les-quatre-paliers-de-la-charte",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Les quatre paliers de la charte",
+    "text": "Les quatre paliers de la charte\n\nPalier 0 (S1 à S3) : sans IA.\nPalier 1 (S4 à S11) : l’IA tutrice.\nPalier 2 (S12 à S20) : l’IA assistante.\nPalier 3 (dès S21, stage compris) : l’IA outil professionnel.\n\nAu palier 1, l’IA aide à comprendre, jamais à faire à votre place. Au palier 2, elle peut produire du code, à condition que vous puissiez l’expliquer ligne par ligne. Au palier 3, vous l’utilisez comme en entreprise, en restant responsable de tout ce que vous livrez (Formation DWWM 2026-2027 2026b).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#quiz-autorisé-ou-interdit-12",
+    "href": "semaines/s01-rentree/jeudi.html#quiz-autorisé-ou-interdit-12",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Quiz — autorisé ou interdit ? (1/2)",
+    "text": "Quiz — autorisé ou interdit ? (1/2)\n\nS2 : ChatGPT m’explique un message d’erreur.\nS5 : l’IA m’explique la « cascade » en CSS.\nS6 : je colle l’énoncé et je demande la solution.\nS8 : j’active Copilot dans mon éditeur.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#quiz-autorisé-ou-interdit-22",
+    "href": "semaines/s01-rentree/jeudi.html#quiz-autorisé-ou-interdit-22",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Quiz — autorisé ou interdit ? (2/2)",
+    "text": "Quiz — autorisé ou interdit ? (2/2)\n\nS14 : l’IA génère 20 utilisateurs fictifs de test.\nS15 : je commite sans le relire un formulaire écrit par l’IA.\nECF « sans IA » : l’IA vérifie seulement ma réponse.\nS19 : je colle ma configuration et ma clé d’API dans l’IA.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#la-règle-dor",
+    "href": "semaines/s01-rentree/jeudi.html#la-règle-dor",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "La règle d’or",
+    "text": "La règle d’or\n\nUn usage de l’IA déclaré et conforme n’est jamais reproché.\nChaque projet aura une section « Usage de l’IA » dans son README.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#si-le-temps-le-permet-installation-du-poste-20-min",
+    "href": "semaines/s01-rentree/jeudi.html#si-le-temps-le-permet-installation-du-poste-20-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Si le temps le permet — Installation du poste (20 min)",
+    "text": "Si le temps le permet — Installation du poste (20 min)\n\nMettez à jour votre navigateur (Firefox ou Chrome).\nCréez les dossiers dwwm/semaine-01 dans vos documents.\nCréez un compte sur scratch.mit.edu.\nAjoutez ce site de cours à vos favoris.\n\nSi le temps manque, rien n’est perdu : le dossier se crée cet après-midi (exercice 5), et Scratch fonctionne vendredi sans compte.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#débrief",
+    "href": "semaines/s01-rentree/jeudi.html#débrief",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Débrief",
+    "text": "Débrief\n\nQu’est-ce qui vous surprend dans l’organisation ?\nPourquoi, selon vous, commence-t-on sans IA ?\nUn mot chacun : ce qui vous inquiète, ce qui vous motive.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#consignes",
+    "href": "semaines/s01-rentree/jeudi.html#consignes",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Consignes",
+    "text": "Consignes\n\nCe n’est pas un examen : on cherche votre point de départ.\nTravaillez seul, sans IA, sur papier.\nBloqué plus de 10 minutes ? Notez « bloqué », passez à la suite.\nPour chaque exercice, notez comment vous avez cherché.\n\nPersonne ne s’attend à ce que vous sachiez déjà coder. L’exercice 5 se fait au clavier. Noter « bloqué » est une information utile pour le formateur.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#questionnaire-dauto-positionnement-15-min",
+    "href": "semaines/s01-rentree/jeudi.html#questionnaire-dauto-positionnement-15-min",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Questionnaire d’auto-positionnement (15 min)",
+    "text": "Questionnaire d’auto-positionnement (15 min)\nRecopiez et remplissez ce questionnaire sur votre fiche. Pour chaque ligne, notez-vous de 1 à 4 : 1 = jamais fait, 2 = déjà vu, 3 = je sais faire avec de l’aide, 4 = je sais faire seul.\n\n\n\n\n\n\n\nJe sais…\n1 à 4\n\n\n\n\norganiser mes fichiers dans des dossiers, les renommer, les retrouver\n\n\n\nutiliser les raccourcis clavier courants (copier, coller, annuler…)\n\n\n\ntrouver une réponse fiable avec un moteur de recherche\n\n\n\nlire une page technique en anglais\n\n\n\nécrire une page en HTML\n\n\n\nmettre en forme une page avec du CSS\n\n\n\nécrire un petit programme (n’importe quel langage)\n\n\n\nutiliser un terminal (ligne de commande)\n\n\n\nutiliser Git ou GitHub\n\n\n\n\nRépondez aussi, en quelques lignes :\n\nQu’avez-vous déjà fait en informatique (travail, loisirs, formations, tutoriels) ?\nQu’attendez-vous de la formation ? Quel métier visez-vous ?\nQuelle est votre façon préférée d’apprendre (lire, regarder, essayer, en groupe…) ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-1-le-robot-sur-la-grille-facile",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-1-le-robot-sur-la-grille-facile",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 1 — Le robot sur la grille (facile)",
+    "text": "Exercice 1 — Le robot sur la grille (facile)\n\nLe robot part de A1 et regarde vers la droite.\nLes cases # sont des murs.\nIl doit atteindre l’étoile ★ en E2.\nIl ne comprend que AVANCER, GAUCHE et DROITE.\nGAUCHE et DROITE : un quart de tour, sur place.\n\nAVANCER fait avancer le robot d’une case dans la direction où il regarde. GAUCHE et DROITE le font tourner d’un quart de tour vers sa gauche ou sa droite, sans avancer.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-1-la-grille",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-1-la-grille",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 1 — La grille",
+    "text": "Exercice 1 — La grille\n      A   B   C   D   E\n  1   R   .   #   .   .\n  2   .   .   #   .   ★\n  3   .   .   .   .   #\n  4   #   .   .   .   .\n  5   .   .   .   .   .",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-1-à-faire",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-1-à-faire",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 1 — À faire",
+    "text": "Exercice 1 — À faire\n\nÉcrivez les instructions jusqu’à l’étoile. Comptez-les.\nRéécrivez-les avec RÉPÉTER n FOIS [ … ] : plus court ?\nQue fait le programme AVANCER, AVANCER, DROITE, AVANCER ?\n\nRÉPÉTER n FOIS [ … ] répète les instructions entre crochets, par exemple RÉPÉTER 3 FOIS [AVANCER].\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nLe mur de la colonne C bloque les lignes 1 et 2 : il faut descendre au moins jusqu’à la ligne 3 pour passer. Tracez le chemin au crayon sur la grille avant d’écrire les instructions, et « jouez » le robot avec votre doigt.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-2-suites-et-motifs-facile-à-moyen",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-2-suites-et-motifs-facile-à-moyen",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 2 — Suites et motifs (facile à moyen)",
+    "text": "Exercice 2 — Suites et motifs (facile à moyen)\nTrouvez l’élément suivant, puis écrivez la règle.\n\n2, 4, 6, 8, …\n1, 2, 4, 8, 16, …\n1, 1, 2, 3, 5, 8, …\n3, 6, 5, 10, 9, 18, …\n▲ ● ● ▲ ● ● ▲ …",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-2-le-20e-symbole",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-2-le-20e-symbole",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 2 — Le 20e symbole",
+    "text": "Exercice 2 — Le 20e symbole\n\nDans la suite 5, quel sera le 20e symbole ?\nExpliquez comment vous l’avez trouvé sans tout écrire.\n\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nRegardez ce qui se passe entre deux nombres qui se suivent : on ajoute ? on multiplie ? Pour la suite 4, deux opérations alternent. Pour la suite 3, regardez les deux nombres précédents. Pour le 20e symbole : le motif se répète tous les combien ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-3-suivre-un-algorithme-moyen",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-3-suivre-un-algorithme-moyen",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — Suivre un algorithme (moyen)",
+    "text": "Exercice 3 — Suivre un algorithme (moyen)\n\nUn algorithme : une suite d’instructions.\nIci en pseudo-code : du français structuré.\n← signifie « prend la valeur ».\nExécutez chaque algorithme à la main.\nNotez les variables à chaque tour, puis ce qui est affiché.\n\nTenez un tableau de trace : une ligne par tour de boucle, une colonne par variable. Par exemple, pour « La somme » :\n\n\n\nTour\ni\ntotal\n\n\n\n\ndépart\n—\n0\n\n\n1\n1\n…",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-3-la-somme",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-3-la-somme",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — La somme",
+    "text": "Exercice 3 — La somme\ntotal ← 0\nPOUR i DE 1 À 4\n    total ← total + i\nFIN POUR\nAFFICHER total",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-3-diviser-ou-tripler",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-3-diviser-ou-tripler",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — Diviser ou tripler",
+    "text": "Exercice 3 — Diviser ou tripler\nn ← 13 ; compteur ← 0\nTANT QUE n &gt; 1\n    SI n est pair ALORS\n        n ← n / 2\n    SINON\n        n ← 3 × n + 1\n    FIN SI\n    compteur ← compteur + 1\nFIN TANT QUE\nAFFICHER compteur",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-3-parcourir-une-liste",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-3-parcourir-une-liste",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 3 — Parcourir une liste",
+    "text": "Exercice 3 — Parcourir une liste\nliste ← [7, 3, 12, 5, 12, 1]\nresultat ← premier élément de liste\nPOUR CHAQUE nombre DANS liste\n    SI nombre &gt; resultat ALORS\n        resultat ← nombre\n    FIN SI\nFIN POUR\nAFFICHER resultat\n\nÀ quoi sert cet algorithme ? Répondez en une phrase.\nDonnez à resultat un nom plus clair.\n\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nNe cherchez pas à deviner le résultat : avancez ligne par ligne, et mettez à jour votre tableau à chaque fois qu’une variable change. Pour « Diviser ou tripler », écrivez simplement la suite des valeurs de n : 13, puis…",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-4-trouver-le-bug-moyen",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-4-trouver-le-bug-moyen",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — Trouver le bug (moyen)",
+    "text": "Exercice 4 — Trouver le bug (moyen)\n\nChaque algorithme suivant contient une erreur.\nTrouvez des valeurs qui la montrent.\nNotez l’entrée, le résultat attendu, le résultat obtenu.\nProposez comment corriger l’algorithme.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-4-la-moyenne-de-trois-notes",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-4-la-moyenne-de-trois-notes",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — La moyenne de trois notes",
+    "text": "Exercice 4 — La moyenne de trois notes\nmoyenne ← note1 + note2 + note3 / 3",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-4-le-compte-à-rebours",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-4-le-compte-à-rebours",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — Le compte à rebours",
+    "text": "Exercice 4 — Le compte à rebours\nn ← 10\nTANT QUE n &gt; 0\n    AFFICHER n\nFIN TANT QUE\nAFFICHER \"Décollage !\"",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-4-la-majorité",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-4-la-majorité",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — La majorité",
+    "text": "Exercice 4 — La majorité\nSI age &gt; 18 ALORS\n    AFFICHER \"majeur\"\nSINON\n    AFFICHER \"mineur\"\nFIN SI",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-4-la-recette-des-pâtes",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-4-la-recette-des-pâtes",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 4 — La recette des pâtes",
+    "text": "Exercice 4 — La recette des pâtes\n\nÉgoutter les pâtes.\nFaire bouillir de l’eau salée.\nPlonger les pâtes dans l’eau pendant 10 minutes.\n\n\n\n\n\n\n\nAstuceIndice\n\n\n\n\n\nTestez avec des valeurs simples : les notes 12, 15 et 9 ; pour l’âge, essayez 17, 18 et 19. Pour le compte à rebours, demandez-vous : quand la boucle s’arrête-t-elle ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#exercice-5-aisance-numérique-facile",
+    "href": "semaines/s01-rentree/jeudi.html#exercice-5-aisance-numérique-facile",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Exercice 5 — Aisance numérique (facile)",
+    "text": "Exercice 5 — Aisance numérique (facile)\n\nCréez dwwm/semaine-01 si besoin, puis presentation.txt dedans.\nÉcrivez-y votre prénom, ancien métier, un site favori.\nRenommez-le moi.txt ; notez son chemin complet.\nComplétez le tableau des raccourcis clavier.\nSur MDN Web Docs, trouvez ce que signifie HTML.\n\nExemples de chemin complet : /home/…/dwwm/semaine-01/moi.txt ou C:\\Users\\…\\dwwm\\semaine-01\\moi.txt. Pour MDN (la documentation de référence du web), notez l’adresse de la page trouvée. Tableau à compléter (cherchez les raccourcis que vous ne connaissez pas) :\n\n\n\nAction\nRaccourci\n\n\n\n\nCopier / coller\n\n\n\nAnnuler la dernière action\n\n\n\nTout sélectionner\n\n\n\nRechercher un mot dans la page\n\n\n\nPasser d’une fenêtre à l’autre\n\n\n\nOuvrir un nouvel onglet du navigateur",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#critères-de-réussite",
+    "href": "semaines/s01-rentree/jeudi.html#critères-de-réussite",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Critères de réussite",
+    "text": "Critères de réussite\n\nLe questionnaire est rempli honnêtement\nChaque exercice est tenté, démarche notée\nLe fichier moi.txt existe dans dwwm/semaine-01\nLa fiche est remise au formateur",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#pour-aller-plus-loin",
+    "href": "semaines/s01-rentree/jeudi.html#pour-aller-plus-loin",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nDéjà programmé ? Deux défis sur papier, en pseudo-code.\nFizz et Buzz : multiples de 3 et de 5, de 1 à 30.\nCombien de tours ? : deux boucles imbriquées.\n\n\nFizz et Buzz, d’après le jeu du même nom (Wikipedia, s. d.). Écrivez un algorithme qui affiche les nombres de 1 à 30, mais remplace les multiples de 3 par « Fizz », les multiples de 5 par « Buzz », et les multiples de 3 et de 5 par « FizzBuzz ». Vérifiez-le à la main sur les nombres 1 à 15.\nCombien de tours ? Combien de fois l’instruction AFFICHER \"*\" est-elle exécutée ? Et si on remplace 4 par 10 ?\n\nPOUR i DE 1 À 4\n    POUR j DE 1 À i\n        AFFICHER \"*\"\n    FIN POUR\nFIN POUR",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  },
+  {
+    "objectID": "semaines/s01-rentree/jeudi.html#sources",
+    "href": "semaines/s01-rentree/jeudi.html#sources",
+    "title": "Jeudi 08/10 — Rentrée et positionnement",
+    "section": "Sources",
+    "text": "Sources\n\n\nFormation DWWM 2026-2027. 2026a. Calendrier de la formation, version 8.\n\n\nFormation DWWM 2026-2027. 2026b. Charte IA de la formation.\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280).\n\n\nWikipedia. s. d. « Fizz buzz ». Consulté le 26 septembre 2026. https://en.wikipedia.org/wiki/Fizz_buzz.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 1 — Rentrée",
+      "Jeudi 08/10 — Rentrée et positionnement"
+    ]
+  }
+]
