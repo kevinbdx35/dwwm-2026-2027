@@ -572,7 +572,7 @@
     "href": "index.html#les-semaines",
     "title": "Formation Développeur web et web mobile",
     "section": "Les semaines",
-    "text": "Les semaines\n\n\n\n\nSemaine\nDébut\nThème\nCompétences\n\n\n\n\n1\n08/10/2026\nRentrée\n—\n\n\n2\n12/10/2026\nPositionnement — fondations à la CS50 (Scratch, JavaScript) (à venir)\n—\n\n\n3\n19/10/2026\nFondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes) (à venir)\n—\n\n\n4\n26/10/2026\nC1 - Installer et configurer son environnement de travail (à venir)\nC1\n\n\n5\n02/11/2026\nC3 - Réaliser des interfaces utilisateur statiques (à venir)\nC3\n\n\n6\n09/11/2026\nC4 - Développer la partie dynamique des interfaces (JavaScript avancé) (à venir)\nC4\n\n\n7\n16/11/2026\nC4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1) (à venir)\nC4\n\n\n8\n23/11/2026\nC4 - Développer la partie dynamique des interfaces (l’asynchrone) (à venir)\nC4\n\n\n9\n30/11/2026\nC4 - Développer la partie dynamique des interfaces (API REST & modules dans le projet #1) (à venir)\nC4\n\n\n10\n07/12/2026\nC3 / C4 - Projet #1 : qualité, SEO, éco-conception & RGPD (à venir)\nC3, C4\n\n\n11\n14/12/2026\nC4 - Développer la partie dynamique des interfaces (ECF) (à venir)\nC4\n\n\n12\n04/01/2027\nC4 - Développer la partie dynamique des interfaces (TypeScript) (à venir)\nC4\n\n\n13\n11/01/2027\nC2 - Maquetter des interfaces utilisateur · C4 - React (fondamentaux) (à venir)\nC2, C4\n\n\n14\n18/01/2027\nC4 - React (état, effets & données) (à venir)\nC4\n\n\n15\n25/01/2027\nC3 / C4 - Navigation, formulaires, état partagé & accessibilité (à venir)\nC3, C4\n\n\n16\n01/02/2027\nC4 - Tests & livraison du projet #2 (ECF) (à venir)\nC4\n\n\n17\n08/02/2027\nC7 - Développer des composants métier côté serveur (lancement du projet #3) (à venir)\nC7\n\n\n18\n15/02/2027\nC5 - Mettre en place une base de données relationnelle (à venir)\nC5\n\n\n19\n22/02/2027\nC5 / C6 - Développer des composants d’accès aux données SQL (à venir)\nC5, C6\n\n\n20\n01/03/2027\nC7 - Composants métier sécurisés (authentification & sécurité) (à venir)\nC7\n\n\n21\n08/03/2027\nC8 - Documenter le déploiement · départ en stage (à venir)\nC8\n\n\n22\n17/05/2027\nRetour de stage & dossiers (à venir)\n—\n\n\n23\n24/05/2027\nDossiers · C6 - NoSQL · consolidation ciblée (à venir)\nC6\n\n\n24\n31/05/2027\nOutillage IA professionnel · C3 - CMS & e-commerce (à venir)\nC3\n\n\n25\n07/06/2027\nC8 - Documenter le déploiement (Podman & CI/CD) (à venir)\nC8\n\n\n26\n14/06/2027\nPréparation à la certification (à venir)\n—\n\n\n27\n21/06/2027\nPréparation à la certification (à venir)\n—\n\n\n\n\nStage en entreprise du 15/03/2027 au 14/05/2027. Certifications du 28/06/2027 au 08/07/2027. Fin de formation le 09/07/2027.",
+    "text": "Les semaines\n\n\n\n\nSemaine\nDébut\nThème\nCompétences\n\n\n\n\n1\n08/10/2026\nRentrée\n—\n\n\n2\n12/10/2026\nPositionnement — fondations à la CS50 (Scratch, JavaScript) (à venir)\n—\n\n\n3\n19/10/2026\nFondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes) (à venir)\n—\n\n\n4\n26/10/2026\nC1 - Installer et configurer son environnement de travail (à venir)\nC1\n\n\n5\n02/11/2026\nC3 - Réaliser des interfaces utilisateur statiques (à venir)\nC3\n\n\n6\n09/11/2026\nC4 - Développer la partie dynamique des interfaces (JavaScript avancé) (à venir)\nC4\n\n\n7\n16/11/2026\nC4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1) (à venir)\nC4\n\n\n8\n23/11/2026\nC4 - Développer la partie dynamique des interfaces (l’asynchrone) (à venir)\nC4\n\n\n9\n30/11/2026\nC4 - Développer la partie dynamique des interfaces (API REST & modules dans le projet #1) (à venir)\nC4\n\n\n10\n07/12/2026\nC3 / C4 - Projet #1 : accessibilité, tests, SEO, éco-conception & RGPD (à venir)\nC3, C4\n\n\n11\n14/12/2026\nC4 - Développer la partie dynamique des interfaces (ECF) (à venir)\nC4\n\n\n12\n04/01/2027\nC4 - React (fondamentaux) · ouverture du palier 2 de l’IA (à venir)\nC4\n\n\n13\n11/01/2027\nC2 - Maquetter les interfaces · C4 - React (navigation & formulaires) (à venir)\nC2, C4\n\n\n14\n18/01/2027\nProjet commun du centre (1/2) (à venir)\n—\n\n\n15\n25/01/2027\nProjet commun du centre (2/2) (à venir)\n—\n\n\n16\n01/02/2027\nC7 - Node & Express côté serveur · lancement du projet #3 (à venir)\nC7\n\n\n17\n08/02/2027\nC5 - Base de données relationnelle · premiers conteneurs (Podman) (à venir)\nC5\n\n\n18\n15/02/2027\nC5 / C6 - Composants d’accès aux données SQL (ECF base de données) (à venir)\nC5, C6\n\n\n19\n22/02/2027\nC7 - Composants métier sécurisés (authentification & sécurité) (à venir)\nC7\n\n\n20\n01/03/2027\nC6 - NoSQL (second conteneur & réseau) · C7 - tests d’intégration (à venir)\nC6, C7\n\n\n21\n08/03/2027\nC7 / C8 - ECF du fil rouge & déploiement · départ en stage (à venir)\nC7, C8\n\n\n22\n17/05/2027\nRetour de stage & dossiers (à venir)\n—\n\n\n23\n24/05/2027\nDossiers · consolidation back-end · conteneurs (réseaux & volumes) (à venir)\n—\n\n\n24\n31/05/2027\nC7 - Piloter un agent IA sur l’API · C3 - CMS & e-commerce (à venir)\nC3, C7\n\n\n25\n07/06/2027\nC8 - Multi-conteneurs & déploiement (Podman Compose, CI/CD) (à venir)\nC8\n\n\n26\n14/06/2027\nPréparation à la certification (à venir)\n—\n\n\n27\n21/06/2027\nPréparation à la certification (à venir)\n—\n\n\n\n\nStage en entreprise du 15/03/2027 au 14/05/2027. Certifications du 28/06/2027 au 08/07/2027. Fin de formation le 09/07/2027.\nStagiaires sans convention au 19 février : projet en équipe en centre, encadré par un formateur.",
     "crumbs": [
       "Accueil"
     ]
@@ -664,7 +664,7 @@
     "href": "semaines/s01-rentree/jeudi.slides.html#lire-le-calendrier-5-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Lire le calendrier (5 min)",
-    "text": "Lire le calendrier (5 min)\n\nMercredi : atelier guidé le matin, autonomie l’après-midi.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027."
+    "text": "Lire le calendrier (5 min)\n\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 04/01/2027 (S12).\nProjet commun du centre : du 18 au 29/01/2027.\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027."
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#apport-2-le-rythme-dune-semaine-15-min",
@@ -685,7 +685,7 @@
     "href": "semaines/s01-rentree/jeudi.slides.html#les-quatre-paliers-de-la-charte",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Les quatre paliers de la charte",
-    "text": "Les quatre paliers de la charte\n\nPalier 0 (S1 à S3) : sans IA.\nPalier 1 (S4 à S11) : l’IA tutrice, CS50.ai.\nPalier 2 (S12 à S20) : l’IA assistante.\nPalier 3 (dès S21, stage compris) : l’IA outil professionnel."
+    "text": "Les quatre paliers de la charte\n\nPalier 0 (S1 à S3) : sans IA.\nPalier 1 (S4 à S11) : l’IA tutrice, CS50.ai.\nPalier 2a (S12 à S15) : Copilot, pour poser des questions.\nPalier 2b (S16 à S20) : Copilot agit, vous validez tout.\nPalier 3 (dès S21, stage compris) : un agent que vous pilotez."
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#quiz-autorisé-ou-interdit-12",
@@ -699,7 +699,7 @@
     "href": "semaines/s01-rentree/jeudi.slides.html#quiz-autorisé-ou-interdit-22",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Quiz — autorisé ou interdit ? (2/2)",
-    "text": "Quiz — autorisé ou interdit ? (2/2)\n\nS14 : l’IA génère 20 utilisateurs fictifs de test.\nS15 : je commite sans le relire un formulaire écrit par l’IA.\nECF « sans IA » : l’IA vérifie seulement ma réponse.\nS19 : je colle ma configuration et ma clé d’API dans l’IA."
+    "text": "Quiz — autorisé ou interdit ? (2/2)\n\nS13 : l’IA génère 20 utilisateurs fictifs de test.\nS17 : je garde sans le relire un formulaire modifié par l’IA.\nECF « sans IA » : l’IA vérifie seulement ma réponse.\nS19 : je colle ma configuration et ma clé d’API dans l’IA."
   },
   {
     "objectID": "semaines/s01-rentree/jeudi.slides.html#la-règle-dor",
@@ -958,7 +958,7 @@
     "href": "semaines/s01-rentree/jeudi.html#lire-le-calendrier-5-min",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Lire le calendrier (5 min)",
-    "text": "Lire le calendrier (5 min)\n\nMercredi : atelier guidé le matin, autonomie l’après-midi.\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 11/01/2027 (S13).\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027.\n\nLe formateur présente ces repères à partir du calendrier de la formation (Formation DWWM 2026-2027 2026a). Le calendrier complet, semaine par semaine, est sur la page d’accueil du site : gardez-la dans vos favoris.",
+    "text": "Lire le calendrier (5 min)\n\nPremier ECF : vendredi 23/10/2026, sans IA.\nProjet #1 « Explorateur open data » : dès le 16/11 (S7).\nReact : à partir du 04/01/2027 (S12).\nProjet commun du centre : du 18 au 29/01/2027.\nStage : du 15/03 au 14/05/2027, soit 9 semaines.\nCertification : fin juin – début juillet 2027.\n\nLe formateur présente ces repères à partir du calendrier de la formation (Formation DWWM 2026-2027 2026a). Le calendrier complet, semaine par semaine, est sur la page d’accueil du site : gardez-la dans vos favoris.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -994,7 +994,7 @@
     "href": "semaines/s01-rentree/jeudi.html#les-quatre-paliers-de-la-charte",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Les quatre paliers de la charte",
-    "text": "Les quatre paliers de la charte\n\nPalier 0 (S1 à S3) : sans IA.\nPalier 1 (S4 à S11) : l’IA tutrice, CS50.ai.\nPalier 2 (S12 à S20) : l’IA assistante.\nPalier 3 (dès S21, stage compris) : l’IA outil professionnel.\n\nAu palier 1, l’IA aide à comprendre, jamais à faire à votre place. Au palier 2, elle peut produire du code, à condition que vous puissiez l’expliquer ligne par ligne. Au palier 3, vous l’utilisez comme en entreprise, en restant responsable de tout ce que vous livrez (Formation DWWM 2026-2027 2026b).",
+    "text": "Les quatre paliers de la charte\n\nPalier 0 (S1 à S3) : sans IA.\nPalier 1 (S4 à S11) : l’IA tutrice, CS50.ai.\nPalier 2a (S12 à S15) : Copilot, pour poser des questions.\nPalier 2b (S16 à S20) : Copilot agit, vous validez tout.\nPalier 3 (dès S21, stage compris) : un agent que vous pilotez.\n\nAu palier 1, l’IA aide à comprendre, jamais à faire à votre place. Le palier 2 se fait en deux temps : d’abord (2a) vous posez des questions à Copilot et vous écrivez le code vous-même ; puis (2b) Copilot peut modifier votre code, mais vous validez chacune de ses actions, vous relisez chaque modification et vous écrivez vos commits vous-même. Tout code gardé doit pouvoir être expliqué ligne par ligne. Au palier 3, vous l’utilisez comme en entreprise, en restant responsable de tout ce que vous livrez (Formation DWWM 2026-2027 2026b).",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -1018,7 +1018,7 @@
     "href": "semaines/s01-rentree/jeudi.html#quiz-autorisé-ou-interdit-22",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Quiz — autorisé ou interdit ? (2/2)",
-    "text": "Quiz — autorisé ou interdit ? (2/2)\n\nS14 : l’IA génère 20 utilisateurs fictifs de test.\nS15 : je commite sans le relire un formulaire écrit par l’IA.\nECF « sans IA » : l’IA vérifie seulement ma réponse.\nS19 : je colle ma configuration et ma clé d’API dans l’IA.",
+    "text": "Quiz — autorisé ou interdit ? (2/2)\n\nS13 : l’IA génère 20 utilisateurs fictifs de test.\nS17 : je garde sans le relire un formulaire modifié par l’IA.\nECF « sans IA » : l’IA vérifie seulement ma réponse.\nS19 : je colle ma configuration et ma clé d’API dans l’IA.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
@@ -1306,7 +1306,7 @@
     "href": "semaines/s01-rentree/jeudi.html#sources",
     "title": "Jeudi 08/10 — Rentrée et positionnement",
     "section": "Sources",
-    "text": "Sources\n\n\nFormation DWWM 2026-2027. 2026a. Calendrier de la formation, version 12.\n\n\nFormation DWWM 2026-2027. 2026b. Charte IA de la formation.\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280).\n\n\nWikipedia. s. d. « Fizz buzz ». Consulté le 26 septembre 2026. https://en.wikipedia.org/wiki/Fizz_buzz.",
+    "text": "Sources\n\n\nFormation DWWM 2026-2027. 2026a. Calendrier de la formation, version 14.\n\n\nFormation DWWM 2026-2027. 2026b. Charte IA de la formation.\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280).\n\n\nWikipedia. s. d. « Fizz buzz ». Consulté le 26 septembre 2026. https://en.wikipedia.org/wiki/Fizz_buzz.",
     "crumbs": [
       "Semaines",
       "Semaine 1 — Rentrée",
