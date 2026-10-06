@@ -56,6 +56,7 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../semaines/s01-rentree/questionnaire-apprendre.html" rel="next">
 <link href="../../semaines/s01-rentree/jeudi.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -63,10 +64,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e5fbe874cac7d55b84e1ed963af4e5c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -94,8 +95,13 @@ div.csl-indent {
     "search-label": "Recherche"
   }
 }</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
+<link rel="stylesheet" href="../../polices.css">
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
@@ -141,8 +147,8 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ressources/carnet-de-projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Carnet de projet</span></a>
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -175,6 +181,12 @@ div.csl-indent {
  <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -198,22 +210,23 @@ div.csl-indent {
   </ul></li>
   <li><a href="#matin-positionnement-cs50-week-0-pensée-computationnelle-activités-débranchées-scratch" id="toc-matin-positionnement-cs50-week-0-pensée-computationnelle-activités-débranchées-scratch" class="nav-link" data-scroll-target="#matin-positionnement-cs50-week-0-pensée-computationnelle-activités-débranchées-scratch">Matin — Positionnement — CS50 Week 0 : pensée computationnelle (activités débranchées &amp; Scratch)</a>
   <ul class="collapse">
-  <li><a href="#doù-vient-cette-matinée" id="toc-doù-vient-cette-matinée" class="nav-link" data-scroll-target="#doù-vient-cette-matinée">D’où vient cette matinée ?</a></li>
-  <li><a href="#apport-1-quest-ce-quun-algorithme-15-min" id="toc-apport-1-quest-ce-quun-algorithme-15-min" class="nav-link" data-scroll-target="#apport-1-quest-ce-quun-algorithme-15-min">Apport 1 — Qu’est-ce qu’un algorithme ? (15 min)</a></li>
-  <li><a href="#lordinateur-ne-devine-rien" id="toc-lordinateur-ne-devine-rien" class="nav-link" data-scroll-target="#lordinateur-ne-devine-rien">L’ordinateur ne devine rien</a></li>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-1-quest-ce-quun-algorithme-5-min" id="toc-apport-1-quest-ce-quun-algorithme-5-min" class="nav-link" data-scroll-target="#apport-1-quest-ce-quun-algorithme-5-min">Apport 1 — Qu’est-ce qu’un algorithme ? (5 min)</a></li>
+  <li><a href="#algorithme-attention-et-vérification" id="toc-algorithme-attention-et-vérification" class="nav-link" data-scroll-target="#algorithme-attention-et-vérification">Algorithme — attention et vérification</a></li>
   <li><a href="#activité-1-le-sandwich-15-min" id="toc-activité-1-le-sandwich-15-min" class="nav-link" data-scroll-target="#activité-1-le-sandwich-15-min">Activité 1 — Le sandwich (15 min)</a></li>
-  <li><a href="#activité-2-trouver-un-nom-dans-lannuaire-20-min" id="toc-activité-2-trouver-un-nom-dans-lannuaire-20-min" class="nav-link" data-scroll-target="#activité-2-trouver-un-nom-dans-lannuaire-20-min">Activité 2 — Trouver un nom dans l’annuaire (20 min)</a></li>
-  <li><a href="#apport-2-scratch-en-15-minutes-15-min" id="toc-apport-2-scratch-en-15-minutes-15-min" class="nav-link" data-scroll-target="#apport-2-scratch-en-15-minutes-15-min">Apport 2 — Scratch en 15 minutes (15 min)</a></li>
-  <li><a href="#tout-commence-par-un-événement" id="toc-tout-commence-par-un-événement" class="nav-link" data-scroll-target="#tout-commence-par-un-événement">Tout commence par un événement</a></li>
-  <li><a href="#exercice-1-le-sprite-se-présente-facile" id="toc-exercice-1-le-sprite-se-présente-facile" class="nav-link" data-scroll-target="#exercice-1-le-sprite-se-présente-facile">Exercice 1 — Le sprite se présente (facile)</a></li>
-  <li><a href="#exercice-2-le-rebond-moyen" id="toc-exercice-2-le-rebond-moyen" class="nav-link" data-scroll-target="#exercice-2-le-rebond-moyen">Exercice 2 — Le rebond (moyen)</a></li>
+  <li><a href="#activité-2-trouver-un-nom-dans-lannuaire-15-min" id="toc-activité-2-trouver-un-nom-dans-lannuaire-15-min" class="nav-link" data-scroll-target="#activité-2-trouver-un-nom-dans-lannuaire-15-min">Activité 2 — Trouver un nom dans l’annuaire (15 min)</a></li>
+  <li><a href="#apport-2-scratch-et-les-événements-10-min" id="toc-apport-2-scratch-et-les-événements-10-min" class="nav-link" data-scroll-target="#apport-2-scratch-et-les-événements-10-min">Apport 2 — Scratch et les événements (10 min)</a></li>
+  <li><a href="#scratch-attention-et-vérification" id="toc-scratch-attention-et-vérification" class="nav-link" data-scroll-target="#scratch-attention-et-vérification">Scratch — attention et vérification</a></li>
+  <li><a href="#exercice-1-le-sprite-se-présente-10-min" id="toc-exercice-1-le-sprite-se-présente-10-min" class="nav-link" data-scroll-target="#exercice-1-le-sprite-se-présente-10-min">Exercice 1 — Le sprite se présente (10 min)</a></li>
+  <li><a href="#apport-3-la-boucle-et-la-condition-10-min" id="toc-apport-3-la-boucle-et-la-condition-10-min" class="nav-link" data-scroll-target="#apport-3-la-boucle-et-la-condition-10-min">Apport 3 — La boucle et la condition (10 min)</a></li>
+  <li><a href="#boucle-et-condition-attention-et-vérification" id="toc-boucle-et-condition-attention-et-vérification" class="nav-link" data-scroll-target="#boucle-et-condition-attention-et-vérification">Boucle et condition — attention et vérification</a></li>
+  <li><a href="#exercice-2-le-rebond-20-min" id="toc-exercice-2-le-rebond-20-min" class="nav-link" data-scroll-target="#exercice-2-le-rebond-20-min">Exercice 2 — Le rebond (20 min)</a></li>
   <li><a href="#partager-le-projet" id="toc-partager-le-projet" class="nav-link" data-scroll-target="#partager-le-projet">Partager le projet</a></li>
-  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
-  <li><a href="#critères-de-réussite" id="toc-critères-de-réussite" class="nav-link" data-scroll-target="#critères-de-réussite">Critères de réussite</a></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a>
+  <ul class="collapse">
   <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
-  <li><a href="#pour-aller-plus-loin-piloter-au-clavier" id="toc-pour-aller-plus-loin-piloter-au-clavier" class="nav-link" data-scroll-target="#pour-aller-plus-loin-piloter-au-clavier">Pour aller plus loin — Piloter au clavier</a></li>
-  <li><a href="#pour-aller-plus-loin-le-dessin-dicté-en-binôme" id="toc-pour-aller-plus-loin-le-dessin-dicté-en-binôme" class="nav-link" data-scroll-target="#pour-aller-plus-loin-le-dessin-dicté-en-binôme">Pour aller plus loin — Le dessin dicté (en binôme)</a></li>
-  <li><a href="#anglais" id="toc-anglais" class="nav-link" data-scroll-target="#anglais">Pour aller plus loin — Getting Started with Scratch (anglais)</a></li>
+  </ul></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
   </ul></li>
   <li><a href="#après-midi-groupe-a-projet-consolidation" id="toc-après-midi-groupe-a-projet-consolidation" class="nav-link" data-scroll-target="#après-midi-groupe-a-projet-consolidation">Après-midi — Groupe A : projet &amp; consolidation</a>
   <ul class="collapse">
@@ -222,7 +235,7 @@ div.csl-indent {
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="vendredi.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li><li><a href="vendredi.slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="vendredi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="vendredi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -237,7 +250,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Formateur</div>
     <div class="quarto-title-meta-contents">
              <p>Kevin Bardoux </p>
           </div>
@@ -246,7 +259,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">9 octobre 2026</p>
+      <p class="date">vendredi 9 octobre 2026</p>
     </div>
   </div>
   
@@ -272,11 +285,12 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
 <ul>
 <li>Citer deux sources de veille sur la sécurité du web.</li>
-<li>Expliquer ce qu’est un algorithme.</li>
-<li>Donner des instructions précises, sans ambiguïté.</li>
+<li>Expliquer ce qu’est un algorithme, et donner des instructions précises.</li>
 <li>Comparer des méthodes de recherche en comptant les pages.</li>
-<li>Programmer un événement, une boucle et une condition.</li>
+<li>Programmer un <a href="../../ressources/lexique.html#t-evenement">événement</a>, une boucle et une <a href="../../ressources/lexique.html#t-condition">condition</a> dans Scratch.</li>
 </ul>
+<p><strong>Comment se passe la matinée.</strong> Après la veille, trois notions : l’algorithme, Scratch et ses événements, la boucle et la condition. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine la matinée.</p>
+<p><strong>D’où vient cette matinée ?</strong> Du cours d’introduction CS50 de Harvard <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>. L’annuaire et la découverte de Scratch reprennent la première séance de <a href="https://cs50.harvard.edu/x/">CS50</a> <span class="citation" data-cites="cs50x-2026">(<a href="#ref-cs50x-2026" role="doc-biblioref">CS50 2026b</a>)</span>. La démonstration du sandwich figure dans les notes de 2017 et de 2014 <span class="citation" data-cites="cs50-2017-lecture0 cs50-2014-week0-notes">(<a href="#ref-cs50-2017-lecture0" role="doc-biblioref">CS50 2017</a>, <a href="#ref-cs50-2014-week0-notes" role="doc-biblioref">2014</a>)</span>. Le dessin dicté, en « Pour aller plus loin », reprend l’idée de l’activité 12 « Marching Orders » de CS Unplugged, reformulée <span class="citation" data-cites="csunplugged-marching-orders">(<a href="#ref-csunplugged-marching-orders" role="doc-biblioref">CS Unplugged, s.&nbsp;d.</a>)</span>.</p>
 </section>
 <section id="veille-découvrir-la-veille-technologique-30-min" class="level1">
 <h1>Veille — Découvrir la veille technologique (30 min)</h1>
@@ -290,18 +304,19 @@ div.csl-indent {
 </section>
 <section id="en-groupe-15-min" class="level2">
 <h2 class="anchored" data-anchor-id="en-groupe-15-min">En groupe (15 min)</h2>
-<ul>
+<ol type="1">
 <li><strong>Groupe 1</strong> : une alerte récente du CERT-FR <span class="citation" data-cites="cert-fr">(<a href="#ref-cert-fr" role="doc-biblioref">s.&nbsp;d.</a>)</span>.</li>
-<li>Quel logiciel est concerné ? Que conseille-t-on ?</li>
+<li>Groupe 1 : quel logiciel est concerné ? Que conseille-t-on ?</li>
 <li><strong>Groupe 2</strong> : l’OWASP Top 10 <span class="citation" data-cites="owasp-top10-2025">(<a href="#ref-owasp-top10-2025" role="doc-biblioref">2025</a>)</span>, en anglais.</li>
-<li>Choisissez un risque, expliquez-le avec vos mots.</li>
-</ul>
-<p>Le <a href="https://www.cert.ssi.gouv.fr/">CERT-FR</a>, rattaché à l’ANSSI, publie les alertes et avis de sécurité officiels en France. L’<a href="https://top10.owasp.org/2025">OWASP Top 10:2025</a> liste les risques les plus critiques pour les applications web : lisez les titres des dix risques et choisissez celui qui vous semble le plus facile à comprendre.</p>
+<li>Groupe 2 : choisissez un risque, expliquez-le avec vos mots.</li>
+<li>Dans chaque groupe : un lecteur, un secrétaire, un porte-parole.</li>
+</ol>
+<p>Le <a href="https://www.cert.ssi.gouv.fr/">CERT-FR</a>, rattaché à l’ANSSI, publie les alertes et avis de sécurité officiels en France. L’<a href="https://top10.owasp.org/2025">OWASP Top 10:2025</a> liste les risques les plus critiques pour les applications web : lisez les titres des dix risques et choisissez celui qui vous semble le plus facile à comprendre. Le <strong>lecteur</strong> parcourt la page pour le groupe, le <strong>secrétaire</strong> note, le <strong>porte-parole</strong> présente. Si vous préférez ne pas prendre la parole devant le groupe, prenez le rôle de lecteur ou de secrétaire.</p>
 </section>
 <section id="mise-en-commun-et-trace-écrite-15-min" class="level2">
 <h2 class="anchored" data-anchor-id="mise-en-commun-et-trace-écrite-15-min">Mise en commun et trace écrite (15 min)</h2>
 <ol type="1">
-<li>Chaque groupe présente ce qu’il a trouvé en 3 minutes.</li>
+<li>Chaque porte-parole présente ce que son groupe a trouvé (3 min).</li>
 <li>Seul : notez une info qui touche un site que vous utilisez.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -322,100 +337,75 @@ Note
 </section>
 <section id="matin-positionnement-cs50-week-0-pensée-computationnelle-activités-débranchées-scratch" class="level1">
 <h1>Matin — Positionnement — CS50 Week 0 : pensée computationnelle (activités débranchées &amp; Scratch)</h1>
-<section id="doù-vient-cette-matinée" class="level2">
-<h2 class="anchored" data-anchor-id="doù-vient-cette-matinée">D’où vient cette matinée ?</h2>
-<ul>
-<li>Du cours d’introduction CS50 de Harvard <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>.</li>
-<li>Sandwich : une démonstration de CS50 <span class="citation" data-cites="cs50-2017-lecture0">(<a href="#ref-cs50-2017-lecture0" role="doc-biblioref">CS50 2017</a>)</span>.</li>
-<li>Dessin dicté, en bonus : adapté de CS Unplugged <span class="citation" data-cites="csunplugged-marching-orders">(<a href="#ref-csunplugged-marching-orders" role="doc-biblioref">s.&nbsp;d.</a>)</span>.</li>
-</ul>
-<p>L’annuaire et la découverte de Scratch reprennent la première séance de <a href="https://cs50.harvard.edu/x/">CS50</a> <span class="citation" data-cites="cs50x-2026">(<a href="#ref-cs50x-2026" role="doc-biblioref">CS50 2026b</a>)</span>. La démonstration du sandwich figure dans les notes de 2017 et de 2014 <span class="citation" data-cites="cs50-2017-lecture0 cs50-2014-week0-notes">(<a href="#ref-cs50-2017-lecture0" role="doc-biblioref">CS50 2017</a>, <a href="#ref-cs50-2014-week0-notes" role="doc-biblioref">2014</a>)</span>. Le dessin dicté reprend l’idée de l’activité 12 « Marching Orders » de CS Unplugged, reformulée.</p>
+<section id="rappel-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<ol type="1">
+<li>Combien de compétences compte le titre DWWM ?</li>
+<li>Jusqu’à quelle semaine travaille-t-on sans IA ?</li>
+<li>Cette semaine, où est le groupe B vendredi après-midi ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
 </section>
-<section id="apport-1-quest-ce-quun-algorithme-15-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-1-quest-ce-quun-algorithme-15-min">Apport 1 — Qu’est-ce qu’un algorithme ? (15 min)</h2>
+<section id="apport-1-quest-ce-quun-algorithme-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-1-quest-ce-quun-algorithme-5-min">Apport 1 — Qu’est-ce qu’un algorithme ? (5 min)</h2>
 <ul>
-<li>Un <strong>algorithme</strong> résout un problème par des instructions.</li>
-<li>Il suit le schéma <strong>entrée → traitement → sortie</strong>.</li>
-<li>Une recette : ingrédients → étapes → plat.</li>
-<li>Un GPS : départ et arrivée → calcul → trajet.</li>
+<li><strong>Pourquoi</strong> : un ordinateur ne fait que ce qu’on lui dit.</li>
+<li><strong>Algorithme</strong> : des instructions précises, dans l’ordre.</li>
 </ul>
+<p><strong>Pourquoi.</strong> Un ordinateur ne devine rien : il exécute les instructions <strong>exactement</strong>, <strong>dans l’ordre</strong>. Si le résultat est faux, c’est que les instructions sont fausses ou incomplètes.</p>
+<p><strong>Définition.</strong> Un algorithme est une suite d’instructions précises qui résout un problème. Il suit le schéma <strong>entrée → traitement → sortie</strong>. La <strong>pensée computationnelle</strong>, c’est découper un problème en étapes assez précises pour qu’une machine les suive.</p>
+<p><strong>Exemple.</strong> Un GPS : en entrée, le départ et l’arrivée ; le traitement, le calcul du chemin ; en sortie, le trajet.</p>
+<pre><code>entrée      →  traitement        →  sortie
+départ,        calcul du            le trajet
+arrivée        plus court chemin</code></pre>
+<p><strong>Pas à pas.</strong> Le formateur joue un robot qui ne fait <strong>que</strong> ce qu’on lui dit (c’est l’activité du sandwich, ci-dessous).</p>
+<ol type="1">
+<li>Le groupe dicte une instruction.</li>
+<li>Le robot l’exécute à la lettre (« prendre le pain » : il prend le sachet entier).</li>
+<li>Le groupe corrige l’instruction pour qu’elle soit précise.</li>
+<li>On recommence avec l’instruction suivante.</li>
+</ol>
 </section>
-<section id="lordinateur-ne-devine-rien" class="level2">
-<h2 class="anchored" data-anchor-id="lordinateur-ne-devine-rien">L’ordinateur ne devine rien</h2>
+<section id="algorithme-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="algorithme-attention-et-vérification">Algorithme — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une instruction qui vous semble évidente (« ouvrir le pain ») ne l’est pas pour une machine. Résultat faux : cherchez l’instruction imprécise ou oubliée.</p>
+</div>
+</div>
 <ul>
-<li>Il exécute les instructions <strong>exactement</strong>, <strong>dans l’ordre</strong>.</li>
-<li>Résultat faux ? Les instructions sont fausses ou incomplètes.</li>
-<li><strong>Pensée computationnelle</strong> : découper un problème en étapes.</li>
-<li>Des étapes assez précises pour qu’une machine les suive.</li>
+<li><strong>Vérifiez</strong> : pour une recette, quelle est l’entrée ? la sortie ?</li>
 </ul>
 </section>
 <section id="activité-1-le-sandwich-15-min" class="level2">
 <h2 class="anchored" data-anchor-id="activité-1-le-sandwich-15-min">Activité 1 — Le sandwich (15 min)</h2>
-<ul>
+<ol type="1">
 <li>Le formateur joue un robot qui prépare une tartine.</li>
 <li>Le groupe lui dicte les instructions, une par une.</li>
 <li>Le robot fait <strong>exactement</strong> ce qu’on lui dit.</li>
-<li>En binôme : réécrivez des instructions qui marchent.</li>
-<li>Démonstration adaptée de CS50 <span class="citation" data-cites="cs50-2017-lecture0 cs50-2014-week0-notes">(<a href="#ref-cs50-2017-lecture0" role="doc-biblioref">2017</a>, <a href="#ref-cs50-2014-week0-notes" role="doc-biblioref">2014</a>)</span>.</li>
-</ul>
+<li>Par deux (5 min) : l’un écrit les instructions, l’autre les relit.</li>
+<li><strong>Réussi si</strong> : un camarade peut les suivre sans poser de question.</li>
+</ol>
+<p>Démonstration adaptée de CS50 <span class="citation" data-cites="cs50-2017-lecture0 cs50-2014-week0-notes">(<a href="#ref-cs50-2017-lecture0" role="doc-biblioref">CS50 2017</a>, <a href="#ref-cs50-2014-week0-notes" role="doc-biblioref">2014</a>)</span>. Si vous préférez ne pas parler devant le groupe, proposez vos instructions par écrit à votre voisin : il les dicte au robot.</p>
 </section>
-<section id="activité-2-trouver-un-nom-dans-lannuaire-20-min" class="level2">
-<h2 class="anchored" data-anchor-id="activité-2-trouver-un-nom-dans-lannuaire-20-min">Activité 2 — Trouver un nom dans l’annuaire (20 min)</h2>
-<ul>
+<section id="activité-2-trouver-un-nom-dans-lannuaire-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="activité-2-trouver-un-nom-dans-lannuaire-15-min">Activité 2 — Trouver un nom dans l’annuaire (15 min)</h2>
+<ol type="1">
 <li>Un annuaire <strong>trié</strong> de 1 000 pages : trouvez un nom.</li>
 <li><strong>Page par page</strong> : combien de pages tourner, au pire ?</li>
 <li><strong>Deux pages à la fois</strong> : combien de pages ? Quel risque ?</li>
 <li><strong>Couper en deux</strong> : ouvrir au milieu, garder la bonne moitié.</li>
 <li>Comptez les pages de chaque méthode. Et avec 2 000 pages ?</li>
-<li>Adapté de l’exemple de l’annuaire de CS50 <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">2026a</a>)</span>.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Astuce</span>Indice
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Avec « couper en deux », chaque page ouverte divise par deux le nombre de pages qui restent : 1 000 → 500 → 250 → … Comptez combien de fois on peut diviser par deux avant d’arriver à une seule page.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="apport-2-scratch-en-15-minutes-15-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-2-scratch-en-15-minutes-15-min">Apport 2 — Scratch en 15 minutes (15 min)</h2>
-<ul>
-<li><strong>Scratch</strong> : programmer avec des blocs, sans rien taper.</li>
-<li>La <strong>scène</strong> (en haut à droite) : où le programme s’exécute.</li>
-<li>Un <strong>sprite</strong> (le personnage ou l’objet qu’on anime).</li>
-<li>Les <strong>catégories de blocs</strong> (à gauche) : Mouvement, Apparence…</li>
-<li>La <strong>zone de code</strong> (au centre) : on y emboîte les blocs.</li>
-</ul>
-<p><a href="https://scratch.mit.edu/">Scratch</a> <span class="citation" data-cites="scratch">(<a href="#ref-scratch" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.-a</a>)</span> est un langage de programmation visuel développé par le MIT <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>. Ouvrez-le avec le formateur et repérez chaque zone.</p>
-</section>
-<section id="tout-commence-par-un-événement" class="level2">
-<h2 class="anchored" data-anchor-id="tout-commence-par-un-événement">Tout commence par un événement</h2>
-<ul>
-<li>Un programme démarre par un <strong>événement</strong> (bloc jaune).</li>
-<li>Exemple : « quand ⚑ est cliqué » (⚑ = drapeau vert).</li>
-<li>Sans événement, les blocs ne s’exécutent jamais.</li>
-<li>Créez un projet « Semaine 1 — Prénom ».</li>
-<li>Enregistrez régulièrement.</li>
-</ul>
-<p>Les noms des blocs et des menus de cette page suivent la traduction française officielle de Scratch <span class="citation" data-cites="scratch-l10n-blocks-fr scratch-l10n-interface-fr">(<a href="#ref-scratch-l10n-blocks-fr" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.-c</a>, <a href="#ref-scratch-l10n-interface-fr" role="doc-biblioref">s.&nbsp;d.-b</a>)</span>.</p>
-</section>
-<section id="exercice-1-le-sprite-se-présente-facile" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1-le-sprite-se-présente-facile">Exercice 1 — Le sprite se présente (facile)</h2>
-<ul>
-<li>Au drapeau vert, le chat va au centre, avance de 100 pas.</li>
-<li>Puis il dit « Bonjour, je m’appelle … » pendant 2 secondes.</li>
-<li><strong>Vérifiez</strong> : cliquez plusieurs fois sur le drapeau vert.</li>
-<li>Le chat doit repartir <strong>du centre</strong> à chaque fois.</li>
-</ul>
+</ol>
+<p>Adapté de l’exemple de l’annuaire de CS50 <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>. Notez vos réponses dans un tableau : une ligne par méthode, une colonne pour 1 000 pages, une colonne pour 2 000 pages.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -428,81 +418,77 @@ Note
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Le bloc « aller à x: 0 y: 0 » (catégorie Mouvement) place le sprite au centre. Le bloc « dire … pendant 2 secondes » est dans Apparence. Si le chat sort de la scène à force de cliquer, c’est qu’il manque la mise au centre au départ.</p>
+<p>Avec « couper en deux », chaque page ouverte divise par deux le nombre de pages qui restent : 1 000 → 500 → 250 → … Comptez combien de fois on peut diviser par deux avant d’arriver à une seule page.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercice-2-le-rebond-moyen" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2-le-rebond-moyen">Exercice 2 — Le rebond (moyen)</h2>
+<section id="apport-2-scratch-et-les-événements-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-2-scratch-et-les-événements-10-min">Apport 2 — Scratch et les événements (10 min)</h2>
 <ul>
-<li>Au drapeau vert, le chat avance <strong>indéfiniment</strong>.</li>
-<li>Il rebondit quand il atteint un bord.</li>
-<li><strong>Si</strong> il touche le pointeur de la souris, il dit « Aïe ! ».</li>
-<li><strong>Vérifiez</strong> : il va et vient, et réagit à la souris.</li>
-<li>Le bouton rouge arrête tout.</li>
+<li><strong>Pourquoi</strong> : programmer sans rien taper, avec des blocs.</li>
+<li><strong>Événement</strong> : ce qui démarre un script (bloc jaune).</li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<p><strong>Pourquoi.</strong> Pour écrire vos premiers programmes, il faut d’abord maîtriser l’ordre des instructions, pas la syntaxe d’un langage. Scratch permet d’emboîter des blocs : aucune faute de frappe possible.</p>
+<p><strong>Définition.</strong> <a href="https://scratch.mit.edu/">Scratch</a> <span class="citation" data-cites="scratch">(<a href="#ref-scratch" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.-a</a>)</span> est un langage de programmation visuel développé par le MIT <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>. Un <strong><a href="../../ressources/lexique.html#t-sprite">sprite</a></strong> est le personnage ou l’objet qu’on anime ; la <strong>scène</strong> (en haut à droite) est la fenêtre où le programme s’exécute ; les <strong>catégories de blocs</strong> sont à gauche (Mouvement, Apparence…) ; la <strong>zone de code</strong>, au centre, reçoit les blocs emboîtés. Un <strong>événement</strong> (bloc jaune, catégorie Événements) démarre un script : sans lui, les blocs ne s’exécutent jamais. Les noms des blocs suivent la traduction française officielle de Scratch <span class="citation" data-cites="scratch-l10n-blocks-fr scratch-l10n-interface-fr">(<a href="#ref-scratch-l10n-blocks-fr" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.-c</a>, <a href="#ref-scratch-l10n-interface-fr" role="doc-biblioref">s.&nbsp;d.-b</a>)</span>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Événement, script, sprite
+  accDescr: Un événement, le bloc « quand le drapeau vert est cliqué », démarre un script. Le script est une suite de blocs emboîtés : aller à x 0 y 0, puis dire Bonjour pendant 2 secondes. Le script fait agir le sprite, le chat, sur la scène.
+  E(["Événement&lt;br/&gt;quand ⚑ est cliqué"]) --&gt;|démarre| S["Script&lt;br/&gt;aller à x: 0 y: 0&lt;br/&gt;dire Bonjour ! 2 s"]
+  S --&gt;|fait agir| P["Sprite&lt;br/&gt;le chat, sur la scène"]
+</pre>
+</div>
+<p></p><figcaption> Une image : l’événement démarre le script, et le script fait agir le sprite sur la scène. Sans événement, le script ne s’exécute jamais.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Exemple.</strong></p>
+<pre><code>quand ⚑ est cliqué
+aller à x: 0 y: 0
+dire [Bonjour !] pendant 2 secondes</code></pre>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape au vidéoprojecteur ; vous la refaites aussitôt.</p>
+<ol type="1">
+<li>Ouvrez l’éditeur Scratch ; créez un projet nommé « Semaine 1 — Prénom ».</li>
+<li>Repérez la scène, les catégories, la zone de code.</li>
+<li>Catégorie Événements : glissez « quand ⚑ est cliqué » dans la zone de code.</li>
+<li>Catégorie Mouvement : emboîtez « aller à x: 0 y: 0 » dessous.</li>
+<li>Catégorie Apparence : emboîtez « dire Bonjour ! pendant 2 secondes ».</li>
+<li>Cliquez sur le drapeau vert (⚑) : le chat va au centre et parle.</li>
+</ol>
+</section>
+<section id="scratch-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="scratch-attention-et-vérification">Scratch — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Astuce</span>Indice
+<span class="screen-reader-only">Avertissement</span>Attention
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Tout se passe dans un bloc « répéter indéfiniment » (catégorie Contrôle). À l’intérieur : « avancer de 5 pas », « rebondir si le bord est atteint », et un bloc « si … alors » avec la condition « touche le (pointeur de souris) ? » (catégorie Capteurs). Si le chat marche la tête en bas, cherchez le bloc « fixer le sens de rotation ».</p>
+<p>Rien ne se passe au drapeau vert ? Le script ne commence pas par un événement, ou les blocs ne sont pas emboîtés (ils doivent « coller »).</p>
 </div>
 </div>
-</div>
-</section>
-<section id="partager-le-projet" class="level2">
-<h2 class="anchored" data-anchor-id="partager-le-projet">Partager le projet</h2>
 <ul>
-<li>Cliquez sur <strong>Partager</strong>.</li>
-<li>Copiez l’adresse de la page du projet.</li>
-<li>Déposez-la auprès du formateur.</li>
-<li>Sans compte : <strong>Fichier</strong>, puis <strong>Sauvegarder sur votre ordinateur</strong>.</li>
-<li>Déposez alors le fichier <code>.sb3</code>.</li>
+<li><strong>Vérifiez</strong> : séparez le premier bloc ; que se passe-t-il au drapeau ?</li>
 </ul>
 </section>
-<section id="débrief" class="level2">
-<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
-<ul>
-<li>Points communs entre le sandwich et Scratch ?</li>
-<li>Exercice 2 : que répète-t-on ? Qu’exécute-t-on seulement parfois ?</li>
-<li>Pourquoi « couper en deux » exige-t-il un annuaire trié ?</li>
-</ul>
-</section>
-<section id="critères-de-réussite" class="level2">
-<h2 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Une réponse de veille est écrite sur papier</label></li>
-<li><label><input type="checkbox">Les deux exercices Scratch fonctionnent</label></li>
-<li><label><input type="checkbox">Le lien du projet (ou le <code>.sb3</code>) est déposé</label></li>
-</ul>
-</section>
-<section id="pour-aller-plus-loin" class="level2">
-<h2 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h2>
-<ul>
-<li><strong>Piloter au clavier</strong> : les flèches déplacent le sprite.</li>
-<li><strong>Le dessin dicté</strong>, en binôme.</li>
-<li><strong>Anglais</strong> : lire <em>Getting Started with Scratch</em>.</li>
-<li><strong>Le chat et la souris</strong> : une souris qui suit le pointeur.</li>
-<li><strong>Tutoriels</strong> : un tutoriel du menu <strong>Tutoriels</strong> de Scratch.</li>
-</ul>
-<p>Le chat et la souris : ajoutez une souris qui suit le pointeur ; si le chat la touche, il dit « Attrapée ! » et tout s’arrête. Les trois premiers défis sont détaillés ci-dessous.</p>
-</section>
-<section id="pour-aller-plus-loin-piloter-au-clavier" class="level2">
-<h2 class="anchored" data-anchor-id="pour-aller-plus-loin-piloter-au-clavier">Pour aller plus loin — Piloter au clavier</h2>
-<ul>
-<li>Chaque flèche du clavier déplace le chat de 10 pas.</li>
-<li>Une flèche = une direction : haut, bas, gauche, droite.</li>
-<li><strong>Vérifiez</strong> : cliquez sur la scène, puis utilisez les flèches.</li>
-</ul>
+<section id="exercice-1-le-sprite-se-présente-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-le-sprite-se-présente-10-min">Exercice 1 — Le sprite se présente (10 min)</h2>
+<ol type="1">
+<li>Ensemble : le départ au drapeau vert, au centre de la scène.</li>
+<li>Seuls : le chat avance de 100 pas, puis dit « Bonjour, je m’appelle … ».</li>
+<li>Cliquez plusieurs fois sur le drapeau vert.</li>
+<li><strong>Réussi si</strong> : le chat repart <strong>du centre</strong> à chaque fois.</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -515,31 +501,166 @@ Note
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Le bloc « aller à x: 0 y: 0 » (catégorie Mouvement) place le sprite au centre. Le bloc « dire … pendant 2 secondes » est dans Apparence. Si le chat sort de la scène à force de cliquer, c’est qu’il manque la mise au centre au départ.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="apport-3-la-boucle-et-la-condition-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-3-la-boucle-et-la-condition-10-min">Apport 3 — La boucle et la condition (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : répéter sans recopier, et agir seulement si besoin.</li>
+<li><strong>Boucle</strong> : répète des blocs ; <strong>condition</strong> : « si … alors ».</li>
+</ul>
+<p><strong>Pourquoi.</strong> Pour qu’un chat marche longtemps, on ne recopie pas cent fois « avancer » : on le répète. Et il ne doit dire « Aïe ! » que lorsqu’il touche la souris, pas tout le temps.</p>
+<p><strong>Définition.</strong> Une <strong>boucle</strong> répète les blocs qu’elle contient (« répéter 10 fois », « répéter indéfiniment », catégorie Contrôle). Une <strong>condition</strong> exécute des blocs seulement si une question a la réponse « oui » (« si … alors », catégorie Contrôle, avec une question de la catégorie Capteurs, comme « touche le pointeur de souris ? »).</p>
+<p><strong>Exemple.</strong></p>
+<pre><code>quand ⚑ est cliqué
+répéter indéfiniment
+    avancer de 5 pas
+    si &lt;touche le pointeur de souris ?&gt; alors
+        dire [Aïe !] pendant 0.5 secondes</code></pre>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape ; vous la refaites aussitôt.</p>
+<ol type="1">
+<li>Sous « quand ⚑ est cliqué », emboîtez « répéter indéfiniment » (catégorie Contrôle).</li>
+<li>Dans la boucle, emboîtez « avancer de 5 pas ». Cliquez sur le drapeau : le chat part jusqu’au bord.</li>
+<li>Cliquez sur le bouton rouge : tout s’arrête.</li>
+<li>Dans la boucle, sous « avancer », emboîtez « si … alors » (catégorie Contrôle).</li>
+<li>Dans l’hexagone du « si », placez « touche le pointeur de souris ? » (catégorie Capteurs).</li>
+<li>Dans le « si », emboîtez « dire Aïe ! pendant 0.5 secondes ». Relancez et approchez la souris.</li>
+</ol>
+</section>
+<section id="boucle-et-condition-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="boucle-et-condition-attention-et-vérification">Boucle et condition — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un bloc placé <strong>sous</strong> « répéter indéfiniment » ne s’exécute jamais : la boucle ne finit pas. Mettez dans la boucle ce qui doit se répéter.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : qu’est-ce qui se répète ? qu’est-ce qui arrive parfois ?</li>
+</ul>
+</section>
+<section id="exercice-2-le-rebond-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-le-rebond-20-min">Exercice 2 — Le rebond (20 min)</h2>
+<ol type="1">
+<li>Seuls : au drapeau vert, le chat avance <strong>indéfiniment</strong>.</li>
+<li>Il rebondit quand il atteint un bord.</li>
+<li><strong>Si</strong> il touche le pointeur de la souris, il dit « Aïe ! ».</li>
+<li><strong>Réussi si</strong> : il va et vient, et réagit à la souris.</li>
+</ol>
+<p>Le bouton rouge arrête tout.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reprenez l’exemple de l’apport 3. Ajoutez dans la boucle « rebondir si le bord est atteint » (catégorie Mouvement). Si le chat marche la tête en bas, cherchez le bloc « fixer le sens de rotation ».</p>
+</div>
+</div>
+</div>
+</section>
+<section id="partager-le-projet" class="level2">
+<h2 class="anchored" data-anchor-id="partager-le-projet">Partager le projet</h2>
+<ol type="1">
+<li>Avec un compte : cliquez sur <strong>Partager</strong>.</li>
+<li>Copiez l’adresse du projet, déposez-la.</li>
+<li>Sans compte : <strong>Fichier</strong>, puis <strong>Sauvegarder sur votre ordinateur</strong>.</li>
+<li>Déposez alors le fichier <code>.sb3</code>.</li>
+</ol>
+</section>
+<section id="à-retenir-ce-matin" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Algorithme</strong> : des instructions précises, exécutées à la lettre.</li>
+<li><strong>Événement</strong> : tout script commence par un bloc jaune.</li>
+<li><strong>Boucle</strong> : on répète ; <strong>condition</strong> : seulement si c’est vrai.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Algorithme</strong> : entrée → traitement → sortie ; l’ordinateur ne devine rien ; une instruction imprécise donne un résultat faux. Chercher dans une liste triée : « couper en deux » est bien plus rapide que « page par page ».</li>
+<li><strong>Scratch et les événements</strong> : un script démarre par un événement ; les blocs doivent être emboîtés ; le drapeau vert lance, le bouton rouge arrête.</li>
+<li><strong>Boucle et condition</strong> : la boucle répète ce qu’elle contient ; la condition exécute ses blocs seulement si la réponse est « oui » ; rien ne s’exécute après « répéter indéfiniment ».</li>
+</ul>
+<p><strong>Critères de réussite</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Une réponse de veille est écrite sur papier</label></li>
+<li><label><input type="checkbox">Les deux exercices Scratch fonctionnent</label></li>
+<li><label><input type="checkbox">Le lien du projet (ou le <code>.sb3</code>) est déposé</label></li>
+</ul>
+<section id="pour-aller-plus-loin" class="level3">
+<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<ul>
+<li><strong>Piloter au clavier</strong> : chaque flèche du clavier déplace le chat de 10 pas (haut, bas, gauche, droite). <strong>Vérifiez</strong> : cliquez sur la scène, puis utilisez les flèches.</li>
+<li><strong>Le chat et la souris</strong> : ajoutez une souris qui suit le pointeur ; si le chat la touche, il dit « Attrapée ! » et tout s’arrête.</li>
+<li><strong>Tutoriels</strong> : un tutoriel du menu <strong>Tutoriels</strong> de Scratch.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — Piloter au clavier
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Utilisez l’événement « quand la touche … est pressée ». Pour aller vers le haut ou le bas, le bloc « ajouter 10 à y » (ou « ajouter -10 à y ») est plus simple que de tourner le chat.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="pour-aller-plus-loin-le-dessin-dicté-en-binôme" class="level2">
-<h2 class="anchored" data-anchor-id="pour-aller-plus-loin-le-dessin-dicté-en-binôme">Pour aller plus loin — Le dessin dicté (en binôme)</h2>
-<ul>
-<li>En binôme, dos à dos : l’un décrit une figure, sans gestes.</li>
-<li>L’autre la dessine, <strong>sans poser de question</strong>. On compare.</li>
+<p><strong>Le dessin dicté (par deux).</strong> Adapté de CS Unplugged, activité 12 <span class="citation" data-cites="csunplugged-marching-orders">(<a href="#ref-csunplugged-marching-orders" role="doc-biblioref">CS Unplugged, s.&nbsp;d.</a>)</span>.</p>
+<ol type="1">
+<li>Dos à dos : le <strong>dicteur</strong> décrit une figure, sans gestes ; le <strong>dessinateur</strong> la dessine, <strong>sans poser de question</strong>.</li>
+<li>Comparez la figure et le dessin.</li>
 <li>Nouvelle figure, rôles échangés : les questions sont permises.</li>
-<li>Débrief : quelles instructions étaient ambiguës ?</li>
-<li>Adapté de CS Unplugged, activité 12 <span class="citation" data-cites="csunplugged-marching-orders">(<a href="#ref-csunplugged-marching-orders" role="doc-biblioref">s.&nbsp;d.</a>)</span>.</li>
-</ul>
-</section>
-<section id="anglais" class="level2">
-<h2 class="anchored" data-anchor-id="anglais">Pour aller plus loin — Getting Started with Scratch (anglais)</h2>
-<p>Lisez <em>Getting Started with Scratch</em> <span class="citation" data-cites="scratch-wiki-getting-started">(<a href="#ref-scratch-wiki-getting-started" role="doc-biblioref">Scratch Wiki, s.&nbsp;d.</a>)</span>.</p>
+<li>Notez les instructions qui étaient ambiguës.</li>
+</ol>
+<p><strong>Getting Started with Scratch (anglais)</strong> {#anglais}. Lisez <em>Getting Started with Scratch</em> <span class="citation" data-cites="scratch-wiki-getting-started">(<a href="#ref-scratch-wiki-getting-started" role="doc-biblioref">Scratch Wiki, s.&nbsp;d.</a>)</span>. La page du <a href="https://en.scratch-wiki.info/wiki/Getting_Started_with_Scratch">Scratch Wiki</a> est en anglais et écrite pour les grands débutants. Ne traduisez pas tout : cherchez les réponses dans les titres de sections (<em>The Interface</em>, <em>Sprites</em>, <em>Remixing</em>…) et répondez en français.</p>
 <ol type="1">
 <li>Quel bloc lance un script au drapeau vert ? En anglais ?</li>
 <li>D’après la page, qu’est-ce qu’un <em>sprite</em> ? Et le <em>stage</em> ?</li>
 <li>Avantage et limite de l’éditeur en ligne (<em>online editor</em>) ?</li>
 <li>Que veut dire « remixer » un projet ? Comment fait-on ?</li>
+<li>Bonus : relevez trois mots anglais nouveaux pour vous, avec leur traduction.</li>
 </ol>
-<p>La page du <a href="https://en.scratch-wiki.info/wiki/Getting_Started_with_Scratch">Scratch Wiki</a> est en anglais et écrite pour les grands débutants. Ne traduisez pas tout : cherchez les réponses dans les titres de sections (<em>The Interface</em>, <em>Sprites</em>, <em>Remixing</em>…) et répondez en français. Bonus : relevez trois mots anglais nouveaux pour vous, avec leur traduction.</p>
+</section>
+</section>
+<section id="débrief" class="level2">
+<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<ul>
+<li>Points communs entre le sandwich et Scratch ?</li>
+<li>Pourquoi « couper en deux » exige-t-il un annuaire trié ?</li>
+</ul>
 </section>
 </section>
 <section id="après-midi-groupe-a-projet-consolidation" class="level1">
@@ -560,7 +681,7 @@ Note
 <li><strong>Terminer</strong> : les exercices Scratch 1 et 2, lien déposé.</li>
 <li><strong>Consolider</strong> : reprenez un exercice de jeudi noté « bloqué ».</li>
 <li><strong>Approfondir</strong> : les défis de « Pour aller plus loin ».</li>
-<li><strong>Montrer</strong> (16 h 15) : votre projet, en binôme, 5 min chacun.</li>
+<li><strong>Montrer</strong> (16 h 15) : par deux, l’un montre, l’autre teste ; 5 min chacun.</li>
 </ol>
 <p>Rien de ce qui se fait cet après-midi n’est nécessaire lundi : le groupe B retrouvera les mêmes défis dans le parcours de remédiation de mercredi. Commencez par ce qui n’est pas terminé, puis choisissez vos défis : le dessin dicté se fait à deux, la lecture en anglais seul.</p>
 </section>
@@ -1022,6 +1143,9 @@ Scratch Wiki. s.&nbsp;d. <span>«&nbsp;Getting Started with Scratch&nbsp;»</spa
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="pagination-link" aria-label="Questionnaire — Ce qui m'aide à apprendre">
+        <span class="nav-page-text">Questionnaire — Ce qui m’aide à apprendre</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

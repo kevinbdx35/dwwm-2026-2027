@@ -10,7 +10,6 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Kevin Bardoux">
-  <meta name="dcterms.date" content="2026-10-09">
   <title>DWWM 2026-2027 – Vendredi 09/10 — Pensée computationnelle et Scratch</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -55,7 +54,8 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-9b9b001c55215d60392a2c76a67336da.css">
+  <link rel="stylesheet" href="../../polices.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -147,6 +147,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="neutral">
+  <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -163,7 +167,7 @@ Kevin Bardoux
 </div>
 </div>
 
-  <p class="date">2026-10-09</p>
+  <p class="date">vendredi 9 octobre 2026</p>
 </section>
 <section class="slide level2">
 
@@ -174,16 +178,6 @@ Kevin Bardoux
 </div>
 </div>
 </div>
-</section>
-<section id="objectifs" class="slide level2">
-<h2>Objectifs</h2>
-<ul>
-<li>Citer deux sources de veille sur la sécurité du web.</li>
-<li>Expliquer ce qu’est un algorithme.</li>
-<li>Donner des instructions précises, sans ambiguïté.</li>
-<li>Comparer des méthodes de recherche en comptant les pages.</li>
-<li>Programmer un événement, une boucle et une condition.</li>
-</ul>
 </section>
 <section>
 <section id="veille-découvrir-la-veille-technologique-30-min" class="title-slide slide level1 center">
@@ -200,17 +194,18 @@ Kevin Bardoux
 </section>
 <section id="en-groupe-15-min" class="slide level2">
 <h2>En groupe (15 min)</h2>
-<ul>
+<ol type="1">
 <li><strong>Groupe 1</strong> : une alerte récente du CERT-FR <span class="citation" data-cites="cert-fr">(<a href="#/sources" role="doc-biblioref" onclick="">s.&nbsp;d.</a>)</span>.</li>
-<li>Quel logiciel est concerné ? Que conseille-t-on ?</li>
+<li>Groupe 1 : quel logiciel est concerné ? Que conseille-t-on ?</li>
 <li><strong>Groupe 2</strong> : l’OWASP Top 10 <span class="citation" data-cites="owasp-top10-2025">(<a href="#/sources" role="doc-biblioref" onclick="">2025</a>)</span>, en anglais.</li>
-<li>Choisissez un risque, expliquez-le avec vos mots.</li>
-</ul>
+<li>Groupe 2 : choisissez un risque, expliquez-le avec vos mots.</li>
+<li>Dans chaque groupe : un lecteur, un secrétaire, un porte-parole.</li>
+</ol>
 </section>
 <section id="mise-en-commun-et-trace-écrite-15-min" class="slide level2">
 <h2>Mise en commun et trace écrite (15 min)</h2>
 <ol type="1">
-<li>Chaque groupe présente ce qu’il a trouvé en 3 minutes.</li>
+<li>Chaque porte-parole présente ce que son groupe a trouvé (3 min).</li>
 <li>Seul : notez une info qui touche un site que vous utilisez.</li>
 </ol>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -232,155 +227,186 @@ Kevin Bardoux
 <h1>Matin — Positionnement — CS50 Week 0 : pensée computationnelle (activités débranchées &amp; Scratch)</h1>
 
 </section>
-<section id="doù-vient-cette-matinée" class="slide level2">
-<h2>D’où vient cette matinée ?</h2>
-<ul>
-<li>Du cours d’introduction CS50 de Harvard <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#/sources" role="doc-biblioref" onclick="">CS50 2026</a>)</span>.</li>
-<li>Sandwich : une démonstration de CS50 <span class="citation" data-cites="cs50-2017-lecture0">(<a href="#/sources" role="doc-biblioref" onclick="">CS50 2017</a>)</span>.</li>
-<li>Dessin dicté, en bonus : adapté de CS Unplugged <span class="citation" data-cites="csunplugged-marching-orders">(<a href="#/sources" role="doc-biblioref" onclick="">s.&nbsp;d.</a>)</span>.</li>
-</ul>
+<section id="rappel-5-min" class="slide level2">
+<h2>Rappel (5 min)</h2>
+<ol type="1">
+<li>Combien de compétences compte le titre DWWM ?</li>
+<li>Jusqu’à quelle semaine travaille-t-on sans IA ?</li>
+<li>Cette semaine, où est le groupe B vendredi après-midi ?</li>
+</ol>
 </section>
-<section id="apport-1-quest-ce-quun-algorithme-15-min" class="slide level2">
-<h2>Apport 1 — Qu’est-ce qu’un algorithme ? (15 min)</h2>
+<section id="apport-1-quest-ce-quun-algorithme-5-min" class="slide level2">
+<h2>Apport 1 — Qu’est-ce qu’un algorithme ? (5 min)</h2>
 <ul>
-<li>Un <strong>algorithme</strong> résout un problème par des instructions.</li>
-<li>Il suit le schéma <strong>entrée → traitement → sortie</strong>.</li>
-<li>Une recette : ingrédients → étapes → plat.</li>
-<li>Un GPS : départ et arrivée → calcul → trajet.</li>
+<li><strong>Pourquoi</strong> : un ordinateur ne fait que ce qu’on lui dit.</li>
+<li><strong>Algorithme</strong> : des instructions précises, dans l’ordre.</li>
 </ul>
+<pre><code>entrée      →  traitement        →  sortie
+départ,        calcul du            le trajet
+arrivée        plus court chemin</code></pre>
 </section>
-<section id="lordinateur-ne-devine-rien" class="slide level2">
-<h2>L’ordinateur ne devine rien</h2>
+<section id="algorithme-attention-et-vérification" class="slide level2">
+<h2>Algorithme — attention et vérification</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Attention</strong></p>
+</div>
+<div class="callout-content">
+<p>Une instruction qui vous semble évidente (« ouvrir le pain ») ne l’est pas pour une machine. Résultat faux : cherchez l’instruction imprécise ou oubliée.</p>
+</div>
+</div>
+</div>
 <ul>
-<li>Il exécute les instructions <strong>exactement</strong>, <strong>dans l’ordre</strong>.</li>
-<li>Résultat faux ? Les instructions sont fausses ou incomplètes.</li>
-<li><strong>Pensée computationnelle</strong> : découper un problème en étapes.</li>
-<li>Des étapes assez précises pour qu’une machine les suive.</li>
+<li><strong>Vérifiez</strong> : pour une recette, quelle est l’entrée ? la sortie ?</li>
 </ul>
 </section>
 <section id="activité-1-le-sandwich-15-min" class="slide level2">
 <h2>Activité 1 — Le sandwich (15 min)</h2>
-<ul>
+<ol type="1">
 <li>Le formateur joue un robot qui prépare une tartine.</li>
 <li>Le groupe lui dicte les instructions, une par une.</li>
 <li>Le robot fait <strong>exactement</strong> ce qu’on lui dit.</li>
-<li>En binôme : réécrivez des instructions qui marchent.</li>
-<li>Démonstration adaptée de CS50 <span class="citation" data-cites="cs50-2017-lecture0 cs50-2014-week0-notes">(<a href="#/sources" role="doc-biblioref" onclick="">2017</a>, <a href="#/sources" role="doc-biblioref" onclick="">2014</a>)</span>.</li>
-</ul>
+<li>Par deux (5 min) : l’un écrit les instructions, l’autre les relit.</li>
+<li><strong>Réussi si</strong> : un camarade peut les suivre sans poser de question.</li>
+</ol>
 </section>
-<section id="activité-2-trouver-un-nom-dans-lannuaire-20-min" class="slide level2">
-<h2>Activité 2 — Trouver un nom dans l’annuaire (20 min)</h2>
-<ul>
+<section id="activité-2-trouver-un-nom-dans-lannuaire-15-min" class="slide level2">
+<h2>Activité 2 — Trouver un nom dans l’annuaire (15 min)</h2>
+<ol type="1">
 <li>Un annuaire <strong>trié</strong> de 1 000 pages : trouvez un nom.</li>
 <li><strong>Page par page</strong> : combien de pages tourner, au pire ?</li>
 <li><strong>Deux pages à la fois</strong> : combien de pages ? Quel risque ?</li>
 <li><strong>Couper en deux</strong> : ouvrir au milieu, garder la bonne moitié.</li>
 <li>Comptez les pages de chaque méthode. Et avec 2 000 pages ?</li>
-<li>Adapté de l’exemple de l’annuaire de CS50 <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#/sources" role="doc-biblioref" onclick="">2026</a>)</span>.</li>
+</ol>
+</section>
+<section id="apport-2-scratch-et-les-événements-10-min" class="slide level2">
+<h2>Apport 2 — Scratch et les événements (10 min)</h2>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Événement, script, sprite
+  accDescr: Un événement, le bloc « quand le drapeau vert est cliqué », démarre un script. Le script est une suite de blocs emboîtés : aller à x 0 y 0, puis dire Bonjour pendant 2 secondes. Le script fait agir le sprite, le chat, sur la scène.
+  E(["Événement&lt;br/&gt;quand ⚑ est cliqué"]) --&gt;|démarre| S["Script&lt;br/&gt;aller à x: 0 y: 0&lt;br/&gt;dire Bonjour ! 2 s"]
+  S --&gt;|fait agir| P["Sprite&lt;br/&gt;le chat, sur la scène"]
+</pre>
+</div>
+<p></p><figcaption> Une image : l’événement démarre le script, et le script fait agir le sprite sur la scène. Sans événement, le script ne s’exécute jamais.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="scratch-attention-et-vérification" class="slide level2">
+<h2>Scratch — attention et vérification</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Attention</strong></p>
+</div>
+<div class="callout-content">
+<p>Rien ne se passe au drapeau vert ? Le script ne commence pas par un événement, ou les blocs ne sont pas emboîtés (ils doivent « coller »).</p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : séparez le premier bloc ; que se passe-t-il au drapeau ?</li>
 </ul>
 </section>
-<section id="apport-2-scratch-en-15-minutes-15-min" class="slide level2">
-<h2>Apport 2 — Scratch en 15 minutes (15 min)</h2>
+<section id="exercice-1-le-sprite-se-présente-10-min" class="slide level2">
+<h2>Exercice 1 — Le sprite se présente (10 min)</h2>
+<ol type="1">
+<li>Ensemble : le départ au drapeau vert, au centre de la scène.</li>
+<li>Seuls : le chat avance de 100 pas, puis dit « Bonjour, je m’appelle … ».</li>
+<li>Cliquez plusieurs fois sur le drapeau vert.</li>
+<li><strong>Réussi si</strong> : le chat repart <strong>du centre</strong> à chaque fois.</li>
+</ol>
+</section>
+<section id="apport-3-la-boucle-et-la-condition-10-min" class="slide level2">
+<h2>Apport 3 — La boucle et la condition (10 min)</h2>
 <ul>
-<li><strong>Scratch</strong> : programmer avec des blocs, sans rien taper.</li>
-<li>La <strong>scène</strong> (en haut à droite) : où le programme s’exécute.</li>
-<li>Un <strong>sprite</strong> (le personnage ou l’objet qu’on anime).</li>
-<li>Les <strong>catégories de blocs</strong> (à gauche) : Mouvement, Apparence…</li>
-<li>La <strong>zone de code</strong> (au centre) : on y emboîte les blocs.</li>
+<li><strong>Pourquoi</strong> : répéter sans recopier, et agir seulement si besoin.</li>
+<li><strong>Boucle</strong> : répète des blocs ; <strong>condition</strong> : « si … alors ».</li>
+</ul>
+<pre><code>quand ⚑ est cliqué
+répéter indéfiniment
+    avancer de 5 pas
+    si &lt;touche le pointeur de souris ?&gt; alors
+        dire [Aïe !] pendant 0.5 secondes</code></pre>
+</section>
+<section id="boucle-et-condition-attention-et-vérification" class="slide level2">
+<h2>Boucle et condition — attention et vérification</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Attention</strong></p>
+</div>
+<div class="callout-content">
+<p>Un bloc placé <strong>sous</strong> « répéter indéfiniment » ne s’exécute jamais : la boucle ne finit pas. Mettez dans la boucle ce qui doit se répéter.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : qu’est-ce qui se répète ? qu’est-ce qui arrive parfois ?</li>
 </ul>
 </section>
-<section id="tout-commence-par-un-événement" class="slide level2">
-<h2>Tout commence par un événement</h2>
-<ul>
-<li>Un programme démarre par un <strong>événement</strong> (bloc jaune).</li>
-<li>Exemple : « quand ⚑ est cliqué » (⚑ = drapeau vert).</li>
-<li>Sans événement, les blocs ne s’exécutent jamais.</li>
-<li>Créez un projet « Semaine 1 — Prénom ».</li>
-<li>Enregistrez régulièrement.</li>
-</ul>
-</section>
-<section id="exercice-1-le-sprite-se-présente-facile" class="slide level2">
-<h2>Exercice 1 — Le sprite se présente (facile)</h2>
-<ul>
-<li>Au drapeau vert, le chat va au centre, avance de 100 pas.</li>
-<li>Puis il dit « Bonjour, je m’appelle … » pendant 2 secondes.</li>
-<li><strong>Vérifiez</strong> : cliquez plusieurs fois sur le drapeau vert.</li>
-<li>Le chat doit repartir <strong>du centre</strong> à chaque fois.</li>
-</ul>
-</section>
-<section id="exercice-2-le-rebond-moyen" class="slide level2">
-<h2>Exercice 2 — Le rebond (moyen)</h2>
-<ul>
-<li>Au drapeau vert, le chat avance <strong>indéfiniment</strong>.</li>
+<section id="exercice-2-le-rebond-20-min" class="slide level2">
+<h2>Exercice 2 — Le rebond (20 min)</h2>
+<ol type="1">
+<li>Seuls : au drapeau vert, le chat avance <strong>indéfiniment</strong>.</li>
 <li>Il rebondit quand il atteint un bord.</li>
 <li><strong>Si</strong> il touche le pointeur de la souris, il dit « Aïe ! ».</li>
-<li><strong>Vérifiez</strong> : il va et vient, et réagit à la souris.</li>
-<li>Le bouton rouge arrête tout.</li>
-</ul>
+<li><strong>Réussi si</strong> : il va et vient, et réagit à la souris.</li>
+</ol>
 </section>
 <section id="partager-le-projet" class="slide level2">
 <h2>Partager le projet</h2>
-<ul>
-<li>Cliquez sur <strong>Partager</strong>.</li>
-<li>Copiez l’adresse de la page du projet.</li>
-<li>Déposez-la auprès du formateur.</li>
+<ol type="1">
+<li>Avec un compte : cliquez sur <strong>Partager</strong>.</li>
+<li>Copiez l’adresse du projet, déposez-la.</li>
 <li>Sans compte : <strong>Fichier</strong>, puis <strong>Sauvegarder sur votre ordinateur</strong>.</li>
 <li>Déposez alors le fichier <code>.sb3</code>.</li>
+</ol>
+</section>
+<section id="à-retenir-ce-matin" class="slide level2">
+<h2>À retenir — ce matin</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>À retenir</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Algorithme</strong> : des instructions précises, exécutées à la lettre.</li>
+<li><strong>Événement</strong> : tout script commence par un bloc jaune.</li>
+<li><strong>Boucle</strong> : on répète ; <strong>condition</strong> : seulement si c’est vrai.</li>
 </ul>
+</div>
+</div>
+</div>
 </section>
 <section id="débrief" class="slide level2">
 <h2>Débrief</h2>
 <ul>
 <li>Points communs entre le sandwich et Scratch ?</li>
-<li>Exercice 2 : que répète-t-on ? Qu’exécute-t-on seulement parfois ?</li>
 <li>Pourquoi « couper en deux » exige-t-il un annuaire trié ?</li>
 </ul>
-</section>
-<section id="critères-de-réussite" class="slide level2">
-<h2>Critères de réussite</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Une réponse de veille est écrite sur papier</label></li>
-<li><label><input type="checkbox">Les deux exercices Scratch fonctionnent</label></li>
-<li><label><input type="checkbox">Le lien du projet (ou le <code>.sb3</code>) est déposé</label></li>
-</ul>
-</section>
-<section id="pour-aller-plus-loin" class="slide level2">
-<h2>Pour aller plus loin</h2>
-<ul>
-<li><strong>Piloter au clavier</strong> : les flèches déplacent le sprite.</li>
-<li><strong>Le dessin dicté</strong>, en binôme.</li>
-<li><strong>Anglais</strong> : lire <em>Getting Started with Scratch</em>.</li>
-<li><strong>Le chat et la souris</strong> : une souris qui suit le pointeur.</li>
-<li><strong>Tutoriels</strong> : un tutoriel du menu <strong>Tutoriels</strong> de Scratch.</li>
-</ul>
-</section>
-<section id="pour-aller-plus-loin-piloter-au-clavier" class="slide level2">
-<h2>Pour aller plus loin — Piloter au clavier</h2>
-<ul>
-<li>Chaque flèche du clavier déplace le chat de 10 pas.</li>
-<li>Une flèche = une direction : haut, bas, gauche, droite.</li>
-<li><strong>Vérifiez</strong> : cliquez sur la scène, puis utilisez les flèches.</li>
-</ul>
-</section>
-<section id="pour-aller-plus-loin-le-dessin-dicté-en-binôme" class="slide level2">
-<h2>Pour aller plus loin — Le dessin dicté (en binôme)</h2>
-<ul>
-<li>En binôme, dos à dos : l’un décrit une figure, sans gestes.</li>
-<li>L’autre la dessine, <strong>sans poser de question</strong>. On compare.</li>
-<li>Nouvelle figure, rôles échangés : les questions sont permises.</li>
-<li>Débrief : quelles instructions étaient ambiguës ?</li>
-<li>Adapté de CS Unplugged, activité 12 <span class="citation" data-cites="csunplugged-marching-orders">(<a href="#/sources" role="doc-biblioref" onclick="">s.&nbsp;d.</a>)</span>.</li>
-</ul>
-</section>
-<section id="anglais" class="slide level2">
-<h2>Pour aller plus loin — Getting Started with Scratch (anglais)</h2>
-<p>Lisez <em>Getting Started with Scratch</em> <span class="citation" data-cites="scratch-wiki-getting-started">(<a href="#/sources" role="doc-biblioref" onclick="">Scratch Wiki, s.&nbsp;d.</a>)</span>.</p>
-<ol type="1">
-<li>Quel bloc lance un script au drapeau vert ? En anglais ?</li>
-<li>D’après la page, qu’est-ce qu’un <em>sprite</em> ? Et le <em>stage</em> ?</li>
-<li>Avantage et limite de l’éditeur en ligne (<em>online editor</em>) ?</li>
-<li>Que veut dire « remixer » un projet ? Comment fait-on ?</li>
-</ol>
 </section></section>
 <section>
 <section id="après-midi-groupe-a-projet-consolidation" class="title-slide slide level1 center">
@@ -399,7 +425,7 @@ Kevin Bardoux
 <li><strong>Terminer</strong> : les exercices Scratch 1 et 2, lien déposé.</li>
 <li><strong>Consolider</strong> : reprenez un exercice de jeudi noté « bloqué ».</li>
 <li><strong>Approfondir</strong> : les défis de « Pour aller plus loin ».</li>
-<li><strong>Montrer</strong> (16 h 15) : votre projet, en binôme, 5 min chacun.</li>
+<li><strong>Montrer</strong> (16 h 15) : par deux, l’un montre, l’autre teste ; 5 min chacun.</li>
 </ol>
 </section>
 <section id="critères-de-réussite-de-laprès-midi" class="slide level2">
@@ -416,23 +442,8 @@ Kevin Bardoux
 <div id="ref-cert-fr" class="csl-entry" role="listitem">
 CERT-FR. s.&nbsp;d. <span>«&nbsp;CERT-FR – Cert national et gouvernemental français&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.cert.ssi.gouv.fr/">https://www.cert.ssi.gouv.fr/</a>.
 </div>
-<div id="ref-csunplugged-marching-orders" class="csl-entry" role="listitem">
-CS Unplugged. s.&nbsp;d. <span>«&nbsp;Programming Languages — Marching Orders&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://classic.csunplugged.org/activities/programming-languages/">https://classic.csunplugged.org/activities/programming-languages/</a>.
-</div>
-<div id="ref-cs50-2014-week0-notes" class="csl-entry" role="listitem">
-CS50. 2014. <span>«&nbsp;Week 0, continued&nbsp;»</span>. <a href="https://cdn.cs50.net/2014/fall/lectures/0/f/notes0f/notes0f.pdf">https://cdn.cs50.net/2014/fall/lectures/0/f/notes0f/notes0f.pdf</a>.
-</div>
-<div id="ref-cs50-2017-lecture0" class="csl-entry" role="listitem">
-CS50. 2017. <span>«&nbsp;Lecture0&nbsp;»</span>. <a href="https://docs.cs50.net/2017/fall/notes/0/lecture0.html">https://docs.cs50.net/2017/fall/notes/0/lecture0.html</a>.
-</div>
-<div id="ref-cs50x-2026-lecture0" class="csl-entry" role="listitem">
-CS50. 2026. <span>«&nbsp;Lecture 0 - CS50x 2026&nbsp;»</span>. <a href="https://cs50.harvard.edu/x/notes/0/">https://cs50.harvard.edu/x/notes/0/</a>.
-</div>
 <div id="ref-owasp-top10-2025" class="csl-entry" role="listitem">
 OWASP Foundation. 2025. <span>«&nbsp;OWASP Top 10:2025&nbsp;»</span>. <a href="https://top10.owasp.org/2025">https://top10.owasp.org/2025</a>.
-</div>
-<div id="ref-scratch-wiki-getting-started" class="csl-entry" role="listitem">
-Scratch Wiki. s.&nbsp;d. <span>«&nbsp;Getting Started with Scratch&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://en.scratch-wiki.info/wiki/Getting_Started_with_Scratch">https://en.scratch-wiki.info/wiki/Getting_Started_with_Scratch</a>.
 </div>
 </div>
 
