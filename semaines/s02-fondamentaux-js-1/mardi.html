@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Mardi 13/10 — Premiers pas en JavaScript avec Node – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s02-fondamentaux-js-1/mercredi.html" rel="next">
+<link href="../../semaines/s02-fondamentaux-js-1/lundi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/mardi.html">Mardi 13/10 — Premiers pas en JavaScript avec Node</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" id="toc-matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" class="nav-link" data-scroll-target="#matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types">Matin — Premiers pas en JavaScript avec Node : installation, console, variables, types, ===</a>
+  <ul class="collapse">
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-1-installer-node.js-10-min" id="toc-apport-1-installer-node.js-10-min" class="nav-link" data-scroll-target="#apport-1-installer-node.js-10-min">Apport 1 — Installer Node.js (10 min)</a></li>
+  <li><a href="#node.js-attention-et-vérification" id="toc-node.js-attention-et-vérification" class="nav-link" data-scroll-target="#node.js-attention-et-vérification">Node.js — attention et vérification</a></li>
+  <li><a href="#apport-2-un-éditeur-de-code-vs-code-10-min" id="toc-apport-2-un-éditeur-de-code-vs-code-10-min" class="nav-link" data-scroll-target="#apport-2-un-éditeur-de-code-vs-code-10-min">Apport 2 — Un éditeur de code : VS Code (10 min)</a></li>
+  <li><a href="#vs-code-attention-et-vérification" id="toc-vs-code-attention-et-vérification" class="nav-link" data-scroll-target="#vs-code-attention-et-vérification">VS Code — attention et vérification</a></li>
+  <li><a href="#apport-3-const-et-let-8-min" id="toc-apport-3-const-et-let-8-min" class="nav-link" data-scroll-target="#apport-3-const-et-let-8-min">Apport 3 — <code>const</code> et <code>let</code> (8 min)</a></li>
+  <li><a href="#variables-attention-et-vérification" id="toc-variables-attention-et-vérification" class="nav-link" data-scroll-target="#variables-attention-et-vérification">Variables — attention et vérification</a></li>
+  <li><a href="#apport-4-les-types-et-typeof-7-min" id="toc-apport-4-les-types-et-typeof-7-min" class="nav-link" data-scroll-target="#apport-4-les-types-et-typeof-7-min">Apport 4 — Les types et <code>typeof</code> (7 min)</a></li>
+  <li><a href="#types-attention-et-vérification" id="toc-types-attention-et-vérification" class="nav-link" data-scroll-target="#types-attention-et-vérification">Types — attention et vérification</a></li>
+  <li><a href="#exercice-prédire-puis-vérifier-30-min" id="toc-exercice-prédire-puis-vérifier-30-min" class="nav-link" data-scroll-target="#exercice-prédire-puis-vérifier-30-min">Exercice — Prédire, puis vérifier (30 min)</a></li>
+  <li><a href="#apport-5-comparer-avec-10-min" id="toc-apport-5-comparer-avec-10-min" class="nav-link" data-scroll-target="#apport-5-comparer-avec-10-min">Apport 5 — Comparer avec <code>===</code> (10 min)</a></li>
+  <li><a href="#attention-et-vérification" id="toc-attention-et-vérification" class="nav-link" data-scroll-target="#attention-et-vérification"><code>===</code> — attention et vérification</a></li>
+  <li><a href="#exercice-quatre-comparaisons-10-min" id="toc-exercice-quatre-comparaisons-10-min" class="nav-link" data-scroll-target="#exercice-quatre-comparaisons-10-min">Exercice — Quatre comparaisons (10 min)</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-quatre-pièges-de" id="toc-si-le-temps-le-permet-quatre-pièges-de" class="nav-link" data-scroll-target="#si-le-temps-le-permet-quatre-pièges-de">Si le temps le permet — Quatre pièges de <code>==</code></a></li>
+  </ul></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-tp-hello-js-premiers-tests-automatiques" id="toc-après-midi-tp-hello-js-premiers-tests-automatiques" class="nav-link" data-scroll-target="#après-midi-tp-hello-js-premiers-tests-automatiques">Après-midi — TP — « Hello, JS » · premiers tests automatiques</a>
+  <ul class="collapse">
+  <li><a href="#récupérer-les-fichiers-10-min" id="toc-récupérer-les-fichiers-10-min" class="nav-link" data-scroll-target="#récupérer-les-fichiers-10-min">Récupérer les fichiers (10 min)</a></li>
+  <li><a href="#apport-6-lancer-un-programme-et-ses-tests-15-min" id="toc-apport-6-lancer-un-programme-et-ses-tests-15-min" class="nav-link" data-scroll-target="#apport-6-lancer-un-programme-et-ses-tests-15-min">Apport 6 — Lancer un programme et ses tests (15 min)</a></li>
+  <li><a href="#tests-attention-et-vérification" id="toc-tests-attention-et-vérification" class="nav-link" data-scroll-target="#tests-attention-et-vérification">Tests — attention et vérification</a></li>
+  <li><a href="#apport-7-une-valeur-dans-un-texte-5-min" id="toc-apport-7-une-valeur-dans-un-texte-5-min" class="nav-link" data-scroll-target="#apport-7-une-valeur-dans-un-texte-5-min">Apport 7 — Une valeur dans un texte (5 min)</a></li>
+  <li><a href="#littéral-de-gabarit-attention-et-vérification" id="toc-littéral-de-gabarit-attention-et-vérification" class="nav-link" data-scroll-target="#littéral-de-gabarit-attention-et-vérification">Littéral de gabarit — attention et vérification</a></li>
+  <li><a href="#exercices-01-à-04-1-h-15" id="toc-exercices-01-à-04-1-h-15" class="nav-link" data-scroll-target="#exercices-01-à-04-1-h-15">Exercices 01 à 04 (1 h 15)</a>
+  <ul class="collapse">
+  <li><a href="#critères-de-réussite" id="toc-critères-de-réussite" class="nav-link" data-scroll-target="#critères-de-réussite">Critères de réussite</a></li>
+  <li><a href="#si-le-temps-le-permet-exercice-05-prix-ttc" id="toc-si-le-temps-le-permet-exercice-05-prix-ttc" class="nav-link" data-scroll-target="#si-le-temps-le-permet-exercice-05-prix-ttc">Si le temps le permet — Exercice 05 : prix TTC</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a></li>
+  <li><a href="#débrief-10-min" id="toc-débrief-10-min" class="nav-link" data-scroll-target="#débrief-10-min">Débrief (10 min)</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="mardi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="mardi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/mardi.html">Mardi 13/10 — Premiers pas en JavaScript avec Node</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Mardi 13/10 — Premiers pas en JavaScript avec Node</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">mardi 13 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : installer son environnement · résolution de problème · apprendre en continu<br> <strong>Livrable</strong> : exercices 01 à 04 au vert, une capture du terminal.</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Installer <a href="../../ressources/lexique.html#t-nodejs">Node.js</a> et VS Code, et lancer un programme dans le <a href="../../ressources/lexique.html#t-terminal">terminal</a>.</li>
+<li>Utiliser <code>const</code>, <code>let</code>, <code>typeof</code> et <code>console.log</code>.</li>
+<li>Comparer avec <code>===</code> et expliquer pourquoi on évite <code>==</code>.</li>
+<li>Lancer des <a href="../../ressources/lexique.html#t-test">tests</a> automatiques et lire un test rouge.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Chaque notion suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification. Un encadré « À retenir » termine chaque demi-journée. Le formateur montre d’abord ; vous faites ensuite le premier exercice tous ensemble ; puis vous continuez seuls. <a href="../../ressources/lexique.html#t-eslint">ESLint</a>, prévu au programme de la semaine, arrive vendredi matin.</p>
+</section>
+<section id="matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" class="level1">
+<h1>Matin — Premiers pas en JavaScript avec Node : installation, console, variables, types, ===</h1>
+<section id="rappel-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<ol type="1">
+<li>À quoi sert une variable ?</li>
+<li>Que faut-il pour qu’un message démarre un script ?</li>
+<li>Qu’est-ce que le pseudo-code ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-1-installer-node.js-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-1-installer-node.js-10-min">Apport 1 — Installer Node.js (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : lancer vos programmes JavaScript sur votre ordinateur.</li>
+<li><strong>Node.js</strong> exécute du JavaScript en dehors du navigateur.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Cette semaine, vous écrivez des programmes et vous les faites vérifier par des tests, sur votre ordinateur. Le navigateur lit le JavaScript d’une page web, mais il ne lance pas un programme seul dans un terminal.</p>
+<p><strong>Définition.</strong> Node.js est un programme qui exécute du JavaScript en dehors du navigateur, dans un terminal.</p>
+<p>On installe la <strong>version <a href="../../ressources/lexique.html#t-lts">LTS</a></strong> (<em>Long Term Support</em>) : elle est maintenue longtemps, et c’est celle que Node.js recommande pour un usage sérieux <span class="citation" data-cites="nodejs-releases">(<a href="#ref-nodejs-releases" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span>. La page de téléchargement officielle indique laquelle est active, et propose l’installeur qui correspond à votre système <span class="citation" data-cites="nodejs-download">(<a href="#ref-nodejs-download" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-a</a>)</span>.</p>
+<p><strong>Exemple.</strong> Une fois Node.js installé, ces deux commandes affichent chacune un numéro de version (pour Node, la lettre <code>v</code> suivie de chiffres).</p>
+<p>Les blocs à fond sombre reproduisent l’écran du terminal de Windows (PowerShell). La ligne qui commence par <code>PS C:\Users\stagiaire&gt;</code> est l’<strong>invite</strong> : le dossier où le terminal travaille, suivi de la commande tapée. Ne tapez que ce qui suit <code>&gt;</code>. Les lignes suivantes sont la réponse du terminal. Sous macOS et Linux, l’invite est différente, la réponse est la même.</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire&gt; node -v
+v24.21.0
+PS C:\Users\stagiaire&gt; npm -v
+11.19.0</code></pre>
+</div>
+<p>Vos numéros peuvent être un peu différents : l’installation est réussie si chaque commande affiche un numéro, et si celui de Node commence par <code>v24</code> ou plus.</p>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape au vidéoprojecteur ; vous la refaites aussitôt sur votre ordinateur, puis vous attendez l’étape suivante (35 min).</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="os">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Linux</a></li></ul>
+<div class="tab-content" data-group="os">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>Ouvrez nodejs.org, page <em>Download</em> ; gardez la version <strong>LTS</strong>.</li>
+<li>Téléchargez l’installeur <strong>Windows Installer (.msi)</strong>.</li>
+<li>Lancez-le. Acceptez l’autorisation de modifier l’ordinateur : vous êtes administrateur de votre poste.</li>
+<li>Gardez les choix proposés, mais laissez <strong>décochée</strong> la case « Tools for Native Modules ».</li>
+<li>Terminez l’installation.</li>
+<li>Fermez PowerShell s’il était ouvert, puis rouvrez-le.</li>
+<li>Tapez <code>node -v</code>, puis Entrée ; puis <code>npm -v</code>, puis Entrée.</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ol type="1">
+<li>Ouvrez nodejs.org, page <em>Download</em> ; gardez la version <strong>LTS</strong>.</li>
+<li>Téléchargez l’installeur <strong>macOS Installer (.pkg)</strong>.</li>
+<li>Lancez-le et suivez les étapes, avec les choix proposés.</li>
+<li>Fermez le Terminal s’il était ouvert, puis rouvrez-le.</li>
+<li>Tapez <code>node -v</code>, puis Entrée ; puis <code>npm -v</code>, puis Entrée.</li>
+</ol>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<ol type="1">
+<li>Ouvrez un terminal.</li>
+<li>Installez fnm : <code>curl -fsSL https://fnm.vercel.app/install | bash</code></li>
+<li>Fermez le terminal, puis rouvrez-le.</li>
+<li>Installez la LTS : <code>fnm install --lts</code></li>
+<li>Tapez <code>node -v</code>, puis Entrée ; puis <code>npm -v</code>, puis Entrée.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>L’installeur installe aussi <strong><a href="../../ressources/lexique.html#t-npm">npm</a></strong>, le gestionnaire de <a href="../../ressources/lexique.html#t-paquet">paquets</a> de Node, qui servira vendredi. La case « Tools for Native Modules » (outils pour les modules natifs) installe Chocolatey et des outils de compilation, inutiles pour la formation, et rallonge beaucoup l’installation. Sous Linux, <strong>fnm</strong> est un gestionnaire de versions de Node : il installe la LTS du moment et permet d’en changer en une commande <span class="citation" data-cites="fnm fnm-commands">(<a href="#ref-fnm" role="doc-biblioref">Schniz, s.&nbsp;d.-b</a>, <a href="#ref-fnm-commands" role="doc-biblioref">s.&nbsp;d.-a</a>)</span>. Le paquet <code>nodejs</code> d’une distribution est souvent en retard de plusieurs versions <span class="citation" data-cites="nodejs-releases">(<a href="#ref-nodejs-releases" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span> ; une alternative courante à fnm est nvm <span class="citation" data-cites="nvm">(<a href="#ref-nvm" role="doc-biblioref"><span class="nocase">nvm-sh</span>, s.&nbsp;d.</a>)</span>.</p>
+<p><strong>En secours : StackBlitz.</strong> Si l’installation échoue, StackBlitz fait tourner Node.js dans le navigateur grâce aux WebContainers <span class="citation" data-cites="stackblitz">(<a href="#ref-stackblitz" role="doc-biblioref">StackBlitz, s.&nbsp;d.-a</a>)</span> ; utilisez Chrome ou un navigateur basé sur Chromium (Firefox et Safari sont seulement en bêta) <span class="citation" data-cites="stackblitz-webcontainers-browsers">(<a href="#ref-stackblitz-webcontainers-browsers" role="doc-biblioref">StackBlitz, s.&nbsp;d.-b</a>)</span>. Déposez-y les fichiers de l’après-midi et ouvrez son terminal intégré. L’installation se termine mercredi.</p>
+</section>
+<section id="node.js-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="node.js-attention-et-vérification">Node.js — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>« n’est pas reconnu » ou « commande introuvable » : le terminal était ouvert avant l’installation. Fermez-le, rouvrez-le, retapez <code>node -v</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : <code>node -v</code> et <code>npm -v</code> affichent chacun un numéro.</li>
+</ul>
+</section>
+<section id="apport-2-un-éditeur-de-code-vs-code-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-2-un-éditeur-de-code-vs-code-10-min">Apport 2 — Un éditeur de code : VS Code (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : écrire vos fichiers <code>.js</code> et les retrouver.</li>
+<li><strong>VS Code</strong> : l’éditeur de code de la formation, gratuit.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Cet après-midi, vous modifiez des fichiers <code>.js</code>. Un traitement de texte ajoute une mise en forme que Node ne sait pas lire, et le Bloc-notes peut enregistrer <code>hello.js</code> sous le nom <code>hello.js.txt</code>. Un <a href="../../ressources/lexique.html#t-editeur-de-code">éditeur de code</a> enregistre du texte brut, colore le code et numérote les lignes.</p>
+<p><strong>Définition.</strong> VS Code (Visual Studio Code, de Microsoft) est un éditeur de code : un logiciel gratuit pour écrire et enregistrer des fichiers de programmation. C’est l’éditeur de toute la formation.</p>
+<p><strong>Exemple.</strong> Un fichier <code>essai.js</code>, créé dans VS Code et enregistré dans <code>dwwm/semaine-02</code>, qui contient une ligne :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Bonjour depuis VS Code'</span>)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape ; vous la refaites aussitôt. Jusqu’en semaine 4, VS Code s’affiche en anglais : les noms des menus sont donc en anglais.</p>
+<ol type="1">
+<li><p><strong>Installer VS Code.</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="os">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Linux</a></li></ul>
+<div class="tab-content" data-group="os">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li>Ouvrez la page de téléchargement de VS Code <span class="citation" data-cites="vscode-download">(<a href="#ref-vscode-download" role="doc-biblioref">Microsoft, s.&nbsp;d.-b</a>)</span> ; cliquez sur <strong>Windows</strong>.</li>
+<li>Lancez le fichier téléchargé ; acceptez le contrat de licence.</li>
+<li>Gardez les choix proposés ; terminez l’installation <span class="citation" data-cites="vscode-setup-windows">(<a href="#ref-vscode-setup-windows" role="doc-biblioref">Microsoft, s.&nbsp;d.-e</a>)</span>.</li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<ol type="1">
+<li>Ouvrez la page de téléchargement de VS Code <span class="citation" data-cites="vscode-download">(<a href="#ref-vscode-download" role="doc-biblioref">Microsoft, s.&nbsp;d.-b</a>)</span> ; cliquez sur <strong>Mac</strong>.</li>
+<li>Ouvrez le fichier téléchargé.</li>
+<li>Glissez <strong>Visual Studio Code.app</strong> dans le dossier <strong>Applications</strong> <span class="citation" data-cites="vscode-setup-mac">(<a href="#ref-vscode-setup-mac" role="doc-biblioref">Microsoft, s.&nbsp;d.-d</a>)</span>.</li>
+</ol>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<ol type="1">
+<li>Ouvrez la page de téléchargement de VS Code <span class="citation" data-cites="vscode-download">(<a href="#ref-vscode-download" role="doc-biblioref">Microsoft, s.&nbsp;d.-b</a>)</span> ; téléchargez le paquet <strong>.deb</strong> (Ubuntu, Debian).</li>
+<li>Dans le terminal, depuis le dossier du fichier : <code>sudo apt install ./&lt;nom-du-fichier&gt;.deb</code> <span class="citation" data-cites="vscode-setup-linux">(<a href="#ref-vscode-setup-linux" role="doc-biblioref">Microsoft, s.&nbsp;d.-c</a>)</span>.</li>
+</ol>
+</div>
+</div>
+</div></li>
+<li><p><strong>Désactiver les fonctions IA (palier 0).</strong> Ouvrez les réglages avec <kbd title="mac: Cmd+,, windows: Ctrl+," aria-hidden="true" data-mac="Cmd+," data-windows="Ctrl+,"></kbd><span class="visually-hidden"></span>. Dans la barre de recherche, tapez <code>chat.disableAIFeatures</code>. Cochez la case. Ne changez aucun autre réglage <span class="citation" data-cites="vscode-ia">(<a href="#ref-vscode-ia" role="doc-biblioref">Microsoft, s.&nbsp;d.-f</a>)</span>.</p></li>
+<li><p><strong>Afficher les <a href="../../ressources/lexique.html#t-extension-de-fichier">extensions des noms de fichiers</a>.</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="os">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Linux</a></li></ul>
+<div class="tab-content" data-group="os">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li>Windows 11 : dans l’Explorateur de fichiers, menu <strong>Affichage</strong>, puis <strong>Afficher</strong>, puis <strong>Extensions de noms de fichiers</strong>.</li>
+<li>Windows 10 : dans l’Explorateur de fichiers, onglet <strong>Affichage</strong>, groupe <strong>Afficher/Masquer</strong>, cochez <strong>Extensions de noms de fichiers</strong> <span class="citation" data-cites="windows-extensions-fichiers">(<a href="#ref-windows-extensions-fichiers" role="doc-biblioref">Microsoft, s.&nbsp;d.-a</a>)</span>.</li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Dans le Finder, menu <strong>Finder</strong>, puis <strong>Réglages</strong>, puis <strong>Avancés</strong> ; cochez <strong>Afficher toutes les extensions de fichiers</strong> <span class="citation" data-cites="apple-extensions-fichiers">(<a href="#ref-apple-extensions-fichiers" role="doc-biblioref">Apple, s.&nbsp;d.</a>)</span>.</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>Les gestionnaires de fichiers de Linux affichent déjà les extensions : rien à faire.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Créer un fichier.</strong> Dans VS Code : <em>File</em>, puis <em>New File…</em> ; tapez <code>essai.js</code>, puis Entrée.</p></li>
+<li><p><strong>Enregistrer.</strong> Choisissez le dossier <code>dwwm/semaine-02</code> (créez <code>semaine-02</code> s’il n’existe pas), puis <em>Save</em>.</p></li>
+<li><p><strong>Écrire.</strong> Tapez la ligne de l’exemple, puis enregistrez avec <kbd title="mac: Cmd+S, windows: Ctrl+S" aria-hidden="true" data-mac="Cmd+S" data-windows="Ctrl+S"></kbd><span class="visually-hidden"></span>.</p></li>
+<li><p><strong>Fermer et rouvrir.</strong> Fermez VS Code. Rouvrez-le, puis <em>File</em>, <em>Open Folder…</em>, et choisissez le dossier <code>dwwm/semaine-02</code>.</p></li>
+<li><p><strong>Faire confiance au dossier.</strong> VS Code demande : « Do you trust the authors of the files in this folder? » (« Faites-vous confiance aux auteurs des fichiers de ce dossier ? »). Cliquez sur <strong>Yes, I trust the authors</strong> (« Oui, je fais confiance aux auteurs »).</p>
+<p><strong>Vous devez voir</strong> : la fenêtre de la question se ferme, et les fichiers du dossier, dont <code>essai.js</code>, apparaissent à gauche.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ne faites confiance qu’aux dossiers du cours ou à ceux que vous avez créés vous-même. En cas de doute, cliquez sur <strong>No, I don’t trust the authors</strong> (« Non, je ne fais pas confiance aux auteurs ») : VS Code ouvre le dossier en mode restreint, qui bloque l’exécution automatique de code <span class="citation" data-cites="vscode-workspace-trust">(<a href="#ref-vscode-workspace-trust" role="doc-biblioref">Microsoft, s.&nbsp;d.-g</a>)</span>. Puis demandez au formateur.</p>
+</div>
+</div></li>
+<li><p><strong>Lancer.</strong> Dans le terminal : <code>cd ~/dwwm/semaine-02</code>, puis <code>node essai.js</code>. Le terminal affiche <code>Bonjour depuis VS Code</code>.</p></li>
+</ol>
+</section>
+<section id="vs-code-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-attention-et-vérification">VS Code — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Cannot find module</code> alors que le fichier existe : il s’appelle peut-être <code>essai.js.txt</code>. Affichez les extensions, puis renommez-le <code>essai.js</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : <code>node essai.js</code> affiche <code>Bonjour depuis VS Code</code>.</li>
+</ul>
+</section>
+<section id="apport-3-const-et-let-8-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-3-const-et-let-8-min">Apport 3 — <code>const</code> et <code>let</code> (8 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : garder une valeur pour la réutiliser plus loin.</li>
+<li><strong>Variable</strong> : un nom qui désigne une valeur ; <code>const</code> par défaut.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un programme calcule une valeur, puis s’en sert plus loin : un prénom, un âge, un score. Pour la retrouver, on lui donne un nom.</p>
+<p><strong>Définition.</strong> Une variable est un nom qui désigne une valeur. On la déclare avec <code>const</code> (le nom désigne toujours la même valeur) ou avec <code>let</code> (le nom peut ensuite désigner une autre valeur) <span class="citation" data-cites="mdn-types-grammaire">(<a href="#ref-mdn-types-grammaire" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-e</a>)</span>. Règle du cours : <code>const</code> par défaut, <code>let</code> seulement si la valeur doit changer.</p>
+<p><strong>Une image, avec sa limite.</strong> Pour s’en souvenir, on peut imaginer une <strong>étiquette</strong> portant le nom, collée sur une valeur : <code>const</code> colle l’étiquette pour de bon, <code>let</code> permet de la décoller et de la recoller ailleurs. Limite de l’image : en semaine 6, deux étiquettes pourront désigner le même objet, et modifier l’objet par l’une se verra par l’autre ; l’image sera alors complétée.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Une variable, une étiquette
+  accDescr: const city est une étiquette collée sur la valeur Brest ; elle reste collée. let score est d'abord collée sur 12, puis, après score égale 15, recollée sur 15.
+  C["const city"] --&gt; B["'Brest'"]
+  L["let score"] -.-&gt;|avant| V1["12"]
+  L --&gt;|après score = 15| V2["15"]
+</pre>
+</div>
+<p></p><figcaption> Une image : la variable est une étiquette collée sur une valeur. const ne se recolle pas, let peut se recoller.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> city <span class="op">=</span> <span class="st">'Brest'</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> score <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(city<span class="op">,</span> score)<span class="op">;</span> <span class="co">// Brest 15</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur tape chaque ligne au vidéoprojecteur ; vous la retapez aussitôt dans votre terminal.</p>
+<ol type="1">
+<li>Tapez <code>node</code>, puis Entrée. L’invite <code>&gt;</code> apparaît : vous êtes dans le <strong><a href="../../ressources/lexique.html#t-repl">REPL</a></strong>, la console interactive de Node.</li>
+<li>Tapez <code>const city = 'Brest'</code>, puis Entrée. Le REPL affiche <code>undefined</code> : c’est normal, une déclaration ne renvoie aucune valeur.</li>
+<li>Tapez <code>city</code>, puis Entrée. Le REPL affiche <code>'Brest'</code>.</li>
+<li>Tapez <code>let score = 12</code>, puis Entrée ; puis <code>score = 15</code>, puis Entrée. Le REPL affiche <code>15</code>.</li>
+<li>Tapez <code>console.log(city, score)</code>, puis Entrée. Le REPL affiche <code>Brest 15</code>, puis <code>undefined</code> (la valeur renvoyée par <code>console.log</code>, à ignorer) <span class="citation" data-cites="mdn-console-log">(<a href="#ref-mdn-console-log" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span>.</li>
+<li>Tapez <code>.exit</code>, puis Entrée, pour quitter le REPL.</li>
+</ol>
+</section>
+<section id="variables-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="variables-attention-et-vérification">Variables — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>TypeError: Assignment to constant variable.</code> : vous avez donné une nouvelle valeur à une <code>const</code>. Déclarez-la avec <code>let</code>, seulement si sa valeur doit changer.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : <code>let n = 10; n = n + 5;</code> : que vaut <code>n</code> ?</li>
+<li>Prédisez, puis tapez la ligne dans le REPL.</li>
+</ul>
+</section>
+<section id="apport-4-les-types-et-typeof-7-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-4-les-types-et-typeof-7-min">Apport 4 — Les types et <code>typeof</code> (7 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : <code>'4' + 2</code> ne donne pas <code>6</code>.</li>
+<li><strong>Type</strong> : la sorte d’une valeur ; <code>typeof</code> la donne.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Le même signe ne fait pas la même chose selon les valeurs : <code>4 + 2</code> donne <code>6</code>, mais <code>'4' + 2</code> donne <code>'42'</code>. Pour comprendre un résultat, il faut connaître le <a href="../../ressources/lexique.html#t-type">type</a> de chaque valeur.</p>
+<p><strong>Définition.</strong> Le type d’une valeur dit de quelle sorte elle est : un nombre (<code>number</code>), un texte (<code>string</code>), <a href="../../ressources/lexique.html#t-booleen">vrai ou faux</a> (<code>boolean</code>)… L’opérateur <code>typeof</code> renvoie ce type, sous forme de texte <span class="citation" data-cites="mdn-typeof">(<a href="#ref-mdn-typeof" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>. Un texte s’écrit entre guillemets : <code>'42'</code> est un texte, <code>42</code> est un nombre.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typeof</span> <span class="dv">42</span>     <span class="co">// 'number'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">typeof</span> <span class="st">'42'</span>   <span class="co">// 'string'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">typeof</span> <span class="kw">true</span>   <span class="co">// 'boolean'</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">'4'</span> <span class="op">+</span> <span class="dv">2</span>       <span class="co">// '42' : + colle deux textes</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">'4'</span> <span class="op">*</span> <span class="dv">2</span>       <span class="co">// 8 : * convertit le texte en nombre</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur tape chaque ligne au vidéoprojecteur ; vous la retapez aussitôt.</p>
+<ol type="1">
+<li>Ouvrez le REPL : <code>node</code>, puis Entrée.</li>
+<li>Tapez <code>typeof 42</code>, puis Entrée. Le REPL affiche <code>'number'</code>.</li>
+<li>Tapez <code>typeof '42'</code>, puis Entrée. Le REPL affiche <code>'string'</code> : les guillemets font un texte.</li>
+<li>Tapez <code>'4' + 2</code>, puis Entrée. Le REPL affiche <code>'42'</code>, entre guillemets : c’est un texte.</li>
+<li>Tapez <code>'4' * 2</code>, puis Entrée. Le REPL affiche <code>8</code>, sans guillemets : c’est un nombre.</li>
+<li>Tapez <code>.exit</code>, puis Entrée.</li>
+</ol>
+<p>Le texte placé après <code>//</code> est un <strong><a href="../../ressources/lexique.html#t-commentaire">commentaire</a></strong> : Node l’ignore. JavaScript accepte les guillemets simples (<code>'…'</code>) et doubles (<code>"…"</code>) ; le cours utilise les simples dans le code.</p>
+</section>
+<section id="types-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="types-attention-et-vérification">Types — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>+</code> avec un texte colle au lieu d’additionner : <code>'4' + 2</code> donne <code>'42'</code>. Vous le voyez aux guillemets du résultat. Convertissez d’abord : <code>Number('4') + 2</code> donne <code>6</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que donne <code>typeof 'true'</code> ?</li>
+<li>Prédisez, puis tapez-le dans le REPL.</li>
+</ul>
+</section>
+<section id="exercice-prédire-puis-vérifier-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-prédire-puis-vérifier-30-min">Exercice — Prédire, puis vérifier (30 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : prédisez à voix haute les lignes 1 et 7.</li>
+<li>Seuls, sur papier (10 min) : prédisez les lignes 2 à 9.</li>
+<li>Dans le REPL (10 min) : tapez chaque ligne, comparez.</li>
+<li>Lignes 7 à 9 en étiquettes, sur papier (5 min).</li>
+<li><strong>Réussi si</strong> : chaque erreur de prédiction a sa raison écrite.</li>
+</ol>
+<ol type="1">
+<li><code>typeof 42</code></li>
+<li><code>typeof '42'</code></li>
+<li><code>typeof true</code></li>
+<li><code>typeof undefined</code></li>
+<li><code>'4' + 2</code></li>
+<li><code>'4' * 2</code></li>
+<li><code>let x = 5; x = x + 1; x</code></li>
+<li><code>const y = 3; y = 4</code></li>
+<li><code>let a = 5; let b = a; a = 7; b</code></li>
+</ol>
+<p><strong>Les étiquettes sur papier</strong> : dessinez la mémoire pendant que le programme avance, comme le schéma de l’apport sur les variables.</p>
+<ol type="1">
+<li>Recopiez la ligne 7 en mettant une instruction par ligne.</li>
+<li>Sous chaque instruction, dessinez les étiquettes : un nom, une flèche, une valeur.</li>
+<li>Quand une étiquette est recollée, barrez l’ancienne flèche et tracez la nouvelle.</li>
+<li>Recommencez avec les lignes 8, puis 9. À la ligne 9, écrivez la valeur de <code>b</code> après <code>a = 7</code>.</li>
+<li>Vérifiez la valeur finale de chaque ligne dans le REPL.</li>
+</ol>
+<p><strong>Réussi si</strong> : la valeur entourée sur votre dessin est celle qu’affiche le REPL.</p>
+</section>
+<section id="apport-5-comparer-avec-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-5-comparer-avec-10-min">Apport 5 — Comparer avec <code>===</code> (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : un programme doit savoir si deux valeurs sont égales.</li>
+<li><strong><code>===</code></strong> : même type <strong>et</strong> même valeur ; jamais <code>==</code>.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un programme compare sans cesse : la réponse est-elle la bonne ? L’âge vaut-il 18 ? Un test vérifie que le résultat obtenu est égal au résultat attendu.</p>
+<p><strong>Définition.</strong> <code>===</code> (<a href="../../ressources/lexique.html#t-egalite-stricte">égalité stricte</a>) renvoie <code>true</code> si les deux valeurs ont le même type et la même valeur, sinon <code>false</code>. <code>==</code> tente d’abord une conversion vers un type commun avant de comparer <span class="citation" data-cites="mdn-egalite-stricte">(<a href="#ref-mdn-egalite-stricte" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span> : c’est la source des surprises. Règle du cours : toujours <code>===</code>, et <code>!==</code> pour « différent ».</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">===</span> <span class="dv">3</span>     <span class="co">// true</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">'3'</span> <span class="op">===</span> <span class="dv">3</span>   <span class="co">// false : un texte, un nombre</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">'3'</span> <span class="op">==</span> <span class="dv">3</span>    <span class="co">// true : == a converti le texte</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">!==</span> <span class="dv">4</span>     <span class="co">// true : 3 est différent de 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur tape chaque ligne ; vous la retapez aussitôt.</p>
+<ol type="1">
+<li>Ouvrez le REPL : <code>node</code>, puis Entrée.</li>
+<li>Tapez <code>3 === 3</code>, puis Entrée : <code>true</code>.</li>
+<li>Tapez <code>'3' === 3</code>, puis Entrée : <code>false</code>, car un texte n’est jamais strictement égal à un nombre.</li>
+<li>Tapez <code>'3' == 3</code>, puis Entrée : <code>true</code>, car <code>==</code> a converti le texte en nombre avant de comparer.</li>
+<li>Tapez <code>3 !== 4</code>, puis Entrée : <code>true</code>.</li>
+<li>Tapez <code>.exit</code>, puis Entrée.</li>
+</ol>
+</section>
+<section id="attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="attention-et-vérification"><code>===</code> — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un seul <code>=</code> ne compare pas : il donne une valeur. <code>score = 3</code> change <code>score</code> ; <code>score === 3</code> pose la question. Une variable qui change sans raison : cherchez un <code>=</code> seul.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que donne <code>'5' === 5</code> ?</li>
+<li>Prédisez, puis tapez-le dans le REPL.</li>
+</ul>
+</section>
+<section id="exercice-quatre-comparaisons-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-quatre-comparaisons-10-min">Exercice — Quatre comparaisons (10 min)</h2>
+<ol type="1">
+<li>Ensemble (2 min) : prédisez à voix haute la comparaison 1.</li>
+<li>Seuls (5 min) : écrivez <code>true</code> ou <code>false</code> pour 2 à 4.</li>
+<li>Dans le REPL (3 min) : vérifiez chaque comparaison.</li>
+<li><strong>Réussi si</strong> : chaque surprise est entourée et expliquée.</li>
+</ol>
+<ol type="1">
+<li><code>3 === 3</code></li>
+<li><code>'3' === 3</code></li>
+<li><code>'3' == 3</code></li>
+<li><code>0 == ''</code></li>
+</ol>
+<section id="si-le-temps-le-permet-quatre-pièges-de" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-quatre-pièges-de">Si le temps le permet — Quatre pièges de <code>==</code></h3>
+<ol start="5" type="1">
+<li><code>0 === ''</code></li>
+<li><code>null == undefined</code></li>
+<li><code>null === undefined</code></li>
+<li><code>true == 1</code></li>
+</ol>
+</section>
+</section>
+<section id="à-retenir-ce-matin" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Node.js</strong> lance du JavaScript dans un terminal.</li>
+<li><strong>VS Code</strong> : un éditeur, des fichiers <code>.js</code> sans <code>.txt</code>.</li>
+<li><strong>Variables</strong> : <code>const</code> par défaut, <code>let</code> si la valeur change.</li>
+<li><strong>Types</strong> : <code>+</code> avec un texte colle ; <code>Number(…)</code> convertit.</li>
+<li><strong>Comparer</strong> : <code>===</code> compare ; <code>=</code> donne une valeur.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Node.js</strong> : il lance du JavaScript dans un terminal ; on installe la version LTS ; <code>node -v</code> vérifie l’installation.</li>
+<li><strong>VS Code</strong> : c’est l’éditeur de la formation ; les fonctions IA sont désactivées (<code>chat.disableAIFeatures</code>) ; affichez les extensions pour repérer un <code>.js.txt</code>.</li>
+<li><strong>Variables</strong> : une variable est un nom qui désigne une valeur ; <code>const</code> par défaut, <code>let</code> si la valeur doit changer ; une <code>const</code> ne reçoit jamais de nouvelle valeur.</li>
+<li><strong>Types</strong> : chaque valeur a un type, que <code>typeof</code> donne ; <code>'42'</code> est un texte, <code>42</code> un nombre ; <code>+</code> avec un texte colle, <code>Number(…)</code> convertit.</li>
+<li><strong>Comparer</strong> : <code>===</code> compare le type et la valeur ; <code>=</code> donne une valeur, <code>===</code> compare ; jamais <code>==</code> dans le cours.</li>
+</ul>
+</section>
+<section id="débrief" class="level2">
+<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<ul>
+<li>Quelle différence entre <code>let</code> et <code>const</code> ?</li>
+<li>Pourquoi <code>'4' + 2</code> donne-t-il <code>'42'</code> ?</li>
+<li>Pourquoi préférer <code>===</code> ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-tp-hello-js-premiers-tests-automatiques" class="level1">
+<h1>Après-midi — TP — « Hello, JS » · premiers tests automatiques</h1>
+<section id="récupérer-les-fichiers-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="récupérer-les-fichiers-10-min">Récupérer les fichiers (10 min)</h2>
+<ol type="1">
+<li>Téléchargez l’<a href="code/exercices/s02-exercices.zip">archive des exercices</a>.</li>
+<li>Extrayez-la : un dossier <code>s02-exercices</code> apparaît.</li>
+<li>Déplacez les fichiers de ce dossier dans <code>dwwm/semaine-02</code> (le dossier de <code>essai.js</code>).</li>
+<li>Dans VS Code : <em>File</em>, <em>Open Folder…</em>, puis <code>dwwm/semaine-02</code>.</li>
+<li>Dans le terminal : <code>cd ~/dwwm/semaine-02</code>, puis <code>ls</code>.</li>
+<li><strong>Réussi si</strong> : <code>ls</code> affiche <code>01-hello.js</code> et les autres fichiers.</li>
+</ol>
+<p>Pour extraire l’archive (étape 2) : sous Windows, clic droit sur le fichier, <em>Extraire tout…</em>, puis <em>Extraire</em> ; sous macOS, double-cliquez sur le fichier ; sous Linux, clic droit, <em>Extraire ici</em>. Le dossier <code>dwwm</code> est dans votre dossier personnel.</p>
+<p>La commande <code>cd ~/dwwm/semaine-02</code> s’écrit de la même façon dans PowerShell, sous macOS et sous Linux : <code>~</code> désigne votre dossier personnel. <code>cd</code> veut dire <em>change directory</em> : le terminal travaille désormais dans ce dossier. <code>ls</code> affiche son contenu.</p>
+</section>
+<section id="apport-6-lancer-un-programme-et-ses-tests-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-6-lancer-un-programme-et-ses-tests-15-min">Apport 6 — Lancer un programme et ses tests (15 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : vérifier un programme sans tout relire à la main.</li>
+<li><strong>Test</strong> : il lance votre programme et compare au résultat attendu.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Relire un programme ne suffit pas à savoir s’il fait ce qui est demandé. Un test le vérifie pour vous, de la même façon à chaque fois, en une commande.</p>
+<p><strong>Définition.</strong> Un test est un petit programme qui lance le vôtre et compare ce qu’il affiche (le résultat obtenu) avec ce qu’il devrait afficher (le résultat attendu). Chaque exercice a son fichier de tests, qui finit par <code>.test.js</code> <span class="citation" data-cites="nodejs-test-runner">(<a href="#ref-nodejs-test-runner" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-d</a>)</span>. <code>node 01-hello.js</code> lance <strong>un</strong> programme ; <code>node --test 01-hello.test.js</code> lance <strong>ses</strong> tests.</p>
+<p><strong>Exemple.</strong> Un test rouge, au départ de l’exercice 01 : <code>+ actual</code> est ce que votre programme affiche, <code>- expected</code> ce qu’il <strong>devrait</strong> afficher. Voici tout ce que le terminal affiche ; les lignes utiles sont <code>✖ affiche Hello, world!</code>, puis les lignes <code>+</code> et <code>-</code>. Les lignes qui commencent par <code>at</code> et la suite entre accolades sont des détails pour plus tard : ignorez-les.</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-02&gt; node --test 01-hello.test.js
+✖ affiche Hello, world! (133.07442ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 376.949659
+
+✖ failing tests:
+
+test at 01-hello.test.js:13:1
+✖ affiche Hello, world! (133.07442ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + 'À faire'
+  - 'Hello, world!'
+
+      at TestContext.&lt;anonymous&gt; (file:///C:/Users/stagiaire/dwwm/semaine-02/01-hello.test.js:14:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'À faire',
+    expected: 'Hello, world!',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }</code></pre>
+</div>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape au vidéoprojecteur sur <code>01-hello.js</code> ; vous la refaites aussitôt.</p>
+<ol type="1">
+<li>Tapez <code>node 01-hello.js</code>, puis Entrée. Le programme affiche <code>À faire</code> : c’est le fichier de départ.</li>
+<li>Tapez <code>node --test 01-hello.test.js</code>, puis Entrée. Une croix rouge <code>✖</code> apparaît : le test échoue. C’est normal au départ.</li>
+<li>Cherchez les lignes qui commencent par <code>+</code> et par <code>-</code>. <code>+</code> : ce que votre programme affiche (<code>'À faire'</code>). <code>-</code> : ce qu’il devrait afficher (<code>'Hello, world!'</code>).</li>
+<li>Dans VS Code, ouvrez <code>01-hello.js</code>. Lisez l’énoncé, en commentaire en haut du fichier.</li>
+<li>Remplacez <code>'À faire'</code> par <code>'Hello, world!'</code>. Enregistrez avec <kbd title="mac: Cmd+S, windows: Ctrl+S" aria-hidden="true" data-mac="Cmd+S" data-windows="Ctrl+S"></kbd><span class="visually-hidden"></span>.</li>
+<li>Relancez <code>node --test 01-hello.test.js</code>. Une coche verte <code>✔</code> apparaît : le test passe.</li>
+</ol>
+<p><strong>Vous devez voir</strong> : une coche <code>✔</code> devant le nom du test, et <code>ℹ fail 0</code>.</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-02&gt; node --test 01-hello.test.js
+✔ affiche Hello, world! (109.631557ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 357.329955</code></pre>
+</div>
+<p>Les durées entre parenthèses changent à chaque lancement : elles ne comptent pas.</p>
+<p>La fiche <a href="../../ressources/fiche-erreurs.html">Lire un message d’erreur</a> montre ce test rouge et les autres messages de Node, partie par partie.</p>
+<p><code>node --test</code> sans nom de fichier lance <strong>tous</strong> les tests du dossier, y compris ceux des exercices de vendredi : beaucoup de croix rouges, c’est normal. Pour un seul exercice, donnez le nom de son fichier de tests.</p>
+<p><strong>Les lignes fournies : <code>process.argv</code>.</strong> <code>node 02-presentation.js Ada 36</code> lance le programme avec deux mots en plus. <code>process.argv</code> contient les <a href="../../ressources/lexique.html#t-argument">arguments</a> de la ligne de commande : le chemin de Node, celui du fichier, puis ce que vous tapez ensuite <span class="citation" data-cites="nodejs-process">(<a href="#ref-nodejs-process" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-c</a>)</span>. Ici, <code>process.argv[2]</code> vaut <code>'Ada'</code> et <code>process.argv[3]</code> vaut <code>'36'</code> : ce sont des <strong>textes</strong>, que <code>Number(…)</code> convertit. Ces lignes sont fournies en haut des exercices : ne les modifiez pas. Vous écrirez vos propres fonctions la semaine prochaine.</p>
+</section>
+<section id="tests-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="tests-attention-et-vérification">Tests — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Could not find</code> ou <code>tests 0</code> : le terminal n’est pas dans le bon dossier. Tapez <code>cd ~/dwwm/semaine-02</code>, puis relancez.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que montre la ligne qui commence par <code>-</code> ?</li>
+<li>Répondez sur votre feuille, puis comparez avec votre voisin.</li>
+</ul>
+</section>
+<section id="apport-7-une-valeur-dans-un-texte-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-7-une-valeur-dans-un-texte-5-min">Apport 7 — Une valeur dans un texte (5 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : afficher une phrase qui contient une valeur.</li>
+<li><strong>Littéral de gabarit</strong> : un texte entre accents graves ; <code>${…}</code> insère.</li>
+</ul>
+<p><strong>Pourquoi.</strong> L’exercice 02 doit afficher une phrase qui contient un prénom et un âge. Coller des morceaux avec <code>+</code> est long et source d’erreurs.</p>
+<p><strong>Définition.</strong> Un <a href="../../ressources/lexique.html#t-litteral-de-gabarit">littéral de gabarit</a> est un texte écrit entre accents graves (<code>`</code>), dans lequel <code>${…}</code> insère la valeur d’une variable ou d’un calcul <span class="citation" data-cites="mdn-litteraux-gabarits">(<a href="#ref-mdn-litteraux-gabarits" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span>.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> firstName <span class="op">=</span> <span class="st">'Ada'</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Bonjour </span><span class="sc">${</span>firstName<span class="sc">}</span><span class="vs"> !`</span>)<span class="op">;</span> <span class="co">// Bonjour Ada !</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur tape chaque ligne dans le REPL ; vous la retapez aussitôt.</p>
+<ol type="1">
+<li>Ouvrez le REPL : <code>node</code>, puis Entrée.</li>
+<li>Tapez <code>const firstName = 'Ada'</code>, puis Entrée.</li>
+<li>Tapez <code>console.log(`Bonjour ${firstName} !`)</code>, puis Entrée. Le REPL affiche <code>Bonjour Ada !</code>.</li>
+<li>Tapez <code>console.log(`L'an prochain : ${36 + 1} ans`)</code>, puis Entrée. Le REPL affiche <code>L'an prochain : 37 ans</code> : on peut aussi calculer dans <code>${…}</code>.</li>
+<li>Tapez <code>.exit</code>, puis Entrée.</li>
+</ol>
+<p>L’accent grave s’obtient sous Windows (clavier AZERTY) avec <kbd title="windows: AltGr+7" aria-hidden="true" data-windows="AltGr+7"></kbd><span class="visually-hidden"></span>, puis la touche Espace ; sous macOS, avec la touche située à gauche de Entrée (clavier AZERTY).</p>
+</section>
+<section id="littéral-de-gabarit-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="littéral-de-gabarit-attention-et-vérification">Littéral de gabarit — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Avec des guillemets <code>'…'</code>, <code>${firstName}</code> s’affiche tel quel. Seuls les accents graves <code>`…`</code> remplacent <code>${…}</code> par la valeur.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que donne <code>`${2 + 3} ans`</code> ?</li>
+<li>Prédisez, puis tapez-le dans le REPL.</li>
+</ul>
+</section>
+<section id="exercices-01-à-04-1-h-15" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-01-à-04-1-h-15">Exercices 01 à 04 (1 h 15)</h2>
+<ol type="1">
+<li>Ensemble (10 min) : <code>01-hello</code>, du test rouge au test vert.</li>
+<li>Seuls : <code>02-presentation</code>, puis <code>03-types</code>, puis <code>04-egalite</code>.</li>
+<li>Pour chacun : lisez l’énoncé, lancez, puis lancez ses tests.</li>
+<li><strong>Réussi si</strong> : <code>✔</code> pour les tests de 01 à 04.</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Exercice</th>
+<th>Niveau</th>
+<th>Ce qu’il fait travailler</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>01-hello</code></td>
+<td>facile</td>
+<td>afficher <code>Hello, world!</code></td>
+</tr>
+<tr class="even">
+<td><code>02-presentation</code></td>
+<td>facile</td>
+<td>un littéral de gabarit <code>`…${…}…`</code></td>
+</tr>
+<tr class="odd">
+<td><code>03-types</code></td>
+<td>facile</td>
+<td><code>typeof</code>, et <code>+</code> sur du texte ou des nombres</td>
+</tr>
+<tr class="even">
+<td><code>04-egalite</code></td>
+<td>moyen</td>
+<td>calculer des comparaisons avec <code>===</code></td>
+</tr>
+</tbody>
+</table>
+<p>Pour chaque exercice, dans cet ordre :</p>
+<ol type="1">
+<li>Ouvrez le fichier dans VS Code (par exemple <code>02-presentation.js</code>) et lisez l’énoncé, en commentaire en haut.</li>
+<li>Écrivez votre code à la place de la ligne indiquée par <code>TODO</code>. Enregistrez.</li>
+<li>Lancez le programme : <code>node 02-presentation.js Ada 36</code>.</li>
+<li>Lancez ses tests : <code>node --test 02-presentation.test.js</code>.</li>
+<li>Tant qu’une croix rouge reste, lisez les lignes <code>+</code> et <code>-</code>, corrigez, enregistrez, relancez.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — 02-presentation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Calculez d’abord l’âge de l’an prochain dans une <a href="../../ressources/lexique.html#t-constante">constante</a>, puis affichez la phrase avec un littéral de gabarit. Si vous obtenez <code>361</code> au lieu de <code>37</code>, c’est que vous additionnez du texte : vérifiez que vous utilisez bien la constante <code>age</code> (déjà convertie en nombre).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — 04-egalite
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Un littéral de gabarit peut contenir une comparaison : <code>${a === b}</code> affiche <code>true</code> ou <code>false</code>.</p>
+</div>
+</div>
+</div>
+<section id="critères-de-réussite" class="level3">
+<h3 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h3>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>node -v</code> affiche une version (ou le plan B fonctionne)</label></li>
+<li><label><input type="checkbox"><code>essai.js</code> s’ouvre dans VS Code et s’exécute</label></li>
+<li><label><input type="checkbox">Les tests de 01 à 04 sont au vert</label></li>
+<li><label><input type="checkbox">Une capture du terminal est déposée auprès du formateur</label></li>
+</ul>
+</section>
+<section id="si-le-temps-le-permet-exercice-05-prix-ttc" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-exercice-05-prix-ttc">Si le temps le permet — Exercice 05 : prix TTC</h3>
+<ul>
+<li><code>node 05-prix-ttc.js 100 20</code> affiche <code>Prix TTC : 120.00 €</code>.</li>
+<li>Formule : prix HT × (1 + taux / 100).</li>
+<li>Arrondi à deux décimales avec <code>toFixed(2)</code>.</li>
+<li>Tests : <code>node --test 05-prix-ttc.test.js</code>.</li>
+</ul>
+</section>
+<section id="pour-aller-plus-loin" class="level3">
+<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<ul>
+<li>Ouvrez la page <code>typeof</code> de MDN <span class="citation" data-cites="mdn-typeof">(<a href="#ref-mdn-typeof" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>, puis sa version anglaise (sélecteur de langue en haut de la page).</li>
+<li>Trouvez dans le tableau ce que donne <code>typeof null</code>, puis vérifiez-le dans le REPL.</li>
+</ul>
+</section>
+</section>
+<section id="à-retenir-cet-après-midi" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Tests</strong> : <code>node --test fichier.test.js</code> teste un exercice.</li>
+<li><strong>Test rouge</strong> : <code>+</code> ce que vous affichez ; <code>-</code> ce qui est attendu.</li>
+<li><strong>Littéral de gabarit</strong> : <code>`Bonjour ${firstName}`</code> insère une valeur.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Tests</strong> : <code>node fichier.js</code> lance le programme ; <code>node --test fichier.test.js</code> lance ses tests ; un test rouge se lit ligne <code>+</code> (ce que vous affichez) et ligne <code>-</code> (ce qui est attendu).</li>
+<li><strong>Littéral de gabarit</strong> : il s’écrit entre accents graves ; <code>${…}</code> insère une valeur ou un calcul ; avec des guillemets, rien n’est remplacé.</li>
+</ul>
+</section>
+<section id="débrief-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="débrief-10-min">Débrief (10 min)</h2>
+<ul>
+<li>Que montre la ligne <code>-</code> d’un test rouge ?</li>
+<li>Quelle différence entre <code>'…'</code> et <code>`…`</code> ?</li>
+<li>Quel exercice vous a demandé le plus d’essais, et pourquoi ?</li>
+</ul>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-apple-extensions-fichiers" class="csl-entry" role="listitem">
+Apple. s.&nbsp;d. <span>«&nbsp;Show or hide filename extensions on Mac&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://support.apple.com/guide/mac-help/show-or-hide-filename-extensions-on-mac-mchlp2304/mac">https://support.apple.com/guide/mac-help/show-or-hide-filename-extensions-on-mac-mchlp2304/mac</a>.
+</div>
+<div id="ref-mdn-console-log" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;console : méthode statique log()&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/console/log_static">https://developer.mozilla.org/fr/docs/Web/API/console/log_static</a>.
+</div>
+<div id="ref-mdn-egalite-stricte" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Égalité stricte (===) - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Strict_equality">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Strict_equality</a>.
+</div>
+<div id="ref-mdn-typeof" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;L’opérateur typeof - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/typeof">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/typeof</a>.
+</div>
+<div id="ref-mdn-litteraux-gabarits" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;Littéraux de gabarits - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals</a>.
+</div>
+<div id="ref-mdn-types-grammaire" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-e. <span>«&nbsp;Types et grammaire - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Grammar_and_types">https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Grammar_and_types</a>.
+</div>
+<div id="ref-windows-extensions-fichiers" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-a. <span>«&nbsp;Common file name extensions in Windows&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01">https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01</a>.
+</div>
+<div id="ref-vscode-download" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-b. <span>«&nbsp;Download Visual Studio Code&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>.
+</div>
+<div id="ref-vscode-setup-linux" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-c. <span>«&nbsp;Installing Visual Studio Code on Linux&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://code.visualstudio.com/docs/setup/linux">https://code.visualstudio.com/docs/setup/linux</a>.
+</div>
+<div id="ref-vscode-setup-mac" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-d. <span>«&nbsp;Installing Visual Studio Code on macOS&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://code.visualstudio.com/docs/setup/mac">https://code.visualstudio.com/docs/setup/mac</a>.
+</div>
+<div id="ref-vscode-setup-windows" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-e. <span>«&nbsp;Installing Visual Studio Code on Windows&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://code.visualstudio.com/docs/setup/windows">https://code.visualstudio.com/docs/setup/windows</a>.
+</div>
+<div id="ref-vscode-ia" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-f. <span>«&nbsp;Set up GitHub Copilot in VS Code (Remove AI features)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://code.visualstudio.com/docs/copilot/setup">https://code.visualstudio.com/docs/copilot/setup</a>.
+</div>
+<div id="ref-vscode-workspace-trust" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-g. <span>«&nbsp;Workspace Trust&nbsp;»</span>. Consulté le 8 octobre 2026. <a href="https://code.visualstudio.com/docs/editing/workspaces/workspace-trust">https://code.visualstudio.com/docs/editing/workspaces/workspace-trust</a>.
+</div>
+<div id="ref-nvm" class="csl-entry" role="listitem">
+<span class="nocase">nvm-sh</span>. s.&nbsp;d. <span>«&nbsp;nvm : Node Version Manager&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a>.
+</div>
+<div id="ref-nodejs-download" class="csl-entry" role="listitem">
+OpenJS Foundation. s.&nbsp;d.-a. <span>«&nbsp;Node.js — Download Node.js&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://nodejs.org/en/download">https://nodejs.org/en/download</a>.
+</div>
+<div id="ref-nodejs-releases" class="csl-entry" role="listitem">
+OpenJS Foundation. s.&nbsp;d.-b. <span>«&nbsp;Node.js — Node.js Releases&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://nodejs.org/en/about/previous-releases">https://nodejs.org/en/about/previous-releases</a>.
+</div>
+<div id="ref-nodejs-process" class="csl-entry" role="listitem">
+OpenJS Foundation. s.&nbsp;d.-c. <span>«&nbsp;Process | Node.js Documentation&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://nodejs.org/api/process.html">https://nodejs.org/api/process.html</a>.
+</div>
+<div id="ref-nodejs-test-runner" class="csl-entry" role="listitem">
+OpenJS Foundation. s.&nbsp;d.-d. <span>«&nbsp;Test runner | Node.js Documentation&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://nodejs.org/api/test.html">https://nodejs.org/api/test.html</a>.
+</div>
+<div id="ref-fnm-commands" class="csl-entry" role="listitem">
+Schniz. s.&nbsp;d.-a. <span>«&nbsp;fnm : Commands (docs/commands.md)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://github.com/Schniz/fnm/blob/master/docs/commands.md">https://github.com/Schniz/fnm/blob/master/docs/commands.md</a>.
+</div>
+<div id="ref-fnm" class="csl-entry" role="listitem">
+Schniz. s.&nbsp;d.-b. <span>«&nbsp;fnm : Fast and simple Node.js version manager&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://github.com/Schniz/fnm">https://github.com/Schniz/fnm</a>.
+</div>
+<div id="ref-stackblitz" class="csl-entry" role="listitem">
+StackBlitz. s.&nbsp;d.-a. <span>«&nbsp;StackBlitz | Instant Dev Environments&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://stackblitz.com/">https://stackblitz.com/</a>.
+</div>
+<div id="ref-stackblitz-webcontainers-browsers" class="csl-entry" role="listitem">
+StackBlitz. s.&nbsp;d.-b. <span>«&nbsp;WebContainers Browser Support&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.stackblitz.com/platform/webcontainers/browser-support">https://developer.stackblitz.com/platform/webcontainers/browser-support</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="pagination-link" aria-label="Lundi 12/10 — Algorithmes et projet Scratch">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lundi 12/10 — Algorithmes et projet Scratch</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="pagination-link" aria-label="Mercredi 14/10 — Atelier guidé &amp; autonomie">
+        <span class="nav-page-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

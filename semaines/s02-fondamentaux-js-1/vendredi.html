@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Vendredi 16/10 — ESLint, conditions et boucles – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s02-fondamentaux-js-1/jeudi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/vendredi.html">Vendredi 16/10 — ESLint, conditions et boucles</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#veille-installer-un-paquet-npm-quels-risques-30-min" id="toc-veille-installer-un-paquet-npm-quels-risques-30-min" class="nav-link" data-scroll-target="#veille-installer-un-paquet-npm-quels-risques-30-min">Veille — Installer un paquet npm : quels risques ? (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#avant-la-veille-npm-install-2-min" id="toc-avant-la-veille-npm-install-2-min" class="nav-link" data-scroll-target="#avant-la-veille-npm-install-2-min">Avant la veille : <code>npm install</code> (2 min)</a></li>
+  <li><a href="#pourquoi-cette-question" id="toc-pourquoi-cette-question" class="nav-link" data-scroll-target="#pourquoi-cette-question">Pourquoi cette question ?</a></li>
+  <li><a href="#en-groupe-15-min" id="toc-en-groupe-15-min" class="nav-link" data-scroll-target="#en-groupe-15-min">En groupe (15 min)</a></li>
+  <li><a href="#mise-en-commun-et-trace-écrite-15-min" id="toc-mise-en-commun-et-trace-écrite-15-min" class="nav-link" data-scroll-target="#mise-en-commun-et-trace-écrite-15-min">Mise en commun et trace écrite (15 min)</a></li>
+  </ul></li>
+  <li><a href="#matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ" id="toc-matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ" class="nav-link" data-scroll-target="#matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ">Matin — Conditions &amp; boucles — exercices guidés · ESLint dès le départ</a>
+  <ul class="collapse">
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-1-eslint-5-min" id="toc-apport-1-eslint-5-min" class="nav-link" data-scroll-target="#apport-1-eslint-5-min">Apport 1 — ESLint (5 min)</a></li>
+  <li><a href="#eslint-attention-et-vérification" id="toc-eslint-attention-et-vérification" class="nav-link" data-scroll-target="#eslint-attention-et-vérification">ESLint — attention et vérification</a></li>
+  <li><a href="#exercice-lint-moi.js-20-min" id="toc-exercice-lint-moi.js-20-min" class="nav-link" data-scroll-target="#exercice-lint-moi.js-20-min">Exercice — <code>lint-moi.js</code> (20 min)</a></li>
+  <li><a href="#apport-2-if-else-if-else-15-min" id="toc-apport-2-if-else-if-else-15-min" class="nav-link" data-scroll-target="#apport-2-if-else-if-else-15-min">Apport 2 — <code>if</code>, <code>else if</code>, <code>else</code> (15 min)</a></li>
+  <li><a href="#conditions-attention-et-vérification" id="toc-conditions-attention-et-vérification" class="nav-link" data-scroll-target="#conditions-attention-et-vérification">Conditions — attention et vérification</a></li>
+  <li><a href="#exercice-06-majeur-ou-mineur-20-min" id="toc-exercice-06-majeur-ou-mineur-20-min" class="nav-link" data-scroll-target="#exercice-06-majeur-ou-mineur-20-min">Exercice 06 — Majeur ou mineur ? (20 min)</a></li>
+  <li><a href="#apport-3-la-boucle-while-8-min" id="toc-apport-3-la-boucle-while-8-min" class="nav-link" data-scroll-target="#apport-3-la-boucle-while-8-min">Apport 3 — La boucle <code>while</code> (8 min)</a></li>
+  <li><a href="#while-attention-et-vérification" id="toc-while-attention-et-vérification" class="nav-link" data-scroll-target="#while-attention-et-vérification"><code>while</code> — attention et vérification</a></li>
+  <li><a href="#apport-4-la-boucle-for-7-min" id="toc-apport-4-la-boucle-for-7-min" class="nav-link" data-scroll-target="#apport-4-la-boucle-for-7-min">Apport 4 — La boucle <code>for</code> (7 min)</a></li>
+  <li><a href="#for-attention-et-vérification" id="toc-for-attention-et-vérification" class="nav-link" data-scroll-target="#for-attention-et-vérification"><code>for</code> — attention et vérification</a></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-le-reste-puis-07-et-08" id="toc-si-le-temps-le-permet-le-reste-puis-07-et-08" class="nav-link" data-scroll-target="#si-le-temps-le-permet-le-reste-puis-07-et-08">Si le temps le permet — Le reste <code>%</code>, puis 07 et 08</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-groupe-b-projet-consolidation" id="toc-après-midi-groupe-b-projet-consolidation" class="nav-link" data-scroll-target="#après-midi-groupe-b-projet-consolidation">Après-midi — Groupe B : projet &amp; consolidation</a>
+  <ul class="collapse">
+  <li><a href="#au-programme" id="toc-au-programme" class="nav-link" data-scroll-target="#au-programme">Au programme</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="vendredi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="vendredi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/vendredi.html">Vendredi 16/10 — ESLint, conditions et boucles</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Vendredi 16/10 — ESLint, conditions et boucles</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">vendredi 16 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : résolution de problème · apprendre en continu<br> <strong>Livrable</strong> : <code>lint-moi.js</code> corrigé ; exercice 06 au vert ; <code>npx eslint .</code> sans alerte sur vos fichiers.</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Citer deux risques liés à l’installation de paquets npm.</li>
+<li>Corriger les alertes d’ESLint.</li>
+<li>Écrire une condition avec <code>if</code>, <code>else if</code> et <code>else</code>, en traitant d’abord les entrées invalides.</li>
+<li>Écrire une boucle <code>while</code> et une boucle <code>for</code>.</li>
+</ul>
+<p><strong>Comment se passe la matinée.</strong> Lancez <code>npm install</code> dès votre arrivée (étape 1 ci-dessous) : il télécharge ESLint pendant la veille. Chaque notion suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification. Un encadré « À retenir » termine la matinée.</p>
+</section>
+<section id="veille-installer-un-paquet-npm-quels-risques-30-min" class="level1">
+<h1>Veille — Installer un paquet npm : quels risques ? (30 min)</h1>
+<section id="avant-la-veille-npm-install-2-min" class="level2">
+<h2 class="anchored" data-anchor-id="avant-la-veille-npm-install-2-min">Avant la veille : <code>npm install</code> (2 min)</h2>
+<ol type="1">
+<li>Terminal : <code>cd ~/dwwm/semaine-02</code>, puis <code>npm install</code>.</li>
+<li>Laissez-le travailler pendant la veille.</li>
+<li><strong>Réussi si</strong> : un dossier <code>node_modules</code> apparaît.</li>
+</ol>
+<p><code>npm install</code> lit le fichier <code>package.json</code> du dossier et télécharge les paquets qu’il cite : ici ESLint, l’outil de ce matin. Il demande internet.</p>
+<p><strong>Vous devez voir</strong>, à la fin (les nombres et la durée peuvent varier) :</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-02&gt; npm install
+
+added 79 packages, and audited 80 packages in 10s
+
+18 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities</code></pre>
+</div>
+<p>La ligne <code>packages are looking for funding</code> n’est pas une erreur : certains auteurs de paquets acceptent des dons. <code>found 0 vulnerabilities</code> : npm ne connaît aucune faille dans ces versions.</p>
+</section>
+<section id="pourquoi-cette-question" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-cette-question">Pourquoi cette question ?</h2>
+<ul>
+<li><code>npm install</code> télécharge ESLint… et bien d’autres paquets.</li>
+<li>Chacun a été écrit par des inconnus.</li>
+<li>Question du jour : quels risques, et quelles précautions ?</li>
+</ul>
+<p>Pour vous faire une idée, ouvrez le dossier <code>node_modules</code> que <code>npm install</code> vient de créer dans <code>dwwm/semaine-02</code> : combien de dossiers contient-il, alors que <code>package.json</code> ne cite que trois paquets ?</p>
+</section>
+<section id="en-groupe-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="en-groupe-15-min">En groupe (15 min)</h2>
+<ol type="1">
+<li><strong>Groupe 1</strong> : la page d’npm sur les menaces <span class="citation" data-cites="npm-threats-mitigations">(<a href="#ref-npm-threats-mitigations" role="doc-biblioref">s.&nbsp;d.</a>)</span>.</li>
+<li>Groupe 1 : qu’est-ce que le <em>typosquatting</em> ? Que fait npm contre lui ?</li>
+<li><strong>Groupe 2</strong> : le risque A03 de l’OWASP Top 10 <span class="citation" data-cites="owasp-top10-2025-a03">(<a href="#ref-owasp-top10-2025-a03" role="doc-biblioref">2025</a>)</span>.</li>
+<li>Groupe 2 : relevez deux précautions recommandées.</li>
+<li>Dans chaque groupe : un lecteur, un secrétaire, un porte-parole.</li>
+</ol>
+<p>Les deux pages sont en anglais : <em>npm: Threats and Mitigations</em> <span class="citation" data-cites="npm-threats-mitigations">(<a href="#ref-npm-threats-mitigations" role="doc-biblioref"><span class="nocase">npm</span>, s.&nbsp;d.</a>)</span> et <em>A03 Software Supply Chain Failures</em> <span class="citation" data-cites="owasp-top10-2025-a03">(<a href="#ref-owasp-top10-2025-a03" role="doc-biblioref">OWASP Foundation 2025</a>)</span>. Ne traduisez pas tout : cherchez les titres de sections et les listes. Le <strong>lecteur</strong> lit la page à voix haute ou la parcourt pour le groupe ; le <strong>secrétaire</strong> note les réponses ; le <strong>porte-parole</strong> les présente à la mise en commun. Si vous préférez ne pas prendre la parole devant le groupe, prenez le rôle de lecteur ou de secrétaire.</p>
+</section>
+<section id="mise-en-commun-et-trace-écrite-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-commun-et-trace-écrite-15-min">Mise en commun et trace écrite (15 min)</h2>
+<ol type="1">
+<li>Chaque porte-parole présente ce que son groupe a trouvé (3 min).</li>
+<li>Seul : notez une précaution à prendre avant un <code>npm install</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Gardez cette feuille avec celle de la semaine 1 : votre journal de veille commence en semaine 4.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ" class="level1">
+<h1>Matin — Conditions &amp; boucles — exercices guidés · ESLint dès le départ</h1>
+<section id="rappel-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<ol type="1">
+<li>Quelle commande lance les tests d’un exercice ?</li>
+<li>Que montre la ligne <code>-</code> d’un test rouge ?</li>
+<li>Un script Scratch sans événement : que se passe-t-il ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-1-eslint-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-1-eslint-5-min">Apport 1 — ESLint (5 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : trouver des erreurs <strong>avant</strong> de lancer le programme.</li>
+<li><strong>ESLint</strong> relit votre code et signale chaque écart à une règle.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Une faute de frappe dans un nom de variable ne se voit qu’au moment où le programme plante, parfois longtemps après. ESLint la trouve en relisant le code, sans le lancer.</p>
+<p><strong>Définition.</strong> ESLint est un outil qui relit votre code sans l’exécuter et signale chaque ligne qui enfreint une règle <span class="citation" data-cites="eslint-getting-started">(<a href="#ref-eslint-getting-started" role="doc-biblioref">ESLint, s.&nbsp;d.-b</a>)</span>. Chaque alerte donne la ligne et la colonne, un message, puis le <strong>nom de la règle</strong>. Les règles du cours : <code>===</code> obligatoire (<code>eqeqeq</code>) <span class="citation" data-cites="eslint-rule-eqeqeq">(<a href="#ref-eslint-rule-eqeqeq" role="doc-biblioref">ESLint, s.&nbsp;d.-a</a>)</span>, <code>const</code> quand la valeur ne change pas (<code>prefer-const</code>) <span class="citation" data-cites="eslint-rule-prefer-const">(<a href="#ref-eslint-rule-prefer-const" role="doc-biblioref">ESLint, s.&nbsp;d.-e</a>)</span>, jamais <code>var</code> (<code>no-var</code>) <span class="citation" data-cites="eslint-rule-no-var">(<a href="#ref-eslint-rule-no-var" role="doc-biblioref">ESLint, s.&nbsp;d.-d</a>)</span>. Une variable déclarée mais jamais utilisée est signalée par <code>no-unused-vars</code> <span class="citation" data-cites="eslint-rule-no-unused-vars">(<a href="#ref-eslint-rule-no-unused-vars" role="doc-biblioref">ESLint, s.&nbsp;d.-c</a>)</span>. Le dossier contient déjà un <code>package.json</code> et un <code>eslint.config.js</code> prêts.</p>
+<p><strong>Exemple.</strong> <code>npx eslint lint-moi.js</code> sur le fichier de départ. ESLint écrit d’abord le chemin du fichier, puis une ligne par alerte : ligne:colonne, gravité (<code>error</code>), message, nom de la règle.</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-02&gt; npx eslint lint-moi.js
+
+C:\Users\stagiaire\dwwm\semaine-02\lint-moi.js
+   8:1   error  Unexpected var, use let or const instead             no-var
+   9:5   error  'greeting' is never reassigned. Use 'const' instead  prefer-const
+  10:7   error  'unused' is assigned a value but never used          no-unused-vars
+  12:15  error  Expected '===' and instead saw '=='                  eqeqeq
+  17:13  error  'mesage' is not defined                              no-undef
+
+✖ 5 problems (5 errors, 0 warnings)
+  2 errors and 0 warnings potentially fixable with the `--fix` option.</code></pre>
+</div>
+<p>La dernière ligne propose l’option <code>--fix</code>, qui corrige seule certaines alertes : ne l’utilisez pas cette semaine, corrigez à la main pour comprendre chaque règle.</p>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape sur la première alerte ; vous la refaites aussitôt.</p>
+<ol type="1">
+<li>Tapez <code>npx eslint lint-moi.js</code>, puis Entrée. Cinq alertes s’affichent.</li>
+<li>Lisez la première : ligne <code>8</code>, colonne <code>1</code>, message <code>Unexpected var…</code>, règle <code>no-var</code>.</li>
+<li>Dans VS Code, ouvrez <code>lint-moi.js</code> et allez à la ligne 8.</li>
+<li>Remplacez <code>var</code> par <code>const</code>. Enregistrez.</li>
+<li>Relancez <code>npx eslint lint-moi.js</code> : il reste quatre alertes.</li>
+</ol>
+<p>La fiche <a href="../../ressources/fiche-erreurs.html">Lire un message d’erreur</a> reprend la lecture d’une alerte d’ESLint.</p>
+</section>
+<section id="eslint-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="eslint-attention-et-vérification">ESLint — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Corrigez une alerte à la fois, en partant du haut, et relancez ESLint après chacune : une correction change parfois les alertes suivantes.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : dans <code>12:15</code>, que désignent <code>12</code> et <code>15</code> ?</li>
+</ul>
+</section>
+<section id="exercice-lint-moi.js-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-lint-moi.js-20-min">Exercice — <code>lint-moi.js</code> (20 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : la première alerte, comme dans le pas à pas.</li>
+<li>Seuls (10 min) : corrigez les quatre autres, une par une.</li>
+<li><code>node --test lint-moi.test.js</code> : le test doit passer.</li>
+<li><code>npx eslint .</code> : aucune alerte dans tout le dossier.</li>
+<li><strong>Réussi si</strong> : <code>npx eslint .</code> n’affiche rien.</li>
+</ol>
+<p><code>npx eslint .</code> vérifie tous les fichiers du dossier, y compris les exercices que vous n’avez pas encore faits : leurs fichiers de départ sont écrits pour passer ESLint. À partir d’aujourd’hui, un exercice est <strong>fini</strong> quand ses tests passent <strong>et</strong> qu’ESLint n’affiche aucune alerte.</p>
+</section>
+<section id="apport-2-if-else-if-else-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-2-if-else-if-else-15-min">Apport 2 — <code>if</code>, <code>else if</code>, <code>else</code> (15 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : agir différemment selon la valeur reçue.</li>
+<li><strong>Condition</strong> : la première branche vraie s’exécute, et elle seule.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un programme ne fait pas toujours la même chose : « majeur » ou « mineur » selon l’âge, un message d’erreur si l’âge n’est pas un nombre.</p>
+<p><strong>Définition.</strong> <code>if</code> exécute un bloc si une condition est vraie ; <code>else if</code> teste une autre condition ; <code>else</code> précise quoi faire sinon <span class="citation" data-cites="mdn-controle-flux">(<a href="#ref-mdn-controle-flux" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>. Les conditions sont testées dans l’ordre : la première vraie gagne, les suivantes sont ignorées.</p>
+<p>Pour écrire une condition : comparer avec <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>===</code>, <code>!==</code> ; combiner avec <code>&amp;&amp;</code> (et), <code>||</code> (ou), <code>!</code> (non). <code>Number('abc')</code> donne <a href="../../ressources/lexique.html#t-nan"><code>NaN</code></a> (<em>Not a Number</em>) : <code>Number.isNaN()</code> le détecte <span class="citation" data-cites="mdn-number-isnan">(<a href="#ref-mdn-number-isnan" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>. <strong><a href="../../ressources/lexique.html#t-style-defensif">Style défensif</a></strong> : traitez d’abord les entrées invalides.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: if, else if, else
+  accDescr: On teste d'abord si la température n'est pas un nombre : si oui, on affiche température invalide. Sinon, on teste si elle est inférieure à 0 : si oui, on affiche il gèle. Sinon, la branche else affiche il ne gèle pas. Une seule branche s'exécute.
+  A{"if&lt;br/&gt;pas un&lt;br/&gt;nombre ?"} --&gt;|vrai| X["« température&lt;br/&gt;invalide »"]
+  A --&gt;|faux| B{"else if&lt;br/&gt;négative ?"}
+  B --&gt;|vrai| Y["« il gèle »"]
+  B --&gt;|faux| Z["else&lt;br/&gt;« il ne gèle pas »"]
+</pre>
+</div>
+<p></p><figcaption> Les conditions sont testées dans l’ordre (ici sur temperature) : la première vraie gagne, et seule sa branche s’exécute ; else, si aucune n’est vraie.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> temperature <span class="op">=</span> <span class="bu">Number</span>(<span class="bu">process</span><span class="op">.</span><span class="at">argv</span>[<span class="dv">2</span>])<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="bu">Number</span><span class="op">.</span><span class="fu">isNaN</span>(temperature)) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'température invalide'</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (temperature <span class="op">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'il gèle'</span>)<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'il ne gèle pas'</span>)<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur crée le fichier <code>meteo.js</code> dans VS Code avec le code ci-dessus ; vous le recopiez, puis :</p>
+<ol type="1">
+<li>Lancez <code>node meteo.js abc</code>. Le programme affiche <code>température invalide</code> : la première condition est vraie.</li>
+<li>Lancez <code>node meteo.js -5</code>. Il affiche <code>il gèle</code> : la première est fausse, la deuxième vraie.</li>
+<li>Lancez <code>node meteo.js 12</code>. Il affiche <code>il ne gèle pas</code> : aucune condition n’est vraie, <code>else</code> s’exécute.</li>
+<li>Lancez <code>node meteo.js 0</code>. Il affiche <code>il ne gèle pas</code> : <code>0 &lt; 0</code> est faux.</li>
+</ol>
+</section>
+<section id="conditions-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="conditions-attention-et-vérification">Conditions — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Number('')</code> donne <code>0</code>, pas <code>NaN</code> : un texte vide passe pour zéro. Et <code>=</code> dans une condition ne compare pas : écrivez <code>===</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : qu’affiche <code>node meteo.js 0</code> ? Prédisez, puis lancez.</li>
+</ul>
+</section>
+<section id="exercice-06-majeur-ou-mineur-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-06-majeur-ou-mineur-20-min">Exercice 06 — Majeur ou mineur ? (20 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : écrivez la première condition, l’âge invalide.</li>
+<li>Seuls : <code>majeur</code> à partir de 18 ans, <code>mineur</code> avant.</li>
+<li><code>node --test 06-majorite.test.js</code>, puis <code>npx eslint .</code>.</li>
+<li><strong>Réussi si</strong> : tests au vert, aucune alerte.</li>
+</ol>
+<ul>
+<li><code>node 06-majorite.js 18</code> affiche <code>majeur</code>.</li>
+<li><code>node 06-majorite.js 17</code> affiche <code>mineur</code>.</li>
+<li>Un texte ou un âge négatif : <code>âge invalide</code>.</li>
+<li>Pensez au cas limite : 18 ans, comme en semaine 1.</li>
+</ul>
+</section>
+<section id="apport-3-la-boucle-while-8-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-3-la-boucle-while-8-min">Apport 3 — La boucle <code>while</code> (8 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : répéter une action sans recopier la ligne.</li>
+<li><strong><code>while</code></strong> : tant que la condition est vraie, on recommence.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Afficher 3, 2, 1 se fait en trois lignes ; afficher de 100 à 1 en demanderait cent. Une boucle répète la même action autant de fois que nécessaire.</p>
+<p><strong>Définition.</strong> <code>while (condition) { … }</code> répète le bloc tant que la condition est vraie <span class="citation" data-cites="mdn-boucles">(<a href="#ref-mdn-boucles" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span>. Quelque chose doit changer dans le bloc, sinon la condition reste vraie pour toujours.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: La boucle while
+  accDescr: Départ : n vaut 1. Test : n est-il inférieur ou égal à 100 ? Si vrai, le bloc affiche n puis double n, et on revient au test. Si faux, la boucle s'arrête. Si n ne changeait pas, le test resterait vrai pour toujours.
+  D["départ&lt;br/&gt;let n = 1"] --&gt; T{"test&lt;br/&gt;n ≤ 100 ?"}
+  T --&gt;|vrai| B["bloc&lt;br/&gt;afficher n&lt;br/&gt;n = n * 2"]
+  B --&gt;|retour au test| T
+  T --&gt;|faux| F(["fin de la boucle"])
+</pre>
+</div>
+<p></p><figcaption> Tant que la condition est vraie, le bloc s’exécute, puis on revient au test ; quand elle devient fausse, la boucle s’arrête. (≤ s’écrit &lt;= en JavaScript.)</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> n <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (n <span class="op">&lt;=</span> <span class="dv">100</span>) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(n)<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  n <span class="op">=</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur suit la boucle au tableau, tour par tour ; vous remplissez le tableau sur votre feuille.</p>
+<ol type="1">
+<li>Avant la boucle, <code>n</code> vaut <code>1</code>. <code>1 &lt;= 100</code> est vrai : on affiche <code>1</code>, puis <code>n</code> vaut <code>2</code>.</li>
+<li><code>2 &lt;= 100</code> est vrai : on affiche <code>2</code>, puis <code>n</code> vaut <code>4</code>.</li>
+<li>Continuez : <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>.</li>
+<li><code>n</code> vaut <code>128</code> : <code>128 &lt;= 100</code> est faux. La boucle s’arrête.</li>
+<li>Vérifiez en lançant le programme : il affiche 1, 2, 4, 8, 16, 32, 64.</li>
+</ol>
+</section>
+<section id="while-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="while-attention-et-vérification"><code>while</code> — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <code>n</code> ne change jamais, la boucle ne s’arrête pas : le terminal se fige. Arrêtez-la avec <kbd title="mac: Ctrl+C, windows: Ctrl+C" aria-hidden="true" data-mac="Ctrl+C" data-windows="Ctrl+C"></kbd><span class="visually-hidden"></span>, puis ajoutez la ligne qui change <code>n</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : avec <code>n = n * 3</code>, combien de nombres s’affichent ?</li>
+</ul>
+</section>
+<section id="apport-4-la-boucle-for-7-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-4-la-boucle-for-7-min">Apport 4 — La boucle <code>for</code> (7 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : une boucle qui compte, écrite sur une seule ligne.</li>
+<li><strong><code>for</code></strong> : départ, condition et pas, réunis entre parenthèses.</li>
+</ul>
+<p><strong>Pourquoi.</strong> La plupart des boucles comptent : de 1 à 3, de 10 à 0. Avec <code>while</code>, le départ, la condition et le pas sont sur trois lignes différentes, et on oublie facilement le pas.</p>
+<p><strong>Définition.</strong> <code>for (départ; condition; pas) { … }</code> exécute le départ une fois, puis répète le bloc tant que la condition est vraie, en appliquant le pas après chaque tour <span class="citation" data-cites="mdn-boucles">(<a href="#ref-mdn-boucles" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span>. <code>i++</code> ajoute 1 à <code>i</code> (comme <code>i = i + 1</code>) ; <code>i--</code> retire 1.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: La boucle for
+  accDescr: Départ, une seule fois : i vaut 1. Test : i est-il inférieur ou égal à 3 ? Si vrai, le bloc affiche tour i, puis le pas ajoute 1 à i, et on revient au test. Si faux, la boucle s'arrête.
+  D["départ, une fois&lt;br/&gt;let i = 1"] --&gt; T{"test&lt;br/&gt;i ≤ 3 ?"}
+  T --&gt;|vrai| B["bloc&lt;br/&gt;afficher « tour i »"]
+  B --&gt; P["pas&lt;br/&gt;i++"]
+  P --&gt;|retour au test| T
+  T --&gt;|faux| F(["fin de la boucle"])
+</pre>
+</div>
+<p></p><figcaption> La boucle for réunit le départ, le test et le pas : départ une fois, puis test, bloc, pas, et retour au test. (≤ s’écrit &lt;= en JavaScript.)</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`tour </span><span class="sc">${</span>i<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur suit la boucle au tableau ; vous remplissez le tableau sur votre feuille.</p>
+<ol type="1">
+<li>Départ : <code>let i = 1</code>, une seule fois.</li>
+<li>Condition : <code>1 &lt;= 3</code> est vrai : on affiche <code>tour 1</code>.</li>
+<li>Pas : <code>i++</code>, donc <code>i</code> vaut <code>2</code>. <code>2 &lt;= 3</code> : on affiche <code>tour 2</code>.</li>
+<li>Pas : <code>i</code> vaut <code>3</code>. <code>3 &lt;= 3</code> : on affiche <code>tour 3</code>.</li>
+<li>Pas : <code>i</code> vaut <code>4</code>. <code>4 &lt;= 3</code> est faux : la boucle s’arrête.</li>
+</ol>
+</section>
+<section id="for-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="for-attention-et-vérification"><code>for</code> — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un test qui affiche <code>ETIMEDOUT</code> : votre programme a dépassé le temps permis. C’est presque toujours une boucle infinie : vérifiez le pas.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : écrivez une boucle <code>for</code> qui affiche 3, 2, 1.</li>
+</ul>
+</section>
+<section id="à-retenir-ce-matin" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>ESLint</strong> : <code>npx eslint .</code> ; une alerte à la fois, du haut vers le bas.</li>
+<li><strong>Conditions</strong> : l’entrée invalide d’abord ; la première vraie gagne.</li>
+<li><strong><code>while</code></strong> : quelque chose doit changer, sinon la boucle ne s’arrête pas.</li>
+<li><strong><code>for</code></strong> : départ, condition, pas, sur une ligne.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>ESLint</strong> : il relit le code sans le lancer ; chaque alerte donne ligne, colonne, message et règle ; un exercice est fini quand les tests passent et qu’ESLint n’affiche rien.</li>
+<li><strong>Conditions</strong> : <code>if</code>, <code>else if</code>, <code>else</code> ; la première condition vraie gagne ; traitez d’abord les entrées invalides (<code>Number.isNaN</code>).</li>
+<li><strong><code>while</code></strong> : répète tant que la condition est vraie ; quelque chose doit changer dans le bloc ; <kbd title="mac: Ctrl+C, windows: Ctrl+C" aria-hidden="true" data-mac="Ctrl+C" data-windows="Ctrl+C"></kbd><span class="visually-hidden"></span> arrête une boucle infinie.</li>
+<li><strong><code>for</code></strong> : départ, condition et pas sur une ligne ; <code>i++</code> ajoute 1.</li>
+</ul>
+<section id="si-le-temps-le-permet-le-reste-puis-07-et-08" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-le-reste-puis-07-et-08">Si le temps le permet — Le reste <code>%</code>, puis 07 et 08</h3>
+<p><strong>L’<a href="../../ressources/lexique.html#t-operateur-reste">opérateur reste</a>.</strong> <code>a % b</code> donne le <strong>reste</strong> de la division de <code>a</code> par <code>b</code> : <code>12 % 2</code> vaut <code>0</code>, <code>7 % 2</code> vaut <code>1</code>. Un nombre est pair si son reste par 2 vaut <code>0</code>. Le résultat de <code>%</code> a le signe du premier nombre <span class="citation" data-cites="mdn-reste">(<a href="#ref-mdn-reste" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span> : <code>-3 % 2</code> vaut <code>-1</code>, pas <code>1</code>. Testez donc « reste égal à 0 », jamais « reste égal à 1 ».</p>
+<p><strong>Exercice 07 — Pair ou impair ?</strong></p>
+<ol type="1">
+<li><code>node 07-pair-impair.js 12</code> affiche <code>12 est pair</code>.</li>
+<li><code>node 07-pair-impair.js 7</code> affiche <code>7 est impair</code>.</li>
+<li>Un texte : <code>nombre invalide</code>. Les tests essaient aussi des nombres négatifs.</li>
+<li><code>node --test 07-pair-impair.test.js</code>, puis <code>npx eslint .</code>.</li>
+</ol>
+<p><strong>Exercice 08 — Compte à rebours, <code>while</code> puis <code>for</code>.</strong></p>
+<ol type="1">
+<li><code>node 08-compte-a-rebours.js 3</code> affiche 3, 2, 1, puis <code>Décollage !</code>. Un texte ou un nombre négatif : <code>nombre invalide</code>.</li>
+<li>Étape 1 : écrivez-le avec une boucle <code>while</code>. Tous les tests passent sauf le dernier (« utilise une boucle for ») : c’est normal.</li>
+<li>Gardez une copie de votre version <code>while</code> (dans un commentaire ou un autre fichier).</li>
+<li>Étape 2 : réécrivez la boucle avec <code>for</code>. Le dernier test passe.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — étape 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Les trois parties de votre boucle <code>while</code> sont déjà là : le départ (<code>let n = start</code>), la condition (<code>n &gt; 0</code>) et le pas (<code>n = n - 1</code>). Une boucle <code>for</code> les réunit sur une seule ligne.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pour-aller-plus-loin" class="level3">
+<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<ul>
+<li><strong>09-somme</strong> : <code>La somme de 1 à 4 vaut 10</code>, avec une boucle <code>for</code>.</li>
+<li><strong>10-fizzbuzz</strong> : le défi de la semaine 1, en JavaScript. Fizz, Buzz, FizzBuzz : dans quel ordre écrire les conditions ?</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — 09-somme
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Créez <code>let sum = 0;</code> avant la boucle, puis ajoutez <code>i</code> à <code>sum</code> à chaque tour. C’est « La somme » de la semaine 1, traduite du pseudo-code en JavaScript.</p>
+</div>
+</div>
+</div>
+<p>10-fizzbuzz s’inspire du jeu <em>Fizz buzz</em> <span class="citation" data-cites="wikipedia-fizz-buzz">(<a href="#ref-wikipedia-fizz-buzz" role="doc-biblioref">Wikipedia, s.&nbsp;d.</a>)</span>. Les stagiaires qui veulent aller encore plus loin trouveront <code>11-triangle.js</code> (boucles imbriquées) dans le niveau 3 du <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html#parcours-de-remédiation-de-la-semaine">parcours de remédiation</a>.</p>
+</section>
+</section>
+<section id="débrief" class="level2">
+<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<ul>
+<li>Pourquoi traiter les entrées invalides en premier ?</li>
+<li>Quand choisir <code>while</code>, quand choisir <code>for</code> ?</li>
+<li>Quelle alerte ESLint avez-vous le plus rencontrée ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-groupe-b-projet-consolidation" class="level1">
+<h1>Après-midi — Groupe B : projet &amp; consolidation</h1>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Groupe B</strong> en formation de 12 h 45 à 17 h ; le groupe A est au sport (13 h 15 – 16 h).<br> Pas de notion nouvelle : on termine, on consolide, on approfondit.</p>
+</div>
+</div>
+</div>
+<section id="au-programme" class="level2">
+<h2 class="anchored" data-anchor-id="au-programme">Au programme</h2>
+<ol type="1">
+<li><strong>Terminer</strong> (1 h) : <code>lint-moi</code> et 06, tests et ESLint.</li>
+<li><strong>Consolider</strong> (1 h) : 07, puis 08 (<code>while</code>, puis <code>for</code>).</li>
+<li><strong>Papier</strong> (45 min) : 06 et 08 sur une feuille, puis à la machine.</li>
+<li><strong>Relire</strong> (16 h 15) : un exercice d’un camarade, en binôme.</li>
+</ol>
+<p>Aucune notion nouvelle : ce sont ESLint, les conditions et les boucles de ce matin. 07 et 08 sont décrits dans « Si le temps le permet », plus haut. Refaire 06 et 08 sur papier prépare l’ECF du 23/10, qui se fait sans machine pour sa première partie. Pour la relecture : l’un lit son code à voix haute, l’autre suit et note une remarque, puis vous échangez les rôles. Le groupe A fera le même entraînement sur papier avec la fiche de révision du mercredi 21/10.</p>
+<p><strong>Critères de réussite de l’après-midi</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>lint-moi</code>, 06, 07 et 08 passent les tests et ESLint</label></li>
+<li><label><input type="checkbox">06 et 08 sont écrits sur papier, sans regarder</label></li>
+</ul>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-eslint-rule-eqeqeq" class="csl-entry" role="listitem">
+ESLint. s.&nbsp;d.-a. <span>«&nbsp;eqeqeq&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/rules/eqeqeq">https://eslint.org/docs/latest/rules/eqeqeq</a>.
+</div>
+<div id="ref-eslint-getting-started" class="csl-entry" role="listitem">
+ESLint. s.&nbsp;d.-b. <span>«&nbsp;Getting Started with ESLint&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/use/getting-started">https://eslint.org/docs/latest/use/getting-started</a>.
+</div>
+<div id="ref-eslint-rule-no-unused-vars" class="csl-entry" role="listitem">
+ESLint. s.&nbsp;d.-c. <span>«&nbsp;no-unused-vars&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/rules/no-unused-vars">https://eslint.org/docs/latest/rules/no-unused-vars</a>.
+</div>
+<div id="ref-eslint-rule-no-var" class="csl-entry" role="listitem">
+ESLint. s.&nbsp;d.-d. <span>«&nbsp;no-var&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/rules/no-var">https://eslint.org/docs/latest/rules/no-var</a>.
+</div>
+<div id="ref-eslint-rule-prefer-const" class="csl-entry" role="listitem">
+ESLint. s.&nbsp;d.-e. <span>«&nbsp;prefer-const&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/rules/prefer-const">https://eslint.org/docs/latest/rules/prefer-const</a>.
+</div>
+<div id="ref-mdn-boucles" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;Boucles et itérations - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Loops_and_iteration">https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Loops_and_iteration</a>.
+</div>
+<div id="ref-mdn-controle-flux" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Contrôle du flux d’instructions et gestion des erreurs - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Control_flow_and_error_handling">https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Control_flow_and_error_handling</a>.
+</div>
+<div id="ref-mdn-number-isnan" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Number : méthode statique isNaN() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN</a>.
+</div>
+<div id="ref-mdn-reste" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;Reste (&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder</a>.
+</div>
+<div id="ref-npm-threats-mitigations" class="csl-entry" role="listitem">
+<span class="nocase">npm</span>. s.&nbsp;d. <span>«&nbsp;npm: Threats and Mitigations&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://docs.npmjs.com/threats-and-mitigations">https://docs.npmjs.com/threats-and-mitigations</a>.
+</div>
+<div id="ref-owasp-top10-2025-a03" class="csl-entry" role="listitem">
+OWASP Foundation. 2025. <span>«&nbsp;A03 Software Supply Chain Failures - OWASP Top 10:2025&nbsp;»</span>. <a href="https://top10.owasp.org/2025/A03_2025-Software_Supply_Chain_Failures">https://top10.owasp.org/2025/A03_2025-Software_Supply_Chain_Failures</a>.
+</div>
+<div id="ref-wikipedia-fizz-buzz" class="csl-entry" role="listitem">
+Wikipedia. s.&nbsp;d. <span>«&nbsp;Fizz buzz&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://en.wikipedia.org/wiki/Fizz_buzz">https://en.wikipedia.org/wiki/Fizz_buzz</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="pagination-link" aria-label="Jeudi 15/10 — Journée d'intégration">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Jeudi 15/10 — Journée d’intégration</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

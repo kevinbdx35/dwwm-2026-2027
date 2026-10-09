@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Lundi 12/10 — Algorithmes et projet Scratch – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s02-fondamentaux-js-1/mardi.html" rel="next">
+<link href="../../semaines/s02-fondamentaux-js-1/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/lundi.html">Lundi 12/10 — Algorithmes et projet Scratch</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-cs50-week-0-algorithmes-scratch-exercices" id="toc-matin-cs50-week-0-algorithmes-scratch-exercices" class="nav-link" data-scroll-target="#matin-cs50-week-0-algorithmes-scratch-exercices">Matin — CS50 Week 0 — algorithmes &amp; Scratch (exercices)</a>
+  <ul class="collapse">
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-1-du-débranché-au-pseudo-code-15-min" id="toc-apport-1-du-débranché-au-pseudo-code-15-min" class="nav-link" data-scroll-target="#apport-1-du-débranché-au-pseudo-code-15-min">Apport 1 — Du débranché au pseudo-code (15 min)</a></li>
+  <li><a href="#pseudo-code-attention-et-vérification" id="toc-pseudo-code-attention-et-vérification" class="nav-link" data-scroll-target="#pseudo-code-attention-et-vérification">Pseudo-code — attention et vérification</a></li>
+  <li><a href="#exercice-1-couper-en-deux-en-pseudo-code-15-min" id="toc-exercice-1-couper-en-deux-en-pseudo-code-15-min" class="nav-link" data-scroll-target="#exercice-1-couper-en-deux-en-pseudo-code-15-min">Exercice 1 — « Couper en deux » en pseudo-code (15 min)</a></li>
+  <li><a href="#exercice-2-deviner-un-nombre-20-min" id="toc-exercice-2-deviner-un-nombre-20-min" class="nav-link" data-scroll-target="#exercice-2-deviner-un-nombre-20-min">Exercice 2 — Deviner un nombre (20 min)</a></li>
+  <li><a href="#apport-2-les-variables-dans-scratch-15-min" id="toc-apport-2-les-variables-dans-scratch-15-min" class="nav-link" data-scroll-target="#apport-2-les-variables-dans-scratch-15-min">Apport 2 — Les variables dans Scratch (15 min)</a></li>
+  <li><a href="#variables-scratch-attention-et-vérification" id="toc-variables-scratch-attention-et-vérification" class="nav-link" data-scroll-target="#variables-scratch-attention-et-vérification">Variables Scratch — attention et vérification</a></li>
+  <li><a href="#exercices-3-à-5-scratch-45-min" id="toc-exercices-3-à-5-scratch-45-min" class="nav-link" data-scroll-target="#exercices-3-à-5-scratch-45-min">Exercices 3 à 5 — Scratch (45 min)</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-deux-pages-à-la-fois" id="toc-si-le-temps-le-permet-deux-pages-à-la-fois" class="nav-link" data-scroll-target="#si-le-temps-le-permet-deux-pages-à-la-fois">Si le temps le permet — « Deux pages à la fois »</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-tp-problem-set-0-projet-scratch" id="toc-après-midi-tp-problem-set-0-projet-scratch" class="nav-link" data-scroll-target="#après-midi-tp-problem-set-0-projet-scratch">Après-midi — TP — « Problem set 0 : projet Scratch »</a>
+  <ul class="collapse">
+  <li><a href="#apport-3-tout-est-0-et-1-15-min" id="toc-apport-3-tout-est-0-et-1-15-min" class="nav-link" data-scroll-target="#apport-3-tout-est-0-et-1-15-min">Apport 3 — Tout est 0 et 1 (15 min)</a></li>
+  <li><a href="#binaire-attention-et-vérification" id="toc-binaire-attention-et-vérification" class="nav-link" data-scroll-target="#binaire-attention-et-vérification">Binaire — attention et vérification</a></li>
+  <li><a href="#apport-4-dans-lordinateur-5-min" id="toc-apport-4-dans-lordinateur-5-min" class="nav-link" data-scroll-target="#apport-4-dans-lordinateur-5-min">Apport 4 — Dans l’ordinateur (5 min)</a></li>
+  <li><a href="#dans-lordinateur-attention-et-vérification" id="toc-dans-lordinateur-attention-et-vérification" class="nav-link" data-scroll-target="#dans-lordinateur-attention-et-vérification">Dans l’ordinateur — attention et vérification</a></li>
+  <li><a href="#apport-5-les-messages-entre-sprites-10-min" id="toc-apport-5-les-messages-entre-sprites-10-min" class="nav-link" data-scroll-target="#apport-5-les-messages-entre-sprites-10-min">Apport 5 — Les messages entre sprites (10 min)</a></li>
+  <li><a href="#messages-attention-et-vérification" id="toc-messages-attention-et-vérification" class="nav-link" data-scroll-target="#messages-attention-et-vérification">Messages — attention et vérification</a></li>
+  <li><a href="#le-projet-consignes-2-h-10" id="toc-le-projet-consignes-2-h-10" class="nav-link" data-scroll-target="#le-projet-consignes-2-h-10">Le projet — consignes (2 h 10)</a>
+  <ul class="collapse">
+  <li><a href="#pas-à-pas-enregistrer-votre-projet-sur-lordinateur" id="toc-pas-à-pas-enregistrer-votre-projet-sur-lordinateur" class="nav-link" data-scroll-target="#pas-à-pas-enregistrer-votre-projet-sur-lordinateur">Pas à pas — enregistrer votre projet sur l’ordinateur</a></li>
+  </ul></li>
+  <li><a href="#cahier-des-charges" id="toc-cahier-des-charges" class="nav-link" data-scroll-target="#cahier-des-charges">Cahier des charges</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="lundi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="lundi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/lundi.html">Lundi 12/10 — Algorithmes et projet Scratch</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lundi 12/10 — Algorithmes et projet Scratch</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">lundi 12 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : résolution de problème · communiquer<br> <strong>Livrable</strong> : votre projet Scratch commencé (lien ou fichier <code>.sb3</code>).</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Écrire un <a href="../../ressources/lexique.html#t-algorithme">algorithme</a> en <a href="../../ressources/lexique.html#t-pseudo-code">pseudo-code</a>.</li>
+<li>Comparer des algorithmes de recherche en comptant les pages.</li>
+<li>Utiliser une <a href="../../ressources/lexique.html#t-variable">variable</a> et un <a href="../../ressources/lexique.html#t-message-scratch">message</a> dans Scratch.</li>
+<li>Démarrer un projet Scratch à partir d’un cahier des charges.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Chaque notion suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification. Un encadré « À retenir » termine chaque demi-journée.</p>
+</section>
+<section id="matin-cs50-week-0-algorithmes-scratch-exercices" class="level1">
+<h1>Matin — CS50 Week 0 — algorithmes &amp; Scratch (exercices)</h1>
+<section id="rappel-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<ol type="1">
+<li>Qu’est-ce qu’un algorithme ?</li>
+<li>Pourquoi « couper en deux » exige-t-il une liste triée ?</li>
+<li>Quel bloc Scratch démarre un script ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-1-du-débranché-au-pseudo-code-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-1-du-débranché-au-pseudo-code-15-min">Apport 1 — Du débranché au pseudo-code (15 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : écrire un algorithme avant de le programmer.</li>
+<li><strong>Pseudo-code</strong> : du français structuré, une instruction par ligne.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Vendredi, vous avez décrit à voix haute comment chercher un nom dans l’annuaire. Pour qu’un autre lecteur (puis un ordinateur) suive la méthode sans hésiter, il faut l’écrire de façon précise.</p>
+<p><strong>Définition.</strong> Le pseudo-code est un algorithme écrit en français structuré, avant le vrai code : une instruction par ligne, avec les mêmes mots qu’en semaine 1 (<code>←</code>, <code>SI … ALORS</code>, <code>TANT QUE</code>, <code>POUR</code>), et un décalage vers la droite pour ce qui est « à l’intérieur » d’un <code>SI</code> ou d’un <code>TANT QUE</code>. Il n’a pas de règle officielle : l’important est qu’un autre lecteur puisse le suivre. Les exemples de l’annuaire viennent du cours CS50 <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>.</p>
+<p><strong>Exemple.</strong> La méthode « page par page » :</p>
+<pre><code>ouvrir l'annuaire à la première page
+TANT QUE le nom n'est pas sur la page
+    SI c'est la dernière page ALORS
+        AFFICHER "absent"
+        ARRÊTER
+    FIN SI
+    tourner une page
+FIN TANT QUE
+AFFICHER "trouvé"</code></pre>
+<p><strong>Pas à pas.</strong> Le formateur « joue » l’algorithme avec un vrai livre ; vous suivez sur votre feuille, ligne par ligne.</p>
+<ol type="1">
+<li>Ligne 1 : ouvrir le livre à la première page.</li>
+<li>Ligne 2 : le nom est-il sur la page ? Non : on entre dans la <a href="../../ressources/lexique.html#t-boucle">boucle</a>.</li>
+<li>Ligne 3 : est-ce la dernière page ? Non : on saute jusqu’à <code>FIN SI</code>.</li>
+<li>Ligne 7 : tourner une page, puis revenir à la ligne 2.</li>
+<li>Quand le nom est sur la page, la <a href="../../ressources/lexique.html#t-condition">condition</a> de la ligne 2 est fausse : on sort de la boucle et on affiche <code>trouvé</code>.</li>
+</ol>
+</section>
+<section id="pseudo-code-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="pseudo-code-attention-et-vérification">Pseudo-code — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un algorithme qui oublie le cas « absent » ne s’arrête jamais quand le nom n’existe pas. Prévoyez toujours l’échec.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : dans l’exemple, quelle ligne gère le nom absent ?</li>
+</ul>
+</section>
+<section id="exercice-1-couper-en-deux-en-pseudo-code-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-couper-en-deux-en-pseudo-code-15-min">Exercice 1 — « Couper en deux » en pseudo-code (15 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : la première ligne et le <code>TANT QUE</code>.</li>
+<li>Seuls (7 min) : écrivez la suite de « couper en deux ».</li>
+<li>Avec un voisin (3 min) : l’un lit, l’autre joue avec un livre.</li>
+<li><strong>Réussi si</strong> : trois issues (trouvé, gauche, droite) et le cas « absent ».</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gardez une trace des pages qui restent possibles. À chaque tour : ouvrir la page du milieu, comparer le nom, puis garder la moitié de gauche ou de droite. Quand il ne reste plus de page, le nom est absent.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-2-deviner-un-nombre-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-deviner-un-nombre-20-min">Exercice 2 — Deviner un nombre (20 min)</h2>
+<ol type="1">
+<li>Par deux : un <strong>meneur</strong>, un <strong>joueur</strong> (règles ci-dessous).</li>
+<li>Trois parties, puis échangez les rôles.</li>
+<li>Seuls : la stratégie en 7 essais au plus, en pseudo-code.</li>
+<li><strong>Réussi si</strong> : elle trouve 73 en 7 essais au plus.</li>
+</ol>
+<p>Le <strong>meneur</strong> pense à un nombre entre 1 et 100. Le <strong>joueur</strong> propose un nombre ; le meneur répond seulement « plus grand », « plus petit » ou « trouvé ». Cherchez la stratégie qui trouve toujours en <strong>7 essais au plus</strong>, puis écrivez-la en pseudo-code.</p>
+</section>
+<section id="apport-2-les-variables-dans-scratch-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-2-les-variables-dans-scratch-15-min">Apport 2 — Les variables dans Scratch (15 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : retenir une valeur qui change, comme un score.</li>
+<li><strong>Variable</strong> : un nom qui désigne une valeur.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un jeu compte des points, une histoire retient le prénom du joueur : le programme doit garder une valeur et la modifier.</p>
+<p><strong>Définition.</strong> Une variable est un nom qui désigne une valeur. Dans Scratch : catégorie <strong>Variables</strong>, bouton <strong>Créer une variable</strong> ; « mettre … à … » donne une valeur ; « ajouter … à … » l’augmente (ou la diminue, avec un nombre négatif) ; « demander … et attendre », puis « réponse », lit ce que l’on tape. Les noms des blocs suivent la traduction française officielle de Scratch <span class="citation" data-cites="scratch-l10n-blocks-fr">(<a href="#ref-scratch-l10n-blocks-fr" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.-b</a>)</span>.</p>
+<p><strong>Une image, avec sa limite.</strong> On peut imaginer une <strong>étiquette</strong> portant le nom, collée sur une valeur : « mettre score à 0 » recolle l’étiquette sur 0. Demain, en JavaScript, c’est la même image. Sa limite apparaîtra en semaine 6, quand deux étiquettes pourront désigner le même objet.</p>
+<p><strong>Exemple.</strong></p>
+<pre><code>quand ⚑ est cliqué
+mettre score à 0
+quand ce sprite est cliqué
+ajouter 1 à score</code></pre>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape ; vous la refaites aussitôt dans Scratch. Sur chaque capture, l’endroit à cliquer est entouré d’un cadre jaune, avec le numéro de l’étape ; un zoom sur la zone utile suit chaque capture. Sur téléphone, touchez une capture pour l’agrandir.</p>
+<p>Ouvrez l’éditeur de Scratch : <a href="https://scratch.mit.edu/projects/editor/" class="uri">https://scratch.mit.edu/projects/editor/</a>. Ce site mesure sa fréquentation.</p>
+<p><strong>Étape 1.</strong> Dans la colonne de gauche, cliquez sur la catégorie <strong>Variables</strong> (rond orange).</p>
+<p><a href="img/scratch-var-01-categorie-variables.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/scratch-var-01-categorie-variables.webp" class="img-fluid" alt="L'éditeur de Scratch : à gauche, la colonne des catégories ; au centre, la palette des blocs bleus de Mouvement, puis la zone de travail ; à droite, la scène avec le chat. La catégorie « Variables » est encadré en jaune avec le numéro 1."></a></p>
+<p><a href="img/scratch-var-01-categorie-variables-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/scratch-var-01-categorie-variables-zoom.webp" class="img-fluid" alt="Zoom sur la colonne des catégories : « Variables », rond orange, encadré en jaune avec le numéro 1."></a></p>
+<p><strong>Vous devez voir</strong> : la palette affiche les blocs orange des variables, sous le bouton « Créer une variable ».</p>
+<p><strong>Étape 2.</strong> Cliquez sur <strong>Créer une variable</strong>.</p>
+<p><a href="img/scratch-var-02-creer-variable.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/scratch-var-02-creer-variable.webp" class="img-fluid" alt="La palette des variables : le bouton « Créer une variable », en haut, est encadré en jaune avec le numéro 2 ; dessous, la variable « ma variable » et ses blocs."></a></p>
+<p><a href="img/scratch-var-02-creer-variable-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/scratch-var-02-creer-variable-zoom.webp" class="img-fluid" alt="Zoom sur le bouton « Créer une variable », encadré en jaune avec le numéro 2."></a></p>
+<p><strong>Vous devez voir</strong> : la fenêtre « Nouvelle variable ».</p>
+<p><strong>Étape 3.</strong> Dans le champ « Nouveau nom de la variable », tapez <code>score</code>.</p>
+<p><a href="img/scratch-var-03-nom-score.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/scratch-var-03-nom-score.webp" class="img-fluid" alt="La fenêtre « Nouvelle variable » au-dessus de l'éditeur assombri. Le champ du nom, qui contient « score », est encadré en jaune avec le numéro 3 ; dessous, « Pour tous les sprites » est coché ; en bas, les boutons « Annuler » et « Ok »."></a></p>
+<p><a href="img/scratch-var-03-nom-score-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/scratch-var-03-nom-score-zoom.webp" class="img-fluid" alt="Zoom sur le champ du nom, rempli avec « score », encadré en jaune avec le numéro 3."></a></p>
+<p><strong>Vous devez voir</strong> : <code>score</code> dans le champ. En dessous, « Pour tous les <a href="../../ressources/lexique.html#t-sprite">sprites</a> » est déjà coché : gardez ce choix.</p>
+<p><strong>Étape 4.</strong> Cliquez sur <strong>Ok</strong>.</p>
+<p><a href="img/scratch-var-04-ok.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/scratch-var-04-ok.webp" class="img-fluid" alt="La fenêtre « Nouvelle variable » : le bouton violet « Ok », en bas à droite, est encadré en jaune avec le numéro 4."></a></p>
+<p><a href="img/scratch-var-04-ok-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/scratch-var-04-ok-zoom.webp" class="img-fluid" alt="Zoom sur les boutons « Annuler » et « Ok » ; « Ok » est encadré en jaune avec le numéro 4."></a></p>
+<p><strong>Vous devez voir</strong> : <code>score</code> dans la palette, sous « ma variable ».</p>
+<p><strong>Étape 5.</strong> Regardez la case à gauche de <code>score</code> : Scratch l’a déjà cochée. Si elle ne l’est pas, cliquez dessus.</p>
+<p><a href="img/scratch-var-05-case-cochee.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/scratch-var-05-case-cochee.webp" class="img-fluid" alt="La palette des variables : la case cochée à gauche de « score » est encadré en jaune avec le numéro 5. Sur la scène, en haut à gauche, l'affichage « score 0 »."></a></p>
+<p><a href="img/scratch-var-05-case-cochee-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img/scratch-var-05-case-cochee-zoom.webp" class="img-fluid" alt="Zoom sur les variables « ma variable » (case vide) et « score » (case cochée, encadré en jaune avec le numéro 5)."></a></p>
+<p><strong>Vous devez voir</strong> : en haut à gauche de la scène, l’affichage <code>score 0</code>.</p>
+<p><strong>Étape 6.</strong> Cliquez sur la catégorie <a href="../../ressources/lexique.html#t-evenement">Événements</a> (rond jaune).</p>
+<p><a href="img/scratch-var-06-categorie-evenements.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/scratch-var-06-categorie-evenements.webp" class="img-fluid" alt="L'éditeur, palette des variables ouverte. Dans la colonne des catégories, « Événements », rond jaune, est encadré en jaune avec le numéro 6."></a></p>
+<p><a href="img/scratch-var-06-categorie-evenements-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img/scratch-var-06-categorie-evenements-zoom.webp" class="img-fluid" alt="Zoom sur la colonne des catégories : « Événements » est encadré en jaune avec le numéro 6."></a></p>
+<p><strong>Vous devez voir</strong> : les blocs jaunes des événements ; le premier est « quand ⚑ est cliqué ».</p>
+<p><strong>Étape 7.</strong> Glissez le bloc « quand ⚑ est cliqué » dans la zone de travail, au centre.</p>
+<p><a href="img/scratch-var-07-glisser-drapeau.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="img/scratch-var-07-glisser-drapeau.webp" class="img-fluid" alt="La palette des événements : le premier bloc, « quand drapeau vert est cliqué », est encadré en jaune avec le numéro 7. La zone de travail, au centre, est vide."></a></p>
+<p><a href="img/scratch-var-07-glisser-drapeau-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="img/scratch-var-07-glisser-drapeau-zoom.webp" class="img-fluid" alt="Zoom sur le bloc « quand drapeau vert est cliqué », encadré en jaune avec le numéro 7."></a></p>
+<p><strong>Vous devez voir</strong> : le bloc « quand ⚑ est cliqué » dans la zone de travail.</p>
+<p><strong>Étape 8.</strong> Revenez dans la catégorie <strong>Variables</strong>, et glissez le bloc « mettre ma variable à 0 » juste sous « quand ⚑ est cliqué ».</p>
+<p><a href="img/scratch-var-08-glisser-mettre.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="img/scratch-var-08-glisser-mettre.webp" class="img-fluid" alt="La palette des variables. Le bloc « mettre ma variable à 0 » est encadré en jaune avec le numéro 8. Dans la zone de travail, le bloc « quand drapeau vert est cliqué »."></a></p>
+<p><a href="img/scratch-var-08-glisser-mettre-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="img/scratch-var-08-glisser-mettre-zoom.webp" class="img-fluid" alt="Zoom sur la palette : le bloc « mettre ma variable à 0 », encadré en jaune avec le numéro 8."></a></p>
+<p><strong>Vous devez voir</strong> : les deux blocs emboîtés l’un sous l’autre. S’ils restent séparés, rapprochez le second jusqu’à ce qu’il s’emboîte.</p>
+<p><strong>Étape 9.</strong> Dans le bloc posé, cliquez sur la petite flèche à droite de « ma variable ».</p>
+<p><a href="img/scratch-var-09-liste-variable.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="img/scratch-var-09-liste-variable.webp" class="img-fluid" alt="Dans la zone de travail, le script « quand drapeau vert est cliqué, mettre ma variable à 0 » ; la liste « ma variable » du second bloc est encadré en jaune avec le numéro 9."></a></p>
+<p><a href="img/scratch-var-09-liste-variable-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="img/scratch-var-09-liste-variable-zoom.webp" class="img-fluid" alt="Zoom sur le script : la liste « ma variable » du bloc « mettre », encadré en jaune avec le numéro 9."></a></p>
+<p><strong>Vous devez voir</strong> : une liste : « ma variable », « score », « Renommer la variable », « Supprimer la variable ».</p>
+<p><strong>Étape 10.</strong> Dans la liste, cliquez sur <strong>score</strong>.</p>
+<p><a href="img/scratch-var-10-choisir-score.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="img/scratch-var-10-choisir-score.webp" class="img-fluid" alt="La liste ouverte sous le bloc « mettre » : la ligne « score » est encadré en jaune avec le numéro 10."></a></p>
+<p><a href="img/scratch-var-10-choisir-score-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="img/scratch-var-10-choisir-score-zoom.webp" class="img-fluid" alt="Zoom sur la liste : « ma variable » (cochée), « score » (encadré en jaune avec le numéro 10), « Renommer la variable », « Supprimer la variable »."></a></p>
+<p><strong>Vous devez voir</strong> : le bloc dit maintenant « mettre score à 0 ».</p>
+<p><strong>Étape 11.</strong> Cliquez sur le drapeau vert, au-dessus de la scène.</p>
+<p><a href="img/scratch-var-11-drapeau-vert.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="img/scratch-var-11-drapeau-vert.webp" class="img-fluid" alt="L'éditeur : dans la zone de travail, le script « quand drapeau vert est cliqué, mettre score à 0 ». Le drapeau vert, au-dessus de la scène, est encadré en jaune avec le numéro 11."></a></p>
+<p><a href="img/scratch-var-11-drapeau-vert-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="img/scratch-var-11-drapeau-vert-zoom.webp" class="img-fluid" alt="Zoom sur le drapeau vert et le bouton stop, au-dessus de la scène ; le drapeau est encadré en jaune avec le numéro 11."></a></p>
+<p><strong>Vous devez voir</strong> : le script s’entoure d’un contour jaune pendant qu’il s’exécute, et la scène affiche <code>score 0</code>.</p>
+<p>Captures de l’éditeur Scratch, cadres compris, sous licence <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.fr">CC BY-SA 2.0</a> : « Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See <a href="http://scratch.mit.edu" class="uri">http://scratch.mit.edu</a> ».</p>
+</section>
+<section id="variables-scratch-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="variables-scratch-attention-et-vérification">Variables Scratch — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une variable créée « pour ce sprite uniquement » est invisible des autres sprites. Si deux sprites l’utilisent, créez-la « pour tous les sprites ».</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : <code>score</code> à 5, puis « ajouter -2 » : combien ?</li>
+</ul>
+</section>
+<section id="exercices-3-à-5-scratch-45-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-3-à-5-scratch-45-min">Exercices 3 à 5 — Scratch (45 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : l’exercice 3, le score.</li>
+<li>Seuls : l’exercice 4, le compte à rebours.</li>
+<li>Seuls : l’exercice 5, devine le nombre.</li>
+<li><strong>Réussi si</strong> : chaque programme fait ce qu’annonce son énoncé.</li>
+</ol>
+<p><strong>Exercice 3 — Le score (facile).</strong> Au drapeau vert : « mettre score à 0 ». Chaque clic sur le sprite ajoute 1 au score. <strong>Vérifiez</strong> : le score s’affiche et repart à 0 au drapeau vert.</p>
+<p><strong>Exercice 4 — Le compte à rebours (moyen).</strong></p>
+<ol type="1">
+<li>Une variable <code>compte</code> part de 10.</li>
+<li>Le sprite dit la valeur pendant 1 seconde, puis on retire 1.</li>
+<li>On recommence jusqu’à ce que <code>compte</code> vaille 0.</li>
+<li>Il dit alors « Décollage ! ».</li>
+</ol>
+<p><strong>Exercice 5 — Devine le nombre (moyen+).</strong></p>
+<ol type="1">
+<li>Le programme choisit un nombre secret entre 1 et 100.</li>
+<li>Il demande « Votre nombre ? » et répond « plus grand » ou « plus petit ».</li>
+<li>Il recommence jusqu’à ce que le joueur trouve.</li>
+<li><strong>Bonus</strong> : il compte les essais et les annonce à la fin.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — exercice 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>L’événement « quand ce sprite est cliqué » se trouve dans la catégorie Événements. Cochez la variable <code>score</code> pour la voir sur la scène.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — exercice 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Utilisez « répéter jusqu’à ce que » avec la condition « compte = 0 » (catégorie Opérateurs), et « ajouter -1 à compte » pour diminuer. C’est le compte à rebours de la semaine 1… sans le <a href="../../ressources/lexique.html#t-bug">bug</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — exercice 5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>« mettre secret à nombre aléatoire entre 1 et 100 », puis une boucle « répéter jusqu’à ce que réponse = secret ». Dans la boucle : « demander … et attendre », puis un bloc « si … alors … sinon » qui compare « réponse » et « secret ».</p>
+</div>
+</div>
+</div>
+<section id="si-le-temps-le-permet-deux-pages-à-la-fois" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-deux-pages-à-la-fois">Si le temps le permet — « Deux pages à la fois »</h3>
+<ol type="1">
+<li>Écrivez le pseudo-code de « deux pages à la fois ».</li>
+<li>Prévoyez le cas où l’on a <strong>dépassé</strong> le nom.</li>
+<li>Comptez les pages au pire, pour 1 000 et pour 2 000 pages.</li>
+</ol>
+</section>
+</section>
+<section id="à-retenir-ce-matin" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Pseudo-code</strong> : une instruction par ligne ; prévoir le cas « absent ».</li>
+<li><strong>Couper en deux</strong> : on élimine la moitié à chaque essai.</li>
+<li><strong>Variable</strong> : un nom qui désigne une valeur ; « pour tous les sprites ».</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Pseudo-code</strong> : du français structuré, avant le vrai code ; une instruction par ligne ; ce qui est « à l’intérieur » est décalé ; un bon algorithme prévoit l’échec.</li>
+<li><strong>Couper en deux</strong> : la même méthode trouve un nom dans un annuaire et un nombre entre 1 et 100 ; 7 essais suffisent pour 100 nombres.</li>
+<li><strong>Variable</strong> : un nom qui désigne une valeur ; « mettre » donne une valeur, « ajouter » la modifie ; créez-la « pour tous les sprites » si plusieurs sprites l’utilisent.</li>
+</ul>
+</section>
+<section id="débrief" class="level2">
+<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<ul>
+<li>Annuaire et devine le nombre : quel point commun ?</li>
+<li>Pourquoi un algorithme doit-il prévoir le cas « absent » ?</li>
+<li>À quoi sert une variable ? Donnez un exemple hors informatique.</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-tp-problem-set-0-projet-scratch" class="level1">
+<h1>Après-midi — TP — « Problem set 0 : projet Scratch »</h1>
+<section id="apport-3-tout-est-0-et-1-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-3-tout-est-0-et-1-15-min">Apport 3 — Tout est 0 et 1 (15 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : comprendre ce que l’ordinateur manipule vraiment.</li>
+<li><strong>Binaire</strong> : compter avec seulement deux chiffres, 0 et 1.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un texte, une image, un programme : pour l’ordinateur, tout est fait de nombres, et ces nombres sont écrits avec des 0 et des 1.</p>
+<p><strong>Définition.</strong> Le <a href="../../ressources/lexique.html#t-binaire">binaire</a> est une façon d’écrire les nombres avec deux chiffres seulement, 0 et 1 (des <strong><a href="../../ressources/lexique.html#t-bit">bits</a></strong>) : on compte en base 2 au lieu de la base 10 <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>. Les cartes de CS Unplugged le font toucher du doigt : chaque carte vaut le double de la suivante, et chaque nombre s’écrit en retournant certaines cartes <span class="citation" data-cites="csunplugged-binary-numbers">(<a href="#ref-csunplugged-binary-numbers" role="doc-biblioref">CS Unplugged, s.&nbsp;d.</a>)</span>.</p>
+<p><strong>Exemple.</strong> Cinq cartes de 16, 8, 4, 2 et 1 points. Carte visible = 1, carte cachée = 0. Pour 9 = 8 + 1 :</p>
+<pre><code>cartes :  16   8   4   2   1
+9      :   0   1   0   0   1</code></pre>
+<p><strong>Pas à pas.</strong> Par deux, avec les cinq cartes (fournies par le formateur, ou dessinées sur cinq bouts de papier). L’un montre les cartes, l’autre vérifie le total, puis échangez.</p>
+<ol type="1">
+<li>Posez les cartes face cachée, de gauche à droite : 16, 8, 4, 2, 1.</li>
+<li>Pour 9 : retournez 8, puis 1. Le total vaut 9 : on écrit <code>01001</code>.</li>
+<li>Montrez 21, puis 31. Écrivez chaque nombre avec des 0 et des 1.</li>
+<li>Que vaut <code>01001</code> ?</li>
+<li>Quel est le plus grand nombre avec 5 cartes ? Et avec une carte de plus ?</li>
+</ol>
+<p>Tout le reste est construit sur des nombres. Un <strong>texte</strong> : chaque caractère a un numéro (la lettre <code>A</code> porte le numéro 65 dans le code ASCII, repris par Unicode, qui numérote les caractères de toutes les langues et les émojis). Une <strong>image</strong> : une grille de points, les pixels ; chaque pixel est fait de trois nombres, la quantité de rouge, de vert et de bleu (RGB) <span class="citation" data-cites="cs50x-2026-lecture0">(<a href="#ref-cs50x-2026-lecture0" role="doc-biblioref">CS50 2026a</a>)</span>. Vous retrouverez ces trois nombres en CSS, en semaine 5. Pour aller plus loin, facultatif : la fiche de référence <a href="../../ressources/fiche-numeration.html">Systèmes de numération</a> (décimal, binaire, hexadécimal).</p>
+</section>
+<section id="binaire-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="binaire-attention-et-vérification">Binaire — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On lit les cartes de gauche à droite, de la plus grande à la plus petite. Changer leur ordre change le nombre.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que vaut <code>00110</code> ?</li>
+</ul>
+</section>
+<section id="apport-4-dans-lordinateur-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-4-dans-lordinateur-5-min">Apport 4 — Dans l’ordinateur (5 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : savoir où vit votre programme quand il tourne.</li>
+<li><strong><a href="../../ressources/lexique.html#t-processeur">Processeur</a>, mémoire, <a href="../../ressources/lexique.html#t-disque">disque</a></strong> : exécuter, poser, garder.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Quand vous lancez un programme, il passe du disque à la mémoire, puis le processeur l’exécute. Savoir qui fait quoi explique, par exemple, pourquoi un travail non enregistré disparaît quand l’ordinateur s’éteint.</p>
+<p><strong>Définition.</strong> Le <strong>processeur</strong> exécute les instructions d’un programme, une par une, dans l’ordre ; le programme et ses données sont placés dans la <strong><a href="../../ressources/lexique.html#t-memoire-vive">mémoire vive</a></strong>, qui s’efface quand l’ordinateur n’est plus alimenté <span class="citation" data-cites="interstices-memoire-unite-centrale">(<a href="#ref-interstices-memoire-unite-centrale" role="doc-biblioref">Delacroix-Gouin 2019</a>)</span> ; le <strong>disque</strong> garde les fichiers quand l’ordinateur est éteint : c’est là qu’est enregistré votre projet Scratch.</p>
+<p><strong>Une image, avec sa limite.</strong> On peut se représenter l’ordinateur comme une cuisine (schéma ci-dessous). Limite de l’image : un vrai processeur suit des milliards d’instructions par seconde, et plusieurs programmes partagent la mémoire en même temps.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/ordinateur-cuisine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Une image : l’ordinateur comme une cuisine. Lancer un programme, c’est sortir la recette du placard pour la poser sur le plan de travail, où le cuisinier la suit."><img src="img/ordinateur-cuisine.svg" alt="Une cuisine en trois parties. À gauche, le placard, c'est le disque : il garde les recettes, même éteint. Une flèche « lancer » mène au plan de travail, la mémoire vive, vidée à l'arrêt, où sont posés la recette (le programme) et les ingrédients. À droite, le cuisinier, le processeur, lit et suit la recette, une instruction à la fois." height="400" class="figure-img"></a></p>
+<figcaption>Une image : l’ordinateur comme une cuisine. Lancer un programme, c’est sortir la recette du placard pour la poser sur le plan de travail, où le cuisinier la suit.</figcaption>
+</figure>
+</div>
+<p><strong>Pas à pas.</strong> Suivez le trajet de votre projet Scratch :</p>
+<ol type="1">
+<li>Vous ouvrez le fichier <code>.sb3</code> : il est lu sur le <strong>disque</strong>.</li>
+<li>Il est copié dans la <strong>mémoire vive</strong>.</li>
+<li>Le <strong>processeur</strong> exécute ses blocs, un à la fois.</li>
+<li>Vous enregistrez : la nouvelle version est écrite sur le <strong>disque</strong>.</li>
+</ol>
+<p>C’est tout ce qu’il faut savoir du matériel pour la formation. Pour aller plus loin, facultatif : la fiche de lecture <a href="../../ressources/fiche-ordinateur.html">C’est quoi un ordinateur ?</a> (environ 20 minutes).</p>
+</section>
+<section id="dans-lordinateur-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="dans-lordinateur-attention-et-vérification">Dans l’ordinateur — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ce qui n’est pas enregistré n’existe qu’en mémoire vive : une coupure de courant l’efface. Enregistrez votre projet souvent.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : où se trouve votre projet quand l’ordinateur est éteint ?</li>
+</ul>
+</section>
+<section id="apport-5-les-messages-entre-sprites-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-5-les-messages-entre-sprites-10-min">Apport 5 — Les messages entre sprites (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : qu’un sprite déclenche l’action d’un autre.</li>
+<li><strong>Message</strong> : un signal envoyé à tous, reçu par ceux qui l’attendent.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Dans un jeu, quand le chat touche la balle, le score doit changer et un autre sprite doit réagir. Chaque sprite a ses propres scripts : il faut un moyen de les faire communiquer. Le cahier des charges de votre projet exige un message.</p>
+<p><strong>Définition.</strong> Un message est un signal nommé : « envoyer à tous » l’émet ; chaque script qui commence par « quand je reçois » ce même nom démarre à ce moment-là (catégorie Événements) <span class="citation" data-cites="scratch-l10n-blocks-fr">(<a href="#ref-scratch-l10n-blocks-fr" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.-b</a>)</span>.</p>
+<p><strong>Exemple.</strong> Deux sprites, deux scripts :</p>
+<pre><code>Sprite « Chat » :
+quand ⚑ est cliqué
+attendre 1 secondes
+envoyer à tous [départ]
+
+Sprite « Balle » :
+quand je reçois [départ]
+dire [C'est parti !] pendant 2 secondes</code></pre>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape ; vous la refaites aussitôt dans Scratch. Sur chaque capture, l’endroit à cliquer est entouré d’un cadre jaune, avec le numéro de l’étape ; un zoom sur la zone utile suit chaque capture. Sur téléphone, touchez une capture pour l’agrandir.</p>
+<p><strong>Étape 1.</strong> En bas à droite, sous la liste des sprites, cliquez sur le bouton rond <strong>Choisir un sprite</strong> (une tête de chat avec un « + »).</p>
+<p><a href="img/scratch-msg-01-choisir-sprite.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="img/scratch-msg-01-choisir-sprite.webp" class="img-fluid" alt="L'éditeur de Scratch avec le chat, seul sprite. En bas à droite de la liste des sprites, le bouton rond « Choisir un sprite » est encadré en jaune avec le numéro 1."></a></p>
+<p><a href="img/scratch-msg-01-choisir-sprite-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="img/scratch-msg-01-choisir-sprite-zoom.webp" class="img-fluid" alt="Zoom sur la liste des sprites : Sprite1, et le bouton rond « Choisir un sprite », encadré en jaune avec le numéro 1."></a></p>
+<p><strong>Vous devez voir</strong> : la bibliothèque « Choisir un sprite ».</p>
+<p><strong>Étape 2.</strong> Dans le champ de recherche, en haut à gauche, tapez <code>ball</code>.</p>
+<p><a href="img/scratch-msg-02-rechercher-ball.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="img/scratch-msg-02-rechercher-ball.webp" class="img-fluid" alt="La bibliothèque « Choisir un sprite ». Le champ de recherche, qui contient « ball », est encadré en jaune avec le numéro 2 ; dessous, des sprites : Andie, Ball, Ballerina, Balloon1, Baseball…"></a></p>
+<p><a href="img/scratch-msg-02-rechercher-ball-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="img/scratch-msg-02-rechercher-ball-zoom.webp" class="img-fluid" alt="Zoom sur le champ de recherche « ball », encadré en jaune avec le numéro 2, à côté des filtres Tout, Animaux, Gens…"></a></p>
+<p><strong>Vous devez voir</strong> : les sprites dont le nom contient « ball » : Ball, Ballerina, Baseball, Basketball…</p>
+<p><strong>Étape 3.</strong> Cliquez sur <strong>Ball</strong>, la balle jaune.</p>
+<p><a href="img/scratch-msg-03-ball.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="img/scratch-msg-03-ball.webp" class="img-fluid" alt="La bibliothèque filtrée : le sprite « Ball », une balle jaune, est encadré en jaune avec le numéro 3."></a></p>
+<p><a href="img/scratch-msg-03-ball-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="img/scratch-msg-03-ball-zoom.webp" class="img-fluid" alt="Zoom sur les premiers sprites : « Ball » est encadré en jaune avec le numéro 3."></a></p>
+<p><strong>Vous devez voir</strong> : la balle sur la scène, et « Ball » dans la liste des sprites. Scratch la pose à un endroit au hasard : sa place peut différer de la capture.</p>
+<p><strong>Étape 4.</strong> Dans la liste des sprites, cliquez sur <strong>Sprite1</strong> (le chat).</p>
+<p><a href="img/scratch-msg-04-selectionner-chat.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="img/scratch-msg-04-selectionner-chat.webp" class="img-fluid" alt="L'éditeur : sur la scène, le chat et la balle. Dans la liste des sprites, « Sprite1 » est encadré en jaune avec le numéro 4, à côté de « Ball »."></a></p>
+<p><a href="img/scratch-msg-04-selectionner-chat-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="img/scratch-msg-04-selectionner-chat-zoom.webp" class="img-fluid" alt="Zoom sur la liste des sprites : « Sprite1 », encadré en jaune avec le numéro 4, et « Ball »."></a></p>
+<p><strong>Vous devez voir</strong> : Sprite1 entouré en bleu ; la zone de travail montre les scripts du chat.</p>
+<p><strong>Étape 5.</strong> Dans la catégorie Événements, glissez « quand ⚑ est cliqué » dans la zone de travail.</p>
+<p><a href="img/scratch-msg-05-glisser-drapeau.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="img/scratch-msg-05-glisser-drapeau.webp" class="img-fluid" alt="La palette des événements : le bloc « quand drapeau vert est cliqué » est encadré en jaune avec le numéro 5."></a></p>
+<p><a href="img/scratch-msg-05-glisser-drapeau-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="img/scratch-msg-05-glisser-drapeau-zoom.webp" class="img-fluid" alt="Zoom sur le bloc « quand drapeau vert est cliqué », encadré en jaune avec le numéro 5."></a></p>
+<p><strong>Vous devez voir</strong> : le bloc dans la zone de travail.</p>
+<p><strong>Étape 6.</strong> Dans la catégorie <strong>Contrôle</strong> (rond orange clair), glissez « attendre 1 secondes » sous « quand ⚑ est cliqué ».</p>
+<p><a href="img/scratch-msg-06-glisser-attendre.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-34"><img src="img/scratch-msg-06-glisser-attendre.webp" class="img-fluid" alt="La palette de Contrôle : le bloc « attendre 1 secondes » est encadré en jaune avec le numéro 6. Dans la zone de travail, le bloc « quand drapeau vert est cliqué »."></a></p>
+<p><a href="img/scratch-msg-06-glisser-attendre-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-35"><img src="img/scratch-msg-06-glisser-attendre-zoom.webp" class="img-fluid" alt="Zoom sur le bloc « attendre 1 secondes », encadré en jaune avec le numéro 6."></a></p>
+<p><strong>Vous devez voir</strong> : les deux blocs emboîtés.</p>
+<p><strong>Étape 7.</strong> Dans la catégorie Événements, glissez « envoyer à tous message1 » sous « attendre 1 secondes ».</p>
+<p><a href="img/scratch-msg-07-glisser-envoyer.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="img/scratch-msg-07-glisser-envoyer.webp" class="img-fluid" alt="La palette des événements : le bloc « envoyer à tous message1 » est encadré en jaune avec le numéro 7. Dans la zone de travail, le script du chat en deux blocs."></a></p>
+<p><a href="img/scratch-msg-07-glisser-envoyer-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="img/scratch-msg-07-glisser-envoyer-zoom.webp" class="img-fluid" alt="Zoom sur le bloc « envoyer à tous message1 », encadré en jaune avec le numéro 7."></a></p>
+<p><strong>Vous devez voir</strong> : trois blocs emboîtés.</p>
+<p><strong>Étape 8.</strong> Dans ce bloc, cliquez sur la petite flèche à droite de « message1 ».</p>
+<p><a href="img/scratch-msg-08-liste-message.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-38"><img src="img/scratch-msg-08-liste-message.webp" class="img-fluid" alt="Le script du chat : quand drapeau vert est cliqué, attendre 1 secondes, envoyer à tous message1. La liste « message1 » du dernier bloc est encadré en jaune avec le numéro 8."></a></p>
+<p><a href="img/scratch-msg-08-liste-message-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-39"><img src="img/scratch-msg-08-liste-message-zoom.webp" class="img-fluid" alt="Zoom sur le script : la liste « message1 », encadré en jaune avec le numéro 8."></a></p>
+<p><strong>Vous devez voir</strong> : une liste : « message1 » et <strong>Nouveau message</strong>.</p>
+<p><strong>Étape 9.</strong> Cliquez sur <strong>Nouveau message</strong>.</p>
+<p><a href="img/scratch-msg-09-nouveau-message.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-40"><img src="img/scratch-msg-09-nouveau-message.webp" class="img-fluid" alt="La liste ouverte sous le bloc « envoyer à tous » : la ligne « Nouveau message » est encadré en jaune avec le numéro 9."></a></p>
+<p><a href="img/scratch-msg-09-nouveau-message-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-41"><img src="img/scratch-msg-09-nouveau-message-zoom.webp" class="img-fluid" alt="Zoom sur la liste : « message1 », puis « Nouveau message », encadré en jaune avec le numéro 9."></a></p>
+<p><strong>Vous devez voir</strong> : la fenêtre « Nouveau message ».</p>
+<p><strong>Étape 10.</strong> Dans le champ « Nom du nouveau message », tapez <code>départ</code>.</p>
+<p><a href="img/scratch-msg-10-nom-depart.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-42"><img src="img/scratch-msg-10-nom-depart.webp" class="img-fluid" alt="La fenêtre « Nouveau message » : le champ du nom, qui contient « départ », est encadré en jaune avec le numéro 10."></a></p>
+<p><a href="img/scratch-msg-10-nom-depart-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-43"><img src="img/scratch-msg-10-nom-depart-zoom.webp" class="img-fluid" alt="Zoom sur le champ du nom, rempli avec « départ », encadré en jaune avec le numéro 10."></a></p>
+<p><strong>Vous devez voir</strong> : <code>départ</code> dans le champ.</p>
+<p><strong>Étape 11.</strong> Cliquez sur <strong>Ok</strong>.</p>
+<p><a href="img/scratch-msg-11-ok.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-44"><img src="img/scratch-msg-11-ok.webp" class="img-fluid" alt="La fenêtre « Nouveau message » : le bouton « Ok » est encadré en jaune avec le numéro 11."></a></p>
+<p><a href="img/scratch-msg-11-ok-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-45"><img src="img/scratch-msg-11-ok-zoom.webp" class="img-fluid" alt="Zoom sur les boutons « Annuler » et « Ok » ; « Ok » est encadré en jaune avec le numéro 11."></a></p>
+<p><strong>Vous devez voir</strong> : le dernier bloc dit « envoyer à tous départ ».</p>
+<p><strong>Étape 12.</strong> Dans la liste des sprites, cliquez sur <strong>Ball</strong>.</p>
+<p><a href="img/scratch-msg-12-selectionner-balle.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-46"><img src="img/scratch-msg-12-selectionner-balle.webp" class="img-fluid" alt="L'éditeur : le script du chat se termine par « envoyer à tous départ ». Dans la liste des sprites, « Ball » est encadré en jaune avec le numéro 12."></a></p>
+<p><a href="img/scratch-msg-12-selectionner-balle-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-47"><img src="img/scratch-msg-12-selectionner-balle-zoom.webp" class="img-fluid" alt="Zoom sur la liste des sprites : « Ball » est encadré en jaune avec le numéro 12."></a></p>
+<p><strong>Vous devez voir</strong> : Ball entouré en bleu ; la zone de travail de la balle, vide.</p>
+<p><strong>Étape 13.</strong> Dans la catégorie Événements, glissez « quand je reçois départ » dans la zone de travail. Si le bloc affiche un autre nom, choisissez <code>départ</code> dans sa liste.</p>
+<p><a href="img/scratch-msg-13-glisser-recois.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-48"><img src="img/scratch-msg-13-glisser-recois.webp" class="img-fluid" alt="La palette des événements : le bloc « quand je reçois départ » est encadré en jaune avec le numéro 13."></a></p>
+<p><a href="img/scratch-msg-13-glisser-recois-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-49"><img src="img/scratch-msg-13-glisser-recois-zoom.webp" class="img-fluid" alt="Zoom sur le bloc « quand je reçois départ », encadré en jaune avec le numéro 13."></a></p>
+<p><strong>Vous devez voir</strong> : le bloc « quand je reçois départ » dans la zone de travail de la balle.</p>
+<p><strong>Étape 14.</strong> Dans la catégorie <strong>Apparence</strong> (rond violet), glissez « dire Bonjour ! pendant 2 secondes » sous « quand je reçois départ ».</p>
+<p><a href="img/scratch-msg-14-glisser-dire.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-50"><img src="img/scratch-msg-14-glisser-dire.webp" class="img-fluid" alt="La palette d'Apparence : le premier bloc, « dire Bonjour ! pendant 2 secondes », est encadré en jaune avec le numéro 14. Dans la zone de travail, « quand je reçois départ »."></a></p>
+<p><a href="img/scratch-msg-14-glisser-dire-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-51"><img src="img/scratch-msg-14-glisser-dire-zoom.webp" class="img-fluid" alt="Zoom sur le bloc « dire Bonjour ! pendant 2 secondes », encadré en jaune avec le numéro 14."></a></p>
+<p><strong>Vous devez voir</strong> : les deux blocs emboîtés.</p>
+<p><strong>Étape 15.</strong> Dans le bloc posé, cliquez sur le texte « Bonjour ! », remplacez-le par <code>C'est parti !</code>, puis appuyez sur Entrée.</p>
+<p><a href="img/scratch-msg-15-texte-dire.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-52"><img src="img/scratch-msg-15-texte-dire.webp" class="img-fluid" alt="Le script de la balle : quand je reçois départ, dire Bonjour ! pendant 2 secondes. Le texte « Bonjour ! » est encadré en jaune avec le numéro 15."></a></p>
+<p><a href="img/scratch-msg-15-texte-dire-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-53"><img src="img/scratch-msg-15-texte-dire-zoom.webp" class="img-fluid" alt="Zoom sur le script de la balle : le texte « Bonjour ! », encadré en jaune avec le numéro 15."></a></p>
+<p><strong>Vous devez voir</strong> : le bloc dit « dire C’est parti ! pendant 2 secondes ».</p>
+<p><strong>Étape 16.</strong> Cliquez sur le drapeau vert.</p>
+<p><a href="img/scratch-msg-16-drapeau-vert.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-54"><img src="img/scratch-msg-16-drapeau-vert.webp" class="img-fluid" alt="L'éditeur, script de la balle terminé. Le drapeau vert, au-dessus de la scène, est encadré en jaune avec le numéro 16."></a></p>
+<p><a href="img/scratch-msg-16-drapeau-vert-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-55"><img src="img/scratch-msg-16-drapeau-vert-zoom.webp" class="img-fluid" alt="Zoom sur le drapeau vert, encadré en jaune avec le numéro 16."></a></p>
+<p><strong>Vous devez voir</strong> : une seconde après le clic, la balle affiche la bulle « C’est parti ! » pendant 2 secondes.</p>
+<p>Captures de l’éditeur Scratch, cadres compris, sous licence <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.fr">CC BY-SA 2.0</a> : « Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See <a href="http://scratch.mit.edu" class="uri">http://scratch.mit.edu</a> ».</p>
+</section>
+<section id="messages-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="messages-attention-et-vérification">Messages — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le message ne fait rien ? Le nom doit être exactement le même dans « envoyer à tous » et « quand je reçois ». Choisissez-le dans la liste, ne le retapez pas.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : ajoutez un troisième sprite qui réagit aussi à <code>départ</code>.</li>
+</ul>
+</section>
+<section id="le-projet-consignes-2-h-10" class="level2">
+<h2 class="anchored" data-anchor-id="le-projet-consignes-2-h-10">Le projet — consignes (2 h 10)</h2>
+<ol type="1">
+<li>Écrivez votre idée en trois phrases, sur papier (10 min).</li>
+<li>Créez un <strong>jeu</strong> ou une <strong>histoire interactive</strong>, sur le thème de votre choix.</li>
+<li>Par étapes : ajouter, tester, sauvegarder.</li>
+<li>Cochez au fur et à mesure le cahier des charges, ci-dessous.</li>
+<li>Un compte Scratch n’est <strong>pas obligatoire</strong>, ni la publication.</li>
+</ol>
+<p>Ce TP s’inspire du premier problème de CS50, <em>Starting from Scratch</em> <span class="citation" data-cites="cs50x-2026-scratch">(<a href="#ref-cs50x-2026-scratch" role="doc-biblioref">CS50 2026b</a>)</span>, avec un cahier des charges propre à la formation. Sans compte, travaillez dans l’éditeur en ligne et enregistrez régulièrement le fichier : menu <strong>Fichier</strong>, puis <strong>Sauvegarder sur votre ordinateur</strong> <span class="citation" data-cites="scratch-l10n-interface-fr">(<a href="#ref-scratch-l10n-interface-fr" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.-a</a>)</span>. Le projet se termine mercredi matin : ce soir, il est commencé.</p>
+<section id="pas-à-pas-enregistrer-votre-projet-sur-lordinateur" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-enregistrer-votre-projet-sur-lordinateur">Pas à pas — enregistrer votre projet sur l’ordinateur</h3>
+<p><strong>Étape 1.</strong> Dans la barre violette, en haut, cliquez sur <strong>Fichier</strong>.</p>
+<p><a href="img/scratch-sav-01-fichier.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-56"><img src="img/scratch-sav-01-fichier.webp" class="img-fluid" alt="L'éditeur de Scratch. Dans la barre violette du haut, le menu « Fichier » est encadré en jaune avec le numéro 1."></a></p>
+<p><a href="img/scratch-sav-01-fichier-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-57"><img src="img/scratch-sav-01-fichier-zoom.webp" class="img-fluid" alt="Zoom sur la barre du haut : « Paramètres », « Fichier » (encadré en jaune avec le numéro 1), « Modifier »."></a></p>
+<p><strong>Vous devez voir</strong> : un menu de trois lignes : « Nouveau », « Load from your computer » (ce libellé n’est pas traduit par Scratch : il ouvre un projet enregistré) et « Sauvegarder sur votre ordinateur ».</p>
+<p><strong>Étape 2.</strong> Cliquez sur <strong>Sauvegarder sur votre ordinateur</strong>.</p>
+<p><a href="img/scratch-sav-02-sauvegarder.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-58"><img src="img/scratch-sav-02-sauvegarder.webp" class="img-fluid" alt="Le menu « Fichier » ouvert : la ligne « Sauvegarder sur votre ordinateur » est encadré en jaune avec le numéro 2."></a></p>
+<p><a href="img/scratch-sav-02-sauvegarder-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-59"><img src="img/scratch-sav-02-sauvegarder-zoom.webp" class="img-fluid" alt="Zoom sur le menu : « Nouveau », « Load from your computer », puis « Sauvegarder sur votre ordinateur », encadré en jaune avec le numéro 2."></a></p>
+<p><strong>Vous devez voir</strong> : le navigateur télécharge le fichier <code>Projet Scratch.sb3</code>, ou vous demande où l’enregistrer. Rangez-le dans votre dossier de formation, à un endroit que vous retrouverez.</p>
+<p>Captures de l’éditeur Scratch, cadres compris, sous licence <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.fr">CC BY-SA 2.0</a> : « Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See <a href="http://scratch.mit.edu" class="uri">http://scratch.mit.edu</a> ».</p>
+</section>
+</section>
+<section id="cahier-des-charges" class="level2">
+<h2 class="anchored" data-anchor-id="cahier-des-charges">Cahier des charges</h2>
+<ul>
+<li>Au moins <strong>2 sprites</strong>, dont au moins un autre que le chat.</li>
+<li>Au moins <strong>3 scripts</strong> au total ; au moins <strong>1 événement</strong> clavier ou souris.</li>
+<li>Au moins <strong>1 boucle</strong>, <strong>1 condition</strong> et <strong>1 variable</strong>.</li>
+<li>Au moins <strong>1 message</strong> : « envoyer à tous » et « quand je reçois ».</li>
+<li>Un titre et une consigne pour le joueur, visibles sur la scène.</li>
+</ul>
+<p><strong>Critères de réussite</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Toutes les exigences du cahier des charges sont présentes</label></li>
+<li><label><input type="checkbox">Le projet démarre au drapeau vert, sans erreur</label></li>
+<li><label><input type="checkbox">Un camarade a testé le projet sans votre aide (il joue, vous notez ce qui ne marche pas)</label></li>
+<li><label><input type="checkbox">Le projet est sauvegardé : le lien (si vous avez un compte et l’avez partagé) <strong>ou</strong> le fichier <code>.sb3</code>, déposé auprès du formateur</label></li>
+</ul>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Faites tester votre projet par un deuxième camarade.</li>
+<li>Ajoutez un niveau de difficulté ou un meilleur score.</li>
+</ul>
+</section>
+<section id="pour-aller-plus-loin" class="level3">
+<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<ul>
+<li>Créez votre propre bloc : catégorie <strong>Mes Blocs</strong>, <strong>Créer un bloc</strong>.</li>
+<li>Ajoutez-lui une entrée (<strong>Ajouter une entrée</strong>) et utilisez-la.</li>
+</ul>
+<p>Un bloc personnalisé est une première forme de <strong>fonction</strong> : un nom, des entrées, un comportement. Vous les retrouverez en JavaScript la semaine prochaine.</p>
+</section>
+</section>
+<section id="à-retenir-cet-après-midi" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Binaire</strong> : tout est nombre, et chaque nombre s’écrit en 0 et 1.</li>
+<li><strong>Ordinateur</strong> : le disque garde, la mémoire pose, le processeur exécute.</li>
+<li><strong>Message</strong> : « envoyer à tous » et « quand je reçois », même nom.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Binaire</strong> : deux chiffres, 0 et 1 ; chaque carte vaut le double de la suivante ; un texte et une image sont des nombres.</li>
+<li><strong>Dans l’ordinateur</strong> : le disque garde les fichiers, même éteint ; la mémoire vive s’efface à l’arrêt ; le processeur exécute une instruction à la fois. Enregistrez souvent.</li>
+<li><strong>Messages</strong> : un sprite envoie, les autres reçoivent ; le nom doit être identique ; choisissez-le dans la liste.</li>
+</ul>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-csunplugged-binary-numbers" class="csl-entry" role="listitem">
+CS Unplugged. s.&nbsp;d. <span>«&nbsp;Binary numbers&nbsp;»</span>. Consulté le 30 septembre 2026. <a href="https://www.csunplugged.org/en/topics/binary-numbers/">https://www.csunplugged.org/en/topics/binary-numbers/</a>.
+</div>
+<div id="ref-cs50x-2026-lecture0" class="csl-entry" role="listitem">
+CS50. 2026a. <span>«&nbsp;Lecture 0 - CS50x 2026&nbsp;»</span>. <a href="https://cs50.harvard.edu/x/notes/0/">https://cs50.harvard.edu/x/notes/0/</a>.
+</div>
+<div id="ref-cs50x-2026-scratch" class="csl-entry" role="listitem">
+CS50. 2026b. <span>«&nbsp;Starting from Scratch - CS50x 2026&nbsp;»</span>. <a href="https://cs50.harvard.edu/x/psets/0/scratch/">https://cs50.harvard.edu/x/psets/0/scratch/</a>.
+</div>
+<div id="ref-interstices-memoire-unite-centrale" class="csl-entry" role="listitem">
+Delacroix-Gouin, Joëlle. 2019. <span>«&nbsp;Mémoire et unité centrale, un couple dédié à l’exécution des programmes&nbsp;»</span>. juin 21. <a href="https://interstices.info/memoire-et-unite-centrale-un-couple-dedie-a-lexecution-des-programmes/">https://interstices.info/memoire-et-unite-centrale-un-couple-dedie-a-lexecution-des-programmes/</a>.
+</div>
+<div id="ref-scratch-l10n-interface-fr" class="csl-entry" role="listitem">
+Scratch Foundation. s.&nbsp;d.-a. <span>«&nbsp;scratch-l10n : traduction française de l’interface (editor/interface/fr.json)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://raw.githubusercontent.com/scratchfoundation/scratch-l10n/master/editor/interface/fr.json">https://raw.githubusercontent.com/scratchfoundation/scratch-l10n/master/editor/interface/fr.json</a>.
+</div>
+<div id="ref-scratch-l10n-blocks-fr" class="csl-entry" role="listitem">
+Scratch Foundation. s.&nbsp;d.-b. <span>«&nbsp;scratch-l10n : traduction française des blocs (editor/blocks/fr.json)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://raw.githubusercontent.com/scratchfoundation/scratch-l10n/master/editor/blocks/fr.json">https://raw.githubusercontent.com/scratchfoundation/scratch-l10n/master/editor/blocks/fr.json</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="pagination-link" aria-label="Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="pagination-link" aria-label="Mardi 13/10 — Premiers pas en JavaScript avec Node">
+        <span class="nav-page-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

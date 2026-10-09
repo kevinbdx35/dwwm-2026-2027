@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Mercredi 14/10 — Atelier guidé &amp; autonomie – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s02-fondamentaux-js-1/jeudi.html" rel="next">
+<link href="../../semaines/s02-fondamentaux-js-1/mardi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/mercredi.html">Mercredi 14/10 — Atelier guidé &amp; autonomie</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs-de-la-journée" id="toc-objectifs-de-la-journée" class="nav-link active" data-scroll-target="#objectifs-de-la-journée">Objectifs de la journée</a></li>
+  <li><a href="#matin-atelier-guidé-finir-le-projet-scratch-problem-set-0-remédiation" id="toc-matin-atelier-guidé-finir-le-projet-scratch-problem-set-0-remédiation" class="nav-link" data-scroll-target="#matin-atelier-guidé-finir-le-projet-scratch-problem-set-0-remédiation">Matin — Atelier guidé : finir le projet Scratch (Problem set 0) · remédiation</a>
+  <ul class="collapse">
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#lactivité" id="toc-lactivité" class="nav-link" data-scroll-target="#lactivité">L’activité</a></li>
+  <li><a href="#déroulé-de-latelier" id="toc-déroulé-de-latelier" class="nav-link" data-scroll-target="#déroulé-de-latelier">Déroulé de l’atelier</a></li>
+  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#présenter-son-projet-en-binôme-20-min" id="toc-présenter-son-projet-en-binôme-20-min" class="nav-link" data-scroll-target="#présenter-son-projet-en-binôme-20-min">Présenter son projet en binôme (20 min)</a></li>
+  <li><a href="#mise-en-commun-15-min" id="toc-mise-en-commun-15-min" class="nav-link" data-scroll-target="#mise-en-commun-15-min">Mise en commun (15 min)</a></li>
+  </ul></li>
+  <li><a href="#après-midi-autonomie-tp-blockly-games-labyrinthe-oiseau-algorithmique-en-jouant" id="toc-après-midi-autonomie-tp-blockly-games-labyrinthe-oiseau-algorithmique-en-jouant" class="nav-link" data-scroll-target="#après-midi-autonomie-tp-blockly-games-labyrinthe-oiseau-algorithmique-en-jouant">Après-midi — Autonomie : TP — Blockly Games (labyrinthe, oiseau) : algorithmique en jouant</a>
+  <ul class="collapse">
+  <li><a href="#lactivité-1" id="toc-lactivité-1" class="nav-link" data-scroll-target="#lactivité-1">L’activité</a></li>
+  <li><a href="#consignes-1" id="toc-consignes-1" class="nav-link" data-scroll-target="#consignes-1">Consignes</a>
+  <ul class="collapse">
+  <li><a href="#pas-à-pas-démarrer-le-labyrinthe-puis-loiseau-10-min" id="toc-pas-à-pas-démarrer-le-labyrinthe-puis-loiseau-10-min" class="nav-link" data-scroll-target="#pas-à-pas-démarrer-le-labyrinthe-puis-loiseau-10-min">Pas à pas — démarrer le Labyrinthe, puis l’Oiseau (10 min)</a></li>
+  </ul></li>
+  <li><a href="#anglais" id="toc-anglais" class="nav-link" data-scroll-target="#anglais">Anglais technique — Getting Started with ESLint (30 min)</a></li>
+  </ul></li>
+  <li><a href="#parcours-de-remédiation-de-la-semaine" id="toc-parcours-de-remédiation-de-la-semaine" class="nav-link" data-scroll-target="#parcours-de-remédiation-de-la-semaine">Parcours de remédiation de la semaine</a>
+  <ul class="collapse">
+  <li><a href="#trois-niveaux-au-choix" id="toc-trois-niveaux-au-choix" class="nav-link" data-scroll-target="#trois-niveaux-au-choix">Trois niveaux, au choix</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="mercredi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="mercredi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/index.html">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</a></li><li class="breadcrumb-item"><a href="../../semaines/s02-fondamentaux-js-1/mercredi.html">Mercredi 14/10 — Atelier guidé &amp; autonomie</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Mercredi 14/10 — Atelier guidé &amp; autonomie</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">mercredi 14 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Matin</strong> : atelier guidé, avec le formateur. <strong>Après-midi</strong> (12 h 45 – 17 h) : en autonomie, seul ou en binôme.<br> <strong>À déposer ce soir</strong> : le projet Scratch (lien ou <code>.sb3</code>), une capture de Blockly Games et vos réponses sur la documentation d’ESLint.</p>
+</div>
+</div>
+</div>
+<section id="objectifs-de-la-journée" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-de-la-journée">Objectifs de la journée</h2>
+<ul>
+<li>Terminer le Problem set 0 : toutes les cases de la grille cochées.</li>
+<li>Présenter son projet à un camarade, en binôme.</li>
+<li>Atteindre le niveau 10 du <strong>Labyrinthe</strong> de Blockly Games.</li>
+<li>Atteindre au moins le niveau 6 de l’<strong>Oiseau</strong>.</li>
+<li>Trouver quatre informations dans une documentation en anglais.</li>
+<li>Si vous êtes en avance : un parcours de remédiation.</li>
+</ul>
+</section>
+<section id="matin-atelier-guidé-finir-le-projet-scratch-problem-set-0-remédiation" class="level1">
+<h1>Matin — Atelier guidé : finir le projet Scratch (Problem set 0) · remédiation</h1>
+<section id="rappel-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<ol type="1">
+<li>Que donne <code>'4' + 2</code> ?</li>
+<li><code>const</code> ou <code>let</code>, par défaut ?</li>
+<li>Que fait « couper en deux » à chaque étape ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="lactivité" class="level2">
+<h2 class="anchored" data-anchor-id="lactivité">L’activité</h2>
+<ul>
+<li><strong>Outil</strong> : <a href="https://scratch.mit.edu/">Scratch</a> <span class="citation" data-cites="scratch">(<a href="#ref-scratch" role="doc-biblioref">Scratch Foundation, s.&nbsp;d.</a>)</span>.</li>
+<li><strong>Objectif</strong> : toutes les exigences du cahier des charges de lundi.</li>
+<li><strong>Pourquoi</strong> : réinvestir boucle, condition, variable et messages.</li>
+<li><strong>Preuve</strong> : le lien du projet <strong>ou</strong> le fichier <code>.sb3</code>.</li>
+</ul>
+</section>
+<section id="déroulé-de-latelier" class="level2">
+<h2 class="anchored" data-anchor-id="déroulé-de-latelier">Déroulé de l’atelier</h2>
+<ol type="1">
+<li><strong>Lancement</strong> (10 min) : messages et variables, ensemble.</li>
+<li><strong>Pratique accompagnée</strong> : votre projet, le formateur circule.</li>
+<li><strong>Point d’étape</strong> (10 h 30) : une difficulté commune, au tableau.</li>
+<li><strong>Présentation en binôme</strong> (11 h 05), puis <strong>mise en commun</strong>.</li>
+</ol>
+<p>Le formateur reprend au lancement les deux briques qui bloquent le plus souvent lundi : un message envoyé par un sprite et reçu par un autre, et une variable partagée par tous les sprites. Il commence ensuite par les stagiaires dont le projet n’avait pas deux exigences lundi soir.</p>
+</section>
+<section id="consignes" class="level2">
+<h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
+<ol type="1">
+<li>Relisez le <a href="../../semaines/s02-fondamentaux-js-1/lundi.html#cahier-des-charges">cahier des charges de lundi</a>.</li>
+<li>Cochez ce qui est déjà fait ; listez ce qui manque.</li>
+<li>Ajoutez une exigence à la fois, testez, sauvegardez.</li>
+<li>Un camarade teste ; vous notez ce qui ne marche pas.</li>
+<li>Déposez le lien ou le fichier <code>.sb3</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Si vous êtes bloqué
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Rien ne se passe</strong> : chaque script commence-t-il par un événement (drapeau vert, touche, clic, « quand je reçois ») ?</li>
+<li><strong>Le message ne fait rien</strong> : le nom est-il exactement le même dans « envoyer à tous » et « quand je reçois » ?</li>
+<li><strong>La variable ne change pas</strong> : l’avez-vous créée « pour tous les sprites » si plusieurs sprites l’utilisent ?</li>
+<li>Relisez les exercices 3 à 5 de lundi : ils contiennent toutes les briques nécessaires.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="présenter-son-projet-en-binôme-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="présenter-son-projet-en-binôme-20-min">Présenter son projet en binôme (20 min)</h2>
+<ol type="1">
+<li>Le <strong>présentateur</strong> montre son projet (5 min).</li>
+<li>L’<strong>auditeur</strong> : « Que font ta boucle et ta condition ? »</li>
+<li>L’auditeur : « Le plus difficile, et ta solution ? »</li>
+<li>L’auditeur note une réponse sur sa feuille.</li>
+<li>Échangez les rôles.</li>
+</ol>
+<p>Faites cette présentation à 11 h 05, après l’ancrage, même si vos projets ne sont pas terminés. Expliquer son code à quelqu’un d’autre, c’est ce que vous ferez devant le jury : entraînez-vous à montrer les blocs à l’écran en disant ce qu’ils font.</p>
+</section>
+<section id="mise-en-commun-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-commun-15-min">Mise en commun (15 min)</h2>
+<ul>
+<li>Deux ou trois projets montrés au groupe, par des volontaires.</li>
+<li>Une boucle, une condition, un message : où sont-ils ?</li>
+<li>Et si c’est fini avant : un niveau du parcours de remédiation.</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-autonomie-tp-blockly-games-labyrinthe-oiseau-algorithmique-en-jouant" class="level1">
+<h1>Après-midi — Autonomie : TP — Blockly Games (labyrinthe, oiseau) : algorithmique en jouant</h1>
+<section id="lactivité-1" class="level2">
+<h2 class="anchored" data-anchor-id="lactivité-1">L’activité</h2>
+<ul>
+<li><strong>Outil</strong> : <a href="https://blockly.games/?lang=fr">Blockly Games</a>, en français <span class="citation" data-cites="blockly-games">(<a href="#ref-blockly-games" role="doc-biblioref">Blockly Games, s.&nbsp;d.</a>)</span>.</li>
+<li><strong>Objectif</strong> : <strong>Labyrinthe</strong> 10/10, puis <strong>Oiseau</strong> 6/10 au moins.</li>
+<li><strong>Pourquoi</strong> : boucles et conditions, comme vendredi en JavaScript.</li>
+<li><strong>Preuve</strong> : une capture du dernier niveau réussi de chaque jeu.</li>
+</ul>
+</section>
+<section id="consignes-1" class="level2">
+<h2 class="anchored" data-anchor-id="consignes-1">Consignes</h2>
+<ol type="1">
+<li>Ouvrez Blockly Games et choisissez <strong>Labyrinthe</strong>.</li>
+<li>Avant chaque niveau, <strong>prédisez</strong> le chemin du personnage.</li>
+<li>Utilisez le moins de blocs possible : c’est l’objectif de chaque niveau.</li>
+<li>Labyrinthe terminé ? Passez à <strong>Oiseau</strong>.</li>
+<li>Capturez l’écran du dernier niveau réussi de chaque jeu.</li>
+</ol>
+<p>Les deux jeux comptent chacun 10 niveaux. Travaillez sur le même poste et le même navigateur toute l’après-midi, et faites vos captures au fur et à mesure. Gardez 30 minutes en fin d’après-midi pour la lecture en anglais ci-dessous.</p>
+<section id="pas-à-pas-démarrer-le-labyrinthe-puis-loiseau-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-démarrer-le-labyrinthe-puis-loiseau-10-min">Pas à pas — démarrer le Labyrinthe, puis l’Oiseau (10 min)</h3>
+<p>Chaque étape donne une action, puis ce que vous devez voir. Sur chaque capture, l’endroit à cliquer est entouré d’un cadre jaune, avec le numéro de l’étape. Quand la capture montre tout l’écran, un zoom sur la zone utile la suit. Sur téléphone, touchez une capture pour l’agrandir.</p>
+<p><strong>Étape 1.</strong> Ouvrez l’adresse <a href="https://blockly.games/?lang=fr" class="uri">https://blockly.games/?lang=fr</a> dans votre navigateur.</p>
+<p><strong>Vous devez voir</strong> : la page d’accueil de Blockly Games, avec un chemin qui relie des ronds : Puzzle, Labyrinthe, Oiseau, Tortue…</p>
+<p><strong>Étape 2.</strong> Cliquez sur le rond <strong>Labyrinthe</strong>.</p>
+<p><a href="img/bg-02-labyrinthe.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/bg-02-labyrinthe.webp" class="img-fluid" alt="La page d'accueil de Blockly Games : un chemin relie neuf ronds, de Puzzle à Pond. Le rond « Labyrinthe », deuxième du chemin, est encadré en jaune avec le numéro 2."></a></p>
+<p><a href="img/bg-02-labyrinthe-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/bg-02-labyrinthe-zoom.webp" class="img-fluid" alt="Zoom sur le rond « Labyrinthe » : un petit personnage, un chemin jaune et un repère rouge ; le rond est encadré en jaune avec le numéro 2."></a></p>
+<p><strong>Vous devez voir</strong> : le niveau 1 du Labyrinthe. À gauche, le labyrinthe : un personnage et un repère rouge au bout d’un chemin jaune. Au centre, la palette des blocs (avancer, tourner à gauche, tourner à droite). À droite, la zone de travail, qui contient déjà un bloc « avancer ». Une bulle d’aide dit : « Empiler ensemble deux blocs d’instructions « avancer » pour m’aider à atteindre le but. »</p>
+<p><strong>Étape 3.</strong> Dans la palette, attrapez le bloc <strong>avancer</strong> avec la souris, glissez-le dans la zone de travail et lâchez-le juste sous le bloc « avancer » déjà posé.</p>
+<p><a href="img/bg-03-glisser-avancer.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/bg-03-glisser-avancer.webp" class="img-fluid" alt="Le niveau 1 du Labyrinthe. Dans la palette, en haut, le bloc violet « avancer » est encadré en jaune avec le numéro 3. Une bulle d'aide, avec une cloche bleue, demande d'empiler deux blocs « avancer ». À droite, la zone de travail contient un bloc « avancer »."></a></p>
+<p><a href="img/bg-03-glisser-avancer-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/bg-03-glisser-avancer-zoom.webp" class="img-fluid" alt="Zoom sur la palette : le bloc « avancer », encadré en jaune avec le numéro 3, et la bulle d'aide."></a></p>
+<p><strong>Vous devez voir</strong> : deux blocs « avancer » collés l’un sous l’autre dans la zone de travail. S’ils restent séparés, déplacez le second bloc jusqu’à ce qu’il s’emboîte.</p>
+<p><strong>Étape 4.</strong> Cliquez sur le bouton rouge <strong>Exécuter le programme</strong>, sous le labyrinthe.</p>
+<p><a href="img/bg-04-executer.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/bg-04-executer.webp" class="img-fluid" alt="Le niveau 1 : deux blocs « avancer » sont emboîtés dans la zone de travail. Sous le labyrinthe, le bouton rouge « Exécuter le programme » est encadré en jaune avec le numéro 4."></a></p>
+<p><a href="img/bg-04-executer-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/bg-04-executer-zoom.webp" class="img-fluid" alt="Zoom sur le bouton rouge « Exécuter le programme », encadré en jaune avec le numéro 4."></a></p>
+<p><strong>Vous devez voir</strong> : le personnage avance de deux cases jusqu’au repère, puis une fenêtre « Félicitations ! » indique que le niveau est résolu avec 2 lignes de JavaScript (<code>moveForward();</code>).</p>
+<p><strong>Étape 5.</strong> Dans cette fenêtre, cliquez sur <strong>OK</strong>.</p>
+<p><a href="img/bg-05-felicitations-ok.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/bg-05-felicitations-ok.webp" class="img-fluid" alt="La fenêtre « Félicitations ! » au-dessus du labyrinthe. Elle montre deux lignes de JavaScript, « moveForward(); », et demande si vous êtes prêt pour le niveau 2. En bas, le bouton « OK » est encadré en jaune avec le numéro 5."></a></p>
+<p><a href="img/bg-05-felicitations-ok-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/bg-05-felicitations-ok-zoom.webp" class="img-fluid" alt="Zoom sur la fenêtre « Félicitations ! » : le code « moveForward(); » deux fois, la question « Êtes-vous prêt(e) pour le niveau 2 ? », et le bouton « OK », encadré en jaune avec le numéro 5."></a></p>
+<p><strong>Vous devez voir</strong> : le niveau 2, avec un chemin qui tourne. En haut, le rond du niveau 2 est en surbrillance.</p>
+<p>Continuez ainsi jusqu’au niveau 10. Quand le Labyrinthe est terminé, passez à l’Oiseau :</p>
+<p><strong>Étape 6.</strong> En haut à gauche, cliquez sur <strong>Jeux Blockly</strong>.</p>
+<p><a href="img/bg-06-retour-accueil.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/bg-06-retour-accueil.webp" class="img-fluid" alt="Le niveau 2 du Labyrinthe. En haut à gauche, le lien bleu « Jeux Blockly » est encadré en jaune avec le numéro 6."></a></p>
+<p><a href="img/bg-06-retour-accueil-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img/bg-06-retour-accueil-zoom.webp" class="img-fluid" alt="Zoom sur le haut de la page : le lien « Jeux Blockly », encadré en jaune avec le numéro 6, suivi de « Labyrinthe » et des ronds des niveaux."></a></p>
+<p><strong>Vous devez voir</strong> : la page d’accueil de Blockly Games.</p>
+<p><strong>Étape 7.</strong> Cliquez sur le rond <strong>Oiseau</strong>.</p>
+<p><a href="img/bg-07-oiseau.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/bg-07-oiseau.webp" class="img-fluid" alt="La page d'accueil de Blockly Games. Le rond « Oiseau », troisième du chemin, est encadré en jaune avec le numéro 7."></a></p>
+<p><a href="img/bg-07-oiseau-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img/bg-07-oiseau-zoom.webp" class="img-fluid" alt="Zoom sur le rond « Oiseau », encadré en jaune avec le numéro 7."></a></p>
+<p><strong>Vous devez voir</strong> : le niveau 1 de l’Oiseau : un oiseau, un ver et un nid ; dans la zone de travail, un bloc « cap 90° ».</p>
+<p>Votre progression est enregistrée dans ce navigateur : gardez le même poste et le même navigateur toute l’après-midi.</p>
+<p>Captures : <a href="https://blockly.games/?lang=fr">Blockly Games</a>, <a href="https://github.com/blockly-games/blockly-games/blob/master/LICENSE">licence Apache 2.0</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Si vous êtes bloqué
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Labyrinthe</strong> : suivez le mur avec votre doigt, comme la « règle de la main droite ». Traduisez ensuite ce que fait votre doigt en blocs « si chemin… ».</li>
+<li><strong>Oiseau</strong> : les angles sont en degrés ; tracez le trajet sur une feuille avant de choisir l’angle.</li>
+<li>Revenez au niveau précédent : la solution d’un niveau prépare souvent le suivant.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="anglais" class="level2">
+<h2 class="anchored" data-anchor-id="anglais">Anglais technique — Getting Started with ESLint (30 min)</h2>
+<p>Lisez <em>Getting Started with ESLint</em> <span class="citation" data-cites="eslint-getting-started">(<a href="#ref-eslint-getting-started" role="doc-biblioref">ESLint, s.&nbsp;d.</a>)</span> : c’est l’outil que vous installerez vendredi matin. Vous préparez son installation.</p>
+<ol type="1">
+<li>Quelles versions de Node.js ESLint exige-t-il ?</li>
+<li>Quelle commande crée une configuration de façon guidée ?</li>
+<li>Quelle commande installe ESLint « à la main » ?</li>
+<li>Pourquoi l’installation globale est-elle déconseillée ?</li>
+</ol>
+<p>Dans VS Code, créez le fichier <code>eslint-anglais.txt</code> dans <code>dwwm/semaine-02</code>. Notez-y vos réponses, en français, une par ligne, numérotées de 1 à 4. Enregistrez : c’est la preuve à déposer.</p>
+</section>
+</section>
+<section id="parcours-de-remédiation-de-la-semaine" class="level1">
+<h1>Parcours de remédiation de la semaine</h1>
+<section id="trois-niveaux-au-choix" class="level2">
+<h2 class="anchored" data-anchor-id="trois-niveaux-au-choix">Trois niveaux, au choix</h2>
+<ul>
+<li>Si l’activité est finie, ou au soutien pair à pair du mardi.</li>
+<li><strong>Niveau 1 — Consolider</strong> : pseudo-code, Scratch, exercices 01 à 04.</li>
+<li><strong>Niveau 2 — S’entraîner</strong> : deux exercices JavaScript testés.</li>
+<li><strong>Niveau 3 — Aller plus loin</strong> : Oiseau 7 à 10, boucles imbriquées.</li>
+<li>Le détail de chaque niveau est dans le support.</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Niveau 1 — Consolider</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Niveau 2 — S’entraîner</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Niveau 3 — Aller plus loin</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><strong>Pseudo-code</strong> : réécrivez de mémoire la méthode « page par page », puis « couper en deux ». Faites « jouer » chacune par un camarade avec un vrai livre.</li>
+<li><strong>Scratch</strong> : refaites l’exercice 3 de lundi (le score) sans regarder votre première version.</li>
+<li><strong>JavaScript</strong> : si les exercices 01 à 04 ne sont pas tous au vert, terminez-les. Puis recréez <code>01-hello.js</code> dans un nouveau fichier, de mémoire, et lancez-le.</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Deux exercices testés, dans le même dossier que ceux de mardi :</p>
+<ul>
+<li><code>r1-rectangle.js</code> : aire et périmètre d’un rectangle (<code>node r1-rectangle.js 3 4</code>).</li>
+<li><code>r2-conversion.js</code> : degrés Celsius en degrés Fahrenheit (<code>node r2-conversion.js 20</code>).</li>
+</ul>
+<p>Même méthode que mardi : lisez l’énoncé en haut du fichier, puis lancez ses tests (<code>node --test r1-rectangle.test.js</code>, puis <code>node --test r2-conversion.test.js</code>). ESLint s’ajoutera vendredi.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<ul>
+<li><strong>Blockly Games</strong> : niveaux 7 à 10 de l’Oiseau.</li>
+<li><strong>Scratch</strong> : ajoutez à votre projet un bloc personnalisé avec une entrée (catégorie <strong>Mes Blocs</strong>).</li>
+<li><strong>JavaScript</strong>, après le cours de vendredi sur les boucles : <code>11-triangle.js</code>, un triangle d’étoiles avec deux boucles imbriquées.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-blockly-games" class="csl-entry" role="listitem">
+Blockly Games. s.&nbsp;d. <span>«&nbsp;Blockly Games&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://blockly.games/?lang=fr">https://blockly.games/?lang=fr</a>.
+</div>
+<div id="ref-eslint-getting-started" class="csl-entry" role="listitem">
+ESLint. s.&nbsp;d. <span>«&nbsp;Getting Started with ESLint&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/use/getting-started">https://eslint.org/docs/latest/use/getting-started</a>.
+</div>
+<div id="ref-scratch" class="csl-entry" role="listitem">
+Scratch Foundation. s.&nbsp;d. <span>«&nbsp;Scratch - Imagine, Program, Share&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://scratch.mit.edu/">https://scratch.mit.edu/</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="pagination-link" aria-label="Mardi 13/10 — Premiers pas en JavaScript avec Node">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="pagination-link" aria-label="Jeudi 15/10 — Journée d'intégration">
+        <span class="nav-page-text">Jeudi 15/10 — Journée d’intégration</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

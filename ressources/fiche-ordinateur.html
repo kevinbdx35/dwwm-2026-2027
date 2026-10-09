@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>C’est quoi un ordinateur ? – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ressources/fiche-numeration.html" rel="next">
+<link href="../ressources/fiche-erreurs.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../polices.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ressources/fiche-erreurs.html">Fiches de lecture</a></li><li class="breadcrumb-item"><a href="../ressources/fiche-ordinateur.html">C’est quoi un ordinateur ?</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#définition" id="toc-définition" class="nav-link active" data-scroll-target="#définition">1. Définition</a>
+  <ul class="collapse">
+  <li><a href="#un-ordinateur-cest" id="toc-un-ordinateur-cest" class="nav-link" data-scroll-target="#un-ordinateur-cest">Un ordinateur, c’est…</a></li>
+  <li><a href="#doù-vient-le-mot-ordinateur" id="toc-doù-vient-le-mot-ordinateur" class="nav-link" data-scroll-target="#doù-vient-le-mot-ordinateur">D’où vient le mot « ordinateur » ?</a></li>
+  <li><a href="#le-schéma-de-base" id="toc-le-schéma-de-base" class="nav-link" data-scroll-target="#le-schéma-de-base">Le schéma de base</a></li>
+  <li><a href="#lordinateur-comme-une-cuisine" id="toc-lordinateur-comme-une-cuisine" class="nav-link" data-scroll-target="#lordinateur-comme-une-cuisine">L’ordinateur comme une cuisine</a></li>
+  </ul></li>
+  <li><a href="#un-peu-dhistoire" id="toc-un-peu-dhistoire" class="nav-link" data-scroll-target="#un-peu-dhistoire">2. Un peu d’histoire</a>
+  <ul class="collapse">
+  <li><a href="#les-ancêtres-mécaniques" id="toc-les-ancêtres-mécaniques" class="nav-link" data-scroll-target="#les-ancêtres-mécaniques">Les ancêtres mécaniques</a></li>
+  <li><a href="#les-premiers-ordinateurs-électroniques" id="toc-les-premiers-ordinateurs-électroniques" class="nav-link" data-scroll-target="#les-premiers-ordinateurs-électroniques">Les premiers ordinateurs électroniques</a></li>
+  <li><a href="#les-grandes-révolutions-techniques" id="toc-les-grandes-révolutions-techniques" class="nav-link" data-scroll-target="#les-grandes-révolutions-techniques">Les grandes révolutions techniques</a></li>
+  <li><a href="#lordinateur-pour-tous" id="toc-lordinateur-pour-tous" class="nav-link" data-scroll-target="#lordinateur-pour-tous">L’ordinateur pour tous</a></li>
+  <li><a href="#la-loi-de-moore" id="toc-la-loi-de-moore" class="nav-link" data-scroll-target="#la-loi-de-moore">La loi de Moore</a></li>
+  </ul></li>
+  <li><a href="#architecture-dun-ordinateur" id="toc-architecture-dun-ordinateur" class="nav-link" data-scroll-target="#architecture-dun-ordinateur">3. Architecture d’un ordinateur</a>
+  <ul class="collapse">
+  <li><a href="#larchitecture-de-von-neumann" id="toc-larchitecture-de-von-neumann" class="nav-link" data-scroll-target="#larchitecture-de-von-neumann">L’architecture de von Neumann</a></li>
+  <li><a href="#les-éléments-du-processeur" id="toc-les-éléments-du-processeur" class="nav-link" data-scroll-target="#les-éléments-du-processeur">Les éléments du processeur</a></li>
+  <li><a href="#le-cycle-dune-instruction" id="toc-le-cycle-dune-instruction" class="nav-link" data-scroll-target="#le-cycle-dune-instruction">Le cycle d’une instruction</a></li>
+  <li><a href="#tout-est-binaire" id="toc-tout-est-binaire" class="nav-link" data-scroll-target="#tout-est-binaire">Tout est binaire</a></li>
+  </ul></li>
+  <li><a href="#les-composants" id="toc-les-composants" class="nav-link" data-scroll-target="#les-composants">4. Les composants</a>
+  <ul class="collapse">
+  <li><a href="#vue-densemble-la-carte-mère" id="toc-vue-densemble-la-carte-mère" class="nav-link" data-scroll-target="#vue-densemble-la-carte-mère">Vue d’ensemble : la carte mère</a></li>
+  <li><a href="#le-rôle-de-chaque-composant" id="toc-le-rôle-de-chaque-composant" class="nav-link" data-scroll-target="#le-rôle-de-chaque-composant">Le rôle de chaque composant</a></li>
+  <li><a href="#mémoire-vive-ou-stockage" id="toc-mémoire-vive-ou-stockage" class="nav-link" data-scroll-target="#mémoire-vive-ou-stockage">Mémoire vive ou stockage ?</a></li>
+  <li><a href="#la-hiérarchie-des-mémoires" id="toc-la-hiérarchie-des-mémoires" class="nav-link" data-scroll-target="#la-hiérarchie-des-mémoires">La hiérarchie des mémoires</a></li>
+  <li><a href="#les-périphériques" id="toc-les-périphériques" class="nav-link" data-scroll-target="#les-périphériques">Les périphériques</a></li>
+  </ul></li>
+  <li><a href="#matériel-et-logiciel" id="toc-matériel-et-logiciel" class="nav-link" data-scroll-target="#matériel-et-logiciel">5. Matériel et logiciel</a>
+  <ul class="collapse">
+  <li><a href="#trois-niveaux-de-logiciels" id="toc-trois-niveaux-de-logiciels" class="nav-link" data-scroll-target="#trois-niveaux-de-logiciels">Trois niveaux de logiciels</a></li>
+  <li><a href="#le-système-dexploitation" id="toc-le-système-dexploitation" class="nav-link" data-scroll-target="#le-système-dexploitation">Le système d’exploitation</a></li>
+  <li><a href="#que-se-passe-t-il-au-démarrage" id="toc-que-se-passe-t-il-au-démarrage" class="nav-link" data-scroll-target="#que-se-passe-t-il-au-démarrage">Que se passe-t-il au démarrage ?</a></li>
+  </ul></li>
+  <li><a href="#les-ordinateurs-autour-de-nous" id="toc-les-ordinateurs-autour-de-nous" class="nav-link" data-scroll-target="#les-ordinateurs-autour-de-nous">6. Les ordinateurs autour de nous</a>
+  <ul class="collapse">
+  <li><a href="#focus-le-supercalculateur-le-plus-puissant" id="toc-focus-le-supercalculateur-le-plus-puissant" class="nav-link" data-scroll-target="#focus-le-supercalculateur-le-plus-puissant">Focus : le supercalculateur le plus puissant</a></li>
+  <li><a href="#focus-le-serveur-web" id="toc-focus-le-serveur-web" class="nav-link" data-scroll-target="#focus-le-serveur-web">Focus : le serveur web</a></li>
+  </ul></li>
+  <li><a href="#enjeux-limpact-environnemental" id="toc-enjeux-limpact-environnemental" class="nav-link" data-scroll-target="#enjeux-limpact-environnemental">7. Enjeux : l’impact environnemental</a></li>
+  <li><a href="#ce-quil-faut-retenir" id="toc-ce-quil-faut-retenir" class="nav-link" data-scroll-target="#ce-quil-faut-retenir">8. Ce qu’il faut retenir</a>
+  <ul class="collapse">
+  <li><a href="#pour-vérifier-ses-connaissances" id="toc-pour-vérifier-ses-connaissances" class="nav-link" data-scroll-target="#pour-vérifier-ses-connaissances">Pour vérifier ses connaissances</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="fiche-ordinateur.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ressources/fiche-erreurs.html">Fiches de lecture</a></li><li class="breadcrumb-item"><a href="../ressources/fiche-ordinateur.html">C’est quoi un ordinateur ?</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">C’est quoi un ordinateur ?</h1>
+<p class="subtitle lead">Fiche de lecture — histoire, architecture et composants</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Lecture facultative</strong>, environ 20 minutes, en complément de « Dans l’ordinateur » (semaine 2, lundi). Support écrit par Kevin Bardoux, adapté au site du cours.</p>
+</div>
+</div>
+</div>
+<section id="définition" class="level2">
+<h2 class="anchored" data-anchor-id="définition">1. Définition</h2>
+<section id="un-ordinateur-cest" class="level3">
+<h3 class="anchored" data-anchor-id="un-ordinateur-cest">Un ordinateur, c’est…</h3>
+<p>Une <strong>machine électronique programmable</strong> qui traite automatiquement de l’<strong>information</strong> en suivant des <strong>instructions</strong> (un programme). Il réalise toujours quatre grandes fonctions :</p>
+<ul>
+<li><strong>recevoir</strong> des données (entrée) ;</li>
+<li><strong>traiter</strong> ces données (calcul) ;</li>
+<li><strong>mémoriser</strong> les données et les programmes (stockage) ;</li>
+<li><strong>restituer</strong> un résultat (sortie).</li>
+</ul>
+<p>Ce qui le distingue d’une simple calculatrice : il est <strong>programmable</strong>, on peut changer ce qu’il fait sans changer la machine.</p>
+</section>
+<section id="doù-vient-le-mot-ordinateur" class="level3">
+<h3 class="anchored" data-anchor-id="doù-vient-le-mot-ordinateur">D’où vient le mot « ordinateur » ?</h3>
+<p>En 1955, IBM France cherche un nom pour ses nouvelles machines, qu’on appelle en anglais <em>computer</em> (« calculateur »). Le professeur de lettres <strong>Jacques Perret</strong> propose « <strong>ordinateur</strong> », un vieux mot désignant Dieu qui <strong>met de l’ordre</strong> dans le monde. Le mot insiste sur l’idée d’<strong>organiser</strong> l’information, pas seulement de calculer.</p>
+</section>
+<section id="le-schéma-de-base" class="level3">
+<h3 class="anchored" data-anchor-id="le-schéma-de-base">Le schéma de base</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Le schéma de base d'un ordinateur
+  accDescr: Les données entrent par le clavier, la souris ou le micro. Le processeur les traite, en échangeant avec la mémoire et le stockage. Le résultat sort par l'écran, les enceintes ou l'imprimante.
+  E["Entrée&lt;br/&gt;clavier, souris, micro"] --&gt; T["Traitement&lt;br/&gt;processeur"]
+  T --&gt; S["Sortie&lt;br/&gt;écran, enceintes, imprimante"]
+  T &lt;--&gt; M[("Mémoire&lt;br/&gt;et stockage")]
+</pre>
+</div>
+<p></p><figcaption> Entrée, traitement, sortie ; la mémoire et le stockage gardent les données et les programmes.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="lordinateur-comme-une-cuisine" class="level3">
+<h3 class="anchored" data-anchor-id="lordinateur-comme-une-cuisine">L’ordinateur comme une cuisine</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/ordinateur-cuisine.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="L’ordinateur comme une cuisine : lancer un programme, c’est sortir la recette du placard pour la poser sur le plan de travail, où le cuisinier la suit."><img src="img/ordinateur-cuisine.svg" class="img-fluid figure-img" alt="Une cuisine en trois parties. À gauche, le placard, c'est le disque : il garde les recettes, même éteint. Une flèche « lancer » mène au plan de travail, la mémoire vive, vidée à l'arrêt, où sont posés la recette (le programme) et les ingrédients. À droite, le cuisinier, le processeur, lit et suit la recette, une instruction à la fois."></a></p>
+<figcaption>L’ordinateur comme une cuisine : lancer un programme, c’est sortir la recette du placard pour la poser sur le plan de travail, où le cuisinier la suit.</figcaption>
+</figure>
+</div>
+<p>Le <strong>processeur</strong> est le cuisinier, qui suit la recette pas à pas ; la <strong>mémoire vive</strong> est le plan de travail, rapide, vidé quand on éteint ; le <strong>stockage</strong> (le disque) est le placard, qui garde tout, même éteint ; le <strong>programme</strong> est la recette. Lancer un programme, c’est sortir la recette du placard pour la poser sur le plan de travail.</p>
+</section>
+</section>
+<section id="un-peu-dhistoire" class="level2">
+<h2 class="anchored" data-anchor-id="un-peu-dhistoire">2. Un peu d’histoire</h2>
+<section id="les-ancêtres-mécaniques" class="level3">
+<h3 class="anchored" data-anchor-id="les-ancêtres-mécaniques">Les ancêtres mécaniques</h3>
+<ul>
+<li><strong>1642</strong> : Blaise Pascal invente la <strong>Pascaline</strong>, une machine qui additionne et soustrait grâce à des roues dentées.</li>
+<li><strong>1834</strong> : Charles Babbage conçoit la <strong>machine analytique</strong>, première machine programmable (jamais achevée).</li>
+<li><strong>1843</strong> : <strong>Ada Lovelace</strong> écrit ce qu’on considère comme le premier programme informatique.</li>
+<li><strong>1936</strong> : <strong>Alan Turing</strong> décrit la machine de Turing, modèle théorique de tout ordinateur.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/pascaline.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Une Pascaline, musée des Arts et Métiers, Paris."><img src="img/pascaline.webp" class="img-fluid figure-img" alt="Une Pascaline : un boîtier de laiton avec, en façade, six roues à rayons que l'on tourne avec un stylet, et au-dessus, six petites fenêtres qui affichent les chiffres du résultat."></a></p>
+<figcaption>Une Pascaline, musée des Arts et Métiers, Paris.</figcaption>
+</figure>
+</div>
+<p>Photo : <a href="https://commons.wikimedia.org/wiki/User:Rama">Rama</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/fr/">CC BY-SA 2.0 FR</a>, via <a href="https://commons.wikimedia.org/wiki/File:Pascaline-CnAM_823-1-IMG_1506-black.jpg">Wikimedia Commons</a>.</p>
+</section>
+<section id="les-premiers-ordinateurs-électroniques" class="level3">
+<h3 class="anchored" data-anchor-id="les-premiers-ordinateurs-électroniques">Les premiers ordinateurs électroniques</h3>
+<p><strong>ENIAC</strong> (1945-1946), aux États-Unis : 30 tonnes, 167 m² au sol, environ 18 000 tubes à vide, programmé en <strong>rebranchant des câbles</strong>, environ 5 000 additions par seconde. Ses premières programmeuses (Betty Snyder, Jean Jennings, Kay McNulty…) ont longtemps été oubliées.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/eniac.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Glen Beck et Betty Snyder programment l’ENIAC."><img src="img/eniac.webp" class="img-fluid figure-img" alt="Photo en noir et blanc d'une grande salle remplie d'armoires de l'ENIAC couvertes de câbles et de prises ; un homme et une femme, debout, consultent des feuilles devant les panneaux."></a></p>
+<figcaption>Glen Beck et Betty Snyder programment l’ENIAC.</figcaption>
+</figure>
+</div>
+<p>Photo : armée des États-Unis, domaine public, via <a href="https://commons.wikimedia.org/wiki/File:Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg">Wikimedia Commons</a>.</p>
+</section>
+<section id="les-grandes-révolutions-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="les-grandes-révolutions-techniques">Les grandes révolutions techniques</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Innovation</th>
+<th>Ce que ça change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1945</td>
+<td>Architecture de von Neumann</td>
+<td>Programme et données dans la même mémoire</td>
+</tr>
+<tr class="even">
+<td>1947</td>
+<td>Transistor</td>
+<td>Remplace les tubes à vide : plus petit, fiable, économe</td>
+</tr>
+<tr class="odd">
+<td>1958</td>
+<td>Circuit intégré</td>
+<td>Plusieurs transistors sur une même puce</td>
+</tr>
+<tr class="even">
+<td>1971</td>
+<td>Microprocesseur Intel 4004</td>
+<td>Tout le processeur sur une seule puce (2 300 transistors)</td>
+</tr>
+<tr class="odd">
+<td>1977</td>
+<td>Apple II, Commodore PET</td>
+<td>Premiers ordinateurs personnels grand public</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lordinateur-pour-tous" class="level3">
+<h3 class="anchored" data-anchor-id="lordinateur-pour-tous">L’ordinateur pour tous</h3>
+<ul>
+<li><strong>1981</strong> : l’IBM PC définit le standard « compatible PC », toujours utilisé.</li>
+<li><strong>1984</strong> : le Macintosh popularise la souris et l’interface graphique.</li>
+<li><strong>1991</strong> : naissance du Web (voir la fiche « Le Web », en semaine 4).</li>
+<li><strong>2007</strong> : l’iPhone ; l’ordinateur tient dans la poche.</li>
+<li><strong>2026</strong> : le supercalculateur LineShine (Chine) dépasse 2,1 milliards de milliards d’opérations par seconde <span class="citation" data-cites="top500-2026-06">(<a href="#ref-top500-2026-06" role="doc-biblioref">TOP500, s.&nbsp;d.</a>)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/ibm-pc-5150.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="L’IBM PC 5150 (1981)."><img src="img/ibm-pc-5150.webp" class="img-fluid figure-img" alt="Un IBM PC 5150 : une unité centrale beige avec deux lecteurs de disquettes, un écran monochrome à texte vert posé dessus, et un clavier devant."></a></p>
+<figcaption>L’IBM PC 5150 (1981).</figcaption>
+</figure>
+</div>
+<p>Photo : <a href="https://commons.wikimedia.org/wiki/User:Boffy_b">Boffy b</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:IBM_PC_5150.jpg">Wikimedia Commons</a>.</p>
+</section>
+<section id="la-loi-de-moore" class="level3">
+<h3 class="anchored" data-anchor-id="la-loi-de-moore">La loi de Moore</h3>
+<p>En 1965, Gordon Moore (cofondateur d’Intel) observe que le nombre de transistors sur une puce double à un rythme régulier, qu’il fixe ensuite à environ deux ans.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Puce</th>
+<th>Transistors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1971</td>
+<td>Intel 4004</td>
+<td>2 300</td>
+</tr>
+<tr class="even">
+<td>1993</td>
+<td>Intel Pentium</td>
+<td>3,1 millions</td>
+</tr>
+<tr class="odd">
+<td>2010</td>
+<td>Intel Core i7</td>
+<td>environ 1 milliard</td>
+</tr>
+<tr class="even">
+<td>2020-2026</td>
+<td>Grosses puces actuelles (processeurs, GPU)</td>
+<td>plus de 100 milliards</td>
+</tr>
+</tbody>
+</table>
+<p>Aujourd’hui, ce rythme ralentit : les transistors approchent de la taille de quelques atomes.</p>
+</section>
+</section>
+<section id="architecture-dun-ordinateur" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-dun-ordinateur">3. Architecture d’un ordinateur</h2>
+<section id="larchitecture-de-von-neumann" class="level3">
+<h3 class="anchored" data-anchor-id="larchitecture-de-von-neumann">L’architecture de von Neumann</h3>
+<p>Décrite en 1945 par John von Neumann, elle reste la base de presque tous les ordinateurs actuels. L’idée clé : le <strong>programme</strong> est stocké en mémoire <strong>comme les données</strong>, donc on peut le changer facilement <span class="citation" data-cites="interstices-memoire-unite-centrale">(<a href="#ref-interstices-memoire-unite-centrale" role="doc-biblioref">Delacroix-Gouin 2019</a>)</span>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: L'architecture de von Neumann
+  accDescr: Le processeur contient l'unité de contrôle, l'unité arithmétique et logique et les registres. Il est relié par des bus à la mémoire, qui contient le programme et les données, et aux entrées-sorties.
+  subgraph P["Processeur"]
+    UC["Unité de contrôle"]
+    UAL["Unité arithmétique&lt;br/&gt;et logique"]
+    R["Registres"]
+  end
+  P &lt;--&gt;|bus| M[("Mémoire&lt;br/&gt;programme et données")]
+  P &lt;--&gt;|bus| ES["Entrées-sorties"]
+</pre>
+</div>
+<p></p><figcaption> Le processeur, la mémoire et les entrées-sorties, reliés par des bus.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="les-éléments-du-processeur" class="level3">
+<h3 class="anchored" data-anchor-id="les-éléments-du-processeur">Les éléments du processeur</h3>
+<ul>
+<li><strong>Unité de contrôle</strong> : lit les instructions une par une et pilote les autres éléments.</li>
+<li><strong>Unité arithmétique et logique (UAL)</strong> : effectue les calculs (+, −, comparaisons, ET, OU…).</li>
+<li><strong>Registres</strong> : minuscules mémoires ultra-rapides, au cœur du processeur.</li>
+<li><strong>Horloge</strong> : cadence le travail ; une fréquence de 4 GHz signifie 4 milliards de cycles par seconde.</li>
+</ul>
+</section>
+<section id="le-cycle-dune-instruction" class="level3">
+<h3 class="anchored" data-anchor-id="le-cycle-dune-instruction">Le cycle d’une instruction</h3>
+<p>Le processeur répète en boucle, des milliards de fois par seconde :</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Le cycle d'une instruction
+  accDescr: Le processeur cherche l'instruction en mémoire, la décode, exécute le calcul, écrit le résultat, puis recommence avec l'instruction suivante.
+  A["1. Chercher l'instruction&lt;br/&gt;en mémoire"] --&gt; B["2. Décoder&lt;br/&gt;l'instruction"]
+  B --&gt; C["3. Exécuter&lt;br/&gt;le calcul"]
+  C --&gt; D["4. Écrire&lt;br/&gt;le résultat"]
+  D --&gt; A
+</pre>
+</div>
+<p></p><figcaption> Chercher, décoder, exécuter, écrire : en anglais, fetch, decode, execute, write back.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="tout-est-binaire" class="level3">
+<h3 class="anchored" data-anchor-id="tout-est-binaire">Tout est binaire</h3>
+<p>À l’intérieur, un ordinateur ne manipule que des 0 et des 1 (voir la fiche <a href="../ressources/fiche-numeration.html">Systèmes de numération</a>).</p>
+<ul>
+<li>Un <strong>transistor</strong> fonctionne comme un <strong>interrupteur</strong> : le courant passe (1) ou non (0).</li>
+<li>1 <strong>bit</strong> = un 0 ou un 1 ; 1 <strong>octet</strong> = 8 bits.</li>
+<li>Texte, images, sons, vidéos, programmes : <strong>tout est codé en binaire</strong>. Exemple : la lettre A → le code 65 → <code>01000001</code>.</li>
+</ul>
+</section>
+</section>
+<section id="les-composants" class="level2">
+<h2 class="anchored" data-anchor-id="les-composants">4. Les composants</h2>
+<section id="vue-densemble-la-carte-mère" class="level3">
+<h3 class="anchored" data-anchor-id="vue-densemble-la-carte-mère">Vue d’ensemble : la carte mère</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/carte-mere.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Schéma simplifié d’une carte mère."><img src="img/carte-mere.svg" class="img-fluid figure-img" alt="Une carte mère vue de dessus. À gauche, les ports (USB, HDMI). Au centre gauche, le processeur. À sa droite, quatre barrettes de mémoire vive, puis le chipset et le connecteur d'alimentation. En bas, l'emplacement du stockage SSD M.2 NVMe, le port PCIe de la carte graphique, la puce UEFI et sa pile."></a></p>
+<figcaption>Schéma simplifié d’une carte mère.</figcaption>
+</figure>
+</div>
+</section>
+<section id="le-rôle-de-chaque-composant" class="level3">
+<h3 class="anchored" data-anchor-id="le-rôle-de-chaque-composant">Le rôle de chaque composant</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Composant</th>
+<th>Rôle</th>
+<th>Ordre de grandeur (ordinateur récent)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Carte mère</td>
+<td>Relie tous les composants entre eux</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Processeur (CPU)</td>
+<td>Exécute les instructions</td>
+<td>6 à 24 cœurs, 3 à 5 GHz</td>
+</tr>
+<tr class="odd">
+<td>Mémoire vive (RAM)</td>
+<td>Stocke temporairement les programmes en cours</td>
+<td>16 à 64 Go</td>
+</tr>
+<tr class="even">
+<td>Stockage (SSD, HDD)</td>
+<td>Conserve les fichiers de façon durable</td>
+<td>512 Go à plusieurs To</td>
+</tr>
+<tr class="odd">
+<td>Carte graphique (GPU)</td>
+<td>Calcule l’affichage, la 3D, et de plus en plus l’IA</td>
+<td>intégrée ou dédiée</td>
+</tr>
+<tr class="even">
+<td>Alimentation</td>
+<td>Convertit le courant du secteur pour les composants</td>
+<td>300 à 1 000 W (fixe)</td>
+</tr>
+<tr class="odd">
+<td>Refroidissement</td>
+<td>Évacue la chaleur (ventilateurs, watercooling)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mémoire-vive-ou-stockage" class="level3">
+<h3 class="anchored" data-anchor-id="mémoire-vive-ou-stockage">Mémoire vive ou stockage ?</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Mémoire vive (RAM)</th>
+<th>Stockage (SSD, disque dur)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Durée</td>
+<td><strong>Volatile</strong> : s’efface à l’extinction</td>
+<td><strong>Permanent</strong> : garde les données éteint</td>
+</tr>
+<tr class="even">
+<td>Vitesse</td>
+<td>Très <strong>rapide</strong></td>
+<td>Plus <strong>lent</strong></td>
+</tr>
+<tr class="odd">
+<td>Contenu</td>
+<td>Ce qui est <strong>en cours d’utilisation</strong></td>
+<td><strong>Tous les fichiers</strong> et programmes</td>
+</tr>
+<tr class="even">
+<td>Dans la cuisine</td>
+<td>Le plan de travail</td>
+<td>Les placards</td>
+</tr>
+</tbody>
+</table>
+<p>Quand on ouvre un fichier, il est <strong>copié du stockage vers la RAM</strong> pour être traité.</p>
+</section>
+<section id="la-hiérarchie-des-mémoires" class="level3">
+<h3 class="anchored" data-anchor-id="la-hiérarchie-des-mémoires">La hiérarchie des mémoires</h3>
+<p>Plus une mémoire est proche du processeur, plus elle est <strong>rapide</strong>, mais <strong>petite</strong> et <strong>chère</strong>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Mémoire</th>
+<th>Capacité typique</th>
+<th>Temps d’accès approximatif</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Registres</td>
+<td>quelques octets</td>
+<td>moins d’une nanoseconde</td>
+</tr>
+<tr class="even">
+<td>Cache (L1, L2, L3)</td>
+<td>quelques Mo</td>
+<td>1 à 40 ns</td>
+</tr>
+<tr class="odd">
+<td>RAM</td>
+<td>16 à 64 Go</td>
+<td>environ 100 ns</td>
+</tr>
+<tr class="even">
+<td>SSD NVMe</td>
+<td>0,5 à 4 To</td>
+<td>environ 100 µs</td>
+</tr>
+<tr class="odd">
+<td>Disque dur (HDD)</td>
+<td>1 à 20 To</td>
+<td>environ 10 ms</td>
+</tr>
+</tbody>
+</table>
+<p>Un disque dur est donc environ <strong>100 000 fois plus lent</strong> que la RAM.</p>
+</section>
+<section id="les-périphériques" class="level3">
+<h3 class="anchored" data-anchor-id="les-périphériques">Les périphériques</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entrée</td>
+<td>Clavier, souris, micro, webcam, scanner</td>
+</tr>
+<tr class="even">
+<td>Sortie</td>
+<td>Écran, enceintes, imprimante</td>
+</tr>
+<tr class="odd">
+<td>Entrée et sortie</td>
+<td>Écran tactile, casque avec micro, clé USB</td>
+</tr>
+<tr class="even">
+<td>Communication</td>
+<td>Carte réseau (Ethernet, Wi-Fi), Bluetooth</td>
+</tr>
+</tbody>
+</table>
+<p>Connectique courante : USB-C, USB-A, HDMI, DisplayPort, Ethernet (RJ45), prise jack.</p>
+</section>
+</section>
+<section id="matériel-et-logiciel" class="level2">
+<h2 class="anchored" data-anchor-id="matériel-et-logiciel">5. Matériel et logiciel</h2>
+<section id="trois-niveaux-de-logiciels" class="level3">
+<h3 class="anchored" data-anchor-id="trois-niveaux-de-logiciels">Trois niveaux de logiciels</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart TD
+  accTitle: Les niveaux de logiciels
+  accDescr: L'utilisateur se sert des applications, comme le navigateur ou le traitement de texte. Les applications s'appuient sur le système d'exploitation, Windows, macOS, Linux, Android ou iOS. Le système s'appuie sur le micrologiciel UEFI ou BIOS, qui pilote le matériel.
+  U["Utilisateur"] --&gt; A["Applications&lt;br/&gt;navigateur, traitement de texte, jeux"]
+  A --&gt; S["Système d'exploitation&lt;br/&gt;Windows, macOS, Linux, Android, iOS"]
+  S --&gt; F["Micrologiciel&lt;br/&gt;UEFI / BIOS"]
+  F --&gt; H["Matériel&lt;br/&gt;processeur, mémoire, disque"]
+</pre>
+</div>
+<p></p><figcaption> De l’utilisateur au matériel : applications, système d’exploitation, micrologiciel.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="le-système-dexploitation" class="level3">
+<h3 class="anchored" data-anchor-id="le-système-dexploitation">Le système d’exploitation</h3>
+<p>C’est le <strong>chef d’orchestre</strong> entre le matériel et les applications. Il :</p>
+<ul>
+<li><strong>gère les ressources</strong> : temps processeur, mémoire, fichiers ;</li>
+<li><strong>fait tourner plusieurs programmes</strong> en même temps ;</li>
+<li><strong>pilote les périphériques</strong> grâce aux pilotes (<em>drivers</em>) ;</li>
+<li><strong>gère les utilisateurs</strong> et la <strong>sécurité</strong> (droits, mots de passe).</li>
+</ul>
+<p>Sur ordinateur : Windows, macOS, Linux (Ubuntu, Debian…). Sur smartphone : Android, iOS.</p>
+</section>
+<section id="que-se-passe-t-il-au-démarrage" class="level3">
+<h3 class="anchored" data-anchor-id="que-se-passe-t-il-au-démarrage">Que se passe-t-il au démarrage ?</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Le démarrage d'un ordinateur
+  accDescr: À la mise sous tension, l'UEFI ou le BIOS teste le matériel. Le chargeur d'amorçage, par exemple GRUB, lance ensuite le système d'exploitation.
+  A["Mise sous tension"] --&gt; B["UEFI / BIOS&lt;br/&gt;test du matériel"]
+  B --&gt; C["Chargeur d'amorçage&lt;br/&gt;par exemple GRUB"]
+  C --&gt; D["Système&lt;br/&gt;d'exploitation"]
+</pre>
+</div>
+<p></p><figcaption> Au démarrage : le test du matériel, puis le chargeur d’amorçage lance le système d’exploitation.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>Le test du matériel s’appelle le <strong>POST</strong> (<em>Power-On Self-Test</em>) : si un composant manque ou est défectueux, l’ordinateur émet des <strong>bips</strong> ou affiche un code d’erreur.</p>
+</section>
+</section>
+<section id="les-ordinateurs-autour-de-nous" class="level2">
+<h2 class="anchored" data-anchor-id="les-ordinateurs-autour-de-nous">6. Les ordinateurs autour de nous</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Exemples</th>
+<th>Particularités</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Supercalculateur</td>
+<td>LineShine, El Capitan, Frontier</td>
+<td>Des millions de cœurs ; météo, recherche, IA</td>
+</tr>
+<tr class="even">
+<td>Serveur</td>
+<td>Serveurs web, cloud, bases de données</td>
+<td>Fonctionne 24 h/24, sans écran, répond à des clients</td>
+</tr>
+<tr class="odd">
+<td>Ordinateur personnel</td>
+<td>PC fixe, portable</td>
+<td>Usage général</td>
+</tr>
+<tr class="even">
+<td>Smartphone, tablette</td>
+<td>iPhone, Android</td>
+<td>Ordinateur complet et mobile</td>
+</tr>
+<tr class="odd">
+<td>Nano-ordinateur</td>
+<td>Raspberry Pi</td>
+<td>Petit, bon marché, idéal pour apprendre</td>
+</tr>
+<tr class="even">
+<td>Système embarqué</td>
+<td>Voiture, box internet, montre, lave-linge</td>
+<td>Dédié à une tâche précise</td>
+</tr>
+</tbody>
+</table>
+<section id="focus-le-supercalculateur-le-plus-puissant" class="level3">
+<h3 class="anchored" data-anchor-id="focus-le-supercalculateur-le-plus-puissant">Focus : le supercalculateur le plus puissant</h3>
+<p>En juin 2026, le classement mondial <strong>TOP500</strong> place en tête <strong>LineShine</strong>, installé à Shenzhen, en Chine : <strong>2,198 exaflops</strong> (plus de 2 milliards de milliards de calculs par seconde), près de <strong>14 millions de cœurs</strong> de processeur <span class="citation" data-cites="top500-2026-06">(<a href="#ref-top500-2026-06" role="doc-biblioref">TOP500, s.&nbsp;d.</a>)</span>. À comparer avec l’ENIAC et ses <strong>5 000 additions par seconde</strong> en 1946.</p>
+</section>
+<section id="focus-le-serveur-web" class="level3">
+<h3 class="anchored" data-anchor-id="focus-le-serveur-web">Focus : le serveur web</h3>
+<p>Pour un développeur web, le <strong>serveur</strong> est un ordinateur comme un autre : même architecture (processeur, RAM, stockage) ; souvent sous <strong>Linux</strong>, sans écran ni clavier ; administré <strong>à distance</strong> (SSH, semaine 4) ; il attend des <strong>requêtes HTTP</strong> et renvoie des pages ou des données. Le « cloud », c’est simplement l’ordinateur de quelqu’un d’autre, dans un centre de données.</p>
+</section>
+</section>
+<section id="enjeux-limpact-environnemental" class="level2">
+<h2 class="anchored" data-anchor-id="enjeux-limpact-environnemental">7. Enjeux : l’impact environnemental</h2>
+<ul>
+<li>La <strong>fabrication</strong> d’un ordinateur ou d’un smartphone représente la majeure partie de son empreinte environnementale, bien plus que son utilisation : en France, près de 80 % des émissions d’un équipement viennent de sa fabrication <span class="citation" data-cites="arcep-ademe-empreinte-numerique">(<a href="#ref-arcep-ademe-empreinte-numerique" role="doc-biblioref">Arcep et ADEME, s.&nbsp;d.</a>)</span>.</li>
+<li>Elle nécessite des <strong>métaux rares</strong> et beaucoup d’<strong>eau</strong> et d’<strong>énergie</strong>.</li>
+<li>Les bons réflexes : <strong>garder</strong> ses appareils plus longtemps, les <strong>réparer</strong>, acheter <strong>reconditionné</strong>, et <strong>recycler</strong> les appareils en fin de vie. En France, l’indice de réparabilité aide à choisir des appareils plus faciles à réparer.</li>
+</ul>
+</section>
+<section id="ce-quil-faut-retenir" class="level2">
+<h2 class="anchored" data-anchor-id="ce-quil-faut-retenir">8. Ce qu’il faut retenir</h2>
+<ul>
+<li>Un ordinateur est une <strong>machine électronique programmable</strong> qui reçoit, traite, mémorise et restitue de l’information.</li>
+<li>Presque tous suivent l’<strong>architecture de von Neumann</strong> : processeur, mémoire, entrées-sorties, reliés par des bus.</li>
+<li>Le <strong>processeur</strong> exécute les instructions ; la <strong>RAM</strong> est rapide mais volatile ; le <strong>stockage</strong> est permanent mais plus lent.</li>
+<li>Le <strong>système d’exploitation</strong> fait le lien entre le matériel et les applications.</li>
+<li>Du supercalculateur au système embarqué, les ordinateurs sont <strong>partout</strong>, et leur fabrication a un <strong>coût environnemental</strong> important.</li>
+</ul>
+<section id="pour-vérifier-ses-connaissances" class="level3">
+<h3 class="anchored" data-anchor-id="pour-vérifier-ses-connaissances">Pour vérifier ses connaissances</h3>
+<ol type="1">
+<li>Quelle est la différence entre la RAM et un SSD ?</li>
+<li>Que signifie une fréquence de 3,5 GHz ?</li>
+<li>Citez trois périphériques d’entrée et deux de sortie.</li>
+<li>Quel est le rôle du système d’exploitation ?</li>
+<li>Pourquoi un serveur web est-il un ordinateur ?</li>
+<li>Qu’a changé l’invention du microprocesseur en 1971 ?</li>
+</ol>
+</section>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-arcep-ademe-empreinte-numerique" class="csl-entry" role="listitem">
+Arcep et ADEME. s.&nbsp;d. <span>«&nbsp;Étude ADEME-Arcep sur l’empreinte environnementale du numérique en 2020, 2030 et 2050&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique/etude-ademe-arcep-empreinte-environnemental-numerique-2020-2030-2050.html">https://www.arcep.fr/la-regulation/grands-dossiers-thematiques-transverses/lempreinte-environnementale-du-numerique/etude-ademe-arcep-empreinte-environnemental-numerique-2020-2030-2050.html</a>.
+</div>
+<div id="ref-interstices-memoire-unite-centrale" class="csl-entry" role="listitem">
+Delacroix-Gouin, Joëlle. 2019. <span>«&nbsp;Mémoire et unité centrale, un couple dédié à l’exécution des programmes&nbsp;»</span>. juin 21. <a href="https://interstices.info/memoire-et-unite-centrale-un-couple-dedie-a-lexecution-des-programmes/">https://interstices.info/memoire-et-unite-centrale-un-couple-dedie-a-lexecution-des-programmes/</a>.
+</div>
+<div id="ref-top500-2026-06" class="csl-entry" role="listitem">
+TOP500. s.&nbsp;d. <span>«&nbsp;Highlights - June 2026&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://top500.org/lists/top500/2026/06/highs">https://top500.org/lists/top500/2026/06/highs</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ressources/fiche-erreurs.html" class="pagination-link" aria-label="Lire un message d'erreur">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lire un message d’erreur</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ressources/fiche-numeration.html" class="pagination-link" aria-label="Systèmes de numération">
+        <span class="nav-page-text">Systèmes de numération</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

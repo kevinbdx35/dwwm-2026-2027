@@ -18,3 +18,28 @@ main p, main li { overflow-wrap: break-word; }
   .tableau-semaines th:nth-child(4),
   .tableau-semaines td:nth-child(4) { display: none; }
 }
+
+/* Téléphone : une image à hauteur fixée (height="400", pour les diapositives) ne dépasse pas la colonne */
+@media (max-width: 575.98px) {
+  main img { max-width: 100%; height: auto; }
+}
+
+/* Blocs « terminal » (::: {.terminal}) : une capture du terminal en texte, fond sombre.
+   Pas de bouton de copie : l'invite et la sortie ne se tapent pas. */
+.terminal { margin: 1rem 0; border-radius: 6px; overflow: hidden; background: #1b1f27; }
+.terminal::before {
+  content: "Terminal";
+  display: block;
+  padding: 0.3rem 0.8rem;
+  background: #2c323d;
+  color: #c9d1d9;
+  font-size: 0.8rem;
+}
+.terminal div.sourceCode,
+.terminal pre { margin: 0; border: 0; border-radius: 0; background: #1b1f27; }
+.terminal pre, .terminal pre code {
+  color: #e6edf3;
+  /* ✖ ✔ ℹ are missing from Atkinson Mono: fonts that have them, Windows first */
+  font-family: "Atkinson Hyperlegible Mono", "Cascadia Mono", "Segoe UI Symbol", "DejaVu Sans Mono", monospace;
+}
+.terminal .code-copy-button { display: none; }
