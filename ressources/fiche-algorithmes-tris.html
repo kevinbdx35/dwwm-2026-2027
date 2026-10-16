@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Les algorithmes (2/2) : trier, récursivité – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../semaines/s01-rentree/index.html" rel="next">
+<link href="../ressources/fiche-algorithmes-recherche.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../polices.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ressources/fiche-erreurs.html">Fiches de lecture</a></li><li class="breadcrumb-item"><a href="../ressources/fiche-algorithmes-tris.html">Les algorithmes (2/2) : trier, récursivité</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#le-tri" id="toc-le-tri" class="nav-link active" data-scroll-target="#le-tri">1. Le tri</a>
+  <ul class="collapse">
+  <li><a href="#le-problème-du-tri" id="toc-le-problème-du-tri" class="nav-link" data-scroll-target="#le-problème-du-tri">Le problème du tri</a></li>
+  <li><a href="#le-tri-par-sélection" id="toc-le-tri-par-sélection" class="nav-link" data-scroll-target="#le-tri-par-sélection">Le tri par sélection</a></li>
+  <li><a href="#le-tri-à-bulles" id="toc-le-tri-à-bulles" class="nav-link" data-scroll-target="#le-tri-à-bulles">Le tri à bulles</a></li>
+  </ul></li>
+  <li><a href="#la-récursivité" id="toc-la-récursivité" class="nav-link" data-scroll-target="#la-récursivité">2. La récursivité</a>
+  <ul class="collapse">
+  <li><a href="#une-fonction-qui-sappelle-elle-même" id="toc-une-fonction-qui-sappelle-elle-même" class="nav-link" data-scroll-target="#une-fonction-qui-sappelle-elle-même">Une fonction qui s’appelle elle-même</a></li>
+  <li><a href="#la-pyramide-deux-façons" id="toc-la-pyramide-deux-façons" class="nav-link" data-scroll-target="#la-pyramide-deux-façons">La pyramide, deux façons</a></li>
+  <li><a href="#la-factorielle" id="toc-la-factorielle" class="nav-link" data-scroll-target="#la-factorielle">La factorielle</a></li>
+  </ul></li>
+  <li><a href="#le-tri-par-fusion" id="toc-le-tri-par-fusion" class="nav-link" data-scroll-target="#le-tri-par-fusion">3. Le tri par fusion</a>
+  <ul class="collapse">
+  <li><a href="#diviser-pour-régner" id="toc-diviser-pour-régner" class="nav-link" data-scroll-target="#diviser-pour-régner">Diviser pour régner</a></li>
+  <li><a href="#lefficacité-du-tri-par-fusion" id="toc-lefficacité-du-tri-par-fusion" class="nav-link" data-scroll-target="#lefficacité-du-tri-par-fusion">L’efficacité du tri par fusion</a></li>
+  </ul></li>
+  <li><a href="#récapitulatif" id="toc-récapitulatif" class="nav-link" data-scroll-target="#récapitulatif">4. Récapitulatif</a>
+  <ul class="collapse">
+  <li><a href="#dans-la-vraie-vie" id="toc-dans-la-vraie-vie" class="nav-link" data-scroll-target="#dans-la-vraie-vie">Dans la vraie vie</a></li>
+  <li><a href="#à-vous-de-jouer" id="toc-à-vous-de-jouer" class="nav-link" data-scroll-target="#à-vous-de-jouer">À vous de jouer</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="fiche-algorithmes-tris.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ressources/fiche-erreurs.html">Fiches de lecture</a></li><li class="breadcrumb-item"><a href="../ressources/fiche-algorithmes-tris.html">Les algorithmes (2/2) : trier, récursivité</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Les algorithmes (2/2) : trier, récursivité</h1>
+<p class="subtitle lead">Fiche de lecture — tri par sélection, tri à bulles, récursivité, tri par fusion</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Lecture facultative</strong>, environ 15 minutes, en complément de « Recherche, tris &amp; complexité » (semaine 3, jeudi). Début : <a href="../ressources/fiche-algorithmes-recherche.html">Les algorithmes (1/2) : chercher, mesurer</a>.<br> D’après CS50, Harvard University, licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">CC BY-NC-SA 4.0</a>, leçon 3 <span class="citation" data-cites="cs50x-2026-lecture3">(<a href="#ref-cs50x-2026-lecture3" role="doc-biblioref">CS50 2026</a>)</span> ; adaptation de Kevin Bardoux, code traduit en JavaScript. Cette fiche est diffusée sous la même licence.</p>
+</div>
+</div>
+</div>
+<section id="le-tri" class="level2">
+<h2 class="anchored" data-anchor-id="le-tri">1. Le tri</h2>
+<section id="le-problème-du-tri" class="level3">
+<h3 class="anchored" data-anchor-id="le-problème-du-tri">Le problème du tri</h3>
+<p><strong>Entrée</strong> : un tableau dans le désordre, <code>5 2 7 4 1 6 3 0</code>. <strong>Sortie</strong> : le même tableau, trié, <code>0 1 2 3 4 5 6 7</code>.</p>
+<p>Pourquoi trier ? Pour pouvoir utiliser la recherche dichotomique ; pour afficher des résultats dans un ordre utile (prix, dates, noms) ; et parce que trier une fois, puis chercher des milliers de fois, est très rentable. Trois algorithmes, du plus simple au plus efficace.</p>
+</section>
+<section id="le-tri-par-sélection" class="level3">
+<h3 class="anchored" data-anchor-id="le-tri-par-sélection">Le tri par sélection</h3>
+<p>On <strong>sélectionne</strong> le plus petit élément et on le met en première position, puis le plus petit du reste en deuxième position, et ainsi de suite.</p>
+<pre class="text"><code>Pour i allant de 0 à n − 2
+  Trouver le plus petit élément entre la case i et la fin
+  L'échanger avec l'élément de la case i</code></pre>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tour</th>
+<th>Plus petit trouvé</th>
+<th>Tableau après échange</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Départ</td>
+<td>—</td>
+<td>5 2 7 4 1 6 3 0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0 2 7 4 1 6 3 5</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td>0 1 7 4 2 6 3 5</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+<td>0 1 2 4 7 6 3 5</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>tri-selection.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="tri-selection.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">selectionSort</span>(array) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> array<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> min <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> array<span class="op">.</span><span class="at">length</span><span class="op">;</span> j<span class="op">++</span>) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (array[j] <span class="op">&lt;</span> array[min]) min <span class="op">=</span> j<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> temp <span class="op">=</span> array[i]<span class="op">;</span> <span class="co">// swap, with a temporary variable</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    array[i] <span class="op">=</span> array[min]<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    array[min] <span class="op">=</span> temp<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Efficacité : (<em>n</em> − 1) + (<em>n</em> − 2) + … + 1 = <em>n</em>(<em>n</em> − 1)/2 comparaisons, soit O(<em>n</em>²). Et même si le tableau est déjà trié, il fait toutes ces comparaisons : Ω(<em>n</em>²), donc Θ(<em>n</em>²).</p>
+</section>
+<section id="le-tri-à-bulles" class="level3">
+<h3 class="anchored" data-anchor-id="le-tri-à-bulles">Le tri à bulles</h3>
+<p>On compare les <strong>voisins</strong> deux à deux et on les échange s’ils sont dans le mauvais ordre. Les grands nombres « remontent » vers la fin, comme des bulles.</p>
+<pre class="text"><code>Répéter n − 1 fois
+  Pour chaque paire de voisins
+    S'ils sont dans le mauvais ordre, les échanger
+  Si aucun échange n'a eu lieu, s'arrêter</code></pre>
+<p>Premier passage sur <code>5 2 7 4 1 6 3 0</code> : <code>2 5 7 4 1 6 3 0</code> (5 et 2 échangés), puis <code>2 5 4 7 1 6 3 0</code> (7 et 4 échangés)… jusqu’à <code>2 5 4 1 6 3 0 7</code> : le 7 est arrivé à sa place.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>tri-bulles.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="tri-bulles.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">bubbleSort</span>(array) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> array<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> swapped <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> array<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span> <span class="op">-</span> i<span class="op">;</span> j<span class="op">++</span>) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (array[j] <span class="op">&gt;</span> array[j <span class="op">+</span> <span class="dv">1</span>]) {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        [array[j]<span class="op">,</span> array[j <span class="op">+</span> <span class="dv">1</span>]] <span class="op">=</span> [array[j <span class="op">+</span> <span class="dv">1</span>]<span class="op">,</span> array[j]]<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        swapped <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>swapped) <span class="cf">return</span><span class="op">;</span> <span class="co">// already sorted: stop</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Efficacité : O(<em>n</em>²) dans le pire des cas. Mais grâce à la variable <code>swapped</code>, sur un tableau déjà trié, un seul passage suffit : Ω(<em>n</em>).</p>
+</section>
+</section>
+<section id="la-récursivité" class="level2">
+<h2 class="anchored" data-anchor-id="la-récursivité">2. La récursivité</h2>
+<section id="une-fonction-qui-sappelle-elle-même" class="level3">
+<h3 class="anchored" data-anchor-id="une-fonction-qui-sappelle-elle-même">Une fonction qui s’appelle elle-même</h3>
+<p>Une fonction <strong>récursive</strong> résout un problème en s’appelant elle-même sur une version <strong>plus petite</strong> du même problème. La recherche dichotomique en est un exemple : « chercher dans la moitié gauche », c’est… refaire une recherche dichotomique, sur un tableau plus petit. Toute fonction récursive a besoin de deux ingrédients :</p>
+<ul>
+<li>un <strong>cas de base</strong> : une version si simple qu’on connaît la réponse, et qui arrête la récursion ;</li>
+<li>un <strong>appel récursif</strong> sur un problème plus petit, qui finit par atteindre le cas de base.</li>
+</ul>
+<p>Sans cas de base, la fonction s’appelle à l’infini, et le programme plante.</p>
+</section>
+<section id="la-pyramide-deux-façons" class="level3">
+<h3 class="anchored" data-anchor-id="la-pyramide-deux-façons">La pyramide, deux façons</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>pyramide.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="pyramide.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawLoop</span>(height) {          <span class="co">// iterative: two loops</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> height<span class="op">;</span> i<span class="op">++</span>) <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'#'</span><span class="op">.</span><span class="fu">repeat</span>(i))<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">drawRec</span>(height) {           <span class="co">// recursive</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (height <span class="op">&lt;=</span> <span class="dv">0</span>) <span class="cf">return</span><span class="op">;</span>           <span class="co">// base case</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drawRec</span>(height <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span>               <span class="co">// a smaller pyramid…</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'#'</span><span class="op">.</span><span class="fu">repeat</span>(height))<span class="op">;</span>   <span class="co">// …plus one row below</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Idée récursive : une pyramide de hauteur 4, c’est une pyramide de hauteur 3, plus une ligne de 4 briques en dessous.</p>
+</section>
+<section id="la-factorielle" class="level3">
+<h3 class="anchored" data-anchor-id="la-factorielle">La factorielle</h3>
+<p>La factorielle de <em>n</em> (notée <em>n</em>!) vaut 1 × 2 × 3 × … × <em>n</em>. Elle a une définition naturellement récursive : <em>n</em>! = <em>n</em> × (<em>n</em> − 1)!, avec 1! = 1.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>factorielle.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="factorielle.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">factorial</span>(n) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="op">&lt;=</span> <span class="dv">1</span>) <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span>            <span class="co">// base case</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> n <span class="op">*</span> <span class="fu">factorial</span>(n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span>     <span class="co">// recursive call</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Les appels s’empilent jusqu’au cas de base, puis les résultats remontent : 1, puis 2, puis 6, puis 24 (la pile d’appels de la semaine 8).</p>
+</section>
+</section>
+<section id="le-tri-par-fusion" class="level2">
+<h2 class="anchored" data-anchor-id="le-tri-par-fusion">3. Le tri par fusion</h2>
+<section id="diviser-pour-régner" class="level3">
+<h3 class="anchored" data-anchor-id="diviser-pour-régner">Diviser pour régner</h3>
+<p>Le tri par fusion utilise la récursivité selon le principe <strong>diviser pour régner</strong> :</p>
+<pre class="text"><code>S'il n'y a qu'un seul élément
+  Il est déjà trié : s'arrêter
+Sinon
+  Trier la moitié gauche
+  Trier la moitié droite
+  Fusionner les deux moitiés triées</code></pre>
+<p>L’astuce : <strong>fusionner</strong> deux listes déjà triées est très rapide. On compare leurs premiers éléments, on prend le plus petit, et on recommence.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart TD
+  accTitle: Le tri par fusion
+  accDescr: Le tableau 5 2 7 4 1 6 3 0 est coupé en deux moitiés, 5 2 7 4 et 1 6 3 0. Chaque moitié est triée de la même façon : 2 4 5 7 et 0 1 3 6. La fusion des deux moitiés triées donne 0 1 2 3 4 5 6 7.
+  A["5 2 7 4 1 6 3 0"] --&gt; B["5 2 7 4"]
+  A --&gt; C["1 6 3 0"]
+  B --&gt;|trier| D["2 4 5 7"]
+  C --&gt;|trier| E["0 1 3 6"]
+  D --&gt; F["0 1 2 3 4 5 6 7"]
+  E --&gt;|fusionner| F
+</pre>
+</div>
+<p></p><figcaption> On coupe en deux jusqu’à des éléments seuls, puis on fusionne deux à deux, en gardant l’ordre.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>tri-fusion.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="tri-fusion.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mergeSort</span>(array) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (array<span class="op">.</span><span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">1</span>) <span class="cf">return</span> array<span class="op">;</span>          <span class="co">// 0 or 1 element: sorted</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> middle <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(array<span class="op">.</span><span class="at">length</span> <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> left <span class="op">=</span> <span class="fu">mergeSort</span>(array<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> middle))<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> right <span class="op">=</span> <span class="fu">mergeSort</span>(array<span class="op">.</span><span class="fu">slice</span>(middle))<span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> merged <span class="op">=</span> []<span class="op">;</span>                            <span class="co">// merge the two sorted halves</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (left<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> right<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    merged<span class="op">.</span><span class="fu">push</span>(left[<span class="dv">0</span>] <span class="op">&lt;=</span> right[<span class="dv">0</span>] <span class="op">?</span> left<span class="op">.</span><span class="fu">shift</span>() <span class="op">:</span> right<span class="op">.</span><span class="fu">shift</span>())<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="op">...</span>merged<span class="op">,</span> <span class="op">...</span>left<span class="op">,</span> <span class="op">...</span>right]<span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Le tri par fusion utilise des tableaux temporaires : il consomme <strong>plus de mémoire</strong> que les deux autres.</p>
+</section>
+<section id="lefficacité-du-tri-par-fusion" class="level3">
+<h3 class="anchored" data-anchor-id="lefficacité-du-tri-par-fusion">L’efficacité du tri par fusion</h3>
+<p>On coupe le tableau en deux jusqu’à des éléments seuls : log <em>n</em> niveaux de découpage. À chaque niveau, la fusion parcourt les <em>n</em> éléments. Total : O(<em>n</em> log <em>n</em>), et aussi Ω(<em>n</em> log <em>n</em>), donc Θ(<em>n</em> log <em>n</em>).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Algorithme</th>
+<th>Pire cas (O)</th>
+<th>Meilleur cas (Ω)</th>
+<th>Mémoire en plus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tri par sélection</td>
+<td><em>n</em>²</td>
+<td><em>n</em>²</td>
+<td>Aucune</td>
+</tr>
+<tr class="even">
+<td>Tri à bulles</td>
+<td><em>n</em>²</td>
+<td><em>n</em></td>
+<td>Aucune</td>
+</tr>
+<tr class="odd">
+<td>Tri par fusion</td>
+<td><em>n</em> log <em>n</em></td>
+<td><em>n</em> log <em>n</em></td>
+<td>Des tableaux temporaires</td>
+</tr>
+</tbody>
+</table>
+<p>C’est un compromis classique en informatique : on gagne du temps en utilisant plus d’espace.</p>
+</section>
+</section>
+<section id="récapitulatif" class="level2">
+<h2 class="anchored" data-anchor-id="récapitulatif">4. Récapitulatif</h2>
+<ul>
+<li><strong>Recherche linéaire</strong> : O(<em>n</em>), fonctionne toujours. <strong>Recherche dichotomique</strong> : O(log <em>n</em>), mais exige un tableau trié.</li>
+<li>La notation <strong>grand O</strong> décrit comment le temps évolue quand les données grandissent ; <strong>Ω</strong> décrit le meilleur des cas, <strong>Θ</strong> quand les deux coïncident.</li>
+<li>Un <strong>objet</strong> regroupe plusieurs données sous un même nom.</li>
+<li>Tri par sélection et tri à bulles : simples, mais en O(<em>n</em>²). Tri par fusion : O(<em>n</em> log <em>n</em>), au prix de mémoire supplémentaire.</li>
+<li>Une fonction <strong>récursive</strong> s’appelle elle-même sur un problème plus petit, jusqu’à un cas de base.</li>
+</ul>
+<section id="dans-la-vraie-vie" class="level3">
+<h3 class="anchored" data-anchor-id="dans-la-vraie-vie">Dans la vraie vie</h3>
+<ul>
+<li>En JavaScript, <code>tableau.sort()</code> trie en place, en O(<em>n</em> log <em>n</em>) ; attention, sans paramètre, il compare les nombres comme du texte : <code>[10, 9, 1].sort()</code> donne <code>[1, 10, 9]</code> <span class="citation" data-cites="mdn-sort">(<a href="#ref-mdn-sort" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.</a>)</span>. Avec une fonction de comparaison : <code>[10, 9, 1].sort((a, b) =&gt; a - b)</code>.</li>
+<li>Les bases de données utilisent des <strong>index</strong>, triés, pour retrouver une ligne parmi des millions en quelques étapes (semaine 17).</li>
+<li>Les moteurs de recherche, les GPS ou les réseaux sociaux reposent sur des algorithmes efficaces : un algorithme en O(<em>n</em>²) sur des milliards de données serait inutilisable.</li>
+</ul>
+</section>
+<section id="à-vous-de-jouer" class="level3">
+<h3 class="anchored" data-anchor-id="à-vous-de-jouer">À vous de jouer</h3>
+<p>Deux exercices, au niveau 3 du parcours de remédiation de la semaine 3 (archive de la semaine) :</p>
+<ol type="1">
+<li><strong><code>f1-dichotomie-recursive</code></strong> : réécrivez la recherche dichotomique sous forme de fonction récursive.</li>
+<li><strong><code>f2-tri-noms</code></strong> : triez un tableau de prénoms par ordre alphabétique avec le tri par sélection.</li>
+</ol>
+</section>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-cs50x-2026-lecture3" class="csl-entry" role="listitem">
+CS50. 2026. <span>«&nbsp;Lecture 3 - CS50x 2026&nbsp;»</span>. <a href="https://cs50.harvard.edu/x/notes/3/">https://cs50.harvard.edu/x/notes/3/</a>.
+</div>
+<div id="ref-mdn-sort" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d. <span>«&nbsp;Array : méthode sort() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ressources/fiche-algorithmes-recherche.html" class="pagination-link" aria-label="Les algorithmes (1/2) : chercher, mesurer">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les algorithmes (1/2) : chercher, mesurer</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../semaines/s01-rentree/index.html" class="pagination-link" aria-label="Semaine 1 — Rentrée">
+        <span class="nav-page-text">Semaine 1 — Rentrée</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Jeudi 22/10 — Recherche, tris et complexité – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s03-fondamentaux-js-2/vendredi.html" rel="next">
+<link href="../../semaines/s03-fondamentaux-js-2/mercredi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/index.html">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/jeudi.html">Jeudi 22/10 — Recherche, tris et complexité</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-recherche-tris-complexité-grand-o-tris-à-la-main-puis-en-code" id="toc-matin-recherche-tris-complexité-grand-o-tris-à-la-main-puis-en-code" class="nav-link" data-scroll-target="#matin-recherche-tris-complexité-grand-o-tris-à-la-main-puis-en-code">Matin — Recherche, tris &amp; complexité (grand O) — tris à la main, puis en code</a>
+  <ul class="collapse">
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-1-deux-façons-de-chercher-15-min" id="toc-apport-1-deux-façons-de-chercher-15-min" class="nav-link" data-scroll-target="#apport-1-deux-façons-de-chercher-15-min">Apport 1 — Deux façons de chercher (15 min)</a></li>
+  <li><a href="#chercher-attention-et-vérification" id="toc-chercher-attention-et-vérification" class="nav-link" data-scroll-target="#chercher-attention-et-vérification">Chercher — attention et vérification</a></li>
+  <li><a href="#exercice-j1-recherche-linéaire-15-min" id="toc-exercice-j1-recherche-linéaire-15-min" class="nav-link" data-scroll-target="#exercice-j1-recherche-linéaire-15-min">Exercice j1 — Recherche linéaire (15 min)</a></li>
+  <li><a href="#apport-2-trier-10-min" id="toc-apport-2-trier-10-min" class="nav-link" data-scroll-target="#apport-2-trier-10-min">Apport 2 — Trier (10 min)</a></li>
+  <li><a href="#trier-attention-et-vérification" id="toc-trier-attention-et-vérification" class="nav-link" data-scroll-target="#trier-attention-et-vérification">Trier — attention et vérification</a></li>
+  <li><a href="#activité-trier-des-cartes-à-la-main-30-min" id="toc-activité-trier-des-cartes-à-la-main-30-min" class="nav-link" data-scroll-target="#activité-trier-des-cartes-à-la-main-30-min">Activité — Trier des cartes à la main (30 min)</a></li>
+  <li><a href="#apport-3-combien-détapes-15-min" id="toc-apport-3-combien-détapes-15-min" class="nav-link" data-scroll-target="#apport-3-combien-détapes-15-min">Apport 3 — Combien d’étapes ? (15 min)</a></li>
+  <li><a href="#grand-o-attention-et-vérification" id="toc-grand-o-attention-et-vérification" class="nav-link" data-scroll-target="#grand-o-attention-et-vérification">Grand O — attention et vérification</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-le-tri-par-insertion-à-la-main" id="toc-si-le-temps-le-permet-le-tri-par-insertion-à-la-main" class="nav-link" data-scroll-target="#si-le-temps-le-permet-le-tri-par-insertion-à-la-main">Si le temps le permet — Le tri par insertion, à la main</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-tp-algorithmes-de-tri" id="toc-après-midi-tp-algorithmes-de-tri" class="nav-link" data-scroll-target="#après-midi-tp-algorithmes-de-tri">Après-midi — TP — « Algorithmes de tri »</a>
+  <ul class="collapse">
+  <li><a href="#consignes-2-h" id="toc-consignes-2-h" class="nav-link" data-scroll-target="#consignes-2-h">Consignes (2 h)</a></li>
+  <li><a href="#les-quatre-fonctions" id="toc-les-quatre-fonctions" class="nav-link" data-scroll-target="#les-quatre-fonctions">Les quatre fonctions</a></li>
+  <li><a href="#faire-le-lien-avec-le-grand-o" id="toc-faire-le-lien-avec-le-grand-o" class="nav-link" data-scroll-target="#faire-le-lien-avec-le-grand-o">Faire le lien avec le grand O</a></li>
+  <li><a href="#entraînement-ecf-sur-papier-30-min" id="toc-entraînement-ecf-sur-papier-30-min" class="nav-link" data-scroll-target="#entraînement-ecf-sur-papier-30-min">Entraînement ECF sur papier (30 min)</a></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-les-bulles-sur-une-liste-triée" id="toc-si-le-temps-le-permet-les-bulles-sur-une-liste-triée" class="nav-link" data-scroll-target="#si-le-temps-le-permet-les-bulles-sur-une-liste-triée">Si le temps le permet — les bulles sur une liste triée</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="jeudi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="jeudi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/index.html">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/jeudi.html">Jeudi 22/10 — Recherche, tris et complexité</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Jeudi 22/10 — Recherche, tris et complexité</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">jeudi 22 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : résolution de problème · communiquer (expliquer un algorithme)<br> <strong>Livrable</strong> : <code>tri-dichotomie</code>, <code>tri-selection</code>, <code>tri-bulles</code> et <code>tri-comparaisons</code> au vert.</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Comparer la <a href="../../ressources/lexique.html#t-recherche-lineaire">recherche linéaire</a> et la recherche dichotomique.</li>
+<li><a href="../../ressources/lexique.html#t-tri">Trier</a> à la main, par sélection et à bulles, en comptant les comparaisons.</li>
+<li>Dire ce que devient le nombre d’étapes quand la liste double.</li>
+<li>Coder une recherche dichotomique et deux tris.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Le matin, trois notions : chercher dans un tableau, trier, compter les étapes. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine chaque demi-journée. Les tris et le <a href="../../ressources/lexique.html#t-grand-o">grand O</a> ne sont <strong>pas</strong> au programme de l’ECF de demain.</p>
+</section>
+<section id="matin-recherche-tris-complexité-grand-o-tris-à-la-main-puis-en-code" class="level1">
+<h1>Matin — Recherche, tris &amp; complexité (grand O) — tris à la main, puis en code</h1>
+<section id="rappel-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<ol type="1">
+<li>Comment parcourir chaque valeur d’un tableau ?</li>
+<li>Que renvoie <code>'Ada Lovelace'.split(' ')</code> ?</li>
+<li>Que fait <code>${…}</code> dans un littéral de gabarit ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-1-deux-façons-de-chercher-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-1-deux-façons-de-chercher-15-min">Apport 1 — Deux façons de chercher (15 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : retrouver une valeur, vite, dans une longue liste.</li>
+<li><strong>Linéaire</strong> : case par case ; <strong>dichotomique</strong> : le milieu, une moitié.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Chercher un client parmi un million demande une méthode efficace : le temps de recherche compte.</p>
+<p><strong>Définition.</strong> La <strong>recherche linéaire</strong> regarde les cases une par une, du début à la fin ; elle marche toujours, même si le tableau n’est pas trié. La <strong>recherche dichotomique</strong> regarde la case du milieu, puis ne garde que la moitié qui peut contenir la valeur, et recommence ; elle n’est possible que si le tableau est <strong>trié</strong> <span class="citation" data-cites="wikipedia-recherche-dichotomique">(<a href="#ref-wikipedia-recherche-dichotomique" role="doc-biblioref">Wikipédia, s.&nbsp;d.-a</a>)</span>. Ces deux recherches sont celles de la <em>Lecture 3</em> du cours CS50 <span class="citation" data-cites="cs50x-2026-lecture3">(<a href="#ref-cs50x-2026-lecture3" role="doc-biblioref">CS50 2026</a>)</span>, qui reprend l’annuaire de la première séance.</p>
+<p><strong>Exemple.</strong> Chercher <code>23</code> dans un tableau trié de 8 valeurs :</p>
+<pre><code>[3, 8, 12, 17, 23, 31, 40, 52]
+linéaire     : 3, 8, 12, 17, 23        → 5 cases regardées
+dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
+<p><strong>Pas à pas</strong> (dichotomique). Le formateur le fait au tableau ; vous le suivez sur votre feuille.</p>
+<ol type="1">
+<li>Bornes : de l’index 0 à l’index 7. Milieu : <code>Math.floor((0 + 7) / 2)</code> = 3, la valeur <code>17</code>.</li>
+<li><code>23</code> est plus grand que <code>17</code> : on garde la moitié droite, de l’index 4 à 7.</li>
+<li>Milieu : <code>Math.floor((4 + 7) / 2)</code> = 5, la valeur <code>31</code>. <code>23</code> est plus petit : on garde de 4 à 4.</li>
+<li>Milieu : 4, la valeur <code>23</code>. Trouvé, à l’index 4.</li>
+</ol>
+</section>
+<section id="chercher-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="chercher-attention-et-vérification">Chercher — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La recherche dichotomique sur un tableau <strong>non trié</strong> donne un résultat faux, sans erreur affichée. Vérifiez d’abord que le tableau est trié.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : combien de cases pour trouver <code>3</code>, en dichotomique ?</li>
+</ul>
+</section>
+<section id="exercice-j1-recherche-linéaire-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-j1-recherche-linéaire-15-min">Exercice j1 — Recherche linéaire (15 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : la boucle <code>for</code> sur les index, de <code>0</code> à <code>length - 1</code>.</li>
+<li>Seuls : <strong>j1-recherche-lineaire</strong>, l’index de la valeur, ou <code>-1</code>.</li>
+<li>Sans <code>indexOf</code> ; les tests vérifient le tableau vide et l’absent.</li>
+<li><strong>Réussi si</strong> : tests au vert, aucune alerte ESLint.</li>
+</ol>
+</section>
+<section id="apport-2-trier-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-2-trier-10-min">Apport 2 — Trier (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : la dichotomie exige un tableau trié.</li>
+<li><strong>Sélection</strong> : la plus petite en premier ; <strong>bulles</strong> : échanger les voisines.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Pour chercher vite, il faut des données triées ; pour afficher une liste (prix croissants, noms par ordre alphabétique), aussi.</p>
+<p><strong>Définition.</strong> Le <strong>tri par sélection</strong> cherche le plus petit élément restant et le place à sa position définitive, puis recommence avec le reste <span class="citation" data-cites="wikipedia-tri-selection">(<a href="#ref-wikipedia-tri-selection" role="doc-biblioref">Wikipédia, s.&nbsp;d.-d</a>)</span>. Le <strong>tri à bulles</strong> compare les éléments voisins et les échange s’ils sont mal rangés ; il repasse tant qu’un passage a fait au moins un échange <span class="citation" data-cites="wikipedia-tri-bulles">(<a href="#ref-wikipedia-tri-bulles" role="doc-biblioref">Wikipédia, s.&nbsp;d.-b</a>)</span>.</p>
+<p><strong>Exemple.</strong> Le tri par sélection sur <code>[5, 2, 4, 1]</code> :</p>
+<pre><code>[5, 2, 4, 1]   la plus petite est 1 : on l'échange avec 5
+[1, 2, 4, 5]   dans le reste, la plus petite est 2 : déjà en place
+[1, 2, 4, 5]   dans le reste, 4 : déjà en place. Trié.</code></pre>
+<p><strong>Pas à pas.</strong> C’est l’activité des cartes, ci-dessous : le formateur montre un tri par sélection avec 4 cartes, puis vous le refaites par deux avec 8 cartes.</p>
+</section>
+<section id="trier-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="trier-attention-et-vérification">Trier — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour échanger deux valeurs, il faut une variable temporaire : sinon, l’une écrase l’autre et une valeur est perdue.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : triez <code>[3, 1, 2]</code> à bulles : combien d’échanges ?</li>
+</ul>
+</section>
+<section id="activité-trier-des-cartes-à-la-main-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="activité-trier-des-cartes-à-la-main-30-min">Activité — Trier des cartes à la main (30 min)</h2>
+<ol type="1">
+<li>Par deux, 8 cartes mélangées : un <strong>trieur</strong>, un <strong>compteur</strong>.</li>
+<li>Tri par sélection : le compteur note chaque <strong>comparaison</strong>.</li>
+<li>Tri à bulles, rôles échangés : même chose.</li>
+<li>Notez les deux totaux : lequel compare le moins ?</li>
+<li><strong>Réussi si</strong> : vos deux totaux sont notés et comparés.</li>
+</ol>
+<p>Le <strong>trieur</strong> déplace les cartes et dit chaque comparaison à voix haute (« 7 est plus grand que 3 ») ; le <strong>compteur</strong> fait une marque sur la feuille à chaque comparaison. Refaites ensuite le tri par sélection avec une carte de plus : combien de comparaisons en plus ?</p>
+</section>
+<section id="apport-3-combien-détapes-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-3-combien-détapes-15-min">Apport 3 — Combien d’étapes ? (15 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : savoir si un programme reste rapide.</li>
+<li><strong>Grand O</strong> : comment les étapes grandissent quand la liste grandit.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un programme rapide sur 10 valeurs peut devenir très lent sur un million. On compare les algorithmes en regardant ce qui se passe quand la quantité de données <strong>double</strong>.</p>
+<p><strong>Définition.</strong> Le « grand O » décrit l’ordre de grandeur du nombre d’étapes d’un algorithme, plutôt qu’un calcul exact <span class="citation" data-cites="cs50x-2026-lecture3">(<a href="#ref-cs50x-2026-lecture3" role="doc-biblioref">CS50 2026</a>)</span>. Retenez l’intuition : ce qui compte, c’est ce qui se passe quand la liste grandit.</p>
+<p><strong>Exemple.</strong> Quand la liste double :</p>
+<pre><code>recherche linéaire      O(n)      deux fois plus d'étapes
+recherche dichotomique  O(log n)  une seule étape de plus
+tri par sélection       O(n²)     environ quatre fois plus</code></pre>
+<p><strong>Pas à pas.</strong> Avec les résultats de l’activité des cartes :</p>
+<ol type="1">
+<li>Tri par sélection, 4 cartes : 3 + 2 + 1 = 6 comparaisons.</li>
+<li>8 cartes (deux fois plus) : 28 comparaisons, presque cinq fois plus.</li>
+<li>16 cartes : 120 comparaisons, plus de quatre fois 28.</li>
+<li>Conclusion : quand la liste double, les comparaisons font environ ×4 : c’est O(n²).</li>
+</ol>
+</section>
+<section id="grand-o-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="grand-o-attention-et-vérification">Grand O — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le grand O ne donne pas un temps en secondes : il dit comment le nombre d’étapes <strong>grandit</strong>. Un O(n²) devient vite très lent sur de grandes listes.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : liste de 1 000 → 2 000 éléments, que devient O(n²) ?</li>
+</ul>
+<section id="si-le-temps-le-permet-le-tri-par-insertion-à-la-main" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-le-tri-par-insertion-à-la-main">Si le temps le permet — Le tri par insertion, à la main</h3>
+<ol type="1">
+<li>Prenez les cartes en main, une par une, comme dans un jeu de cartes.</li>
+<li>Glissez chaque nouvelle carte vers la gauche jusqu’à sa place.</li>
+<li>Comptez les comparaisons sur des cartes déjà triées : que remarquez-vous ?</li>
+</ol>
+<p>Le tri par insertion insère chaque élément à sa place parmi ceux déjà triés <span class="citation" data-cites="wikipedia-tri-insertion">(<a href="#ref-wikipedia-tri-insertion" role="doc-biblioref">Wikipédia, s.&nbsp;d.-c</a>)</span>. Il est codé cet après-midi dans « Pour aller plus loin ».</p>
+</section>
+</section>
+<section id="à-retenir-ce-matin" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Chercher</strong> : dichotomique seulement si le tableau est trié.</li>
+<li><strong>Trier</strong> : sélection ou bulles ; échanger avec une variable temporaire.</li>
+<li><strong>Grand O</strong> : ce que deviennent les étapes quand la liste double.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Chercher</strong> : la recherche linéaire marche toujours ; la dichotomique regarde le milieu et garde une moitié, beaucoup plus vite, mais seulement sur un tableau trié.</li>
+<li><strong>Trier</strong> : la sélection place la plus petite valeur à chaque tour ; les bulles échangent les voisines mal rangées ; un échange demande une variable temporaire.</li>
+<li><strong>Grand O</strong> : O(n) double, O(log n) ajoute une étape, O(n²) quadruple quand la liste double.</li>
+</ul>
+</section>
+<section id="débrief" class="level2">
+<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<ul>
+<li>Pourquoi la dichotomie exige-t-elle un tableau trié ?</li>
+<li>Quel tri vous a semblé le plus simple à expliquer ?</li>
+<li>Que devient O(n²) si la liste passe de 1 000 à 2 000 ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-tp-algorithmes-de-tri" class="level1">
+<h1>Après-midi — TP — « Algorithmes de tri »</h1>
+<section id="consignes-2-h" class="level2">
+<h2 class="anchored" data-anchor-id="consignes-2-h">Consignes (2 h)</h2>
+<ol type="1">
+<li>Quatre fonctions, dans l’ordre, fichiers <code>tri-…</code>.</li>
+<li>Pour chacune : refaites l’algorithme avec vos cartes, puis codez.</li>
+<li>Travaillez sur une copie : <code>array.slice()</code>.</li>
+<li>Interdits : <code>sort</code>, <code>indexOf</code>, <code>includes</code> sur le tableau à trier.</li>
+<li><strong>Réussi si</strong> : les quatre au vert, aucune alerte ESLint.</li>
+</ol>
+</section>
+<section id="les-quatre-fonctions" class="level2">
+<h2 class="anchored" data-anchor-id="les-quatre-fonctions">Les quatre fonctions</h2>
+<ul>
+<li><strong>tri-dichotomie</strong> (moyen) : l’index de la valeur dans un tableau trié.</li>
+<li><strong>tri-selection</strong> (moyen) : un nouveau tableau trié.</li>
+<li><strong>tri-bulles</strong> (moyen) : un nouveau tableau trié, autrement.</li>
+<li><strong>tri-comparaisons</strong> (moyen) : compter les comparaisons.</li>
+</ul>
+<p><code>slice()</code> sans argument renvoie une copie du tableau <span class="citation" data-cites="mdn-array-slice">(<a href="#ref-mdn-array-slice" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.</a>)</span>. Pour échanger deux cases, utilisez une variable temporaire : <code>const temporary = result[i]; result[i] = result[j]; result[j] = temporary;</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — tri-dichotomie
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gardez deux bornes, <code>low = 0</code> et <code>high = sortedArray.length - 1</code>. Tant que <code>low &lt;= high</code> : calculez le milieu avec <code>Math.floor((low + high) / 2)</code>, comparez, puis déplacez <code>low</code> ou <code>high</code> juste après ou juste avant le milieu.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="faire-le-lien-avec-le-grand-o" class="level2">
+<h2 class="anchored" data-anchor-id="faire-le-lien-avec-le-grand-o">Faire le lien avec le grand O</h2>
+<ol type="1">
+<li><code>tri-comparaisons</code> au vert : ajoutez les 3 lignes de la page.</li>
+<li>Lancez <code>node tri-comparaisons.js</code> : 6, 28, puis 120.</li>
+<li>Liste doublée : environ ×4. C’est O(n²).</li>
+<li>Effacez les 3 lignes, puis relancez les tests.</li>
+</ol>
+<p>Les trois lignes, à coller tout en bas de <code>tri-comparaisons.js</code>, après l’accolade qui ferme la fonction :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">selectionSortComparisons</span>([<span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span>]))<span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">selectionSortComparisons</span>([<span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span>]))<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">selectionSortComparisons</span>([<span class="dv">16</span><span class="op">,</span> <span class="dv">15</span><span class="op">,</span> <span class="dv">14</span><span class="op">,</span> <span class="dv">13</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">11</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span>]))<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> :</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-03&gt; node tri-comparaisons.js
+6
+28
+120</code></pre>
+</div>
+<p>Si vous voyez <code>À faire (4,3,2,1)</code>, la fonction n’est pas encore écrite : faites d’abord passer ses tests.</p>
+</section>
+<section id="entraînement-ecf-sur-papier-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="entraînement-ecf-sur-papier-30-min">Entraînement ECF sur papier (30 min)</h2>
+<ol type="1">
+<li>Sans ordinateur, seul, comme demain matin.</li>
+<li>Trois exercices : prédire, trouver un bug, écrire.</li>
+<li>Puis correction collective (15 min).</li>
+</ol>
+<p><strong>1. Qu’affiche ce programme ?</strong> Écrivez la valeur de <code>result</code> après chaque tour.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> words <span class="op">=</span> [<span class="st">'sun'</span><span class="op">,</span> <span class="st">'moon'</span><span class="op">,</span> <span class="st">'star'</span>]<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> result <span class="op">=</span> <span class="st">''</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> words<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--</span>) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  result <span class="op">=</span> result <span class="op">+</span> words[i][<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>2. Trouvez le bug.</strong> <code>average([4, 6, 8])</code> devrait renvoyer 6. Que renvoie-t-elle ? Corrigez-la. Que renvoie <code>average([])</code> ? Faites-lui renvoyer <code>null</code> dans ce cas.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">average</span>(numbers) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> numbers<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    sum <span class="op">=</span> sum <span class="op">+</span> numbers[i]<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> sum <span class="op">/</span> numbers<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>3. Écrivez à la main</strong> la fonction <code>countLongWords(words, minLength)</code>, qui renvoie le nombre de mots d’au moins <code>minLength</code> lettres : <code>countLongWords(['a', 'abc', 'abcd'], 3)</code> renvoie 2.</p>
+</section>
+<section id="à-retenir-cet-après-midi" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Copie</strong> : <code>array.slice()</code> ; le tableau reçu reste intact.</li>
+<li><strong>Dichotomie</strong> : <code>low &lt;= high</code>, puis <code>middle + 1</code> ou <code>middle - 1</code>.</li>
+<li><strong>Échange</strong> : <code>const temporary = a[i];</code> d’abord.</li>
+</ul>
+</div>
+</div>
+<p><strong>Critères de réussite</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Les tests des quatre fonctions <code>tri-…</code> sont au vert</label></li>
+<li><label><input type="checkbox">Aucune fonction n’utilise <code>sort</code> ni ne modifie le tableau reçu</label></li>
+<li><label><input type="checkbox">Vous savez expliquer pourquoi le tri par sélection est en O(n²)</label></li>
+<li><label><input type="checkbox">L’entraînement papier est fait et corrigé</label></li>
+</ul>
+<section id="si-le-temps-le-permet-les-bulles-sur-une-liste-triée" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-les-bulles-sur-une-liste-triée">Si le temps le permet — les bulles sur une liste triée</h3>
+<ol type="1">
+<li>Comptez les comparaisons du tri à bulles sur <code>[1, 2, 3, 4]</code>.</li>
+<li>Puis sur <code>[4, 3, 2, 1]</code>. Expliquez la différence.</li>
+</ol>
+</section>
+<section id="pour-aller-plus-loin" class="level3">
+<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<ul>
+<li><strong>tri-insertion</strong> : le tri par insertion, avec ses tests ; même règle, un nouveau tableau, sans <code>sort</code>.</li>
+<li>Fiche facultative : « Les algorithmes », en deux parties de 15 min.</li>
+<li>VisuAlgo : les tris de la journée, animés pas à pas.</li>
+</ul>
+<p>La fiche de lecture « Les algorithmes », d’après la leçon 3 de CS50 : <a href="../../ressources/fiche-algorithmes-recherche.html">1. chercher, mesurer</a> (recherche, grand O, Ω et Θ) et <a href="../../ressources/fiche-algorithmes-tris.html">2. trier, récursivité</a> (tris, récursivité, tri par fusion). Ses deux exercices sont au niveau 3 du parcours de remédiation de mercredi.</p>
+<p>VisuAlgo, de l’université nationale de Singapour, anime les tris à bulles, par sélection et par insertion sur une liste que vous choisissez, comparaison après comparaison <span class="citation" data-cites="visualgo-sorting">(<a href="#ref-visualgo-sorting" role="doc-biblioref">Steven Halim (National University of Singapore), s.&nbsp;d.</a>)</span>. Gratuit, sans compte, en anglais. Comptez les comparaisons affichées et comparez-les à celles de <code>tri-comparaisons</code>.</p>
+</section>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-cs50x-2026-lecture3" class="csl-entry" role="listitem">
+CS50. 2026. <span>«&nbsp;Lecture 3 - CS50x 2026&nbsp;»</span>. <a href="https://cs50.harvard.edu/x/notes/3/">https://cs50.harvard.edu/x/notes/3/</a>.
+</div>
+<div id="ref-mdn-array-slice" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d. <span>«&nbsp;Array : méthode slice() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/slice</a>.
+</div>
+<div id="ref-visualgo-sorting" class="csl-entry" role="listitem">
+Steven Halim (National University of Singapore). s.&nbsp;d. <span>«&nbsp;Sorting (Bubble, Selection, Insertion, Merge, Quick, Counting, Radix) — VisuAlgo&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://visualgo.net/en/sorting">https://visualgo.net/en/sorting</a>.
+</div>
+<div id="ref-wikipedia-recherche-dichotomique" class="csl-entry" role="listitem">
+Wikipédia. s.&nbsp;d.-a. <span>«&nbsp;Recherche dichotomique&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://fr.wikipedia.org/wiki/Recherche_dichotomique">https://fr.wikipedia.org/wiki/Recherche_dichotomique</a>.
+</div>
+<div id="ref-wikipedia-tri-bulles" class="csl-entry" role="listitem">
+Wikipédia. s.&nbsp;d.-b. <span>«&nbsp;Tri à bulles&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles">https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles</a>.
+</div>
+<div id="ref-wikipedia-tri-insertion" class="csl-entry" role="listitem">
+Wikipédia. s.&nbsp;d.-c. <span>«&nbsp;Tri par insertion&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://fr.wikipedia.org/wiki/Tri_par_insertion">https://fr.wikipedia.org/wiki/Tri_par_insertion</a>.
+</div>
+<div id="ref-wikipedia-tri-selection" class="csl-entry" role="listitem">
+Wikipédia. s.&nbsp;d.-d. <span>«&nbsp;Tri par sélection&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://fr.wikipedia.org/wiki/Tri_par_s%C3%A9lection">https://fr.wikipedia.org/wiki/Tri_par_s%C3%A9lection</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="pagination-link" aria-label="Mercredi 21/10 — Atelier guidé &amp; autonomie">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="pagination-link" aria-label="Vendredi 23/10 — ECF « Point d'étape fondamentaux »">
+        <span class="nav-page-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

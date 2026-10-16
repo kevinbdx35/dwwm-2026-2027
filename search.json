@@ -1,5 +1,768 @@
 [
   {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "",
+    "text": "Compétences évaluées : écrire une fonction · parcourir un tableau · condition et boucle · chaînes · lire une erreur À rendre : la copie de la partie papier et les fichiers de la partie machine.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#lecf-en-bref",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#lecf-en-bref",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "L’ECF en bref",
+    "text": "L’ECF en bref\n\nUne évaluation sans IA ni internet, de 9 h 05 à 11 h 40.\nPas de veille aujourd’hui : on commence directement.\nDeux parties : sur papier, puis sur machine.\nLe résultat sert à organiser le soutien, pas à vous classer.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#déroulement",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#déroulement",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Déroulement",
+    "text": "Déroulement\n\n9 h 05 – 9 h 50 : partie papier (lire, prédire, corriger, écrire).\n9 h 50 – 10 h 05 : pause.\n10 h 05 – 11 h 40 : partie machine, fonctions et tests fournis.\nÀ 11 h 00, pause de 5 minutes, le temps vous est rendu.\n11 h 40 : remise des fichiers.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#règles",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#règles",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Règles",
+    "text": "Règles\n\nNi IA, ni internet, ni téléphone (Formation DWWM 2026-2027 2026).\nSeul document : votre aide-mémoire manuscrit, une page recto.\nLe sujet de la partie machine est distribué sur place.\nLancez les tests aussi souvent que vous voulez : c’est prévu.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#ce-qui-est-évalué",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#ce-qui-est-évalué",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Ce qui est évalué",
+    "text": "Ce qui est évalué\n\nÉcrire une fonction qui renvoie un résultat.\nParcourir un tableau.\nUtiliser une condition et une boucle.\nManipuler une chaîne de caractères.\nLire une erreur et trouver sa cause.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#le-résultat",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#le-résultat",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Le résultat",
+    "text": "Le résultat\n\nPour chaque compétence : acquis, en cours ou non acquis.\nUne grille de critères observables, pas de note.\nMercredi 28/10, 9 h 05 : correction collective, pour tous.\nPuis groupe de soutien pour ce qui n’est pas acquis.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#pour-vous-préparer",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#pour-vous-préparer",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Pour vous préparer",
+    "text": "Pour vous préparer\n\nSemaine 2 : 06, et une boucle for (07 et 08 si faits).\nCette semaine : l1 à l6, les Problem sets 1 et 2.\nLa fiche de révision papier du mercredi.\nLes tris et le grand O ne sont pas au programme.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#au-programme",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#au-programme",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Au programme",
+    "text": "Au programme\n\nL’ECF est terminé : pas de correction cet après-midi.\nElle se fait pour tous, mercredi 28/10.\nApprofondir : tri-insertion (pour aller plus loin, jeudi).\nApprofondir : les bulles sur une liste déjà triée.\nAu choix : Exercism, ou le palindrome qui ignore les espaces.\n\nAucune notion nouvelle et rien d’indispensable : ce sont les défis de la semaine, pour ceux qui veulent aller plus loin. Le groupe B les retrouve dans le parcours de remédiation. Ne cherchez pas à refaire le sujet du matin : il sera corrigé avec tout le monde.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.html#sources",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Sources",
+    "text": "Sources\n\n\nFormation DWWM 2026-2027. 2026. Charte IA de la formation.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Vendredi 23/10 — ECF « Point d'étape fondamentaux »"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#lecf-en-bref",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#lecf-en-bref",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "L’ECF en bref",
+    "text": "L’ECF en bref\n\nUne évaluation sans IA ni internet, de 9 h 05 à 11 h 40.\nPas de veille aujourd’hui : on commence directement.\nDeux parties : sur papier, puis sur machine.\nLe résultat sert à organiser le soutien, pas à vous classer."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#déroulement",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#déroulement",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Déroulement",
+    "text": "Déroulement\n\n9 h 05 – 9 h 50 : partie papier (lire, prédire, corriger, écrire).\n9 h 50 – 10 h 05 : pause.\n10 h 05 – 11 h 40 : partie machine, fonctions et tests fournis.\nÀ 11 h 00, pause de 5 minutes, le temps vous est rendu.\n11 h 40 : remise des fichiers."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#règles",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#règles",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Règles",
+    "text": "Règles\n\nNi IA, ni internet, ni téléphone (Formation DWWM 2026-2027 2026).\nSeul document : votre aide-mémoire manuscrit, une page recto.\nLe sujet de la partie machine est distribué sur place.\nLancez les tests aussi souvent que vous voulez : c’est prévu."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#ce-qui-est-évalué",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#ce-qui-est-évalué",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Ce qui est évalué",
+    "text": "Ce qui est évalué\n\nÉcrire une fonction qui renvoie un résultat.\nParcourir un tableau.\nUtiliser une condition et une boucle.\nManipuler une chaîne de caractères.\nLire une erreur et trouver sa cause."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#le-résultat",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#le-résultat",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Le résultat",
+    "text": "Le résultat\n\nPour chaque compétence : acquis, en cours ou non acquis.\nUne grille de critères observables, pas de note.\nMercredi 28/10, 9 h 05 : correction collective, pour tous.\nPuis groupe de soutien pour ce qui n’est pas acquis."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#pour-vous-préparer",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#pour-vous-préparer",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Pour vous préparer",
+    "text": "Pour vous préparer\n\nSemaine 2 : 06, et une boucle for (07 et 08 si faits).\nCette semaine : l1 à l6, les Problem sets 1 et 2.\nLa fiche de révision papier du mercredi.\nLes tris et le grand O ne sont pas au programme."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#au-programme",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#au-programme",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Au programme",
+    "text": "Au programme\n\nL’ECF est terminé : pas de correction cet après-midi.\nElle se fait pour tous, mercredi 28/10.\nApprofondir : tri-insertion (pour aller plus loin, jeudi).\nApprofondir : les bulles sur une liste déjà triée.\nAu choix : Exercism, ou le palindrome qui ignore les espaces."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/vendredi.slides.html#sources",
+    "title": "Vendredi 23/10 — ECF « Point d’étape fondamentaux »",
+    "section": "Sources",
+    "text": "Sources\n\n\nFormation DWWM 2026-2027. 2026. Charte IA de la formation."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "",
+    "text": "Compétences visées : résolution de problème Livrable : les cinq premières fonctions du Problem set 2 au vert (la sixième, p2-masquer-carte, mercredi après-midi si besoin).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#objectifs",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#objectifs",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nLire, ajouter et parcourir les valeurs d’un tableau.\nParcourir une chaîne et utiliser ses méthodes courantes.\nRenvoyer un nouveau tableau sans modifier celui reçu.\nFaire passer les tests du Problem set 2.\n\nComment se passe la journée. Le matin, deux notions : le tableau, la chaîne de caractères. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine la matinée. L’après-midi, le Problem set 2.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#rappel-5-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nDifférence entre console.log et return ?\nQue signale une ReferenceError ?\nQue donne typeof '42' ?\n\nTrois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#apport-1-les-tableaux-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#apport-1-les-tableaux-10-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Apport 1 — Les tableaux (10 min)",
+    "text": "Apport 1 — Les tableaux (10 min)\n\nPourquoi : garder plusieurs valeurs sous un seul nom.\nTableau : une liste ordonnée ; le premier index est 0.\n\nPourquoi. Trois notes, cent prénoms, une liste de musées : créer une variable par valeur serait impossible. Un tableau les range sous un seul nom, dans l’ordre.\nDéfinition. Un tableau est une liste ordonnée de valeurs, repérées par un index qui commence à 0 (MDN Web Docs, s. d.-a). length donne le nombre de valeurs ; le dernier index est donc length - 1. La boucle for...of parcourt les valeurs une à une (MDN Web Docs, s. d.-e) ; push ajoute un ou plusieurs éléments à la fin (MDN Web Docs, s. d.-c).\nExemple.\nconst notes = [12, 15, 9];\n\nconsole.log(notes[0]);     // 12\nconsole.log(notes.length); // 3\nnotes.push(18);            // [12, 15, 9, 18]\n\nfor (const note of notes) {\n  console.log(note);\n}\nPas à pas. Le formateur tape chaque ligne dans le REPL ; vous la retapez aussitôt.\n\nTapez const notes = [12, 15, 9], puis Entrée.\nTapez notes[0] : 12, la première valeur. Puis notes[2] : 9, la dernière.\nTapez notes.length : 3. Le dernier index est 3 - 1 = 2.\nTapez notes.push(18) : 4, le nouveau nombre de valeurs. Puis notes : [ 12, 15, 9, 18 ].\nTapez for (const note of notes) { console.log(note) } : les quatre notes s’affichent, une par ligne.\n\nVous devez voir :\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node\nWelcome to Node.js v24.21.0.\nType \".help\" for more information.\n&gt; const notes = [12, 15, 9]\nundefined\n&gt; notes[0]\n12\n&gt; notes[2]\n9\n&gt; notes.length\n3\n&gt; notes.push(18)\n4\n&gt; notes\n[ 12, 15, 9, 18 ]\n&gt; for (const note of notes) { console.log(note) }\n12\n15\n9\n18\nundefined\n\nundefined après const … ou après la boucle : l’instruction ne renvoie pas de valeur. Ignorez-le.\nUne constante const peut contenir un tableau que l’on modifie : c’est le nom qui ne peut pas désigner un autre tableau (l’étiquette de la semaine 2), pas le contenu du tableau qui ne peut pas changer.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#tableaux-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#tableaux-attention-et-vérification",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Tableaux — attention et vérification",
+    "text": "Tableaux — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nnotes[notes.length] vaut undefined : il n’y a rien après la dernière case. Le dernier élément est notes[notes.length - 1].\n\n\n\nVérifiez : avec ['a', 'b', 'c', 'd'], que vaut l’index 3 ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#exercices-t1-à-t3-tableaux-35-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#exercices-t1-à-t3-tableaux-35-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Exercices t1 à t3 — Tableaux (35 min)",
+    "text": "Exercices t1 à t3 — Tableaux (35 min)\n\nEnsemble (5 min) : t1-dernier, le dernier élément, null si vide.\nSeuls : t2-somme, la somme, avec for...of.\nSeuls : t3-pairs, un nouveau tableau des nombres pairs.\nChacun : ses tests, puis npx eslint suivi de son fichier.\nRéussi si : au vert, et le tableau reçu jamais modifié.\n\nUn test vérifie que le tableau reçu n’est pas modifié : pour t3, créez un tableau vide avant la boucle (const result = [];), ajoutez-y les nombres pairs avec push, puis renvoyez-le. Un nombre est pair si n % 2 === 0 (le reste, rappelé lundi).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#apport-2-les-chaînes-de-caractères-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#apport-2-les-chaînes-de-caractères-15-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Apport 2 — Les chaînes de caractères (15 min)",
+    "text": "Apport 2 — Les chaînes de caractères (15 min)\n\nPourquoi : transformer un texte (majuscules, découpe, recherche).\nChaîne : un texte, lu comme un tableau de caractères.\n\nPourquoi. Un prénom à mettre en majuscules, des initiales à extraire, un mot à chercher dans un message : une application manipule du texte en permanence.\nDéfinition. Une chaîne de caractères (string) est un texte. Elle se lit comme un tableau : word[0] est le premier caractère, word.length le nombre de caractères. Ses méthodes renvoient un nouveau texte, sans modifier l’ancien : toUpperCase met en majuscules (MDN Web Docs, s. d.-h) ; includes indique si un texte en contient un autre (MDN Web Docs, s. d.-f) ; split découpe un texte en tableau selon un séparateur (MDN Web Docs, s. d.-g), et join recolle un tableau en texte (MDN Web Docs, s. d.-b).\nExemple. Résultats vérifiés avec Node.js :\nconst word = 'Bonjour';\n\nconsole.log(word[0]);               // 'B'\nconsole.log(word.length);           // 7\nconsole.log(word.toUpperCase());    // 'BONJOUR'\nconsole.log(word.includes('jour')); // true\nconsole.log('a b c'.split(' '));    // ['a', 'b', 'c']\nPas à pas. Le formateur tape chaque ligne dans le REPL ; vous la retapez aussitôt.\n\nTapez const word = 'Bonjour'.\nTapez word[0] : 'B'. Puis word.length : 7.\nTapez word.toUpperCase() : 'BONJOUR'. Puis word : toujours 'Bonjour', la méthode n’a rien modifié.\nTapez word.includes('jour') : true.\nTapez 'Ada Lovelace'.split(' ') : [ 'Ada', 'Lovelace' ], un tableau de deux mots.\nTapez ['A.', 'L.'].join(' ') : 'A. L.', un texte.\n\nVous devez voir :\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node\nWelcome to Node.js v24.21.0.\nType \".help\" for more information.\n&gt; const word = 'Bonjour'\nundefined\n&gt; word[0]\n'B'\n&gt; word.length\n7\n&gt; word.toUpperCase()\n'BONJOUR'\n&gt; word\n'Bonjour'\n&gt; word.includes('jour')\ntrue\n&gt; 'Ada Lovelace'.split(' ')\n[ 'Ada', 'Lovelace' ]\n&gt; ['A.', 'L.'].join(' ')\n'A. L.'",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#chaînes-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#chaînes-attention-et-vérification",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Chaînes — attention et vérification",
+    "text": "Chaînes — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nword.toUpperCase() ne change pas word : il renvoie un nouveau texte. Gardez-le : const loud = word.toUpperCase();.\n\n\n\nVérifiez : que donne 'chat'.length - 1 ? Et 'chat'[3] ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#exercices-t4-et-t5-chaînes-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#exercices-t4-et-t5-chaînes-30-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Exercices t4 et t5 — Chaînes (30 min)",
+    "text": "Exercices t4 et t5 — Chaînes (30 min)\n\nEnsemble (5 min) : t4-crier, shout('bonjour') renvoie 'BONJOUR!'.\nSeuls : t5-initiales, 'Ada Lovelace' donne 'A. L.'.\nChacun : ses tests, puis npx eslint suivi de son fichier.\nRéussi si : tests au vert, aucune alerte.\n\nIndice pour t5 : split(' ') découpe en mots ; prenez la première lettre de chaque mot, ajoutez un point ; puis join(' ').\n\nSi le temps le permet — t6 (mot interdit)\n\nt6-mot-interdit : un texte contient-il un mot ?\nSans tenir compte des majuscules.\nIndice : mettez les deux textes en minuscules avant de comparer.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#à-retenir-ce-matin",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#à-retenir-ce-matin",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "À retenir — ce matin",
+    "text": "À retenir — ce matin\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nTableau : index de 0 à length - 1 ; for...of parcourt.\nChaîne : se lit comme un tableau ; ses méthodes renvoient du neuf.\nNe modifiez jamais le tableau reçu : créez-en un nouveau.\n\n\n\nLe détail, notion par notion :\n\nTableau : une liste ordonnée sous un seul nom ; tableau[0] est le premier élément, tableau[tableau.length - 1] le dernier ; push ajoute à la fin ; for...of parcourt les valeurs.\nChaîne : texte[0], texte.length, for...of comme un tableau ; toUpperCase, includes, split et join renvoient un nouveau résultat, sans modifier le texte.\nNouveau tableau : créez const result = []; avant la boucle, remplissez-le, renvoyez-le.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#débrief",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#débrief",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Débrief",
+    "text": "Débrief\n\nPourquoi le dernier élément est-il à l’index length - 1 ?\nQuand créer un nouveau tableau plutôt que modifier l’ancien ?\nQuelles méthodes de chaîne avez-vous utilisées ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#consignes-1-h-55",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#consignes-1-h-55",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Consignes (1 h 55)",
+    "text": "Consignes (1 h 55)\n\nSix fonctions, fichiers p2-…, dans l’ordre ; cinq obligatoires.\nAvant de coder : deux exemples à la main, dont un cas vide.\nUn test à la fois ; puis ESLint sur le fichier p2-….\nNi Math.max, ni sort, ni reverse : c’est l’exercice.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#les-six-fonctions",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#les-six-fonctions",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Les six fonctions",
+    "text": "Les six fonctions\n\np2-moyenne (facile) : moyenne d’un tableau, null si vide.\np2-maximum (facile) : « Parcourir une liste » de la semaine 1.\np2-voyelles (facile) : compter a, e, i, o, u, y.\np2-inverser (moyen) : 'chat' devient 'tahc'.\np2-palindrome (moyen) : 'Kayak' se lit dans les deux sens.\np2-masquer-carte (moyen+, si le temps) : '**** **** **** 5678'.\n\nUn palindrome se lit de la même façon de gauche à droite et de droite à gauche (Wikipédia, s. d.). Pour p2-masquer-carte, slice extrait une partie d’un tableau (MDN Web Docs, s. d.-d) ; les textes ont une méthode slice qui fonctionne de la même façon : '12345678'.slice(4) donne '5678'. Masquer les numéros de carte est une précaution de sécurité : un site ne doit jamais afficher un numéro complet.\n\n\n\n\n\n\nAstuceIndice — p2-masquer-carte\n\n\n\n\n\nVérifiez d’abord la longueur (16), puis chaque caractère avec '0123456789'.includes(caractère). Si tout est bon, recollez '**** **** **** ' et les 4 derniers chiffres.\n\n\n\nCritères de réussite\n\nLes tests des cinq premières fonctions p2-… sont au vert\nESLint ne signale rien sur ces fichiers\nAucune fonction ne modifie le tableau reçu\n\n\nSi le temps le permet — p2-masquer-carte, puis un vrai palindrome\n\np2-masquer-carte ; sinon, mercredi après-midi.\n« Ésope reste ici et se repose » est un palindrome, si l’on ignore les espaces.\nÉcrivez une version de p2-palindrome qui ignore aussi les espaces (sans test fourni).\n\n\n\nPour aller plus loin\n\nComptez aussi les voyelles accentuées : é, è, ê, à, ù…\nÉcrivez minimumAndMaximum(numbers) : un tableau [min, max].",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.html#sources",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Sources",
+    "text": "Sources\n\n\nMDN Web Docs. s. d.-a. « Array - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array.\n\n\nMDN Web Docs. s. d.-b. « Array : méthode join() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/join.\n\n\nMDN Web Docs. s. d.-c. « Array : méthode push() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push.\n\n\nMDN Web Docs. s. d.-d. « Array : méthode slice() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/slice.\n\n\nMDN Web Docs. s. d.-e. « for...of - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...of.\n\n\nMDN Web Docs. s. d.-f. « String.prototype.includes() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/includes.\n\n\nMDN Web Docs. s. d.-g. « String.prototype.split() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/split.\n\n\nMDN Web Docs. s. d.-h. « String.prototype.toUpperCase() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase.\n\n\nWikipédia. s. d. « Palindrome ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Palindrome.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mardi 20/10 — Tableaux et chaînes de caractères"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#rappel-5-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nDifférence entre console.log et return ?\nQue signale une ReferenceError ?\nQue donne typeof '42' ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#apport-1-les-tableaux-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#apport-1-les-tableaux-10-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Apport 1 — Les tableaux (10 min)",
+    "text": "Apport 1 — Les tableaux (10 min)\n\nPourquoi : garder plusieurs valeurs sous un seul nom.\nTableau : une liste ordonnée ; le premier index est 0.\n\nconst notes = [12, 15, 9];\n\nconsole.log(notes[0]);     // 12\nconsole.log(notes.length); // 3\nnotes.push(18);            // [12, 15, 9, 18]\n\nfor (const note of notes) {\n  console.log(note);\n}"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#tableaux-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#tableaux-attention-et-vérification",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Tableaux — attention et vérification",
+    "text": "Tableaux — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nnotes[notes.length] vaut undefined : il n’y a rien après la dernière case. Le dernier élément est notes[notes.length - 1].\n\n\n\n\nVérifiez : avec ['a', 'b', 'c', 'd'], que vaut l’index 3 ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#exercices-t1-à-t3-tableaux-35-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#exercices-t1-à-t3-tableaux-35-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Exercices t1 à t3 — Tableaux (35 min)",
+    "text": "Exercices t1 à t3 — Tableaux (35 min)\n\nEnsemble (5 min) : t1-dernier, le dernier élément, null si vide.\nSeuls : t2-somme, la somme, avec for...of.\nSeuls : t3-pairs, un nouveau tableau des nombres pairs.\nChacun : ses tests, puis npx eslint suivi de son fichier.\nRéussi si : au vert, et le tableau reçu jamais modifié."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#apport-2-les-chaînes-de-caractères-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#apport-2-les-chaînes-de-caractères-15-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Apport 2 — Les chaînes de caractères (15 min)",
+    "text": "Apport 2 — Les chaînes de caractères (15 min)\n\nPourquoi : transformer un texte (majuscules, découpe, recherche).\nChaîne : un texte, lu comme un tableau de caractères.\n\nconst word = 'Bonjour';\n\nconsole.log(word[0]);               // 'B'\nconsole.log(word.length);           // 7\nconsole.log(word.toUpperCase());    // 'BONJOUR'\nconsole.log(word.includes('jour')); // true\nconsole.log('a b c'.split(' '));    // ['a', 'b', 'c']"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#chaînes-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#chaînes-attention-et-vérification",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Chaînes — attention et vérification",
+    "text": "Chaînes — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nword.toUpperCase() ne change pas word : il renvoie un nouveau texte. Gardez-le : const loud = word.toUpperCase();.\n\n\n\n\nVérifiez : que donne 'chat'.length - 1 ? Et 'chat'[3] ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#exercices-t4-et-t5-chaînes-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#exercices-t4-et-t5-chaînes-30-min",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Exercices t4 et t5 — Chaînes (30 min)",
+    "text": "Exercices t4 et t5 — Chaînes (30 min)\n\nEnsemble (5 min) : t4-crier, shout('bonjour') renvoie 'BONJOUR!'.\nSeuls : t5-initiales, 'Ada Lovelace' donne 'A. L.'.\nChacun : ses tests, puis npx eslint suivi de son fichier.\nRéussi si : tests au vert, aucune alerte."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#à-retenir-ce-matin",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#à-retenir-ce-matin",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "À retenir — ce matin",
+    "text": "À retenir — ce matin\n\n\n\n\n\n\nÀ retenir\n\n\n\nTableau : index de 0 à length - 1 ; for...of parcourt.\nChaîne : se lit comme un tableau ; ses méthodes renvoient du neuf.\nNe modifiez jamais le tableau reçu : créez-en un nouveau."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#débrief",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#débrief",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Débrief",
+    "text": "Débrief\n\nPourquoi le dernier élément est-il à l’index length - 1 ?\nQuand créer un nouveau tableau plutôt que modifier l’ancien ?\nQuelles méthodes de chaîne avez-vous utilisées ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#consignes-1-h-55",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#consignes-1-h-55",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Consignes (1 h 55)",
+    "text": "Consignes (1 h 55)\n\nSix fonctions, fichiers p2-…, dans l’ordre ; cinq obligatoires.\nAvant de coder : deux exemples à la main, dont un cas vide.\nUn test à la fois ; puis ESLint sur le fichier p2-….\nNi Math.max, ni sort, ni reverse : c’est l’exercice."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#les-six-fonctions",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#les-six-fonctions",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Les six fonctions",
+    "text": "Les six fonctions\n\np2-moyenne (facile) : moyenne d’un tableau, null si vide.\np2-maximum (facile) : « Parcourir une liste » de la semaine 1.\np2-voyelles (facile) : compter a, e, i, o, u, y.\np2-inverser (moyen) : 'chat' devient 'tahc'.\np2-palindrome (moyen) : 'Kayak' se lit dans les deux sens.\np2-masquer-carte (moyen+, si le temps) : '**** **** **** 5678'."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mardi.slides.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/mardi.slides.html#sources",
+    "title": "Mardi 20/10 — Tableaux et chaînes de caractères",
+    "section": "Sources",
+    "text": "Sources"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "",
+    "text": "Compétences visées : résolution de problème · communiquer (expliquer un algorithme) Livrable : tri-dichotomie, tri-selection, tri-bulles et tri-comparaisons au vert.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#objectifs",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#objectifs",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nComparer la recherche linéaire et la recherche dichotomique.\nTrier à la main, par sélection et à bulles, en comptant les comparaisons.\nDire ce que devient le nombre d’étapes quand la liste double.\nCoder une recherche dichotomique et deux tris.\n\nComment se passe la journée. Le matin, trois notions : chercher dans un tableau, trier, compter les étapes. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine chaque demi-journée. Les tris et le grand O ne sont pas au programme de l’ECF de demain.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#rappel-5-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nComment parcourir chaque valeur d’un tableau ?\nQue renvoie 'Ada Lovelace'.split(' ') ?\nQue fait ${…} dans un littéral de gabarit ?\n\nTrois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#apport-1-deux-façons-de-chercher-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#apport-1-deux-façons-de-chercher-15-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Apport 1 — Deux façons de chercher (15 min)",
+    "text": "Apport 1 — Deux façons de chercher (15 min)\n\nPourquoi : retrouver une valeur, vite, dans une longue liste.\nLinéaire : case par case ; dichotomique : le milieu, une moitié.\n\nPourquoi. Chercher un client parmi un million demande une méthode efficace : le temps de recherche compte.\nDéfinition. La recherche linéaire regarde les cases une par une, du début à la fin ; elle marche toujours, même si le tableau n’est pas trié. La recherche dichotomique regarde la case du milieu, puis ne garde que la moitié qui peut contenir la valeur, et recommence ; elle n’est possible que si le tableau est trié (Wikipédia, s. d.-a). Ces deux recherches sont celles de la Lecture 3 du cours CS50 (CS50 2026), qui reprend l’annuaire de la première séance.\nExemple. Chercher 23 dans un tableau trié de 8 valeurs :\n[3, 8, 12, 17, 23, 31, 40, 52]\nlinéaire     : 3, 8, 12, 17, 23        → 5 cases regardées\ndichotomique : 17 (milieu), 31, 23     → 3 cases regardées\nPas à pas (dichotomique). Le formateur le fait au tableau ; vous le suivez sur votre feuille.\n\nBornes : de l’index 0 à l’index 7. Milieu : Math.floor((0 + 7) / 2) = 3, la valeur 17.\n23 est plus grand que 17 : on garde la moitié droite, de l’index 4 à 7.\nMilieu : Math.floor((4 + 7) / 2) = 5, la valeur 31. 23 est plus petit : on garde de 4 à 4.\nMilieu : 4, la valeur 23. Trouvé, à l’index 4.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#chercher-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#chercher-attention-et-vérification",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Chercher — attention et vérification",
+    "text": "Chercher — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nLa recherche dichotomique sur un tableau non trié donne un résultat faux, sans erreur affichée. Vérifiez d’abord que le tableau est trié.\n\n\n\nVérifiez : combien de cases pour trouver 3, en dichotomique ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#exercice-j1-recherche-linéaire-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#exercice-j1-recherche-linéaire-15-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Exercice j1 — Recherche linéaire (15 min)",
+    "text": "Exercice j1 — Recherche linéaire (15 min)\n\nEnsemble (5 min) : la boucle for sur les index, de 0 à length - 1.\nSeuls : j1-recherche-lineaire, l’index de la valeur, ou -1.\nSans indexOf ; les tests vérifient le tableau vide et l’absent.\nRéussi si : tests au vert, aucune alerte ESLint.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#apport-2-trier-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#apport-2-trier-10-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Apport 2 — Trier (10 min)",
+    "text": "Apport 2 — Trier (10 min)\n\nPourquoi : la dichotomie exige un tableau trié.\nSélection : la plus petite en premier ; bulles : échanger les voisines.\n\nPourquoi. Pour chercher vite, il faut des données triées ; pour afficher une liste (prix croissants, noms par ordre alphabétique), aussi.\nDéfinition. Le tri par sélection cherche le plus petit élément restant et le place à sa position définitive, puis recommence avec le reste (Wikipédia, s. d.-d). Le tri à bulles compare les éléments voisins et les échange s’ils sont mal rangés ; il repasse tant qu’un passage a fait au moins un échange (Wikipédia, s. d.-b).\nExemple. Le tri par sélection sur [5, 2, 4, 1] :\n[5, 2, 4, 1]   la plus petite est 1 : on l'échange avec 5\n[1, 2, 4, 5]   dans le reste, la plus petite est 2 : déjà en place\n[1, 2, 4, 5]   dans le reste, 4 : déjà en place. Trié.\nPas à pas. C’est l’activité des cartes, ci-dessous : le formateur montre un tri par sélection avec 4 cartes, puis vous le refaites par deux avec 8 cartes.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#trier-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#trier-attention-et-vérification",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Trier — attention et vérification",
+    "text": "Trier — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nPour échanger deux valeurs, il faut une variable temporaire : sinon, l’une écrase l’autre et une valeur est perdue.\n\n\n\nVérifiez : triez [3, 1, 2] à bulles : combien d’échanges ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#activité-trier-des-cartes-à-la-main-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#activité-trier-des-cartes-à-la-main-30-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Activité — Trier des cartes à la main (30 min)",
+    "text": "Activité — Trier des cartes à la main (30 min)\n\nPar deux, 8 cartes mélangées : un trieur, un compteur.\nTri par sélection : le compteur note chaque comparaison.\nTri à bulles, rôles échangés : même chose.\nNotez les deux totaux : lequel compare le moins ?\nRéussi si : vos deux totaux sont notés et comparés.\n\nLe trieur déplace les cartes et dit chaque comparaison à voix haute (« 7 est plus grand que 3 ») ; le compteur fait une marque sur la feuille à chaque comparaison. Refaites ensuite le tri par sélection avec une carte de plus : combien de comparaisons en plus ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#apport-3-combien-détapes-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#apport-3-combien-détapes-15-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Apport 3 — Combien d’étapes ? (15 min)",
+    "text": "Apport 3 — Combien d’étapes ? (15 min)\n\nPourquoi : savoir si un programme reste rapide.\nGrand O : comment les étapes grandissent quand la liste grandit.\n\nPourquoi. Un programme rapide sur 10 valeurs peut devenir très lent sur un million. On compare les algorithmes en regardant ce qui se passe quand la quantité de données double.\nDéfinition. Le « grand O » décrit l’ordre de grandeur du nombre d’étapes d’un algorithme, plutôt qu’un calcul exact (CS50 2026). Retenez l’intuition : ce qui compte, c’est ce qui se passe quand la liste grandit.\nExemple. Quand la liste double :\nrecherche linéaire      O(n)      deux fois plus d'étapes\nrecherche dichotomique  O(log n)  une seule étape de plus\ntri par sélection       O(n²)     environ quatre fois plus\nPas à pas. Avec les résultats de l’activité des cartes :\n\nTri par sélection, 4 cartes : 3 + 2 + 1 = 6 comparaisons.\n8 cartes (deux fois plus) : 28 comparaisons, presque cinq fois plus.\n16 cartes : 120 comparaisons, plus de quatre fois 28.\nConclusion : quand la liste double, les comparaisons font environ ×4 : c’est O(n²).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#grand-o-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#grand-o-attention-et-vérification",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Grand O — attention et vérification",
+    "text": "Grand O — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nLe grand O ne donne pas un temps en secondes : il dit comment le nombre d’étapes grandit. Un O(n²) devient vite très lent sur de grandes listes.\n\n\n\nVérifiez : liste de 1 000 → 2 000 éléments, que devient O(n²) ?\n\n\nSi le temps le permet — Le tri par insertion, à la main\n\nPrenez les cartes en main, une par une, comme dans un jeu de cartes.\nGlissez chaque nouvelle carte vers la gauche jusqu’à sa place.\nComptez les comparaisons sur des cartes déjà triées : que remarquez-vous ?\n\nLe tri par insertion insère chaque élément à sa place parmi ceux déjà triés (Wikipédia, s. d.-c). Il est codé cet après-midi dans « Pour aller plus loin ».",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#à-retenir-ce-matin",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#à-retenir-ce-matin",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "À retenir — ce matin",
+    "text": "À retenir — ce matin\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nChercher : dichotomique seulement si le tableau est trié.\nTrier : sélection ou bulles ; échanger avec une variable temporaire.\nGrand O : ce que deviennent les étapes quand la liste double.\n\n\n\nLe détail, notion par notion :\n\nChercher : la recherche linéaire marche toujours ; la dichotomique regarde le milieu et garde une moitié, beaucoup plus vite, mais seulement sur un tableau trié.\nTrier : la sélection place la plus petite valeur à chaque tour ; les bulles échangent les voisines mal rangées ; un échange demande une variable temporaire.\nGrand O : O(n) double, O(log n) ajoute une étape, O(n²) quadruple quand la liste double.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#débrief",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#débrief",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Débrief",
+    "text": "Débrief\n\nPourquoi la dichotomie exige-t-elle un tableau trié ?\nQuel tri vous a semblé le plus simple à expliquer ?\nQue devient O(n²) si la liste passe de 1 000 à 2 000 ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#consignes-2-h",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#consignes-2-h",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Consignes (2 h)",
+    "text": "Consignes (2 h)\n\nQuatre fonctions, dans l’ordre, fichiers tri-….\nPour chacune : refaites l’algorithme avec vos cartes, puis codez.\nTravaillez sur une copie : array.slice().\nInterdits : sort, indexOf, includes sur le tableau à trier.\nRéussi si : les quatre au vert, aucune alerte ESLint.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#les-quatre-fonctions",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#les-quatre-fonctions",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Les quatre fonctions",
+    "text": "Les quatre fonctions\n\ntri-dichotomie (moyen) : l’index de la valeur dans un tableau trié.\ntri-selection (moyen) : un nouveau tableau trié.\ntri-bulles (moyen) : un nouveau tableau trié, autrement.\ntri-comparaisons (moyen) : compter les comparaisons.\n\nslice() sans argument renvoie une copie du tableau (MDN Web Docs, s. d.). Pour échanger deux cases, utilisez une variable temporaire : const temporary = result[i]; result[i] = result[j]; result[j] = temporary;.\n\n\n\n\n\n\nAstuceIndice — tri-dichotomie\n\n\n\n\n\nGardez deux bornes, low = 0 et high = sortedArray.length - 1. Tant que low &lt;= high : calculez le milieu avec Math.floor((low + high) / 2), comparez, puis déplacez low ou high juste après ou juste avant le milieu.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#faire-le-lien-avec-le-grand-o",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#faire-le-lien-avec-le-grand-o",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Faire le lien avec le grand O",
+    "text": "Faire le lien avec le grand O\n\ntri-comparaisons au vert : ajoutez les 3 lignes de la page.\nLancez node tri-comparaisons.js : 6, 28, puis 120.\nListe doublée : environ ×4. C’est O(n²).\nEffacez les 3 lignes, puis relancez les tests.\n\nLes trois lignes, à coller tout en bas de tri-comparaisons.js, après l’accolade qui ferme la fonction :\nconsole.log(selectionSortComparisons([4, 3, 2, 1]));\nconsole.log(selectionSortComparisons([8, 7, 6, 5, 4, 3, 2, 1]));\nconsole.log(selectionSortComparisons([16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));\nVous devez voir :\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node tri-comparaisons.js\n6\n28\n120\n\nSi vous voyez À faire (4,3,2,1), la fonction n’est pas encore écrite : faites d’abord passer ses tests.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#entraînement-ecf-sur-papier-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#entraînement-ecf-sur-papier-30-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Entraînement ECF sur papier (30 min)",
+    "text": "Entraînement ECF sur papier (30 min)\n\nSans ordinateur, seul, comme demain matin.\nTrois exercices : prédire, trouver un bug, écrire.\nPuis correction collective (15 min).\n\n1. Qu’affiche ce programme ? Écrivez la valeur de result après chaque tour.\nconst words = ['sun', 'moon', 'star'];\nlet result = '';\nfor (let i = words.length - 1; i &gt;= 0; i--) {\n  result = result + words[i][0];\n}\nconsole.log(result);\n2. Trouvez le bug. average([4, 6, 8]) devrait renvoyer 6. Que renvoie-t-elle ? Corrigez-la. Que renvoie average([]) ? Faites-lui renvoyer null dans ce cas.\nfunction average(numbers) {\n  let sum = 0;\n  for (let i = 1; i &lt; numbers.length; i++) {\n    sum = sum + numbers[i];\n  }\n  return sum / numbers.length;\n}\n3. Écrivez à la main la fonction countLongWords(words, minLength), qui renvoie le nombre de mots d’au moins minLength lettres : countLongWords(['a', 'abc', 'abcd'], 3) renvoie 2.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#à-retenir-cet-après-midi",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#à-retenir-cet-après-midi",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "À retenir — cet après-midi",
+    "text": "À retenir — cet après-midi\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nCopie : array.slice() ; le tableau reçu reste intact.\nDichotomie : low &lt;= high, puis middle + 1 ou middle - 1.\nÉchange : const temporary = a[i]; d’abord.\n\n\n\nCritères de réussite\n\nLes tests des quatre fonctions tri-… sont au vert\nAucune fonction n’utilise sort ni ne modifie le tableau reçu\nVous savez expliquer pourquoi le tri par sélection est en O(n²)\nL’entraînement papier est fait et corrigé\n\n\nSi le temps le permet — les bulles sur une liste triée\n\nComptez les comparaisons du tri à bulles sur [1, 2, 3, 4].\nPuis sur [4, 3, 2, 1]. Expliquez la différence.\n\n\n\nPour aller plus loin\n\ntri-insertion : le tri par insertion, avec ses tests ; même règle, un nouveau tableau, sans sort.\nFiche facultative : « Les algorithmes », en deux parties de 15 min.\nVisuAlgo : les tris de la journée, animés pas à pas.\n\nLa fiche de lecture « Les algorithmes », d’après la leçon 3 de CS50 : 1. chercher, mesurer (recherche, grand O, Ω et Θ) et 2. trier, récursivité (tris, récursivité, tri par fusion). Ses deux exercices sont au niveau 3 du parcours de remédiation de mercredi.\nVisuAlgo, de l’université nationale de Singapour, anime les tris à bulles, par sélection et par insertion sur une liste que vous choisissez, comparaison après comparaison (Steven Halim (National University of Singapore), s. d.). Gratuit, sans compte, en anglais. Comptez les comparaisons affichées et comparez-les à celles de tri-comparaisons.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.html#sources",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Sources",
+    "text": "Sources\n\n\nCS50. 2026. « Lecture 3 - CS50x 2026 ». https://cs50.harvard.edu/x/notes/3/.\n\n\nMDN Web Docs. s. d. « Array : méthode slice() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/slice.\n\n\nSteven Halim (National University of Singapore). s. d. « Sorting (Bubble, Selection, Insertion, Merge, Quick, Counting, Radix) — VisuAlgo ». Consulté le 3 octobre 2026. https://visualgo.net/en/sorting.\n\n\nWikipédia. s. d.-a. « Recherche dichotomique ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Recherche_dichotomique.\n\n\nWikipédia. s. d.-b. « Tri à bulles ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles.\n\n\nWikipédia. s. d.-c. « Tri par insertion ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Tri_par_insertion.\n\n\nWikipédia. s. d.-d. « Tri par sélection ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Tri_par_s%C3%A9lection.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Jeudi 22/10 — Recherche, tris et complexité"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#rappel-5-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nComment parcourir chaque valeur d’un tableau ?\nQue renvoie 'Ada Lovelace'.split(' ') ?\nQue fait ${…} dans un littéral de gabarit ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#apport-1-deux-façons-de-chercher-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#apport-1-deux-façons-de-chercher-15-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Apport 1 — Deux façons de chercher (15 min)",
+    "text": "Apport 1 — Deux façons de chercher (15 min)\n\nPourquoi : retrouver une valeur, vite, dans une longue liste.\nLinéaire : case par case ; dichotomique : le milieu, une moitié.\n\n[3, 8, 12, 17, 23, 31, 40, 52]\nlinéaire     : 3, 8, 12, 17, 23        → 5 cases regardées\ndichotomique : 17 (milieu), 31, 23     → 3 cases regardées"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#chercher-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#chercher-attention-et-vérification",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Chercher — attention et vérification",
+    "text": "Chercher — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nLa recherche dichotomique sur un tableau non trié donne un résultat faux, sans erreur affichée. Vérifiez d’abord que le tableau est trié.\n\n\n\n\nVérifiez : combien de cases pour trouver 3, en dichotomique ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#exercice-j1-recherche-linéaire-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#exercice-j1-recherche-linéaire-15-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Exercice j1 — Recherche linéaire (15 min)",
+    "text": "Exercice j1 — Recherche linéaire (15 min)\n\nEnsemble (5 min) : la boucle for sur les index, de 0 à length - 1.\nSeuls : j1-recherche-lineaire, l’index de la valeur, ou -1.\nSans indexOf ; les tests vérifient le tableau vide et l’absent.\nRéussi si : tests au vert, aucune alerte ESLint."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#apport-2-trier-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#apport-2-trier-10-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Apport 2 — Trier (10 min)",
+    "text": "Apport 2 — Trier (10 min)\n\nPourquoi : la dichotomie exige un tableau trié.\nSélection : la plus petite en premier ; bulles : échanger les voisines.\n\n[5, 2, 4, 1]   la plus petite est 1 : on l'échange avec 5\n[1, 2, 4, 5]   dans le reste, la plus petite est 2 : déjà en place\n[1, 2, 4, 5]   dans le reste, 4 : déjà en place. Trié."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#trier-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#trier-attention-et-vérification",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Trier — attention et vérification",
+    "text": "Trier — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nPour échanger deux valeurs, il faut une variable temporaire : sinon, l’une écrase l’autre et une valeur est perdue.\n\n\n\n\nVérifiez : triez [3, 1, 2] à bulles : combien d’échanges ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#activité-trier-des-cartes-à-la-main-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#activité-trier-des-cartes-à-la-main-30-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Activité — Trier des cartes à la main (30 min)",
+    "text": "Activité — Trier des cartes à la main (30 min)\n\nPar deux, 8 cartes mélangées : un trieur, un compteur.\nTri par sélection : le compteur note chaque comparaison.\nTri à bulles, rôles échangés : même chose.\nNotez les deux totaux : lequel compare le moins ?\nRéussi si : vos deux totaux sont notés et comparés."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#apport-3-combien-détapes-15-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#apport-3-combien-détapes-15-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Apport 3 — Combien d’étapes ? (15 min)",
+    "text": "Apport 3 — Combien d’étapes ? (15 min)\n\nPourquoi : savoir si un programme reste rapide.\nGrand O : comment les étapes grandissent quand la liste grandit.\n\nrecherche linéaire      O(n)      deux fois plus d'étapes\nrecherche dichotomique  O(log n)  une seule étape de plus\ntri par sélection       O(n²)     environ quatre fois plus"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#grand-o-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#grand-o-attention-et-vérification",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Grand O — attention et vérification",
+    "text": "Grand O — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nLe grand O ne donne pas un temps en secondes : il dit comment le nombre d’étapes grandit. Un O(n²) devient vite très lent sur de grandes listes.\n\n\n\n\nVérifiez : liste de 1 000 → 2 000 éléments, que devient O(n²) ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#à-retenir-ce-matin",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#à-retenir-ce-matin",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "À retenir — ce matin",
+    "text": "À retenir — ce matin\n\n\n\n\n\n\nÀ retenir\n\n\n\nChercher : dichotomique seulement si le tableau est trié.\nTrier : sélection ou bulles ; échanger avec une variable temporaire.\nGrand O : ce que deviennent les étapes quand la liste double."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#débrief",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#débrief",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Débrief",
+    "text": "Débrief\n\nPourquoi la dichotomie exige-t-elle un tableau trié ?\nQuel tri vous a semblé le plus simple à expliquer ?\nQue devient O(n²) si la liste passe de 1 000 à 2 000 ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#consignes-2-h",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#consignes-2-h",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Consignes (2 h)",
+    "text": "Consignes (2 h)\n\nQuatre fonctions, dans l’ordre, fichiers tri-….\nPour chacune : refaites l’algorithme avec vos cartes, puis codez.\nTravaillez sur une copie : array.slice().\nInterdits : sort, indexOf, includes sur le tableau à trier.\nRéussi si : les quatre au vert, aucune alerte ESLint."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#les-quatre-fonctions",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#les-quatre-fonctions",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Les quatre fonctions",
+    "text": "Les quatre fonctions\n\ntri-dichotomie (moyen) : l’index de la valeur dans un tableau trié.\ntri-selection (moyen) : un nouveau tableau trié.\ntri-bulles (moyen) : un nouveau tableau trié, autrement.\ntri-comparaisons (moyen) : compter les comparaisons."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#faire-le-lien-avec-le-grand-o",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#faire-le-lien-avec-le-grand-o",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Faire le lien avec le grand O",
+    "text": "Faire le lien avec le grand O\n\ntri-comparaisons au vert : ajoutez les 3 lignes de la page.\nLancez node tri-comparaisons.js : 6, 28, puis 120.\nListe doublée : environ ×4. C’est O(n²).\nEffacez les 3 lignes, puis relancez les tests."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#entraînement-ecf-sur-papier-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#entraînement-ecf-sur-papier-30-min",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Entraînement ECF sur papier (30 min)",
+    "text": "Entraînement ECF sur papier (30 min)\n\nSans ordinateur, seul, comme demain matin.\nTrois exercices : prédire, trouver un bug, écrire.\nPuis correction collective (15 min)."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#à-retenir-cet-après-midi",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#à-retenir-cet-après-midi",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "À retenir — cet après-midi",
+    "text": "À retenir — cet après-midi\n\n\n\n\n\n\nÀ retenir\n\n\n\nCopie : array.slice() ; le tableau reçu reste intact.\nDichotomie : low &lt;= high, puis middle + 1 ou middle - 1.\nÉchange : const temporary = a[i]; d’abord."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/jeudi.slides.html#sources",
+    "title": "Jeudi 22/10 — Recherche, tris et complexité",
+    "section": "Sources",
+    "text": "Sources"
+  },
+  {
     "objectID": "semaines/s02-fondamentaux-js-1/vendredi.html",
     "href": "semaines/s02-fondamentaux-js-1/vendredi.html",
     "title": "Vendredi 16/10 — ESLint, conditions et boucles",
@@ -1982,6 +2745,72 @@
     "text": "Sources"
   },
   {
+    "objectID": "ressources/fiche-algorithmes-tris.html",
+    "href": "ressources/fiche-algorithmes-tris.html",
+    "title": "Les algorithmes (2/2) : trier, récursivité",
+    "section": "",
+    "text": "Lecture facultative, environ 15 minutes, en complément de « Recherche, tris & complexité » (semaine 3, jeudi). Début : Les algorithmes (1/2) : chercher, mesurer. D’après CS50, Harvard University, licence CC BY-NC-SA 4.0, leçon 3 (CS50 2026) ; adaptation de Kevin Bardoux, code traduit en JavaScript. Cette fiche est diffusée sous la même licence.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (2/2) : trier, récursivité"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-tris.html#le-tri",
+    "href": "ressources/fiche-algorithmes-tris.html#le-tri",
+    "title": "Les algorithmes (2/2) : trier, récursivité",
+    "section": "1. Le tri",
+    "text": "1. Le tri\n\nLe problème du tri\nEntrée : un tableau dans le désordre, 5 2 7 4 1 6 3 0. Sortie : le même tableau, trié, 0 1 2 3 4 5 6 7.\nPourquoi trier ? Pour pouvoir utiliser la recherche dichotomique ; pour afficher des résultats dans un ordre utile (prix, dates, noms) ; et parce que trier une fois, puis chercher des milliers de fois, est très rentable. Trois algorithmes, du plus simple au plus efficace.\n\n\nLe tri par sélection\nOn sélectionne le plus petit élément et on le met en première position, puis le plus petit du reste en deuxième position, et ainsi de suite.\nPour i allant de 0 à n − 2\n  Trouver le plus petit élément entre la case i et la fin\n  L'échanger avec l'élément de la case i\n\n\n\nTour\nPlus petit trouvé\nTableau après échange\n\n\n\n\nDépart\n—\n5 2 7 4 1 6 3 0\n\n\n1\n0\n0 2 7 4 1 6 3 5\n\n\n2\n1\n0 1 7 4 2 6 3 5\n\n\n3\n2\n0 1 2 4 7 6 3 5\n\n\n…\n…\n…\n\n\n\n\n\ntri-selection.js\n\nfunction selectionSort(array) {\n  for (let i = 0; i &lt; array.length - 1; i++) {\n    let min = i;\n    for (let j = i + 1; j &lt; array.length; j++) {\n      if (array[j] &lt; array[min]) min = j;\n    }\n    const temp = array[i]; // swap, with a temporary variable\n    array[i] = array[min];\n    array[min] = temp;\n  }\n}\n\nEfficacité : (n − 1) + (n − 2) + … + 1 = n(n − 1)/2 comparaisons, soit O(n²). Et même si le tableau est déjà trié, il fait toutes ces comparaisons : Ω(n²), donc Θ(n²).\n\n\nLe tri à bulles\nOn compare les voisins deux à deux et on les échange s’ils sont dans le mauvais ordre. Les grands nombres « remontent » vers la fin, comme des bulles.\nRépéter n − 1 fois\n  Pour chaque paire de voisins\n    S'ils sont dans le mauvais ordre, les échanger\n  Si aucun échange n'a eu lieu, s'arrêter\nPremier passage sur 5 2 7 4 1 6 3 0 : 2 5 7 4 1 6 3 0 (5 et 2 échangés), puis 2 5 4 7 1 6 3 0 (7 et 4 échangés)… jusqu’à 2 5 4 1 6 3 0 7 : le 7 est arrivé à sa place.\n\n\ntri-bulles.js\n\nfunction bubbleSort(array) {\n  for (let i = 0; i &lt; array.length - 1; i++) {\n    let swapped = false;\n    for (let j = 0; j &lt; array.length - 1 - i; j++) {\n      if (array[j] &gt; array[j + 1]) {\n        [array[j], array[j + 1]] = [array[j + 1], array[j]];\n        swapped = true;\n      }\n    }\n    if (!swapped) return; // already sorted: stop\n  }\n}\n\nEfficacité : O(n²) dans le pire des cas. Mais grâce à la variable swapped, sur un tableau déjà trié, un seul passage suffit : Ω(n).",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (2/2) : trier, récursivité"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-tris.html#la-récursivité",
+    "href": "ressources/fiche-algorithmes-tris.html#la-récursivité",
+    "title": "Les algorithmes (2/2) : trier, récursivité",
+    "section": "2. La récursivité",
+    "text": "2. La récursivité\n\nUne fonction qui s’appelle elle-même\nUne fonction récursive résout un problème en s’appelant elle-même sur une version plus petite du même problème. La recherche dichotomique en est un exemple : « chercher dans la moitié gauche », c’est… refaire une recherche dichotomique, sur un tableau plus petit. Toute fonction récursive a besoin de deux ingrédients :\n\nun cas de base : une version si simple qu’on connaît la réponse, et qui arrête la récursion ;\nun appel récursif sur un problème plus petit, qui finit par atteindre le cas de base.\n\nSans cas de base, la fonction s’appelle à l’infini, et le programme plante.\n\n\nLa pyramide, deux façons\n\n\npyramide.js\n\nfunction drawLoop(height) {          // iterative: two loops\n  for (let i = 1; i &lt;= height; i++) console.log('#'.repeat(i));\n}\n\nfunction drawRec(height) {           // recursive\n  if (height &lt;= 0) return;           // base case\n  drawRec(height - 1);               // a smaller pyramid…\n  console.log('#'.repeat(height));   // …plus one row below\n}\n\nIdée récursive : une pyramide de hauteur 4, c’est une pyramide de hauteur 3, plus une ligne de 4 briques en dessous.\n\n\nLa factorielle\nLa factorielle de n (notée n!) vaut 1 × 2 × 3 × … × n. Elle a une définition naturellement récursive : n! = n × (n − 1)!, avec 1! = 1.\n\n\nfactorielle.js\n\nfunction factorial(n) {\n  if (n &lt;= 1) return 1;            // base case\n  return n * factorial(n - 1);     // recursive call\n}\n\nLes appels s’empilent jusqu’au cas de base, puis les résultats remontent : 1, puis 2, puis 6, puis 24 (la pile d’appels de la semaine 8).",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (2/2) : trier, récursivité"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-tris.html#le-tri-par-fusion",
+    "href": "ressources/fiche-algorithmes-tris.html#le-tri-par-fusion",
+    "title": "Les algorithmes (2/2) : trier, récursivité",
+    "section": "3. Le tri par fusion",
+    "text": "3. Le tri par fusion\n\nDiviser pour régner\nLe tri par fusion utilise la récursivité selon le principe diviser pour régner :\nS'il n'y a qu'un seul élément\n  Il est déjà trié : s'arrêter\nSinon\n  Trier la moitié gauche\n  Trier la moitié droite\n  Fusionner les deux moitiés triées\nL’astuce : fusionner deux listes déjà triées est très rapide. On compare leurs premiers éléments, on prend le plus petit, et on recommence.\n\n\n\n\n\n%%{init: {\"htmlLabels\": false, \"flowchart\": {\"htmlLabels\": false}, \"themeVariables\": {\"fontSize\": \"20px\"}}}%%\nflowchart TD\n  accTitle: Le tri par fusion\n  accDescr: Le tableau 5 2 7 4 1 6 3 0 est coupé en deux moitiés, 5 2 7 4 et 1 6 3 0. Chaque moitié est triée de la même façon : 2 4 5 7 et 0 1 3 6. La fusion des deux moitiés triées donne 0 1 2 3 4 5 6 7.\n  A[\"5 2 7 4 1 6 3 0\"] --&gt; B[\"5 2 7 4\"]\n  A --&gt; C[\"1 6 3 0\"]\n  B --&gt;|trier| D[\"2 4 5 7\"]\n  C --&gt;|trier| E[\"0 1 3 6\"]\n  D --&gt; F[\"0 1 2 3 4 5 6 7\"]\n  E --&gt;|fusionner| F\n\n\n On coupe en deux jusqu’à des éléments seuls, puis on fusionne deux à deux, en gardant l’ordre. \n\n\n\n\n\ntri-fusion.js\n\nfunction mergeSort(array) {\n  if (array.length &lt;= 1) return array;          // 0 or 1 element: sorted\n  const middle = Math.floor(array.length / 2);\n  const left = mergeSort(array.slice(0, middle));\n  const right = mergeSort(array.slice(middle));\n  const merged = [];                            // merge the two sorted halves\n  while (left.length &gt; 0 && right.length &gt; 0) {\n    merged.push(left[0] &lt;= right[0] ? left.shift() : right.shift());\n  }\n  return [...merged, ...left, ...right];\n}\n\nLe tri par fusion utilise des tableaux temporaires : il consomme plus de mémoire que les deux autres.\n\n\nL’efficacité du tri par fusion\nOn coupe le tableau en deux jusqu’à des éléments seuls : log n niveaux de découpage. À chaque niveau, la fusion parcourt les n éléments. Total : O(n log n), et aussi Ω(n log n), donc Θ(n log n).\n\n\n\n\n\n\n\n\n\nAlgorithme\nPire cas (O)\nMeilleur cas (Ω)\nMémoire en plus\n\n\n\n\nTri par sélection\nn²\nn²\nAucune\n\n\nTri à bulles\nn²\nn\nAucune\n\n\nTri par fusion\nn log n\nn log n\nDes tableaux temporaires\n\n\n\nC’est un compromis classique en informatique : on gagne du temps en utilisant plus d’espace.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (2/2) : trier, récursivité"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-tris.html#récapitulatif",
+    "href": "ressources/fiche-algorithmes-tris.html#récapitulatif",
+    "title": "Les algorithmes (2/2) : trier, récursivité",
+    "section": "4. Récapitulatif",
+    "text": "4. Récapitulatif\n\nRecherche linéaire : O(n), fonctionne toujours. Recherche dichotomique : O(log n), mais exige un tableau trié.\nLa notation grand O décrit comment le temps évolue quand les données grandissent ; Ω décrit le meilleur des cas, Θ quand les deux coïncident.\nUn objet regroupe plusieurs données sous un même nom.\nTri par sélection et tri à bulles : simples, mais en O(n²). Tri par fusion : O(n log n), au prix de mémoire supplémentaire.\nUne fonction récursive s’appelle elle-même sur un problème plus petit, jusqu’à un cas de base.\n\n\nDans la vraie vie\n\nEn JavaScript, tableau.sort() trie en place, en O(n log n) ; attention, sans paramètre, il compare les nombres comme du texte : [10, 9, 1].sort() donne [1, 10, 9] (MDN Web Docs, s. d.). Avec une fonction de comparaison : [10, 9, 1].sort((a, b) =&gt; a - b).\nLes bases de données utilisent des index, triés, pour retrouver une ligne parmi des millions en quelques étapes (semaine 17).\nLes moteurs de recherche, les GPS ou les réseaux sociaux reposent sur des algorithmes efficaces : un algorithme en O(n²) sur des milliards de données serait inutilisable.\n\n\n\nÀ vous de jouer\nDeux exercices, au niveau 3 du parcours de remédiation de la semaine 3 (archive de la semaine) :\n\nf1-dichotomie-recursive : réécrivez la recherche dichotomique sous forme de fonction récursive.\nf2-tri-noms : triez un tableau de prénoms par ordre alphabétique avec le tri par sélection.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (2/2) : trier, récursivité"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-tris.html#sources",
+    "href": "ressources/fiche-algorithmes-tris.html#sources",
+    "title": "Les algorithmes (2/2) : trier, récursivité",
+    "section": "Sources",
+    "text": "Sources\n\n\nCS50. 2026. « Lecture 3 - CS50x 2026 ». https://cs50.harvard.edu/x/notes/3/.\n\n\nMDN Web Docs. s. d. « Array : méthode sort() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (2/2) : trier, récursivité"
+    ]
+  },
+  {
     "objectID": "ressources/fiche-numeration.html",
     "href": "ressources/fiche-numeration.html",
     "title": "Systèmes de numération",
@@ -2169,7 +2998,7 @@
     "href": "ressources/lexique.html#d",
     "title": "Lexique",
     "section": "D",
-    "text": "D\nDisque (disk, drive) : Support qui garde les fichiers quand l’ordinateur est éteint. Semaine 2.",
+    "text": "D\nDébogage (debugging) : Démarche qui trouve et corrige la cause d’un comportement faux : lire, isoler, tester, corriger. Semaine 3.\nDisque (disk, drive) : Support qui garde les fichiers quand l’ordinateur est éteint. Semaine 2.",
     "crumbs": [
       "Lexique"
     ]
@@ -2179,7 +3008,37 @@
     "href": "ressources/lexique.html#e",
     "title": "Lexique",
     "section": "E",
-    "text": "E\nÉditeur de code (code editor) : Logiciel pour écrire et enregistrer des fichiers de programmation en texte brut (VS Code dans la formation). Semaine 2.\nÉgalité stricte (strict equality) : Comparaison === : vraie si les deux valeurs ont le même type et la même valeur. Semaine 2.\nESLint (ESLint) : Outil qui relit le code sans le lancer et signale chaque écart à une règle. Semaine 2.\nÉvénement (event) : Ce qui se produit (un clic, une touche, le drapeau vert) et qui déclenche un script. Semaine 1.\nExtension de fichier (file extension) : Fin du nom d’un fichier, après le point, qui indique son type (.js, .txt). Semaine 2.",
+    "text": "E\nECF (—) : Évaluation en cours de formation : une épreuve qui mesure des compétences du titre. Semaine 3.\nÉditeur de code (code editor) : Logiciel pour écrire et enregistrer des fichiers de programmation en texte brut (VS Code dans la formation). Semaine 2.\nÉgalité stricte (strict equality) : Comparaison === : vraie si les deux valeurs ont le même type et la même valeur. Semaine 2.\nESLint (ESLint) : Outil qui relit le code sans le lancer et signale chaque écart à une règle. Semaine 2.\nÉvénement (event) : Ce qui se produit (un clic, une touche, le drapeau vert) et qui déclenche un script. Semaine 1.\nExtension de fichier (file extension) : Fin du nom d’un fichier, après le point, qui indique son type (.js, .txt). Semaine 2.",
+    "crumbs": [
+      "Lexique"
+    ]
+  },
+  {
+    "objectID": "ressources/lexique.html#f",
+    "href": "ressources/lexique.html#f",
+    "title": "Lexique",
+    "section": "F",
+    "text": "F\nFonction (function) : Bloc d’instructions nommé, avec des paramètres, qui renvoie un résultat quand on l’appelle. Semaine 3.",
+    "crumbs": [
+      "Lexique"
+    ]
+  },
+  {
+    "objectID": "ressources/lexique.html#g",
+    "href": "ressources/lexique.html#g",
+    "title": "Lexique",
+    "section": "G",
+    "text": "G\nGrand O (Big O) : Notation qui dit comment le nombre d’étapes d’un algorithme grandit quand les données grandissent. Semaine 3.",
+    "crumbs": [
+      "Lexique"
+    ]
+  },
+  {
+    "objectID": "ressources/lexique.html#i",
+    "href": "ressources/lexique.html#i",
+    "title": "Lexique",
+    "section": "I",
+    "text": "I\nIndex (tableau) (index) : Numéro de position d’une valeur dans un tableau ou d’un caractère dans une chaîne, à partir de 0. Semaine 3.",
     "crumbs": [
       "Lexique"
     ]
@@ -2199,7 +3058,7 @@
     "href": "ressources/lexique.html#m",
     "title": "Lexique",
     "section": "M",
-    "text": "M\nMémoire vive (RAM) : Mémoire qui contient les programmes en cours et leurs données ; elle s’efface quand l’ordinateur s’éteint. Semaine 2.\nMessage (Scratch) (broadcast) : Signal nommé envoyé par un sprite, qui démarre les scripts des sprites qui l’attendent. Semaine 2.",
+    "text": "M\nMémoire vive (RAM) : Mémoire qui contient les programmes en cours et leurs données ; elle s’efface quand l’ordinateur s’éteint. Semaine 2.\nMessage (Scratch) (broadcast) : Signal nommé envoyé par un sprite, qui démarre les scripts des sprites qui l’attendent. Semaine 2.\nMéthode (method) : Fonction attachée à une valeur, appelée avec un point : texte.toUpperCase(). Semaine 3.",
     "crumbs": [
       "Lexique"
     ]
@@ -2219,7 +3078,7 @@
     "href": "ressources/lexique.html#p",
     "title": "Lexique",
     "section": "P",
-    "text": "P\nPaquet (package) : Code écrit par d’autres, publié sur npm, qu’on installe dans un projet. Semaine 2.\nProcesseur (processor, CPU) : Composant qui exécute les instructions d’un programme, une à la fois. Semaine 2.\nPseudo-code (pseudocode) : Algorithme écrit en français structuré, une instruction par ligne, avant le vrai code. Semaine 1.",
+    "text": "P\nPaquet (package) : Code écrit par d’autres, publié sur npm, qu’on installe dans un projet. Semaine 2.\nParamètre (parameter) : Nom, dans la déclaration d’une fonction, qui reçoit une valeur à chaque appel. Semaine 3.\nPortée (scope) : Partie du programme où une variable est visible et utilisable. Semaine 3.\nProcesseur (processor, CPU) : Composant qui exécute les instructions d’un programme, une à la fois. Semaine 2.\nPseudo-code (pseudocode) : Algorithme écrit en français structuré, une instruction par ligne, avant le vrai code. Semaine 1.",
     "crumbs": [
       "Lexique"
     ]
@@ -2229,7 +3088,7 @@
     "href": "ressources/lexique.html#r",
     "title": "Lexique",
     "section": "R",
-    "text": "R\nREPL (REPL) : Console interactive de Node : on tape une ligne, Node l’exécute et affiche le résultat. Semaine 2.\nReste (opérateur) (remainder, modulo) : Opérateur % : le reste de la division entière de deux nombres. Semaine 2.",
+    "text": "R\nRecherche dichotomique (binary search) : Recherche dans une liste triée qui regarde le milieu et ne garde qu’une moitié, à chaque étape. Semaine 3.\nRecherche linéaire (linear search) : Recherche qui regarde les cases une par une, du début à la fin. Semaine 3.\nRenvoyer (return) (return) : Instruction qui termine une fonction et indique la valeur qu’elle renvoie. Semaine 3.\nREPL (REPL) : Console interactive de Node : on tape une ligne, Node l’exécute et affiche le résultat. Semaine 2.\nReste (opérateur) (remainder, modulo) : Opérateur % : le reste de la division entière de deux nombres. Semaine 2.",
     "crumbs": [
       "Lexique"
     ]
@@ -2249,7 +3108,7 @@
     "href": "ressources/lexique.html#t",
     "title": "Lexique",
     "section": "T",
-    "text": "T\nTerminal (terminal, shell) : Programme où l’on tape des commandes, qu’il exécute dans un dossier. Semaine 2.\nTest (test) : Petit programme qui lance le vôtre et compare le résultat obtenu au résultat attendu. Semaine 2.\nType (type) : Sorte d’une valeur : nombre, texte, vrai ou faux… Semaine 2.",
+    "text": "T\nTableau (array) : Liste ordonnée de valeurs, repérées par un index qui commence à 0. Semaine 3.\nTerminal (terminal, shell) : Programme où l’on tape des commandes, qu’il exécute dans un dossier. Semaine 2.\nTest (test) : Petit programme qui lance le vôtre et compare le résultat obtenu au résultat attendu. Semaine 2.\nTri (sort) : Rangement des valeurs d’une liste dans l’ordre (par sélection, à bulles…). Semaine 3.\nType (type) : Sorte d’une valeur : nombre, texte, vrai ou faux… Semaine 2.",
     "crumbs": [
       "Lexique"
     ]
@@ -2289,7 +3148,7 @@
     "href": "index.html#les-semaines",
     "title": "Formation Développeur web et web mobile",
     "section": "Les semaines",
-    "text": "Les semaines\n\n\n\n\nSemaine\nDébut\nThème\nCompétences\n\n\n\n\n1\n08/10/2026\nRentrée\n—\n\n\n2\n12/10/2026\nPositionnement — fondations à la CS50 (Scratch, JavaScript)\n—\n\n\n3\n19/10/2026\nFondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes) (à venir)\n—\n\n\n4\n26/10/2026\nC1 - Installer et configurer son environnement de travail (à venir)\nC1\n\n\n5\n02/11/2026\nC3 - Réaliser des interfaces utilisateur statiques (à venir)\nC3\n\n\n6\n09/11/2026\nC4 - Développer la partie dynamique des interfaces (JavaScript avancé) (à venir)\nC4\n\n\n7\n16/11/2026\nC4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1) (à venir)\nC4\n\n\n8\n23/11/2026\nC4 - Développer la partie dynamique des interfaces (l’asynchrone) (à venir)\nC4\n\n\n9\n30/11/2026\nC4 - Développer la partie dynamique des interfaces (API REST & modules dans le projet #1) (à venir)\nC4\n\n\n10\n07/12/2026\nC3 / C4 - Projet #1 : accessibilité, tests, SEO, éco-conception & RGPD (à venir)\nC3, C4\n\n\n11\n14/12/2026\nC4 - Développer la partie dynamique des interfaces (ECF) (à venir)\nC4\n\n\n12\n04/01/2027\nC4 - React (fondamentaux) · ouverture du palier 2 de l’IA (à venir)\nC4\n\n\n13\n11/01/2027\nC2 - Maquetter les interfaces · C4 - React (navigation & formulaires) (à venir)\nC2, C4\n\n\n14\n18/01/2027\nProjet commun du centre (1/2) (à venir)\n—\n\n\n15\n25/01/2027\nProjet commun du centre (2/2) (à venir)\n—\n\n\n16\n01/02/2027\nC7 - Node & Express côté serveur · lancement du projet #3 (à venir)\nC7\n\n\n17\n08/02/2027\nC5 - Base de données relationnelle · premiers conteneurs (Podman) (à venir)\nC5\n\n\n18\n15/02/2027\nC5 / C6 - Composants d’accès aux données SQL (ECF base de données) (à venir)\nC5, C6\n\n\n19\n22/02/2027\nC7 - Composants métier sécurisés (authentification & sécurité) (à venir)\nC7\n\n\n20\n01/03/2027\nC6 - NoSQL (second conteneur & réseau) · C7 - tests d’intégration (à venir)\nC6, C7\n\n\n21\n08/03/2027\nC7 / C8 - ECF du fil rouge & déploiement · départ en stage (à venir)\nC7, C8\n\n\n22\n17/05/2027\nRetour de stage & dossiers (à venir)\n—\n\n\n23\n24/05/2027\nDossiers · consolidation back-end · conteneurs (réseaux & volumes) (à venir)\n—\n\n\n24\n31/05/2027\nC7 - Piloter un agent IA sur l’API · C3 - CMS & e-commerce (à venir)\nC3, C7\n\n\n25\n07/06/2027\nC8 - Multi-conteneurs & déploiement (Podman Compose, CI/CD) (à venir)\nC8\n\n\n26\n14/06/2027\nPréparation à la certification (à venir)\n—\n\n\n27\n21/06/2027\nPréparation à la certification (à venir)\n—\n\n\n\n\nStage en entreprise du 15/03/2027 au 14/05/2027. Certifications du 28/06/2027 au 08/07/2027. Fin de formation le 09/07/2027.\nStagiaires sans convention au 19 février : projet en équipe en centre, encadré par un formateur.",
+    "text": "Les semaines\n\n\n\n\nSemaine\nDébut\nThème\nCompétences\n\n\n\n\n1\n08/10/2026\nRentrée\n—\n\n\n2\n12/10/2026\nPositionnement — fondations à la CS50 (Scratch, JavaScript)\n—\n\n\n3\n19/10/2026\nFondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)\n—\n\n\n4\n26/10/2026\nC1 - Installer et configurer son environnement de travail (à venir)\nC1\n\n\n5\n02/11/2026\nC3 - Réaliser des interfaces utilisateur statiques (à venir)\nC3\n\n\n6\n09/11/2026\nC4 - Développer la partie dynamique des interfaces (JavaScript avancé) (à venir)\nC4\n\n\n7\n16/11/2026\nC4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1) (à venir)\nC4\n\n\n8\n23/11/2026\nC4 - Développer la partie dynamique des interfaces (l’asynchrone) (à venir)\nC4\n\n\n9\n30/11/2026\nC4 - Développer la partie dynamique des interfaces (API REST & modules dans le projet #1) (à venir)\nC4\n\n\n10\n07/12/2026\nC3 / C4 - Projet #1 : accessibilité, tests, SEO, éco-conception & RGPD (à venir)\nC3, C4\n\n\n11\n14/12/2026\nC4 - Développer la partie dynamique des interfaces (ECF) (à venir)\nC4\n\n\n12\n04/01/2027\nC4 - React (fondamentaux) · ouverture du palier 2 de l’IA (à venir)\nC4\n\n\n13\n11/01/2027\nC2 - Maquetter les interfaces · C4 - React (navigation & formulaires) (à venir)\nC2, C4\n\n\n14\n18/01/2027\nProjet commun du centre (1/2) (à venir)\n—\n\n\n15\n25/01/2027\nProjet commun du centre (2/2) (à venir)\n—\n\n\n16\n01/02/2027\nC7 - Node & Express côté serveur · lancement du projet #3 (à venir)\nC7\n\n\n17\n08/02/2027\nC5 - Base de données relationnelle · premiers conteneurs (Podman) (à venir)\nC5\n\n\n18\n15/02/2027\nC5 / C6 - Composants d’accès aux données SQL (ECF base de données) (à venir)\nC5, C6\n\n\n19\n22/02/2027\nC7 - Composants métier sécurisés (authentification & sécurité) (à venir)\nC7\n\n\n20\n01/03/2027\nC6 - NoSQL (second conteneur & réseau) · C7 - tests d’intégration (à venir)\nC6, C7\n\n\n21\n08/03/2027\nC7 / C8 - ECF du fil rouge & déploiement · départ en stage (à venir)\nC7, C8\n\n\n22\n17/05/2027\nRetour de stage & dossiers (à venir)\n—\n\n\n23\n24/05/2027\nDossiers · consolidation back-end · conteneurs (réseaux & volumes) (à venir)\n—\n\n\n24\n31/05/2027\nC7 - Piloter un agent IA sur l’API · C3 - CMS & e-commerce (à venir)\nC3, C7\n\n\n25\n07/06/2027\nC8 - Multi-conteneurs & déploiement (Podman Compose, CI/CD) (à venir)\nC8\n\n\n26\n14/06/2027\nPréparation à la certification (à venir)\n—\n\n\n27\n21/06/2027\nPréparation à la certification (à venir)\n—\n\n\n\n\nStage en entreprise du 15/03/2027 au 14/05/2027. Certifications du 28/06/2027 au 08/07/2027. Fin de formation le 09/07/2027.\nStagiaires sans convention au 19 février : projet en équipe en centre, encadré par un formateur.",
     "crumbs": [
       "Accueil"
     ]
@@ -2452,6 +3311,72 @@
     "crumbs": [
       "Fiches de lecture",
       "C'est quoi un ordinateur ?"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-recherche.html",
+    "href": "ressources/fiche-algorithmes-recherche.html",
+    "title": "Les algorithmes (1/2) : chercher, mesurer",
+    "section": "",
+    "text": "Lecture facultative, environ 15 minutes, en complément de « Recherche, tris & complexité » (semaine 3, jeudi). Suite : Les algorithmes (2/2) : trier, récursivité. D’après CS50, Harvard University, licence CC BY-NC-SA 4.0, leçon 3 (CS50 2026) ; adaptation de Kevin Bardoux, code traduit en JavaScript. Cette fiche est diffusée sous la même licence.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (1/2) : chercher, mesurer"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-recherche.html#introduction",
+    "href": "ressources/fiche-algorithmes-recherche.html#introduction",
+    "title": "Les algorithmes (1/2) : chercher, mesurer",
+    "section": "1. Introduction",
+    "text": "1. Introduction\nEn semaine 2, on a vu qu’on trouve un nom dans un annuaire bien plus vite en le coupant en deux qu’en tournant les pages une à une. On formalise ici ces idées : chercher une valeur dans un tableau, et mesurer l’efficacité d’un algorithme.\n\nUn tableau vu par l’ordinateur\nPour un humain, un tableau se voit d’un coup d’œil. Pour l’ordinateur, c’est une rangée de casiers fermés : il ne peut ouvrir qu’un casier à la fois.\n\n\n\nIndex\n0\n1\n2\n3\n4\n5\n6\n\n\n\n\nCasier\n?\n?\n?\n?\n?\n?\n?\n\n\n\nLa question devient : dans quel ordre ouvrir les casiers pour trouver une valeur le plus vite possible ? Entrée : un tableau et une valeur à chercher. Sortie : vrai ou faux (trouvé ou non), ou bien la position de la valeur.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (1/2) : chercher, mesurer"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-recherche.html#la-recherche",
+    "href": "ressources/fiche-algorithmes-recherche.html#la-recherche",
+    "title": "Les algorithmes (1/2) : chercher, mesurer",
+    "section": "2. La recherche",
+    "text": "2. La recherche\n\nLa recherche linéaire\nOn ouvre les casiers un par un, de gauche à droite.\nPour chaque case, de la première à la dernière\n  Si la case contient la valeur cherchée\n    Renvoyer vrai\nRenvoyer faux\nAttention au piège : « renvoyer faux » se place après la boucle. Si on l’écrit dans un else à l’intérieur, on abandonne dès la première case différente !\n\n\nrecherche-lineaire.js\n\n/** Returns the index of value in numbers, or -1. */\nfunction linearSearch(numbers, value) {\n  for (let i = 0; i &lt; numbers.length; i++) {\n    if (numbers[i] === value) {\n      return i;\n    }\n  }\n  return -1; // after the loop: every box has been opened\n}\n\nlinearSearch([20, 500, 10, 5, 100, 1, 50], 100); // 4\n\nPour chercher un texte, === suffit en JavaScript : 'Chloé' === 'Chloé' vaut true (en C, il faut une fonction dédiée, strcmp).\n\n\nLa recherche dichotomique\nSi le tableau est trié, on peut faire beaucoup mieux, comme avec l’annuaire :\nS'il ne reste plus de case\n  Renvoyer faux\nRegarder la case du milieu\nSi elle contient la valeur cherchée\n  Renvoyer vrai\nSinon si la valeur cherchée est plus petite\n  Chercher dans la moitié gauche\nSinon si la valeur cherchée est plus grande\n  Chercher dans la moitié droite\nÀ chaque étape, on élimine la moitié des cases restantes.\n\n\nUn exemple pas à pas\nOn cherche 50 dans le tableau trié :\n\n\n\nIndex\n0\n1\n2\n3\n4\n5\n6\n\n\n\n\nValeur\n1\n5\n10\n20\n50\n100\n500\n\n\n\n\n\n\nÉtape\nZone de recherche\nMilieu\nValeur au milieu\nDécision\n\n\n\n\n1\nindex 0 à 6\n3\n20\n50 est plus grand : à droite\n\n\n2\nindex 4 à 6\n5\n100\n50 est plus petit : à gauche\n\n\n3\nindex 4\n4\n50\nTrouvé\n\n\n\nTrois étapes au lieu de cinq pour la recherche linéaire. L’écart se creuse énormément avec de grands tableaux.\n\n\ndichotomie.js\n\n/** Returns the index of target in the SORTED array, or -1. */\nfunction binarySearch(array, target) {\n  let left = 0;\n  let right = array.length - 1;\n  while (left &lt;= right) {\n    const middle = Math.floor((left + right) / 2);\n    if (array[middle] === target) {\n      return middle;\n    } else if (array[middle] &lt; target) {\n      left = middle + 1;\n    } else {\n      right = middle - 1;\n    }\n  }\n  return -1; // not found\n}",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (1/2) : chercher, mesurer"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-recherche.html#lefficacité-des-algorithmes",
+    "href": "ressources/fiche-algorithmes-recherche.html#lefficacité-des-algorithmes",
+    "title": "Les algorithmes (1/2) : chercher, mesurer",
+    "section": "3. L’efficacité des algorithmes",
+    "text": "3. L’efficacité des algorithmes\n\nCompter les étapes\nCombien de comparaisons faut-il, dans le pire des cas (valeur absente) ?\n\n\n\nTaille\nLinéaire\nDichotomie\n\n\n\n\n10\n10\n4\n\n\n1 000\n1 000\n10\n\n\n1 000 000\n1 000 000\n20\n\n\n1 000 000 000\n1 000 000 000\n30\n\n\n\nPour un milliard de valeurs : 30 comparaisons au lieu d’un milliard. Mais la dichotomie a un prix : le tableau doit être trié. Et trier prend du temps…\n\n\nLa notation grand O\nPlutôt que de compter chaque étape, les informaticiens s’intéressent à l’ordre de grandeur : comment le temps évolue quand la taille n des données augmente.\n\n\n\nNotation\nNom\nExemple\n\n\n\n\nO(1)\nConstant\nLire une case d’un tableau\n\n\nO(log n)\nLogarithmique\nRecherche dichotomique\n\n\nO(n)\nLinéaire\nRecherche linéaire\n\n\nO(n log n)\nQuasi linéaire\nTri par fusion\n\n\nO(n²)\nQuadratique\nTri par sélection, tri à bulles\n\n\n\nOn ignore les constantes et les termes plus petits : n/2 ou 3n + 5, c’est toujours O(n), car pour de très grands n, c’est la forme de la courbe qui compte.\n\n\nPourquoi c’est si important\nNombre d’opérations selon la taille des données :\n\n\n\nn\nlog n\nn\nn log n\nn²\n\n\n\n\n8\n3\n8\n24\n64\n\n\n1 000\n10\n1 000\n10 000\n1 000 000\n\n\n1 000 000\n20\n1 000 000\n20 000 000\n1 000 000 000 000\n\n\n\nÀ raison d’un milliard d’opérations par seconde, trier un million d’éléments en O(n²) prend environ 17 minutes ; en O(n log n), 2 centièmes de seconde.\n\n\nGrand O, oméga et thêta\n\n\n\n\n\n\n\n\n\nNotation\nSignification\nRecherche linéaire\nRecherche dichotomique\n\n\n\n\nO (grand O)\nBorne supérieure : le pire des cas\nO(n)\nO(log n)\n\n\nΩ (oméga)\nBorne inférieure : le meilleur des cas\nΩ(1)\nΩ(1)\n\n\nΘ (thêta)\nQuand O et Ω sont identiques\n—\n—\n\n\n\nDans le meilleur des cas, la valeur est dans la première case regardée : une seule étape, Ω(1). On utilise Θ quand le temps est toujours du même ordre, quel que soit le cas : par exemple, compter les éléments d’un tableau prend toujours Θ(n).",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (1/2) : chercher, mesurer"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-recherche.html#regrouper-des-données-les-objets",
+    "href": "ressources/fiche-algorithmes-recherche.html#regrouper-des-données-les-objets",
+    "title": "Les algorithmes (1/2) : chercher, mesurer",
+    "section": "4. Regrouper des données : les objets",
+    "text": "4. Regrouper des données : les objets\nUn annuaire associe un nom à un numéro. Deux tableaux séparés (names et numbers) seraient fragiles : un décalage, et tout est faux. On regroupe plutôt les deux dans un objet (semaine 6) (MDN Web Docs, s. d.) ; en C, on écrirait une structure (struct).\n\n\nannuaire.js\n\nconst directory = [\n  { name: 'Alice', number: '01 23 45 67 89' },\n  { name: 'Bob', number: '06 12 34 56 78' },\n];\n\nfunction findNumber(directory, name) {\n  for (const person of directory) {\n    if (person.name === name) return person.number;\n  }\n  return null;\n}\n\nLe numéro est un texte et non un nombre : il commence par 0, contient des espaces, et on ne fait jamais de calcul dessus. Le point (.) donne accès à une propriété.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (1/2) : chercher, mesurer"
+    ]
+  },
+  {
+    "objectID": "ressources/fiche-algorithmes-recherche.html#sources",
+    "href": "ressources/fiche-algorithmes-recherche.html#sources",
+    "title": "Les algorithmes (1/2) : chercher, mesurer",
+    "section": "Sources",
+    "text": "Sources\n\n\nCS50. 2026. « Lecture 3 - CS50x 2026 ». https://cs50.harvard.edu/x/notes/3/.\n\n\nMDN Web Docs. s. d. « Utiliser les objets - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Working_with_objects.",
+    "crumbs": [
+      "Fiches de lecture",
+      "Les algorithmes (1/2) : chercher, mesurer"
     ]
   },
   {
@@ -3424,6 +4349,722 @@
       "Semaines",
       "Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)",
       "Mercredi 14/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html",
+    "href": "semaines/s03-fondamentaux-js-2/index.html",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "",
+    "text": "À la fin de la semaine, vous saurez :\n\nécrire une fonction qui reçoit des paramètres et renvoie un résultat ;\ndéboguer avec méthode : lire l’erreur, isoler le problème, tester, corriger ;\nparcourir un tableau et manipuler une chaîne de caractères ;\nrechercher et trier des données, à la main puis en code ;\nestimer si un algorithme reste rapide quand les données doublent (grand O, intuitivement) ;\nréussir le premier ECF, sans IA ni internet.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#objectifs-de-la-semaine",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#objectifs-de-la-semaine",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "",
+    "text": "À la fin de la semaine, vous saurez :\n\nécrire une fonction qui reçoit des paramètres et renvoie un résultat ;\ndéboguer avec méthode : lire l’erreur, isoler le problème, tester, corriger ;\nparcourir un tableau et manipuler une chaîne de caractères ;\nrechercher et trier des données, à la main puis en code ;\nestimer si un algorithme reste rapide quand les données doublent (grand O, intuitivement) ;\nréussir le premier ECF, sans IA ni internet.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#compétences-du-référentiel",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#compétences-du-référentiel",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Compétences du référentiel",
+    "text": "Compétences du référentiel\nAucune compétence professionnelle (C1 à C8) cette semaine ; les compétences transversales du titre (Ministère du Travail 2023) :\n\n\n\n\n\n\n\nCompétence\nCe qui est travaillé cette semaine\n\n\n\n\nMettre en œuvre une démarche de résolution de problème\nDémarche en quatre temps (lire l’erreur, isoler, tester, corriger) ; choix des cas de test (tableau vide, valeur absente, cas limite)\n\n\nApprendre en continu\nExercism, piste JavaScript (en anglais) ; documentation MDN\n\n\nCommuniquer en français et en anglais\nLire des énoncés et une documentation en anglais ; expliquer un algorithme de tri à un camarade",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#programme",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#programme",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Programme",
+    "text": "Programme\n\n\n\nJour\nMatin\nAprès-midi\n\n\n\n\nLundi 19/10\nFonctions & portée · démarche de résolution de problème (lire l’erreur, isoler, tester) — exercices\nTP — « Problem set 1 » (validé par les tests)\n\n\nMardi 20/10\nTableaux & chaînes de caractères — exercices\nTP — « Problem set 2 » (validé par les tests)\n\n\nMercredi 21/10\nAtelier guidé : Exercism, piste JavaScript — exercices d’apprentissage\nAutonomie : révisions de l’ECF — problem sets de rattrapage\n\n\nJeudi 22/10\nRecherche, tris & complexité (grand O) — tris à la main, puis en code\nTP — « Algorithmes de tri »\n\n\nVendredi 23/10\nECF — « Point d’étape fondamentaux » en JavaScript (sans IA)\nGroupe A : projet & consolidation · groupe B : sport (13 h 15 – 16 h)\n\n\n\nNouveau format d’exercice : à partir de cette semaine, chaque exercice est une fonction à compléter. Le test l’importe et vérifie ce qu’elle renvoie : plus besoin de process.argv. Le mot-clé export, déjà écrit devant chaque fonction, permet au test de l’utiliser (MDN Web Docs, s. d.-a). Tous les fichiers sont dans l’archive de la semaine.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#veille-du-vendredi",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#veille-du-vendredi",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Veille du vendredi",
+    "text": "Veille du vendredi\nPas de veille cette semaine : le vendredi est consacré à l’ECF, qui commence à 9 h. Le sujet prévu, les mots de passe, est reporté à la semaine 4.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#anglais-technique",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#anglais-technique",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Anglais technique",
+    "text": "Anglais technique\n\nMercredi : les exercices d’apprentissage d’Exercism, piste JavaScript, entièrement en anglais (Exercism, s. d.). Sans compte : cinq exercices équivalents, énoncés en anglais, à faire en local.\nLundi après-midi : la page Functions du guide JavaScript de MDN, en anglais (MDN Web Docs, s. d.-b), avec quatre questions de compréhension.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#évaluation",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#évaluation",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Évaluation",
+    "text": "Évaluation\nECF « Point d’étape fondamentaux », vendredi 23/10 de 9 h à 11 h 45, sans IA ni internet :\n\nseul document autorisé : votre aide-mémoire, une page A4 recto, écrite à la main (commencée dès lundi) ;\npartie papier (45 min), pause (15 min), partie machine (1 h 30, fonctions à compléter avec des tests fournis) ;\nrésultat : une grille acquis / en cours / non acquis pour cinq compétences (écrire une fonction, parcourir un tableau, utiliser une condition et une boucle, manipuler une chaîne, lire une erreur) ; la note sur 20 est seulement indicative ;\nla grille sert à former le groupe de soutien du mercredi 28/10.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#politique-ia-de-la-semaine",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#politique-ia-de-la-semaine",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Politique IA de la semaine",
+    "text": "Politique IA de la semaine\n\n\n\n\n\n\nImportant\n\n\n\nPalier IA en vigueur : palier 0 — sans IA (dernière semaine du palier).\n\nAucun assistant IA, ni pour écrire, ni pour corriger, ni pour expliquer votre code.\nAutocomplétion par IA désactivée dans l’éditeur.\nAutorisé : la documentation officielle, la recherche web, les forums, vos camarades et le formateur.\nECF : ni IA ni internet ; seul document autorisé : votre aide-mémoire, une page A4 recto, écrite à la main par vous (annoncé lundi).\n\n\n\nLa charte complète est dans la charte IA de la formation (Formation DWWM 2026-2027 2026). Le palier 1 (IA tutrice : CS50.ai, avec un compte GitHub créé ce jour-là) ouvre lundi 26/10.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#questions-fréquentes",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#questions-fréquentes",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Questions fréquentes",
+    "text": "Questions fréquentes\nAucune question pour l’instant : cette section s’enrichit au fil de la formation, à partir de vos questions.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/index.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/index.html#sources",
+    "title": "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+    "section": "Sources",
+    "text": "Sources\n\n\nExercism. s. d. « exercism/javascript : Exercism exercises in JavaScript ». Consulté le 26 septembre 2026. https://github.com/exercism/javascript.\n\n\nFormation DWWM 2026-2027. 2026. Charte IA de la formation.\n\n\nMDN Web Docs. s. d.-a. « export - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/export.\n\n\nMDN Web Docs. s. d.-b. « Functions - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions.\n\n\nMinistère du Travail. 2023. Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#rappel-5-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nQue fait npx eslint . ?\nwhile ou for : lequel pour compter de 1 à 10 ?\nQue vaut 01001 avec les cartes 16, 8, 4, 2, 1 ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#récupérer-les-fichiers-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#récupérer-les-fichiers-5-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Récupérer les fichiers (5 min)",
+    "text": "Récupérer les fichiers (5 min)\n\nTéléchargez l’archive de la semaine.\nExtrayez-la ; renommez le dossier semaine-03 ; placez-le dans dwwm.\nTerminal : cd ~/dwwm/semaine-03, puis npm install.\nVS Code : File, Open Folder…, puis dwwm/semaine-03.\nECF vendredi : un aide-mémoire manuscrit d’une page est autorisé."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-1-les-fonctions-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-1-les-fonctions-10-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 1 — Les fonctions (10 min)",
+    "text": "Apport 1 — Les fonctions (10 min)\n\nPourquoi : écrire un calcul une fois, l’utiliser partout.\nFonction : un nom, des paramètres, un résultat renvoyé.\n\nfunction square(n) {\n  return n * n;\n}\n\nconst result = square(4);\nconsole.log(result); // 16"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#fonctions-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#fonctions-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Fonctions — attention et vérification",
+    "text": "Fonctions — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nconsole.log affiche, return renvoie. Si le test reçoit undefined, la fonction affiche au lieu de renvoyer : remplacez console.log(…) par return ….\n\n\n\n\nVérifiez : que renvoie square(3) ? Et square(-2) ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#exercices-l1-à-l3-premières-fonctions-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#exercices-l1-à-l3-premières-fonctions-30-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Exercices l1 à l3 — Premières fonctions (30 min)",
+    "text": "Exercices l1 à l3 — Premières fonctions (30 min)\n\nEnsemble (5 min) : l1-bonjour.\nSeuls : l2-aire-rectangle, puis l3-majorite.\nPour chacun : ses tests, puis ESLint sur son seul fichier.\nRéussi si : tests au vert, aucune alerte."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-2-la-portée-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-2-la-portée-10-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 2 — La portée (10 min)",
+    "text": "Apport 2 — La portée (10 min)\n\nPourquoi : un même nom dans deux fonctions, sans conflit.\nPortée : une variable n’existe que dans son bloc { … }.\n\nfunction double(n) {\n  const result = n * 2;\n  return result;\n}\n\nconsole.log(double(3)); // 6\nconsole.log(result);    // ReferenceError"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#portée-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#portée-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Portée — attention et vérification",
+    "text": "Portée — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nReferenceError: … is not defined : la variable est utilisée hors de son bloc, ou son nom est mal écrit. Vérifiez où elle est déclarée.\n\n\n\n\nVérifiez : if (true) { const x = 1; } puis x : que se passe-t-il ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-3-déboguer-avec-méthode-20-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-3-déboguer-avec-méthode-20-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 3 — Déboguer avec méthode (20 min)",
+    "text": "Apport 3 — Déboguer avec méthode (20 min)\n\nPourquoi : trouver une erreur sans modifier le code au hasard.\nMéthode : lire, isoler, tester, corriger.\n\n/…/err.js:2\n  return word[word.length - 1];\n                   ^\n\nTypeError: Cannot read properties of undefined (reading 'length')\n    at lastLetter (/…/err.js:2:20)"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#débogage-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#débogage-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Débogage — attention et vérification",
+    "text": "Débogage — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nCorrigez une chose à la fois, puis relancez tous les tests : deux changements en même temps cachent lequel a réglé le problème.\n\n\n\n\nVérifiez : dans l’exemple, à quelle ligne est l’erreur ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#débogage-l4-et-l5-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#débogage-l4-et-l5-30-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Débogage — l4 et l5 (30 min)",
+    "text": "Débogage — l4 et l5 (30 min)\n\nEnsemble (5 min) : l4-total-panier, lisez l’erreur avant le code.\nSeuls : corrigez l4, puis l5-compter-jusqua (un résultat faux).\nSur papier, pour chacun : l’erreur, la cause, la correction.\nRéussi si : les deux au vert, et vos trois lignes écrites."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#à-retenir-ce-matin",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#à-retenir-ce-matin",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "À retenir — ce matin",
+    "text": "À retenir — ce matin\n\n\n\n\n\n\nÀ retenir\n\n\n\nFonction : return renvoie le résultat ; console.log affiche.\nPortée : une variable n’existe que dans son bloc { … }.\nDéboguer : lire, isoler, tester, corriger ; une chose à la fois."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#débrief",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#débrief",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Débrief",
+    "text": "Débrief\n\nQuelle différence entre afficher un résultat et le renvoyer ?\nPourquoi result n’existe-t-il pas en dehors de double ?\nQuelle étape de la démarche avez-vous le plus utilisée ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-4-le-reste-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#apport-4-le-reste-10-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 4 — Le reste % (10 min)",
+    "text": "Apport 4 — Le reste % (10 min)\n\nPourquoi : le dernier chiffre ; une division qui tombe juste.\na % b : le reste de la division de a par b.\n\nconsole.log(1234 % 10);             // 4 : le dernier chiffre\nconsole.log(Math.floor(1234 / 10)); // 123 : sans le dernier chiffre\nconsole.log(12 % 3 === 0);          // true : 3 divise 12"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#reste-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#reste-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Reste — attention et vérification",
+    "text": "Reste — attention et vérification\n\n\n\n\n\n\nAttention\n\n\nTester « impair » avec n % 2 === 1 échoue sur les négatifs (-3 % 2 vaut -1). Testez « pair » avec n % 2 === 0.\n\n\n\n\nVérifiez : que vaut 57 % 10 ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#consignes-1-h-50",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#consignes-1-h-50",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Consignes (1 h 50)",
+    "text": "Consignes (1 h 50)\n\nQuatre fonctions à écrire, dans l’ordre, fichiers p1-….\nAvant de coder : deux exemples d’entrée et de sortie, à la main.\nUn test à la fois : lisez le test rouge, corrigez, relancez.\nFini quand ses tests et ESLint (sur son fichier) sont au vert."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#les-quatre-fonctions",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#les-quatre-fonctions",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Les quatre fonctions",
+    "text": "Les quatre fonctions\n\np1-prix-ttc (facile) : prix TTC arrondi au centime, null si négatif.\np1-bissextile (facile) : année bissextile ou non.\np1-somme-chiffres (moyen) : 1234 → 10, avec % et while.\np1-pgcd (moyen) : l’algorithme d’Euclide."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#anglais",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#anglais",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Anglais technique — Functions (MDN)",
+    "text": "Anglais technique — Functions (MDN)\nLisez la page Functions de MDN, en anglais (MDN Web Docs, s. d.).\n\nQuels sont les titres des grandes sections ?\nFunction declarations : de quoi se compose une déclaration ?\nFunction scopes : une variable de la fonction est-elle visible dehors ?\nD’après la première phrase, à quoi ressemble une fonction ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#à-retenir-cet-après-midi",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#à-retenir-cet-après-midi",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "À retenir — cet après-midi",
+    "text": "À retenir — cet après-midi\n\n\n\n\n\n\nÀ retenir\n\n\n\nAvant de coder : deux exemples d’entrée et de sortie, à la main.\n% : le reste ; n % d === 0 si d divise n.\nUn test à la fois : lire, corriger, relancer."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.slides.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.slides.html#sources",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Sources",
+    "text": "Sources\n\n\nMDN Web Docs. s. d. « Functions - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "",
+    "text": "Compétences visées : résolution de problème · apprendre en continu (anglais) Livrable : les quatre premières fonctions du Problem set 1 au vert (p1-premier si le temps le permet).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#objectifs",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#objectifs",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nÉcrire une fonction avec des paramètres et un return.\nExpliquer pourquoi une variable d’une fonction n’existe pas dehors.\nDéboguer en quatre temps : lire, isoler, tester, corriger.\nFaire passer les tests du Problem set 1.\n\nComment se passe la journée. Le matin, trois notions : la fonction, la portée, la démarche de débogage. L’après-midi, une : le reste %. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine chaque demi-journée. L’après-midi, le Problem set 1, validé par les tests.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#rappel-5-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nQue fait npx eslint . ?\nwhile ou for : lequel pour compter de 1 à 10 ?\nQue vaut 01001 avec les cartes 16, 8, 4, 2, 1 ?\n\nTrois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#récupérer-les-fichiers-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#récupérer-les-fichiers-5-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Récupérer les fichiers (5 min)",
+    "text": "Récupérer les fichiers (5 min)\n\nTéléchargez l’archive de la semaine.\nExtrayez-la ; renommez le dossier semaine-03 ; placez-le dans dwwm.\nTerminal : cd ~/dwwm/semaine-03, puis npm install.\nVS Code : File, Open Folder…, puis dwwm/semaine-03.\nECF vendredi : un aide-mémoire manuscrit d’une page est autorisé.\n\nMême méthode que la semaine dernière pour extraire l’archive : sous Windows, clic droit, Extraire tout… ; sous macOS, double-clic ; sous Linux, clic droit, Extraire ici. npm install installe ESLint pour cette semaine.\nL’ECF de vendredi se passe sans IA et sans internet. Un seul document est autorisé : un aide-mémoire papier d’une page A4, recto, écrit à la main par vous. Commencez-le dès aujourd’hui : notez-y ce que vous cherchez plusieurs fois cette semaine (la forme d’une fonction, une boucle for, length - 1…), avec des exemples courts plutôt que des définitions. Ce sera la règle de tous les ECF de la formation.\nVous devez voir, après l’étape 3 :\n\nPS C:\\Users\\stagiaire&gt; cd ~/dwwm/semaine-03\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; npm install\n\nadded 79 packages, and audited 80 packages in 8s\n\n18 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n\nLe nombre de paquets et la durée peuvent changer : l’installation est réussie si aucune ligne ne commence par npm error.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#apport-1-les-fonctions-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#apport-1-les-fonctions-10-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 1 — Les fonctions (10 min)",
+    "text": "Apport 1 — Les fonctions (10 min)\n\nPourquoi : écrire un calcul une fois, l’utiliser partout.\nFonction : un nom, des paramètres, un résultat renvoyé.\n\nPourquoi. En semaine 2, chaque programme lisait ses valeurs dans process.argv et affichait un résultat. Pour réutiliser un calcul (une aire, un prix TTC) avec d’autres valeurs, et pour le tester, on l’enferme dans une fonction.\nDéfinition. Une fonction est un ensemble d’instructions qui effectue une tâche ou calcule une valeur ; on la déclare avec le mot-clé function, un nom, des paramètres entre parenthèses et des instructions entre accolades (MDN Web Docs, s. d.-b). L’instruction return termine la fonction et indique la valeur renvoyée (MDN Web Docs, s. d.-i). En semaine 2, le bloc personnalisé Scratch (rubrique « Pour aller plus loin ») était déjà une fonction.\nExemple, commenté ligne par ligne.\n1function square(n) {\n2  return n * n;\n3}\n\n4const result = square(4);\n5console.log(result);\n\n1\n\nfunction déclare une fonction nommée square, avec un paramètre n : la valeur qu’elle recevra à chaque appel.\n\n2\n\nreturn arrête la fonction et renvoie le résultat de n * n à l’endroit qui l’a appelée.\n\n3\n\nL’accolade ferme la fonction. Jusqu’ici, rien ne s’exécute : la fonction est seulement déclarée.\n\n4\n\nsquare(4) appelle la fonction : pendant cet appel, n vaut 4. La valeur renvoyée, 16, est rangée dans result.\n\n5\n\nconsole.log affiche 16 dans le terminal.\n\n\nPas à pas. Le formateur tape chaque étape dans un fichier essai-fonction.js ; vous la refaites aussitôt.\n\nÉcrivez la fonction square (lignes 1 à 3). Lancez node essai-fonction.js : rien ne s’affiche. Déclarer une fonction ne l’exécute pas.\nAjoutez la ligne 5 : square(4) appelle la fonction. Le paramètre n vaut 4 pendant cet appel.\nreturn n * n renvoie 16 : result vaut 16.\nAjoutez la ligne 6 et relancez : le terminal affiche 16.\nOuvrez l1-bonjour.js, le premier exercice. Chaque exercice de la semaine a cette forme :\n\nexport function greet(firstName) {\n  // TODO: replace the line below with your code.\n  return `À faire (${firstName})`;\n}\n\nRemplacez le return par le vôtre ; gardez export. export rend la fonction utilisable depuis un autre fichier, ici le fichier de test (MDN Web Docs, s. d.-a) (les modules sont détaillés en semaine 9). node --test l1-bonjour.test.js appelle votre fonction et vérifie ce qu’elle renvoie.\n\nVous devez voir : à l’étape 1, rien ; à l’étape 4, 16.\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node essai-fonction.js\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node essai-fonction.js\n16\n\nÀ l’étape 6, avant d’écrire votre return, le test est rouge. Voici le début et les lignes utiles ; … remplace les lignes à ignorer :\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node --test l1-bonjour.test.js\n✖ Ada (5.995392ms)\n✖ Linus (0.933632ms)\nℹ tests 2\nℹ suites 0\nℹ pass 0\nℹ fail 2\n…\n  + 'À faire (Ada)'\n  - 'Bonjour, Ada !'\n…\n\n+ montre ce que renvoie votre fonction, - ce qu’elle devrait renvoyer : c’est la lecture d’un test rouge de la semaine 2.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#fonctions-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#fonctions-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Fonctions — attention et vérification",
+    "text": "Fonctions — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nconsole.log affiche, return renvoie. Si le test reçoit undefined, la fonction affiche au lieu de renvoyer : remplacez console.log(…) par return ….\n\n\n\nVérifiez : que renvoie square(3) ? Et square(-2) ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#exercices-l1-à-l3-premières-fonctions-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#exercices-l1-à-l3-premières-fonctions-30-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Exercices l1 à l3 — Premières fonctions (30 min)",
+    "text": "Exercices l1 à l3 — Premières fonctions (30 min)\n\nEnsemble (5 min) : l1-bonjour.\nSeuls : l2-aire-rectangle, puis l3-majorite.\nPour chacun : ses tests, puis ESLint sur son seul fichier.\nRéussi si : tests au vert, aucune alerte.\n\n\nl1-bonjour : greet('Ada') renvoie 'Bonjour, Ada !'.\nl2-aire-rectangle : largeur × hauteur, null si une dimension est négative.\nl3-majorite : l’exercice 06 de la semaine 2, écrit en fonction.\nTests d’un exercice : node --test l1-bonjour.test.js (et ainsi de suite).\nESLint sur l’exercice en cours, comme les tests : npx eslint l1-bonjour.js, puis npx eslint l2-aire-rectangle.js, puis npx eslint l3-majorite.js.\n\nVous devez voir, quand l1 est fini : ℹ fail 0 pour les tests ; pour ESLint, rien du tout. Quand le fichier respecte toutes les règles, ESLint n’affiche aucune ligne : l’invite revient directement.\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node --test l1-bonjour.test.js\n✔ Ada (9.245182ms)\n✔ Linus (0.609778ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 226.42849\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; npx eslint l1-bonjour.js\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt;\n\nLes durées entre parenthèses changent à chaque lancement : elles ne comptent pas.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#apport-2-la-portée-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#apport-2-la-portée-10-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 2 — La portée (10 min)",
+    "text": "Apport 2 — La portée (10 min)\n\nPourquoi : un même nom dans deux fonctions, sans conflit.\nPortée : une variable n’existe que dans son bloc { … }.\n\nPourquoi. Dans un programme, plusieurs fonctions utilisent des variables comme result ou total. Si elles se voyaient toutes, l’une pourrait modifier celle de l’autre par erreur.\nDéfinition. La portée est la partie du programme où une variable est visible et utilisable (MDN Web Docs, s. d.-f) : une variable créée avec let ou const dans une fonction, ou dans un bloc { … }, n’existe que dans cette fonction ou ce bloc (MDN Web Docs, s. d.-b).\nExemple.\nfunction double(n) {\n  const result = n * 2;\n  return result;\n}\n\nconsole.log(double(3)); // 6\nconsole.log(result);    // ReferenceError\nPas à pas. Le formateur tape le code dans essai-portee.js ; vous le refaites aussitôt.\n\nÉcrivez les lignes 1 à 6. Lancez le fichier : il affiche 6.\nAjoutez la ligne 7 et relancez : ReferenceError: result is not defined.\nLisez l’erreur : result n’existe pas à cet endroit, il n’existe que dans double.\nPour garder le résultat, stockez ce que renvoie la fonction : const doubled = double(3);.\n\nVous devez voir, à l’étape 2 : 6, puis l’erreur. Les lignes qui commencent par at sont des détails pour plus tard : ignorez-les.\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node essai-portee.js\n6\nfile:///C:/Users/stagiaire/dwwm/semaine-03/essai-portee.js:7\nconsole.log(result);    // ReferenceError\n            ^\n\nReferenceError: result is not defined\n    at file:///C:/Users/stagiaire/dwwm/semaine-03/essai-portee.js:7:13\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.21.0",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#portée-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#portée-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Portée — attention et vérification",
+    "text": "Portée — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nReferenceError: … is not defined : la variable est utilisée hors de son bloc, ou son nom est mal écrit. Vérifiez où elle est déclarée.\n\n\n\nVérifiez : if (true) { const x = 1; } puis x : que se passe-t-il ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#apport-3-déboguer-avec-méthode-20-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#apport-3-déboguer-avec-méthode-20-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 3 — Déboguer avec méthode (20 min)",
+    "text": "Apport 3 — Déboguer avec méthode (20 min)\n\nPourquoi : trouver une erreur sans modifier le code au hasard.\nMéthode : lire, isoler, tester, corriger.\n\nPourquoi. Changer le code au hasard jusqu’à ce que « ça marche » prend du temps et crée de nouvelles erreurs. Une démarche en quatre temps trouve la cause plus vite, et elle se raconte devant un jury.\nDéfinition. Déboguer, c’est trouver et corriger la cause d’un comportement faux, en quatre temps : lire l’erreur (son type, son message, la ligne) ; isoler l’endroit où le problème apparaît (un console.log aide) ; tester le cas précis qui échoue (vide, limite, absent) ; corriger, puis relancer tous les tests.\nExemple. Une erreur affichée par Node.js :\n/…/err.js:2\n  return word[word.length - 1];\n                   ^\n\nTypeError: Cannot read properties of undefined (reading 'length')\n    at lastLetter (/…/err.js:2:20)\nPas à pas. Le formateur lit l’erreur à voix haute ; vous notez chaque réponse.\n\nLire le type : TypeError, une opération impossible sur une valeur du mauvais type (MDN Web Docs, s. d.-j). (Une ReferenceError signale une variable qui n’existe pas (MDN Web Docs, s. d.-g).)\nLire le message : on lit length sur une valeur undefined.\nLire l’endroit : fichier err.js, ligne 2, colonne 20, dans la fonction lastLetter.\nIsoler : quelle valeur vaut undefined ? word. La fonction a été appelée sans argument.\nTester : appelez lastLetter() sans argument, puis lastLetter('chat'), pour comparer.\nCorriger : ajoutez une garde au début de la fonction, puis relancez tous les tests.\n\nMessage reproduit tel que Node.js l’affiche. La fiche Lire un message d’erreur rassemble les autres messages de Node (ReferenceError, SyntaxError, fichier introuvable).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#débogage-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#débogage-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Débogage — attention et vérification",
+    "text": "Débogage — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nCorrigez une chose à la fois, puis relancez tous les tests : deux changements en même temps cachent lequel a réglé le problème.\n\n\n\nVérifiez : dans l’exemple, à quelle ligne est l’erreur ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#débogage-l4-et-l5-30-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#débogage-l4-et-l5-30-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Débogage — l4 et l5 (30 min)",
+    "text": "Débogage — l4 et l5 (30 min)\n\nEnsemble (5 min) : l4-total-panier, lisez l’erreur avant le code.\nSeuls : corrigez l4, puis l5-compter-jusqua (un résultat faux).\nSur papier, pour chacun : l’erreur, la cause, la correction.\nRéussi si : les deux au vert, et vos trois lignes écrites.\n\n\n\n\n\n\n\nAstuceIndice — l5\n\n\n\n\n\nAjoutez console.log(i) dans la boucle et appelez countTo(3) : quelles valeurs de i passent ? Laquelle manque ?\n\n\n\nPour l4, ESLint trouve le problème avant même de lancer les tests. Vous devez voir, avant votre correction :\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; npx eslint l4-total-panier.js\n\nC:\\Users\\stagiaire\\dwwm\\semaine-03\\l4-total-panier.js\n  9:13  error  'totl' is not defined  no-undef\n\n✖ 1 problem (1 error, 0 warnings)\n\n9:13 : ligne 9, colonne 13. no-undef : une variable utilisée sans avoir été déclarée. Après la correction, la même commande n’affiche plus rien.\n\nSi le temps le permet — l6 (dernière lettre)\n\nl6-derniere-lettre : deux problèmes, un résultat faux et une erreur.\nTrouvez le test qui montre chacun des deux.\nCorrigez-les un par un.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#à-retenir-ce-matin",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#à-retenir-ce-matin",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "À retenir — ce matin",
+    "text": "À retenir — ce matin\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nFonction : return renvoie le résultat ; console.log affiche.\nPortée : une variable n’existe que dans son bloc { … }.\nDéboguer : lire, isoler, tester, corriger ; une chose à la fois.\n\n\n\nLe détail, notion par notion :\n\nFonction : function nom(paramètres) { … return …; } ; déclarer n’exécute pas, appeler exécute ; gardez export dans les exercices.\nPortée : une variable let ou const n’existe que dans sa fonction ou son bloc ; hors de là, ReferenceError.\nDéboguer : lire le type, le message et la ligne de l’erreur ; isoler avec console.log ; tester le cas qui échoue ; corriger une chose à la fois, puis relancer tous les tests.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#débrief",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#débrief",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Débrief",
+    "text": "Débrief\n\nQuelle différence entre afficher un résultat et le renvoyer ?\nPourquoi result n’existe-t-il pas en dehors de double ?\nQuelle étape de la démarche avez-vous le plus utilisée ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#apport-4-le-reste-10-min",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#apport-4-le-reste-10-min",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Apport 4 — Le reste % (10 min)",
+    "text": "Apport 4 — Le reste % (10 min)\n\nPourquoi : le dernier chiffre ; une division qui tombe juste.\na % b : le reste de la division de a par b.\n\nPourquoi. Le Problem set de cet après-midi demande d’additionner les chiffres d’un nombre (et, si le temps le permet, de reconnaître un nombre premier). Il faut pour cela le dernier chiffre d’un nombre, et savoir si une division « tombe juste ».\nDéfinition. L’opérateur reste % donne le reste de la division de a par b (MDN Web Docs, s. d.-h) : 1234 % 10 vaut 4, le dernier chiffre ; 7 % 2 vaut 1. Un nombre n est divisible par d si n % d === 0. Pour enlever le dernier chiffre : Math.floor(1234 / 10) vaut 123 (MDN Web Docs, s. d.-d). Le résultat de % a le signe du premier nombre : -3 % 2 vaut -1.\nExemple.\nconsole.log(1234 % 10);             // 4 : le dernier chiffre\nconsole.log(Math.floor(1234 / 10)); // 123 : sans le dernier chiffre\nconsole.log(12 % 3 === 0);          // true : 3 divise 12\nPas à pas. Le formateur montre chaque étape ; vous la refaites aussitôt.\n\nREPL : 1234 % 10, puis 123 % 10, puis 12 % 10.\nMath.floor(1234 / 10) : le nombre sans son dernier chiffre.\n12 % 3 puis 12 % 5 : lequel « tombe juste » ?\n\nVous devez voir :\n\nPS C:\\Users\\stagiaire\\dwwm\\semaine-03&gt; node\nWelcome to Node.js v24.21.0.\nType \".help\" for more information.\n&gt; 1234 % 10\n4\n&gt; 123 % 10\n3\n&gt; 12 % 10\n2\n&gt; Math.floor(1234 / 10)\n123\n&gt; 12 % 3\n0\n&gt; 12 % 5\n2\n\nPour quitter le REPL : .exit, ou deux fois Ctrl+CCtrl+C.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#reste-attention-et-vérification",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#reste-attention-et-vérification",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Reste — attention et vérification",
+    "text": "Reste — attention et vérification\n\n\n\n\n\n\nAvertissementAttention\n\n\n\nTester « impair » avec n % 2 === 1 échoue sur les négatifs (-3 % 2 vaut -1). Testez « pair » avec n % 2 === 0.\n\n\n\nVérifiez : que vaut 57 % 10 ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#consignes-1-h-50",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#consignes-1-h-50",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Consignes (1 h 50)",
+    "text": "Consignes (1 h 50)\n\nQuatre fonctions à écrire, dans l’ordre, fichiers p1-….\nAvant de coder : deux exemples d’entrée et de sortie, à la main.\nUn test à la fois : lisez le test rouge, corrigez, relancez.\nFini quand ses tests et ESLint (sur son fichier) sont au vert.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#les-quatre-fonctions",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#les-quatre-fonctions",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Les quatre fonctions",
+    "text": "Les quatre fonctions\n\np1-prix-ttc (facile) : prix TTC arrondi au centime, null si négatif.\np1-bissextile (facile) : année bissextile ou non.\np1-somme-chiffres (moyen) : 1234 → 10, avec % et while.\np1-pgcd (moyen) : l’algorithme d’Euclide.\n\nRepères : la règle des années bissextiles du calendrier grégorien (Wikipédia, s. d.-b) ; l’algorithme d’Euclide (Wikipédia, s. d.-a) ; la définition d’un nombre premier (Wikipédia, s. d.-c). Pour arrondir : Math.round (MDN Web Docs, s. d.-e) ; pour enlever le dernier chiffre : Math.floor (MDN Web Docs, s. d.-d).\n\n\n\n\n\n\nAstuceIndice — p1-premier\n\n\n\n\n\nEssayez tous les diviseurs possibles à partir de 2 ; dès que l’un divise n (reste nul), n n’est pas premier. Pour aller plus vite, on peut s’arrêter quand diviseur × diviseur dépasse n.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#anglais",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#anglais",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Anglais technique — Functions (MDN)",
+    "text": "Anglais technique — Functions (MDN)\nLisez la page Functions de MDN, en anglais (MDN Web Docs, s. d.-c).\n\nQuels sont les titres des grandes sections ?\nFunction declarations : de quoi se compose une déclaration ?\nFunction scopes : une variable de la fonction est-elle visible dehors ?\nD’après la première phrase, à quoi ressemble une fonction ?\n\nCritères de réussite\n\nLes tests des quatre fonctions p1-… du noyau sont au vert\nESLint ne signale rien sur ces fichiers\nLes quatre questions d’anglais ont une réponse\n\n\nSi le temps le permet — p1-premier, puis p1-table\n\np1-premier (moyen+) : nombre premier ou non, avec %.\np1-table : la table de multiplication, sous forme de texte.\nUne ligne par multiplication ; lignes séparées par \\n.\n\n\n\nPour aller plus loin\n\nÉcrivez daysInYear(year) : 365 ou 366 jours.\nRéutilisez isLeapYear : une fonction peut en appeler une autre.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#à-retenir-cet-après-midi",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#à-retenir-cet-après-midi",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "À retenir — cet après-midi",
+    "text": "À retenir — cet après-midi\n\n\n\n\n\n\nAstuceÀ retenir\n\n\n\n\nAvant de coder : deux exemples d’entrée et de sortie, à la main.\n% : le reste ; n % d === 0 si d divise n.\nUn test à la fois : lire, corriger, relancer.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/lundi.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/lundi.html#sources",
+    "title": "Lundi 19/10 — Fonctions et démarche de débogage",
+    "section": "Sources",
+    "text": "Sources\n\n\nMDN Web Docs. s. d.-a. « export - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/export.\n\n\nMDN Web Docs. s. d.-b. « Fonctions - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions.\n\n\nMDN Web Docs. s. d.-c. « Functions - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions.\n\n\nMDN Web Docs. s. d.-d. « Math : méthode statique floor() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/floor.\n\n\nMDN Web Docs. s. d.-e. « Math : méthode statique round() - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/round.\n\n\nMDN Web Docs. s. d.-f. « Portée (Scope) - Glossaire ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Glossary/Scope.\n\n\nMDN Web Docs. s. d.-g. « ReferenceError - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError.\n\n\nMDN Web Docs. s. d.-h. « Reste ( ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder.\n\n\nMDN Web Docs. s. d.-i. « return - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/return.\n\n\nMDN Web Docs. s. d.-j. « TypeError - JavaScript ». Consulté le 26 septembre 2026. https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/TypeError.\n\n\nWikipédia. s. d.-a. « Algorithme d’Euclide ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide.\n\n\nWikipédia. s. d.-b. « Année bissextile ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Ann%C3%A9e_bissextile.\n\n\nWikipédia. s. d.-c. « Nombre premier ». Consulté le 26 septembre 2026. https://fr.wikipedia.org/wiki/Nombre_premier.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Lundi 19/10 — Fonctions et démarche de débogage"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#objectifs-de-la-journée",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#objectifs-de-la-journée",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Objectifs de la journée",
+    "text": "Objectifs de la journée\n\nValider 5 exercices d’apprentissage, en anglais.\nFaire passer les tests des 4 exercices de rattrapage.\nFaire la fiche de révision sur papier, sans ordinateur.\nRepérer ce qu’il faut encore revoir avant l’ECF de vendredi."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#rappel-5-min",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nQuel est l’index du dernier élément d’un tableau ?\ntoUpperCase() modifie-t-il la chaîne ?\nQue donne '3' === 3 ?"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#lactivité",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#lactivité",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "L’activité",
+    "text": "L’activité\n\nOutil : Exercism, piste JavaScript.\nObjectif : 5 exercices d’apprentissage validés.\nPourquoi : revoir fonctions, booléens, nombres, chaînes, tableaux.\nPreuve : une capture de votre progression sur la piste.\nTout est en anglais : c’est aussi l’anglais technique de la semaine."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#déroulé-de-latelier",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#déroulé-de-latelier",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Déroulé de l’atelier",
+    "text": "Déroulé de l’atelier\n\nLancement (10 min) : un premier exercice, ensemble.\nPratique accompagnée : les exercices suivants, dans l’ordre.\nPoint d’étape (10 h 30) : un énoncé en anglais, décodé au tableau.\nMise en commun (11 h 25) : deux solutions comparées."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#consignes",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#consignes",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Consignes",
+    "text": "Consignes\n\nCréez votre compte, puis rejoignez la piste JavaScript.\nFaites les exercices d’apprentissage dans l’ordre, à partir du premier.\nLisez l’énoncé en entier avant de coder ; repérez les exemples.\nValidez 5 exercices (jusqu’à 11 h 25), puis capturez votre progression.\nRéussi si : 5 exercices validés, la capture faite."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#sans-compte-lalternative-locale",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#sans-compte-lalternative-locale",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Sans compte : l’alternative locale",
+    "text": "Sans compte : l’alternative locale\n\nCinq exercices dans l’archive de la semaine : e1 à e5.\nÉnoncés en anglais, dans le commentaire en haut du fichier.\nObjectif : les 5 au vert, un fichier de tests à la fois.\nPreuve : une capture du terminal avec les tests au vert."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#lactivité-1",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#lactivité-1",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "L’activité",
+    "text": "L’activité\n\nOutil : l’archive de la semaine, fichiers r1 à r4.\nObjectif : les 4 exercices au vert, puis la fiche papier.\nAvant tout : p2-masquer-carte (mardi), si elle n’est pas au vert.\nPourquoi : l’ECF de vendredi mélange papier et machine.\nPreuve : la fiche papier remplie, déposée ce soir."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#consignes-1",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#consignes-1",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Consignes",
+    "text": "Consignes\n\nr1-minimum : le plus petit nombre d’un tableau.\nr2-compter-pairs : combien de nombres pairs ?\nr3-majuscule : 'aDA' devient 'Ada'.\nr4-fizzbuzz-tableau : FizzBuzz, renvoyé sous forme de tableau.\nVers 15 h 30 : la fiche de révision, sans ordinateur (45 min)."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#fiche-de-révision-papier",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#fiche-de-révision-papier",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Fiche de révision papier",
+    "text": "Fiche de révision papier\n\nTrois exercices, à faire sur une feuille, sans ordinateur.\nPrédire un affichage, trouver un bug, écrire une fonction.\nVérifiez ensuite vos réponses sur l’ordinateur."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#trois-niveaux-au-choix",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#trois-niveaux-au-choix",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Trois niveaux, au choix",
+    "text": "Trois niveaux, au choix\n\nÀ faire si l’activité est terminée, ou au soutien pair à pair du mardi.\nNiveau 1 — Consolider : fonctions et tableaux, de mémoire.\nNiveau 2 — S’entraîner : ce qui reste des Problem sets 1 et 2.\nNiveau 3 — Aller plus loin : exercices en anglais et défis.\nLe détail de chaque niveau est dans le support."
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.slides.html#sources",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Sources",
+    "text": "Sources"
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "",
+    "text": "Matin : atelier guidé, avec le formateur. Après-midi (12 h 45 – 17 h) : en autonomie, seul ou en binôme. À déposer ce soir : une capture d’Exercism (ou du terminal) et la fiche de révision papier.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#objectifs-de-la-journée",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#objectifs-de-la-journée",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Objectifs de la journée",
+    "text": "Objectifs de la journée\n\nValider 5 exercices d’apprentissage, en anglais.\nFaire passer les tests des 4 exercices de rattrapage.\nFaire la fiche de révision sur papier, sans ordinateur.\nRepérer ce qu’il faut encore revoir avant l’ECF de vendredi.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#rappel-5-min",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#rappel-5-min",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Rappel (5 min)",
+    "text": "Rappel (5 min)\n\nQuel est l’index du dernier élément d’un tableau ?\ntoUpperCase() modifie-t-il la chaîne ?\nQue donne '3' === 3 ?\n\nTrois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#lactivité",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#lactivité",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "L’activité",
+    "text": "L’activité\n\nOutil : Exercism, piste JavaScript.\nObjectif : 5 exercices d’apprentissage validés.\nPourquoi : revoir fonctions, booléens, nombres, chaînes, tableaux.\nPreuve : une capture de votre progression sur la piste.\nTout est en anglais : c’est aussi l’anglais technique de la semaine.\n\nLa piste JavaScript d’Exercism propose une trentaine d’exercices d’apprentissage, chacun centré sur une notion (Exercism, s. d.). Il faut créer un compte pour y travailler. Si vous ne souhaitez pas vous inscrire, faites l’alternative locale ci-dessous : même niveau, même anglais.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#déroulé-de-latelier",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#déroulé-de-latelier",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Déroulé de l’atelier",
+    "text": "Déroulé de l’atelier\n\nLancement (10 min) : un premier exercice, ensemble.\nPratique accompagnée : les exercices suivants, dans l’ordre.\nPoint d’étape (10 h 30) : un énoncé en anglais, décodé au tableau.\nMise en commun (11 h 25) : deux solutions comparées.\n\nAu lancement, le formateur projette le premier exercice d’apprentissage : il lit l’énoncé en anglais avec le groupe, repère les exemples, écrit la solution et lance les tests. À la mise en commun, deux stagiaires montrent leur solution d’un même exercice : laquelle est la plus lisible, et pourquoi ?",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#consignes",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#consignes",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Consignes",
+    "text": "Consignes\n\nCréez votre compte, puis rejoignez la piste JavaScript.\nFaites les exercices d’apprentissage dans l’ordre, à partir du premier.\nLisez l’énoncé en entier avant de coder ; repérez les exemples.\nValidez 5 exercices (jusqu’à 11 h 25), puis capturez votre progression.\nRéussi si : 5 exercices validés, la capture faite.\n\nLes cinq premiers exercices d’apprentissage de la piste portent sur les bases, les booléens, les nombres, les chaînes et les tableaux (Exercism, s. d.) : exactement les notions de la semaine.\n\n\n\n\n\n\nAstuceSi vous êtes bloqué\n\n\n\n\n\n\nL’énoncé en anglais : repérez les exemples de code et les noms des fonctions ; ils disent souvent tout. Notez les mots inconnus et cherchez-les dans un dictionnaire (pas de traducteur automatique : on reste au palier 0 jusqu’à vendredi).\nUn test échoue : même démarche que lundi, lire, isoler, tester, corriger.\nToujours bloqué : passez à l’exercice suivant et notez celui qui résiste pour le point d’étape.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#sans-compte-lalternative-locale",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#sans-compte-lalternative-locale",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Sans compte : l’alternative locale",
+    "text": "Sans compte : l’alternative locale\n\nCinq exercices dans l’archive de la semaine : e1 à e5.\nÉnoncés en anglais, dans le commentaire en haut du fichier.\nObjectif : les 5 au vert, un fichier de tests à la fois.\nPreuve : une capture du terminal avec les tests au vert.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#lactivité-1",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#lactivité-1",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "L’activité",
+    "text": "L’activité\n\nOutil : l’archive de la semaine, fichiers r1 à r4.\nObjectif : les 4 exercices au vert, puis la fiche papier.\nAvant tout : p2-masquer-carte (mardi), si elle n’est pas au vert.\nPourquoi : l’ECF de vendredi mélange papier et machine.\nPreuve : la fiche papier remplie, déposée ce soir.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#consignes-1",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#consignes-1",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Consignes",
+    "text": "Consignes\n\nr1-minimum : le plus petit nombre d’un tableau.\nr2-compter-pairs : combien de nombres pairs ?\nr3-majuscule : 'aDA' devient 'Ada'.\nr4-fizzbuzz-tableau : FizzBuzz, renvoyé sous forme de tableau.\nVers 15 h 30 : la fiche de révision, sans ordinateur (45 min).",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#fiche-de-révision-papier",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#fiche-de-révision-papier",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Fiche de révision papier",
+    "text": "Fiche de révision papier\n\nTrois exercices, à faire sur une feuille, sans ordinateur.\nPrédire un affichage, trouver un bug, écrire une fonction.\nVérifiez ensuite vos réponses sur l’ordinateur.\n\n1. Qu’affiche ce programme ? Écrivez la valeur de total après chaque tour.\nlet total = 0;\nfor (const n of [3, 8, 5, 10]) {\n  if (n &gt; 4) {\n    total = total + n;\n  }\n}\nconsole.log(total);\n2. Trouvez le bug. countA('banana') devrait renvoyer 3, mais renvoie undefined. Pourquoi ? Corrigez.\nfunction countA(text) {\n  let count = 0;\n  for (const letter of text) {\n    if (letter === 'a') {\n      count = count + 1;\n    }\n  }\n}\n3. Écrivez à la main la fonction sumOfEvens(numbers), qui renvoie la somme des nombres pairs d’un tableau : sumOfEvens([1, 2, 3, 4]) renvoie 6.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#trois-niveaux-au-choix",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#trois-niveaux-au-choix",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Trois niveaux, au choix",
+    "text": "Trois niveaux, au choix\n\nÀ faire si l’activité est terminée, ou au soutien pair à pair du mardi.\nNiveau 1 — Consolider : fonctions et tableaux, de mémoire.\nNiveau 2 — S’entraîner : ce qui reste des Problem sets 1 et 2.\nNiveau 3 — Aller plus loin : exercices en anglais et défis.\nLe détail de chaque niveau est dans le support.\n\n\nNiveau 1 — ConsoliderNiveau 2 — S’entraînerNiveau 3 — Aller plus loin\n\n\n\nRefaites l1 à l3 dans de nouveaux fichiers, sans regarder vos premières versions.\nRefaites t1 et t2, puis tracez-les à la main sur [4, 8, 15].\nRelisez la démarche de débogage de lundi et refaites l4 en notant les quatre étapes.\n\n\n\n\nTerminez les fonctions des Problem sets 1 et 2 qui ne sont pas encore au vert.\nSemaine 2 : 07-pair-impair et 08-compte-a-rebours (« Si le temps le permet » du vendredi), s’ils ne sont pas au vert ; la boucle for est au programme de l’ECF (pas l’exercice 08 lui-même).\nFaites t6 et p1-table (rubriques « Si le temps le permet »).\nRefaites la fiche papier avec d’autres valeurs, puis vérifiez sur l’ordinateur.\n\n\n\n\nExercism fait : faites aussi l’alternative locale e1 à e5, et inversement.\nÉcrivez le palindrome qui ignore les espaces (« Ésope reste ici et se repose »).\nSemaine 2 : 11-triangle, un triangle d’étoiles avec deux boucles imbriquées.\nFiche « Les algorithmes » (jeudi) : f1-dichotomie-recursive (la dichotomie, sans boucle) et f2-tri-noms (des prénoms triés par sélection), avec leurs tests.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
+    ]
+  },
+  {
+    "objectID": "semaines/s03-fondamentaux-js-2/mercredi.html#sources",
+    "href": "semaines/s03-fondamentaux-js-2/mercredi.html#sources",
+    "title": "Mercredi 21/10 — Atelier guidé & autonomie",
+    "section": "Sources",
+    "text": "Sources\n\n\nExercism. s. d. « exercism/javascript : Exercism exercises in JavaScript ». Consulté le 26 septembre 2026. https://github.com/exercism/javascript.",
+    "crumbs": [
+      "Semaines",
+      "Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)",
+      "Mercredi 21/10 — Atelier guidé & autonomie"
     ]
   }
 ]

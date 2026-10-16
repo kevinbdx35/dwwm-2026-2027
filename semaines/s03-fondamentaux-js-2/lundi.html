@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Lundi 19/10 — Fonctions et démarche de débogage – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s03-fondamentaux-js-2/mardi.html" rel="next">
+<link href="../../semaines/s03-fondamentaux-js-2/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/index.html">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/lundi.html">Lundi 19/10 — Fonctions et démarche de débogage</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-fonctions-portée-démarche-de-résolution-de-problème-lire-lerreur-isoler-tester-exercices" id="toc-matin-fonctions-portée-démarche-de-résolution-de-problème-lire-lerreur-isoler-tester-exercices" class="nav-link" data-scroll-target="#matin-fonctions-portée-démarche-de-résolution-de-problème-lire-lerreur-isoler-tester-exercices">Matin — Fonctions &amp; portée · démarche de résolution de problème (lire l’erreur, isoler, tester) — exercices</a>
+  <ul class="collapse">
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#récupérer-les-fichiers-5-min" id="toc-récupérer-les-fichiers-5-min" class="nav-link" data-scroll-target="#récupérer-les-fichiers-5-min">Récupérer les fichiers (5 min)</a></li>
+  <li><a href="#apport-1-les-fonctions-10-min" id="toc-apport-1-les-fonctions-10-min" class="nav-link" data-scroll-target="#apport-1-les-fonctions-10-min">Apport 1 — Les fonctions (10 min)</a></li>
+  <li><a href="#fonctions-attention-et-vérification" id="toc-fonctions-attention-et-vérification" class="nav-link" data-scroll-target="#fonctions-attention-et-vérification">Fonctions — attention et vérification</a></li>
+  <li><a href="#exercices-l1-à-l3-premières-fonctions-30-min" id="toc-exercices-l1-à-l3-premières-fonctions-30-min" class="nav-link" data-scroll-target="#exercices-l1-à-l3-premières-fonctions-30-min">Exercices l1 à l3 — Premières fonctions (30 min)</a></li>
+  <li><a href="#apport-2-la-portée-10-min" id="toc-apport-2-la-portée-10-min" class="nav-link" data-scroll-target="#apport-2-la-portée-10-min">Apport 2 — La portée (10 min)</a></li>
+  <li><a href="#portée-attention-et-vérification" id="toc-portée-attention-et-vérification" class="nav-link" data-scroll-target="#portée-attention-et-vérification">Portée — attention et vérification</a></li>
+  <li><a href="#apport-3-déboguer-avec-méthode-20-min" id="toc-apport-3-déboguer-avec-méthode-20-min" class="nav-link" data-scroll-target="#apport-3-déboguer-avec-méthode-20-min">Apport 3 — Déboguer avec méthode (20 min)</a></li>
+  <li><a href="#débogage-attention-et-vérification" id="toc-débogage-attention-et-vérification" class="nav-link" data-scroll-target="#débogage-attention-et-vérification">Débogage — attention et vérification</a></li>
+  <li><a href="#débogage-l4-et-l5-30-min" id="toc-débogage-l4-et-l5-30-min" class="nav-link" data-scroll-target="#débogage-l4-et-l5-30-min">Débogage — l4 et l5 (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-l6-dernière-lettre" id="toc-si-le-temps-le-permet-l6-dernière-lettre" class="nav-link" data-scroll-target="#si-le-temps-le-permet-l6-dernière-lettre">Si le temps le permet — l6 (dernière lettre)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-tp-problem-set-1-validé-par-les-tests" id="toc-après-midi-tp-problem-set-1-validé-par-les-tests" class="nav-link" data-scroll-target="#après-midi-tp-problem-set-1-validé-par-les-tests">Après-midi — TP — « Problem set 1 » (validé par les tests)</a>
+  <ul class="collapse">
+  <li><a href="#apport-4-le-reste-10-min" id="toc-apport-4-le-reste-10-min" class="nav-link" data-scroll-target="#apport-4-le-reste-10-min">Apport 4 — Le reste <code>%</code> (10 min)</a></li>
+  <li><a href="#reste-attention-et-vérification" id="toc-reste-attention-et-vérification" class="nav-link" data-scroll-target="#reste-attention-et-vérification">Reste — attention et vérification</a></li>
+  <li><a href="#consignes-1-h-50" id="toc-consignes-1-h-50" class="nav-link" data-scroll-target="#consignes-1-h-50">Consignes (1 h 50)</a></li>
+  <li><a href="#les-quatre-fonctions" id="toc-les-quatre-fonctions" class="nav-link" data-scroll-target="#les-quatre-fonctions">Les quatre fonctions</a></li>
+  <li><a href="#anglais" id="toc-anglais" class="nav-link" data-scroll-target="#anglais">Anglais technique — <em>Functions</em> (MDN)</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-p1-premier-puis-p1-table" id="toc-si-le-temps-le-permet-p1-premier-puis-p1-table" class="nav-link" data-scroll-target="#si-le-temps-le-permet-p1-premier-puis-p1-table">Si le temps le permet — p1-premier, puis p1-table</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="lundi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="lundi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/index.html">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</a></li><li class="breadcrumb-item"><a href="../../semaines/s03-fondamentaux-js-2/lundi.html">Lundi 19/10 — Fonctions et démarche de débogage</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lundi 19/10 — Fonctions et démarche de débogage</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">lundi 19 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : résolution de problème · apprendre en continu (anglais)<br> <strong>Livrable</strong> : les quatre premières fonctions du Problem set 1 au vert (<code>p1-premier</code> si le temps le permet).</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Écrire une <a href="../../ressources/lexique.html#t-fonction">fonction</a> avec des <a href="../../ressources/lexique.html#t-parametre">paramètres</a> et un <code>return</code>.</li>
+<li>Expliquer pourquoi une <a href="../../ressources/lexique.html#t-variable">variable</a> d’une fonction n’existe pas dehors.</li>
+<li><a href="../../ressources/lexique.html#t-debogage">Déboguer</a> en quatre temps : lire, isoler, tester, corriger.</li>
+<li>Faire passer les <a href="../../ressources/lexique.html#t-test">tests</a> du Problem set 1.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Le matin, trois notions : la fonction, la <a href="../../ressources/lexique.html#t-portee">portée</a>, la démarche de débogage. L’après-midi, une : le reste <code>%</code>. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine chaque demi-journée. L’après-midi, le Problem set 1, validé par les tests.</p>
+</section>
+<section id="matin-fonctions-portée-démarche-de-résolution-de-problème-lire-lerreur-isoler-tester-exercices" class="level1">
+<h1>Matin — Fonctions &amp; portée · démarche de résolution de problème (lire l’erreur, isoler, tester) — exercices</h1>
+<section id="rappel-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<ol type="1">
+<li>Que fait <code>npx eslint .</code> ?</li>
+<li><code>while</code> ou <code>for</code> : lequel pour compter de 1 à 10 ?</li>
+<li>Que vaut <code>01001</code> avec les cartes 16, 8, 4, 2, 1 ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="récupérer-les-fichiers-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="récupérer-les-fichiers-5-min">Récupérer les fichiers (5 min)</h2>
+<ol type="1">
+<li>Téléchargez l’<a href="code/exercices/s03-exercices.zip">archive de la semaine</a>.</li>
+<li>Extrayez-la ; renommez le dossier <code>semaine-03</code> ; placez-le dans <code>dwwm</code>.</li>
+<li>Terminal : <code>cd ~/dwwm/semaine-03</code>, puis <code>npm install</code>.</li>
+<li>VS Code : <em>File</em>, <em>Open Folder…</em>, puis <code>dwwm/semaine-03</code>.</li>
+<li>ECF vendredi : un <strong>aide-mémoire</strong> manuscrit d’une page est autorisé.</li>
+</ol>
+<p>Même méthode que la semaine dernière pour extraire l’archive : sous Windows, clic droit, <em>Extraire tout…</em> ; sous macOS, double-clic ; sous Linux, clic droit, <em>Extraire ici</em>. <code>npm install</code> installe <a href="../../ressources/lexique.html#t-eslint">ESLint</a> pour cette semaine.</p>
+<p><strong>L’<a href="../../ressources/lexique.html#t-ecf">ECF</a> de vendredi</strong> se passe sans IA et sans internet. Un seul document est autorisé : un <strong>aide-mémoire papier d’une page A4, recto, écrit à la main par vous</strong>. Commencez-le dès aujourd’hui : notez-y ce que vous cherchez plusieurs fois cette semaine (la forme d’une fonction, une <a href="../../ressources/lexique.html#t-boucle">boucle</a> <code>for</code>, <code>length - 1</code>…), avec des exemples courts plutôt que des définitions. Ce sera la règle de tous les ECF de la formation.</p>
+<p><strong>Vous devez voir</strong>, après l’étape 3 :</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire&gt; cd ~/dwwm/semaine-03
+PS C:\Users\stagiaire\dwwm\semaine-03&gt; npm install
+
+added 79 packages, and audited 80 packages in 8s
+
+18 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities</code></pre>
+</div>
+<p>Le nombre de paquets et la durée peuvent changer : l’installation est réussie si aucune ligne ne commence par <code>npm error</code>.</p>
+</section>
+<section id="apport-1-les-fonctions-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-1-les-fonctions-10-min">Apport 1 — Les fonctions (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : écrire un calcul une fois, l’utiliser partout.</li>
+<li><strong>Fonction</strong> : un nom, des paramètres, un résultat renvoyé.</li>
+</ul>
+<p><strong>Pourquoi.</strong> En semaine 2, chaque programme lisait ses valeurs dans <code>process.argv</code> et affichait un résultat. Pour réutiliser un calcul (une aire, un prix TTC) avec d’autres valeurs, et pour le tester, on l’enferme dans une fonction.</p>
+<p><strong>Définition.</strong> Une fonction est un ensemble d’instructions qui effectue une tâche ou calcule une valeur ; on la déclare avec le mot-clé <code>function</code>, un nom, des <strong>paramètres</strong> entre parenthèses et des instructions entre accolades <span class="citation" data-cites="mdn-fonctions">(<a href="#ref-mdn-fonctions" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>. L’instruction <code>return</code> termine la fonction et indique la valeur renvoyée <span class="citation" data-cites="mdn-return">(<a href="#ref-mdn-return" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-i</a>)</span>. En semaine 2, le bloc personnalisé Scratch (rubrique « Pour aller plus loin ») était déjà une fonction.</p>
+<p><strong>Exemple, commenté ligne par ligne.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode js code-annotation-code code-with-copy code-annotated"><code class="sourceCode javascript"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">square</span>(n) {</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> n <span class="op">*</span> n<span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="annotated-cell-5-4"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-5" class="code-annotation-target"><a href="#annotated-cell-5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> result <span class="op">=</span> <span class="fu">square</span>(<span class="dv">4</span>)<span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-5-6" class="code-annotation-target"><a href="#annotated-cell-5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result)<span class="op">;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="1" data-code-annotation="1"><code>function</code> déclare une fonction nommée <code>square</code>, avec un paramètre <code>n</code> : la valeur qu’elle recevra à chaque appel.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="2"><code>return</code> arrête la fonction et renvoie le résultat de <code>n * n</code> à l’endroit qui l’a appelée.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="3">L’accolade ferme la fonction. Jusqu’ici, rien ne s’exécute : la fonction est seulement déclarée.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="5" data-code-annotation="4"><code>square(4)</code> appelle la fonction : pendant cet appel, <code>n</code> vaut <code>4</code>. La valeur renvoyée, <code>16</code>, est rangée dans <code>result</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="6" data-code-annotation="5"><code>console.log</code> affiche <code>16</code> dans le terminal.</span>
+</dd>
+</dl>
+<p><strong>Pas à pas.</strong> Le formateur tape chaque étape dans un fichier <code>essai-fonction.js</code> ; vous la refaites aussitôt.</p>
+<ol type="1">
+<li>Écrivez la fonction <code>square</code> (lignes 1 à 3). Lancez <code>node essai-fonction.js</code> : rien ne s’affiche. Déclarer une fonction ne l’exécute pas.</li>
+<li>Ajoutez la ligne 5 : <code>square(4)</code> <strong>appelle</strong> la fonction. Le paramètre <code>n</code> vaut <code>4</code> pendant cet appel.</li>
+<li><code>return n * n</code> <a href="../../ressources/lexique.html#t-return">renvoie</a> <code>16</code> : <code>result</code> vaut <code>16</code>.</li>
+<li>Ajoutez la ligne 6 et relancez : le <a href="../../ressources/lexique.html#t-terminal">terminal</a> affiche <code>16</code>.</li>
+<li>Ouvrez <code>l1-bonjour.js</code>, le premier exercice. Chaque exercice de la semaine a cette forme :</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">greet</span>(firstName) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// </span><span class="al">TODO</span><span class="co">: replace the line below with your code.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`À faire (</span><span class="sc">${</span>firstName<span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="6" type="1">
+<li>Remplacez le <code>return</code> par le vôtre ; gardez <code>export</code>. <code>export</code> rend la fonction utilisable depuis un autre fichier, ici le fichier de test <span class="citation" data-cites="mdn-export">(<a href="#ref-mdn-export" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span> (les modules sont détaillés en semaine 9). <code>node --test l1-bonjour.test.js</code> appelle votre fonction et vérifie ce qu’elle <strong>renvoie</strong>.</li>
+</ol>
+<p><strong>Vous devez voir</strong> : à l’étape 1, rien ; à l’étape 4, <code>16</code>.</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-03&gt; node essai-fonction.js
+PS C:\Users\stagiaire\dwwm\semaine-03&gt; node essai-fonction.js
+16</code></pre>
+</div>
+<p>À l’étape 6, avant d’écrire votre <code>return</code>, le test est rouge. Voici le début et les lignes utiles ; <code>…</code> remplace les lignes à ignorer :</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-03&gt; node --test l1-bonjour.test.js
+✖ Ada (5.995392ms)
+✖ Linus (0.933632ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+…
+  + 'À faire (Ada)'
+  - 'Bonjour, Ada !'
+…</code></pre>
+</div>
+<p><code>+</code> montre ce que renvoie votre fonction, <code>-</code> ce qu’elle devrait renvoyer : c’est la lecture d’un test rouge de la semaine 2.</p>
+</section>
+<section id="fonctions-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="fonctions-attention-et-vérification">Fonctions — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>console.log</code> affiche, <code>return</code> renvoie. Si le test reçoit <code>undefined</code>, la fonction affiche au lieu de renvoyer : remplacez <code>console.log(…)</code> par <code>return …</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que renvoie <code>square(3)</code> ? Et <code>square(-2)</code> ?</li>
+</ul>
+</section>
+<section id="exercices-l1-à-l3-premières-fonctions-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-l1-à-l3-premières-fonctions-30-min">Exercices l1 à l3 — Premières fonctions (30 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : <strong>l1-bonjour</strong>.</li>
+<li>Seuls : <strong>l2-aire-rectangle</strong>, puis <strong>l3-majorite</strong>.</li>
+<li>Pour chacun : ses tests, puis ESLint sur son seul fichier.</li>
+<li><strong>Réussi si</strong> : tests au vert, aucune alerte.</li>
+</ol>
+<ul>
+<li><strong>l1-bonjour</strong> : <code>greet('Ada')</code> renvoie <code>'Bonjour, Ada !'</code>.</li>
+<li><strong>l2-aire-rectangle</strong> : largeur × hauteur, <code>null</code> si une dimension est négative.</li>
+<li><strong>l3-majorite</strong> : l’exercice 06 de la semaine 2, écrit en fonction.</li>
+<li>Tests d’un exercice : <code>node --test l1-bonjour.test.js</code> (et ainsi de suite).</li>
+<li>ESLint sur l’exercice en cours, comme les tests : <code>npx eslint l1-bonjour.js</code>, puis <code>npx eslint l2-aire-rectangle.js</code>, puis <code>npx eslint l3-majorite.js</code>.</li>
+</ul>
+<p><strong>Vous devez voir</strong>, quand l1 est fini : <code>ℹ fail 0</code> pour les tests ; pour ESLint, rien du tout. Quand le fichier respecte toutes les règles, ESLint n’affiche aucune ligne : l’invite revient directement.</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-03&gt; node --test l1-bonjour.test.js
+✔ Ada (9.245182ms)
+✔ Linus (0.609778ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 226.42849
+PS C:\Users\stagiaire\dwwm\semaine-03&gt; npx eslint l1-bonjour.js
+PS C:\Users\stagiaire\dwwm\semaine-03&gt;</code></pre>
+</div>
+<p>Les durées entre parenthèses changent à chaque lancement : elles ne comptent pas.</p>
+</section>
+<section id="apport-2-la-portée-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-2-la-portée-10-min">Apport 2 — La portée (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : un même nom dans deux fonctions, sans conflit.</li>
+<li><strong>Portée</strong> : une variable n’existe que dans son bloc <code>{ … }</code>.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Dans un programme, plusieurs fonctions utilisent des variables comme <code>result</code> ou <code>total</code>. Si elles se voyaient toutes, l’une pourrait modifier celle de l’autre par erreur.</p>
+<p><strong>Définition.</strong> La portée est la partie du programme où une variable est visible et utilisable <span class="citation" data-cites="mdn-portee">(<a href="#ref-mdn-portee" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-f</a>)</span> : une variable créée avec <code>let</code> ou <code>const</code> dans une fonction, ou dans un bloc <code>{ … }</code>, n’existe que <strong>dans</strong> cette fonction ou ce bloc <span class="citation" data-cites="mdn-fonctions">(<a href="#ref-mdn-fonctions" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">double</span>(n) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> result <span class="op">=</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">double</span>(<span class="dv">3</span>))<span class="op">;</span> <span class="co">// 6</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result)<span class="op">;</span>    <span class="co">// ReferenceError</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur tape le code dans <code>essai-portee.js</code> ; vous le refaites aussitôt.</p>
+<ol type="1">
+<li>Écrivez les lignes 1 à 6. Lancez le fichier : il affiche <code>6</code>.</li>
+<li>Ajoutez la ligne 7 et relancez : <code>ReferenceError: result is not defined</code>.</li>
+<li>Lisez l’erreur : <code>result</code> n’existe pas à cet endroit, il n’existe que dans <code>double</code>.</li>
+<li>Pour garder le résultat, stockez ce que renvoie la fonction : <code>const doubled = double(3);</code>.</li>
+</ol>
+<p><strong>Vous devez voir</strong>, à l’étape 2 : <code>6</code>, puis l’erreur. Les lignes qui commencent par <code>at</code> sont des détails pour plus tard : ignorez-les.</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-03&gt; node essai-portee.js
+6
+file:///C:/Users/stagiaire/dwwm/semaine-03/essai-portee.js:7
+console.log(result);    // ReferenceError
+            ^
+
+ReferenceError: result is not defined
+    at file:///C:/Users/stagiaire/dwwm/semaine-03/essai-portee.js:7:13
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.21.0</code></pre>
+</div>
+</section>
+<section id="portée-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="portée-attention-et-vérification">Portée — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>ReferenceError: … is not defined</code> : la variable est utilisée hors de son bloc, ou son nom est mal écrit. Vérifiez où elle est déclarée.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : <code>if (true) { const x = 1; }</code> puis <code>x</code> : que se passe-t-il ?</li>
+</ul>
+</section>
+<section id="apport-3-déboguer-avec-méthode-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-3-déboguer-avec-méthode-20-min">Apport 3 — Déboguer avec méthode (20 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : trouver une erreur sans modifier le code au hasard.</li>
+<li><strong>Méthode</strong> : lire, isoler, tester, corriger.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Changer le code au hasard jusqu’à ce que « ça marche » prend du temps et crée de nouvelles erreurs. Une démarche en quatre temps trouve la cause plus vite, et elle se raconte devant un jury.</p>
+<p><strong>Définition.</strong> Déboguer, c’est trouver et corriger la cause d’un comportement faux, en quatre temps : <strong>lire</strong> l’erreur (son type, son message, la ligne) ; <strong>isoler</strong> l’endroit où le problème apparaît (un <code>console.log</code> aide) ; <strong>tester</strong> le cas précis qui échoue (vide, limite, absent) ; <strong>corriger</strong>, puis relancer <strong>tous</strong> les tests.</p>
+<p><strong>Exemple.</strong> Une erreur affichée par <a href="../../ressources/lexique.html#t-nodejs">Node.js</a> :</p>
+<pre><code>/…/err.js:2
+  return word[word.length - 1];
+                   ^
+
+TypeError: Cannot read properties of undefined (reading 'length')
+    at lastLetter (/…/err.js:2:20)</code></pre>
+<p><strong>Pas à pas.</strong> Le formateur lit l’erreur à voix haute ; vous notez chaque réponse.</p>
+<ol type="1">
+<li><strong>Lire</strong> le type : <code>TypeError</code>, une opération impossible sur une valeur du mauvais type <span class="citation" data-cites="mdn-typeerror">(<a href="#ref-mdn-typeerror" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-j</a>)</span>. (Une <code>ReferenceError</code> signale une variable qui n’existe pas <span class="citation" data-cites="mdn-referenceerror">(<a href="#ref-mdn-referenceerror" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-g</a>)</span>.)</li>
+<li><strong>Lire</strong> le message : on lit <code>length</code> sur une valeur <code>undefined</code>.</li>
+<li><strong>Lire</strong> l’endroit : fichier <code>err.js</code>, ligne 2, colonne 20, dans la fonction <code>lastLetter</code>.</li>
+<li><strong>Isoler</strong> : quelle valeur vaut <code>undefined</code> ? <code>word</code>. La fonction a été appelée sans <a href="../../ressources/lexique.html#t-argument">argument</a>.</li>
+<li><strong>Tester</strong> : appelez <code>lastLetter()</code> sans argument, puis <code>lastLetter('chat')</code>, pour comparer.</li>
+<li><strong>Corriger</strong> : ajoutez une garde au début de la fonction, puis relancez tous les tests.</li>
+</ol>
+<p>Message reproduit tel que Node.js l’affiche. La fiche <a href="../../ressources/fiche-erreurs.html">Lire un message d’erreur</a> rassemble les autres messages de Node (<code>ReferenceError</code>, <code>SyntaxError</code>, fichier introuvable).</p>
+</section>
+<section id="débogage-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="débogage-attention-et-vérification">Débogage — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Corrigez <strong>une</strong> chose à la fois, puis relancez tous les tests : deux changements en même temps cachent lequel a réglé le problème.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : dans l’exemple, à quelle ligne est l’erreur ?</li>
+</ul>
+</section>
+<section id="débogage-l4-et-l5-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="débogage-l4-et-l5-30-min">Débogage — l4 et l5 (30 min)</h2>
+<ol type="1">
+<li>Ensemble (5 min) : <strong>l4-total-panier</strong>, lisez l’erreur avant le code.</li>
+<li>Seuls : corrigez l4, puis <strong>l5-compter-jusqua</strong> (un résultat faux).</li>
+<li>Sur papier, pour chacun : l’erreur, la cause, la correction.</li>
+<li><strong>Réussi si</strong> : les deux au vert, et vos trois lignes écrites.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — l5
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ajoutez <code>console.log(i)</code> dans la boucle et appelez <code>countTo(3)</code> : quelles valeurs de <code>i</code> passent ? Laquelle manque ?</p>
+</div>
+</div>
+</div>
+<p>Pour l4, ESLint trouve le problème avant même de lancer les tests. <strong>Vous devez voir</strong>, avant votre correction :</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-03&gt; npx eslint l4-total-panier.js
+
+C:\Users\stagiaire\dwwm\semaine-03\l4-total-panier.js
+  9:13  error  'totl' is not defined  no-undef
+
+✖ 1 problem (1 error, 0 warnings)</code></pre>
+</div>
+<p><code>9:13</code> : ligne 9, colonne 13. <code>no-undef</code> : une variable utilisée sans avoir été déclarée. Après la correction, la même commande n’affiche plus rien.</p>
+<section id="si-le-temps-le-permet-l6-dernière-lettre" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-l6-dernière-lettre">Si le temps le permet — l6 (dernière lettre)</h3>
+<ol type="1">
+<li><strong>l6-derniere-lettre</strong> : deux problèmes, un résultat faux et une erreur.</li>
+<li>Trouvez le test qui montre chacun des deux.</li>
+<li>Corrigez-les un par un.</li>
+</ol>
+</section>
+</section>
+<section id="à-retenir-ce-matin" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Fonction</strong> : <code>return</code> renvoie le résultat ; <code>console.log</code> affiche.</li>
+<li><strong>Portée</strong> : une variable n’existe que dans son bloc <code>{ … }</code>.</li>
+<li><strong>Déboguer</strong> : lire, isoler, tester, corriger ; une chose à la fois.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Fonction</strong> : <code>function nom(paramètres) { … return …; }</code> ; déclarer n’exécute pas, appeler exécute ; gardez <code>export</code> dans les exercices.</li>
+<li><strong>Portée</strong> : une variable <code>let</code> ou <code>const</code> n’existe que dans sa fonction ou son bloc ; hors de là, <code>ReferenceError</code>.</li>
+<li><strong>Déboguer</strong> : lire le type, le message et la ligne de l’erreur ; isoler avec <code>console.log</code> ; tester le cas qui échoue ; corriger une chose à la fois, puis relancer tous les tests.</li>
+</ul>
+</section>
+<section id="débrief" class="level2">
+<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<ul>
+<li>Quelle différence entre afficher un résultat et le renvoyer ?</li>
+<li>Pourquoi <code>result</code> n’existe-t-il pas en dehors de <code>double</code> ?</li>
+<li>Quelle étape de la démarche avez-vous le plus utilisée ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-tp-problem-set-1-validé-par-les-tests" class="level1">
+<h1>Après-midi — TP — « Problem set 1 » (validé par les tests)</h1>
+<section id="apport-4-le-reste-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="apport-4-le-reste-10-min">Apport 4 — Le reste <code>%</code> (10 min)</h2>
+<ul>
+<li><strong>Pourquoi</strong> : le dernier chiffre ; une division qui tombe juste.</li>
+<li><strong><code>a % b</code></strong> : le reste de la division de <code>a</code> par <code>b</code>.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Le Problem set de cet après-midi demande d’additionner les chiffres d’un nombre (et, si le temps le permet, de reconnaître un nombre premier). Il faut pour cela le dernier chiffre d’un nombre, et savoir si une division « tombe juste ».</p>
+<p><strong>Définition.</strong> L’<a href="../../ressources/lexique.html#t-operateur-reste">opérateur reste</a> <code>%</code> donne le reste de la division de <code>a</code> par <code>b</code> <span class="citation" data-cites="mdn-reste">(<a href="#ref-mdn-reste" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-h</a>)</span> : <code>1234 % 10</code> vaut <code>4</code>, le dernier chiffre ; <code>7 % 2</code> vaut <code>1</code>. Un nombre <code>n</code> est divisible par <code>d</code> si <code>n % d === 0</code>. Pour enlever le dernier chiffre : <code>Math.floor(1234 / 10)</code> vaut <code>123</code> <span class="citation" data-cites="mdn-math-floor">(<a href="#ref-mdn-math-floor" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span>. Le résultat de <code>%</code> a le signe du premier nombre : <code>-3 % 2</code> vaut <code>-1</code>.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">1234</span> <span class="op">%</span> <span class="dv">10</span>)<span class="op">;</span>             <span class="co">// 4 : le dernier chiffre</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="dv">1234</span> <span class="op">/</span> <span class="dv">10</span>))<span class="op">;</span> <span class="co">// 123 : sans le dernier chiffre</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">12</span> <span class="op">%</span> <span class="dv">3</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span>          <span class="co">// true : 3 divise 12</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur montre chaque étape ; vous la refaites aussitôt.</p>
+<ol type="1">
+<li>REPL : <code>1234 % 10</code>, puis <code>123 % 10</code>, puis <code>12 % 10</code>.</li>
+<li><code>Math.floor(1234 / 10)</code> : le nombre sans son dernier chiffre.</li>
+<li><code>12 % 3</code> puis <code>12 % 5</code> : lequel « tombe juste » ?</li>
+</ol>
+<p><strong>Vous devez voir</strong> :</p>
+<div class="terminal">
+<pre class="text"><code>PS C:\Users\stagiaire\dwwm\semaine-03&gt; node
+Welcome to Node.js v24.21.0.
+Type ".help" for more information.
+&gt; 1234 % 10
+4
+&gt; 123 % 10
+3
+&gt; 12 % 10
+2
+&gt; Math.floor(1234 / 10)
+123
+&gt; 12 % 3
+0
+&gt; 12 % 5
+2</code></pre>
+</div>
+<p>Pour quitter le REPL : <code>.exit</code>, ou deux fois <kbd title="Ctrl+C" aria-hidden="true">Ctrl+C</kbd><span class="visually-hidden">Ctrl+C</span>.</p>
+</section>
+<section id="reste-attention-et-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="reste-attention-et-vérification">Reste — attention et vérification</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tester « impair » avec <code>n % 2 === 1</code> échoue sur les négatifs (<code>-3 % 2</code> vaut <code>-1</code>). Testez « pair » avec <code>n % 2 === 0</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que vaut <code>57 % 10</code> ?</li>
+</ul>
+</section>
+<section id="consignes-1-h-50" class="level2">
+<h2 class="anchored" data-anchor-id="consignes-1-h-50">Consignes (1 h 50)</h2>
+<ol type="1">
+<li>Quatre fonctions à écrire, dans l’ordre, fichiers <code>p1-…</code>.</li>
+<li>Avant de coder : deux exemples d’entrée et de sortie, à la main.</li>
+<li>Un test à la fois : lisez le test rouge, corrigez, relancez.</li>
+<li>Fini quand ses tests et ESLint (sur son fichier) sont au vert.</li>
+</ol>
+</section>
+<section id="les-quatre-fonctions" class="level2">
+<h2 class="anchored" data-anchor-id="les-quatre-fonctions">Les quatre fonctions</h2>
+<ul>
+<li><strong>p1-prix-ttc</strong> (facile) : prix TTC arrondi au centime, <code>null</code> si négatif.</li>
+<li><strong>p1-bissextile</strong> (facile) : année bissextile ou non.</li>
+<li><strong>p1-somme-chiffres</strong> (moyen) : 1234 → 10, avec <code>%</code> et <code>while</code>.</li>
+<li><strong>p1-pgcd</strong> (moyen) : l’algorithme d’Euclide.</li>
+</ul>
+<p>Repères : la règle des années bissextiles du calendrier grégorien <span class="citation" data-cites="wikipedia-annee-bissextile">(<a href="#ref-wikipedia-annee-bissextile" role="doc-biblioref">Wikipédia, s.&nbsp;d.-b</a>)</span> ; l’<a href="../../ressources/lexique.html#t-algorithme">algorithme</a> d’Euclide <span class="citation" data-cites="wikipedia-euclide">(<a href="#ref-wikipedia-euclide" role="doc-biblioref">Wikipédia, s.&nbsp;d.-a</a>)</span> ; la définition d’un nombre premier <span class="citation" data-cites="wikipedia-nombre-premier">(<a href="#ref-wikipedia-nombre-premier" role="doc-biblioref">Wikipédia, s.&nbsp;d.-c</a>)</span>. Pour arrondir : <code>Math.round</code> <span class="citation" data-cites="mdn-math-round">(<a href="#ref-mdn-math-round" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-e</a>)</span> ; pour enlever le dernier chiffre : <code>Math.floor</code> <span class="citation" data-cites="mdn-math-floor">(<a href="#ref-mdn-math-floor" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice — p1-premier
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Essayez tous les diviseurs possibles à partir de 2 ; dès que l’un divise <code>n</code> (reste nul), <code>n</code> n’est pas premier. Pour aller plus vite, on peut s’arrêter quand <code>diviseur × diviseur</code> dépasse <code>n</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="anglais" class="level2">
+<h2 class="anchored" data-anchor-id="anglais">Anglais technique — <em>Functions</em> (MDN)</h2>
+<p>Lisez la page <em>Functions</em> de MDN, en anglais <span class="citation" data-cites="mdn-functions-en">(<a href="#ref-mdn-functions-en" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>.</p>
+<ol type="1">
+<li>Quels sont les titres des grandes sections ?</li>
+<li><em>Function declarations</em> : de quoi se compose une déclaration ?</li>
+<li><em>Function scopes</em> : une variable de la fonction est-elle visible dehors ?</li>
+<li>D’après la première phrase, à quoi ressemble une fonction ?</li>
+</ol>
+<p><strong>Critères de réussite</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Les tests des quatre fonctions <code>p1-…</code> du noyau sont au vert</label></li>
+<li><label><input type="checkbox">ESLint ne signale rien sur ces fichiers</label></li>
+<li><label><input type="checkbox">Les quatre questions d’anglais ont une réponse</label></li>
+</ul>
+<section id="si-le-temps-le-permet-p1-premier-puis-p1-table" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-p1-premier-puis-p1-table">Si le temps le permet — p1-premier, puis p1-table</h3>
+<ul>
+<li><strong>p1-premier</strong> (moyen+) : nombre premier ou non, avec <code>%</code>.</li>
+<li><strong>p1-table</strong> : la table de multiplication, sous forme de texte.</li>
+<li>Une ligne par multiplication ; lignes séparées par <code>\n</code>.</li>
+</ul>
+</section>
+<section id="pour-aller-plus-loin" class="level3">
+<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<ul>
+<li>Écrivez <code>daysInYear(year)</code> : 365 ou 366 jours.</li>
+<li>Réutilisez <code>isLeapYear</code> : une fonction peut en appeler une autre.</li>
+</ul>
+</section>
+</section>
+<section id="à-retenir-cet-après-midi" class="level2">
+<h2 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Avant de coder</strong> : deux exemples d’entrée et de sortie, à la main.</li>
+<li><strong><code>%</code></strong> : le reste ; <code>n % d === 0</code> si <code>d</code> divise <code>n</code>.</li>
+<li><strong>Un test à la fois</strong> : lire, corriger, relancer.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-mdn-export" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;export - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/export">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/export</a>.
+</div>
+<div id="ref-mdn-fonctions" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Fonctions - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions">https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions</a>.
+</div>
+<div id="ref-mdn-functions-en" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Functions - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions</a>.
+</div>
+<div id="ref-mdn-math-floor" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;Math : méthode statique floor() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/floor">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/floor</a>.
+</div>
+<div id="ref-mdn-math-round" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-e. <span>«&nbsp;Math : méthode statique round() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/round">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/round</a>.
+</div>
+<div id="ref-mdn-portee" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-f. <span>«&nbsp;Portée (Scope) - Glossaire&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Glossary/Scope">https://developer.mozilla.org/fr/docs/Glossary/Scope</a>.
+</div>
+<div id="ref-mdn-referenceerror" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-g. <span>«&nbsp;ReferenceError - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError</a>.
+</div>
+<div id="ref-mdn-reste" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-h. <span>«&nbsp;Reste (&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Remainder</a>.
+</div>
+<div id="ref-mdn-return" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-i. <span>«&nbsp;return - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/return">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/return</a>.
+</div>
+<div id="ref-mdn-typeerror" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-j. <span>«&nbsp;TypeError - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/TypeError">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/TypeError</a>.
+</div>
+<div id="ref-wikipedia-euclide" class="csl-entry" role="listitem">
+Wikipédia. s.&nbsp;d.-a. <span>«&nbsp;Algorithme d’Euclide&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide">https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide</a>.
+</div>
+<div id="ref-wikipedia-annee-bissextile" class="csl-entry" role="listitem">
+Wikipédia. s.&nbsp;d.-b. <span>«&nbsp;Année bissextile&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://fr.wikipedia.org/wiki/Ann%C3%A9e_bissextile">https://fr.wikipedia.org/wiki/Ann%C3%A9e_bissextile</a>.
+</div>
+<div id="ref-wikipedia-nombre-premier" class="csl-entry" role="listitem">
+Wikipédia. s.&nbsp;d.-c. <span>«&nbsp;Nombre premier&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://fr.wikipedia.org/wiki/Nombre_premier">https://fr.wikipedia.org/wiki/Nombre_premier</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="pagination-link" aria-label="Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="pagination-link" aria-label="Mardi 20/10 — Tableaux et chaînes de caractères">
+        <span class="nav-page-text">Mardi 20/10 — Tableaux et chaînes de caractères</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
