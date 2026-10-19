@@ -120,7 +120,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-87236e28b2942cd7f25a9259a6bac1d9.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8b62ad57da1bf14417fa5ee8d58390df.css">
   <link rel="stylesheet" href="../../polices.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -235,7 +235,7 @@ Kevin Bardoux
 
   <p class="date">mardi 13 octobre 2026</p>
 </section>
-<section class="slide level2">
+<section class="slide level3">
 
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
@@ -246,20 +246,20 @@ Kevin Bardoux
 </div>
 </section>
 <section>
-<section id="matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" class="title-slide slide level1 center">
-<h1>Matin — Premiers pas en JavaScript avec Node : installation, console, variables, types, ===</h1>
+<section id="matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" class="title-slide slide level2 center">
+<h2>Matin — Premiers pas en JavaScript avec Node : installation, console, variables, types, ===</h2>
 
 </section>
-<section id="rappel-5-min" class="slide level2">
-<h2>Rappel (5 min)</h2>
+<section id="rappel-5-min" class="slide level3">
+<h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>À quoi sert une variable ?</li>
 <li>Que faut-il pour qu’un message démarre un script ?</li>
 <li>Qu’est-ce que le pseudo-code ?</li>
 </ol>
 </section>
-<section id="apport-1-installer-node.js-10-min" class="slide level2">
-<h2>Apport 1 — Installer Node.js (10 min)</h2>
+<section id="apport-1-installer-node.js-10-min" class="slide level3">
+<h3>Apport 1 — Installer Node.js (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : lancer vos programmes JavaScript sur votre ordinateur.</li>
 <li><strong>Node.js</strong> exécute du JavaScript en dehors du navigateur.</li>
@@ -271,8 +271,8 @@ Kevin Bardoux
 <span id="cb1-4"><a aria-label="4"></a>11.19.0</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="node.js-attention-et-vérification" class="slide level2">
-<h2>Node.js — attention et vérification</h2>
+<section id="node.js-attention-et-vérification" class="slide level3">
+<h3>Node.js — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -290,16 +290,16 @@ Kevin Bardoux
 <li><strong>Vérifiez</strong> : <code>node -v</code> et <code>npm -v</code> affichent chacun un numéro.</li>
 </ul>
 </section>
-<section id="apport-2-un-éditeur-de-code-vs-code-10-min" class="slide level2">
-<h2>Apport 2 — Un éditeur de code : VS Code (10 min)</h2>
+<section id="apport-2-un-éditeur-de-code-vs-code-10-min" class="slide level3">
+<h3>Apport 2 — Un éditeur de code : VS Code (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : écrire vos fichiers <code>.js</code> et les retrouver.</li>
 <li><strong>VS Code</strong> : l’éditeur de code de la formation, gratuit.</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Bonjour depuis VS Code'</span>)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="vs-code-attention-et-vérification" class="slide level2">
-<h2>VS Code — attention et vérification</h2>
+<section id="vs-code-attention-et-vérification" class="slide level3">
+<h3>VS Code — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -317,8 +317,8 @@ Kevin Bardoux
 <li><strong>Vérifiez</strong> : <code>node essai.js</code> affiche <code>Bonjour depuis VS Code</code>.</li>
 </ul>
 </section>
-<section id="apport-3-const-et-let-8-min" class="slide level2">
-<h2>Apport 3 — <code>const</code> et <code>let</code> (8 min)</h2>
+<section id="apport-3-const-et-let-8-min" class="slide level3">
+<h3>Apport 3 — <code>const</code> et <code>let</code> (8 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : garder une valeur pour la réutiliser plus loin.</li>
 <li><strong>Variable</strong> : un nom qui désigne une valeur ; <code>const</code> par défaut.</li>
@@ -328,8 +328,8 @@ Kevin Bardoux
 <span id="cb3-3"><a aria-label="3"></a>score <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
 <span id="cb3-4"><a aria-label="4"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(city<span class="op">,</span> score)<span class="op">;</span> <span class="co">// Brest 15</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="variables-attention-et-vérification" class="slide level2">
-<h2>Variables — attention et vérification</h2>
+<section id="variables-attention-et-vérification" class="slide level3">
+<h3>Variables — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -348,8 +348,8 @@ Kevin Bardoux
 <li>Prédisez, puis tapez la ligne dans le REPL.</li>
 </ul>
 </section>
-<section id="apport-4-les-types-et-typeof-7-min" class="slide level2">
-<h2>Apport 4 — Les types et <code>typeof</code> (7 min)</h2>
+<section id="apport-4-les-types-et-typeof-7-min" class="slide level3">
+<h3>Apport 4 — Les types et <code>typeof</code> (7 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : <code>'4' + 2</code> ne donne pas <code>6</code>.</li>
 <li><strong>Type</strong> : la sorte d’une valeur ; <code>typeof</code> la donne.</li>
@@ -360,8 +360,8 @@ Kevin Bardoux
 <span id="cb4-4"><a aria-label="4"></a><span class="st">'4'</span> <span class="op">+</span> <span class="dv">2</span>       <span class="co">// '42' : + colle deux textes</span></span>
 <span id="cb4-5"><a aria-label="5"></a><span class="st">'4'</span> <span class="op">*</span> <span class="dv">2</span>       <span class="co">// 8 : * convertit le texte en nombre</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="types-attention-et-vérification" class="slide level2">
-<h2>Types — attention et vérification</h2>
+<section id="types-attention-et-vérification" class="slide level3">
+<h3>Types — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -380,8 +380,8 @@ Kevin Bardoux
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
-<section id="exercice-prédire-puis-vérifier-30-min" class="slide level2">
-<h2>Exercice — Prédire, puis vérifier (30 min)</h2>
+<section id="exercice-prédire-puis-vérifier-30-min" class="slide level3">
+<h3>Exercice — Prédire, puis vérifier (30 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : prédisez à voix haute les lignes 1 et 7.</li>
 <li>Seuls, sur papier (10 min) : prédisez les lignes 2 à 9.</li>
@@ -390,8 +390,8 @@ Kevin Bardoux
 <li><strong>Réussi si</strong> : chaque erreur de prédiction a sa raison écrite.</li>
 </ol>
 </section>
-<section id="apport-5-comparer-avec-10-min" class="slide level2">
-<h2>Apport 5 — Comparer avec <code>===</code> (10 min)</h2>
+<section id="apport-5-comparer-avec-10-min" class="slide level3">
+<h3>Apport 5 — Comparer avec <code>===</code> (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : un programme doit savoir si deux valeurs sont égales.</li>
 <li><strong><code>===</code></strong> : même type <strong>et</strong> même valeur ; jamais <code>==</code>.</li>
@@ -401,8 +401,8 @@ Kevin Bardoux
 <span id="cb5-3"><a aria-label="3"></a><span class="st">'3'</span> <span class="op">==</span> <span class="dv">3</span>    <span class="co">// true : == a converti le texte</span></span>
 <span id="cb5-4"><a aria-label="4"></a><span class="dv">3</span> <span class="op">!==</span> <span class="dv">4</span>     <span class="co">// true : 3 est différent de 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="attention-et-vérification" class="slide level2">
-<h2><code>===</code> — attention et vérification</h2>
+<section id="attention-et-vérification" class="slide level3">
+<h3><code>===</code> — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -421,8 +421,8 @@ Kevin Bardoux
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
-<section id="exercice-quatre-comparaisons-10-min" class="slide level2">
-<h2>Exercice — Quatre comparaisons (10 min)</h2>
+<section id="exercice-quatre-comparaisons-10-min" class="slide level3">
+<h3>Exercice — Quatre comparaisons (10 min)</h3>
 <ol type="1">
 <li>Ensemble (2 min) : prédisez à voix haute la comparaison 1.</li>
 <li>Seuls (5 min) : écrivez <code>true</code> ou <code>false</code> pour 2 à 4.</li>
@@ -430,8 +430,8 @@ Kevin Bardoux
 <li><strong>Réussi si</strong> : chaque surprise est entourée et expliquée.</li>
 </ol>
 </section>
-<section id="à-retenir-ce-matin" class="slide level2">
-<h2>À retenir — ce matin</h2>
+<section id="à-retenir-ce-matin" class="slide level3">
+<h3>À retenir — ce matin</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -452,8 +452,8 @@ Kevin Bardoux
 </div>
 </div>
 </section>
-<section id="débrief" class="slide level2">
-<h2>Débrief</h2>
+<section id="débrief" class="slide level3">
+<h3>Débrief</h3>
 <ul>
 <li>Quelle différence entre <code>let</code> et <code>const</code> ?</li>
 <li>Pourquoi <code>'4' + 2</code> donne-t-il <code>'42'</code> ?</li>
@@ -461,12 +461,12 @@ Kevin Bardoux
 </ul>
 </section></section>
 <section>
-<section id="après-midi-tp-hello-js-premiers-tests-automatiques" class="title-slide slide level1 center">
-<h1>Après-midi — TP — « Hello, JS » · premiers tests automatiques</h1>
+<section id="après-midi-tp-hello-js-premiers-tests-automatiques" class="title-slide slide level2 center">
+<h2>Après-midi — TP — « Hello, JS » · premiers tests automatiques</h2>
 
 </section>
-<section id="apport-6-lancer-un-programme-et-ses-tests-15-min" class="slide level2">
-<h2>Apport 6 — Lancer un programme et ses tests (15 min)</h2>
+<section id="apport-6-lancer-un-programme-et-ses-tests-15-min" class="slide level3">
+<h3>Apport 6 — Lancer un programme et ses tests (15 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : vérifier un programme sans tout relire à la main.</li>
 <li><strong>Test</strong> : il lance votre programme et compare au résultat attendu.</li>
@@ -481,8 +481,8 @@ Kevin Bardoux
 <span id="cb6-7"><a aria-label="7"></a>  - 'Hello, world!'</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="tests-attention-et-vérification" class="slide level2">
-<h2>Tests — attention et vérification</h2>
+<section id="tests-attention-et-vérification" class="slide level3">
+<h3>Tests — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -501,8 +501,8 @@ Kevin Bardoux
 <li>Répondez sur votre feuille, puis comparez avec votre voisin.</li>
 </ul>
 </section>
-<section id="apport-7-une-valeur-dans-un-texte-5-min" class="slide level2">
-<h2>Apport 7 — Une valeur dans un texte (5 min)</h2>
+<section id="apport-7-une-valeur-dans-un-texte-5-min" class="slide level3">
+<h3>Apport 7 — Une valeur dans un texte (5 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : afficher une phrase qui contient une valeur.</li>
 <li><strong>Littéral de gabarit</strong> : un texte entre accents graves ; <code>${…}</code> insère.</li>
@@ -510,8 +510,8 @@ Kevin Bardoux
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a aria-label="1"></a><span class="kw">const</span> firstName <span class="op">=</span> <span class="st">'Ada'</span><span class="op">;</span></span>
 <span id="cb7-2"><a aria-label="2"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Bonjour </span><span class="sc">${</span>firstName<span class="sc">}</span><span class="vs"> !`</span>)<span class="op">;</span> <span class="co">// Bonjour Ada !</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="littéral-de-gabarit-attention-et-vérification" class="slide level2">
-<h2>Littéral de gabarit — attention et vérification</h2>
+<section id="littéral-de-gabarit-attention-et-vérification" class="slide level3">
+<h3>Littéral de gabarit — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -530,8 +530,8 @@ Kevin Bardoux
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
-<section id="exercices-01-à-04-1-h-15" class="slide level2">
-<h2>Exercices 01 à 04 (1 h 15)</h2>
+<section id="exercices-01-à-04-1-h-15" class="slide level3">
+<h3>Exercices 01 à 04 (1 h 15)</h3>
 <ol type="1">
 <li>Ensemble (10 min) : <code>01-hello</code>, du test rouge au test vert.</li>
 <li>Seuls : <code>02-presentation</code>, puis <code>03-types</code>, puis <code>04-egalite</code>.</li>
@@ -539,8 +539,8 @@ Kevin Bardoux
 <li><strong>Réussi si</strong> : <code>✔</code> pour les tests de 01 à 04.</li>
 </ol>
 </section>
-<section id="à-retenir-cet-après-midi" class="slide level2">
-<h2>À retenir — cet après-midi</h2>
+<section id="à-retenir-cet-après-midi" class="slide level3">
+<h3>À retenir — cet après-midi</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -559,16 +559,16 @@ Kevin Bardoux
 </div>
 </div>
 </section>
-<section id="débrief-10-min" class="slide level2">
-<h2>Débrief (10 min)</h2>
+<section id="débrief-10-min" class="slide level3">
+<h3>Débrief (10 min)</h3>
 <ul>
 <li>Que montre la ligne <code>-</code> d’un test rouge ?</li>
 <li>Quelle différence entre <code>'…'</code> et <code>`…`</code> ?</li>
 <li>Quel exercice vous a demandé le plus d’essais, et pourquoi ?</li>
 </ul>
 </section>
-<section id="sources" class="slide level2 smaller scrollable">
-<h2>Sources</h2>
+<section id="sources" class="slide level3 smaller scrollable">
+<h3>Sources</h3>
 <div id="refs" role="list">
 
 </div>

@@ -369,14 +369,14 @@ div.csl-indent {
   <ul>
   <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
   <li><a href="#veille-installer-un-paquet-npm-quels-risques-30-min" id="toc-veille-installer-un-paquet-npm-quels-risques-30-min" class="nav-link" data-scroll-target="#veille-installer-un-paquet-npm-quels-risques-30-min">Veille — Installer un paquet npm : quels risques ? (30 min)</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#avant-la-veille-npm-install-2-min" id="toc-avant-la-veille-npm-install-2-min" class="nav-link" data-scroll-target="#avant-la-veille-npm-install-2-min">Avant la veille : <code>npm install</code> (2 min)</a></li>
   <li><a href="#pourquoi-cette-question" id="toc-pourquoi-cette-question" class="nav-link" data-scroll-target="#pourquoi-cette-question">Pourquoi cette question ?</a></li>
   <li><a href="#en-groupe-15-min" id="toc-en-groupe-15-min" class="nav-link" data-scroll-target="#en-groupe-15-min">En groupe (15 min)</a></li>
   <li><a href="#mise-en-commun-et-trace-écrite-15-min" id="toc-mise-en-commun-et-trace-écrite-15-min" class="nav-link" data-scroll-target="#mise-en-commun-et-trace-écrite-15-min">Mise en commun et trace écrite (15 min)</a></li>
   </ul></li>
   <li><a href="#matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ" id="toc-matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ" class="nav-link" data-scroll-target="#matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ">Matin — Conditions &amp; boucles — exercices guidés · ESLint dès le départ</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
   <li><a href="#apport-1-eslint-5-min" id="toc-apport-1-eslint-5-min" class="nav-link" data-scroll-target="#apport-1-eslint-5-min">Apport 1 — ESLint (5 min)</a></li>
   <li><a href="#eslint-attention-et-vérification" id="toc-eslint-attention-et-vérification" class="nav-link" data-scroll-target="#eslint-attention-et-vérification">ESLint — attention et vérification</a></li>
@@ -396,7 +396,7 @@ div.csl-indent {
   <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
   </ul></li>
   <li><a href="#après-midi-groupe-b-projet-consolidation" id="toc-après-midi-groupe-b-projet-consolidation" class="nav-link" data-scroll-target="#après-midi-groupe-b-projet-consolidation">Après-midi — Groupe B : projet &amp; consolidation</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#au-programme" id="toc-au-programme" class="nav-link" data-scroll-target="#au-programme">Au programme</a></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul></li>
@@ -457,10 +457,10 @@ div.csl-indent {
 </ul>
 <p><strong>Comment se passe la matinée.</strong> Lancez <code>npm install</code> dès votre arrivée (étape 1 ci-dessous) : il télécharge ESLint pendant la veille. Chaque notion suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification. Un encadré « À retenir » termine la matinée.</p>
 </section>
-<section id="veille-installer-un-paquet-npm-quels-risques-30-min" class="level1">
-<h1>Veille — Installer un paquet npm : quels risques ? (30 min)</h1>
-<section id="avant-la-veille-npm-install-2-min" class="level2">
-<h2 class="anchored" data-anchor-id="avant-la-veille-npm-install-2-min">Avant la veille : <code>npm install</code> (2 min)</h2>
+<section id="veille-installer-un-paquet-npm-quels-risques-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="veille-installer-un-paquet-npm-quels-risques-30-min">Veille — Installer un paquet npm : quels risques ? (30 min)</h2>
+<section id="avant-la-veille-npm-install-2-min" class="level3">
+<h3 class="anchored" data-anchor-id="avant-la-veille-npm-install-2-min">Avant la veille : <code>npm install</code> (2 min)</h3>
 <ol type="1">
 <li>Terminal : <code>cd ~/dwwm/semaine-02</code>, puis <code>npm install</code>.</li>
 <li>Laissez-le travailler pendant la veille.</li>
@@ -480,8 +480,8 @@ found 0 vulnerabilities</code></pre>
 </div>
 <p>La ligne <code>packages are looking for funding</code> n’est pas une erreur : certains auteurs de paquets acceptent des dons. <code>found 0 vulnerabilities</code> : npm ne connaît aucune faille dans ces versions.</p>
 </section>
-<section id="pourquoi-cette-question" class="level2">
-<h2 class="anchored" data-anchor-id="pourquoi-cette-question">Pourquoi cette question ?</h2>
+<section id="pourquoi-cette-question" class="level3">
+<h3 class="anchored" data-anchor-id="pourquoi-cette-question">Pourquoi cette question ?</h3>
 <ul>
 <li><code>npm install</code> télécharge ESLint… et bien d’autres paquets.</li>
 <li>Chacun a été écrit par des inconnus.</li>
@@ -489,8 +489,8 @@ found 0 vulnerabilities</code></pre>
 </ul>
 <p>Pour vous faire une idée, ouvrez le dossier <code>node_modules</code> que <code>npm install</code> vient de créer dans <code>dwwm/semaine-02</code> : combien de dossiers contient-il, alors que <code>package.json</code> ne cite que trois paquets ?</p>
 </section>
-<section id="en-groupe-15-min" class="level2">
-<h2 class="anchored" data-anchor-id="en-groupe-15-min">En groupe (15 min)</h2>
+<section id="en-groupe-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="en-groupe-15-min">En groupe (15 min)</h3>
 <ol type="1">
 <li><strong>Groupe 1</strong> : la page d’npm sur les menaces <span class="citation" data-cites="npm-threats-mitigations">(<a href="#ref-npm-threats-mitigations" role="doc-biblioref">s.&nbsp;d.</a>)</span>.</li>
 <li>Groupe 1 : qu’est-ce que le <em>typosquatting</em> ? Que fait npm contre lui ?</li>
@@ -500,8 +500,8 @@ found 0 vulnerabilities</code></pre>
 </ol>
 <p>Les deux pages sont en anglais : <em>npm: Threats and Mitigations</em> <span class="citation" data-cites="npm-threats-mitigations">(<a href="#ref-npm-threats-mitigations" role="doc-biblioref"><span class="nocase">npm</span>, s.&nbsp;d.</a>)</span> et <em>A03 Software Supply Chain Failures</em> <span class="citation" data-cites="owasp-top10-2025-a03">(<a href="#ref-owasp-top10-2025-a03" role="doc-biblioref">OWASP Foundation 2025</a>)</span>. Ne traduisez pas tout : cherchez les titres de sections et les listes. Le <strong>lecteur</strong> lit la page à voix haute ou la parcourt pour le groupe ; le <strong>secrétaire</strong> note les réponses ; le <strong>porte-parole</strong> les présente à la mise en commun. Si vous préférez ne pas prendre la parole devant le groupe, prenez le rôle de lecteur ou de secrétaire.</p>
 </section>
-<section id="mise-en-commun-et-trace-écrite-15-min" class="level2">
-<h2 class="anchored" data-anchor-id="mise-en-commun-et-trace-écrite-15-min">Mise en commun et trace écrite (15 min)</h2>
+<section id="mise-en-commun-et-trace-écrite-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="mise-en-commun-et-trace-écrite-15-min">Mise en commun et trace écrite (15 min)</h3>
 <ol type="1">
 <li>Chaque porte-parole présente ce que son groupe a trouvé (3 min).</li>
 <li>Seul : notez une précaution à prendre avant un <code>npm install</code>.</li>
@@ -521,10 +521,10 @@ Note
 </div>
 </section>
 </section>
-<section id="matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ" class="level1">
-<h1>Matin — Conditions &amp; boucles — exercices guidés · ESLint dès le départ</h1>
-<section id="rappel-5-min" class="level2">
-<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<section id="matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ" class="level2">
+<h2 class="anchored" data-anchor-id="matin-conditions-boucles-exercices-guidés-eslint-dès-le-départ">Matin — Conditions &amp; boucles — exercices guidés · ESLint dès le départ</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
 <ol type="1">
 <li>Quelle commande lance les tests d’un exercice ?</li>
 <li>Que montre la ligne <code>-</code> d’un test rouge ?</li>
@@ -532,8 +532,8 @@ Note
 </ol>
 <p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
 </section>
-<section id="apport-1-eslint-5-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-1-eslint-5-min">Apport 1 — ESLint (5 min)</h2>
+<section id="apport-1-eslint-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-1-eslint-5-min">Apport 1 — ESLint (5 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : trouver des erreurs <strong>avant</strong> de lancer le programme.</li>
 <li><strong>ESLint</strong> relit votre code et signale chaque écart à une règle.</li>
@@ -565,8 +565,8 @@ C:\Users\stagiaire\dwwm\semaine-02\lint-moi.js
 </ol>
 <p>La fiche <a href="../../ressources/fiche-erreurs.html">Lire un message d’erreur</a> reprend la lecture d’une alerte d’ESLint.</p>
 </section>
-<section id="eslint-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="eslint-attention-et-vérification">ESLint — attention et vérification</h2>
+<section id="eslint-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="eslint-attention-et-vérification">ESLint — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -584,8 +584,8 @@ C:\Users\stagiaire\dwwm\semaine-02\lint-moi.js
 <li><strong>Vérifiez</strong> : dans <code>12:15</code>, que désignent <code>12</code> et <code>15</code> ?</li>
 </ul>
 </section>
-<section id="exercice-lint-moi.js-20-min" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-lint-moi.js-20-min">Exercice — <code>lint-moi.js</code> (20 min)</h2>
+<section id="exercice-lint-moi.js-20-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-lint-moi.js-20-min">Exercice — <code>lint-moi.js</code> (20 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : la première alerte, comme dans le pas à pas.</li>
 <li>Seuls (10 min) : corrigez les quatre autres, une par une.</li>
@@ -595,8 +595,8 @@ C:\Users\stagiaire\dwwm\semaine-02\lint-moi.js
 </ol>
 <p><code>npx eslint .</code> vérifie tous les fichiers du dossier, y compris les exercices que vous n’avez pas encore faits : leurs fichiers de départ sont écrits pour passer ESLint. À partir d’aujourd’hui, un exercice est <strong>fini</strong> quand ses tests passent <strong>et</strong> qu’ESLint n’affiche aucune alerte.</p>
 </section>
-<section id="apport-2-if-else-if-else-15-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-2-if-else-if-else-15-min">Apport 2 — <code>if</code>, <code>else if</code>, <code>else</code> (15 min)</h2>
+<section id="apport-2-if-else-if-else-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-2-if-else-if-else-15-min">Apport 2 — <code>if</code>, <code>else if</code>, <code>else</code> (15 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : agir différemment selon la valeur reçue.</li>
 <li><strong>Condition</strong> : la première branche vraie s’exécute, et elle seule.</li>
@@ -641,8 +641,8 @@ flowchart LR
 <li>Lancez <code>node meteo.js 0</code>. Il affiche <code>il ne gèle pas</code> : <code>0 &lt; 0</code> est faux.</li>
 </ol>
 </section>
-<section id="conditions-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="conditions-attention-et-vérification">Conditions — attention et vérification</h2>
+<section id="conditions-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="conditions-attention-et-vérification">Conditions — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -660,8 +660,8 @@ flowchart LR
 <li><strong>Vérifiez</strong> : qu’affiche <code>node meteo.js 0</code> ? Prédisez, puis lancez.</li>
 </ul>
 </section>
-<section id="exercice-06-majeur-ou-mineur-20-min" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-06-majeur-ou-mineur-20-min">Exercice 06 — Majeur ou mineur ? (20 min)</h2>
+<section id="exercice-06-majeur-ou-mineur-20-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-06-majeur-ou-mineur-20-min">Exercice 06 — Majeur ou mineur ? (20 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : écrivez la première condition, l’âge invalide.</li>
 <li>Seuls : <code>majeur</code> à partir de 18 ans, <code>mineur</code> avant.</li>
@@ -675,8 +675,8 @@ flowchart LR
 <li>Pensez au cas limite : 18 ans, comme en semaine 1.</li>
 </ul>
 </section>
-<section id="apport-3-la-boucle-while-8-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-3-la-boucle-while-8-min">Apport 3 — La boucle <code>while</code> (8 min)</h2>
+<section id="apport-3-la-boucle-while-8-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-3-la-boucle-while-8-min">Apport 3 — La boucle <code>while</code> (8 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : répéter une action sans recopier la ligne.</li>
 <li><strong><code>while</code></strong> : tant que la condition est vraie, on recommence.</li>
@@ -717,8 +717,8 @@ flowchart LR
 <li>Vérifiez en lançant le programme : il affiche 1, 2, 4, 8, 16, 32, 64.</li>
 </ol>
 </section>
-<section id="while-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="while-attention-et-vérification"><code>while</code> — attention et vérification</h2>
+<section id="while-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="while-attention-et-vérification"><code>while</code> — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -736,8 +736,8 @@ flowchart LR
 <li><strong>Vérifiez</strong> : avec <code>n = n * 3</code>, combien de nombres s’affichent ?</li>
 </ul>
 </section>
-<section id="apport-4-la-boucle-for-7-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-4-la-boucle-for-7-min">Apport 4 — La boucle <code>for</code> (7 min)</h2>
+<section id="apport-4-la-boucle-for-7-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-4-la-boucle-for-7-min">Apport 4 — La boucle <code>for</code> (7 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : une boucle qui compte, écrite sur une seule ligne.</li>
 <li><strong><code>for</code></strong> : départ, condition et pas, réunis entre parenthèses.</li>
@@ -777,8 +777,8 @@ flowchart LR
 <li>Pas : <code>i</code> vaut <code>4</code>. <code>4 &lt;= 3</code> est faux : la boucle s’arrête.</li>
 </ol>
 </section>
-<section id="for-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="for-attention-et-vérification"><code>for</code> — attention et vérification</h2>
+<section id="for-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="for-attention-et-vérification"><code>for</code> — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -796,8 +796,8 @@ flowchart LR
 <li><strong>Vérifiez</strong> : écrivez une boucle <code>for</code> qui affiche 3, 2, 1.</li>
 </ul>
 </section>
-<section id="à-retenir-ce-matin" class="level2">
-<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<section id="à-retenir-ce-matin" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -823,8 +823,8 @@ flowchart LR
 <li><strong><code>while</code></strong> : répète tant que la condition est vraie ; quelque chose doit changer dans le bloc ; <kbd title="mac: Ctrl+C, windows: Ctrl+C" aria-hidden="true" data-mac="Ctrl+C" data-windows="Ctrl+C"></kbd><span class="visually-hidden"></span> arrête une boucle infinie.</li>
 <li><strong><code>for</code></strong> : départ, condition et pas sur une ligne ; <code>i++</code> ajoute 1.</li>
 </ul>
-<section id="si-le-temps-le-permet-le-reste-puis-07-et-08" class="level3">
-<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-le-reste-puis-07-et-08">Si le temps le permet — Le reste <code>%</code>, puis 07 et 08</h3>
+<section id="si-le-temps-le-permet-le-reste-puis-07-et-08" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-le-reste-puis-07-et-08">Si le temps le permet — Le reste <code>%</code>, puis 07 et 08</h4>
 <p><strong>L’<a href="../../ressources/lexique.html#t-operateur-reste">opérateur reste</a>.</strong> <code>a % b</code> donne le <strong>reste</strong> de la division de <code>a</code> par <code>b</code> : <code>12 % 2</code> vaut <code>0</code>, <code>7 % 2</code> vaut <code>1</code>. Un nombre est pair si son reste par 2 vaut <code>0</code>. Le résultat de <code>%</code> a le signe du premier nombre <span class="citation" data-cites="mdn-reste">(<a href="#ref-mdn-reste" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span> : <code>-3 % 2</code> vaut <code>-1</code>, pas <code>1</code>. Testez donc « reste égal à 0 », jamais « reste égal à 1 ».</p>
 <p><strong>Exercice 07 — Pair ou impair ?</strong></p>
 <ol type="1">
@@ -857,8 +857,8 @@ flowchart LR
 </div>
 </div>
 </section>
-<section id="pour-aller-plus-loin" class="level3">
-<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<section id="pour-aller-plus-loin" class="level4">
+<h4 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h4>
 <ul>
 <li><strong>09-somme</strong> : <code>La somme de 1 à 4 vaut 10</code>, avec une boucle <code>for</code>.</li>
 <li><strong>10-fizzbuzz</strong> : le défi de la semaine 1, en JavaScript. Fizz, Buzz, FizzBuzz : dans quel ordre écrire les conditions ?</li>
@@ -882,8 +882,8 @@ flowchart LR
 <p>10-fizzbuzz s’inspire du jeu <em>Fizz buzz</em> <span class="citation" data-cites="wikipedia-fizz-buzz">(<a href="#ref-wikipedia-fizz-buzz" role="doc-biblioref">Wikipedia, s.&nbsp;d.</a>)</span>. Les stagiaires qui veulent aller encore plus loin trouveront <code>11-triangle.js</code> (boucles imbriquées) dans le niveau 3 du <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html#parcours-de-remédiation-de-la-semaine">parcours de remédiation</a>.</p>
 </section>
 </section>
-<section id="débrief" class="level2">
-<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
 <ul>
 <li>Pourquoi traiter les entrées invalides en premier ?</li>
 <li>Quand choisir <code>while</code>, quand choisir <code>for</code> ?</li>
@@ -891,8 +891,8 @@ flowchart LR
 </ul>
 </section>
 </section>
-<section id="après-midi-groupe-b-projet-consolidation" class="level1">
-<h1>Après-midi — Groupe B : projet &amp; consolidation</h1>
+<section id="après-midi-groupe-b-projet-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-groupe-b-projet-consolidation">Après-midi — Groupe B : projet &amp; consolidation</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -903,8 +903,8 @@ flowchart LR
 </div>
 </div>
 </div>
-<section id="au-programme" class="level2">
-<h2 class="anchored" data-anchor-id="au-programme">Au programme</h2>
+<section id="au-programme" class="level3">
+<h3 class="anchored" data-anchor-id="au-programme">Au programme</h3>
 <ol type="1">
 <li><strong>Terminer</strong> (1 h) : <code>lint-moi</code> et 06, tests et ESLint.</li>
 <li><strong>Consolider</strong> (1 h) : 07, puis 08 (<code>while</code>, puis <code>for</code>).</li>
@@ -918,8 +918,8 @@ flowchart LR
 <li><label><input type="checkbox">06 et 08 sont écrits sur papier, sans regarder</label></li>
 </ul>
 </section>
-<section id="sources" class="level2">
-<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-eslint-rule-eqeqeq" class="csl-entry" role="listitem">
 ESLint. s.&nbsp;d.-a. <span>«&nbsp;eqeqeq&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/rules/eqeqeq">https://eslint.org/docs/latest/rules/eqeqeq</a>.

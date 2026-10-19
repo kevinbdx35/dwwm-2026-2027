@@ -120,7 +120,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-87236e28b2942cd7f25a9259a6bac1d9.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8b62ad57da1bf14417fa5ee8d58390df.css">
   <link rel="stylesheet" href="../../polices.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -231,7 +231,7 @@ Kevin Bardoux
 
   <p class="date">lundi 19 octobre 2026</p>
 </section>
-<section class="slide level2">
+<section class="slide level3">
 
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
@@ -242,20 +242,20 @@ Kevin Bardoux
 </div>
 </section>
 <section>
-<section id="matin-fonctions-portée-démarche-de-résolution-de-problème-lire-lerreur-isoler-tester-exercices" class="title-slide slide level1 center">
-<h1>Matin — Fonctions &amp; portée · démarche de résolution de problème (lire l’erreur, isoler, tester) — exercices</h1>
+<section id="matin-fonctions-portée-démarche-de-résolution-de-problème-lire-lerreur-isoler-tester-exercices" class="title-slide slide level2 center">
+<h2>Matin — Fonctions &amp; portée · démarche de résolution de problème (lire l’erreur, isoler, tester) — exercices</h2>
 
 </section>
-<section id="rappel-5-min" class="slide level2">
-<h2>Rappel (5 min)</h2>
+<section id="rappel-5-min" class="slide level3">
+<h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Que fait <code>npx eslint .</code> ?</li>
 <li><code>while</code> ou <code>for</code> : lequel pour compter de 1 à 10 ?</li>
 <li>Que vaut <code>01001</code> avec les cartes 16, 8, 4, 2, 1 ?</li>
 </ol>
 </section>
-<section id="récupérer-les-fichiers-5-min" class="slide level2">
-<h2>Récupérer les fichiers (5 min)</h2>
+<section id="récupérer-les-fichiers-5-min" class="slide level3">
+<h3>Récupérer les fichiers (5 min)</h3>
 <ol type="1">
 <li>Téléchargez l’<a href="code/exercices/s03-exercices.zip">archive de la semaine</a>.</li>
 <li>Extrayez-la ; renommez le dossier <code>semaine-03</code> ; placez-le dans <code>dwwm</code>.</li>
@@ -264,8 +264,8 @@ Kevin Bardoux
 <li>ECF vendredi : un <strong>aide-mémoire</strong> manuscrit d’une page est autorisé.</li>
 </ol>
 </section>
-<section id="apport-1-les-fonctions-10-min" class="slide level2">
-<h2>Apport 1 — Les fonctions (10 min)</h2>
+<section id="apport-1-les-fonctions-10-min" class="slide level3">
+<h3>Apport 1 — Les fonctions (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : écrire un calcul une fois, l’utiliser partout.</li>
 <li><strong>Fonction</strong> : un nom, des paramètres, un résultat renvoyé.</li>
@@ -277,8 +277,8 @@ Kevin Bardoux
 <span id="cb1-5"><a aria-label="5"></a><span class="kw">const</span> result <span class="op">=</span> <span class="fu">square</span>(<span class="dv">4</span>)<span class="op">;</span></span>
 <span id="cb1-6"><a aria-label="6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result)<span class="op">;</span> <span class="co">// 16</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="fonctions-attention-et-vérification" class="slide level2">
-<h2>Fonctions — attention et vérification</h2>
+<section id="fonctions-attention-et-vérification" class="slide level3">
+<h3>Fonctions — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -296,8 +296,8 @@ Kevin Bardoux
 <li><strong>Vérifiez</strong> : que renvoie <code>square(3)</code> ? Et <code>square(-2)</code> ?</li>
 </ul>
 </section>
-<section id="exercices-l1-à-l3-premières-fonctions-30-min" class="slide level2">
-<h2>Exercices l1 à l3 — Premières fonctions (30 min)</h2>
+<section id="exercices-l1-à-l3-premières-fonctions-30-min" class="slide level3">
+<h3>Exercices l1 à l3 — Premières fonctions (30 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : <strong>l1-bonjour</strong>.</li>
 <li>Seuls : <strong>l2-aire-rectangle</strong>, puis <strong>l3-majorite</strong>.</li>
@@ -305,8 +305,8 @@ Kevin Bardoux
 <li><strong>Réussi si</strong> : tests au vert, aucune alerte.</li>
 </ol>
 </section>
-<section id="apport-2-la-portée-10-min" class="slide level2">
-<h2>Apport 2 — La portée (10 min)</h2>
+<section id="apport-2-la-portée-10-min" class="slide level3">
+<h3>Apport 2 — La portée (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : un même nom dans deux fonctions, sans conflit.</li>
 <li><strong>Portée</strong> : une variable n’existe que dans son bloc <code>{ … }</code>.</li>
@@ -319,8 +319,8 @@ Kevin Bardoux
 <span id="cb2-6"><a aria-label="6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">double</span>(<span class="dv">3</span>))<span class="op">;</span> <span class="co">// 6</span></span>
 <span id="cb2-7"><a aria-label="7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result)<span class="op">;</span>    <span class="co">// ReferenceError</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="portée-attention-et-vérification" class="slide level2">
-<h2>Portée — attention et vérification</h2>
+<section id="portée-attention-et-vérification" class="slide level3">
+<h3>Portée — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -338,8 +338,8 @@ Kevin Bardoux
 <li><strong>Vérifiez</strong> : <code>if (true) { const x = 1; }</code> puis <code>x</code> : que se passe-t-il ?</li>
 </ul>
 </section>
-<section id="apport-3-déboguer-avec-méthode-20-min" class="slide level2">
-<h2>Apport 3 — Déboguer avec méthode (20 min)</h2>
+<section id="apport-3-déboguer-avec-méthode-20-min" class="slide level3">
+<h3>Apport 3 — Déboguer avec méthode (20 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : trouver une erreur sans modifier le code au hasard.</li>
 <li><strong>Méthode</strong> : lire, isoler, tester, corriger.</li>
@@ -351,8 +351,8 @@ Kevin Bardoux
 TypeError: Cannot read properties of undefined (reading 'length')
     at lastLetter (/…/err.js:2:20)</code></pre>
 </section>
-<section id="débogage-attention-et-vérification" class="slide level2">
-<h2>Débogage — attention et vérification</h2>
+<section id="débogage-attention-et-vérification" class="slide level3">
+<h3>Débogage — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -370,8 +370,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <li><strong>Vérifiez</strong> : dans l’exemple, à quelle ligne est l’erreur ?</li>
 </ul>
 </section>
-<section id="débogage-l4-et-l5-30-min" class="slide level2">
-<h2>Débogage — l4 et l5 (30 min)</h2>
+<section id="débogage-l4-et-l5-30-min" class="slide level3">
+<h3>Débogage — l4 et l5 (30 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : <strong>l4-total-panier</strong>, lisez l’erreur avant le code.</li>
 <li>Seuls : corrigez l4, puis <strong>l5-compter-jusqua</strong> (un résultat faux).</li>
@@ -379,8 +379,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <li><strong>Réussi si</strong> : les deux au vert, et vos trois lignes écrites.</li>
 </ol>
 </section>
-<section id="à-retenir-ce-matin" class="slide level2">
-<h2>À retenir — ce matin</h2>
+<section id="à-retenir-ce-matin" class="slide level3">
+<h3>À retenir — ce matin</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -399,8 +399,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 </div>
 </div>
 </section>
-<section id="débrief" class="slide level2">
-<h2>Débrief</h2>
+<section id="débrief" class="slide level3">
+<h3>Débrief</h3>
 <ul>
 <li>Quelle différence entre afficher un résultat et le renvoyer ?</li>
 <li>Pourquoi <code>result</code> n’existe-t-il pas en dehors de <code>double</code> ?</li>
@@ -408,12 +408,12 @@ TypeError: Cannot read properties of undefined (reading 'length')
 </ul>
 </section></section>
 <section>
-<section id="après-midi-tp-problem-set-1-validé-par-les-tests" class="title-slide slide level1 center">
-<h1>Après-midi — TP — « Problem set 1 » (validé par les tests)</h1>
+<section id="après-midi-tp-problem-set-1-validé-par-les-tests" class="title-slide slide level2 center">
+<h2>Après-midi — TP — « Problem set 1 » (validé par les tests)</h2>
 
 </section>
-<section id="apport-4-le-reste-10-min" class="slide level2">
-<h2>Apport 4 — Le reste <code>%</code> (10 min)</h2>
+<section id="apport-4-le-reste-10-min" class="slide level3">
+<h3>Apport 4 — Le reste <code>%</code> (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : le dernier chiffre ; une division qui tombe juste.</li>
 <li><strong><code>a % b</code></strong> : le reste de la division de <code>a</code> par <code>b</code>.</li>
@@ -422,8 +422,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <span id="cb4-2"><a aria-label="2"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="dv">1234</span> <span class="op">/</span> <span class="dv">10</span>))<span class="op">;</span> <span class="co">// 123 : sans le dernier chiffre</span></span>
 <span id="cb4-3"><a aria-label="3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">12</span> <span class="op">%</span> <span class="dv">3</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span>          <span class="co">// true : 3 divise 12</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="reste-attention-et-vérification" class="slide level2">
-<h2>Reste — attention et vérification</h2>
+<section id="reste-attention-et-vérification" class="slide level3">
+<h3>Reste — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -441,8 +441,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <li><strong>Vérifiez</strong> : que vaut <code>57 % 10</code> ?</li>
 </ul>
 </section>
-<section id="consignes-1-h-50" class="slide level2">
-<h2>Consignes (1 h 50)</h2>
+<section id="consignes-1-h-50" class="slide level3">
+<h3>Consignes (1 h 50)</h3>
 <ol type="1">
 <li>Quatre fonctions à écrire, dans l’ordre, fichiers <code>p1-…</code>.</li>
 <li>Avant de coder : deux exemples d’entrée et de sortie, à la main.</li>
@@ -450,8 +450,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <li>Fini quand ses tests et ESLint (sur son fichier) sont au vert.</li>
 </ol>
 </section>
-<section id="les-quatre-fonctions" class="slide level2">
-<h2>Les quatre fonctions</h2>
+<section id="les-quatre-fonctions" class="slide level3">
+<h3>Les quatre fonctions</h3>
 <ul>
 <li><strong>p1-prix-ttc</strong> (facile) : prix TTC arrondi au centime, <code>null</code> si négatif.</li>
 <li><strong>p1-bissextile</strong> (facile) : année bissextile ou non.</li>
@@ -459,8 +459,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <li><strong>p1-pgcd</strong> (moyen) : l’algorithme d’Euclide.</li>
 </ul>
 </section>
-<section id="anglais" class="slide level2">
-<h2>Anglais technique — <em>Functions</em> (MDN)</h2>
+<section id="anglais" class="slide level3">
+<h3>Anglais technique — <em>Functions</em> (MDN)</h3>
 <p>Lisez la page <em>Functions</em> de MDN, en anglais <span class="citation" data-cites="mdn-functions-en">(<a href="#/sources" role="doc-biblioref" onclick="">MDN Web Docs, s.&nbsp;d.</a>)</span>.</p>
 <ol type="1">
 <li>Quels sont les titres des grandes sections ?</li>
@@ -469,8 +469,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <li>D’après la première phrase, à quoi ressemble une fonction ?</li>
 </ol>
 </section>
-<section id="à-retenir-cet-après-midi" class="slide level2">
-<h2>À retenir — cet après-midi</h2>
+<section id="à-retenir-cet-après-midi" class="slide level3">
+<h3>À retenir — cet après-midi</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -489,8 +489,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 </div>
 </div>
 </section>
-<section id="sources" class="slide level2 smaller scrollable">
-<h2>Sources</h2>
+<section id="sources" class="slide level3 smaller scrollable">
+<h3>Sources</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-mdn-functions-en" class="csl-entry" role="listitem">
 MDN Web Docs. s.&nbsp;d. <span>«&nbsp;Functions - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions</a>.

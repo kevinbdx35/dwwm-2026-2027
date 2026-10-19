@@ -54,7 +54,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-87236e28b2942cd7f25a9259a6bac1d9.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8b62ad57da1bf14417fa5ee8d58390df.css">
   <link rel="stylesheet" href="../../polices.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -165,31 +165,31 @@ Kevin Bardoux
 
   <p class="date">jeudi 22 octobre 2026</p>
 </section>
-<section class="slide level2">
+<section class="slide level3">
 
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : résolution de problème · communiquer (expliquer un algorithme)<br> <strong>Livrable</strong> : <code>tri-dichotomie</code>, <code>tri-selection</code>, <code>tri-bulles</code> et <code>tri-comparaisons</code> au vert.</p>
+<p><strong>Compétences visées</strong> : résolution de problème · communiquer (expliquer un algorithme)<br> <strong>Livrable</strong> : <code>tri-selection</code> au vert et l’entraînement papier fait (les autres tris sont des Défis).</p>
 </div>
 </div>
 </div>
 </section>
 <section>
-<section id="matin-recherche-tris-complexité-grand-o-tris-à-la-main-puis-en-code" class="title-slide slide level1 center">
-<h1>Matin — Recherche, tris &amp; complexité (grand O) — tris à la main, puis en code</h1>
+<section id="matin-recherche-tris-complexité-grand-o-tris-à-la-main-puis-en-code" class="title-slide slide level2 center">
+<h2>Matin — Recherche, tris &amp; complexité (grand O) — tris à la main, puis en code</h2>
 
 </section>
-<section id="rappel-5-min" class="slide level2">
-<h2>Rappel (5 min)</h2>
+<section id="rappel-5-min" class="slide level3">
+<h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Comment parcourir chaque valeur d’un tableau ?</li>
 <li>Que renvoie <code>'Ada Lovelace'.split(' ')</code> ?</li>
 <li>Que fait <code>${…}</code> dans un littéral de gabarit ?</li>
 </ol>
 </section>
-<section id="apport-1-deux-façons-de-chercher-15-min" class="slide level2">
-<h2>Apport 1 — Deux façons de chercher (15 min)</h2>
+<section id="apport-1-deux-façons-de-chercher-15-min" class="slide level3">
+<h3>Apport 1 — Deux façons de chercher (15 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : retrouver une valeur, vite, dans une longue liste.</li>
 <li><strong>Linéaire</strong> : case par case ; <strong>dichotomique</strong> : le milieu, une moitié.</li>
@@ -198,8 +198,8 @@ Kevin Bardoux
 linéaire     : 3, 8, 12, 17, 23        → 5 cases regardées
 dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 </section>
-<section id="chercher-attention-et-vérification" class="slide level2">
-<h2>Chercher — attention et vérification</h2>
+<section id="chercher-attention-et-vérification" class="slide level3">
+<h3>Chercher — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -217,8 +217,8 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 <li><strong>Vérifiez</strong> : combien de cases pour trouver <code>3</code>, en dichotomique ?</li>
 </ul>
 </section>
-<section id="exercice-j1-recherche-linéaire-15-min" class="slide level2">
-<h2>Exercice j1 — Recherche linéaire (15 min)</h2>
+<section id="exercice-j1-recherche-linéaire-15-min" class="slide level3">
+<h3>Exercice j1 — Recherche linéaire (15 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : la boucle <code>for</code> sur les index, de <code>0</code> à <code>length - 1</code>.</li>
 <li>Seuls : <strong>j1-recherche-lineaire</strong>, l’index de la valeur, ou <code>-1</code>.</li>
@@ -226,8 +226,8 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 <li><strong>Réussi si</strong> : tests au vert, aucune alerte ESLint.</li>
 </ol>
 </section>
-<section id="apport-2-trier-10-min" class="slide level2">
-<h2>Apport 2 — Trier (10 min)</h2>
+<section id="apport-2-trier-10-min" class="slide level3">
+<h3>Apport 2 — Trier (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : la dichotomie exige un tableau trié.</li>
 <li><strong>Sélection</strong> : la plus petite en premier ; <strong>bulles</strong> : échanger les voisines.</li>
@@ -236,8 +236,8 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 [1, 2, 4, 5]   dans le reste, la plus petite est 2 : déjà en place
 [1, 2, 4, 5]   dans le reste, 4 : déjà en place. Trié.</code></pre>
 </section>
-<section id="trier-attention-et-vérification" class="slide level2">
-<h2>Trier — attention et vérification</h2>
+<section id="trier-attention-et-vérification" class="slide level3">
+<h3>Trier — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -255,8 +255,8 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 <li><strong>Vérifiez</strong> : triez <code>[3, 1, 2]</code> à bulles : combien d’échanges ?</li>
 </ul>
 </section>
-<section id="activité-trier-des-cartes-à-la-main-30-min" class="slide level2">
-<h2>Activité — Trier des cartes à la main (30 min)</h2>
+<section id="activité-trier-des-cartes-à-la-main-30-min" class="slide level3">
+<h3>Activité — Trier des cartes à la main (30 min)</h3>
 <ol type="1">
 <li>Par deux, 8 cartes mélangées : un <strong>trieur</strong>, un <strong>compteur</strong>.</li>
 <li>Tri par sélection : le compteur note chaque <strong>comparaison</strong>.</li>
@@ -265,8 +265,8 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 <li><strong>Réussi si</strong> : vos deux totaux sont notés et comparés.</li>
 </ol>
 </section>
-<section id="apport-3-combien-détapes-15-min" class="slide level2">
-<h2>Apport 3 — Combien d’étapes ? (15 min)</h2>
+<section id="apport-3-combien-détapes-15-min" class="slide level3">
+<h3>Apport 3 — Combien d’étapes ? (15 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : savoir si un programme reste rapide.</li>
 <li><strong>Grand O</strong> : comment les étapes grandissent quand la liste grandit.</li>
@@ -275,8 +275,8 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 recherche dichotomique  O(log n)  une seule étape de plus
 tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 </section>
-<section id="grand-o-attention-et-vérification" class="slide level2">
-<h2>Grand O — attention et vérification</h2>
+<section id="grand-o-attention-et-vérification" class="slide level3">
+<h3>Grand O — attention et vérification</h3>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -294,8 +294,8 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 <li><strong>Vérifiez</strong> : liste de 1 000 → 2 000 éléments, que devient O(n²) ?</li>
 </ul>
 </section>
-<section id="à-retenir-ce-matin" class="slide level2">
-<h2>À retenir — ce matin</h2>
+<section id="à-retenir-ce-matin" class="slide level3">
+<h3>À retenir — ce matin</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -314,8 +314,8 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 </div>
 </div>
 </section>
-<section id="débrief" class="slide level2">
-<h2>Débrief</h2>
+<section id="débrief" class="slide level3">
+<h3>Débrief</h3>
 <ul>
 <li>Pourquoi la dichotomie exige-t-elle un tableau trié ?</li>
 <li>Quel tri vous a semblé le plus simple à expliquer ?</li>
@@ -323,31 +323,45 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 </ul>
 </section></section>
 <section>
-<section id="après-midi-tp-algorithmes-de-tri" class="title-slide slide level1 center">
-<h1>Après-midi — TP — « Algorithmes de tri »</h1>
+<section id="après-midi-tp-algorithmes-de-tri" class="title-slide slide level2 center">
+<h2>Après-midi — TP — « Algorithmes de tri »</h2>
 
 </section>
-<section id="consignes-2-h" class="slide level2">
-<h2>Consignes (2 h)</h2>
+<section id="consignes-1-h" class="slide level3">
+<h3>Consignes (1 h)</h3>
 <ol type="1">
-<li>Quatre fonctions, dans l’ordre, fichiers <code>tri-…</code>.</li>
-<li>Pour chacune : refaites l’algorithme avec vos cartes, puis codez.</li>
+<li>Une seule fonction obligatoire : <strong>tri-selection</strong>.</li>
+<li>Refaites l’algorithme avec vos cartes, puis codez.</li>
 <li>Travaillez sur une copie : <code>array.slice()</code>.</li>
 <li>Interdits : <code>sort</code>, <code>indexOf</code>, <code>includes</code> sur le tableau à trier.</li>
-<li><strong>Réussi si</strong> : les quatre au vert, aucune alerte ESLint.</li>
+<li><strong>Réussi si</strong> : tests au vert, aucune alerte ESLint.</li>
 </ol>
 </section>
-<section id="les-quatre-fonctions" class="slide level2">
-<h2>Les quatre fonctions</h2>
+<section id="si-le-temps-le-permet-trois-défis" class="slide level3">
+<h3>Si le temps le permet — trois Défis</h3>
+<div title="Défi">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Défi</strong></p>
+</div>
+<div class="callout-content">
 <ul>
 <li><strong>tri-dichotomie</strong> (moyen) : l’index de la valeur dans un tableau trié.</li>
-<li><strong>tri-selection</strong> (moyen) : un nouveau tableau trié.</li>
 <li><strong>tri-bulles</strong> (moyen) : un nouveau tableau trié, autrement.</li>
 <li><strong>tri-comparaisons</strong> (moyen) : compter les comparaisons.</li>
+<li>La suite naturelle, une fois la révision de l’ECF faite.</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="faire-le-lien-avec-le-grand-o" class="slide level2">
-<h2>Faire le lien avec le grand O</h2>
+<section id="si-le-temps-le-permet-le-lien-avec-le-grand-o" class="slide level3">
+<h3>Si le temps le permet — le lien avec le grand O</h3>
 <ol type="1">
 <li><code>tri-comparaisons</code> au vert : ajoutez les 3 lignes de la page.</li>
 <li>Lancez <code>node tri-comparaisons.js</code> : 6, 28, puis 120.</li>
@@ -355,16 +369,25 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 <li>Effacez les 3 lignes, puis relancez les tests.</li>
 </ol>
 </section>
-<section id="entraînement-ecf-sur-papier-30-min" class="slide level2">
-<h2>Entraînement ECF sur papier (30 min)</h2>
+<section id="révision-de-lecf-au-choix-1-h" class="slide level3">
+<h3>Révision de l’ECF, au choix (1 h)</h3>
+<ol type="1">
+<li>Vos fonctions de lundi et mardi pas encore au vert.</li>
+<li>Puis r1-minimum et r2-compter-pairs (mercredi), s’ils ne sont pas faits.</li>
+<li>Puis r3, r4, ou un exercice refait sans regarder.</li>
+<li><strong>Réussi si</strong> : au moins un exercice de plus au vert.</li>
+</ol>
+</section>
+<section id="entraînement-ecf-sur-papier-30-min" class="slide level3">
+<h3>Entraînement ECF sur papier (30 min)</h3>
 <ol type="1">
 <li>Sans ordinateur, seul, comme demain matin.</li>
 <li>Trois exercices : prédire, trouver un bug, écrire.</li>
 <li>Puis correction collective (15 min).</li>
 </ol>
 </section>
-<section id="à-retenir-cet-après-midi" class="slide level2">
-<h2>À retenir — cet après-midi</h2>
+<section id="à-retenir-cet-après-midi" class="slide level3">
+<h3>À retenir — cet après-midi</h3>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -376,15 +399,15 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 <div class="callout-content">
 <ul>
 <li><strong>Copie</strong> : <code>array.slice()</code> ; le tableau reçu reste intact.</li>
-<li><strong>Dichotomie</strong> : <code>low &lt;= high</code>, puis <code>middle + 1</code> ou <code>middle - 1</code>.</li>
+<li><strong>Sélection</strong> : chercher le plus petit, le placer, recommencer.</li>
 <li><strong>Échange</strong> : <code>const temporary = a[i];</code> d’abord.</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="sources" class="slide level2 smaller scrollable">
-<h2>Sources</h2>
+<section id="sources" class="slide level3 smaller scrollable">
+<h3>Sources</h3>
 <div id="refs" role="list">
 
 </div>

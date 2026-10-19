@@ -369,7 +369,7 @@ div.csl-indent {
   <ul>
   <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
   <li><a href="#matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" id="toc-matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" class="nav-link" data-scroll-target="#matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types">Matin — Premiers pas en JavaScript avec Node : installation, console, variables, types, ===</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
   <li><a href="#apport-1-installer-node.js-10-min" id="toc-apport-1-installer-node.js-10-min" class="nav-link" data-scroll-target="#apport-1-installer-node.js-10-min">Apport 1 — Installer Node.js (10 min)</a></li>
   <li><a href="#node.js-attention-et-vérification" id="toc-node.js-attention-et-vérification" class="nav-link" data-scroll-target="#node.js-attention-et-vérification">Node.js — attention et vérification</a></li>
@@ -390,7 +390,7 @@ div.csl-indent {
   <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
   </ul></li>
   <li><a href="#après-midi-tp-hello-js-premiers-tests-automatiques" id="toc-après-midi-tp-hello-js-premiers-tests-automatiques" class="nav-link" data-scroll-target="#après-midi-tp-hello-js-premiers-tests-automatiques">Après-midi — TP — « Hello, JS » · premiers tests automatiques</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#récupérer-les-fichiers-10-min" id="toc-récupérer-les-fichiers-10-min" class="nav-link" data-scroll-target="#récupérer-les-fichiers-10-min">Récupérer les fichiers (10 min)</a></li>
   <li><a href="#apport-6-lancer-un-programme-et-ses-tests-15-min" id="toc-apport-6-lancer-un-programme-et-ses-tests-15-min" class="nav-link" data-scroll-target="#apport-6-lancer-un-programme-et-ses-tests-15-min">Apport 6 — Lancer un programme et ses tests (15 min)</a></li>
   <li><a href="#tests-attention-et-vérification" id="toc-tests-attention-et-vérification" class="nav-link" data-scroll-target="#tests-attention-et-vérification">Tests — attention et vérification</a></li>
@@ -463,10 +463,10 @@ div.csl-indent {
 </ul>
 <p><strong>Comment se passe la journée.</strong> Chaque notion suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification. Un encadré « À retenir » termine chaque demi-journée. Le formateur montre d’abord ; vous faites ensuite le premier exercice tous ensemble ; puis vous continuez seuls. <a href="../../ressources/lexique.html#t-eslint">ESLint</a>, prévu au programme de la semaine, arrive vendredi matin.</p>
 </section>
-<section id="matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" class="level1">
-<h1>Matin — Premiers pas en JavaScript avec Node : installation, console, variables, types, ===</h1>
-<section id="rappel-5-min" class="level2">
-<h2 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h2>
+<section id="matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types" class="level2">
+<h2 class="anchored" data-anchor-id="matin-premiers-pas-en-javascript-avec-node-installation-console-variables-types">Matin — Premiers pas en JavaScript avec Node : installation, console, variables, types, ===</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
 <ol type="1">
 <li>À quoi sert une variable ?</li>
 <li>Que faut-il pour qu’un message démarre un script ?</li>
@@ -474,8 +474,8 @@ div.csl-indent {
 </ol>
 <p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
 </section>
-<section id="apport-1-installer-node.js-10-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-1-installer-node.js-10-min">Apport 1 — Installer Node.js (10 min)</h2>
+<section id="apport-1-installer-node.js-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-1-installer-node.js-10-min">Apport 1 — Installer Node.js (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : lancer vos programmes JavaScript sur votre ordinateur.</li>
 <li><strong>Node.js</strong> exécute du JavaScript en dehors du navigateur.</li>
@@ -530,8 +530,8 @@ PS C:\Users\stagiaire&gt; npm -v
 <p>L’installeur installe aussi <strong><a href="../../ressources/lexique.html#t-npm">npm</a></strong>, le gestionnaire de <a href="../../ressources/lexique.html#t-paquet">paquets</a> de Node, qui servira vendredi. La case « Tools for Native Modules » (outils pour les modules natifs) installe Chocolatey et des outils de compilation, inutiles pour la formation, et rallonge beaucoup l’installation. Sous Linux, <strong>fnm</strong> est un gestionnaire de versions de Node : il installe la LTS du moment et permet d’en changer en une commande <span class="citation" data-cites="fnm fnm-commands">(<a href="#ref-fnm" role="doc-biblioref">Schniz, s.&nbsp;d.-b</a>, <a href="#ref-fnm-commands" role="doc-biblioref">s.&nbsp;d.-a</a>)</span>. Le paquet <code>nodejs</code> d’une distribution est souvent en retard de plusieurs versions <span class="citation" data-cites="nodejs-releases">(<a href="#ref-nodejs-releases" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span> ; une alternative courante à fnm est nvm <span class="citation" data-cites="nvm">(<a href="#ref-nvm" role="doc-biblioref"><span class="nocase">nvm-sh</span>, s.&nbsp;d.</a>)</span>.</p>
 <p><strong>En secours : StackBlitz.</strong> Si l’installation échoue, StackBlitz fait tourner Node.js dans le navigateur grâce aux WebContainers <span class="citation" data-cites="stackblitz">(<a href="#ref-stackblitz" role="doc-biblioref">StackBlitz, s.&nbsp;d.-a</a>)</span> ; utilisez Chrome ou un navigateur basé sur Chromium (Firefox et Safari sont seulement en bêta) <span class="citation" data-cites="stackblitz-webcontainers-browsers">(<a href="#ref-stackblitz-webcontainers-browsers" role="doc-biblioref">StackBlitz, s.&nbsp;d.-b</a>)</span>. Déposez-y les fichiers de l’après-midi et ouvrez son terminal intégré. L’installation se termine mercredi.</p>
 </section>
-<section id="node.js-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="node.js-attention-et-vérification">Node.js — attention et vérification</h2>
+<section id="node.js-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="node.js-attention-et-vérification">Node.js — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -549,8 +549,8 @@ PS C:\Users\stagiaire&gt; npm -v
 <li><strong>Vérifiez</strong> : <code>node -v</code> et <code>npm -v</code> affichent chacun un numéro.</li>
 </ul>
 </section>
-<section id="apport-2-un-éditeur-de-code-vs-code-10-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-2-un-éditeur-de-code-vs-code-10-min">Apport 2 — Un éditeur de code : VS Code (10 min)</h2>
+<section id="apport-2-un-éditeur-de-code-vs-code-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-2-un-éditeur-de-code-vs-code-10-min">Apport 2 — Un éditeur de code : VS Code (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : écrire vos fichiers <code>.js</code> et les retrouver.</li>
 <li><strong>VS Code</strong> : l’éditeur de code de la formation, gratuit.</li>
@@ -628,8 +628,8 @@ PS C:\Users\stagiaire&gt; npm -v
 <li><p><strong>Lancer.</strong> Dans le terminal : <code>cd ~/dwwm/semaine-02</code>, puis <code>node essai.js</code>. Le terminal affiche <code>Bonjour depuis VS Code</code>.</p></li>
 </ol>
 </section>
-<section id="vs-code-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="vs-code-attention-et-vérification">VS Code — attention et vérification</h2>
+<section id="vs-code-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="vs-code-attention-et-vérification">VS Code — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -647,8 +647,8 @@ PS C:\Users\stagiaire&gt; npm -v
 <li><strong>Vérifiez</strong> : <code>node essai.js</code> affiche <code>Bonjour depuis VS Code</code>.</li>
 </ul>
 </section>
-<section id="apport-3-const-et-let-8-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-3-const-et-let-8-min">Apport 3 — <code>const</code> et <code>let</code> (8 min)</h2>
+<section id="apport-3-const-et-let-8-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-3-const-et-let-8-min">Apport 3 — <code>const</code> et <code>let</code> (8 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : garder une valeur pour la réutiliser plus loin.</li>
 <li><strong>Variable</strong> : un nom qui désigne une valeur ; <code>const</code> par défaut.</li>
@@ -689,8 +689,8 @@ flowchart LR
 <li>Tapez <code>.exit</code>, puis Entrée, pour quitter le REPL.</li>
 </ol>
 </section>
-<section id="variables-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="variables-attention-et-vérification">Variables — attention et vérification</h2>
+<section id="variables-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="variables-attention-et-vérification">Variables — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -709,8 +709,8 @@ flowchart LR
 <li>Prédisez, puis tapez la ligne dans le REPL.</li>
 </ul>
 </section>
-<section id="apport-4-les-types-et-typeof-7-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-4-les-types-et-typeof-7-min">Apport 4 — Les types et <code>typeof</code> (7 min)</h2>
+<section id="apport-4-les-types-et-typeof-7-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-4-les-types-et-typeof-7-min">Apport 4 — Les types et <code>typeof</code> (7 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : <code>'4' + 2</code> ne donne pas <code>6</code>.</li>
 <li><strong>Type</strong> : la sorte d’une valeur ; <code>typeof</code> la donne.</li>
@@ -734,8 +734,8 @@ flowchart LR
 </ol>
 <p>Le texte placé après <code>//</code> est un <strong><a href="../../ressources/lexique.html#t-commentaire">commentaire</a></strong> : Node l’ignore. JavaScript accepte les guillemets simples (<code>'…'</code>) et doubles (<code>"…"</code>) ; le cours utilise les simples dans le code.</p>
 </section>
-<section id="types-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="types-attention-et-vérification">Types — attention et vérification</h2>
+<section id="types-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="types-attention-et-vérification">Types — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -754,8 +754,8 @@ flowchart LR
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
-<section id="exercice-prédire-puis-vérifier-30-min" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-prédire-puis-vérifier-30-min">Exercice — Prédire, puis vérifier (30 min)</h2>
+<section id="exercice-prédire-puis-vérifier-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-prédire-puis-vérifier-30-min">Exercice — Prédire, puis vérifier (30 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : prédisez à voix haute les lignes 1 et 7.</li>
 <li>Seuls, sur papier (10 min) : prédisez les lignes 2 à 9.</li>
@@ -784,8 +784,8 @@ flowchart LR
 </ol>
 <p><strong>Réussi si</strong> : la valeur entourée sur votre dessin est celle qu’affiche le REPL.</p>
 </section>
-<section id="apport-5-comparer-avec-10-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-5-comparer-avec-10-min">Apport 5 — Comparer avec <code>===</code> (10 min)</h2>
+<section id="apport-5-comparer-avec-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-5-comparer-avec-10-min">Apport 5 — Comparer avec <code>===</code> (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : un programme doit savoir si deux valeurs sont égales.</li>
 <li><strong><code>===</code></strong> : même type <strong>et</strong> même valeur ; jamais <code>==</code>.</li>
@@ -807,8 +807,8 @@ flowchart LR
 <li>Tapez <code>.exit</code>, puis Entrée.</li>
 </ol>
 </section>
-<section id="attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="attention-et-vérification"><code>===</code> — attention et vérification</h2>
+<section id="attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="attention-et-vérification"><code>===</code> — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -827,8 +827,8 @@ flowchart LR
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
-<section id="exercice-quatre-comparaisons-10-min" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-quatre-comparaisons-10-min">Exercice — Quatre comparaisons (10 min)</h2>
+<section id="exercice-quatre-comparaisons-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-quatre-comparaisons-10-min">Exercice — Quatre comparaisons (10 min)</h3>
 <ol type="1">
 <li>Ensemble (2 min) : prédisez à voix haute la comparaison 1.</li>
 <li>Seuls (5 min) : écrivez <code>true</code> ou <code>false</code> pour 2 à 4.</li>
@@ -841,8 +841,8 @@ flowchart LR
 <li><code>'3' == 3</code></li>
 <li><code>0 == ''</code></li>
 </ol>
-<section id="si-le-temps-le-permet-quatre-pièges-de" class="level3">
-<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-quatre-pièges-de">Si le temps le permet — Quatre pièges de <code>==</code></h3>
+<section id="si-le-temps-le-permet-quatre-pièges-de" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-quatre-pièges-de">Si le temps le permet — Quatre pièges de <code>==</code></h4>
 <ol start="5" type="1">
 <li><code>0 === ''</code></li>
 <li><code>null == undefined</code></li>
@@ -851,8 +851,8 @@ flowchart LR
 </ol>
 </section>
 </section>
-<section id="à-retenir-ce-matin" class="level2">
-<h2 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h2>
+<section id="à-retenir-ce-matin" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -881,8 +881,8 @@ flowchart LR
 <li><strong>Comparer</strong> : <code>===</code> compare le type et la valeur ; <code>=</code> donne une valeur, <code>===</code> compare ; jamais <code>==</code> dans le cours.</li>
 </ul>
 </section>
-<section id="débrief" class="level2">
-<h2 class="anchored" data-anchor-id="débrief">Débrief</h2>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
 <ul>
 <li>Quelle différence entre <code>let</code> et <code>const</code> ?</li>
 <li>Pourquoi <code>'4' + 2</code> donne-t-il <code>'42'</code> ?</li>
@@ -890,10 +890,10 @@ flowchart LR
 </ul>
 </section>
 </section>
-<section id="après-midi-tp-hello-js-premiers-tests-automatiques" class="level1">
-<h1>Après-midi — TP — « Hello, JS » · premiers tests automatiques</h1>
-<section id="récupérer-les-fichiers-10-min" class="level2">
-<h2 class="anchored" data-anchor-id="récupérer-les-fichiers-10-min">Récupérer les fichiers (10 min)</h2>
+<section id="après-midi-tp-hello-js-premiers-tests-automatiques" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-tp-hello-js-premiers-tests-automatiques">Après-midi — TP — « Hello, JS » · premiers tests automatiques</h2>
+<section id="récupérer-les-fichiers-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="récupérer-les-fichiers-10-min">Récupérer les fichiers (10 min)</h3>
 <ol type="1">
 <li>Téléchargez l’<a href="code/exercices/s02-exercices.zip">archive des exercices</a>.</li>
 <li>Extrayez-la : un dossier <code>s02-exercices</code> apparaît.</li>
@@ -905,8 +905,8 @@ flowchart LR
 <p>Pour extraire l’archive (étape 2) : sous Windows, clic droit sur le fichier, <em>Extraire tout…</em>, puis <em>Extraire</em> ; sous macOS, double-cliquez sur le fichier ; sous Linux, clic droit, <em>Extraire ici</em>. Le dossier <code>dwwm</code> est dans votre dossier personnel.</p>
 <p>La commande <code>cd ~/dwwm/semaine-02</code> s’écrit de la même façon dans PowerShell, sous macOS et sous Linux : <code>~</code> désigne votre dossier personnel. <code>cd</code> veut dire <em>change directory</em> : le terminal travaille désormais dans ce dossier. <code>ls</code> affiche son contenu.</p>
 </section>
-<section id="apport-6-lancer-un-programme-et-ses-tests-15-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-6-lancer-un-programme-et-ses-tests-15-min">Apport 6 — Lancer un programme et ses tests (15 min)</h2>
+<section id="apport-6-lancer-un-programme-et-ses-tests-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-6-lancer-un-programme-et-ses-tests-15-min">Apport 6 — Lancer un programme et ses tests (15 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : vérifier un programme sans tout relire à la main.</li>
 <li><strong>Test</strong> : il lance votre programme et compare au résultat attendu.</li>
@@ -976,8 +976,8 @@ test at 01-hello.test.js:13:1
 <p><code>node --test</code> sans nom de fichier lance <strong>tous</strong> les tests du dossier, y compris ceux des exercices de vendredi : beaucoup de croix rouges, c’est normal. Pour un seul exercice, donnez le nom de son fichier de tests.</p>
 <p><strong>Les lignes fournies : <code>process.argv</code>.</strong> <code>node 02-presentation.js Ada 36</code> lance le programme avec deux mots en plus. <code>process.argv</code> contient les <a href="../../ressources/lexique.html#t-argument">arguments</a> de la ligne de commande : le chemin de Node, celui du fichier, puis ce que vous tapez ensuite <span class="citation" data-cites="nodejs-process">(<a href="#ref-nodejs-process" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-c</a>)</span>. Ici, <code>process.argv[2]</code> vaut <code>'Ada'</code> et <code>process.argv[3]</code> vaut <code>'36'</code> : ce sont des <strong>textes</strong>, que <code>Number(…)</code> convertit. Ces lignes sont fournies en haut des exercices : ne les modifiez pas. Vous écrirez vos propres fonctions la semaine prochaine.</p>
 </section>
-<section id="tests-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="tests-attention-et-vérification">Tests — attention et vérification</h2>
+<section id="tests-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="tests-attention-et-vérification">Tests — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -996,8 +996,8 @@ test at 01-hello.test.js:13:1
 <li>Répondez sur votre feuille, puis comparez avec votre voisin.</li>
 </ul>
 </section>
-<section id="apport-7-une-valeur-dans-un-texte-5-min" class="level2">
-<h2 class="anchored" data-anchor-id="apport-7-une-valeur-dans-un-texte-5-min">Apport 7 — Une valeur dans un texte (5 min)</h2>
+<section id="apport-7-une-valeur-dans-un-texte-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-7-une-valeur-dans-un-texte-5-min">Apport 7 — Une valeur dans un texte (5 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : afficher une phrase qui contient une valeur.</li>
 <li><strong>Littéral de gabarit</strong> : un texte entre accents graves ; <code>${…}</code> insère.</li>
@@ -1017,8 +1017,8 @@ test at 01-hello.test.js:13:1
 </ol>
 <p>L’accent grave s’obtient sous Windows (clavier AZERTY) avec <kbd title="windows: AltGr+7" aria-hidden="true" data-windows="AltGr+7"></kbd><span class="visually-hidden"></span>, puis la touche Espace ; sous macOS, avec la touche située à gauche de Entrée (clavier AZERTY).</p>
 </section>
-<section id="littéral-de-gabarit-attention-et-vérification" class="level2">
-<h2 class="anchored" data-anchor-id="littéral-de-gabarit-attention-et-vérification">Littéral de gabarit — attention et vérification</h2>
+<section id="littéral-de-gabarit-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="littéral-de-gabarit-attention-et-vérification">Littéral de gabarit — attention et vérification</h3>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1037,8 +1037,8 @@ test at 01-hello.test.js:13:1
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
-<section id="exercices-01-à-04-1-h-15" class="level2">
-<h2 class="anchored" data-anchor-id="exercices-01-à-04-1-h-15">Exercices 01 à 04 (1 h 15)</h2>
+<section id="exercices-01-à-04-1-h-15" class="level3">
+<h3 class="anchored" data-anchor-id="exercices-01-à-04-1-h-15">Exercices 01 à 04 (1 h 15)</h3>
 <ol type="1">
 <li>Ensemble (10 min) : <code>01-hello</code>, du test rouge au test vert.</li>
 <li>Seuls : <code>02-presentation</code>, puis <code>03-types</code>, puis <code>04-egalite</code>.</li>
@@ -1116,8 +1116,8 @@ test at 01-hello.test.js:13:1
 </div>
 </div>
 </div>
-<section id="critères-de-réussite" class="level3">
-<h3 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h3>
+<section id="critères-de-réussite" class="level4">
+<h4 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h4>
 <ul class="task-list">
 <li><label><input type="checkbox"><code>node -v</code> affiche une version (ou le plan B fonctionne)</label></li>
 <li><label><input type="checkbox"><code>essai.js</code> s’ouvre dans VS Code et s’exécute</label></li>
@@ -1125,8 +1125,8 @@ test at 01-hello.test.js:13:1
 <li><label><input type="checkbox">Une capture du terminal est déposée auprès du formateur</label></li>
 </ul>
 </section>
-<section id="si-le-temps-le-permet-exercice-05-prix-ttc" class="level3">
-<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-exercice-05-prix-ttc">Si le temps le permet — Exercice 05 : prix TTC</h3>
+<section id="si-le-temps-le-permet-exercice-05-prix-ttc" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-exercice-05-prix-ttc">Si le temps le permet — Exercice 05 : prix TTC</h4>
 <ul>
 <li><code>node 05-prix-ttc.js 100 20</code> affiche <code>Prix TTC : 120.00 €</code>.</li>
 <li>Formule : prix HT × (1 + taux / 100).</li>
@@ -1134,16 +1134,16 @@ test at 01-hello.test.js:13:1
 <li>Tests : <code>node --test 05-prix-ttc.test.js</code>.</li>
 </ul>
 </section>
-<section id="pour-aller-plus-loin" class="level3">
-<h3 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h3>
+<section id="pour-aller-plus-loin" class="level4">
+<h4 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h4>
 <ul>
 <li>Ouvrez la page <code>typeof</code> de MDN <span class="citation" data-cites="mdn-typeof">(<a href="#ref-mdn-typeof" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>, puis sa version anglaise (sélecteur de langue en haut de la page).</li>
 <li>Trouvez dans le tableau ce que donne <code>typeof null</code>, puis vérifiez-le dans le REPL.</li>
 </ul>
 </section>
 </section>
-<section id="à-retenir-cet-après-midi" class="level2">
-<h2 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h2>
+<section id="à-retenir-cet-après-midi" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1167,16 +1167,16 @@ test at 01-hello.test.js:13:1
 <li><strong>Littéral de gabarit</strong> : il s’écrit entre accents graves ; <code>${…}</code> insère une valeur ou un calcul ; avec des guillemets, rien n’est remplacé.</li>
 </ul>
 </section>
-<section id="débrief-10-min" class="level2">
-<h2 class="anchored" data-anchor-id="débrief-10-min">Débrief (10 min)</h2>
+<section id="débrief-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="débrief-10-min">Débrief (10 min)</h3>
 <ul>
 <li>Que montre la ligne <code>-</code> d’un test rouge ?</li>
 <li>Quelle différence entre <code>'…'</code> et <code>`…`</code> ?</li>
 <li>Quel exercice vous a demandé le plus d’essais, et pourquoi ?</li>
 </ul>
 </section>
-<section id="sources" class="level2">
-<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-apple-extensions-fichiers" class="csl-entry" role="listitem">
 Apple. s.&nbsp;d. <span>«&nbsp;Show or hide filename extensions on Mac&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://support.apple.com/guide/mac-help/show-or-hide-filename-extensions-on-mac-mchlp2304/mac">https://support.apple.com/guide/mac-help/show-or-hide-filename-extensions-on-mac-mchlp2304/mac</a>.
