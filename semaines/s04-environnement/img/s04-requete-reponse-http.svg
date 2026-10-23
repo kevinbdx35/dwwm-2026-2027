@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 530" width="1080" height="530" role="img" aria-labelledby="titre desc" font-family="system-ui, sans-serif">
+  <title id="titre">Une requête HTTP et sa réponse</title>
+  <desc id="desc">À gauche, le navigateur, le client ; à droite, le serveur. En haut, la requête va du navigateur au serveur : méthode GET, adresse developer.mozilla.org/fr/. En bas, la réponse revient du serveur au navigateur : code 200 OK, et un corps qui contient la page HTML.</desc>
+  <!-- Dessin original, réalisé pour le cours (licence du site). -->
+  <defs>
+    <marker id="pointe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f2a5a"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="530" fill="#ffffff"/>
+  <!-- client and server -->
+  <rect x="20" y="40" width="220" height="450" rx="10" fill="#e8e2d2" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="130" y="255" font-size="28" font-weight="bold" fill="#1f2a5a" text-anchor="middle">Navigateur</text>
+  <text x="130" y="290" font-size="24" fill="#1f2a5a" text-anchor="middle">(le client)</text>
+  <rect x="840" y="40" width="220" height="450" rx="10" fill="#e8e2d2" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="950" y="270" font-size="28" font-weight="bold" fill="#1f2a5a" text-anchor="middle">Serveur</text>
+  <!-- request -->
+  <rect x="270" y="40" width="540" height="160" rx="8" fill="#cfe0f5" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="290" y="78" font-size="28" font-weight="bold" fill="#1f2a5a">1. La requête</text>
+  <text x="290" y="122" font-size="24" fill="#1f2a5a">Méthode</text>
+  <text x="430" y="122" font-size="26" font-weight="bold" font-family="ui-monospace, Consolas, monospace" fill="#1f2a5a">GET</text>
+  <text x="290" y="168" font-size="24" fill="#1f2a5a">Adresse</text>
+  <text x="430" y="168" font-size="24" font-family="ui-monospace, Consolas, monospace" fill="#1f2a5a">developer.mozilla.org/fr/</text>
+  <path d="M245 228 H832" stroke="#1f2a5a" stroke-width="5" marker-end="url(#pointe)"/>
+  <!-- response -->
+  <rect x="270" y="290" width="540" height="160" rx="8" fill="#d8efdc" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="290" y="328" font-size="28" font-weight="bold" fill="#1f2a5a">2. La réponse</text>
+  <text x="290" y="372" font-size="24" fill="#1f2a5a">Code</text>
+  <text x="430" y="372" font-size="26" font-weight="bold" font-family="ui-monospace, Consolas, monospace" fill="#1b6e35">200 OK</text>
+  <text x="290" y="418" font-size="24" fill="#1f2a5a">Corps</text>
+  <text x="430" y="418" font-size="24" fill="#1f2a5a">la page HTML</text>
+  <path d="M835 478 H248" stroke="#1f2a5a" stroke-width="5" marker-end="url(#pointe)"/>
+</svg>

@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Jeudi 29/10 — Versionner son travail avec Git – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s04-environnement/vendredi.html" rel="next">
+<link href="../../semaines/s04-environnement/mercredi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/index.html">Semaine 4 — C1 - Installer et configurer son environnement de travail</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/jeudi.html">Jeudi 29/10 — Versionner son travail avec Git</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-git-versionner-son-travail-démonstrations-visualizing-git" id="toc-matin-git-versionner-son-travail-démonstrations-visualizing-git" class="nav-link" data-scroll-target="#matin-git-versionner-son-travail-démonstrations-visualizing-git">Matin — Git : versionner son travail (démonstrations Visualizing Git)</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-1-versionner-les-trois-zones-de-git-10-min" id="toc-apport-1-versionner-les-trois-zones-de-git-10-min" class="nav-link" data-scroll-target="#apport-1-versionner-les-trois-zones-de-git-10-min">Apport 1 — Versionner : les trois zones de Git (10 min)</a></li>
+  <li><a href="#trois-zones-attention-et-vérification" id="toc-trois-zones-attention-et-vérification" class="nav-link" data-scroll-target="#trois-zones-attention-et-vérification">Trois zones — attention et vérification</a></li>
+  <li><a href="#démonstration-visualizing-git-10-min" id="toc-démonstration-visualizing-git-10-min" class="nav-link" data-scroll-target="#démonstration-visualizing-git-10-min">Démonstration — Visualizing Git (10 min)</a></li>
+  <li><a href="#apport-2-les-commandes-de-base-15-min" id="toc-apport-2-les-commandes-de-base-15-min" class="nav-link" data-scroll-target="#apport-2-les-commandes-de-base-15-min">Apport 2 — Les commandes de base (15 min)</a></li>
+  <li><a href="#commandes-attention-et-vérification" id="toc-commandes-attention-et-vérification" class="nav-link" data-scroll-target="#commandes-attention-et-vérification">Commandes — attention et vérification</a></li>
+  <li><a href="#exercice-guidé-mon-premier-dépôt-50-min" id="toc-exercice-guidé-mon-premier-dépôt-50-min" class="nav-link" data-scroll-target="#exercice-guidé-mon-premier-dépôt-50-min">Exercice guidé — Mon premier dépôt (50 min)</a></li>
+  <li><a href="#apport-2-suite-un-bon-message-de-commit-5-min" id="toc-apport-2-suite-un-bon-message-de-commit-5-min" class="nav-link" data-scroll-target="#apport-2-suite-un-bon-message-de-commit-5-min">Apport 2 (suite) — Un bon message de commit (5 min)</a></li>
+  <li><a href="#message-attention-et-vérification" id="toc-message-attention-et-vérification" class="nav-link" data-scroll-target="#message-attention-et-vérification">Message — attention et vérification</a></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-tp-git-journal-learn-git-branching" id="toc-après-midi-tp-git-journal-learn-git-branching" class="nav-link" data-scroll-target="#après-midi-tp-git-journal-learn-git-branching">Après-midi — TP — « Git Journal » · Learn Git Branching</a>
+  <ul>
+  <li><a href="#apport-3-ignorer-des-fichiers-5-min" id="toc-apport-3-ignorer-des-fichiers-5-min" class="nav-link" data-scroll-target="#apport-3-ignorer-des-fichiers-5-min">Apport 3 — Ignorer des fichiers (5 min)</a></li>
+  <li><a href="#gitignore-attention-et-vérification" id="toc-gitignore-attention-et-vérification" class="nav-link" data-scroll-target="#gitignore-attention-et-vérification"><code>.gitignore</code> — attention et vérification</a></li>
+  <li><a href="#tp-git-journal-1-h-30" id="toc-tp-git-journal-1-h-30" class="nav-link" data-scroll-target="#tp-git-journal-1-h-30">TP « Git Journal » (1 h 30)</a></li>
+  <li><a href="#learn-git-branching-1-h-30" id="toc-learn-git-branching-1-h-30" class="nav-link" data-scroll-target="#learn-git-branching-1-h-30">Learn Git Branching (1 h 30)</a>
+  <ul class="collapse">
+  <li><a href="#pas-à-pas-le-niveau-1-15-min" id="toc-pas-à-pas-le-niveau-1-15-min" class="nav-link" data-scroll-target="#pas-à-pas-le-niveau-1-15-min">Pas à pas — le niveau 1 (15 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-le-graphe-de-votre-journal" id="toc-si-le-temps-le-permet-le-graphe-de-votre-journal" class="nav-link" data-scroll-target="#si-le-temps-le-permet-le-graphe-de-votre-journal">Si le temps le permet — Le graphe de votre journal</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="jeudi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="jeudi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/index.html">Semaine 4 — C1 - Installer et configurer son environnement de travail</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/jeudi.html">Jeudi 29/10 — Versionner son travail avec Git</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Jeudi 29/10 — Versionner son travail avec Git</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">jeudi 29 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C1 · résolution de problème<br> <strong>Livrable</strong> : le dépôt <code>git-journal</code> avec au moins 8 commits aux messages clairs.</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Expliquer à quoi sert un gestionnaire de versions.</li>
+<li>Enregistrer son travail par petits <a href="../../ressources/lexique.html#t-commit">commits</a>, avec des messages clairs.</li>
+<li>Lire l’historique et les différences entre deux versions.</li>
+<li>Annuler une modification qui n’est pas encore enregistrée.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Le matin, deux notions : les trois zones de Git, puis les commandes de base, avec le message du commit. L’après-midi, le fichier <a href="../../ressources/lexique.html#t-gitignore"><code>.gitignore</code></a>, juste avant le Git Journal qui s’en sert. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine chaque demi-journée.</p>
+</section>
+<section id="matin-git-versionner-son-travail-démonstrations-visualizing-git" class="level2">
+<h2 class="anchored" data-anchor-id="matin-git-versionner-son-travail-démonstrations-visualizing-git">Matin — Git : versionner son travail (démonstrations Visualizing Git)</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li>Comment afficher aussi les fichiers cachés ?</li>
+<li>Quelle clé SSH peut-on partager ?</li>
+<li>Que veut dire « portée » d’une variable ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-1-versionner-les-trois-zones-de-git-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-1-versionner-les-trois-zones-de-git-10-min">Apport 1 — Versionner : les trois zones de Git (10 min)</h3>
+<p><strong>Pourquoi.</strong> Garder l’historique de chaque étape d’un projet, revenir en arrière après une erreur, travailler à plusieurs sans s’écraser : c’est le rôle d’un gestionnaire de versions. Le référentiel attend l’usage d’un outil de type Git <span class="citation" data-cites="reac-dwwm-2023">(<a href="#ref-reac-dwwm-2023" role="doc-biblioref">Ministère du Travail 2023</a>)</span> ; Git fait partie des outils obligatoires de la formation.</p>
+<p><strong>Définition.</strong> Un gestionnaire de versions enregistre l’évolution d’un ensemble de fichiers au cours du temps, pour pouvoir rappeler une version antérieure <span class="citation" data-cites="progit-gestion-version">(<a href="#ref-progit-gestion-version" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.-a</a>)</span>. Git range vos fichiers dans trois zones : le <strong>répertoire de travail</strong> (vos fichiers, tels que vous les modifiez), l’<strong><a href="../../ressources/lexique.html#t-index-git">index</a></strong> (ce que vous préparez pour le prochain commit, avec <code>git add</code>) et le <strong>dépôt</strong> (l’historique des commits enregistrés, avec <code>git commit</code>) <span class="citation" data-cites="progit-enregistrer">(<a href="#ref-progit-enregistrer" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.-c</a>)</span>. Un <strong>commit</strong> est une photo enregistrée de vos fichiers, avec un message.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Les trois zones de Git
+  accDescr: Le répertoire de travail contient vos fichiers tels que vous les modifiez. git add les place dans l'index, ce que vous préparez pour le prochain commit. git commit les enregistre dans le dépôt, l'historique. git push envoie l'historique sur GitHub.
+  T["Répertoire de travail&lt;br/&gt;vos fichiers modifiés"] --&gt;|git add| I["Index&lt;br/&gt;le prochain commit"]
+  I --&gt;|git commit| D["Dépôt&lt;br/&gt;l'historique"]
+  D --&gt;|git push| G["GitHub"]
+</pre>
+</div>
+<p></p><figcaption> Un fichier passe du répertoire de travail à l’index (git add), puis au dépôt (git commit) ; git push l’envoie sur GitHub.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Pas à pas.</strong> C’est la démonstration Visualizing Git, ci-dessous : cet outil dessine le graphe des commits à mesure que l’on tape des commandes Git <span class="citation" data-cites="visualizing-git">(<a href="#ref-visualizing-git" role="doc-biblioref">Git School, s.&nbsp;d.</a>)</span>.</p>
+</section>
+<section id="trois-zones-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="trois-zones-attention-et-vérification">Trois zones — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un fichier modifié mais pas ajouté (<code>git add</code>) n’entre pas dans le commit. Avant chaque commit, <code>git status</code> montre ce qui sera enregistré.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : quelle commande fait passer un fichier dans l’index ?</li>
+</ul>
+</section>
+<section id="démonstration-visualizing-git-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="démonstration-visualizing-git-10-min">Démonstration — Visualizing Git (10 min)</h3>
+<ol type="1">
+<li>Le formateur tape des commandes : le schéma se dessine.</li>
+<li>Chaque <code>git commit</code> ajoute un rond à l’historique.</li>
+<li>À vous : trois commits, et observez le schéma.</li>
+</ol>
+</section>
+<section id="apport-2-les-commandes-de-base-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-2-les-commandes-de-base-15-min">Apport 2 — Les commandes de base (15 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : enregistrer, relire et annuler, en quelques commandes.</li>
+<li><strong><code>git status</code></strong> : la commande à taper le plus souvent.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Chaque jour, vous enregistrez votre travail, vous regardez ce qui a changé, et parfois vous annulez une erreur : sept commandes suffisent.</p>
+<p><strong>Définition.</strong> <code>git init</code> crée un dépôt dans le dossier ; <code>git status</code> dit où vous en êtes ; <code>git add</code> prépare un fichier ; <code>git commit -m "…"</code> enregistre ; <code>git log --oneline</code> montre l’historique ; <code>git diff</code> montre ce qui a changé depuis le dernier commit ; <code>git restore</code> annule une modification pas encore préparée. Voir les chapitres « Enregistrer des modifications dans le dépôt » <span class="citation" data-cites="progit-enregistrer">(<a href="#ref-progit-enregistrer" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.-c</a>)</span>, « Visualiser l’historique des validations » <span class="citation" data-cites="progit-historique">(<a href="#ref-progit-historique" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.-e</a>)</span> et « Annuler des actions » <span class="citation" data-cites="progit-annuler">(<a href="#ref-progit-annuler" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.-b</a>)</span> du livre Pro Git, ainsi que la documentation de <code>git restore</code> <span class="citation" data-cites="git-restore">(<a href="#ref-git-restore" role="doc-biblioref">Git, s.&nbsp;d.</a>)</span>.</p>
+<div class="schema-diapo" style="--h: 230px">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "gitGraph": {"rotateCommitLabel": false}, "themeVariables": {"fontSize": "20px", "commitLabelFontSize": "20px"}}}%%
+gitGraph TB:
+  accTitle: Un historique de deux commits
+  accDescr: Sur la branche main, deux commits se suivent, du plus ancien en haut au plus récent en bas. Le premier, e809331, s'appelle « Ajoute les notes du jour ». Le second, a20a8c2, s'appelle « Ajoute un conseil sur git status » ; c'est le dernier commit de main.
+  commit id: "e809331 Ajoute les notes du jour"
+  commit id: "a20a8c2 Ajoute un conseil sur git status"
+</pre>
+</div>
+<p></p><figcaption> L’historique de l’exercice guidé : chaque commit est un rond, avec son identifiant et son message ; main désigne le dernier. git log –oneline affiche la même liste, du plus récent au plus ancien.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Exemple, commenté ligne par ligne.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add notes.md</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute les notes du jour"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-3-5" class="code-annotation-target"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-3-6" class="code-annotation-target"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="7" onclick="event.preventDefault();">7</a><span id="annotated-cell-3-7" class="code-annotation-target"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore notes.md</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1"><code>git init</code> crée un dépôt dans le dossier courant : un dossier caché, <code>.git</code>, qui gardera tout l’historique. Une seule fois par projet.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="2" data-code-annotation="2"><code>git status</code> dit où vous en êtes : la branche, les fichiers modifiés, ceux qui sont dans l’index. Tapez-la avant chaque commit.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="3" data-code-annotation="3"><code>git add notes.md</code> place le fichier dans l’index : il fera partie du prochain commit.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="4"><code>git commit -m "…"</code> enregistre le contenu de l’index dans le dépôt, avec le message écrit entre guillemets.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="5" data-code-annotation="5"><code>git log --oneline</code> affiche l’historique, un commit par ligne : son identifiant court, puis son message.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="6" data-code-annotation="6"><code>git diff</code> montre ce qui a changé depuis le dernier commit et n’est pas encore dans l’index : <code>+</code> devant une ligne ajoutée, <code>-</code> devant une ligne retirée.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="7" data-code-annotation="7"><code>git restore notes.md</code> remet le fichier dans l’état du dernier commit : la modification est effacée, sans retour.</span>
+</dd>
+</dl>
+<p><strong>Pas à pas.</strong> C’est l’exercice guidé, ci-dessous : le formateur fait chaque étape au vidéoprojecteur, vous la refaites aussitôt. Un message de Git vous bloque ? La fiche <a href="../../ressources/fiche-erreurs.html">Lire un message d’erreur</a> explique les plus fréquents.</p>
+</section>
+<section id="commandes-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="commandes-attention-et-vérification">Commandes — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>git restore</code> efface vos modifications non enregistrées, sans retour possible. Relisez <code>git diff</code> avant de l’utiliser.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : quelle commande montre ce qui a changé ?</li>
+</ul>
+</section>
+<section id="exercice-guidé-mon-premier-dépôt-50-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-guidé-mon-premier-dépôt-50-min">Exercice guidé — Mon premier dépôt (50 min)</h3>
+<p><strong>Niveau</strong> : guidé.</p>
+<ol type="1">
+<li>Créez <code>dwwm/essai-git</code>, entrez-y (<code>cd</code>), puis <code>git init</code>.</li>
+<li>Dans VS Code, créez <code>notes.md</code> ; puis <code>git add</code> et <code>git commit</code>.</li>
+<li>Modifiez <code>notes.md</code> ; <code>git diff</code> ; puis un deuxième commit.</li>
+<li>Modifiez encore, puis annulez avec <code>git restore notes.md</code>.</li>
+<li><strong>Réussi si</strong> : <code>git log --oneline</code> montre 2 commits.</li>
+</ol>
+<p>À l’étape 2, écrivez une seule ligne dans <code>notes.md</code> : <code># Notes du jour</code>. À l’étape 3, ajoutez une ligne vide, puis <code>- Taper git status avant chaque commit.</code></p>
+<p><strong>Vous devez voir</strong>, étape par étape. Les identifiants des commits (<code>e809331</code>, <code>a20a8c2</code>) seront différents chez vous ; une ligne vide sépare chaque commande de la suivante.</p>
+<p>Étape 1 :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~/dwwm/essai-git
+$ git init
+Dépôt Git vide initialisé dans C:/Users/stagiaire/dwwm/essai-git/.git/</code></pre>
+</div>
+<p>L’invite affiche maintenant <code>(main)</code> : vous êtes dans un dépôt, sur la branche <code>main</code>.</p>
+<p>Étape 2, avant puis après <code>git add</code> :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git status
+Sur la branche main
+
+Aucun commit
+
+Fichiers non suivis:
+  (utilisez "git add &lt;fichier&gt;..." pour inclure dans ce qui sera validé)
+    notes.md
+
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)
+
+stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git add notes.md
+
+stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git status
+Sur la branche main
+
+Aucun commit
+
+Modifications qui seront validées :
+  (utilisez "git rm --cached &lt;fichier&gt;..." pour désindexer)
+    nouveau fichier : notes.md
+
+stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git commit -m "Ajoute les notes du jour"
+[main (commit racine) e809331] Ajoute les notes du jour
+ 1 file changed, 1 insertion(+)
+ create mode 100644 notes.md</code></pre>
+</div>
+<p>Étape 3 : <code>git diff</code> marque d’un <code>+</code> les deux lignes ajoutées (la ligne vide et le conseil).</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git diff
+diff --git a/notes.md b/notes.md
+index 6e74760..27ba1f6 100644
+--- a/notes.md
++++ b/notes.md
+@@ -1 +1,3 @@
+ # Notes du jour
++
++- Taper git status avant chaque commit.
+
+stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git add notes.md
+
+stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git commit -m "Ajoute un conseil sur git status"
+[main a20a8c2] Ajoute un conseil sur git status
+ 1 file changed, 2 insertions(+)</code></pre>
+</div>
+<p>Étape 4 : après une modification, <code>git status</code> propose lui-même <code>git restore</code> ; après <code>git restore</code>, plus rien à valider.</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git status
+Sur la branche main
+Modifications qui ne seront pas validées :
+  (utilisez "git add &lt;fichier&gt;..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore &lt;fichier&gt;..." pour annuler les modifications dans le répertoire de travail)
+    modifié :         notes.md
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+
+stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git restore notes.md
+
+stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git status
+Sur la branche main
+rien à valider, la copie de travail est propre</code></pre>
+</div>
+<p>Étape 5 : les deux commits, le plus récent en haut.</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git log --oneline
+a20a8c2 Ajoute un conseil sur git status
+e809331 Ajoute les notes du jour</code></pre>
+</div>
+<p><strong>Un avertissement sous Windows.</strong> Si un fichier a été créé dans Git Bash (par exemple avec <code>echo</code>), <code>git add</code> peut afficher, en anglais :</p>
+<div class="terminal">
+<pre class="text"><code>warning: in the working copy of 'notes.md', LF will be replaced by CRLF the next time Git touches it</code></pre>
+</div>
+<p>Ce n’est pas une erreur : le fichier est bien ajouté, continuez. Windows ne termine pas les lignes avec les mêmes caractères invisibles que macOS et Linux (CRLF d’un côté, LF de l’autre) ; Git for Windows les convertit tout seul <span class="citation" data-cites="github-fins-de-ligne">(<a href="#ref-github-fins-de-ligne" role="doc-biblioref">GitHub, s.&nbsp;d.</a>)</span>. Un fichier créé dans VS Code, sous Windows, n’affiche pas cet avertissement.</p>
+</section>
+<section id="apport-2-suite-un-bon-message-de-commit-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-2-suite-un-bon-message-de-commit-5-min">Apport 2 (suite) — Un bon message de commit (5 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : relire l’historique dans six mois, et le jury aussi.</li>
+<li><strong>Message</strong> : ce que fait le commit, à l’impératif, en une ligne.</li>
+</ul>
+<p><strong>Pourquoi.</strong> L’historique raconte votre projet. Des messages clairs permettent de retrouver une étape, de comprendre une erreur, et de montrer votre méthode au jury.</p>
+<p><strong>Définition.</strong> Un bon message dit <strong>ce que</strong> fait le commit, à l’impératif (« Ajoute… », « Corrige… »), en moins de 70 caractères. Un commit correspond à une étape cohérente, pas à une journée entière.</p>
+<p><strong>Exemple.</strong></p>
+<pre><code>Bon     : Ajoute l'entrée de la semaine 2 au journal
+Bon     : Corrige la faute de frappe du titre
+À éviter : modif
+À éviter : ça marche</code></pre>
+</section>
+<section id="message-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="message-attention-et-vérification">Message — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>git commit</code> sans <code>-m</code> ouvre un éditeur dans le terminal (souvent Vim). Pour en sortir : <kbd title="mac: Échap, windows: Échap" aria-hidden="true" data-mac="Échap" data-windows="Échap"></kbd><span class="visually-hidden"></span>, puis <code>:wq</code>, puis Entrée.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : réécrivez « modif » pour un commit qui ajoute un lien.</li>
+</ul>
+</section>
+<section id="à-retenir-ce-matin" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Trois zones</strong> : <code>git add</code> prépare, <code>git commit</code> enregistre.</li>
+<li><strong><code>git status</code></strong> avant tout ; <strong><code>git restore</code></strong> efface sans retour.</li>
+<li><strong>Message</strong> : à l’impératif, en une ligne ; un commit par étape.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Trois zones</strong> : répertoire de travail, index, dépôt ; <code>git add</code>, puis <code>git commit</code> ; <code>git push</code> (demain) envoie sur GitHub.</li>
+<li><strong>Commandes</strong> : <code>git init</code>, <code>git status</code>, <code>git add</code>, <code>git commit -m</code>, <code>git log --oneline</code>, <code>git diff</code>, <code>git restore</code>.</li>
+<li><strong>Message de commit</strong> : ce que fait le commit, à l’impératif, en une ligne ; un commit par étape.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Quelle différence entre <code>git add</code> et <code>git commit</code> ?</li>
+<li>Que montre <code>git diff</code> ?</li>
+<li>Quand utiliser <code>git restore</code>, et pourquoi être prudent ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-tp-git-journal-learn-git-branching" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-tp-git-journal-learn-git-branching">Après-midi — TP — « Git Journal » · Learn Git Branching</h2>
+<section id="apport-3-ignorer-des-fichiers-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-3-ignorer-des-fichiers-5-min">Apport 3 — Ignorer des fichiers (5 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : ne pas enregistrer ce qui se réinstalle ou ce qui est secret.</li>
+<li><strong><code>.gitignore</code></strong> : la liste de ce que Git doit ignorer.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Le dossier <code>node_modules</code> pèse lourd et se réinstalle avec <code>npm install</code> ; un fichier de mots de passe ne doit jamais partir sur GitHub.</p>
+<p><strong>Définition.</strong> Le fichier <code>.gitignore</code>, à la racine du dépôt, liste les fichiers et dossiers que Git ne suit pas : ils n’apparaissent plus dans <code>git status</code> <span class="citation" data-cites="progit-enregistrer">(<a href="#ref-progit-enregistrer" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.-c</a>)</span>.</p>
+<p><strong>Exemple.</strong></p>
+<pre><code>node_modules/
+.env</code></pre>
+<p><strong>Pas à pas.</strong></p>
+<ol type="1">
+<li>Dans VS Code, créez le fichier <code>.gitignore</code> à la racine de <code>essai-git</code>.</li>
+<li>Écrivez <code>node_modules/</code> sur la première ligne. Enregistrez.</li>
+<li><code>git status</code> : <code>.gitignore</code> apparaît, à ajouter et à enregistrer comme les autres.</li>
+</ol>
+<p><strong>Vous devez voir</strong>, à l’étape 3 :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~/dwwm/essai-git (main)
+$ git status
+Sur la branche main
+Fichiers non suivis:
+  (utilisez "git add &lt;fichier&gt;..." pour inclure dans ce qui sera validé)
+    .gitignore
+
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)</code></pre>
+</div>
+</section>
+<section id="gitignore-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="gitignore-attention-et-vérification"><code>.gitignore</code> — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>.gitignore</code> n’efface pas un fichier déjà enregistré dans un commit : écrivez-le <strong>avant</strong> le premier commit du fichier à ignorer.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : <code>git status</code> montre-t-il <code>node_modules</code> ?</li>
+</ul>
+</section>
+<section id="tp-git-journal-1-h-30" class="level3">
+<h3 class="anchored" data-anchor-id="tp-git-journal-1-h-30">TP « Git Journal » (1 h 30)</h3>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<ol type="1">
+<li>Créez le dépôt <code>dwwm/git-journal</code> avec un fichier <code>journal.md</code>.</li>
+<li>Pour chaque semaine (1 à 4) : ce que vous avez appris, en 3 lignes.</li>
+<li>Avant chaque commit : <code>git status</code>, puis <code>git diff</code>.</li>
+<li>Un commit par entrée ; ajoutez un <code>.gitignore</code>.</li>
+<li><strong>Réussi si</strong> : au moins <strong>8 commits</strong> aux messages clairs.</li>
+</ol>
+<p>Idées de commits : un par semaine, un pour le <code>.gitignore</code>, un pour corriger une faute, un pour ajouter un lien vers une documentation. Provoquez aussi une erreur volontaire (une ligne effacée par mégarde) et réparez-la avec <code>git restore</code> avant de la valider. Vendredi, ce dépôt sera publié sur GitHub.</p>
+</section>
+<section id="learn-git-branching-1-h-30" class="level3">
+<h3 class="anchored" data-anchor-id="learn-git-branching-1-h-30">Learn Git Branching (1 h 30)</h3>
+<p><strong>Niveau</strong> : guidé.</p>
+<ol type="1">
+<li>Ouvrez Learn Git Branching, en français.</li>
+<li>Faites la séquence d’<strong>introduction</strong> : ses quatre niveaux.</li>
+<li>Commits, branches, fusion : notez une phrase par notion.</li>
+<li>Puis la séquence suivante, aussi loin que possible.</li>
+</ol>
+<p>Learn Git Branching est un jeu qui fait taper de vraies commandes Git et dessine le résultat <span class="citation" data-cites="learn-git-branching">(<a href="#ref-learn-git-branching" role="doc-biblioref">Peter Cottle, s.&nbsp;d.</a>)</span>. La séquence d’introduction compte quatre niveaux : les commits, les branches, la fusion (<em>merge</em>) et le rebase. Le rebase est donné pour information : nous ne l’utiliserons pas dans la formation. Les branches et la fusion servent dès demain avec GitHub <span class="citation" data-cites="progit-branches">(<a href="#ref-progit-branches" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.-d</a>)</span>.</p>
+<section id="pas-à-pas-le-niveau-1-15-min" class="level4">
+<h4 class="anchored" data-anchor-id="pas-à-pas-le-niveau-1-15-min">Pas à pas — le niveau 1 (15 min)</h4>
+<p>Chaque étape donne une action, puis ce que vous devez voir. Sur chaque capture, l’endroit à cliquer est entouré d’un cadre jaune, avec le numéro de l’étape. Quand la capture montre tout l’écran, un zoom sur la zone utile la suit. Sur téléphone, touchez une capture pour l’agrandir.</p>
+<p><strong>Étape 1.</strong> Ouvrez <a href="heberge/learn-git-branching/index.html?locale=fr_FR">Learn Git Branching, version du cours</a> dans votre navigateur. Cette copie est hébergée avec le cours, sans mesure d’audience ni publicité ; votre progression reste dans votre navigateur.</p>
+<p><strong>Vous devez voir</strong> : une fenêtre grise intitulée « Bienvenue sur Learn Git Branching ! ».</p>
+<p><strong>Étape 2.</strong> Cliquez sur l’icône rouge de sortie, en bas de la fenêtre, à gauche de la flèche verte.</p>
+<p><a href="img/lgb-02-fermer-accueil.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/lgb-02-fermer-accueil.webp" class="img-fluid" alt="La fenêtre « Bienvenue sur Learn Git Branching ! ». En bas, deux icônes : une icône rouge de sortie, encadrée en jaune avec le numéro 2, et une flèche verte à sa droite."></a></p>
+<p><strong>Vous devez voir</strong> : une fenêtre intitulée « Choisissez un niveau », avec la rubrique « Séquence d’introduction » en haut.</p>
+<p><strong>Étape 3.</strong> Sous « Séquence d’introduction », cliquez sur le carré <strong>1</strong>.</p>
+<p><a href="img/lgb-03-niveau-1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/lgb-03-niveau-1.webp" class="img-fluid" alt="La fenêtre « Choisissez un niveau ». Sous le titre « Séquence d'introduction », quatre carrés numérotés de 1 à 4 ; le carré 1 est encadré en jaune avec le numéro 3."></a></p>
+<p><strong>Vous devez voir</strong> : une fenêtre intitulée « Commits Git », qui explique ce qu’est un commit.</p>
+<p><strong>Étape 4.</strong> Lisez le texte, puis cliquez sur la flèche verte, en bas de la fenêtre.</p>
+<p><a href="img/lgb-04-fleche-suivante.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/lgb-04-fleche-suivante.webp" class="img-fluid" alt="La fenêtre « Commits Git », avec plusieurs paragraphes d'explication. En bas, une icône rouge de sortie et une flèche verte ; la flèche verte est encadrée en jaune avec le numéro 4."></a></p>
+<p><a href="img/lgb-04-fleche-suivante-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/lgb-04-fleche-suivante-zoom.webp" class="img-fluid" alt="Zoom sur le bas de la fenêtre « Commits Git » : la fin du texte, l'icône rouge de sortie à gauche, et la flèche verte, encadrée en jaune avec le numéro 4."></a></p>
+<p><strong>Vous devez voir</strong> : une fenêtre intitulée « Démonstration de Git ». À droite, un dessin bleu montre deux ronds, C0 et C1, reliés par une flèche ; l’étiquette <code>main*</code> pointe sur C1.</p>
+<p><strong>Étape 5.</strong> Cliquez sur le grand bouton vert <code>git commit</code>, à gauche.</p>
+<p><a href="img/lgb-05-bouton-git-commit.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/lgb-05-bouton-git-commit.webp" class="img-fluid" alt="La fenêtre « Démonstration de Git ». À gauche, le texte d'explication et un grand bouton vert « git commit », encadré en jaune avec le numéro 5. À droite, le dessin bleu : les ronds C0 et C1, l'étiquette main* sur C1."></a></p>
+<p><strong>Vous devez voir</strong> : un nouveau rond, C2, apparaît sous C1 ; l’étiquette <code>main*</code> pointe maintenant sur C2.</p>
+<p><strong>Étape 6.</strong> Cliquez sur la flèche verte, en bas de la fenêtre.</p>
+<p><a href="img/lgb-06-apres-demo.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/lgb-06-apres-demo.webp" class="img-fluid" alt="La même fenêtre après la démonstration : le dessin bleu montre trois ronds, C0, C1 et C2, et l'étiquette main* pointe sur C2. En bas, la flèche verte est encadrée en jaune avec le numéro 6."></a></p>
+<p><strong>Vous devez voir</strong> : une petite fenêtre qui dit « Allez-y et essayez par vous-même ! », avec une coche verte.</p>
+<p><strong>Étape 7.</strong> Cliquez sur la coche verte.</p>
+<p><a href="img/lgb-07-coche-verte.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/lgb-07-coche-verte.webp" class="img-fluid" alt="Une petite fenêtre : « Allez-y et essayez par vous-même ! Après la fermeture de cette fenêtre, faites deux commits pour terminer ce niveau. » En bas, une flèche rouge et une coche verte ; la coche verte est encadrée en jaune avec le numéro 7."></a></p>
+<p><strong>Vous devez voir</strong> : à gauche, un terminal noir avec une barre verte en haut ; à droite, une fenêtre rose « Cible à atteindre » qui montre quatre ronds, de C0 à C3.</p>
+<p><strong>Étape 8.</strong> Dans la barre verte du terminal, cliquez sur le bouton « Cacher la cible ».</p>
+<p><a href="img/lgb-08-cacher-la-cible.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/lgb-08-cacher-la-cible.webp" class="img-fluid" alt="À gauche, le terminal ; dans sa barre verte, le bouton « Cacher la cible » est encadré en jaune avec le numéro 8. À droite, la fenêtre rose « Cible à atteindre » montre quatre ronds reliés, de C0 à C3, et l'étiquette main* sur C3."></a></p>
+<p><a href="img/lgb-08-cacher-la-cible-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/lgb-08-cacher-la-cible-zoom.webp" class="img-fluid" alt="Zoom sur le haut du terminal : la barre verte, avec le bouton « Cacher la cible » à gauche, encadré en jaune avec le numéro 8, le titre du niveau au centre et le bouton « Instructions » à droite."></a></p>
+<p><strong>Vous devez voir</strong> : la fenêtre rose disparaît ; sur le fond bleu, deux ronds, C0 et C1, et l’étiquette <code>main*</code> sur C1.</p>
+<p><strong>Étape 9.</strong> Tapez <code>git commit</code> (le texte s’écrit en bas du terminal, après le <code>$</code>), puis appuyez sur <kbd title="Entrée" aria-hidden="true">Entrée</kbd><span class="visually-hidden">Entrée</span>.</p>
+<p><a href="img/lgb-09-taper-git-commit.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img/lgb-09-taper-git-commit.webp" class="img-fluid" alt="Le terminal à gauche : la ligne du bas, qui contient « $ git commit », est encadrée en jaune avec le numéro 9. À droite, sur le fond bleu, les ronds C0 et C1, l'étiquette main* sur C1."></a></p>
+<p><a href="img/lgb-09-taper-git-commit-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/lgb-09-taper-git-commit-zoom.webp" class="img-fluid" alt="Zoom sur le bas du terminal : la ligne « $ git commit », encadrée en jaune avec le numéro 9."></a></p>
+<p><strong>Vous devez voir</strong> : la ligne <code>git commit</code> remonte dans le terminal, avec une case cochée ; sur le dessin, un rond C2 apparaît sous C1.</p>
+<p><strong>Étape 10.</strong> Tapez de nouveau <code>git commit</code>, puis appuyez sur <kbd title="Entrée" aria-hidden="true">Entrée</kbd><span class="visually-hidden">Entrée</span>.</p>
+<p><a href="img/lgb-10-deuxieme-commit.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img/lgb-10-deuxieme-commit.webp" class="img-fluid" alt="Le terminal : la première commande git commit est cochée, et la ligne du bas contient de nouveau « $ git commit », encadrée en jaune avec le numéro 10. À droite, les ronds C0, C1 et C2, l'étiquette main* sur C2."></a></p>
+<p><a href="img/lgb-10-deuxieme-commit-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="img/lgb-10-deuxieme-commit-zoom.webp" class="img-fluid" alt="Zoom sur le bas du terminal : la ligne « $ git commit », tapée une deuxième fois, encadrée en jaune avec le numéro 10."></a></p>
+<p><strong>Vous devez voir</strong> : un rond C3 apparaît, le texte « Résolu !!! » s’affiche, puis une fenêtre « Beau Travail!!! » propose le niveau suivant, « Gérer les branches avec Git ».</p>
+<p><strong>Étape 11.</strong> Cliquez sur le bouton vert « Confirmer », en bas à droite.</p>
+<p><a href="img/lgb-11-confirmer.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="img/lgb-11-confirmer.webp" class="img-fluid" alt="La fenêtre « Beau Travail!!! » : « Vous avez résolu le niveau en 2 commande(s) ; notre solution le fait en 2. » En bas, un bouton rouge « Annuler » à gauche et un bouton vert « Confirmer » à droite, encadré en jaune avec le numéro 11."></a></p>
+<p><strong>Vous devez voir</strong> : une fenêtre intitulée « Branches Git » : c’est le niveau 2.</p>
+<p>Les niveaux 2, 3 et 4 se jouent de la même façon : lisez les fenêtres (flèche verte), essayez les démonstrations (bouton vert), fermez avec la coche verte, puis tapez les commandes demandées. Si vous êtes bloqués, tapez <code>reset</code> pour recommencer le niveau, ou <code>levels</code> pour revenir à la liste des niveaux.</p>
+<p>Captures : <a href="https://learngitbranching.js.org/?locale=fr_FR">Learn Git Branching</a>, Peter Cottle, <a href="heberge/learn-git-branching/LICENSE.md">licence MIT</a> ; la version du cours est construite à partir du même code.</p>
+</section>
+</section>
+<section id="à-retenir-cet-après-midi" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong><code>.gitignore</code></strong> : ce que Git ignore, écrit avant le premier commit.</li>
+<li><strong>Avant chaque commit</strong> : <code>git status</code>, puis <code>git diff</code>.</li>
+<li><strong>Branche</strong> (découverte) : une ligne de travail à part, demain sur GitHub.</li>
+</ul>
+</div>
+</div>
+<p>Le détail : <code>.gitignore</code> liste ce que Git ne suit pas (<code>node_modules/</code>, <code>.env</code>) ; il n’efface pas un fichier déjà enregistré dans un commit.</p>
+<p><strong>Critères de réussite</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>git log --oneline</code> montre au moins 8 commits dans <code>git-journal</code></label></li>
+<li><label><input type="checkbox">Chaque message décrit clairement son étape</label></li>
+<li><label><input type="checkbox">Un <code>.gitignore</code> est présent</label></li>
+<li><label><input type="checkbox">Les quatre niveaux d’introduction de Learn Git Branching sont faits</label></li>
+</ul>
+<section id="si-le-temps-le-permet-le-graphe-de-votre-journal" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-le-graphe-de-votre-journal">Si le temps le permet — Le graphe de votre journal</h4>
+<ol type="1">
+<li>Tapez <code>git log --oneline --graph --all</code> dans <code>git-journal</code>.</li>
+<li>Comparez avec les dessins de Learn Git Branching.</li>
+</ol>
+</section>
+<section id="pour-aller-plus-loin" class="level4">
+<h4 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h4>
+<ul>
+<li>Demandez à <a href="https://cs50.ai">CS50.ai</a> un quiz sur les trois zones.</li>
+</ul>
+</section>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-git-restore" class="csl-entry" role="listitem">
+Git. s.&nbsp;d. <span>«&nbsp;git-restore Documentation&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/docs/git-restore/fr">https://git-scm.com/docs/git-restore/fr</a>.
+</div>
+<div id="ref-visualizing-git" class="csl-entry" role="listitem">
+Git School. s.&nbsp;d. <span>«&nbsp;Visualizing Git&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-school.github.io/visualizing-git/">https://git-school.github.io/visualizing-git/</a>.
+</div>
+<div id="ref-github-fins-de-ligne" class="csl-entry" role="listitem">
+GitHub. s.&nbsp;d. <span>«&nbsp;Configuring Git to handle line endings&nbsp;»</span>. Consulté le 17 octobre 2026. <a href="https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings">https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings</a>.
+</div>
+<div id="ref-reac-dwwm-2023" class="csl-entry" role="listitem">
+Ministère du Travail. 2023. <em>Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280)</em>.
+</div>
+<div id="ref-learn-git-branching" class="csl-entry" role="listitem">
+Peter Cottle. s.&nbsp;d. <span>«&nbsp;Learn Git Branching&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://learngitbranching.js.org/?locale=fr_FR">https://learngitbranching.js.org/?locale=fr_FR</a>.
+</div>
+<div id="ref-progit-gestion-version" class="csl-entry" role="listitem">
+Scott Chacon et Ben Straub. s.&nbsp;d.-a. <span>«&nbsp;Pro Git : À propos de la gestion de version&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-%C3%80-propos-de-la-gestion-de-version">https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-%C3%80-propos-de-la-gestion-de-version</a>.
+</div>
+<div id="ref-progit-annuler" class="csl-entry" role="listitem">
+Scott Chacon et Ben Straub. s.&nbsp;d.-b. <span>«&nbsp;Pro Git : Annuler des actions&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Annuler-des-actions">https://git-scm.com/book/fr/v2/Les-bases-de-Git-Annuler-des-actions</a>.
+</div>
+<div id="ref-progit-enregistrer" class="csl-entry" role="listitem">
+Scott Chacon et Ben Straub. s.&nbsp;d.-c. <span>«&nbsp;Pro Git : Enregistrer des modifications dans le dépôt&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Enregistrer-des-modifications-dans-le-d%C3%A9p%C3%B4t">https://git-scm.com/book/fr/v2/Les-bases-de-Git-Enregistrer-des-modifications-dans-le-d%C3%A9p%C3%B4t</a>.
+</div>
+<div id="ref-progit-branches" class="csl-entry" role="listitem">
+Scott Chacon et Ben Straub. s.&nbsp;d.-d. <span>«&nbsp;Pro Git : Les branches en bref&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref</a>.
+</div>
+<div id="ref-progit-historique" class="csl-entry" role="listitem">
+Scott Chacon et Ben Straub. s.&nbsp;d.-e. <span>«&nbsp;Pro Git : Visualiser l’historique des validations&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Visualiser-l%E2%80%99historique-des-validations">https://git-scm.com/book/fr/v2/Les-bases-de-Git-Visualiser-l%E2%80%99historique-des-validations</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s04-environnement/mercredi.html" class="pagination-link" aria-label="Mercredi 28/10 — Atelier guidé &amp; autonomie">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s04-environnement/vendredi.html" class="pagination-link" aria-label="Vendredi 30/10 — GitHub et journal de veille">
+        <span class="nav-page-text">Vendredi 30/10 — GitHub et journal de veille</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

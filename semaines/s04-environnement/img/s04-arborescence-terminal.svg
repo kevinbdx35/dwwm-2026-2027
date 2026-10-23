@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 530" width="1080" height="530" role="img" aria-labelledby="titre desc" font-family="system-ui, sans-serif">
+  <title id="titre">Se déplacer dans les dossiers avec le terminal</title>
+  <desc id="desc">Un arbre de dossiers. En haut, le dossier personnel, stagiaire, noté ~. Dessous, le dossier dwwm, mis en évidence : vous êtes ici. Sous dwwm, deux dossiers, semaine-03 et semaine-04. Une flèche verte descend de stagiaire vers dwwm : cd dwwm. Une flèche orange remonte de dwwm vers stagiaire : cd .. remonte d'un niveau. À droite : pwd affiche /c/Users/stagiaire/dwwm ; dans l'Explorateur de Windows, le même dossier s'écrit C:\Users\stagiaire\dwwm.</desc>
+  <!-- Dessin original, réalisé pour le cours (licence du site). -->
+  <defs>
+    <marker id="pointe-verte" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1b6e35"/></marker>
+    <marker id="pointe-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a34f00"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="530" fill="#ffffff"/>
+  <!-- tree lines -->
+  <g stroke="#7a8199" stroke-width="3" fill="none">
+    <path d="M330 100 V195"/>
+    <path d="M330 295 V475 H380"/>
+    <path d="M330 365 H380"/>
+  </g>
+  <!-- home folder -->
+  <rect x="190" y="20" width="360" height="80" rx="8" fill="#e8e2d2" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="210" y="56" font-size="28" font-weight="bold" fill="#1f2a5a">stagiaire</text>
+  <text x="210" y="88" font-size="24" fill="#1f2a5a">~ dossier personnel</text>
+  <!-- current folder -->
+  <rect x="290" y="195" width="230" height="100" rx="8" fill="#cfe0f5" stroke="#1f4fa0" stroke-width="5"/>
+  <text x="310" y="237" font-size="30" font-weight="bold" fill="#1f2a5a">dwwm</text>
+  <text x="310" y="276" font-size="24" font-weight="bold" fill="#1f4fa0">vous êtes ici</text>
+  <!-- subfolders -->
+  <rect x="380" y="330" width="250" height="70" rx="8" fill="#ffffff" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="400" y="375" font-size="26" fill="#1f2a5a">semaine-03</text>
+  <rect x="380" y="440" width="250" height="70" rx="8" fill="#ffffff" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="400" y="485" font-size="26" fill="#1f2a5a">semaine-04</text>
+  <!-- cd dwwm: down, on the left -->
+  <path d="M190 70 C120 70 120 245 282 245" fill="none" stroke="#1b6e35" stroke-width="5" marker-end="url(#pointe-verte)"/>
+  <text x="10" y="170" font-size="28" font-weight="bold" font-family="ui-monospace, Consolas, monospace" fill="#1b6e35">cd dwwm</text>
+  <!-- cd .. : up, on the right -->
+  <path d="M520 245 C640 245 640 60 558 60" fill="none" stroke="#a34f00" stroke-width="5" marker-end="url(#pointe-orange)"/>
+  <text x="640" y="130" font-size="28" font-weight="bold" font-family="ui-monospace, Consolas, monospace" fill="#a34f00">cd ..</text>
+  <text x="640" y="162" font-size="24" fill="#a34f00">remonte d'un niveau</text>
+  <!-- pwd panel -->
+  <rect x="680" y="215" width="390" height="190" rx="8" fill="#ffffff" stroke="#1f4fa0" stroke-width="3"/>
+  <text x="700" y="252" font-size="24" font-weight="bold" fill="#1f2a5a">pwd affiche :</text>
+  <text x="700" y="288" font-size="24" font-family="ui-monospace, Consolas, monospace" fill="#1f2a5a">/c/Users/stagiaire/dwwm</text>
+  <text x="700" y="336" font-size="24" font-weight="bold" fill="#1f2a5a">Dans l'Explorateur :</text>
+  <text x="700" y="372" font-size="24" font-family="ui-monospace, Consolas, monospace" fill="#1f2a5a">C:\Users\stagiaire\dwwm</text>
+</svg>

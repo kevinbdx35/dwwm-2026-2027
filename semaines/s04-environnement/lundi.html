@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s04-environnement/mardi.html" rel="next">
+<link href="../../semaines/s04-environnement/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/index.html">Semaine 4 — C1 - Installer et configurer son environnement de travail</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/lundi.html">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-atelier-ia-tutrice-ouverture-du-palier-1-fonctionnement-du-web-http-dns-tcpip-clientserveur" id="toc-matin-atelier-ia-tutrice-ouverture-du-palier-1-fonctionnement-du-web-http-dns-tcpip-clientserveur" class="nav-link" data-scroll-target="#matin-atelier-ia-tutrice-ouverture-du-palier-1-fonctionnement-du-web-http-dns-tcpip-clientserveur">Matin — Atelier IA tutrice — ouverture du palier 1 · fonctionnement du web : HTTP, DNS, TCP/IP, client/serveur</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-1-le-palier-1-une-ia-tutrice-10-min" id="toc-apport-1-le-palier-1-une-ia-tutrice-10-min" class="nav-link" data-scroll-target="#apport-1-le-palier-1-une-ia-tutrice-10-min">Apport 1 — Le palier 1 : une IA tutrice (10 min)</a></li>
+  <li><a href="#palier-1-attention-et-vérification" id="toc-palier-1-attention-et-vérification" class="nav-link" data-scroll-target="#palier-1-attention-et-vérification">Palier 1 — attention et vérification</a></li>
+  <li><a href="#créer-son-compte-github-15-min" id="toc-créer-son-compte-github-15-min" class="nav-link" data-scroll-target="#créer-son-compte-github-15-min">Créer son compte GitHub (15 min)</a></li>
+  <li><a href="#prise-en-main-de-cs50.ai-30-min" id="toc-prise-en-main-de-cs50.ai-30-min" class="nav-link" data-scroll-target="#prise-en-main-de-cs50.ai-30-min">Prise en main de CS50.ai (30 min)</a></li>
+  <li><a href="#apport-2-le-trajet-dune-requête-15-min" id="toc-apport-2-le-trajet-dune-requête-15-min" class="nav-link" data-scroll-target="#apport-2-le-trajet-dune-requête-15-min">Apport 2 — Le trajet d’une requête (15 min)</a></li>
+  <li><a href="#trajet-attention-et-vérification" id="toc-trajet-attention-et-vérification" class="nav-link" data-scroll-target="#trajet-attention-et-vérification">Trajet — attention et vérification</a></li>
+  <li><a href="#activité-le-voyage-dune-requête-30-min" id="toc-activité-le-voyage-dune-requête-30-min" class="nav-link" data-scroll-target="#activité-le-voyage-dune-requête-30-min">Activité — Le voyage d’une requête (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-un-quiz-par-cs50.ai" id="toc-si-le-temps-le-permet-un-quiz-par-cs50.ai" class="nav-link" data-scroll-target="#si-le-temps-le-permet-un-quiz-par-cs50.ai">Si le temps le permet — Un quiz par CS50.ai</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-tp-tuteur-socratique-learn-prompting-puis-inspecteur-réseau" id="toc-après-midi-tp-tuteur-socratique-learn-prompting-puis-inspecteur-réseau" class="nav-link" data-scroll-target="#après-midi-tp-tuteur-socratique-learn-prompting-puis-inspecteur-réseau">Après-midi — TP — « Tuteur socratique » · Learn Prompting, puis « Inspecteur réseau »</a>
+  <ul>
+  <li><a href="#tp-tuteur-socratique-bien-poser-ses-questions-1-h" id="toc-tp-tuteur-socratique-bien-poser-ses-questions-1-h" class="nav-link" data-scroll-target="#tp-tuteur-socratique-bien-poser-ses-questions-1-h">TP « Tuteur socratique » : bien poser ses questions (1 h)</a></li>
+  <li><a href="#apport-3-http-demander-et-répondre-10-min" id="toc-apport-3-http-demander-et-répondre-10-min" class="nav-link" data-scroll-target="#apport-3-http-demander-et-répondre-10-min">Apport 3 — HTTP : demander et répondre (10 min)</a></li>
+  <li><a href="#http-attention-et-vérification" id="toc-http-attention-et-vérification" class="nav-link" data-scroll-target="#http-attention-et-vérification">HTTP — attention et vérification</a></li>
+  <li><a href="#tp-inspecteur-réseau-1-h-15" id="toc-tp-inspecteur-réseau-1-h-15" class="nav-link" data-scroll-target="#tp-inspecteur-réseau-1-h-15">TP « Inspecteur réseau » (1 h 15)</a>
+  <ul class="collapse">
+  <li><a href="#pas-à-pas-longlet-réseau-10-min" id="toc-pas-à-pas-longlet-réseau-10-min" class="nav-link" data-scroll-target="#pas-à-pas-longlet-réseau-10-min">Pas à pas — l’onglet Réseau (10 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-quatre-fonctions-dinspecteur" id="toc-si-le-temps-le-permet-quatre-fonctions-dinspecteur" class="nav-link" data-scroll-target="#si-le-temps-le-permet-quatre-fonctions-dinspecteur">Si le temps le permet — Quatre fonctions d’inspecteur</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="lundi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="lundi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/index.html">Semaine 4 — C1 - Installer et configurer son environnement de travail</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/lundi.html">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">lundi 26 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C1 · apprendre en continu · résolution de problème<br> <strong>Livrable</strong> : votre compte GitHub, votre fichier <code>questions-canard.md</code> et la fiche « Inspecteur réseau » remplie.</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Dire ce que le palier 1 autorise, et ce qu’il interdit.</li>
+<li>Poser à CS50.ai une question utile, sans demander la solution.</li>
+<li>Décrire le trajet d’une <a href="../../ressources/lexique.html#t-requete">requête</a> : <a href="../../ressources/lexique.html#t-dns">DNS</a>, <a href="../../ressources/lexique.html#t-tcp-ip">TCP/IP</a>, <a href="../../ressources/lexique.html#t-http">HTTP</a>.</li>
+<li>Lire une requête et sa réponse dans les outils du navigateur.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Le matin, deux notions : l’<a href="../../ressources/lexique.html#t-ia-tutrice">IA tutrice</a> (palier 1) et le trajet d’une requête. L’après-midi, HTTP, juste avant l’« Inspecteur réseau » qui s’en sert. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine chaque demi-journée.</p>
+</section>
+<section id="matin-atelier-ia-tutrice-ouverture-du-palier-1-fonctionnement-du-web-http-dns-tcpip-clientserveur" class="level2">
+<h2 class="anchored" data-anchor-id="matin-atelier-ia-tutrice-ouverture-du-palier-1-fonctionnement-du-web-http-dns-tcpip-clientserveur">Matin — Atelier IA tutrice — ouverture du palier 1 · fonctionnement du web : HTTP, DNS, TCP/IP, client/serveur</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li>Quand la recherche dichotomique est-elle possible ?</li>
+<li>Liste deux fois plus longue : que devient O(n²) ?</li>
+<li>Combien d’essais pour trouver un nombre de 1 à 100 ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-1-le-palier-1-une-ia-tutrice-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-1-le-palier-1-une-ia-tutrice-10-min">Apport 1 — Le palier 1 : une IA tutrice (10 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : se faire expliquer, sans que l’IA fasse à votre place.</li>
+<li><strong>CS50.ai</strong> : un tuteur qui guide vers la réponse, sans la donner.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Trois semaines sans IA ont posé vos bases. À partir d’aujourd’hui, une IA peut vous aider à <strong>comprendre</strong> : expliquer une notion, reformuler un message d’erreur. Elle ne doit pas faire le travail à votre place, car le jury vous interrogera sur <strong>votre</strong> code.</p>
+<p><strong>Définition.</strong> Le palier 1 de la charte IA <span class="citation" data-cites="charte-ia-dwwm-2026">(<a href="#ref-charte-ia-dwwm-2026" role="doc-biblioref">Formation DWWM 2026-2027 2026</a>)</span> autorise une IA <strong>tutrice</strong> : CS50.ai, le « canard » de Harvard, conçu pour se comporter comme un bon tuteur, qui mène vers la réponse au lieu de la donner <span class="citation" data-cites="cs50-ai-docs">(<a href="#ref-cs50-ai-docs" role="doc-biblioref">CS50, s.&nbsp;d.</a>)</span>. Il s’utilise dans le navigateur, à côté de VS Code. L’autocomplétion par IA de VS Code reste désactivée jusqu’au palier 2b (S16).</p>
+<p><strong>Exemple.</strong> Ce qui est permis, et ce qui ne l’est pas :</p>
+<pre><code>Oui     expliquer une notion, reformuler un message d'erreur
+Oui     donner un indice, poser des questions, faire un quiz
+Non     donner du code solution ; coller un énoncé
+Non     rédiger un texte à rendre
+Jamais  un secret, une donnée personnelle, un sujet d'évaluation</code></pre>
+<p><strong>Pas à pas : bien poser une question au canard.</strong> Le formateur pose une question au vidéoprojecteur, en suivant ces étapes ; vous ferez de même pendant la prise en main.</p>
+<ol type="1">
+<li><strong>Le contexte</strong> : le langage, l’exercice, ce que vous voulez obtenir.</li>
+<li><strong>Ce que vous avez essayé</strong>, et ce qui s’est passé.</li>
+<li><strong>Le message d’erreur</strong> exact, s’il y en a un.</li>
+<li><strong>Une seule question</strong>, précise.</li>
+<li>Lisez la réponse : vous a-t-elle guidé, sans faire à votre place ?</li>
+</ol>
+<p>Vous avez <strong>10 cœurs</strong>, puis un de plus toutes les 3 minutes : une question précise obtient une réponse utile du premier coup ; « ça marche pas » use trois cœurs. Le canard n’est intégré qu’à l’éditeur en ligne de CS50 (cs50.dev) <span class="citation" data-cites="cs50-ai-docs">(<a href="#ref-cs50-ai-docs" role="doc-biblioref">CS50, s.&nbsp;d.</a>)</span>, pas à votre VS Code. Il reste disponible à tous les paliers suivants. Un usage déclaré et conforme au palier n’est jamais reproché.</p>
+<p>CS50.ai est réalisé avec le soutien de Microsoft et d’OpenAI <span class="citation" data-cites="cs50-ai-docs">(<a href="#ref-cs50-ai-docs" role="doc-biblioref">CS50, s.&nbsp;d.</a>)</span> : vos questions partent vers des services extérieurs. L’équipe de CS50 explique qu’elles sont d’abord débarrassées des données personnelles, puis traitées par GPT-4, hébergé sur Microsoft Azure <span class="citation" data-cites="liu-2024-teaching-cs50-ai">(<a href="#ref-liu-2024-teaching-cs50-ai" role="doc-biblioref">Liu et al. 2024</a>)</span> ; la règle ne change pas pour autant.</p>
+</section>
+<section id="palier-1-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-attention-et-vérification">Palier 1 — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jamais de mot de passe, de clé, de donnée personnelle, ni le code ou l’énoncé d’un sujet d’évaluation dans CS50.ai : vos questions partent vers des services extérieurs.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : « Écris-moi la fonction de l’exercice » : permis ?</li>
+</ul>
+</section>
+<section id="créer-son-compte-github-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="créer-son-compte-github-15-min">Créer son compte GitHub (15 min)</h3>
+<p><strong>Niveau</strong> : guidé.</p>
+<ol type="1">
+<li>Ouvrez github.com, puis <strong>Sign up</strong>.</li>
+<li>Utilisez l’adresse e-mail que vous donnerez à Git demain.</li>
+<li>Choisissez un pseudo professionnel : il apparaîtra sur votre CV.</li>
+<li>Activez la double authentification.</li>
+<li><strong>Réussi si</strong> : vous êtes connecté, double authentification active.</li>
+</ol>
+<p>Suivez le guide de création de compte de <a href="../../ressources/lexique.html#t-github">GitHub</a> <span class="citation" data-cites="github-creer-compte">(<a href="#ref-github-creer-compte" role="doc-biblioref">GitHub, s.&nbsp;d.</a>)</span>. Le compte sert à vous connecter à CS50.ai, puis vendredi à publier votre premier <a href="../../ressources/lexique.html#t-depot">dépôt</a>. La double authentification protège mieux qu’un mot de passe seul <span class="citation" data-cites="cnil-mots-de-passe">(<a href="#ref-cnil-mots-de-passe" role="doc-biblioref">CNIL, s.&nbsp;d.</a>)</span> : ce sera le sujet de la veille de vendredi.</p>
+</section>
+<section id="prise-en-main-de-cs50.ai-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="prise-en-main-de-cs50.ai-30-min">Prise en main de CS50.ai (30 min)</h3>
+<p><strong>Niveau</strong> : guidé.</p>
+<ol type="1">
+<li>Ouvrez <a href="https://cs50.ai">cs50.ai</a>, puis <strong>Log In</strong> avec GitHub.</li>
+<li>VS Code : créez <code>questions-canard.md</code> dans le dossier <code>dwwm</code>.</li>
+<li>Posez une question sur un exercice difficile de la S3.</li>
+<li>Demandez-lui : « Donne-moi la solution. » Notez sa réponse.</li>
+<li><strong>Réussi si</strong> : deux questions et leurs réponses dans le fichier.</li>
+</ol>
+<p>Décrivez l’exercice avec vos mots : ne collez pas l’énoncé entier. Le canard est conçu pour guider sans donner la solution <span class="citation" data-cites="cs50-ai-docs">(<a href="#ref-cs50-ai-docs" role="doc-biblioref">CS50, s.&nbsp;d.</a>)</span> : à l’étape 4, il doit vous renvoyer vers une piste ou une question, pas vers du code. Il répond en français si vous lui écrivez en français.</p>
+</section>
+<section id="apport-2-le-trajet-dune-requête-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-2-le-trajet-dune-requête-15-min">Apport 2 — Le trajet d’une requête (15 min)</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+sequenceDiagram
+  accTitle: Le trajet d'une requête
+  accDescr: Le navigateur demande au DNS l'adresse IP de developer.mozilla.org ; le DNS répond par une adresse IP. Le navigateur envoie ensuite la requête HTTP GET au serveur à cette adresse ; le serveur répond 200 OK avec la page HTML.
+  participant N as Navigateur
+  participant D as DNS
+  participant S as Serveur
+  N-&gt;&gt;D: adresse de developer.mozilla.org ?
+  D--&gt;&gt;N: une adresse IP
+  N-&gt;&gt;S: GET /fr/ (HTTP)
+  S--&gt;&gt;N: 200 OK + la page HTML
+</pre>
+</div>
+<p></p><figcaption> D’abord le DNS traduit le nom en adresse IP ; puis la requête HTTP part vers cette adresse, et le serveur répond.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Pourquoi.</strong> Vous allez construire des sites et des API : savoir ce qui se passe entre « je tape une adresse » et « la page s’affiche » permet de comprendre une erreur, un site lent ou une faille.</p>
+<p><strong>Définition.</strong> Le <strong><a href="../../ressources/lexique.html#t-client">client</a></strong> (votre navigateur) demande une ressource ; le <strong><a href="../../ressources/lexique.html#t-serveur">serveur</a></strong> (un ordinateur distant) la renvoie. Entre les deux, trois étapes : le <strong>DNS</strong> (<em>Domain Name System</em>) traduit le nom de domaine en <a href="../../ressources/lexique.html#t-adresse-ip">adresse IP</a> <span class="citation" data-cites="mdn-dns">(<a href="#ref-mdn-dns" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span> ; une <strong>adresse IP</strong> identifie un appareil sur un réseau <span class="citation" data-cites="mdn-adresse-ip">(<a href="#ref-mdn-adresse-ip" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span> ; <strong>TCP/IP</strong> transporte les données : IP achemine des paquets d’une machine à l’autre, TCP établit une connexion et vérifie que tout arrive, dans l’ordre <span class="citation" data-cites="mdn-tcp">(<a href="#ref-mdn-tcp" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-f</a>)</span>. HTTP s’appuie sur cette connexion. Pour une vue d’ensemble, voir « Comment fonctionne le Web » sur MDN <span class="citation" data-cites="mdn-fonctionnement-web">(<a href="#ref-mdn-fonctionnement-web" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>.</p>
+<p><strong>Une image, avec sa limite.</strong> Le DNS fonctionne comme un annuaire : on cherche un nom, on obtient un numéro. Limite de l’image : plusieurs serveurs DNS se répartissent le travail, et la réponse est gardée en mémoire un moment.</p>
+<p><strong>Pas à pas.</strong> Suivez le schéma ligne par ligne :</p>
+<ol type="1">
+<li>Vous tapez <code>developer.mozilla.org</code> dans le navigateur.</li>
+<li>Le navigateur demande au DNS l’adresse IP de ce nom.</li>
+<li>Le DNS répond par une adresse IP.</li>
+<li>Le navigateur ouvre une connexion TCP vers cette adresse.</li>
+<li>Il envoie la requête HTTP <code>GET /fr/</code>.</li>
+<li>Le serveur répond <code>200 OK</code>, avec la page HTML ; le navigateur l’affiche.</li>
+</ol>
+<p>Pour aller plus loin, facultatif : la fiche de lecture <a href="../../ressources/fiche-web.html">Le Web</a> (fonctionnement, histoire et enjeux, environ 15 minutes).</p>
+</section>
+<section id="trajet-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="trajet-attention-et-vérification">Trajet — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le nom de domaine (<code>developer.mozilla.org</code>) n’est pas l’adresse IP : c’est le DNS qui fait le lien. Sans réponse du DNS, aucune page ne s’affiche.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : qui traduit un nom de domaine en adresse IP ?</li>
+</ul>
+</section>
+<section id="activité-le-voyage-dune-requête-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="activité-le-voyage-dune-requête-30-min">Activité — Le voyage d’une requête (30 min)</h3>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<ol type="1">
+<li>En groupe : « je tape une adresse, la page s’affiche ».</li>
+<li>Un <strong>dessinateur</strong> au tableau, un <strong>narrateur</strong>, un <strong>vérificateur</strong>.</li>
+<li>Dessinez chaque étape : DNS, TCP, HTTP, affichage.</li>
+<li>Demandez à CS50.ai : « Pose-moi 3 questions sur ce trajet. »</li>
+<li><strong>Réussi si</strong> : ses questions sont justes, et il n’a pas donné les réponses.</li>
+</ol>
+<p>Le <strong>dessinateur</strong> trace les étapes au tableau ; le <strong>narrateur</strong> les raconte à voix haute ; le <strong>vérificateur</strong> compare avec le schéma de l’apport 2 et signale un oubli. Si vous préférez ne pas parler devant le groupe, prenez le rôle de dessinateur ou de vérificateur.</p>
+<section id="si-le-temps-le-permet-un-quiz-par-cs50.ai" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-un-quiz-par-cs50.ai">Si le temps le permet — Un quiz par CS50.ai</h4>
+<ol type="1">
+<li>Demandez à <a href="https://cs50.ai">CS50.ai</a> un quiz de 5 questions sur le trajet d’une requête.</li>
+<li>Répondez sans regarder le support.</li>
+<li>Vérifiez vos réponses sur MDN.</li>
+</ol>
+</section>
+</section>
+<section id="à-retenir-ce-matin" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Palier 1</strong> : CS50.ai explique et guide ; jamais de solution, jamais de secret.</li>
+<li><strong>Trajet</strong> : DNS (nom → adresse IP), TCP/IP (transport), HTTP.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Palier 1</strong> : l’IA tutrice aide à comprendre ; une bonne question donne le contexte, ce que vous avez essayé, le message exact, une seule question ; jamais de secret ni de sujet d’évaluation.</li>
+<li><strong>Trajet d’une requête</strong> : le DNS traduit le nom en adresse IP ; TCP/IP transporte les données ; HTTP porte la requête et la réponse.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Qu’a répondu le canard quand vous avez demandé la solution ?</li>
+<li>Qui traduit un nom de domaine en adresse IP ?</li>
+<li>Dans quel ordre interviennent DNS, TCP/IP et HTTP ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-tp-tuteur-socratique-learn-prompting-puis-inspecteur-réseau" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-tp-tuteur-socratique-learn-prompting-puis-inspecteur-réseau">Après-midi — TP — « Tuteur socratique » · Learn Prompting, puis « Inspecteur réseau »</h2>
+<section id="tp-tuteur-socratique-bien-poser-ses-questions-1-h" class="level3">
+<h3 class="anchored" data-anchor-id="tp-tuteur-socratique-bien-poser-ses-questions-1-h">TP « Tuteur socratique » : bien poser ses questions (1 h)</h3>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<ol type="1">
+<li>Trois situations (ci-dessous), avec <a href="https://cs50.ai">CS50.ai</a>.</li>
+<li>Pour chacune : une question v1, puis une v2 améliorée.</li>
+<li>Comparez : la réponse est-elle meilleure ? Le canard a-t-il guidé ?</li>
+<li>Notez tout dans <code>questions-canard.md</code>.</li>
+<li>Lisez l’introduction de Learn Prompting : notez une idée.</li>
+</ol>
+<p>Les trois situations :</p>
+<ol type="1">
+<li><strong>Comprendre une erreur</strong> : collez le message <code>TypeError: Cannot read properties of undefined (reading 'length')</code> (vu en semaine 3) et demandez au canard de vous aider à comprendre, sans corriger à votre place.</li>
+<li><strong>Comprendre une notion</strong> : « Je ne comprends pas la <a href="../../ressources/lexique.html#t-portee">portée</a> des <a href="../../ressources/lexique.html#t-variable">variables</a>. »</li>
+<li><strong>Être débloqué</strong> : décrivez avec vos mots (sans coller l’énoncé) un exercice de la semaine 3 qui vous a posé problème, et demandez un indice.</li>
+</ol>
+<p>Pour chaque situation, écrivez d’abord la question telle qu’elle vous vient, puis une version 2 qui suit « Bien poser une question au canard » (contexte, ce que vous avez essayé, message exact, une seule question). Comparez les deux réponses. Learn Prompting est un guide en ligne pour apprendre à formuler des instructions à une IA <span class="citation" data-cites="learn-prompting">(<a href="#ref-learn-prompting" role="doc-biblioref">Learn Prompting, s.&nbsp;d.</a>)</span> : retenez une idée qui améliore vos questions.</p>
+</section>
+<section id="apport-3-http-demander-et-répondre-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-3-http-demander-et-répondre-10-min">Apport 3 — HTTP : demander et répondre (10 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : toute page, image ou donnée passe par HTTP.</li>
+<li><strong>HTTP</strong> : une requête (méthode, chemin), une réponse (code, contenu).</li>
+</ul>
+<p><strong>Pourquoi.</strong> Chaque page, chaque image, chaque donnée d’une application web arrive par une requête HTTP. Lire une requête et sa réponse est le premier geste pour comprendre un problème.</p>
+<p><strong>Définition.</strong> HTTP est le protocole des échanges entre client et serveur : le client envoie une <strong>requête</strong> (une méthode comme <code>GET</code>, un chemin, des en-têtes), le serveur renvoie une <strong>réponse</strong> (un code, des en-têtes, puis le contenu) <span class="citation" data-cites="mdn-http-apercu">(<a href="#ref-mdn-http-apercu" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-g</a>)</span>. <a href="../../ressources/lexique.html#t-https">HTTPS</a> est la version chiffrée de HTTP <span class="citation" data-cites="mdn-https">(<a href="#ref-mdn-https" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-e</a>)</span>.</p>
+<div class="schema-diapo" style="--h: 500px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s04-requete-reponse-http.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Une requête part du navigateur vers le serveur (méthode, adresse) ; la réponse revient (code, puis le corps : ici, la page HTML)."><img src="img/s04-requete-reponse-http.svg" class="img-fluid figure-img" alt="À gauche, le navigateur, le client ; à droite, le serveur. En haut, la requête va du navigateur au serveur : méthode GET, adresse developer.mozilla.org/fr/. En bas, la réponse revient du serveur au navigateur : code 200 OK, et un corps qui contient la page HTML."></a></p>
+<figcaption>Une requête part du navigateur vers le serveur (méthode, adresse) ; la réponse revient (code, puis le corps : ici, la page HTML).</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Exemple.</strong> La même requête, puis sa réponse, telles qu’elles s’écrivent :</p>
+<pre><code>GET /fr/ HTTP/1.1
+Host: developer.mozilla.org
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8</code></pre>
+<p><strong>Pas à pas.</strong> Lisez l’exemple ligne par ligne :</p>
+<ol type="1">
+<li><code>GET</code> : la méthode, « je veux lire ».</li>
+<li><code>/fr/</code> : le chemin de la ressource demandée.</li>
+<li><code>Host</code> : le nom du site.</li>
+<li><code>200 OK</code> : le code de la réponse, ici un succès.</li>
+<li><code>Content-Type</code> : la sorte de contenu renvoyé, ici une page HTML.</li>
+</ol>
+<p>Les <a href="../../ressources/lexique.html#t-code-de-statut">codes de statut</a> sont regroupés en cinq classes : réponses informatives (100–199), succès (200–299), redirections (300–399, par exemple <code>301</code>, <code>304</code>), erreurs du client (400–499, <code>404</code> : introuvable) et erreurs du serveur (500–599, <code>500</code>) <span class="citation" data-cites="mdn-http-codes">(<a href="#ref-mdn-http-codes" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>.</p>
+</section>
+<section id="http-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="http-attention-et-vérification">HTTP — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>4xx</code> : la requête est en cause (adresse fausse, accès refusé). <code>5xx</code> : le serveur est en cause. Lisez la famille du code avant de chercher.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que signifie <code>404</code> ? Et <code>500</code> ?</li>
+</ul>
+</section>
+<section id="tp-inspecteur-réseau-1-h-15" class="level3">
+<h3 class="anchored" data-anchor-id="tp-inspecteur-réseau-1-h-15">TP « Inspecteur réseau » (1 h 15)</h3>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<ol type="1">
+<li>Ouvrez MDN, puis les outils du navigateur (F12), onglet <strong>Réseau</strong>.</li>
+<li>Rechargez sans cache (<kbd title="mac: Cmd+Shift+R, windows: Ctrl+F5" aria-hidden="true" data-mac="Cmd+Shift+R" data-windows="Ctrl+F5"></kbd><span class="visually-hidden"></span>).</li>
+<li>Cliquez sur la première : méthode, code, en-têtes.</li>
+<li>Remplissez la fiche d’inspection (ci-dessous).</li>
+<li>Ouvrez une page qui n’existe pas : notez le code.</li>
+</ol>
+<p>L’onglet Réseau affiche toutes les requêtes d’une page, avec leur méthode, leur code et leurs en-têtes : voir la documentation de Firefox <span class="citation" data-cites="firefox-network-monitor">(<a href="#ref-firefox-network-monitor" role="doc-biblioref">Mozilla, s.&nbsp;d.</a>)</span> ou de Chrome <span class="citation" data-cites="chrome-devtools-network">(<a href="#ref-chrome-devtools-network" role="doc-biblioref">Google, s.&nbsp;d.</a>)</span>.</p>
+<p><strong>Fiche d’inspection</strong>, à recopier et remplir :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Votre réponse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Combien de requêtes pour charger la page ?</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Méthode et code de la première requête (le document)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Valeur de l’en-tête <code>Content-Type</code> de cette réponse</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Une requête d’image : son code et sa taille</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Le site utilise-t-il HTTPS ? Comment le voyez-vous ?</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Code obtenu pour une page qui n’existe pas</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="pas-à-pas-longlet-réseau-10-min" class="level4">
+<h4 class="anchored" data-anchor-id="pas-à-pas-longlet-réseau-10-min">Pas à pas — l’onglet Réseau (10 min)</h4>
+<p>Chaque étape donne une action, puis ce que vous devez voir. Sur chaque capture, l’endroit à regarder ou à cliquer est entouré d’un cadre jaune, avec le numéro de l’étape ; un zoom sur la zone utile suit chaque capture. Les captures montrent le site du cours ; sur MDN, l’écran est le même, avec d’autres lignes. Sur téléphone, touchez une capture pour l’agrandir.</p>
+<p><strong>Étape 1.</strong> Ouvrez la page, appuyez sur <kbd title="F12" aria-hidden="true">F12</kbd><span class="visually-hidden">F12</span>, puis cliquez sur l’onglet <strong>Réseau</strong>.</p>
+<p><a href="img/s04-reseau-01-onglet.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/s04-reseau-01-onglet.webp" class="img-fluid" alt="En haut, la page d'accueil du site du cours. En bas, les outils du navigateur : la barre d'onglets Éléments, Console, Sources, Réseau… L'onglet Réseau est encadré en jaune avec le numéro 1. Dessous, la liste des requêtes est vide, avec le message « Enregistrement de l'activité réseau… »."></a></p>
+<p><a href="img/s04-reseau-01-onglet-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/s04-reseau-01-onglet-zoom.webp" class="img-fluid" alt="Zoom sur la barre d'onglets des outils du navigateur : l'onglet Réseau, souligné en bleu, est encadré en jaune avec le numéro 1."></a></p>
+<p><strong>Vous devez voir</strong> : une liste vide et le message « Enregistrement de l’activité réseau… ».</p>
+<p><strong>Étape 2.</strong> Rechargez la page sans cache : <kbd title="mac: Cmd+Shift+R, windows: Ctrl+F5" aria-hidden="true" data-mac="Cmd+Shift+R" data-windows="Ctrl+F5"></kbd><span class="visually-hidden"></span>.</p>
+<p><a href="img/s04-reseau-02-liste.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/s04-reseau-02-liste.webp" class="img-fluid" alt="Les outils du navigateur, onglet Réseau : une ligne par requête, avec les colonnes Nom, État, Type, Initiateur, Taille et Durée. La première ligne, le document dwwm-2026-2027/, avec l'état 200 et le type document, est encadrée en jaune avec le numéro 2. Dessous, des scripts, des feuilles de style et des polices, tous en 200."></a></p>
+<p><a href="img/s04-reseau-02-liste-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/s04-reseau-02-liste-zoom.webp" class="img-fluid" alt="Zoom sur le haut de la liste : la première ligne, dwwm-2026-2027/, état 200, type document, est encadrée en jaune avec le numéro 2."></a></p>
+<p><strong>Vous devez voir</strong> : une ligne par requête. La première est le document (la page HTML), avec <code>200</code> dans la colonne <strong>État</strong>.</p>
+<p><strong>Étape 3.</strong> Cliquez sur le nom de la première ligne.</p>
+<p><a href="img/s04-reseau-03-requete.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/s04-reseau-03-requete.webp" class="img-fluid" alt="À gauche, la liste des noms de requêtes, la première sélectionnée. À droite, l'onglet En-têtes, rubrique Général : URL de requête, puis les lignes Méthode de requête, GET, et Code d'état, 200 OK avec une pastille verte, encadrées en jaune avec le numéro 3. Dessous, la rubrique En-têtes de réponse."></a></p>
+<p><a href="img/s04-reseau-03-requete-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/s04-reseau-03-requete-zoom.webp" class="img-fluid" alt="Zoom sur la rubrique Général : Méthode de requête GET et Code d'état 200 OK, encadrés en jaune avec le numéro 3 ; dessous, les en-têtes de réponse, dont Content-Type: text/html; charset=utf-8."></a></p>
+<p><strong>Vous devez voir</strong> : la méthode <code>GET</code> et le code <code>200 OK</code> ; plus bas, les en-têtes de réponse, dont <code>Content-Type</code>.</p>
+<p><strong>Étape 4.</strong> Dans la barre d’adresse, ajoutez <code>page-absente.html</code> à la fin de l’adresse, puis appuyez sur <kbd title="Entrée" aria-hidden="true">Entrée</kbd><span class="visually-hidden">Entrée</span>.</p>
+<p><a href="img/s04-reseau-04-404.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/s04-reseau-04-404.webp" class="img-fluid" alt="En haut, la page d'erreur de GitHub Pages : 404, File not found. En bas, l'onglet Réseau : la première ligne, page-absente.html, écrite en rouge, état 404, type document, est encadrée en jaune avec le numéro 4."></a></p>
+<p><a href="img/s04-reseau-04-404-zoom.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/s04-reseau-04-404-zoom.webp" class="img-fluid" alt="Zoom sur la liste : la ligne page-absente.html, en rouge, état 404, encadrée en jaune avec le numéro 4."></a></p>
+<p><strong>Vous devez voir</strong> : la ligne du document en rouge, avec <code>404</code> dans la colonne <strong>État</strong>.</p>
+<p>Si vous rechargez avec <kbd title="F5" aria-hidden="true">F5</kbd><span class="visually-hidden">F5</span> seul, la première ligne peut afficher <code>304</code> : le serveur répond « pas modifié », et le navigateur réutilise la copie qu’il a gardée.</p>
+</section>
+</section>
+<section id="à-retenir-cet-après-midi" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Question v2</strong> : contexte, essai, message exact, une seule question.</li>
+<li><strong>Onglet Réseau</strong> (F12) : chaque requête, sa méthode, son code.</li>
+<li><strong>HTTP</strong> : requête (méthode, chemin), réponse (code) ; HTTPS chiffre.</li>
+</ul>
+</div>
+</div>
+<p>Le détail : <code>GET</code> lit une ressource ; <code>2xx</code> succès, <code>3xx</code> redirection, <code>4xx</code> erreur du client, <code>5xx</code> erreur du serveur ; HTTPS chiffre l’échange, mais ne garantit pas l’honnêteté du site.</p>
+<p><strong>Critères de réussite</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Votre compte GitHub est créé, avec la double authentification</label></li>
+<li><label><input type="checkbox"><code>questions-canard.md</code> : trois questions, en version 1 et 2</label></li>
+<li><label><input type="checkbox">Le canard a guidé au lieu de donner la solution</label></li>
+<li><label><input type="checkbox">La fiche « Inspecteur réseau » est remplie</label></li>
+</ul>
+<section id="si-le-temps-le-permet-quatre-fonctions-dinspecteur" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-quatre-fonctions-dinspecteur">Si le temps le permet — Quatre fonctions d’inspecteur</h4>
+<ul>
+<li><strong>i1-code-statut</strong> : la famille d’un code HTTP.</li>
+<li><strong>i2-url-securisee</strong> : l’adresse utilise-t-elle HTTPS ?</li>
+<li><strong>i3-hote</strong> : le nom d’hôte d’une adresse.</li>
+<li><strong>i4-parametre</strong> : la valeur d’un <a href="../../ressources/lexique.html#t-parametre">paramètre</a> de l’adresse.</li>
+<li>Archive de la semaine, <a href="../../ressources/lexique.html#t-test">tests</a> fournis : <code>node --test i1-code-statut.test.js</code> (et ainsi de suite).</li>
+</ul>
+<p>Les fichiers sont dans l’<a href="code/exercices/s04-exercices.zip">archive de la semaine</a>. L’objet <code>URL</code> découpe une adresse en morceaux <span class="citation" data-cites="mdn-url">(<a href="#ref-mdn-url" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-h</a>)</span> : <code>protocol</code> <span class="citation" data-cites="mdn-url-protocol">(<a href="#ref-mdn-url-protocol" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-k</a>)</span>, <code>hostname</code> <span class="citation" data-cites="mdn-url-hostname-en">(<a href="#ref-mdn-url-hostname-en" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-j</a>)</span>, et <code>searchParams.get</code> pour les paramètres <span class="citation" data-cites="mdn-urlsearchparams-get-en">(<a href="#ref-mdn-urlsearchparams-get-en" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-l</a>)</span> ; <code>URL.canParse</code> dit si un texte est une adresse valide <span class="citation" data-cites="mdn-url-canparse-en">(<a href="#ref-mdn-url-canparse-en" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-i</a>)</span>. Ces trois dernières pages sont en anglais.</p>
+</section>
+<section id="pour-aller-plus-loin" class="level4">
+<h4 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h4>
+<ul>
+<li>Dans le <a href="../../ressources/lexique.html#t-terminal">terminal</a> : <code>nslookup developer.mozilla.org</code>.</li>
+<li>Quelle adresse IP obtenez-vous ? Et votre voisin ?</li>
+</ul>
+</section>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-cnil-mots-de-passe" class="csl-entry" role="listitem">
+CNIL. s.&nbsp;d. <span>«&nbsp;Mots de passe : recommandations pour maîtriser sa sécurité&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.cnil.fr/fr/mots-de-passe-des-recommandations-de-securite-minimales-pour-les-entreprises-et-les-particuliers">https://www.cnil.fr/fr/mots-de-passe-des-recommandations-de-securite-minimales-pour-les-entreprises-et-les-particuliers</a>.
+</div>
+<div id="ref-cs50-ai-docs" class="csl-entry" role="listitem">
+CS50. s.&nbsp;d. <span>«&nbsp;CS50.ai — CS50 Docs&nbsp;»</span>. Consulté le 28 septembre 2026. <a href="https://cs50.readthedocs.io/cs50.ai/">https://cs50.readthedocs.io/cs50.ai/</a>.
+</div>
+<div id="ref-charte-ia-dwwm-2026" class="csl-entry" role="listitem">
+Formation DWWM 2026-2027. 2026. <em>Charte IA de la formation</em>.
+</div>
+<div id="ref-github-creer-compte" class="csl-entry" role="listitem">
+GitHub. s.&nbsp;d. <span>«&nbsp;Creating an account on GitHub&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github">https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github</a>.
+</div>
+<div id="ref-chrome-devtools-network" class="csl-entry" role="listitem">
+Google. s.&nbsp;d. <span>«&nbsp;Inspect network activity — Chrome DevTools&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.chrome.com/docs/devtools/network">https://developer.chrome.com/docs/devtools/network</a>.
+</div>
+<div id="ref-learn-prompting" class="csl-entry" role="listitem">
+Learn Prompting. s.&nbsp;d. <span>«&nbsp;Bienvenue (introduction)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://learnprompting.org/fr/docs/introduction">https://learnprompting.org/fr/docs/introduction</a>.
+</div>
+<div id="ref-liu-2024-teaching-cs50-ai" class="csl-entry" role="listitem">
+Liu, Rongxin, Carter Zenke, Charlie Liu, Andrew Holmes, Patrick Thornton, et David J. Malan. 2024. <span>«&nbsp;Teaching CS50 with AI: Leveraging Generative Artificial Intelligence in Computer Science Education&nbsp;»</span>. <em>Proceedings of the 55th ACM Technical Symposium on Computer Science Education V. 1 (SIGCSE 2024)</em>, 750‑56. <a href="https://doi.org/10.1145/3626252.3630938">https://doi.org/10.1145/3626252.3630938</a>.
+</div>
+<div id="ref-mdn-adresse-ip" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;Adresse IP - Glossaire&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Glossary/IP_Address">https://developer.mozilla.org/fr/docs/Glossary/IP_Address</a>.
+</div>
+<div id="ref-mdn-http-codes" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Codes de statut de réponse HTTP - HTTP&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status">https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status</a>.
+</div>
+<div id="ref-mdn-fonctionnement-web" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Comment fonctionne le Web - Apprendre&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works">https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works</a>.
+</div>
+<div id="ref-mdn-dns" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;DNS - Glossaire&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Glossary/DNS">https://developer.mozilla.org/fr/docs/Glossary/DNS</a>.
+</div>
+<div id="ref-mdn-https" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-e. <span>«&nbsp;HTTPS - Glossaire&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Glossary/HTTPS">https://developer.mozilla.org/fr/docs/Glossary/HTTPS</a>.
+</div>
+<div id="ref-mdn-tcp" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-f. <span>«&nbsp;TCP - Glossaire&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Glossary/TCP">https://developer.mozilla.org/fr/docs/Glossary/TCP</a>.
+</div>
+<div id="ref-mdn-http-apercu" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-g. <span>«&nbsp;Un aperçu de HTTP - HTTP&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/Overview">https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/Overview</a>.
+</div>
+<div id="ref-mdn-url" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-h. <span>«&nbsp;URL - Les API Web&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/URL">https://developer.mozilla.org/fr/docs/Web/API/URL</a>.
+</div>
+<div id="ref-mdn-url-canparse-en" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-i. <span>«&nbsp;URL: canParse() static method - Web APIs&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/canParse_static">https://developer.mozilla.org/en-US/docs/Web/API/URL/canParse_static</a>.
+</div>
+<div id="ref-mdn-url-hostname-en" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-j. <span>«&nbsp;URL: hostname property - Web APIs&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/hostname">https://developer.mozilla.org/en-US/docs/Web/API/URL/hostname</a>.
+</div>
+<div id="ref-mdn-url-protocol" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-k. <span>«&nbsp;URL.protocol - Les API Web&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/URL/protocol">https://developer.mozilla.org/fr/docs/Web/API/URL/protocol</a>.
+</div>
+<div id="ref-mdn-urlsearchparams-get-en" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-l. <span>«&nbsp;URLSearchParams: get() method - Web APIs&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/get">https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/get</a>.
+</div>
+<div id="ref-firefox-network-monitor" class="csl-entry" role="listitem">
+Mozilla. s.&nbsp;d. <span>«&nbsp;Network Monitor — Firefox Source Docs&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/">https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s04-environnement/index.html" class="pagination-link" aria-label="Semaine 4 — C1 - Installer et configurer son environnement de travail">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s04-environnement/mardi.html" class="pagination-link" aria-label="Mardi 27/10 — Terminal, SSH et poste de développeur">
+        <span class="nav-page-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

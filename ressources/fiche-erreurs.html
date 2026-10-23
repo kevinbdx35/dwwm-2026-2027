@@ -182,6 +182,12 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
   </div>
@@ -314,6 +320,53 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -336,6 +389,13 @@ div.csl-indent {
   <li><a href="#un-test-rouge-node---test" id="toc-un-test-rouge-node---test" class="nav-link" data-scroll-target="#un-test-rouge-node---test">Un test rouge : <code>node --test</code></a></li>
   </ul></li>
   <li><a href="#eslint-semaine-2" id="toc-eslint-semaine-2" class="nav-link" data-scroll-target="#eslint-semaine-2">ESLint (semaine 2)</a></li>
+  <li><a href="#git-semaine-4" id="toc-git-semaine-4" class="nav-link" data-scroll-target="#git-semaine-4">Git (semaine 4)</a>
+  <ul>
+  <li><a href="#pas-dans-un-dépôt" id="toc-pas-dans-un-dépôt" class="nav-link" data-scroll-target="#pas-dans-un-dépôt">Pas dans un dépôt</a></li>
+  <li><a href="#un-conflit-de-fusion" id="toc-un-conflit-de-fusion" class="nav-link" data-scroll-target="#un-conflit-de-fusion">Un conflit de fusion</a></li>
+  <li><a href="#un-envoi-refusé" id="toc-un-envoi-refusé" class="nav-link" data-scroll-target="#un-envoi-refusé">Un envoi refusé</a></li>
+  <li><a href="#un-avertissement-de-fin-de-ligne-windows" id="toc-un-avertissement-de-fin-de-ligne-windows" class="nav-link" data-scroll-target="#un-avertissement-de-fin-de-ligne-windows">Un avertissement de fin de ligne (Windows)</a></li>
+  </ul></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="fiche-erreurs.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -462,11 +522,63 @@ SyntaxError: missing ) after argument list</code></pre>
 <li><strong>Quoi faire</strong> : corrigez une alerte à la fois, en partant du haut, puis relancez <code>npx eslint .</code>.</li>
 </ul>
 </section>
+<section id="git-semaine-4" class="level2">
+<h2 class="anchored" data-anchor-id="git-semaine-4">Git (semaine 4)</h2>
+<section id="pas-dans-un-dépôt" class="level3">
+<h3 class="anchored" data-anchor-id="pas-dans-un-dépôt">Pas dans un dépôt</h3>
+<pre class="text"><code>fatal: not a git repository (or any of the parent directories): .git</code></pre>
+<ul>
+<li><strong>Message</strong> : le dossier courant n’est pas un dépôt Git, ni aucun dossier parent.</li>
+<li><strong>Quoi faire</strong> : tapez <code>pwd</code> ; placez-vous dans le dossier du projet (<code>cd …</code>), ou créez le dépôt avec <code>git init</code> s’il n’existe pas encore.</li>
+</ul>
+</section>
+<section id="un-conflit-de-fusion" class="level3">
+<h3 class="anchored" data-anchor-id="un-conflit-de-fusion">Un conflit de fusion</h3>
+<pre class="text"><code>Auto-merging journal.md
+CONFLICT (content): Merge conflict in journal.md
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p>Le même message, quand Git s’affiche en français :</p>
+<pre class="text"><code>Fusion automatique de journal.md
+CONFLIT (contenu) : Conflit de fusion dans journal.md
+La fusion automatique a échoué ; réglez les conflits et validez le résultat.</code></pre>
+<ul>
+<li><strong>Où</strong> : le fichier en conflit (<code>journal.md</code>).</li>
+<li><strong>Message</strong> : les deux branches ont modifié les mêmes lignes ; Git ne choisit pas.</li>
+<li><strong>Quoi faire</strong> : ouvrez le fichier, gardez le bon texte entre les marqueurs <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> et <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, effacez les marqueurs, puis <code>git add</code> et <code>git commit</code> <span class="citation" data-cites="github-conflit">(<a href="#ref-github-conflit" role="doc-biblioref">GitHub, s.&nbsp;d.-b</a>)</span>.</li>
+</ul>
+</section>
+<section id="un-envoi-refusé" class="level3">
+<h3 class="anchored" data-anchor-id="un-envoi-refusé">Un envoi refusé</h3>
+<pre class="text"><code> ! [rejected]        HEAD -&gt; main (fetch first)
+error: failed to push some refs to '…'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally.</code></pre>
+<ul>
+<li><strong>Message</strong> : le dépôt distant contient des commits que vous n’avez pas.</li>
+<li><strong>Quoi faire</strong> : récupérez-les d’abord avec <code>git pull</code>, réglez un éventuel conflit, puis relancez <code>git push</code> <span class="citation" data-cites="progit-depots-distants">(<a href="#ref-progit-depots-distants" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.</a>)</span>. Jamais de <code>git push --force</code> sans l’accord du formateur.</li>
+</ul>
+</section>
+<section id="un-avertissement-de-fin-de-ligne-windows" class="level3">
+<h3 class="anchored" data-anchor-id="un-avertissement-de-fin-de-ligne-windows">Un avertissement de fin de ligne (Windows)</h3>
+<pre class="text"><code>warning: in the working copy of 'notes.md', LF will be replaced by CRLF the next time Git touches it</code></pre>
+<ul>
+<li><strong>Où</strong> : après <code>git add</code>, sous Windows, pour un fichier créé dans Git Bash (par exemple avec <code>echo</code>).</li>
+<li><strong>Message</strong> : ce n’est pas une erreur. Windows termine les lignes autrement que macOS et Linux (CRLF au lieu de LF) ; Git convertit tout seul <span class="citation" data-cites="github-fins-de-ligne">(<a href="#ref-github-fins-de-ligne" role="doc-biblioref">GitHub, s.&nbsp;d.-a</a>)</span>. Le fichier est bien ajouté.</li>
+<li><strong>Quoi faire</strong> : rien ; continuez avec <code>git commit</code>. Cet avertissement reste en anglais, même quand Git s’affiche en français.</li>
+</ul>
+</section>
+</section>
 <section id="sources" class="level2">
 <h2 class="anchored" data-anchor-id="sources">Sources</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-eslint-getting-started" class="csl-entry" role="listitem">
 ESLint. s.&nbsp;d. <span>«&nbsp;Getting Started with ESLint&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eslint.org/docs/latest/use/getting-started">https://eslint.org/docs/latest/use/getting-started</a>.
+</div>
+<div id="ref-github-fins-de-ligne" class="csl-entry" role="listitem">
+GitHub. s.&nbsp;d.-a. <span>«&nbsp;Configuring Git to handle line endings&nbsp;»</span>. Consulté le 17 octobre 2026. <a href="https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings">https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings</a>.
+</div>
+<div id="ref-github-conflit" class="csl-entry" role="listitem">
+GitHub. s.&nbsp;d.-b. <span>«&nbsp;Resolving a merge conflict using the command line&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line</a>.
 </div>
 <div id="ref-mdn-syntaxerror" class="csl-entry" role="listitem">
 MDN contributors. s.&nbsp;d. <span>«&nbsp;SyntaxError — JavaScript | MDN&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError</a>.
@@ -482,6 +594,9 @@ OpenJS Foundation. s.&nbsp;d.-a. <span>«&nbsp;Errors — Node.js Documentation&
 </div>
 <div id="ref-nodejs-test-runner" class="csl-entry" role="listitem">
 OpenJS Foundation. s.&nbsp;d.-b. <span>«&nbsp;Test runner | Node.js Documentation&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://nodejs.org/api/test.html">https://nodejs.org/api/test.html</a>.
+</div>
+<div id="ref-progit-depots-distants" class="csl-entry" role="listitem">
+Scott Chacon et Ben Straub. s.&nbsp;d. <span>«&nbsp;Pro Git : Travailler avec des dépôts distants&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-d%C3%A9p%C3%B4ts-distants">https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-d%C3%A9p%C3%B4ts-distants</a>.
 </div>
 </div>
 

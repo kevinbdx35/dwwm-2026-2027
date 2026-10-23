@@ -1,0 +1,3 @@
+Défis de terminal (plan de repli de Bandit)
+Chaque niveau cache un code d'un mot. Trouvez-le avec les commandes du terminal,
+notez-le sur votre fiche, puis passez au niveau suivant. Les consignes sont sur la page du mercredi.

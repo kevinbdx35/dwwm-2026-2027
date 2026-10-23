@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Mardi 27/10 — Terminal, SSH et poste de développeur – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s04-environnement/mercredi.html" rel="next">
+<link href="../../semaines/s04-environnement/lundi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/index.html">Semaine 4 — C1 - Installer et configurer son environnement de travail</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/mardi.html">Mardi 27/10 — Terminal, SSH et poste de développeur</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-environnement-local-ligne-de-commande-ssh-transfert-sécurisé-sftpscp" id="toc-matin-environnement-local-ligne-de-commande-ssh-transfert-sécurisé-sftpscp" class="nav-link" data-scroll-target="#matin-environnement-local-ligne-de-commande-ssh-transfert-sécurisé-sftpscp">Matin — Environnement local, ligne de commande &amp; SSH (transfert sécurisé SFTP/SCP)</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#installer-git-10-min" id="toc-installer-git-10-min" class="nav-link" data-scroll-target="#installer-git-10-min">Installer Git (10 min)</a></li>
+  <li><a href="#apport-1-le-terminal-12-se-repérer-10-min" id="toc-apport-1-le-terminal-12-se-repérer-10-min" class="nav-link" data-scroll-target="#apport-1-le-terminal-12-se-repérer-10-min">Apport 1 — Le terminal (1/2) : se repérer (10 min)</a></li>
+  <li><a href="#se-repérer-attention-et-vérification" id="toc-se-repérer-attention-et-vérification" class="nav-link" data-scroll-target="#se-repérer-attention-et-vérification">Se repérer — attention et vérification</a></li>
+  <li><a href="#apport-1-le-terminal-22-les-fichiers-10-min" id="toc-apport-1-le-terminal-22-les-fichiers-10-min" class="nav-link" data-scroll-target="#apport-1-le-terminal-22-les-fichiers-10-min">Apport 1 — Le terminal (2/2) : les fichiers (10 min)</a></li>
+  <li><a href="#fichiers-attention-et-vérification" id="toc-fichiers-attention-et-vérification" class="nav-link" data-scroll-target="#fichiers-attention-et-vérification">Fichiers — attention et vérification</a></li>
+  <li><a href="#exercice-rallye-terminal-30-min" id="toc-exercice-rallye-terminal-30-min" class="nav-link" data-scroll-target="#exercice-rallye-terminal-30-min">Exercice — Rallye terminal (30 min)</a></li>
+  <li><a href="#apport-2-ssh-travailler-sur-un-serveur-distant-15-min" id="toc-apport-2-ssh-travailler-sur-un-serveur-distant-15-min" class="nav-link" data-scroll-target="#apport-2-ssh-travailler-sur-un-serveur-distant-15-min">Apport 2 — SSH : travailler sur un serveur distant (15 min)</a></li>
+  <li><a href="#ssh-attention-et-vérification" id="toc-ssh-attention-et-vérification" class="nav-link" data-scroll-target="#ssh-attention-et-vérification">SSH — attention et vérification</a></li>
+  <li><a href="#exercice-première-connexion-ssh-30-min" id="toc-exercice-première-connexion-ssh-30-min" class="nav-link" data-scroll-target="#exercice-première-connexion-ssh-30-min">Exercice — Première connexion SSH (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-sftp-puis-pourquoi-chiffrer" id="toc-si-le-temps-le-permet-sftp-puis-pourquoi-chiffrer" class="nav-link" data-scroll-target="#si-le-temps-le-permet-sftp-puis-pourquoi-chiffrer">Si le temps le permet — <code>sftp</code>, puis pourquoi chiffrer ?</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-tp-mon-poste-de-dev-explainshell-documentation-en-anglais" id="toc-après-midi-tp-mon-poste-de-dev-explainshell-documentation-en-anglais" class="nav-link" data-scroll-target="#après-midi-tp-mon-poste-de-dev-explainshell-documentation-en-anglais">Après-midi — TP — « Mon poste de dev » · Explainshell (documentation en anglais)</a>
+  <ul>
+  <li><a href="#la-check-list-c1-13-vs-code-extensions" id="toc-la-check-list-c1-13-vs-code-extensions" class="nav-link" data-scroll-target="#la-check-list-c1-13-vs-code-extensions">La check-list C1 (1/3) — VS Code, extensions</a></li>
+  <li><a href="#la-check-list-c1-23-terminal-node-et-git" id="toc-la-check-list-c1-23-terminal-node-et-git" class="nav-link" data-scroll-target="#la-check-list-c1-23-terminal-node-et-git">La check-list C1 (2/3) — Terminal, Node et Git</a></li>
+  <li><a href="#la-check-list-c1-33-clé-ssh" id="toc-la-check-list-c1-33-clé-ssh" class="nav-link" data-scroll-target="#la-check-list-c1-33-clé-ssh">La check-list C1 (3/3) — Clé SSH</a></li>
+  <li><a href="#anglais" id="toc-anglais" class="nav-link" data-scroll-target="#anglais">Explainshell (25 min)</a></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a>
+  <ul class="collapse">
+  <li><a href="#si-le-temps-le-permet-vos-propres-commandes" id="toc-si-le-temps-le-permet-vos-propres-commandes" class="nav-link" data-scroll-target="#si-le-temps-le-permet-vos-propres-commandes">Si le temps le permet — Vos propres commandes</a></li>
+  <li><a href="#pour-aller-plus-loin" id="toc-pour-aller-plus-loin" class="nav-link" data-scroll-target="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="mardi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="mardi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/index.html">Semaine 4 — C1 - Installer et configurer son environnement de travail</a></li><li class="breadcrumb-item"><a href="../../semaines/s04-environnement/mardi.html">Mardi 27/10 — Terminal, SSH et poste de développeur</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Mardi 27/10 — Terminal, SSH et poste de développeur</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">mardi 27 octobre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C1 · apprendre en continu (anglais)<br> <strong>Livrable</strong> : la check-list « Mon poste de dev » cochée et votre clé SSH publique générée.</p>
+</div>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Se déplacer et manipuler des fichiers dans le terminal.</li>
+<li>Se connecter à un serveur en <a href="../../ressources/lexique.html#t-ssh">SSH</a>, télécharger avec <code>scp</code> (et <code>sftp</code>, en Défi).</li>
+<li>Compléter VS Code (extensions) et configurer <a href="../../ressources/lexique.html#t-git">Git</a>.</li>
+<li>Générer une <a href="../../ressources/lexique.html#t-cle-ssh">clé SSH</a> pour GitHub.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> On commence par installer Git, qui fournit sous Windows le terminal <strong><a href="../../ressources/lexique.html#t-git-bash">Git Bash</a></strong>. Puis deux notions : le terminal, en deux temps (se repérer, puis manipuler des fichiers), et SSH. Le transfert avec <code>sftp</code> devient un Défi. Chacune suit le même ordre : pourquoi, définition, exemple, pas à pas, erreur fréquente, vérification ; un encadré « À retenir » termine chaque demi-journée.</p>
+</section>
+<section id="matin-environnement-local-ligne-de-commande-ssh-transfert-sécurisé-sftpscp" class="level2">
+<h2 class="anchored" data-anchor-id="matin-environnement-local-ligne-de-commande-ssh-transfert-sécurisé-sftpscp">Matin — Environnement local, ligne de commande &amp; SSH (transfert sécurisé SFTP/SCP)</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li>Que fait le DNS ?</li>
+<li>Que signifie un code <code>404</code> ?</li>
+<li>Quel outil relit le code sans le lancer ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="installer-git-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="installer-git-10-min">Installer Git (10 min)</h3>
+<p><strong>Niveau</strong> : guidé.</p>
+<ol type="1">
+<li>Windows : téléchargez <strong>Git for Windows</strong> ; gardez les choix proposés.</li>
+<li>macOS : dans le Terminal, <code>xcode-select --install</code>.</li>
+<li>Linux : <code>sudo apt install git</code>.</li>
+<li>Ouvrez le terminal (sous Windows : <strong>Git Bash</strong>), tapez <code>git --version</code>.</li>
+<li><strong>Réussi si</strong> : un numéro de version s’affiche.</li>
+</ol>
+<p>Sous Windows, Git for Windows <span class="citation" data-cites="git-install-windows git-for-windows">(<a href="#ref-git-install-windows" role="doc-biblioref">Git, s.&nbsp;d.-c</a>; <a href="#ref-git-for-windows" role="doc-biblioref">Git for Windows, s.&nbsp;d.</a>)</span> installe aussi <strong>Git Bash</strong>, un terminal qui accepte les mêmes commandes que macOS et Linux : c’est celui de la formation, à partir d’aujourd’hui. Lancez-le depuis le menu Démarrer (« Git Bash »). Sous macOS, Apple fournit Git avec les outils en ligne de commande de Xcode <span class="citation" data-cites="git-install-mac">(<a href="#ref-git-install-mac" role="doc-biblioref">Git, s.&nbsp;d.-b</a>)</span> ; sous Linux, avec le gestionnaire de paquets <span class="citation" data-cites="git-install-linux">(<a href="#ref-git-install-linux" role="doc-biblioref">Git, s.&nbsp;d.-a</a>)</span>.</p>
+<p><strong>Vous devez voir</strong>, à l’étape 4, sous Windows (le numéro dépend de la version installée ; sous macOS et Linux, la fin <code>.windows.2</code> n’apparaît pas) :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~
+$ git --version
+git version 2.56.0.windows.2</code></pre>
+</div>
+<p>La première ligne est l’invite de Git Bash : votre nom d’utilisateur, le nom de l’ordinateur, puis le dossier courant (<code>~</code>, votre dossier personnel). Vous tapez après le <code>$</code>. Un message de Git vous bloque cette semaine ? La fiche <a href="../../ressources/fiche-erreurs.html">Lire un message d’erreur</a> explique les plus fréquents.</p>
+</section>
+<section id="apport-1-le-terminal-12-se-repérer-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-1-le-terminal-12-se-repérer-10-min">Apport 1 — Le terminal (1/2) : se repérer (10 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : serveurs, Git, Node se pilotent au clavier.</li>
+<li><strong>Terminal</strong> : des commandes, tapées dans un dossier.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Les outils du développeur se pilotent au clavier, et un serveur n’a souvent pas d’écran : il faut savoir s’y déplacer sans souris. Une commande se relance, se copie, s’automatise.</p>
+<p><strong>Définition.</strong> Le terminal est un programme où l’on tape des commandes ; chaque commande s’exécute dans un dossier, le <strong><a href="../../ressources/lexique.html#t-dossier-courant">dossier courant</a></strong>. <code>pwd</code> l’affiche, <code>ls</code> liste son contenu, <code>cd</code> change de dossier <span class="citation" data-cites="mdn-ligne-de-commande">(<a href="#ref-mdn-ligne-de-commande" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.</a>)</span>. Sous Windows, on utilise <strong>Git Bash</strong>, installé à l’instant ; sous macOS et Linux, le terminal fourni.</p>
+<div class="schema-diapo" style="--h: 500px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s04-arborescence-terminal.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Les dossiers forment un arbre. cd dwwm descend dans un dossier, cd .. remonte d’un niveau ; pwd affiche le chemin du dossier où vous êtes."><img src="img/s04-arborescence-terminal.svg" class="img-fluid figure-img" alt="Un arbre de dossiers. En haut, le dossier personnel, stagiaire, noté ~. Dessous, le dossier dwwm, mis en évidence : vous êtes ici. Sous dwwm, deux dossiers, semaine-03 et semaine-04. Une flèche verte descend de stagiaire vers dwwm : cd dwwm. Une flèche orange remonte de dwwm vers stagiaire : cd .. remonte d'un niveau. À droite : pwd affiche /c/Users/stagiaire/dwwm ; dans l'Explorateur de Windows, le même dossier s'écrit C:\Users\stagiaire\dwwm."></a></p>
+<figcaption>Les dossiers forment un arbre. <code>cd dwwm</code> descend dans un dossier, <code>cd ..</code> remonte d’un niveau ; <code>pwd</code> affiche le chemin du dossier où vous êtes.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span>                 <span class="co"># où suis-je ?</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span>              <span class="co"># que contient ce dossier ?</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> dwwm             <span class="co"># entrer dans un dossier</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..               <span class="co"># remonter d'un niveau</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> essais        <span class="co"># créer un dossier</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> notes.txt     <span class="co"># créer un fichier vide</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur tape chaque commande ; vous la retapez aussitôt.</p>
+<ol type="1">
+<li>Tapez <code>pwd</code> : le chemin de votre dossier personnel s’affiche.</li>
+<li>Tapez <code>ls -la</code> : tout le contenu, fichiers cachés compris (<code>-a</code>), en détail (<code>-l</code>).</li>
+<li>Tapez <code>cd dwwm</code>, puis <code>pwd</code> : le chemin se termine par <code>dwwm</code>.</li>
+<li>Tapez <code>cd ..</code>, puis <code>pwd</code> : vous êtes remonté d’un niveau.</li>
+<li>Tapez <code>cd dw</code>, puis la touche <strong>Tab</strong> : le nom se complète.</li>
+<li>Appuyez sur la <strong>flèche du haut</strong> : la commande précédente revient.</li>
+</ol>
+<p><strong>Vous devez voir</strong>, aux étapes 1, 3 et 4 (avec votre nom d’utilisateur à la place de <code>stagiaire</code>) :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~
+$ pwd
+/c/Users/stagiaire
+
+stagiaire@PC MINGW64 ~
+$ cd dwwm
+
+stagiaire@PC MINGW64 ~/dwwm
+$ pwd
+/c/Users/stagiaire/dwwm
+
+stagiaire@PC MINGW64 ~/dwwm
+$ cd ..
+
+stagiaire@PC MINGW64 ~
+$ pwd
+/c/Users/stagiaire</code></pre>
+</div>
+<p>Git Bash écrit le disque <code>C:</code> sous la forme <code>/c</code> ; dans l’invite, <code>~</code> désigne votre dossier personnel. <code>cd</code> n’affiche rien quand il réussit : l’invite, elle, change.</p>
+</section>
+<section id="se-repérer-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="se-repérer-attention-et-vérification">Se repérer — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>No such file or directory</code> : le nom est mal écrit, ou vous n’êtes pas dans le bon dossier. Tapez <code>pwd</code>, puis <code>ls</code>, avant de réessayer.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : depuis <code>dwwm/semaine-03</code>, où mène <code>cd ..</code> ?</li>
+</ul>
+</section>
+<section id="apport-1-le-terminal-22-les-fichiers-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-1-le-terminal-22-les-fichiers-10-min">Apport 1 — Le terminal (2/2) : les fichiers (10 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : copier, renommer, chercher sans quitter le clavier.</li>
+<li><strong><code>cp</code>, <code>mv</code>, <code>rm</code>, <code>cat</code>, <code>grep</code></strong> : copier, déplacer, supprimer, lire, chercher.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Sur un serveur, sans explorateur de fichiers, il faut copier, renommer, lire et chercher avec des commandes.</p>
+<p><strong>Définition.</strong> <code>cp a.txt b.txt</code> copie ; <code>mv a.txt c.txt</code> déplace ou renomme ; <code>rm fichier</code> supprime ; <code>cat fichier</code> affiche le contenu ; <code>grep mot fichier</code> cherche un mot ; <code>commande --help</code> affiche l’aide, en anglais.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> Ada <span class="op">&gt;</span> prenom.txt         <span class="co"># créer un fichier qui contient Ada</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> prenom.txt copie.txt       <span class="co"># le copier</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> copie.txt sauvegarde.txt   <span class="co"># renommer la copie</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sauvegarde.txt            <span class="co"># afficher : Ada</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> Ada prenom.txt           <span class="co"># chercher : Ada</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> sauvegarde.txt             <span class="co"># supprimer</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Dans un dossier d’essai (<code>mkdir essais</code>, puis <code>cd essais</code>), le formateur tape chaque ligne ; vous la retapez aussitôt, puis vous tapez <code>ls</code> pour voir l’effet.</p>
+<p><strong>Vous devez voir</strong> :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~/essais
+$ echo Ada &gt; prenom.txt
+
+stagiaire@PC MINGW64 ~/essais
+$ cp prenom.txt copie.txt
+
+stagiaire@PC MINGW64 ~/essais
+$ ls
+copie.txt  prenom.txt
+
+stagiaire@PC MINGW64 ~/essais
+$ mv copie.txt sauvegarde.txt
+
+stagiaire@PC MINGW64 ~/essais
+$ ls
+prenom.txt  sauvegarde.txt
+
+stagiaire@PC MINGW64 ~/essais
+$ cat sauvegarde.txt
+Ada
+
+stagiaire@PC MINGW64 ~/essais
+$ grep Ada prenom.txt
+Ada
+
+stagiaire@PC MINGW64 ~/essais
+$ rm sauvegarde.txt
+
+stagiaire@PC MINGW64 ~/essais
+$ ls
+prenom.txt</code></pre>
+</div>
+<p><code>cp</code>, <code>mv</code> et <code>rm</code> ne disent rien quand ils réussissent : <code>ls</code> montre leur effet. <code>rm</code> ne demande pas de confirmation, et il n’y a pas de corbeille.</p>
+</section>
+<section id="fichiers-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="fichiers-attention-et-vérification">Fichiers — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>rm</code> supprime <strong>définitivement</strong> : pas de corbeille. Relisez la commande avant Entrée, et faites <code>ls</code> après.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : quelle commande renomme <code>a.txt</code> en <code>b.txt</code> ?</li>
+</ul>
+</section>
+<section id="exercice-rallye-terminal-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-rallye-terminal-30-min">Exercice — Rallye terminal (30 min)</h3>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<ol type="1">
+<li>Ensemble (5 min) : les étapes 1 et 2.</li>
+<li>Seuls : les étapes 3 à 10, au clavier uniquement.</li>
+<li>Notez chaque commande tapée sur votre fiche.</li>
+<li><strong>Réussi si</strong> : l’étape 10 montre que <code>copie.txt</code> a disparu.</li>
+</ol>
+<ol type="1">
+<li>Allez dans votre dossier <code>dwwm</code> et affichez son chemin complet.</li>
+<li>Créez un dossier <code>semaine-04</code>, puis entrez dedans.</li>
+<li>Créez les dossiers <code>rallye/a</code> et <code>rallye/b</code> (indice : <code>mkdir -p</code>).</li>
+<li>Créez un fichier <code>rallye/a/depart.txt</code> contenant votre prénom : <code>echo Ada &gt; rallye/a/depart.txt</code>.</li>
+<li>Copiez-le dans <code>rallye/b</code> sous le nom <code>copie.txt</code>.</li>
+<li>Renommez <code>rallye/a/depart.txt</code> en <code>rallye/a/arrivee.txt</code>.</li>
+<li>Affichez le contenu de <code>rallye/b/copie.txt</code>.</li>
+<li>Listez tout le contenu de <code>rallye</code>, sous-dossiers compris (<code>ls -R</code>).</li>
+<li>Cherchez votre prénom dans tout le dossier <code>rallye</code> (<code>grep -r</code>).</li>
+<li>Supprimez <code>rallye/b/copie.txt</code>, puis vérifiez qu’il a disparu.</li>
+</ol>
+</section>
+<section id="apport-2-ssh-travailler-sur-un-serveur-distant-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="apport-2-ssh-travailler-sur-un-serveur-distant-15-min">Apport 2 — SSH : travailler sur un serveur distant (15 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : agir sur un serveur à distance, en toute sécurité.</li>
+<li><strong>SSH</strong> : un terminal chiffré sur une autre machine.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un site en ligne tourne sur un serveur, loin de vous. Pour y travailler, il faut s’y connecter, et que personne ne puisse lire ce qui passe sur le réseau.</p>
+<p><strong>Définition.</strong> SSH ouvre un terminal chiffré sur une machine distante <span class="citation" data-cites="man-ssh">(<a href="#ref-man-ssh" role="doc-biblioref">OpenBSD, s.&nbsp;d.-c</a>)</span> ; <code>scp</code> copie des fichiers par SSH <span class="citation" data-cites="man-scp">(<a href="#ref-man-scp" role="doc-biblioref">OpenBSD, s.&nbsp;d.-a</a>)</span> ; <code>sftp</code> ouvre une session interactive de transfert (<code>get</code> pour télécharger, <code>put</code> pour envoyer) <span class="citation" data-cites="man-sftp">(<a href="#ref-man-sftp" role="doc-biblioref">OpenBSD, s.&nbsp;d.-b</a>)</span>. On s’entraîne sur les serveurs du jeu Bandit : l’utilisateur <code>bandit0</code>, le mot de passe <code>bandit0</code> et le port 2220 sont indiqués sur la page du niveau 0 <span class="citation" data-cites="overthewire-bandit0">(<a href="#ref-overthewire-bandit0" role="doc-biblioref">OverTheWire, s.&nbsp;d.</a>)</span>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Une connexion SSH
+  accDescr: Votre ordinateur, avec Git Bash, envoie les commandes tapées au serveur distant par une connexion chiffrée, sur le port 2220 pour Bandit. Le serveur exécute les commandes et renvoie leur résultat par la même connexion. Sur le réseau, entre les deux, personne ne peut lire ce qui passe.
+  P["Votre ordinateur&lt;br/&gt;Git Bash"] --&gt;|"commandes, chiffrées"| S["Serveur distant&lt;br/&gt;bandit.labs…"]
+  S --&gt;|"résultats, chiffrés"| P
+</pre>
+</div>
+<p></p><figcaption> Avec SSH, vous tapez sur votre ordinateur, les commandes s’exécutent sur le serveur ; ce qui passe sur le réseau est chiffré.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> bandit0@bandit.labs.overthewire.org <span class="at">-p</span> 2220</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-P</span> 2220 bandit0@bandit.labs.overthewire.org:readme .</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">sftp</span> <span class="at">-P</span> 2220 bandit0@bandit.labs.overthewire.org</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur fait chaque étape au vidéoprojecteur ; vous la refaites aussitôt.</p>
+<ol type="1">
+<li>Tapez la commande <code>ssh</code> de la ligne 1. À la première connexion, répondez <code>yes</code> pour accepter le serveur.</li>
+<li>Tapez le mot de passe <code>bandit0</code> : rien ne s’affiche pendant la frappe, c’est normal. Entrée.</li>
+<li>L’invite change : vous êtes sur le serveur. Tapez <code>ls</code>, puis <code>exit</code> pour revenir sur votre ordinateur.</li>
+<li>Tapez la commande <code>scp</code> de la ligne 2 : le fichier <code>readme</code> est copié dans votre dossier courant (le <code>.</code> final).</li>
+<li>Tapez <code>ls</code> : <code>readme</code> est là.</li>
+</ol>
+</section>
+<section id="ssh-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="ssh-attention-et-vérification">SSH — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le port s’écrit <code>-p</code> pour <code>ssh</code>, mais <code>-P</code> (majuscule) pour <code>scp</code> et <code>sftp</code>. Une connexion refusée vient souvent de là.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : quelle commande quitte le serveur ?</li>
+</ul>
+</section>
+<section id="exercice-première-connexion-ssh-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-première-connexion-ssh-30-min">Exercice — Première connexion SSH (30 min)</h3>
+<p><strong>Niveau</strong> : guidé.</p>
+<ol type="1">
+<li>Ensemble (5 min) : la connexion <code>ssh</code> au niveau 0 de Bandit.</li>
+<li>Seuls : listez les fichiers, affichez <code>readme</code>, puis <code>exit</code>.</li>
+<li>Téléchargez <code>readme</code> avec <code>scp</code>.</li>
+<li><strong>Réussi si</strong> : <code>ls</code> montre <code>readme</code> dans votre dossier.</li>
+</ol>
+<p>Le fichier <code>readme</code> contient le mot de passe du niveau suivant : vous en aurez besoin demain. Ne le publiez nulle part : le jeu n’a de sens que si chacun cherche par lui-même.</p>
+<section id="si-le-temps-le-permet-sftp-puis-pourquoi-chiffrer" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-sftp-puis-pourquoi-chiffrer">Si le temps le permet — <code>sftp</code>, puis pourquoi chiffrer ?</h4>
+<div class="callout callout-style-default callout-tip callout-titled" title="Défi">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Défi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Téléchargez aussi <code>readme</code> avec <code>sftp</code>, la session interactive de transfert : <code>sftp -P 2220 bandit0@bandit.labs.overthewire.org</code>, puis <code>get readme</code>, puis <code>exit</code>. <strong>Réussi si</strong> : <code>ls</code> montre <code>readme</code> dans votre dossier.</p>
+</div>
+</div>
+<ol type="1">
+<li>Demandez à <a href="https://cs50.ai">CS50.ai</a> : « Quelle différence entre SSH et Telnet ? »</li>
+<li>Vérifiez qu’il vous guide sans répondre à votre place.</li>
+</ol>
+</section>
+</section>
+<section id="à-retenir-ce-matin" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Se repérer</strong> : <code>pwd</code>, <code>ls</code>, <code>cd</code> ; <strong>Tab</strong> complète les noms.</li>
+<li><strong>Fichiers</strong> : <code>cp</code>, <code>mv</code>, <code>cat</code>, <code>grep</code> ; <code>rm</code> est définitif.</li>
+<li><strong>SSH</strong> : <code>ssh -p</code>, mais <code>scp -P</code> et <code>sftp -P</code> ; <code>exit</code> pour sortir.</li>
+</ul>
+</div>
+</div>
+<p>Le détail, notion par notion :</p>
+<ul>
+<li><strong>Se repérer</strong> : chaque commande s’exécute dans le dossier courant ; <code>pwd</code> le montre, <code>ls -la</code> liste tout, <code>cd ..</code> remonte ; Tab complète, la flèche du haut rappelle.</li>
+<li><strong>Fichiers</strong> : <code>cp</code> copie, <code>mv</code> déplace ou renomme, <code>cat</code> affiche, <code>grep</code> cherche ; <code>rm</code> supprime sans corbeille ; <code>--help</code> donne l’aide.</li>
+<li><strong>SSH</strong> : un terminal chiffré sur un serveur ; <code>scp</code> et <code>sftp</code> transfèrent des fichiers ; le port s’écrit <code>-p</code> ou <code>-P</code> selon la commande.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Quelle commande pour savoir où l’on se trouve ?</li>
+<li>Pourquoi <code>rm</code> est-il dangereux ?</li>
+<li>À quoi sert le port dans une commande SSH ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-tp-mon-poste-de-dev-explainshell-documentation-en-anglais" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-tp-mon-poste-de-dev-explainshell-documentation-en-anglais">Après-midi — TP — « Mon poste de dev » · Explainshell (documentation en anglais)</h2>
+<section id="la-check-list-c1-13-vs-code-extensions" class="level3">
+<h3 class="anchored" data-anchor-id="la-check-list-c1-13-vs-code-extensions">La check-list C1 (1/3) — VS Code, extensions</h3>
+<p><strong>Niveau</strong> : guidé.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Dossier ouvert ; extensions recommandées installées</label></li>
+<li><label><input type="checkbox">VS Code en français (pack de langue), après redémarrage</label></li>
+<li><label><input type="checkbox"><code>chat.disableAIFeatures</code> toujours coché</label></li>
+<li><label><input type="checkbox">ESLint souligne les erreurs dans l’éditeur</label></li>
+</ul>
+<p>VS Code est installé depuis la semaine 2. Aujourd’hui, on le complète :</p>
+<ol type="1">
+<li>Téléchargez l’<a href="code/exercices/s04-exercices.zip">archive de la semaine</a> ; extrayez-la dans <code>dwwm/semaine-04</code>.</li>
+<li>Dans VS Code : <em>File</em>, <em>Open Folder…</em>, puis <code>dwwm/semaine-04</code>.</li>
+<li>VS Code propose d’installer les extensions recommandées : acceptez. Le fichier <code>.vscode/extensions.json</code> du dossier recommande <a href="../../ressources/lexique.html#t-eslint">ESLint</a>, le pack de langue français et Live Preview (pour la semaine 5) <span class="citation" data-cites="vscode-extensions">(<a href="#ref-vscode-extensions" role="doc-biblioref">Microsoft, s.&nbsp;d.-a</a>)</span>.</li>
+<li>Redémarrez VS Code quand il le demande : l’interface passe en français.</li>
+<li>Ouvrez les paramètres (<kbd title="mac: Cmd+,, windows: Ctrl+," aria-hidden="true" data-mac="Cmd+," data-windows="Ctrl+,"></kbd><span class="visually-hidden"></span>) ; cherchez <code>chat.disableAIFeatures</code> ; vérifiez que la case est toujours cochée <span class="citation" data-cites="vscode-ia">(<a href="#ref-vscode-ia" role="doc-biblioref">Microsoft, s.&nbsp;d.-b</a>)</span>. La charte interdit l’autocomplétion par IA jusqu’au palier 2b (semaine 16).</li>
+<li>Ouvrez un fichier <code>.js</code> du dossier et ajoutez <code>var x = 1;</code> : ESLint le souligne. Annulez la modification.</li>
+</ol>
+</section>
+<section id="la-check-list-c1-23-terminal-node-et-git" class="level3">
+<h3 class="anchored" data-anchor-id="la-check-list-c1-23-terminal-node-et-git">La check-list C1 (2/3) — Terminal, Node et Git</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Windows : Git Bash est le terminal par défaut de VS Code</label></li>
+<li><label><input type="checkbox">Dans le terminal de VS Code : <code>node -v</code> affiche une version LTS</label></li>
+<li><label><input type="checkbox"><code>git --version</code> affiche une version</label></li>
+<li><label><input type="checkbox"><code>git config --global</code> : nom, e-mail, branche <code>main</code></label></li>
+</ul>
+<p>Git est installé depuis ce matin. Sous Windows, dans VS Code, lancez la commande <strong>Terminal: Select Default Profile</strong> et choisissez <strong>Git Bash</strong> : le réglage <code>terminal.integrated.defaultProfile.windows</code> est alors enregistré <span class="citation" data-cites="vscode-terminal-profiles">(<a href="#ref-vscode-terminal-profiles" role="doc-biblioref">Microsoft, s.&nbsp;d.-c</a>)</span>. Ouvrez un nouveau terminal Git Bash et tapez <code>node -v</code> : <a href="../../ressources/lexique.html#t-nodejs">Node.js</a>, installé en semaine 2, doit répondre. Sinon, fermez puis rouvrez VS Code et réessayez ; s’il ne répond toujours pas, appelez le formateur. Configurez ensuite votre identité Git <span class="citation" data-cites="progit-premiere-utilisation">(<a href="#ref-progit-premiere-utilisation" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.</a>)</span> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Prénom Nom"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email prenom.nom@exemple.fr</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Utilisez l’adresse e-mail de votre compte GitHub, créé lundi. La dernière ligne nomme <code>main</code> la <a href="../../ressources/lexique.html#t-branche">branche</a> principale de vos futurs dépôts, comme sur GitHub.</p>
+<p><strong>Vous devez voir</strong> : rien après chacune des trois commandes. Pas de message : tout s’est bien passé. Pour vérifier, tapez <code>git config --global user.name</code> : votre nom s’affiche.</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~
+$ git config --global user.name "Prénom Nom"
+
+stagiaire@PC MINGW64 ~
+$ git config --global user.email prenom.nom@exemple.fr
+
+stagiaire@PC MINGW64 ~
+$ git config --global init.defaultBranch main
+
+stagiaire@PC MINGW64 ~
+$ git config --global user.name
+Prénom Nom</code></pre>
+</div>
+</section>
+<section id="la-check-list-c1-33-clé-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="la-check-list-c1-33-clé-ssh">La check-list C1 (3/3) — Clé SSH</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Une paire de clés générée avec <code>ssh-keygen</code></label></li>
+<li><label><input type="checkbox">Une phrase de passe choisie pour protéger la clé</label></li>
+</ul>
+<ul class="task-list">
+<li><label><input type="checkbox">Vous savez où est la clé <strong>publique</strong> (<code>.pub</code>)</label></li>
+<li><label><input type="checkbox">La clé <strong>privée</strong> ne quitte jamais votre poste</label></li>
+</ul>
+<p>Commande recommandée par GitHub, avec votre adresse e-mail <span class="citation" data-cites="github-ssh-generer">(<a href="#ref-github-ssh-generer" role="doc-biblioref">GitHub, s.&nbsp;d.</a>)</span> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"prenom.nom@exemple.fr"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Acceptez l’emplacement proposé ; la clé publique est le fichier qui se termine par <code>.pub</code>. Une phrase de passe protège la clé : elle vous sera demandée quand vous l’utiliserez <span class="citation" data-cites="github-ssh-generer man-ssh-keygen">(<a href="#ref-github-ssh-generer" role="doc-biblioref">GitHub, s.&nbsp;d.</a>; <a href="#ref-man-ssh-keygen" role="doc-biblioref">OpenBSD, s.&nbsp;d.-d</a>)</span>. Vous ajouterez la clé publique à votre compte GitHub vendredi.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart TB
+  accTitle: Une paire de clés SSH
+  accDescr: ssh-keygen crée deux fichiers sur votre ordinateur. La clé privée, id_ed25519, reste sur votre ordinateur, protégée par la phrase de passe ; elle ne se partage jamais. La clé publique, id_ed25519.pub, est copiée sur GitHub. À chaque connexion, GitHub vérifie avec la clé publique que vous possédez la clé privée.
+  K["ssh-keygen"] --&gt; PR["Clé privée&lt;br/&gt;id_ed25519&lt;br/&gt;reste sur votre ordinateur"]
+  K --&gt; PU["Clé publique&lt;br/&gt;id_ed25519.pub"]
+  PU --&gt;|"copiée, vendredi"| G["GitHub&lt;br/&gt;vous reconnaît"]
+</pre>
+</div>
+<p></p><figcaption> La clé privée reste sur votre ordinateur ; la clé publique est déposée sur GitHub (vendredi), qui s’en sert pour vous reconnaître.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Vous devez voir</strong> (votre empreinte, après <code>SHA256:</code>, et le dessin seront différents ; <code>ssh-keygen</code> s’affiche en anglais) :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~
+$ ssh-keygen -t ed25519 -C "prenom.nom@exemple.fr"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/stagiaire/.ssh/id_ed25519):
+Created directory '/c/Users/stagiaire/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/stagiaire/.ssh/id_ed25519
+Your public key has been saved in /c/Users/stagiaire/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:CylUX/2idkBz6+0oP3rntvqr+Vk52PjJUTcTBEJMKjM prenom.nom@exemple.fr
+The key's randomart image is:
++--[ED25519 256]--+
+|      .   == ... |
+|     . . .+.+ .  |
+|    .  E.o o o . |
+|   .   .+ . o . .|
+|    . o S  + o oo|
+|     . . .o o = *|
+|        .. . = =.|
+|          . +.*o+|
+|          .==XB* |
++----[SHA256]-----+</code></pre>
+</div>
+<p>Lisez-la ligne par ligne :</p>
+<ol type="1">
+<li><code>Enter file…</code> : appuyez sur Entrée, sans rien taper, pour garder l’emplacement proposé.</li>
+<li><code>Created directory…</code> : le dossier <code>.ssh</code> vient d’être créé. Cette ligne n’apparaît que s’il n’existait pas.</li>
+<li><code>Enter passphrase…</code>, puis <code>Enter same passphrase again</code> : tapez votre phrase de passe deux fois. Rien ne s’affiche pendant la frappe : c’est normal.</li>
+<li><code>saved in …id_ed25519</code> : la clé <strong>privée</strong> ; <code>saved in …id_ed25519.pub</code> : la clé <strong>publique</strong>.</li>
+<li>Le dessin (<em>randomart</em>) sert seulement à comparer deux clés d’un coup d’œil : rien à noter.</li>
+</ol>
+<p>Puis vérifiez que les deux fichiers sont là :</p>
+<div class="terminal">
+<pre class="text"><code>stagiaire@PC MINGW64 ~
+$ ls ~/.ssh
+id_ed25519  id_ed25519.pub</code></pre>
+</div>
+<p>Si une clé existe déjà, <code>ssh-keygen</code> affiche <code>…/id_ed25519 already exists.</code>, puis <code>Overwrite (y/n)?</code> : répondez <code>n</code>, puis appelez le formateur. Écraser la clé couperait les accès qu’elle ouvre déjà.</p>
+</section>
+<section id="anglais" class="level3">
+<h3 class="anchored" data-anchor-id="anglais">Explainshell (25 min)</h3>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<ol type="1">
+<li>Ouvrez Explainshell ; collez la première commande (ci-dessous).</li>
+<li>Pour chaque option, notez en français ce qu’elle fait.</li>
+<li>Recommencez avec les trois autres commandes.</li>
+<li><strong>Réussi si</strong> : quatre commandes expliquées avec vos mots.</li>
+</ol>
+<p>Explainshell fait correspondre chaque <a href="../../ressources/lexique.html#t-argument">argument</a> d’une commande à son explication dans la documentation <span class="citation" data-cites="explainshell">(<a href="#ref-explainshell" role="doc-biblioref"><span class="nocase">explainshell.com</span>, s.&nbsp;d.</a>)</span>. Commandes à expliquer :</p>
+<ol type="1">
+<li><code>ls -la</code></li>
+<li><code>grep -r "code" .</code></li>
+<li><code>find . -name "*.txt"</code></li>
+<li><code>ssh bandit0@bandit.labs.overthewire.org -p 2220</code></li>
+</ol>
+</section>
+<section id="à-retenir-cet-après-midi" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>VS Code</strong> : extensions recommandées, en français, IA toujours désactivée.</li>
+<li><strong>Git</strong> : <code>git config --global</code> une fois : nom, e-mail, <code>main</code>.</li>
+<li><strong>Clé SSH</strong> : la <code>.pub</code> se partage ; la clé privée, jamais.</li>
+</ul>
+</div>
+</div>
+<p><strong>Critères de réussite</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Les trois parties de la check-list C1 sont cochées</label></li>
+<li><label><input type="checkbox">La connexion SSH à Bandit et les deux téléchargements ont réussi</label></li>
+<li><label><input type="checkbox">Les quatre commandes sont expliquées avec vos mots</label></li>
+</ul>
+<section id="si-le-temps-le-permet-vos-propres-commandes" class="level4">
+<h4 class="anchored" data-anchor-id="si-le-temps-le-permet-vos-propres-commandes">Si le temps le permet — Vos propres commandes</h4>
+<ol type="1">
+<li>Collez dans Explainshell trois commandes utilisées ce matin.</li>
+<li>Notez une option que vous ne connaissiez pas.</li>
+</ol>
+</section>
+<section id="pour-aller-plus-loin" class="level4">
+<h4 class="anchored" data-anchor-id="pour-aller-plus-loin">Pour aller plus loin</h4>
+<ul>
+<li><code>ls --help</code> : trouvez l’option qui trie par taille.</li>
+<li>Et celle qui affiche les tailles en Ko, Mo ?</li>
+</ul>
+</section>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-explainshell" class="csl-entry" role="listitem">
+<span class="nocase">explainshell.com</span>. s.&nbsp;d. <span>«&nbsp;explainshell.com - match command-line arguments to their help text&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://explainshell.com/">https://explainshell.com/</a>.
+</div>
+<div id="ref-git-install-linux" class="csl-entry" role="listitem">
+Git. s.&nbsp;d.-a. <span>«&nbsp;Git - Install for Linux&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://git-scm.com/install/linux">https://git-scm.com/install/linux</a>.
+</div>
+<div id="ref-git-install-mac" class="csl-entry" role="listitem">
+Git. s.&nbsp;d.-b. <span>«&nbsp;Git - Install for macOS&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://git-scm.com/install/mac">https://git-scm.com/install/mac</a>.
+</div>
+<div id="ref-git-install-windows" class="csl-entry" role="listitem">
+Git. s.&nbsp;d.-c. <span>«&nbsp;Git - Install for Windows&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/install/windows">https://git-scm.com/install/windows</a>.
+</div>
+<div id="ref-git-for-windows" class="csl-entry" role="listitem">
+Git for Windows. s.&nbsp;d. <span>«&nbsp;Git for Windows&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://gitforwindows.org/">https://gitforwindows.org/</a>.
+</div>
+<div id="ref-github-ssh-generer" class="csl-entry" role="listitem">
+GitHub. s.&nbsp;d. <span>«&nbsp;Generating a new SSH key and adding it to the ssh-agent&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a>.
+</div>
+<div id="ref-mdn-ligne-de-commande" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d. <span>«&nbsp;Cours express sur l’invite de commande - Apprendre&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Environment_setup/Command_line</a>.
+</div>
+<div id="ref-vscode-extensions" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-a. <span>«&nbsp;Extension Marketplace - Visual Studio Code&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://code.visualstudio.com/docs/configure/extensions/extension-marketplace">https://code.visualstudio.com/docs/configure/extensions/extension-marketplace</a>.
+</div>
+<div id="ref-vscode-ia" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-b. <span>«&nbsp;Set up GitHub Copilot in VS Code (Remove AI features)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://code.visualstudio.com/docs/copilot/setup">https://code.visualstudio.com/docs/copilot/setup</a>.
+</div>
+<div id="ref-vscode-terminal-profiles" class="csl-entry" role="listitem">
+Microsoft. s.&nbsp;d.-c. <span>«&nbsp;Terminal Profiles - Visual Studio Code&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://code.visualstudio.com/docs/terminal/profiles">https://code.visualstudio.com/docs/terminal/profiles</a>.
+</div>
+<div id="ref-man-scp" class="csl-entry" role="listitem">
+OpenBSD. s.&nbsp;d.-a. <span>«&nbsp;scp(1) - OpenBSD manual pages&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://man.openbsd.org/scp">https://man.openbsd.org/scp</a>.
+</div>
+<div id="ref-man-sftp" class="csl-entry" role="listitem">
+OpenBSD. s.&nbsp;d.-b. <span>«&nbsp;sftp(1) - OpenBSD manual pages&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://man.openbsd.org/sftp">https://man.openbsd.org/sftp</a>.
+</div>
+<div id="ref-man-ssh" class="csl-entry" role="listitem">
+OpenBSD. s.&nbsp;d.-c. <span>«&nbsp;ssh(1) - OpenBSD manual pages&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://man.openbsd.org/ssh">https://man.openbsd.org/ssh</a>.
+</div>
+<div id="ref-man-ssh-keygen" class="csl-entry" role="listitem">
+OpenBSD. s.&nbsp;d.-d. <span>«&nbsp;ssh-keygen(1) - OpenBSD manual pages&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://man.openbsd.org/ssh-keygen">https://man.openbsd.org/ssh-keygen</a>.
+</div>
+<div id="ref-overthewire-bandit0" class="csl-entry" role="listitem">
+OverTheWire. s.&nbsp;d. <span>«&nbsp;Bandit Level 0&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://overthewire.org/wargames/bandit/bandit0.html">https://overthewire.org/wargames/bandit/bandit0.html</a>.
+</div>
+<div id="ref-progit-premiere-utilisation" class="csl-entry" role="listitem">
+Scott Chacon et Ben Straub. s.&nbsp;d. <span>«&nbsp;Pro Git : Paramétrage à la première utilisation de Git&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Param%C3%A9trage-%C3%A0-la-premi%C3%A8re-utilisation-de-Git">https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Param%C3%A9trage-%C3%A0-la-premi%C3%A8re-utilisation-de-Git</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s04-environnement/lundi.html" class="pagination-link" aria-label="Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s04-environnement/mercredi.html" class="pagination-link" aria-label="Mercredi 28/10 — Atelier guidé &amp; autonomie">
+        <span class="nav-page-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

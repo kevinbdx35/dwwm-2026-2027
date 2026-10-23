@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Le Web – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ressources/fiche-algorithmes-recherche.html" rel="next">
+<link href="../ressources/fiche-numeration.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<meta name="mermaid-theme" content="neutral">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../polices.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ressources/fiche-erreurs.html">Fiches de lecture</a></li><li class="breadcrumb-item"><a href="../ressources/fiche-web.html">Le Web</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-web.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#quest-ce-que-le-web" id="toc-quest-ce-que-le-web" class="nav-link active" data-scroll-target="#quest-ce-que-le-web">1. Qu’est-ce que le Web ?</a>
+  <ul>
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition">Définition</a></li>
+  <li><a href="#internet-ou-web" id="toc-internet-ou-web" class="nav-link" data-scroll-target="#internet-ou-web">Internet ou Web ?</a></li>
+  </ul></li>
+  <li><a href="#comment-fonctionne-le-web" id="toc-comment-fonctionne-le-web" class="nav-link" data-scroll-target="#comment-fonctionne-le-web">2. Comment fonctionne le Web ?</a>
+  <ul>
+  <li><a href="#les-trois-piliers-du-web" id="toc-les-trois-piliers-du-web" class="nav-link" data-scroll-target="#les-trois-piliers-du-web">Les trois piliers du Web</a></li>
+  <li><a href="#anatomie-dune-url" id="toc-anatomie-dune-url" class="nav-link" data-scroll-target="#anatomie-dune-url">Anatomie d’une URL</a></li>
+  <li><a href="#le-modèle-client-serveur" id="toc-le-modèle-client-serveur" class="nav-link" data-scroll-target="#le-modèle-client-serveur">Le modèle client-serveur</a></li>
+  <li><a href="#une-requête-http-en-pratique" id="toc-une-requête-http-en-pratique" class="nav-link" data-scroll-target="#une-requête-http-en-pratique">Une requête HTTP en pratique</a></li>
+  <li><a href="#front-end-et-back-end" id="toc-front-end-et-back-end" class="nav-link" data-scroll-target="#front-end-et-back-end">Front-end et back-end</a></li>
+  </ul></li>
+  <li><a href="#repères-historiques" id="toc-repères-historiques" class="nav-link" data-scroll-target="#repères-historiques">3. Repères historiques</a>
+  <ul>
+  <li><a href="#aux-origines-dinternet-1960-1983" id="toc-aux-origines-dinternet-1960-1983" class="nav-link" data-scroll-target="#aux-origines-dinternet-1960-1983">Aux origines d’Internet (1960-1983)</a></li>
+  <li><a href="#la-naissance-du-web-1989-1994" id="toc-la-naissance-du-web-1989-1994" class="nav-link" data-scroll-target="#la-naissance-du-web-1989-1994">La naissance du Web (1989-1994)</a></li>
+  <li><a href="#le-web-2.0-et-les-réseaux-sociaux-2003-2010" id="toc-le-web-2.0-et-les-réseaux-sociaux-2003-2010" class="nav-link" data-scroll-target="#le-web-2.0-et-les-réseaux-sociaux-2003-2010">Le Web 2.0 et les réseaux sociaux (2003-2010)</a></li>
+  <li><a href="#les-années-2010-lère-des-plateformes" id="toc-les-années-2010-lère-des-plateformes" class="nav-link" data-scroll-target="#les-années-2010-lère-des-plateformes">Les années 2010 : l’ère des plateformes</a></li>
+  <li><a href="#le-web3-et-lia-2014-2026" id="toc-le-web3-et-lia-2014-2026" class="nav-link" data-scroll-target="#le-web3-et-lia-2014-2026">Le Web3 et l’IA (2014-2026)</a></li>
+  </ul></li>
+  <li><a href="#web-1.0-2.0-3.0" id="toc-web-1.0-2.0-3.0" class="nav-link" data-scroll-target="#web-1.0-2.0-3.0">4. Web 1.0, 2.0, 3.0</a>
+  <ul>
+  <li><a href="#web-3.0-deux-sens-à-ne-pas-confondre" id="toc-web-3.0-deux-sens-à-ne-pas-confondre" class="nav-link" data-scroll-target="#web-3.0-deux-sens-à-ne-pas-confondre">« Web 3.0 » : deux sens à ne pas confondre</a></li>
+  </ul></li>
+  <li><a href="#enjeux-actuels" id="toc-enjeux-actuels" class="nav-link" data-scroll-target="#enjeux-actuels">5. Enjeux actuels</a></li>
+  <li><a href="#ce-quil-faut-retenir" id="toc-ce-quil-faut-retenir" class="nav-link" data-scroll-target="#ce-quil-faut-retenir">6. Ce qu’il faut retenir</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="fiche-web.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ressources/fiche-erreurs.html">Fiches de lecture</a></li><li class="breadcrumb-item"><a href="../ressources/fiche-web.html">Le Web</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Le Web</h1>
+<p class="subtitle lead">Fiche de lecture — fonctionnement, histoire et enjeux</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Lecture facultative</strong>, environ 15 minutes, en complément du fonctionnement du web (semaine 4, lundi). Support écrit par Kevin Bardoux, adapté au site du cours.</p>
+</div>
+</div>
+</div>
+<section id="quest-ce-que-le-web" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-que-le-web">1. Qu’est-ce que le Web ?</h2>
+<section id="définition" class="level3">
+<h3 class="anchored" data-anchor-id="définition">Définition</h3>
+<p>Le <strong>Web</strong> (de l’anglais <em>toile</em>) est un système qui donne accès à un ensemble de ressources (pages, images, sons, vidéos) reliées par des <strong>liens hypertextes</strong> et accessibles sur le réseau <strong>Internet</strong>. Son nom complet est le <em>World Wide Web</em> (« toile d’araignée mondiale »), d’où le <code>www</code> de nombreuses adresses.</p>
+</section>
+<section id="internet-ou-web" class="level3">
+<h3 class="anchored" data-anchor-id="internet-ou-web">Internet ou Web ?</h3>
+<p>On confond souvent les deux, mais ce ne sont pas la même chose :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Internet</th>
+<th>Le Web</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nature</td>
+<td>Un réseau mondial de réseaux (câbles, routeurs, serveurs)</td>
+<td>Un <strong>service</strong> qui fonctionne sur Internet</td>
+</tr>
+<tr class="even">
+<td>Protocoles</td>
+<td>TCP/IP</td>
+<td>HTTP, HTTPS</td>
+</tr>
+<tr class="odd">
+<td>Date</td>
+<td>Années 1970-1980</td>
+<td>1989-1991</td>
+</tr>
+</tbody>
+</table>
+<p>Le Web n’est qu’un service parmi d’autres qui utilisent Internet, comme l’e-mail (SMTP), le transfert de fichiers (FTP), la connexion à distance (SSH, semaine 4) ou la visioconférence.</p>
+</section>
+</section>
+<section id="comment-fonctionne-le-web" class="level2">
+<h2 class="anchored" data-anchor-id="comment-fonctionne-le-web">2. Comment fonctionne le Web ?</h2>
+<section id="les-trois-piliers-du-web" class="level3">
+<h3 class="anchored" data-anchor-id="les-trois-piliers-du-web">Les trois piliers du Web</h3>
+<p>Tim Berners-Lee a imaginé le Web autour de trois technologies, toujours au cœur du Web actuel <span class="citation" data-cites="cern-naissance-web">(<a href="#ref-cern-naissance-web" role="doc-biblioref">CERN, s.&nbsp;d.</a>)</span> :</p>
+<ul>
+<li><strong>URL</strong> : une adresse unique pour chaque ressource ;</li>
+<li><strong>HTTP</strong> : le protocole qui permet de demander et d’envoyer ces ressources ;</li>
+<li><strong>HTML</strong> : le langage qui décrit le contenu des pages et les liens entre elles.</li>
+</ul>
+</section>
+<section id="anatomie-dune-url" class="level3">
+<h3 class="anchored" data-anchor-id="anatomie-dune-url">Anatomie d’une URL</h3>
+<p><code>https://www.exemple.fr:443/cours/web.html?page=2#historique</code> <span class="citation" data-cites="mdn-url-what-is">(<a href="#ref-mdn-url-what-is" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Partie</th>
+<th>Exemple</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Protocole</td>
+<td><code>https</code></td>
+<td>Comment communiquer</td>
+</tr>
+<tr class="even">
+<td>Nom de domaine</td>
+<td><code>www.exemple.fr</code></td>
+<td>Quel serveur contacter</td>
+</tr>
+<tr class="odd">
+<td>Port</td>
+<td><code>443</code></td>
+<td>La porte d’entrée sur le serveur (souvent implicite)</td>
+</tr>
+<tr class="even">
+<td>Chemin</td>
+<td><code>/cours/web.html</code></td>
+<td>Quelle ressource demander</td>
+</tr>
+<tr class="odd">
+<td>Paramètres</td>
+<td><code>?page=2</code></td>
+<td>Des informations envoyées au serveur</td>
+</tr>
+<tr class="even">
+<td>Ancre</td>
+<td><code>#historique</code></td>
+<td>Une position dans la page</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="le-modèle-client-serveur" class="level3">
+<h3 class="anchored" data-anchor-id="le-modèle-client-serveur">Le modèle client-serveur</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+sequenceDiagram
+  accTitle: Le trajet d'une requête
+  accDescr: Le navigateur demande au serveur DNS l'adresse IP du nom de domaine. Il envoie ensuite la requête HTTP GET au serveur web. Le serveur répond par un code, 200 OK ou 404 Not Found, et le contenu. Le navigateur affiche la page, puis demande les ressources liées, CSS, images et scripts.
+  participant N as Navigateur (client)
+  participant D as DNS
+  participant S as Serveur web
+  N-&gt;&gt;D: adresse IP de www.exemple.fr ?
+  D--&gt;&gt;N: une adresse IP
+  N-&gt;&gt;S: GET /cours/web.html
+  S--&gt;&gt;N: 200 OK + la page HTML
+  N-&gt;&gt;S: GET style.css, images, scripts
+</pre>
+</div>
+<p></p><figcaption> D’abord le DNS traduit le nom en adresse IP ; puis la requête HTTP part vers cette adresse ; enfin le navigateur demande les ressources liées.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>Le navigateur (le <strong>client</strong>) demande au serveur DNS l’adresse IP qui correspond au nom de domaine.</li>
+<li>Il envoie une <strong>requête HTTP</strong> au serveur web, par exemple <code>GET /cours/web.html</code>.</li>
+<li>Le serveur renvoie une <strong>réponse HTTP</strong> : un code (<code>200 OK</code>, <code>404 Not Found</code>…) et le contenu.</li>
+<li>Le navigateur affiche la page, puis demande les ressources liées (CSS, images, scripts).</li>
+</ol>
+</section>
+<section id="une-requête-http-en-pratique" class="level3">
+<h3 class="anchored" data-anchor-id="une-requête-http-en-pratique">Une requête HTTP en pratique</h3>
+<pre class="http"><code>GET /cours/web.html HTTP/1.1
+Host: www.exemple.fr
+Accept: text/html
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;…&lt;/html&gt;</code></pre>
+<p>Codes à connaître : <code>200</code> (succès), <code>301</code> (redirection), <code>404</code> (introuvable), <code>500</code> (erreur du serveur) <span class="citation" data-cites="mdn-http-apercu">(<a href="#ref-mdn-http-apercu" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>. Pour les observer : les outils du navigateur (F12), onglet <strong>Réseau</strong>.</p>
+</section>
+<section id="front-end-et-back-end" class="level3">
+<h3 class="anchored" data-anchor-id="front-end-et-back-end">Front-end et back-end</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Front-end (côté client)</th>
+<th>Back-end (côté serveur)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ce qui s’exécute dans le navigateur</td>
+<td>Ce qui s’exécute sur le serveur</td>
+</tr>
+<tr class="even">
+<td>HTML : la structure</td>
+<td>Langages : JavaScript (Node.js), PHP, Python, Java…</td>
+</tr>
+<tr class="odd">
+<td>CSS : la présentation</td>
+<td>Bases de données : PostgreSQL, MySQL, MongoDB…</td>
+</tr>
+<tr class="even">
+<td>JavaScript : l’interactivité</td>
+<td>Génération des pages, authentification, API</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="repères-historiques" class="level2">
+<h2 class="anchored" data-anchor-id="repères-historiques">3. Repères historiques</h2>
+<section id="aux-origines-dinternet-1960-1983" class="level3">
+<h3 class="anchored" data-anchor-id="aux-origines-dinternet-1960-1983">Aux origines d’Internet (1960-1983)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Événement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1960-1964</td>
+<td>Paul Baran imagine un réseau de communication distribué, sans point central</td>
+</tr>
+<tr class="even">
+<td>1962</td>
+<td>J.C.R. Licklider décrit un « réseau galactique » d’ordinateurs interconnectés</td>
+</tr>
+<tr class="odd">
+<td>1969</td>
+<td>Lancement d’ARPANET, financé par le ministère de la Défense américain</td>
+</tr>
+<tr class="even">
+<td>1971</td>
+<td>Ray Tomlinson envoie le premier e-mail entre deux ordinateurs et choisit le @</td>
+</tr>
+<tr class="odd">
+<td>1974</td>
+<td>Vinton Cerf et Robert Kahn publient les principes de TCP/IP</td>
+</tr>
+<tr class="even">
+<td>1983</td>
+<td>Le 1<sup>er</sup> janvier, ARPANET adopte TCP/IP : naissance de l’Internet moderne</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="la-naissance-du-web-1989-1994" class="level3">
+<h3 class="anchored" data-anchor-id="la-naissance-du-web-1989-1994">La naissance du Web (1989-1994)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Événement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1989</td>
+<td>Au CERN, Tim Berners-Lee propose un système de gestion de l’information fondé sur l’hypertexte <span class="citation" data-cites="cern-naissance-web">(<a href="#ref-cern-naissance-web" role="doc-biblioref">CERN, s.&nbsp;d.</a>)</span></td>
+</tr>
+<tr class="even">
+<td>1990</td>
+<td>Premier serveur web et premier navigateur (WorldWideWeb)</td>
+</tr>
+<tr class="odd">
+<td>1991</td>
+<td>Le Web s’ouvre aux utilisateurs extérieurs au CERN</td>
+</tr>
+<tr class="even">
+<td>1993</td>
+<td>Le CERN place le Web dans le domaine public ; sortie du navigateur graphique Mosaic</td>
+</tr>
+<tr class="odd">
+<td>1994</td>
+<td>Sortie de Netscape Navigator ; création du W3C, l’organisme qui standardise le Web <span class="citation" data-cites="w3c-histoire">(<a href="#ref-w3c-histoire" role="doc-biblioref">W3C, s.&nbsp;d.-b</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="le-web-2.0-et-les-réseaux-sociaux-2003-2010" class="level3">
+<h3 class="anchored" data-anchor-id="le-web-2.0-et-les-réseaux-sociaux-2003-2010">Le Web 2.0 et les réseaux sociaux (2003-2010)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Événement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2003</td>
+<td>Lancement de LinkedIn</td>
+</tr>
+<tr class="even">
+<td>2004</td>
+<td>Lancement de Facebook ; le terme <em>Web 2.0</em> est popularisé par Tim O’Reilly</td>
+</tr>
+<tr class="odd">
+<td>2005</td>
+<td>Lancement de YouTube</td>
+</tr>
+<tr class="even">
+<td>2006</td>
+<td>Lancement de Twitter</td>
+</tr>
+<tr class="odd">
+<td>2007</td>
+<td>Lancement de l’iPhone : le Web devient mobile</td>
+</tr>
+<tr class="even">
+<td>2010</td>
+<td>Lancement d’Instagram</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-années-2010-lère-des-plateformes" class="level3">
+<h3 class="anchored" data-anchor-id="les-années-2010-lère-des-plateformes">Les années 2010 : l’ère des plateformes</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Événement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2011</td>
+<td>Lancement de Snapchat et de Google+ (fermé en 2019)</td>
+</tr>
+<tr class="even">
+<td>2012</td>
+<td>Facebook dépasse le milliard d’utilisateurs</td>
+</tr>
+<tr class="odd">
+<td>2014</td>
+<td>HTML5 devient une recommandation officielle du W3C <span class="citation" data-cites="w3c-html5-rec-2014">(<a href="#ref-w3c-html5-rec-2014" role="doc-biblioref">W3C, s.&nbsp;d.-c</a>)</span></td>
+</tr>
+<tr class="even">
+<td>2016</td>
+<td>Lancement de Douyin, qui deviendra TikTok à l’international en 2017 ; l’expression <em>fake news</em> se répand</td>
+</tr>
+<tr class="odd">
+<td>2018</td>
+<td>Entrée en application du RGPD en Europe <span class="citation" data-cites="cnil-rgpd">(<a href="#ref-cnil-rgpd" role="doc-biblioref">CNIL, s.&nbsp;d.</a>)</span></td>
+</tr>
+<tr class="even">
+<td>2020</td>
+<td>La pandémie de COVID-19 accélère le télétravail et l’e-commerce ; l’OMS parle d’« infodémie »</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="le-web3-et-lia-2014-2026" class="level3">
+<h3 class="anchored" data-anchor-id="le-web3-et-lia-2014-2026">Le Web3 et l’IA (2014-2026)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Événement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2014</td>
+<td>Gavin Wood invente le terme <em>Web3</em>, pour un Web décentralisé fondé sur la blockchain <span class="citation" data-cites="ethereum-web3">(<a href="#ref-ethereum-web3" role="doc-biblioref"><span class="nocase">ethereum.org</span>, s.&nbsp;d.</a>)</span></td>
+</tr>
+<tr class="even">
+<td>2022</td>
+<td>Lancement de ChatGPT : l’IA générative arrive auprès du grand public</td>
+</tr>
+<tr class="odd">
+<td>2023</td>
+<td>Twitter devient X ; les grands moteurs de recherche intègrent des assistants IA</td>
+</tr>
+<tr class="even">
+<td>2024</td>
+<td>Le règlement sur les services numériques (DSA) s’applique aux plateformes <span class="citation" data-cites="ce-dsa">(<a href="#ref-ce-dsa" role="doc-biblioref">Commission européenne, s.&nbsp;d.</a>)</span> ; les réseaux décentralisés (Bluesky, Mastodon) gagnent en visibilité</td>
+</tr>
+<tr class="odd">
+<td>2026</td>
+<td>Google déploie en France ses résumés de recherche générés par IA, les « Aperçus IA » <span class="citation" data-cites="google-france-apercus-ia-2026">(<a href="#ref-google-france-apercus-ia-2026" role="doc-biblioref">Google France 2026</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="web-1.0-2.0-3.0" class="level2">
+<h2 class="anchored" data-anchor-id="web-1.0-2.0-3.0">4. Web 1.0, 2.0, 3.0</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
+  accTitle: Les trois âges du Web
+  accDescr: Le Web 1.0, de 1991 à 2004 environ, permet de lire. Le Web 2.0, depuis 2004 environ, permet de lire et de participer. Le Web 3.0, depuis 2014 environ et encore en construction, veut permettre de lire, de participer et de posséder.
+  A["Web 1.0&lt;br/&gt;vers 1991-2004&lt;br/&gt;lire"] --&gt; B["Web 2.0&lt;br/&gt;depuis 2004&lt;br/&gt;lire et participer"]
+  B --&gt; C["Web 3.0&lt;br/&gt;depuis 2014, en construction&lt;br/&gt;lire, participer, posséder"]
+</pre>
+</div>
+<p></p><figcaption> Trois âges du Web : lire, puis participer, puis posséder.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Web 1.0</th>
+<th>Web 2.0</th>
+<th>Web 3.0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Période</td>
+<td>vers 1991-2004</td>
+<td>vers 2004 à aujourd’hui</td>
+<td>depuis 2014 environ, en construction</td>
+</tr>
+<tr class="even">
+<td>Usage</td>
+<td><strong>Lire</strong></td>
+<td>Lire et <strong>participer</strong></td>
+<td>Lire, participer et <strong>posséder</strong></td>
+</tr>
+<tr class="odd">
+<td>Contenu</td>
+<td>Pages statiques créées par des webmestres</td>
+<td>Contenu créé par les utilisateurs</td>
+<td>Données et contenus contrôlés par les utilisateurs</td>
+</tr>
+<tr class="even">
+<td>Architecture</td>
+<td>Décentralisé, peu interactif</td>
+<td><strong>Centralisé</strong> autour de grandes plateformes</td>
+<td><strong>Décentralisé</strong> (blockchain, protocoles ouverts)</td>
+</tr>
+<tr class="odd">
+<td>Exemples</td>
+<td>Yahoo!, MSN, sites personnels</td>
+<td>Facebook, YouTube, Wikipédia, Google Docs</td>
+<td>Ethereum, Bitcoin, Bluesky, Mastodon</td>
+</tr>
+</tbody>
+</table>
+<p>D’après la présentation du Web3 d’ethereum.org <span class="citation" data-cites="ethereum-web3">(<a href="#ref-ethereum-web3" role="doc-biblioref"><span class="nocase">ethereum.org</span>, s.&nbsp;d.</a>)</span>.</p>
+<section id="web-3.0-deux-sens-à-ne-pas-confondre" class="level3">
+<h3 class="anchored" data-anchor-id="web-3.0-deux-sens-à-ne-pas-confondre">« Web 3.0 » : deux sens à ne pas confondre</h3>
+<ul>
+<li><strong>Le Web sémantique</strong> (Web 3.0) : la vision de Tim Berners-Lee au début des années 2000, des données structurées que les machines peuvent comprendre et relier entre elles <span class="citation" data-cites="w3c-web-semantique">(<a href="#ref-w3c-web-semantique" role="doc-biblioref">W3C, s.&nbsp;d.-d</a>)</span>. On en retrouve des traces aujourd’hui dans les métadonnées des pages (Schema.org, le JSON-LD de la semaine 10) et les graphes de connaissances.</li>
+<li><strong>Le Web décentralisé</strong> (Web3) : le terme de 2014, un Web où les utilisateurs possèdent leurs données et leurs actifs grâce à la blockchain (cryptomonnaies, NFT, applications décentralisées) <span class="citation" data-cites="ethereum-web3">(<a href="#ref-ethereum-web3" role="doc-biblioref"><span class="nocase">ethereum.org</span>, s.&nbsp;d.</a>)</span>. Après l’engouement de 2021-2022, son adoption par le grand public reste limitée.</li>
+</ul>
+</section>
+</section>
+<section id="enjeux-actuels" class="level2">
+<h2 class="anchored" data-anchor-id="enjeux-actuels">5. Enjeux actuels</h2>
+<ul>
+<li><strong>L’IA dans la recherche</strong> : les moteurs affichent de plus en plus une réponse rédigée par IA au-dessus des liens ; en France, depuis juillet 2026, avec les Aperçus IA de Google <span class="citation" data-cites="google-france-apercus-ia-2026">(<a href="#ref-google-france-apercus-ia-2026" role="doc-biblioref">Google France 2026</a>)</span>.</li>
+<li><strong>La décentralisation</strong> : des alternatives aux grandes plateformes émergent, comme Mastodon (protocole ActivityPub, une recommandation du W3C) ou Bluesky (protocole AT) <span class="citation" data-cites="w3c-activitypub atproto">(<a href="#ref-w3c-activitypub" role="doc-biblioref">W3C, s.&nbsp;d.-a</a>; <a href="#ref-atproto" role="doc-biblioref">Bluesky, s.&nbsp;d.</a>)</span>.</li>
+<li><strong>La désinformation</strong> : les contenus trompeurs circulent vite, amplifiés par les algorithmes de recommandation et désormais par l’IA générative.</li>
+<li><strong>La régulation</strong> : l’Union européenne encadre les données personnelles (RGPD) <span class="citation" data-cites="cnil-rgpd">(<a href="#ref-cnil-rgpd" role="doc-biblioref">CNIL, s.&nbsp;d.</a>)</span>, les plateformes (DSA, DMA) <span class="citation" data-cites="ce-dsa">(<a href="#ref-ce-dsa" role="doc-biblioref">Commission européenne, s.&nbsp;d.</a>)</span> et l’intelligence artificielle (AI Act).</li>
+</ul>
+</section>
+<section id="ce-quil-faut-retenir" class="level2">
+<h2 class="anchored" data-anchor-id="ce-quil-faut-retenir">6. Ce qu’il faut retenir</h2>
+<ul>
+<li>Le Web est un <strong>service</strong> qui fonctionne sur Internet ; ce n’est pas Internet lui-même.</li>
+<li>Il repose sur trois piliers : <strong>URL, HTTP et HTML</strong>, inventés par Tim Berners-Lee au CERN en 1989-1991.</li>
+<li>Le Web fonctionne selon un modèle <strong>client-serveur</strong> : le navigateur envoie des requêtes, le serveur répond.</li>
+<li>Il est passé d’un Web de lecture (1.0) à un Web participatif (2.0), et tend vers un Web plus décentralisé (3.0).</li>
+<li>L’IA, la régulation et la décentralisation transforment aujourd’hui la façon dont on crée et consulte le Web.</li>
+</ul>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-atproto" class="csl-entry" role="listitem">
+Bluesky. s.&nbsp;d. <span>«&nbsp;AT Protocol&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://atproto.com/">https://atproto.com/</a>.
+</div>
+<div id="ref-cern-naissance-web" class="csl-entry" role="listitem">
+CERN. s.&nbsp;d. <span>«&nbsp;La naissance du web&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://home.cern/fr/science/computing/birth-web">https://home.cern/fr/science/computing/birth-web</a>.
+</div>
+<div id="ref-cnil-rgpd" class="csl-entry" role="listitem">
+CNIL. s.&nbsp;d. <span>«&nbsp;Le règlement général sur la protection des données (RGPD)&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees">https://www.cnil.fr/fr/reglement-europeen-protection-donnees</a>.
+</div>
+<div id="ref-ce-dsa" class="csl-entry" role="listitem">
+Commission européenne. s.&nbsp;d. <span>«&nbsp;Législation sur les services numériques (DSA)&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://digital-strategy.ec.europa.eu/fr/policies/digital-services-act">https://digital-strategy.ec.europa.eu/fr/policies/digital-services-act</a>.
+</div>
+<div id="ref-ethereum-web3" class="csl-entry" role="listitem">
+<span class="nocase">ethereum.org</span>. s.&nbsp;d. <span>«&nbsp;Introduction au Web3&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://ethereum.org/fr/web3/">https://ethereum.org/fr/web3/</a>.
+</div>
+<div id="ref-google-france-apercus-ia-2026" class="csl-entry" role="listitem">
+Google France. 2026. <span>«&nbsp;Lancement des Aperçus IA et du Mode IA dans la Recherche Google en France&nbsp;»</span>. juillet 22. <a href="https://blog.google/intl/fr-fr/nouveautes-produits/explorez-obtenez-des-reponses/recherche-ia-apercus-mode/">https://blog.google/intl/fr-fr/nouveautes-produits/explorez-obtenez-des-reponses/recherche-ia-apercus-mode/</a>.
+</div>
+<div id="ref-mdn-url-what-is" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;Qu’est-ce qu’une URL ?&nbsp;»</span> Consulté le 1 octobre 2026. <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL">https://developer.mozilla.org/fr/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL</a>.
+</div>
+<div id="ref-mdn-http-apercu" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Un aperçu de HTTP - HTTP&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/Overview">https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/Overview</a>.
+</div>
+<div id="ref-w3c-activitypub" class="csl-entry" role="listitem">
+W3C. s.&nbsp;d.-a. <span>«&nbsp;ActivityPub, W3C Recommendation&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://www.w3.org/TR/activitypub/">https://www.w3.org/TR/activitypub/</a>.
+</div>
+<div id="ref-w3c-histoire" class="csl-entry" role="listitem">
+W3C. s.&nbsp;d.-b. <span>«&nbsp;History of the W3C&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://www.w3.org/about/history/">https://www.w3.org/about/history/</a>.
+</div>
+<div id="ref-w3c-html5-rec-2014" class="csl-entry" role="listitem">
+W3C. s.&nbsp;d.-c. <span>«&nbsp;HTML5, W3C Recommendation, 28 October 2014&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://www.w3.org/TR/2014/REC-html5-20141028/">https://www.w3.org/TR/2014/REC-html5-20141028/</a>.
+</div>
+<div id="ref-w3c-web-semantique" class="csl-entry" role="listitem">
+W3C. s.&nbsp;d.-d. <span>«&nbsp;Semantic Web&nbsp;»</span>. Consulté le 1 octobre 2026. <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ressources/fiche-numeration.html" class="pagination-link" aria-label="Systèmes de numération">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Systèmes de numération</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ressources/fiche-algorithmes-recherche.html" class="pagination-link" aria-label="Les algorithmes (1/2) : chercher, mesurer">
+        <span class="nav-page-text">Les algorithmes (1/2) : chercher, mesurer</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
