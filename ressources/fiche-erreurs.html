@@ -57,7 +57,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../ressources/fiche-ordinateur.html" rel="next">
-<link href="../ressources/charte-ia.html" rel="prev">
+<link href="../ressources/finition-visuelle.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -67,7 +67,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d6df8babee69830b36c19a3aceb7de0e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-098c5701b2072b58505aa6340787a2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -151,6 +153,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -367,6 +375,53 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -386,12 +441,17 @@ div.csl-indent {
   <li><a href="#une-opération-impossible-typeerror" id="toc-une-opération-impossible-typeerror" class="nav-link" data-scroll-target="#une-opération-impossible-typeerror">Une opération impossible : <code>TypeError</code></a></li>
   <li><a href="#une-faute-de-syntaxe-syntaxerror" id="toc-une-faute-de-syntaxe-syntaxerror" class="nav-link" data-scroll-target="#une-faute-de-syntaxe-syntaxerror">Une faute de syntaxe : <code>SyntaxError</code></a></li>
   <li><a href="#un-fichier-introuvable-cannot-find-module" id="toc-un-fichier-introuvable-cannot-find-module" class="nav-link" data-scroll-target="#un-fichier-introuvable-cannot-find-module">Un fichier introuvable : <code>Cannot find module</code></a></li>
-  <li><a href="#un-test-rouge-node---test" id="toc-un-test-rouge-node---test" class="nav-link" data-scroll-target="#un-test-rouge-node---test">Un test rouge : <code>node --test</code></a></li>
+  <li><a href="#test-rouge" id="toc-test-rouge" class="nav-link" data-scroll-target="#test-rouge">Un test rouge : <code>node --test</code></a></li>
+  <li><a href="#tout-le-fichier" id="toc-tout-le-fichier" class="nav-link" data-scroll-target="#tout-le-fichier">Tout le fichier de tests échoue : <code>tests 1</code>, <code>fail 1</code></a></li>
   </ul></li>
-  <li><a href="#eslint-semaine-2" id="toc-eslint-semaine-2" class="nav-link" data-scroll-target="#eslint-semaine-2">ESLint (semaine 2)</a></li>
+  <li><a href="#eslint-semaine-2" id="toc-eslint-semaine-2" class="nav-link" data-scroll-target="#eslint-semaine-2">ESLint (semaine 2)</a>
+  <ul>
+  <li><a href="#eslint-rien" id="toc-eslint-rien" class="nav-link" data-scroll-target="#eslint-rien">ESLint ne souligne rien dans VS Code</a></li>
+  </ul></li>
   <li><a href="#git-semaine-4" id="toc-git-semaine-4" class="nav-link" data-scroll-target="#git-semaine-4">Git (semaine 4)</a>
   <ul>
   <li><a href="#pas-dans-un-dépôt" id="toc-pas-dans-un-dépôt" class="nav-link" data-scroll-target="#pas-dans-un-dépôt">Pas dans un dépôt</a></li>
+  <li><a href="#git-log-vide" id="toc-git-log-vide" class="nav-link" data-scroll-target="#git-log-vide"><code>git log</code> ne montre rien</a></li>
   <li><a href="#un-conflit-de-fusion" id="toc-un-conflit-de-fusion" class="nav-link" data-scroll-target="#un-conflit-de-fusion">Un conflit de fusion</a></li>
   <li><a href="#un-envoi-refusé" id="toc-un-envoi-refusé" class="nav-link" data-scroll-target="#un-envoi-refusé">Un envoi refusé</a></li>
   <li><a href="#un-avertissement-de-fin-de-ligne-windows" id="toc-un-avertissement-de-fin-de-ligne-windows" class="nav-link" data-scroll-target="#un-avertissement-de-fin-de-ligne-windows">Un avertissement de fin de ligne (Windows)</a></li>
@@ -493,8 +553,8 @@ SyntaxError: missing ) after argument list</code></pre>
 </ul>
 <p>Sous chaque erreur, les lignes qui commencent par <code>at</code> forment la <strong>pile d’appels</strong> : la première ligne qui mentionne <strong>votre</strong> fichier est la plus utile ; les lignes <code>node:internal/…</code> concernent Node lui-même.</p>
 </section>
-<section id="un-test-rouge-node---test" class="level3">
-<h3 class="anchored" data-anchor-id="un-test-rouge-node---test">Un test rouge : <code>node --test</code></h3>
+<section id="test-rouge" class="level3">
+<h3 class="anchored" data-anchor-id="test-rouge">Un test rouge : <code>node --test</code></h3>
 <pre class="text"><code>✖ affiche Hello, world!
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
   + actual - expected
@@ -505,6 +565,24 @@ SyntaxError: missing ) after argument list</code></pre>
 <li><strong>Où</strong> : le nom du test qui échoue, après <code>✖</code>.</li>
 <li><strong><code>+ actual</code></strong> : ce que votre programme affiche ou renvoie ; <strong><code>- expected</code></strong> : ce qu’il devrait afficher <span class="citation" data-cites="nodejs-test-runner">(<a href="#ref-nodejs-test-runner" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span>.</li>
 <li><strong>Quoi faire</strong> : comparez les deux lignes caractère par caractère (espaces, majuscules, ponctuation), corrigez, relancez.</li>
+</ul>
+</section>
+<section id="tout-le-fichier" class="level3">
+<h3 class="anchored" data-anchor-id="tout-le-fichier">Tout le fichier de tests échoue : <code>tests 1</code>, <code>fail 1</code></h3>
+<pre class="text"><code>file:///…/aire.js:2
+  let width = 3;
+      ^
+
+SyntaxError: Identifier 'width' has already been declared
+    at …
+✖ aire.test.js
+ℹ tests 1
+ℹ pass 0
+ℹ fail 1</code></pre>
+<ul>
+<li><strong>Où</strong> : après <code>✖</code>, le nom du <strong>fichier</strong> de tests, pas celui d’un test ; et <code>tests 1</code> alors que ce fichier en contient plusieurs.</li>
+<li><strong>Message</strong> : votre fichier ne s’est pas chargé, aucun test n’a pu tourner <span class="citation" data-cites="nodejs-test-runner">(<a href="#ref-nodejs-test-runner" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span>. La cause est écrite au-dessus : une erreur de syntaxe (ici, un paramètre déclaré une deuxième fois), ou une ligne placée hors d’une fonction qui plante au chargement.</li>
+<li><strong>Quoi faire</strong> : lancez <code>node votre-fichier.js</code> pour voir l’erreur seule ; lisez la ligne indiquée et le <code>^</code> ; essayez vos fonctions dans un fichier <code>essai.js</code> séparé, jamais dans le fichier testé.</li>
 </ul>
 </section>
 </section>
@@ -521,6 +599,16 @@ SyntaxError: missing ) after argument list</code></pre>
 <li><strong>Règle</strong> : le dernier mot (<code>eqeqeq</code>) ; il mène à sa page de documentation <span class="citation" data-cites="eslint-getting-started">(<a href="#ref-eslint-getting-started" role="doc-biblioref">ESLint, s.&nbsp;d.</a>)</span>.</li>
 <li><strong>Quoi faire</strong> : corrigez une alerte à la fois, en partant du haut, puis relancez <code>npx eslint .</code>.</li>
 </ul>
+<section id="eslint-rien" class="level3">
+<h3 class="anchored" data-anchor-id="eslint-rien">ESLint ne souligne rien dans VS Code</h3>
+<p>Pas de message ici : c’est l’absence de vague rouge qui alerte, alors que le fichier contient une erreur (par exemple <code>var x = 1;</code>). Vérifiez dans l’ordre :</p>
+<ol type="1">
+<li><strong><code>npm install</code> a-t-il été lancé dans ce dossier ?</strong> Un dossier <code>node_modules</code> doit être à côté de <code>package.json</code>. Sans lui, <code>npm run lint</code> dans le terminal se termine par une ligne qui dit que la commande <code>eslint</code> est introuvable (son libellé dépend du système ; sous Linux : <code>sh: 1: eslint: not found</code>). Lancez <code>npm install</code> dans le dossier de la semaine.</li>
+<li><strong>Le bon dossier est-il ouvert ?</strong> VS Code doit avoir ouvert le dossier de la semaine (celui qui contient <code>eslint.config.js</code>), pas <code>dwwm</code> tout entier ni un fichier seul : <em>Fichier</em>, <em>Ouvrir le dossier…</em>.</li>
+<li><strong>L’extension ESLint est-elle installée et activée ?</strong> Vue Extensions (<kbd title="mac: Cmd+Shift+X, windows: Ctrl+Shift+X" aria-hidden="true" data-mac="Cmd+Shift+X" data-windows="Ctrl+Shift+X"></kbd><span class="visually-hidden"></span>) : cherchez ESLint (éditeur Microsoft) ; le bouton doit proposer <em>Désactiver</em>, pas <em>Installer</em> ni <em>Activer</em>.</li>
+<li><strong>Toujours rien ?</strong> Tapez <code>npx eslint nom-du-fichier.js</code> dans le terminal. S’il affiche les erreurs, ESLint marche et c’est l’éditeur qui ne l’a pas encore chargé : fermez puis rouvrez VS Code. S’il n’affiche rien non plus, appelez le formateur.</li>
+</ol>
+</section>
 </section>
 <section id="git-semaine-4" class="level2">
 <h2 class="anchored" data-anchor-id="git-semaine-4">Git (semaine 4)</h2>
@@ -530,6 +618,15 @@ SyntaxError: missing ) after argument list</code></pre>
 <ul>
 <li><strong>Message</strong> : le dossier courant n’est pas un dépôt Git, ni aucun dossier parent.</li>
 <li><strong>Quoi faire</strong> : tapez <code>pwd</code> ; placez-vous dans le dossier du projet (<code>cd …</code>), ou créez le dépôt avec <code>git init</code> s’il n’existe pas encore.</li>
+</ul>
+</section>
+<section id="git-log-vide" class="level3">
+<h3 class="anchored" data-anchor-id="git-log-vide"><code>git log</code> ne montre rien</h3>
+<pre class="text"><code>fatal: votre branche actuelle 'main' ne contient encore aucun commit</code></pre>
+<p>En anglais : <code>fatal: your current branch 'main' does not have any commits yet</code>. Avec <code>--graph --all</code>, <code>git log</code> n’affiche rien du tout, sans message.</p>
+<ul>
+<li><strong>Message</strong> : le dossier est bien un dépôt Git, mais aucun commit n’y est encore enregistré.</li>
+<li><strong>Quoi faire</strong> : tapez <code>pwd</code> : êtes-vous dans le bon dossier (par exemple <code>~/dwwm/git-journal</code>) ? Un <code>git init</code> lancé dans un autre dossier crée un second dépôt, vide. Dans le bon dossier, tapez <code>git status</code> : des fichiers en rouge ou en vert attendent <code>git add</code>, puis <code>git commit -m "…"</code>. Si le message est <code>not a git repository</code>, voir « Pas dans un dépôt ».</li>
 </ul>
 </section>
 <section id="un-conflit-de-fusion" class="level3">
@@ -1006,8 +1103,8 @@ Scott Chacon et Ben Straub. s.&nbsp;d. <span>«&nbsp;Pro Git : Travailler avec d
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../ressources/charte-ia.html" class="pagination-link" aria-label="Charte IA — Formation DWWM 2026-2027">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Charte IA — Formation DWWM 2026-2027</span>
+      <a href="../ressources/finition-visuelle.html" class="pagination-link" aria-label="Finition visuelle">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Finition visuelle</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

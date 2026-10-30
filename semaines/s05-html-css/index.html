@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s05-html-css/lundi.html" rel="next">
+<link href="../../semaines/s04-environnement/revision.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-098c5701b2072b58505aa6340787a2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s05-html-css/index.html">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs-de-la-semaine" id="toc-objectifs-de-la-semaine" class="nav-link active" data-scroll-target="#objectifs-de-la-semaine">Objectifs de la semaine</a></li>
+  <li><a href="#compétences-du-référentiel" id="toc-compétences-du-référentiel" class="nav-link" data-scroll-target="#compétences-du-référentiel">Compétences du référentiel</a></li>
+  <li><a href="#programme" id="toc-programme" class="nav-link" data-scroll-target="#programme">Programme</a></li>
+  <li><a href="#données-personnelles" id="toc-données-personnelles" class="nav-link" data-scroll-target="#données-personnelles">Données personnelles</a></li>
+  <li><a href="#veille-du-vendredi" id="toc-veille-du-vendredi" class="nav-link" data-scroll-target="#veille-du-vendredi">Veille du vendredi</a></li>
+  <li><a href="#anglais-technique" id="toc-anglais-technique" class="nav-link" data-scroll-target="#anglais-technique">Anglais technique</a></li>
+  <li><a href="#git-et-terminal-chaque-jour" id="toc-git-et-terminal-chaque-jour" class="nav-link" data-scroll-target="#git-et-terminal-chaque-jour">Git et terminal, chaque jour</a></li>
+  <li><a href="#évaluation" id="toc-évaluation" class="nav-link" data-scroll-target="#évaluation">Évaluation</a></li>
+  <li><a href="#politique-ia-de-la-semaine" id="toc-politique-ia-de-la-semaine" class="nav-link" data-scroll-target="#politique-ia-de-la-semaine">Politique IA de la semaine</a></li>
+  <li><a href="#questions-fréquentes" id="toc-questions-fréquentes" class="nav-link" data-scroll-target="#questions-fréquentes">Questions fréquentes</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s05-html-css/index.html">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</h1>
+<p class="subtitle lead">Du 02/11 au 06/11/2026</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">lundi 2 novembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objectifs-de-la-semaine" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-de-la-semaine">Objectifs de la semaine</h2>
+<p>À la fin de la semaine, vous saurez :</p>
+<ul>
+<li><strong>structurer</strong> une page en HTML sémantique, avec un formulaire accessible ;</li>
+<li><strong>mettre en forme</strong> une page en CSS : sélecteurs, cascade, box model, unités ;</li>
+<li><strong>appliquer</strong> les règles d’une interface propre (hiérarchie, échelle d’espacements, typographie, palette limitée, alignement), rangées en variables CSS ;</li>
+<li><strong>mettre en page</strong> avec Flexbox et Grid, en <em>mobile first</em> ;</li>
+<li><strong>auditer</strong> l’accessibilité et la qualité d’une page (Lighthouse, WAVE) ;</li>
+<li><strong>publier</strong> une page sur GitHub Pages, en HTTPS.</li>
+</ul>
+<p>Fil conducteur : <strong>votre page personnelle</strong>, construite du lundi au vendredi. Elle vous servira de portfolio pour la recherche de stage, avec votre premier <strong>défi au portfolio</strong> (le composant de mercredi, voir <a href="../../ressources/finition-visuelle.html">Finition visuelle</a>).</p>
+</section>
+<section id="compétences-du-référentiel" class="level2">
+<h2 class="anchored" data-anchor-id="compétences-du-référentiel">Compétences du référentiel</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Compétence</th>
+<th>Ce qui est travaillé cette semaine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C3 — Réaliser des interfaces utilisateur statiques</td>
+<td>L’interface tient compte de l’expérience utilisateur, y compris pour les personnes en situation de handicap ; elle s’adapte à la taille du support, mobile compris ; l’accessibilité est prise en compte (RGAA) ; des tests vérifient la structure de la page ; le site est publié de manière sécurisée (HTTPS)</td>
+</tr>
+<tr class="even">
+<td>Communiquer en anglais</td>
+<td>Énoncés de Frontend Mentor ; une page de documentation MDN en anglais (<code>justify-content</code>), lue avec méthode</td>
+</tr>
+<tr class="odd">
+<td>Apprendre en continu</td>
+<td>Veille sur l’accessibilité numérique</td>
+</tr>
+</tbody>
+</table>
+<p>Critères de performance de C3 reformulés d’après le référentiel <span class="citation" data-cites="reac-dwwm-2023">(<a href="#ref-reac-dwwm-2023" role="doc-biblioref">Ministère du Travail 2023</a>)</span>.</p>
+</section>
+<section id="programme" class="level2">
+<h2 class="anchored" data-anchor-id="programme">Programme</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Jour</th>
+<th>Matin</th>
+<th>Après-midi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../semaines/s05-html-css/lundi.html">Lundi 02/11</a></td>
+<td>Séance TRE (Jérôme) — lancement de la recherche de stage</td>
+<td>TP — « Page sémantique » (HTML &amp; formulaires)</td>
+</tr>
+<tr class="even">
+<td><a href="../../semaines/s05-html-css/mardi.html">Mardi 03/11</a></td>
+<td>CSS : sélecteurs, cascade, box model, unités — exercices</td>
+<td>TP — CSS Diner, puis « CSS from scratch »</td>
+</tr>
+<tr class="odd">
+<td><a href="../../semaines/s05-html-css/mercredi.html">Mercredi 04/11</a></td>
+<td>Atelier guidé : TP — Frontend Mentor : intégrer un composant HTML/CSS</td>
+<td>Autonomie : TP — CSSBattle : reproduire une cible en CSS</td>
+</tr>
+<tr class="even">
+<td><a href="../../semaines/s05-html-css/jeudi.html">Jeudi 05/11</a></td>
+<td>Flexbox &amp; Grid · mobile first · Flexbox Froggy</td>
+<td>TP — Grid Garden, puis « Layout Lab »</td>
+</tr>
+<tr class="odd">
+<td><a href="../../semaines/s05-html-css/vendredi.html">Vendredi 06/11</a></td>
+<td>Responsive — livraison de la page personnelle · audit Lighthouse &amp; WAVE</td>
+<td>Groupe A : projet &amp; consolidation · groupe B : sport (13 h 15 – 16 h)</td>
+</tr>
+</tbody>
+</table>
+<p>Tous les fichiers de la semaine sont dans l’<a href="code/exercices/s05-exercices.zip">archive de la semaine</a> : le kit de la page personnelle, ses tests, les exercices CSS et les alternatives sans compte du mercredi.</p>
+</section>
+<section id="données-personnelles" class="level2">
+<h2 class="anchored" data-anchor-id="données-personnelles">Données personnelles</h2>
+<p>La page personnelle sera <strong>publique</strong>. Règles de la formation :</p>
+<ul>
+<li>prénom <strong>ou</strong> pseudonyme, au choix ; aucune autre donnée personnelle obligatoire ;</li>
+<li><strong>pas d’adresse e-mail en clair</strong> dans le code (un test le vérifie) ;</li>
+<li>le formulaire de contact est une <strong>maquette</strong>, annoncée comme « non fonctionnel » : GitHub Pages n’héberge pas de serveur, il ne peut rien envoyer.</li>
+</ul>
+</section>
+<section id="veille-du-vendredi" class="level2">
+<h2 class="anchored" data-anchor-id="veille-du-vendredi">Veille du vendredi</h2>
+<p><strong>L’accessibilité numérique</strong> : que dit le RGAA <span class="citation" data-cites="rgaa">(<a href="#ref-rgaa" role="doc-biblioref">DINUM, s.&nbsp;d.-b</a>)</span>, qui doit l’appliquer <span class="citation" data-cites="rgaa-obligations">(<a href="#ref-rgaa-obligations" role="doc-biblioref">DINUM, s.&nbsp;d.-a</a>)</span>, et que change la directive européenne sur l’accessibilité, applicable aux services fournis aux consommateurs après le 28 juin 2025 <span class="citation" data-cites="directive-2019-882">(<a href="#ref-directive-2019-882" role="doc-biblioref">Union européenne, s.&nbsp;d.</a>)</span> ? Nouvelle entrée dans votre journal de veille.</p>
+</section>
+<section id="anglais-technique" class="level2">
+<h2 class="anchored" data-anchor-id="anglais-technique">Anglais technique</h2>
+<ul>
+<li><strong>Mercredi</strong> : les énoncés de Frontend Mentor, en anglais <span class="citation" data-cites="frontend-mentor">(<a href="#ref-frontend-mentor" role="doc-biblioref">Frontend Mentor, s.&nbsp;d.</a>)</span>.</li>
+<li><strong>Jeudi</strong> : lire une page de documentation de MDN, en anglais : la propriété <code>justify-content</code> <span class="citation" data-cites="mdn-justify-content-en">(<a href="#ref-mdn-justify-content-en" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.</a>)</span>.</li>
+</ul>
+</section>
+<section id="git-et-terminal-chaque-jour" class="level2">
+<h2 class="anchored" data-anchor-id="git-et-terminal-chaque-jour">Git et terminal, chaque jour</h2>
+<p>Nouveau cette semaine, et pour toute l’année :</p>
+<ul>
+<li>lundi après-midi (10 min) : votre dépôt <strong>privé</strong> <code>dwwm-tp</code>, sur GitHub, partagé avec le formateur ; un dossier par semaine (<code>semaine-05</code>…) ;</li>
+<li>un commit par exercice réussi, et à la fin de chaque TP le rituel « Enregistrer et envoyer » (2 min) : <code>git status</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code> ;</li>
+<li>les dossiers et les fichiers se créent dans le terminal (<code>mkdir</code>, <code>touch</code>, <code>cd</code>, puis <code>code .</code>) ; on écrit toujours dans VS Code ;</li>
+<li>jeudi, la page personnelle est publiée depuis un dépôt <strong>public</strong> à part, <code>page-perso</code> : ce qui est public est visible par tous, aucune donnée personnelle dedans.</li>
+</ul>
+</section>
+<section id="évaluation" class="level2">
+<h2 class="anchored" data-anchor-id="évaluation">Évaluation</h2>
+<p>Pas d’ECF. La <strong>livraison de la page personnelle</strong> (vendredi) est validée par une grille :</p>
+<ul>
+<li>structure sémantique et formulaire accessible (tests fournis au vert, validateur du W3C sans erreur) ;</li>
+<li>mise en page <em>mobile first</em>, lisible à 375 px et sur grand écran ;</li>
+<li>palette, espacements et tailles de texte en variables CSS (test fourni) ;</li>
+<li>Lighthouse : score d’accessibilité d’au moins 90 ; WAVE : aucune erreur ;</li>
+<li>page publiée sur GitHub Pages, en HTTPS, sans donnée personnelle superflue.</li>
+</ul>
+</section>
+<section id="politique-ia-de-la-semaine" class="level2">
+<h2 class="anchored" data-anchor-id="politique-ia-de-la-semaine">Politique IA de la semaine</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Palier IA en vigueur : <strong>palier 1 — IA tutrice : <a href="https://cs50.ai">CS50.ai</a></strong>.</p>
+<ul>
+<li>Autorisé : demander une explication (une propriété CSS, un message du validateur), un indice, un quiz.</li>
+<li>Interdit : demander du code HTML ou CSS, ou coller un énoncé.</li>
+<li>L’autocomplétion par IA reste désactivée dans VS Code.</li>
+</ul>
+</div>
+</div>
+<p>Détail des règles dans la charte IA de la formation <span class="citation" data-cites="charte-ia-dwwm-2026">(<a href="#ref-charte-ia-dwwm-2026" role="doc-biblioref">Formation DWWM 2026-2027 2026</a>)</span>.</p>
+</section>
+<section id="questions-fréquentes" class="level2">
+<h2 class="anchored" data-anchor-id="questions-fréquentes">Questions fréquentes</h2>
+<p><em>Aucune question pour l’instant : cette section s’enrichit au fil de la formation, à partir de vos questions.</em></p>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-rgaa-obligations" class="csl-entry" role="listitem">
+DINUM. s.&nbsp;d.-a. <span>«&nbsp;Obligations légales - RGAA&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://accessibilite.numerique.gouv.fr/obligations/">https://accessibilite.numerique.gouv.fr/obligations/</a>.
+</div>
+<div id="ref-rgaa" class="csl-entry" role="listitem">
+DINUM. s.&nbsp;d.-b. <span>«&nbsp;Référentiel général d’amélioration de l’accessibilité - RGAA&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://accessibilite.numerique.gouv.fr/">https://accessibilite.numerique.gouv.fr/</a>.
+</div>
+<div id="ref-charte-ia-dwwm-2026" class="csl-entry" role="listitem">
+Formation DWWM 2026-2027. 2026. <em>Charte IA de la formation</em>.
+</div>
+<div id="ref-frontend-mentor" class="csl-entry" role="listitem">
+Frontend Mentor. s.&nbsp;d. <span>«&nbsp;Frontend Mentor&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.frontendmentor.io/">https://www.frontendmentor.io/</a>.
+</div>
+<div id="ref-mdn-justify-content-en" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d. <span>«&nbsp;justify-content CSS property&nbsp;»</span>. Consulté le 23 octobre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/justify-content">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/justify-content</a>.
+</div>
+<div id="ref-reac-dwwm-2023" class="csl-entry" role="listitem">
+Ministère du Travail. 2023. <em>Référentiel emploi activités compétences du titre professionnel Développeur web et web mobile (REAC TP-01280)</em>.
+</div>
+<div id="ref-directive-2019-882" class="csl-entry" role="listitem">
+Union européenne. s.&nbsp;d. <span>«&nbsp;Directive (UE) 2019/882 relative aux exigences en matière d’accessibilité applicables aux produits et services&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32019L0882">https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32019L0882</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s04-environnement/revision.html" class="pagination-link" aria-label="Semaine 4 — Fiche de révision">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Semaine 4 — Fiche de révision</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s05-html-css/lundi.html" class="pagination-link" aria-label="Lundi 02/11 — Recherche de stage et page sémantique">
+        <span class="nav-page-text">Lundi 02/11 — Recherche de stage et page sémantique</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

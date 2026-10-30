@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" role="img" aria-labelledby="titre desc" font-family="system-ui, sans-serif">
+  <title id="titre">Grid : des lignes et des colonnes</title>
+  <desc id="desc">Un rectangle parent, marqué display: grid, contient six cartes rangées en deux lignes et trois colonnes. Au-dessus de chaque colonne, l'indication 1fr : trois colonnes de même largeur, qui se partagent l'espace disponible. Entre deux colonnes et entre deux lignes, un même espace, marqué gap. En bas, la déclaration grid-template-columns: repeat(3, 1fr).</desc>
+  <!-- Dessin original, réalisé pour le cours (licence du site). -->
+  <rect x="0" y="0" width="720" height="380" fill="#ffffff"/>
+  <text x="20" y="28" font-size="20" font-weight="bold" fill="#1f2a5a">parent : .projets { display: grid; }</text>
+  <rect x="20" y="70" width="680" height="250" rx="8" fill="#f4f1ea" stroke="#1f2a5a" stroke-width="3"/>
+  <!-- column labels -->
+  <text x="140" y="60" font-size="18" font-weight="bold" text-anchor="middle" fill="#b3122e">1fr</text>
+  <text x="360" y="60" font-size="18" font-weight="bold" text-anchor="middle" fill="#b3122e">1fr</text>
+  <text x="580" y="60" font-size="18" font-weight="bold" text-anchor="middle" fill="#b3122e">1fr</text>
+  <!-- cards: 3 columns x 2 rows, column width 200, gap 20 -->
+  <g fill="#cfe0f5" stroke="#1f2a5a" stroke-width="2">
+    <rect x="40" y="90" width="200" height="95" rx="6"/><rect x="260" y="90" width="200" height="95" rx="6"/><rect x="480" y="90" width="200" height="95" rx="6"/>
+    <rect x="40" y="205" width="200" height="95" rx="6"/><rect x="260" y="205" width="200" height="95" rx="6"/><rect x="480" y="205" width="200" height="95" rx="6"/>
+  </g>
+  <g font-size="19" text-anchor="middle" fill="#1f2a5a">
+    <text x="140" y="144">carte 1</text><text x="360" y="144">carte 2</text><text x="580" y="144">carte 3</text>
+    <text x="140" y="259">carte 4</text><text x="360" y="259">carte 5</text><text x="580" y="259">carte 6</text>
+  </g>
+  <!-- gaps -->
+  <rect x="240" y="90" width="20" height="95" fill="#f7e6cc"/>
+  <rect x="260" y="185" width="200" height="20" fill="#f7e6cc"/>
+  <text x="360" y="200" font-size="17" text-anchor="middle" fill="#5c3b0a">gap</text>
+  <text x="0" y="0" font-size="17" text-anchor="middle" fill="#5c3b0a" transform="translate(255 137) rotate(-90)">gap</text>
+  <text x="360" y="358" font-size="19" text-anchor="middle" fill="#1f2a5a">grid-template-columns: repeat(3, 1fr);</text>
+</svg>

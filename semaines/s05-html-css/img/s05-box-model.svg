@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-labelledby="titre desc" font-family="system-ui, sans-serif">
+  <title id="titre">Le box model : quatre couches autour du contenu</title>
+  <desc id="desc">Quatre rectangles emboîtés. Au centre, le contenu : le texte ou l'image. Autour, la marge intérieure, padding, entre le contenu et la bordure. Puis la bordure, border. À l'extérieur, la marge extérieure, margin, qui sépare la boîte de ses voisines. Une flèche sous la boîte indique qu'avec box-sizing: border-box, la largeur, width, va d'un bord extérieur de la bordure à l'autre : contenu, padding et border compris, sans la margin.</desc>
+  <!-- Dessin original, réalisé pour le cours (licence du site). -->
+  <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+  <!-- margin -->
+  <rect x="10" y="10" width="700" height="320" rx="6" fill="#f7e6cc" stroke="#8a5a14" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="26" y="38" font-size="19" fill="#5c3b0a"><tspan font-weight="bold">margin</tspan> : marge extérieure</text>
+  <!-- border -->
+  <rect x="60" y="56" width="600" height="228" fill="#1f2a5a"/>
+  <text x="76" y="80" font-size="19" fill="#ffffff"><tspan font-weight="bold">border</tspan> : bordure</text>
+  <!-- padding -->
+  <rect x="88" y="92" width="544" height="164" fill="#dcebd9"/>
+  <text x="104" y="118" font-size="19" fill="#1e4620"><tspan font-weight="bold">padding</tspan> : marge intérieure</text>
+  <!-- content -->
+  <rect x="160" y="140" width="400" height="90" rx="4" fill="#cfe0f5" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="360" y="180" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f2a5a">contenu</text>
+  <text x="360" y="206" font-size="18" text-anchor="middle" fill="#1f2a5a">le texte, l'image</text>
+  <!-- width with border-box -->
+  <line x1="60" y1="300" x2="60" y2="356" stroke="#b3122e" stroke-width="2"/>
+  <line x1="660" y1="300" x2="660" y2="356" stroke="#b3122e" stroke-width="2"/>
+  <line x1="74" y1="346" x2="646" y2="346" stroke="#b3122e" stroke-width="3"/>
+  <polygon points="62,346 76,339 76,353" fill="#b3122e"/>
+  <polygon points="658,346 644,339 644,353" fill="#b3122e"/>
+  <text x="360" y="384" font-size="19" text-anchor="middle" fill="#b3122e">width, avec box-sizing: border-box :</text>
+  <text x="360" y="408" font-size="19" text-anchor="middle" fill="#b3122e">contenu + padding + border (sans la margin)</text>
+</svg>

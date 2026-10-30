@@ -1,0 +1,62 @@
+<!doctype html>
+<!-- Comparer votre défi à sa cible : ouvrez cette page avec Live Preview, dans le dossier defis-css.
+     Votre page defi-N.html s'affiche, et la cible cible-N.png se pose exactement par-dessus. -->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comparer un défi CSS à sa cible</title>
+    <style>
+      body { margin: 0; padding: 16px; font-family: system-ui, sans-serif; font-size: 18px; color: #1f2a5a; background: #ffffff; line-height: 1.5; }
+      h1 { font-size: 1.5rem; margin: 0 0 8px; }
+      p { max-width: 65ch; margin: 0 0 12px; }
+      .commandes { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; margin: 12px 0 16px; }
+      label { display: inline-flex; align-items: center; gap: 8px; }
+      select, input { font: inherit; }
+      input[type="range"] { width: 200px; }
+      :focus-visible { outline: 3px solid #b3122e; outline-offset: 2px; }
+      .scene { position: relative; width: 400px; height: 300px; outline: 2px dashed #1f2a5a; }
+      .scene iframe { position: absolute; inset: 0; width: 400px; height: 300px; border: 0; background: #ffffff; }
+      .scene img { position: absolute; inset: 0; width: 400px; height: 300px; pointer-events: none; }
+      .scene.difference img { mix-blend-mode: difference; opacity: 1 !important; }
+    </style>
+  </head>
+  <body>
+    <h1>Comparer un défi CSS à sa cible</h1>
+    <p>Choisissez le défi : votre page s'affiche, et la cible se pose par-dessus. Glissez le curseur : à 0 %, vous voyez votre page ; à 100 %, la cible. En mode différence, tout ce qui est identique devient noir : il ne doit rester que du noir.</p>
+    <div class="commandes">
+      <label>Défi
+        <select id="defi">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+          <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+        </select>
+      </label>
+      <label>Cible visible <input id="opacite" type="range" min="0" max="100" value="50"> <output id="valeur">50 %</output></label>
+      <label><input id="difference" type="checkbox"> Mode différence</label>
+    </div>
+    <div class="scene" id="scene">
+      <iframe id="page" title="Votre page du défi" src="defi-1.html"></iframe>
+      <img id="cible" src="cible-1.png" alt="La cible du défi, posée par-dessus votre page.">
+    </div>
+    <script>
+      const defi = document.getElementById('defi');
+      const opacite = document.getElementById('opacite');
+      const valeur = document.getElementById('valeur');
+      const cible = document.getElementById('cible');
+      function choisir() {
+        document.getElementById('page').src = `defi-${defi.value}.html`;
+        cible.src = `cible-${defi.value}.png`;
+      }
+      function regler() {
+        cible.style.opacity = opacite.value / 100;
+        valeur.textContent = `${opacite.value} %`;
+      }
+      defi.addEventListener('change', choisir);
+      opacite.addEventListener('input', regler);
+      document.getElementById('difference').addEventListener('change', (e) => {
+        document.getElementById('scene').classList.toggle('difference', e.target.checked);
+      });
+      regler();
+    </script>
+  </body>
+</html>

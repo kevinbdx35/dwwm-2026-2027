@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'PT Sans';
+  src: url('pt-sans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url('pt-sans-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Autour One';
+  src: url('autour-one-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('source-code-pro-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('source-code-pro-900.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}

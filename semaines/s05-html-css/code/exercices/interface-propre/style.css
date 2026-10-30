@@ -1,0 +1,80 @@
+/* « Interface propre » — la version AVANT. Ne touchez pas à index.html : tout se passe ici.
+   Commencez par une capture de la page (375 px et grand écran) : c'est votre « avant ».
+
+   Réécrivez cette feuille de style avec les cinq règles d'une interface propre :
+   1. Palette limitée : dans :root, trois couleurs au moins : --couleur-texte, --couleur-fond,
+      --couleur-accent. Hors de :root, aucune couleur écrite à la main : seulement var(--couleur-…).
+   2. Échelle d'espacements : dans :root, --espace-1 à --espace-5 (par exemple 0.25rem, 0.5rem,
+      1rem, 1.5rem, 2.5rem). Chaque margin, padding et gap utilise var(--espace-…), 0 ou auto.
+   3. Typographie : dans :root, --texte-petit, --texte-normal, --texte-titre (en rem), et d'autres
+      si besoin. Chaque font-size utilise var(--texte-…). Sur le body : line-height entre 1.4 et 1.8.
+   4. Hiérarchie : le h1 est le plus grand texte ; un seul élément a l'accent en fond (le bouton).
+   5. Alignement : une colonne, max-width entre 45ch et 75ch, centrée ; le texte aligné à gauche
+      (pas de text-align: center).
+   Puis : node --test interface-propre.test.js, et une capture « après ». */
+
+body {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.1;
+  color: #333333;
+  background: #fafafa;
+  text-align: center;
+  margin: 7px;
+}
+
+h1 {
+  font-size: 23px;
+  color: #c0392b;
+  margin: 31px 0 3px;
+}
+
+h2 {
+  font-size: 26px;
+  color: #2980b9;
+  margin-top: 45px;
+}
+
+h3 {
+  font-size: 19px;
+  color: #8e44ad;
+  margin: 13px;
+}
+
+.chapo {
+  font-size: 17px;
+  color: #7f8c8d;
+  padding: 0 22px;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 9px 13px;
+  background: #27ae60;
+  color: white;
+  text-decoration: none;
+}
+
+.cartes {
+  display: grid;
+  gap: 11px;
+}
+
+.carte {
+  padding: 18px 7px 3px;
+  background: #f1c40f;
+  border: 1px solid #e67e22;
+}
+
+.infos {
+  font-size: 12px;
+  color: #d35400;
+  background: #ecf0f1;
+  margin-bottom: 27px;
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 11px;
+  color: #95a5a6;
+}

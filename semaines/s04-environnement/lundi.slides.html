@@ -247,25 +247,27 @@ Jamais  un secret, une donnée personnelle, un sujet d'évaluation</code></pre>
 </section>
 <section id="apport-2-le-trajet-dune-requête-15-min" class="slide level3">
 <h3>Apport 2 — Le trajet d’une requête (15 min)</h3>
+<div class="schema-diapo" style="--h: 470px">
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "sequence": {"mirrorActors": false, "actorFontSize": 30, "messageFontSize": 30, "actorMargin": 120}, "themeVariables": {"fontSize": "30px"}}}%%
 sequenceDiagram
   accTitle: Le trajet d'une requête
   accDescr: Le navigateur demande au DNS l'adresse IP de developer.mozilla.org ; le DNS répond par une adresse IP. Le navigateur envoie ensuite la requête HTTP GET au serveur à cette adresse ; le serveur répond 200 OK avec la page HTML.
   participant N as Navigateur
   participant D as DNS
   participant S as Serveur
-  N-&gt;&gt;D: adresse de developer.mozilla.org ?
-  D--&gt;&gt;N: une adresse IP
-  N-&gt;&gt;S: GET /fr/ (HTTP)
-  S--&gt;&gt;N: 200 OK + la page HTML
+  N-&gt;&gt;D: adresse du nom ?
+  D--&gt;&gt;N: adresse IP
+  N-&gt;&gt;S: GET /fr/
+  S--&gt;&gt;N: 200 OK + page
 </pre>
 </div>
 <p></p><figcaption> D’abord le DNS traduit le nom en adresse IP ; puis la requête HTTP part vers cette adresse, et le serveur répond.</figcaption> </figure><p></p>
+</div>
 </div>
 </div>
 </div>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" role="img" aria-labelledby="titre desc" font-family="system-ui, sans-serif">
+  <title id="titre">Flexbox : un parent, ses enfants sur un axe</title>
+  <desc id="desc">Un rectangle parent, marqué display: flex, contient trois enfants côte à côte : Accueil, Projets, Contact. Une flèche horizontale sous les enfants montre l'axe principal, réglé par justify-content. Une flèche verticale à droite montre l'axe secondaire, réglé par align-items. Entre deux enfants, un espace marqué gap.</desc>
+  <!-- Dessin original, réalisé pour le cours (licence du site). -->
+  <rect x="0" y="0" width="720" height="340" fill="#ffffff"/>
+  <rect x="20" y="40" width="600" height="190" rx="8" fill="#f4f1ea" stroke="#1f2a5a" stroke-width="3"/>
+  <text x="36" y="28" font-size="20" font-weight="bold" fill="#1f2a5a">parent : nav { display: flex; }</text>
+  <rect x="50" y="95" width="140" height="80" rx="6" fill="#cfe0f5" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="120" y="142" font-size="20" text-anchor="middle" fill="#1f2a5a">Accueil</text>
+  <rect x="250" y="95" width="140" height="80" rx="6" fill="#cfe0f5" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="320" y="142" font-size="20" text-anchor="middle" fill="#1f2a5a">Projets</text>
+  <rect x="450" y="95" width="140" height="80" rx="6" fill="#cfe0f5" stroke="#1f2a5a" stroke-width="2"/>
+  <text x="520" y="142" font-size="20" text-anchor="middle" fill="#1f2a5a">Contact</text>
+  <text x="120" y="85" font-size="18" text-anchor="middle" fill="#333">enfant</text>
+  <text x="320" y="85" font-size="18" text-anchor="middle" fill="#333">enfant</text>
+  <text x="520" y="85" font-size="18" text-anchor="middle" fill="#333">enfant</text>
+  <!-- gap -->
+  <line x1="194" y1="200" x2="246" y2="200" stroke="#8a5a14" stroke-width="2"/>
+  <line x1="194" y1="192" x2="194" y2="208" stroke="#8a5a14" stroke-width="2"/>
+  <line x1="246" y1="192" x2="246" y2="208" stroke="#8a5a14" stroke-width="2"/>
+  <text x="220" y="222" font-size="18" text-anchor="middle" fill="#5c3b0a">gap</text>
+  <!-- main axis -->
+  <line x1="40" y1="270" x2="585" y2="270" stroke="#b3122e" stroke-width="3"/>
+  <polygon points="600,270 584,262 584,278" fill="#b3122e"/>
+  <text x="40" y="300" font-size="19" font-weight="bold" fill="#b3122e">axe principal</text>
+  <text x="40" y="326" font-size="19" fill="#b3122e">justify-content (répartir sur la ligne)</text>
+  <!-- cross axis -->
+  <line x1="660" y1="60" x2="660" y2="200" stroke="#1e4620" stroke-width="3"/>
+  <polygon points="660,215 652,199 668,199" fill="#1e4620"/>
+  <text x="660" y="244" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e4620">axe</text>
+  <text x="660" y="264" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e4620">secondaire</text>
+  <text x="660" y="290" font-size="18" text-anchor="middle" fill="#1e4620">align-items</text>
+</svg>

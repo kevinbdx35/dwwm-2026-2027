@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flexbox en direct — justify-content et align-items</title>
+<!-- Live demonstration of the course (week 5, Thursday): original, no tracker, no external request. -->
+<style>
+  @font-face { font-family: "Atkinson Hyperlegible Next"; src: url("../../../../fonts/AtkinsonHyperlegibleNext-Variable.woff2") format("woff2"); font-weight: 200 800; }
+  @font-face { font-family: "Atkinson Hyperlegible Mono"; src: url("../../../../fonts/AtkinsonHyperlegibleMono-Variable.woff2") format("woff2"); font-weight: 200 800; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; padding: 12px 16px; font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif; color: #1f2a5a; background: #fff; font-size: 24px; }
+  .commandes { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+  fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  legend { font: 700 24px "Atkinson Hyperlegible Mono", monospace; padding: 0; margin-bottom: 4px; }
+  label { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border: 2px solid #c9d3e6; border-radius: 8px; cursor: pointer; font: 22px "Atkinson Hyperlegible Mono", monospace; }
+  input { width: 22px; height: 22px; margin: 0; accent-color: #1f2a5a; }
+  label:has(input:checked) { background: #1f2a5a; color: #fff; border-color: #1f2a5a; }
+  label:has(input:focus-visible) { outline: 4px solid #b3122e; outline-offset: 2px; }
+  .zone { margin: 14px 0 0; }
+  .parent { display: flex; height: 190px; padding: 8px; gap: 12px; background: #e6ecf7; border: 3px dashed #1f2a5a; }
+  .parent div { background: #1f2a5a; color: #fff; padding: 10px 22px; border-radius: 8px; font-size: 26px; }
+  .parent div:nth-child(2) { padding-block: 28px; }
+  .axe { margin: 6px 0 0; font-size: 24px; font-weight: 700; color: #b3122e; text-align: center; }
+  .axe.principal::before { content: "⟶ "; }
+  .code { margin: 10px 0 0; padding: 8px 14px; background: #f0f2f7; border-radius: 8px; font: 24px "Atkinson Hyperlegible Mono", monospace; }
+  @media (prefers-reduced-motion: no-preference) {
+    .parent div { transition: all 0.3s ease; }
+  }
+</style>
+</head>
+<body>
+<div class="commandes">
+  <fieldset>
+    <legend>justify-content</legend>
+    <label><input type="radio" name="jc" value="flex-start" checked> flex-start</label>
+    <label><input type="radio" name="jc" value="center"> center</label>
+    <label><input type="radio" name="jc" value="space-between"> space-between</label>
+    <label><input type="radio" name="jc" value="space-evenly"> space-evenly</label>
+  </fieldset>
+  <fieldset>
+    <legend>align-items</legend>
+    <label><input type="radio" name="ai" value="stretch" checked> stretch</label>
+    <label><input type="radio" name="ai" value="flex-start"> flex-start</label>
+    <label><input type="radio" name="ai" value="center"> center</label>
+  </fieldset>
+</div>
+<div class="zone">
+  <div class="parent" id="parent"><div>Accueil</div><div>Projets</div><div>Contact</div></div>
+  <p class="axe principal">axe principal : justify-content</p>
+</div>
+<p class="code" id="code" aria-live="polite"></p>
+<script>
+  const parent = document.getElementById('parent');
+  const code = document.getElementById('code');
+  function update() {
+    const jc = document.querySelector('input[name="jc"]:checked').value;
+    const ai = document.querySelector('input[name="ai"]:checked').value;
+    parent.style.justifyContent = jc;
+    parent.style.alignItems = ai;
+    code.textContent = `nav { display: flex; justify-content: ${jc}; align-items: ${ai}; }`;
+  }
+  document.querySelectorAll('input').forEach((input) => input.addEventListener('change', update));
+  update();
+</script>
+</body>
+</html>

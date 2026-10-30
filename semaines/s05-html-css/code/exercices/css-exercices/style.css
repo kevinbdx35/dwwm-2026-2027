@@ -1,0 +1,28 @@
+/* Exercices CSS du mardi. Ouvrez index.html avec Live Preview et gardez l'aperçu à côté.
+   Vérifiez avec : node --test css-exercices.test.js (dans le dossier des exercices). */
+
+/* Exercice 1 — Sélecteurs
+   a) Tous les titres h1 en couleur #1f2a5a (sélecteur d'élément).
+   b) Le paragraphe de classe « important » en gras (sélecteur de classe).
+   c) Le paragraphe d'identifiant « intro » en italique (sélecteur d'identifiant).
+   d) Les liens situés dans nav sans soulignement (sélecteur descendant). */
+
+
+/* Exercice 2 — Cascade et spécificité
+   La règle « button » ci-dessous donne un fond gris à tous les boutons.
+   Écrivez APRÈS elle une règle qui donne au bouton de classe « bouton » un fond #b3122e
+   et un texte blanc. Puis déplacez votre règle AVANT la règle « button » : que se passe-t-il ? Pourquoi ? */
+button {
+  background: lightgray;
+}
+
+
+/* Exercice 3 — Box model
+   a) Faites en sorte que la largeur d'un élément inclue sa marge intérieure et sa bordure :
+      box-sizing sur tous les éléments.
+   b) Les cartes (.carte) : marge intérieure 1rem, bordure de 2px pleine, marge extérieure basse 1.5rem. */
+
+
+/* Exercice 4 — Unités
+   a) Le texte de base (body) à 1rem.
+   b) Le conteneur principal (.conteneur) : 90 % de largeur, 60rem au maximum, centré (marges auto). */

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid en direct — grid-template-columns</title>
+<!-- Live demonstration of the course (week 5, Thursday): original, no tracker, no external request. -->
+<style>
+  @font-face { font-family: "Atkinson Hyperlegible Next"; src: url("../../../../fonts/AtkinsonHyperlegibleNext-Variable.woff2") format("woff2"); font-weight: 200 800; }
+  @font-face { font-family: "Atkinson Hyperlegible Mono"; src: url("../../../../fonts/AtkinsonHyperlegibleMono-Variable.woff2") format("woff2"); font-weight: 200 800; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; padding: 12px 16px; font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif; color: #1f2a5a; background: #fff; font-size: 24px; }
+  fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  legend { font: 700 24px "Atkinson Hyperlegible Mono", monospace; padding: 0; margin-bottom: 4px; }
+  label { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border: 2px solid #c9d3e6; border-radius: 8px; cursor: pointer; font: 22px "Atkinson Hyperlegible Mono", monospace; }
+  input { width: 22px; height: 22px; margin: 0; accent-color: #1f2a5a; }
+  label:has(input:checked) { background: #1f2a5a; color: #fff; border-color: #1f2a5a; }
+  label:has(input:focus-visible) { outline: 4px solid #b3122e; outline-offset: 2px; }
+  .colonnes, .projets { display: grid; gap: 8px; }
+  .colonnes { margin: 14px 11px 6px; }
+  .colonnes span { text-align: center; font: 700 24px "Atkinson Hyperlegible Mono", monospace; color: #b3122e; border-bottom: 3px solid #b3122e; }
+  .projets { padding: 8px; background: #e6ecf7; border: 3px dashed #1f2a5a; }
+  .projets div { background: #1f2a5a; color: #fff; padding: 6px; border-radius: 8px; font-size: 24px; text-align: center; }
+  .code { margin: 10px 0 0; padding: 8px 14px; background: #f0f2f7; border-radius: 8px; font: 24px "Atkinson Hyperlegible Mono", monospace; }
+</style>
+</head>
+<body>
+<fieldset>
+  <legend>grid-template-columns</legend>
+  <label><input type="radio" name="gtc" value="1fr" checked> 1fr</label>
+  <label><input type="radio" name="gtc" value="repeat(2, 1fr)"> repeat(2, 1fr)</label>
+  <label><input type="radio" name="gtc" value="repeat(3, 1fr)"> repeat(3, 1fr)</label>
+  <label><input type="radio" name="gtc" value="1fr 2fr"> 1fr 2fr</label>
+</fieldset>
+<div class="colonnes" id="colonnes" aria-hidden="true"></div>
+<div class="projets" id="projets">
+  <div>Projet 1</div><div>Projet 2</div><div>Projet 3</div>
+  <div>Projet 4</div><div>Projet 5</div><div>Projet 6</div>
+</div>
+<p class="code" id="code" aria-live="polite"></p>
+<script>
+  const projets = document.getElementById('projets');
+  const colonnes = document.getElementById('colonnes');
+  const code = document.getElementById('code');
+  function update() {
+    const value = document.querySelector('input[name="gtc"]:checked').value;
+    projets.style.gridTemplateColumns = value;
+    colonnes.style.gridTemplateColumns = value;
+    // One label per column, with its size (1fr, 2fr…), above the grid.
+    const sizes = value.startsWith('repeat') ? Array(Number(value.match(/\d+/)[0])).fill('1fr') : value.split(' ');
+    colonnes.replaceChildren(...sizes.map((s) => Object.assign(document.createElement('span'), { textContent: s })));
+    code.textContent = `.projets { display: grid; grid-template-columns: ${value}; }`;
+  }
+  document.querySelectorAll('input').forEach((input) => input.addEventListener('change', update));
+  update();
+</script>
+</body>
+</html>
