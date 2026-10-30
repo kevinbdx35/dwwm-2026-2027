@@ -444,6 +444,7 @@ div.csl-indent {
   <li><a href="#test-rouge" id="toc-test-rouge" class="nav-link" data-scroll-target="#test-rouge">Un test rouge : <code>node --test</code></a></li>
   <li><a href="#tout-le-fichier" id="toc-tout-le-fichier" class="nav-link" data-scroll-target="#tout-le-fichier">Tout le fichier de tests échoue : <code>tests 1</code>, <code>fail 1</code></a></li>
   </ul></li>
+  <li><a href="#vocabulaire-tests" id="toc-vocabulaire-tests" class="nav-link" data-scroll-target="#vocabulaire-tests">Le vocabulaire des messages de test (semaine 5)</a></li>
   <li><a href="#eslint-semaine-2" id="toc-eslint-semaine-2" class="nav-link" data-scroll-target="#eslint-semaine-2">ESLint (semaine 2)</a>
   <ul>
   <li><a href="#eslint-rien" id="toc-eslint-rien" class="nav-link" data-scroll-target="#eslint-rien">ESLint ne souligne rien dans VS Code</a></li>
@@ -585,6 +586,101 @@ SyntaxError: Identifier 'width' has already been declared
 <li><strong>Quoi faire</strong> : lancez <code>node votre-fichier.js</code> pour voir l’erreur seule ; lisez la ligne indiquée et le <code>^</code> ; essayez vos fonctions dans un fichier <code>essai.js</code> séparé, jamais dans le fichier testé.</li>
 </ul>
 </section>
+</section>
+<section id="vocabulaire-tests" class="level2">
+<h2 class="anchored" data-anchor-id="vocabulaire-tests">Le vocabulaire des messages de test (semaine 5)</h2>
+<p>Les messages des tests sont en anglais. Ces quelques mots suffisent pour les lire ; ils reviennent avec Vitest, en semaine 10.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mot</th>
+<th>Traduction</th>
+<th>Où vous le voyez</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>test</em>, <em>pass</em>, <em>fail</em></td>
+<td>test, réussi, échoué</td>
+<td><code>ℹ tests 4</code>, <code>ℹ pass 3</code>, <code>ℹ fail 1</code> : le bilan, en bas</td>
+</tr>
+<tr class="even">
+<td><em>assertion</em></td>
+<td>affirmation vérifiée par le test</td>
+<td><code>AssertionError</code> : une affirmation du test est fausse</td>
+</tr>
+<tr class="odd">
+<td><em>actual</em></td>
+<td>obtenu : ce que votre code a renvoyé</td>
+<td><code>+ actual</code>, et les lignes qui commencent par <code>+</code></td>
+</tr>
+<tr class="even">
+<td><em>expected</em></td>
+<td>attendu : ce que le test demandait</td>
+<td><code>- expected</code>, et les lignes qui commencent par <code>-</code></td>
+</tr>
+<tr class="odd">
+<td><em>strictly equal</em></td>
+<td>strictement égal (<code>===</code>)</td>
+<td>comparaison de deux valeurs simples (nombre, texte)</td>
+</tr>
+<tr class="even">
+<td><em>deep-equal</em></td>
+<td>égal en profondeur : même contenu</td>
+<td>comparaison de deux tableaux ou objets, élément par élément</td>
+</tr>
+<tr class="odd">
+<td><em>falsy value</em></td>
+<td>valeur fausse (<code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>)</td>
+<td>le test attendait une valeur vraie</td>
+</tr>
+<tr class="even">
+<td><em>did not match</em></td>
+<td>ne correspond pas</td>
+<td>le texte ne contient pas le motif attendu</td>
+</tr>
+<tr class="odd">
+<td><em>is missing (from)</em></td>
+<td>est absent (de)</td>
+<td><code>--couleur-texte is missing from :root</code> : la déclaration manque dans <code>:root</code></td>
+</tr>
+<tr class="even">
+<td><em>no</em>, <em>not</em>, <em>without</em></td>
+<td>aucun, n’est pas, sans</td>
+<td><code>no min-width media query</code>, <code>margin-left is not auto</code>, <code>image without alt</code></td>
+</tr>
+<tr class="odd">
+<td><em>fewer than</em></td>
+<td>moins de</td>
+<td><code>fewer than three --espace-… variables</code></td>
+</tr>
+<tr class="even">
+<td><em>outside the scale</em></td>
+<td>hors de l’échelle</td>
+<td>la valeur n’est pas une variable de l’échelle (<code>--espace-…</code>, <code>--texte-…</code>)</td>
+</tr>
+<tr class="odd">
+<td><em>hard-coded</em></td>
+<td>écrit en dur, à la main</td>
+<td>une couleur écrite directement, au lieu d’une <code>var(--couleur-…)</code></td>
+</tr>
+<tr class="even">
+<td><em>exactly one</em>, <em>must</em></td>
+<td>un seul, exactement ; doit</td>
+<td><code>exactly one element must have the accent background</code></td>
+</tr>
+<tr class="odd">
+<td><em>found</em>, <em>unitless</em>, <em>running text</em></td>
+<td>trouvé, sans unité, texte courant</td>
+<td><code>no spacing found</code>, <code>line-height (unitless)</code>, <code>text-align: center on running text</code></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="eslint-semaine-2" class="level2">
 <h2 class="anchored" data-anchor-id="eslint-semaine-2">ESLint (semaine 2)</h2>

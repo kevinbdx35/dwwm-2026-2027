@@ -1177,7 +1177,7 @@ flowchart LR
 </div>
 </div>
 <p><strong>Niveau</strong> : semi-guidé.</p>
-<p>Les cinq tests vérifient une règle chacun (les trois couleurs et l’échelle d’espacements dans <code>:root</code>, chaque <code>font-size</code> dans l’échelle, le titre et le bouton, une colonne alignée à gauche) ; vos yeux vérifient le résultat. Mettez les deux captures côte à côte : qu’est-ce qui a le plus changé ?</p>
+<p>Les cinq tests vérifient une règle chacun (les trois couleurs et l’échelle d’espacements dans <code>:root</code>, chaque <code>font-size</code> dans l’échelle, le titre et le bouton, une colonne alignée à gauche) ; vos yeux vérifient le résultat. Règle 5, au mot près : le texte courant aligné à gauche : pas de <code>text-align: center</code> sur <code>body</code>, <code>main</code>, <code>p</code>, les titres (<code>h1</code> à <code>h6</code>), <code>section</code>, <code>article</code> et <code>li</code> ; dans un bouton, c’est permis. Mettez les deux captures côte à côte : qu’est-ce qui a le plus changé ?</p>
 <section id="enregistrer-1-min-2" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-1-min-2">Enregistrer (1 min)</h4>
 <p>Dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-05</code> :</p>
@@ -1200,7 +1200,15 @@ flowchart LR
 <li>Pas fini ? « Si le temps le permet », puis jeudi après-midi.</li>
 </ul>
 <p><strong>Niveau</strong> : semi-guidé.</p>
-<p>Vérifiez chaque couple de couleurs (texte et fond) avec l’outil de contraste du navigateur, en suivant le tutoriel ci-dessous : le niveau AA des WCAG demande un rapport d’au moins 4,5:1 pour le texte normal et 3:1 pour le grand texte <span class="citation" data-cites="wcag22-contrast-minimum">(<a href="#ref-wcag22-contrast-minimum" role="doc-biblioref">W3C, s.&nbsp;d.</a>)</span>. Choisissez deux ou trois couleurs au plus, rangées dans <code>:root</code>, et gardez-les partout. Le test <code>page-perso-style.test.js</code> vérifie que vos couleurs et vos espacements sont des variables.</p>
+<p>Vérifiez chaque couple de couleurs (texte et fond) avec l’outil de contraste du navigateur, en suivant le tutoriel ci-dessous : le niveau AA des WCAG demande un rapport d’au moins 4,5:1 pour le texte normal et 3:1 pour le grand texte <span class="citation" data-cites="wcag22-contrast-minimum">(<a href="#ref-wcag22-contrast-minimum" role="doc-biblioref">W3C, s.&nbsp;d.</a>)</span>. Choisissez deux ou trois couleurs au plus, rangées dans <code>:root</code>, et gardez-les partout. Le test <code>page-perso-style.test.js</code> vérifie que vos couleurs et vos espacements sont des variables, avec ces noms : <code>--couleur-…</code> pour les couleurs (deux au moins), <code>--espace-…</code> pour les espacements (trois au moins). La suite du nom est libre. Hors de <code>:root</code>, vos couleurs s’écrivent seulement <code>var(--couleur-…)</code>. Par exemple :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">--couleur-texte</span><span class="ch">:</span> <span class="cn">#1f2a5a</span><span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--couleur-fond</span><span class="ch">:</span> <span class="cn">#f4f1ea</span><span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">--espace-1</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">--espace-2</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">--espace-3</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>body { <span class="kw">color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-texte</span><span class="fu">)</span><span class="op">;</span> <span class="kw">background</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-fond</span><span class="fu">)</span><span class="op">;</span> }</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="tutoriel-mesurer-un-contraste-dans-le-navigateur-10-min" class="level4">
 <h4 class="anchored">Tutoriel — Mesurer un contraste dans le navigateur (10 min)</h4>
 <p>Sur la page brouillonne de l’exercice, dans Chrome (Edge est identique) <span class="citation" data-cites="chrome-devtools-color">(<a href="#ref-chrome-devtools-color" role="doc-biblioref">Google, s.&nbsp;d.-d</a>)</span>.</p>
@@ -1265,10 +1273,10 @@ Note
 <section id="enregistrer-et-envoyer-2-min-1" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
 <p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-05</code> :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add page-perso/style.css</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute le style de la page personnelle"</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add page-perso/style.css</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute le style de la page personnelle"</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
 </section>
 <section id="les-éditeurs-du-navigateur" class="level3">

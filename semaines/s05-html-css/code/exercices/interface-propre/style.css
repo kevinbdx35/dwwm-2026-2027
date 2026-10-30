@@ -9,8 +9,9 @@
    3. Typographie : dans :root, --texte-petit, --texte-normal, --texte-titre (en rem), et d'autres
       si besoin. Chaque font-size utilise var(--texte-…). Sur le body : line-height entre 1.4 et 1.8.
    4. Hiérarchie : le h1 est le plus grand texte ; un seul élément a l'accent en fond (le bouton).
-   5. Alignement : une colonne, max-width entre 45ch et 75ch, centrée ; le texte aligné à gauche
-      (pas de text-align: center).
+   5. Alignement : une colonne, max-width entre 45ch et 75ch, centrée ; le texte courant aligné à
+      gauche : pas de text-align: center sur body, main, p, les titres (h1 à h6), section, article
+      et li. Dans un bouton, text-align: center est permis.
    Puis : node --test interface-propre.test.js, et une capture « après ». */
 
 body {
