@@ -448,6 +448,7 @@ div.csl-indent {
   <li><a href="#eslint-semaine-2" id="toc-eslint-semaine-2" class="nav-link" data-scroll-target="#eslint-semaine-2">ESLint (semaine 2)</a>
   <ul>
   <li><a href="#eslint-rien" id="toc-eslint-rien" class="nav-link" data-scroll-target="#eslint-rien">ESLint ne souligne rien dans VS Code</a></li>
+  <li><a href="#npm-vulnerabilites" id="toc-npm-vulnerabilites" class="nav-link" data-scroll-target="#npm-vulnerabilites">npm parle de vulnérabilités</a></li>
   </ul></li>
   <li><a href="#git-semaine-4" id="toc-git-semaine-4" class="nav-link" data-scroll-target="#git-semaine-4">Git (semaine 4)</a>
   <ul>
@@ -705,6 +706,19 @@ SyntaxError: Identifier 'width' has already been declared
 <li><strong>Toujours rien ?</strong> Tapez <code>npx eslint nom-du-fichier.js</code> dans le terminal. S’il affiche les erreurs, ESLint marche et c’est l’éditeur qui ne l’a pas encore chargé : fermez puis rouvrez VS Code. S’il n’affiche rien non plus, appelez le formateur.</li>
 </ol>
 </section>
+<section id="npm-vulnerabilites" class="level3">
+<h3 class="anchored" data-anchor-id="npm-vulnerabilites">npm parle de vulnérabilités</h3>
+<pre class="text"><code>5 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force</code></pre>
+<ul>
+<li><strong>Ce que ça veut dire</strong> : à la fin de <code>npm install</code>, npm compare les paquets installés à une liste de failles connues <span class="citation" data-cites="npm-audit">(<a href="#ref-npm-audit" role="doc-biblioref"><span class="nocase">npm Docs</span>, s.&nbsp;d.</a>)</span>. Ici, une faille a été publiée dans un paquet dont ESLint a besoin. Elle concerne l’outil installé sur votre poste, pas votre code, et <code>npm install</code> a bien fonctionné.</li>
+<li><strong>Ce qu’il ne faut pas faire</strong> : lancer <code>npm audit fix --force</code> sans comprendre. <em>including breaking changes</em> : « y compris des changements qui cassent ». Pour faire disparaître le message, npm peut installer une tout autre version d’un paquet : en octobre 2026, il proposait ESLint 4.0.0, une version de 2017, et VS Code ne soulignait plus vos erreurs.</li>
+<li><strong>Quoi faire</strong> : rien pendant un TP ; signalez-le au formateur, qui vérifie la faille et met à jour le kit si besoin. <code>npm audit</code> affiche le détail : le paquet en cause et la version corrigée.</li>
+<li><strong>Pour le savoir</strong> : sur un vrai projet, on lit chaque faille avant de corriger (semaine 2 : les risques des paquets). <code>npm audit fix</code>, sans <code>--force</code>, ne fait que des mises à jour compatibles.</li>
+</ul>
+</section>
 </section>
 <section id="git-semaine-4" class="level2">
 <h2 class="anchored" data-anchor-id="git-semaine-4">Git (semaine 4)</h2>
@@ -781,6 +795,9 @@ MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;ReferenceError - JavaScript&nbsp;»</s
 </div>
 <div id="ref-mdn-typeerror" class="csl-entry" role="listitem">
 MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;TypeError - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/TypeError">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/TypeError</a>.
+</div>
+<div id="ref-npm-audit" class="csl-entry" role="listitem">
+<span class="nocase">npm Docs</span>. s.&nbsp;d. <span>«&nbsp;npm-audit&nbsp;»</span>. Consulté le 2 octobre 2026. <a href="https://docs.npmjs.com/cli/v11/commands/npm-audit">https://docs.npmjs.com/cli/v11/commands/npm-audit</a>.
 </div>
 <div id="ref-nodejs-errors" class="csl-entry" role="listitem">
 OpenJS Foundation. s.&nbsp;d.-a. <span>«&nbsp;Errors — Node.js Documentation&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://nodejs.org/api/errors.html">https://nodejs.org/api/errors.html</a>.
