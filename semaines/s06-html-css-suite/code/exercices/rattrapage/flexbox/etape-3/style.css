@@ -1,0 +1,68 @@
+:root {
+  --couleur-texte: #1f2a37;
+  --couleur-fond: #fbfaf7;
+  --couleur-accent: #0b6e4f;
+  --couleur-discrete: #d9d4c7;
+  --espace-1: 0.25rem;
+  --espace-2: 0.5rem;
+  --espace-3: 1rem;
+  --espace-4: 1.5rem;
+  --espace-5: 2.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--espace-3);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+}
+
+a {
+  color: var(--couleur-accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--couleur-texte);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.logo {
+  margin: 0;
+  font-weight: bold;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Flexbox : la liste .menu est le parent */
+.menu {
+  /* Flexbox : les enfants se placent en ligne */
+  display: flex;
+  /* Flexbox : un espace entre les liens */
+  gap: var(--espace-3);
+}
+
+/* Flexbox : l'en-tête est le parent */
+.entete {
+  /* Flexbox : logo et menu se placent en ligne */
+  display: flex;
+  /* Axe principal : un enfant à chaque bout */
+  justify-content: space-between;
+}

@@ -1,0 +1,64 @@
+/* Exercices Grid. Ouvrez index.html avec Live Preview. Vérifiez : node --test grid-exercices.test.js */
+:root {
+  --couleur-texte: #1f2a37;
+  --couleur-fond: #fbfaf7;
+  --couleur-accent: #0b6e4f;
+  --couleur-discrete: #d9d4c7;
+  --espace-1: 0.25rem;
+  --espace-2: 0.5rem;
+  --espace-3: 1rem;
+  --espace-4: 1.5rem;
+  --espace-5: 2.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--espace-3);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+}
+
+a {
+  color: var(--couleur-accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--couleur-texte);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.case {
+  margin: 0;
+  padding: var(--espace-3);
+  border: 1px solid var(--couleur-discrete);
+}
+
+section {
+  margin-bottom: var(--espace-5);
+}
+
+/* Exercice 1 — La galerie (ensemble)
+   a) .galerie en Grid : trois colonnes égales.
+   b) Un espace entre les cases : gap: var(--espace-3). */
+
+
+/* Exercice 2 — La page (seuls, guidé)
+   .page en Grid : deux colonnes, la seconde deux fois plus large que la première. */
+
+
+/* Exercice 3 — Les tarifs (seuls, semi-guidé)
+   .tarifs : deux colonnes égales, avec un espace entre elles. */

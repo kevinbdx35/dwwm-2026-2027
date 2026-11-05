@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Lundi 09/11 — Flexbox : comprendre, puis pratiquer – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s06-html-css-suite/mardi.html" rel="next">
+<link href="../../semaines/s06-html-css-suite/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-098c5701b2072b58505aa6340787a2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/index.html">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/lundi.html">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s06-html-css-suite/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/lundi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 10/11 — Grid, puis le mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 11/11 — Férié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 12/11 — Parcours d’autonomie, puis publier sa page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 13/11 — Vérifier sa page, puis la corriger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-flexbox-démonstration-et-pas-à-pas-ensemble" id="toc-matin-flexbox-démonstration-et-pas-à-pas-ensemble" class="nav-link" data-scroll-target="#matin-flexbox-démonstration-et-pas-à-pas-ensemble">Matin — Flexbox : démonstration et pas à pas ensemble</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#votre-dossier-de-la-semaine-5-min" id="toc-votre-dossier-de-la-semaine-5-min" class="nav-link" data-scroll-target="#votre-dossier-de-la-semaine-5-min">Votre dossier de la semaine (5 min)</a></li>
+  <li><a href="#apport-flexbox" id="toc-apport-flexbox" class="nav-link" data-scroll-target="#apport-flexbox">Apport — Flexbox (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#les-valeurs-en-images" id="toc-les-valeurs-en-images" class="nav-link" data-scroll-target="#les-valeurs-en-images">Les valeurs, en images</a></li>
+  </ul></li>
+  <li><a href="#flexbox-attention-et-vérification" id="toc-flexbox-attention-et-vérification" class="nav-link" data-scroll-target="#flexbox-attention-et-vérification">Flexbox — attention et vérification</a></li>
+  <li><a href="#pas-à-pas-ensemble-le-menu-55-min" id="toc-pas-à-pas-ensemble-le-menu-55-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-le-menu-55-min">Pas à pas ensemble — Le menu (55 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#exercice-1-le-menu-30-min" id="toc-exercice-1-le-menu-30-min" class="nav-link" data-scroll-target="#exercice-1-le-menu-30-min">Exercice 1 — Le menu (30 min)</a></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-flexbox-en-pratique" id="toc-après-midi-flexbox-en-pratique" class="nav-link" data-scroll-target="#après-midi-flexbox-en-pratique">Après-midi — Flexbox en pratique</a>
+  <ul>
+  <li><a href="#ce-qui-se-passe-dans-le-navigateur-20-min" id="toc-ce-qui-se-passe-dans-le-navigateur-20-min" class="nav-link" data-scroll-target="#ce-qui-se-passe-dans-le-navigateur-20-min">Ce qui se passe dans le navigateur (20 min)</a></li>
+  <li><a href="#flexbox-froggy-45-min" id="toc-flexbox-froggy-45-min" class="nav-link" data-scroll-target="#flexbox-froggy-45-min">Flexbox Froggy (45 min)</a></li>
+  <li><a href="#anglais" id="toc-anglais" class="nav-link" data-scroll-target="#anglais">Lire une page de documentation — <code>justify-content</code> (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#pas-à-pas-en-captures" id="toc-pas-à-pas-en-captures" class="nav-link" data-scroll-target="#pas-à-pas-en-captures">Pas à pas, en captures</a></li>
+  <li><a href="#quatre-questions-en-anglais-dans-le-texte" id="toc-quatre-questions-en-anglais-dans-le-texte" class="nav-link" data-scroll-target="#quatre-questions-en-anglais-dans-le-texte">Quatre questions, en anglais dans le texte</a></li>
+  <li><a href="#enregistrer-et-envoyer-2-min-1" id="toc-enregistrer-et-envoyer-2-min-1" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#exercices-2-et-3-la-fiche-et-les-badges-1-h" id="toc-exercices-2-et-3-la-fiche-et-les-badges-1-h" class="nav-link" data-scroll-target="#exercices-2-et-3-la-fiche-et-les-badges-1-h">Exercices 2 et 3 — La fiche et les badges (1 h)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-2" id="toc-enregistrer-et-envoyer-2-min-2" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-2">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a></li>
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#débrief-1" id="toc-débrief-1" class="nav-link" data-scroll-target="#débrief-1">Débrief</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="lundi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="lundi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/index.html">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/lundi.html">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">lundi 9 novembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+/* Écran étroit : le bouton de copie ne cache plus la fin de la première ligne */
+@media (max-width: 40rem) { div.sourceCode pre.sourceCode { padding-right: 2.25rem; } }
+</style>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C3 · communiquer (anglais)<br> <strong>Livrable</strong> : <code>node --test flex-exercices.test.js</code> au vert, et le menu du pas à pas envoyé sur GitHub.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Le minimum du jour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Le minimum du jour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Le pas à pas du menu, fait avec le groupe.</li>
+<li><code>node --test flex-exercices.test.js</code> au vert.</li>
+<li>Flexbox Froggy : le niveau 15 au moins.</li>
+</ul>
+<p>Le reste (rubrique « Si le temps le permet » et encadrés « Défi ») est la suite naturelle, pour ceux qui avancent.</p>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Expliquer ce que <code>display: flex</code> change, et sur quels éléments.</li>
+<li>Aligner et répartir des éléments avec <code>justify-content</code>, <code>align-items</code> et <code>gap</code>.</li>
+<li>Voir ce que fait le navigateur, avec les outils (F12).</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Une seule notion aujourd’hui : Flexbox. Le matin, une démonstration lente, puis nous codons ensemble, une étape à la fois. L’après-midi, vous pratiquez : un jeu, une page de documentation, puis des exercices.</p>
+</section>
+<section id="matin-flexbox-démonstration-et-pas-à-pas-ensemble" class="level2">
+<h2 class="anchored" data-anchor-id="matin-flexbox-démonstration-et-pas-à-pas-ensemble">Matin — Flexbox : démonstration et pas à pas ensemble</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li><code>padding</code> ou <code>margin</code> : lequel est à l’intérieur de la bordure ?</li>
+<li>À quoi sert <code>box-sizing: border-box</code> ?</li>
+<li>Que fait <code>git push</code> ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="votre-dossier-de-la-semaine-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="votre-dossier-de-la-semaine-5-min">Votre dossier de la semaine (5 min)</h3>
+<ol type="1">
+<li>En ligne de commande : un dossier <code>semaine-06</code> dans <code>dwwm-tp</code>.</li>
+<li>Extrayez-y l’archive de la semaine.</li>
+<li>Ouvrez ce dossier dans VS Code.</li>
+</ol>
+<p>L’<a href="code/exercices/s06-exercices.zip">archive de la semaine</a> contient les pas à pas, les exercices, les tests et le code de rattrapage. Si vous avez un doute sur une commande : fiche aide-mémoire Linux du Drive partagé.</p>
+</section>
+<section id="apport-flexbox" class="level3">
+<h3 class="anchored" data-anchor-id="apport-flexbox">Apport — Flexbox (20 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : aligner des éléments sur une ligne, sans calcul.</li>
+<li><strong>Flexbox</strong> : un parent <code>display: flex</code> répartit ses enfants sur un axe.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un menu dont les liens s’alignent et se répartissent, une carte dont l’image et le texte se placent côte à côte : avant Flexbox, il fallait des calculs fragiles.</p>
+<p><strong>Définition.</strong> <a href="../../ressources/lexique.html#t-flexbox">Flexbox</a> dispose les <strong>enfants</strong> d’un élément sur une dimension, en ligne ou en colonne <span class="citation" data-cites="mdn-flexbox">(<a href="#ref-mdn-flexbox" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span>. <code>justify-content</code> règle l’axe principal, <code>align-items</code> l’axe secondaire, <code>gap</code> l’espace entre les éléments ; <code>flex-wrap: wrap</code> les fait passer à la ligne si la place manque.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-flexbox.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Flexbox : le parent display: flex place ses enfants sur l’axe principal (justify-content) ; align-items règle l’axe secondaire, gap l’espace entre eux."><img src="../s05-html-css/img/s05-flexbox.svg" class="img-fluid figure-img" alt="Un rectangle parent, marqué nav { display: flex; }, contient trois enfants côte à côte : Accueil, Projets, Contact. Entre deux enfants, un espace marqué gap. Une flèche horizontale sous les enfants : l'axe principal, réglé par justify-content, qui répartit sur la ligne. Une flèche verticale à droite : l'axe secondaire, réglé par align-items."></a></p>
+<figcaption>Flexbox : le parent <code>display: flex</code> place ses enfants sur l’axe principal (<code>justify-content</code>) ; <code>align-items</code> règle l’axe secondaire, <code>gap</code> l’espace entre eux.</figcaption>
+</figure>
+</div>
+<p>Démonstration en direct, à ouvrir dans le navigateur : <a href="../s05-html-css/heberge/demos-vivantes/flexbox.html">justify-content et align-items sur un menu de trois liens</a>. Elle se règle au clavier (Tab, puis les flèches) ou à la souris.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.menu</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">space-between</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong> Le formateur applique chaque ligne au menu de sa page, l’aperçu ouvert.</p>
+<ol type="1">
+<li><code>display: flex</code> sur le <code>nav</code> : les liens se mettent en ligne.</li>
+<li><code>justify-content: space-between</code> : ils se répartissent sur toute la largeur.</li>
+<li><code>align-items: center</code> : ils se centrent en hauteur.</li>
+<li><code>gap: 1rem</code> : un espace régulier entre eux.</li>
+</ol>
+<section id="les-valeurs-en-images" class="level4">
+<h4 class="anchored" data-anchor-id="les-valeurs-en-images">Les valeurs, en images</h4>
+<p>Chaque vignette est le rendu réel de son code : trois enfants A, B, C dans un parent en pointillés, qui a <code>display: flex</code>.</p>
+<p><strong><code>justify-content</code></strong> : la répartition sur l’axe principal.</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-jc-flex-start-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="flex-start"><img src="../s05-html-css/img/s05-jc-flex-start-2x.webp" class="img-fluid figure-img" alt="A, B, C collés à gauche."></a></p>
+<figcaption><code>flex-start</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-jc-center-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="center"><img src="../s05-html-css/img/s05-jc-center-2x.webp" class="img-fluid figure-img" alt="A, B, C au centre."></a></p>
+<figcaption><code>center</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-jc-flex-end-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="flex-end"><img src="../s05-html-css/img/s05-jc-flex-end-2x.webp" class="img-fluid figure-img" alt="A, B, C collés à droite."></a></p>
+<figcaption><code>flex-end</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-jc-space-between-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="space-between"><img src="../s05-html-css/img/s05-jc-space-between-2x.webp" class="img-fluid figure-img" alt="A à gauche, C à droite, B au milieu."></a></p>
+<figcaption><code>space-between</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-jc-space-around-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="space-around"><img src="../s05-html-css/img/s05-jc-space-around-2x.webp" class="img-fluid figure-img" alt="Des espaces autour de chacun, deux fois plus petits aux bords."></a></p>
+<figcaption><code>space-around</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-jc-space-evenly-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="space-evenly"><img src="../s05-html-css/img/s05-jc-space-evenly-2x.webp" class="img-fluid figure-img" alt="Des espaces tous égaux, bords compris."></a></p>
+<figcaption><code>space-evenly</code></figcaption>
+</figure>
+</div>
+</div>
+<p><strong><code>align-items</code></strong> : l’alignement sur l’axe secondaire (trois enfants de hauteurs différentes).</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-ai-stretch-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="stretch"><img src="../s05-html-css/img/s05-ai-stretch-2x.webp" class="img-fluid figure-img" alt="Les trois éléments étirés sur toute la hauteur."></a></p>
+<figcaption><code>stretch</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-ai-flex-start-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="flex-start"><img src="../s05-html-css/img/s05-ai-flex-start-2x.webp" class="img-fluid figure-img" alt="Alignés en haut."></a></p>
+<figcaption><code>flex-start</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-ai-center-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="center"><img src="../s05-html-css/img/s05-ai-center-2x.webp" class="img-fluid figure-img" alt="Centrés en hauteur."></a></p>
+<figcaption><code>center</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-ai-flex-end-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="flex-end"><img src="../s05-html-css/img/s05-ai-flex-end-2x.webp" class="img-fluid figure-img" alt="Alignés en bas."></a></p>
+<figcaption><code>flex-end</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-ai-baseline-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="baseline"><img src="../s05-html-css/img/s05-ai-baseline-2x.webp" class="img-fluid figure-img" alt="Alignés sur la ligne de base de leur texte."></a></p>
+<figcaption><code>baseline</code></figcaption>
+</figure>
+</div>
+</div>
+<p><strong><code>flex-direction</code></strong> : le sens de l’axe principal.</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-fd-row-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="row"><img src="../s05-html-css/img/s05-fd-row-2x.webp" class="img-fluid figure-img" alt="A, B, C en ligne, de gauche à droite."></a></p>
+<figcaption><code>row</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-fd-row-reverse-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="row-reverse"><img src="../s05-html-css/img/s05-fd-row-reverse-2x.webp" class="img-fluid figure-img" alt="C, B, A, collés à droite."></a></p>
+<figcaption><code>row-reverse</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-fd-column-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="column"><img src="../s05-html-css/img/s05-fd-column-2x.webp" class="img-fluid figure-img" alt="A, B, C les uns sous les autres."></a></p>
+<figcaption><code>column</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-fd-column-reverse-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="column-reverse"><img src="../s05-html-css/img/s05-fd-column-reverse-2x.webp" class="img-fluid figure-img" alt="C, B, A, de haut en bas."></a></p>
+<figcaption><code>column-reverse</code></figcaption>
+</figure>
+</div>
+</div>
+<p><strong><code>flex-wrap</code></strong> : six éléments de 90 px, dans un parent trop étroit.</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-fw-nowrap-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="nowrap"><img src="../s05-html-css/img/s05-fw-nowrap-2x.webp" class="img-fluid figure-img" alt="Les six éléments restent sur une ligne et rétrécissent."></a></p>
+<figcaption><code>nowrap</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-fw-wrap-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="wrap"><img src="../s05-html-css/img/s05-fw-wrap-2x.webp" class="img-fluid figure-img" alt="Les éléments passent à la ligne, deux par ligne, sur trois lignes."></a></p>
+<figcaption><code>wrap</code></figcaption>
+</figure>
+</div>
+</div>
+<p><strong><code>gap</code></strong> : l’espace entre les éléments.</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gap-0-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="0"><img src="../s05-html-css/img/s05-gap-0-2x.webp" class="img-fluid figure-img" alt="A, B, C collés."></a></p>
+<figcaption><code>0</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gap-0-5rem-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="0.5rem"><img src="../s05-html-css/img/s05-gap-0-5rem-2x.webp" class="img-fluid figure-img" alt="Un petit espace entre eux."></a></p>
+<figcaption><code>0.5rem</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gap-2rem-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="2rem"><img src="../s05-html-css/img/s05-gap-2rem-2x.webp" class="img-fluid figure-img" alt="Un grand espace entre eux."></a></p>
+<figcaption><code>2rem</code></figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="flexbox-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="flexbox-attention-et-vérification">Flexbox — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>display: flex</code> se met sur le <strong>parent</strong> (le <code>nav</code>), pas sur les enfants (les liens). Sinon, rien ne bouge.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : quelle propriété pour centrer verticalement ?</li>
+</ul>
+</section>
+<section id="pas-à-pas-ensemble-le-menu-55-min" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-ensemble-le-menu-55-min">Pas à pas ensemble — Le menu (55 min)</h3>
+<ul>
+<li>Je code, vous tapez en même temps : une étape à la fois.</li>
+<li>À chaque étape : une question, puis « Vous devez voir ».</li>
+<li>Perdu ? Dossier <code>rattrapage/flexbox/</code>, une étape à la fois.</li>
+<li>Dossier : <code>pas-a-pas-flexbox</code>.</li>
+<li>Tapez aussi les commentaires : <code>/* … */</code> en CSS.</li>
+</ul>
+<p><strong>Niveau</strong> : guidé. Ouvrez <code>pas-a-pas-flexbox/index.html</code> avec Live Preview, et <code>style.css</code> à côté. Le HTML ne bouge pas : tout se passe dans <code>style.css</code>, à la fin du fichier.</p>
+<p><strong>Les commentaires.</strong> Dans chaque pas à pas, vous tapez le code <strong>et</strong> ses commentaires : ils expliquent chaque ligne et la notion en jeu. Un commentaire est sur sa propre ligne, juste au-dessus de la ligne qu’il explique. En CSS, il s’écrit <code>/* … */</code> ; en HTML, <code>&lt;!-- … --&gt;</code> ; dans le terminal, il commence par <code>#</code>. Le navigateur les ignore : ils servent à vous relire.</p>
+<p><strong>Étape 1.</strong> Dans <code>style.css</code>, ajoutez <code>display: flex</code> sur <strong>le parent</strong> : la liste <code>.menu</code>, et non ses <code>li</code>.</p>
+<p><em>Avant d’enregistrer</em> : où vont aller les trois éléments de la liste ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Flexbox : la liste .menu est le parent */</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.menu</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : les enfants se placent en ligne */</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : les trois éléments du menu, qui étaient les uns sous les autres, passent côte à côte. Ils se touchent : c’est normal, l’étape suivante le règle.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/flexbox/etape-1/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 2.</strong> Ajoutez un espace entre les liens.</p>
+<p><em>Avant d’enregistrer</em> : qu’est-ce qui change, et où ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Flexbox : la liste .menu est le parent */</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.menu</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : les enfants se placent en ligne */</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : un espace entre les liens */</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-3</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : un espace régulier entre les liens.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/flexbox/etape-2/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 3.</strong> Passez l’en-tête en Flexbox, puis répartissez ses enfants.</p>
+<p><em>Avant d’enregistrer</em> : le logo et le menu sont les deux enfants de <code>.entete</code> : où vont-ils aller ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.entete</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : logo et menu se placent en ligne */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Axe principal : un enfant à chaque bout */</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">space-between</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : le logo à gauche, le menu à droite.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/flexbox/etape-3/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 4.</strong> Centrez le logo et le menu en hauteur.</p>
+<p><em>Avant d’enregistrer</em> : <code>align-items</code> agit sur quel axe ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.entete</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : logo et menu se placent en ligne */</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Axe principal : un enfant à chaque bout */</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">space-between</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Axe secondaire : centrés en hauteur */</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : les deux sont alignés sur la même ligne médiane.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/flexbox/etape-4/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 5.</strong> Autorisez le retour à la ligne ; essayez ensuite à 375 px (F12, mode responsive).</p>
+<p><em>Avant d’enregistrer</em> : à 375 px, que se passe-t-il quand la place manque ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.entete</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : logo et menu se placent en ligne */</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : à la ligne si la place manque */</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-wrap</span><span class="ch">:</span> <span class="dv">wrap</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Axe principal : un enfant à chaque bout */</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">space-between</span><span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Axe secondaire : centrés en hauteur */</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : à 375 px, aucune barre de défilement horizontale ; le menu passe à la ligne s’il manque de place.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/flexbox/etape-5/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<section id="enregistrer-et-envoyer-2-min" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
+<p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pas-a-pas-flexbox</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute le menu en Flexbox"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
+</section>
+</section>
+<section id="exercice-1-le-menu-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1-le-menu-30-min">Exercice 1 — Le menu (30 min)</h3>
+<ol type="1">
+<li>Dossier <code>flex-exercices</code>, fichier <code>style.css</code> : exercice 1.</li>
+<li>Nous le faisons ensemble, puis vous relisez seuls.</li>
+<li><strong>Réussi si</strong> : le test « exercice 1 » passe.</li>
+</ol>
+<p><strong>Niveau</strong> : guidé.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--test</span> flex-exercices.test.js</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ce fichier de tests vérifie les trois exercices : à ce stade, seuls ceux de l’exercice 1 passent, c’est normal.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/lundi.html#apport-flexbox">Lundi, « Apport — Flexbox »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox">Boîtes flexibles</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="à-retenir-ce-matin" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>display: flex</code> se met sur le <strong>parent</strong>.</li>
+<li><code>justify-content</code> : l’axe principal ; <code>align-items</code> : l’axe secondaire.</li>
+<li><code>gap</code> : l’espace entre les enfants.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Quelle étape vous a surpris ?</li>
+<li>Que montre le badge <code>flex</code> ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-flexbox-en-pratique" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-flexbox-en-pratique">Après-midi — Flexbox en pratique</h2>
+<section id="ce-qui-se-passe-dans-le-navigateur-20-min" class="level3">
+<h3 class="anchored" data-anchor-id="ce-qui-se-passe-dans-le-navigateur-20-min">Ce qui se passe dans le navigateur (20 min)</h3>
+<ol type="1">
+<li>Sur votre menu, F12, onglet <em>Éléments</em> : le badge <code>flex</code>.</li>
+<li>Cliquez dessus : le navigateur dessine les boîtes et les espaces.</li>
+<li>Sur le <a href="../s05-html-css/heberge/demos-vivantes/terrain.html">terrain d’essai</a>, prédisez avant de changer.</li>
+<li><strong>Réussi si</strong> : vous expliquez les deux axes à un voisin.</li>
+</ol>
+<p><strong>Niveau</strong> : guidé.</p>
+<p><strong>Pourquoi ce temps.</strong> Flexbox se comprend en regardant ce que le navigateur calcule. Dans <em>Éléments</em>, le badge <code>flex</code> apparaît à côté de chaque parent en Flexbox. Le terrain d’essai change un réglage à la fois et affiche le code. Pour chaque réglage, dites <strong>d’abord</strong> ce que vous attendez, puis vérifiez. Si un voisin n’est pas disponible, écrivez votre explication en deux phrases.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/lundi.html#apport-flexbox">Lundi, « Apport — Flexbox »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox">Boîtes flexibles</a> ; <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools">Les outils de développement</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="flexbox-froggy-45-min" class="level3">
+<h3 class="anchored" data-anchor-id="flexbox-froggy-45-min">Flexbox Froggy (45 min)</h3>
+<ol type="1">
+<li>Ouvrez <a href="../s05-html-css/heberge/flexbox-froggy/index.html#fr">Flexbox Froggy, version du cours</a> : le jeu s’affiche en français.</li>
+<li>Placez les grenouilles, niveau par niveau.</li>
+<li>Notez chaque propriété découverte.</li>
+<li><strong>Réussi si</strong> : le niveau 15 au moins ; capture du dernier niveau réussi.</li>
+</ol>
+<p><strong>Niveau</strong> : guidé.</p>
+<p>Flexbox Froggy existe en français et compte 24 niveaux <span class="citation" data-cites="flexbox-froggy">(<a href="#ref-flexbox-froggy" role="doc-biblioref">Thomas Park, s.&nbsp;d.</a>)</span>. Cette copie est hébergée avec le cours, sans mesure d’audience ni publicité ; votre progression reste dans votre navigateur. Code : <a href="../s05-html-css/heberge/flexbox-froggy/LICENSE">MIT</a>, © Thomas Park. Images : <a href="https://creativecommons.org/licenses/by/3.0/legalcode">Creative Commons BY 3.0</a>, © Thomas Park. Propriétés à noter : <code>justify-content</code>, <code>align-items</code>, <code>flex-direction</code>, <code>order</code>, <code>align-self</code>, <code>flex-wrap</code>, <code>align-content</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/lundi.html#apport-flexbox">Lundi, « Apport — Flexbox »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox">Boîtes flexibles</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="anglais" class="level3">
+<h3 class="anchored" data-anchor-id="anglais">Lire une page de documentation — <code>justify-content</code> (20 min)</h3>
+<ul>
+<li>Une page de référence MDN, en anglais : toujours le même plan.</li>
+<li>Syntaxe, valeurs, exemple, compatibilité : où les trouver.</li>
+<li>Puis l’essayer vous-même, dans VS Code.</li>
+<li>Quatre questions pour finir.</li>
+</ul>
+<p><strong>Niveau</strong> : guidé.</p>
+<p>Une documentation de référence se lit comme un plan de ville : on ne la lit pas en entier, on sait où chercher. Toutes les pages de propriétés CSS de MDN suivent le même plan ; apprenez-le sur une propriété que vous connaissez depuis ce matin <span class="citation" data-cites="mdn-justify-content-en">(<a href="#ref-mdn-justify-content-en" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>.</p>
+<section id="pas-à-pas-en-captures" class="level4">
+<h4 class="anchored" data-anchor-id="pas-à-pas-en-captures">Pas à pas, en captures</h4>
+<ol type="1">
+<li>Ouvrez la page de <code>justify-content</code> sur MDN, en anglais : <code>developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/justify-content</code>. <strong>Vous devez voir</strong> : le titre « justify-content CSS property », puis un encadré vert <em>Baseline — Widely available</em> : la propriété marche dans tous les navigateurs récents.</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-01-page-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="../s05-html-css/img/s05-mdn-01-page-2x.webp" class="img-fluid" alt="La page MDN de justify-content, en anglais, en entier : le menu de MDN en haut, la liste des propriétés à gauche, le plan « In this article » à droite. Au centre, le titre « justify-content CSS property » et l'encadré vert « Baseline Widely available » sont encadrés en jaune avec le numéro 1."></a></p>
+<p><a href="../s05-html-css/img/s05-mdn-01-page-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="../s05-html-css/img/s05-mdn-01-page-zoom-2x.webp" class="img-fluid" alt="Zoom sur le titre « justify-content CSS property » et l'encadré vert « Baseline Widely available », avec les icônes de quatre navigateurs, encadrés en jaune avec le numéro 1."></a></p>
+<ol start="2" type="1">
+<li>Repérez le plan de la page, à droite : <em>In this article</em>. <strong>Vous devez voir</strong> : les rubriques dans l’ordre : <em>Try it</em>, <em>Syntax</em>, <em>Description</em>, <em>Formal definition</em>, <em>Formal syntax</em>, <em>Examples</em>, <em>Specifications</em>, <em>Browser compatibility</em>, <em>See also</em>. Un clic sur une rubrique y mène directement.</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-02-plan-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="../s05-html-css/img/s05-mdn-02-plan-zoom-2x.webp" class="img-fluid" alt="Zoom sur le plan « In this article », encadré en jaune avec le numéro 2 : Try it, Syntax, Description, Formal definition, Formal syntax, Examples, Specifications, Browser compatibility, See also."></a></p>
+<ol start="3" type="1">
+<li>Rubrique <em>Try it</em> : cliquez sur la ligne <code>justify-content: space-between;</code>. <strong>Vous devez voir</strong> : à droite, les éléments se répartissent sur la largeur. Cet exemple interactif utilise une grille : <code>justify-content</code> marche aussi avec Grid.</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-03-try-it-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="../s05-html-css/img/s05-mdn-03-try-it-zoom-2x.webp" class="img-fluid" alt="Zoom sur l'exemple interactif « CSS Demo: justify-content », encadré en jaune avec le numéro 3. À gauche, cinq lignes de code : start, center, space-between, space-around, space-evenly ; la ligne space-between est sélectionnée. À droite, les cases One et Two sont aux deux bords, la case Three en dessous à gauche."></a></p>
+<ol start="4" type="1">
+<li>Rubrique <em>Syntax</em> : la liste des façons d’écrire la propriété. <strong>Vous devez voir</strong> : un bloc de code, une ligne par valeur (<code>justify-content: center;</code>, <code>justify-content: space-between;</code>…), rangées par familles, avec un commentaire au-dessus de chaque famille.</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-04-syntaxe-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="../s05-html-css/img/s05-mdn-04-syntaxe-zoom-2x.webp" class="img-fluid" alt="Zoom sur la rubrique Syntax, encadrée en jaune avec le numéro 4 : un bloc de code CSS avec un bouton Copy ; sous le commentaire « Positional alignment », les lignes justify-content: center, start, end, flex-start, flex-end, left, right ; puis « Normal alignment » et « Distributed alignment » avec space-between, space-around, space-evenly, stretch."></a></p>
+<ol start="5" type="1">
+<li>Sous-rubrique <em>Values</em> : cherchez <code>space-between</code>. <strong>Vous devez voir</strong> : le nom de la valeur, puis sa définition en anglais : les éléments sont répartis régulièrement ; le premier touche le bord de départ, le dernier le bord d’arrivée.</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-05-valeurs-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="../s05-html-css/img/s05-mdn-05-valeurs-zoom-2x.webp" class="img-fluid" alt="Zoom sur la définition de space-between, encadrée en jaune avec le numéro 5 : « The items are evenly distributed within the alignment container along the main axis. The spacing between each pair of adjacent items is the same. The first item is flush with the main-start edge, and the last item is flush with the main-end edge. »"></a></p>
+<ol start="6" type="1">
+<li>Rubrique <em>Examples</em>, sous-titre <em>Visualizing flex item distribution</em> : un exemple complet, avec son code. <strong>Vous devez voir</strong> : une phrase qui présente l’exemple, puis le code CSS, avec deux boutons : <em>Copy</em> (copier le code) et <em>Play</em> (l’ouvrir dans l’éditeur en ligne de MDN).</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-06-exemple-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="../s05-html-css/img/s05-mdn-06-exemple-zoom-2x.webp" class="img-fluid" alt="Zoom sur l'exemple « Visualizing flex item distribution », encadré en jaune avec le numéro 6 : une phrase d'introduction, le titre CSS, puis un bloc de code avec les boutons Copy et Play ; la règle #container contient display: flex, flex-flow: row wrap, justify-content: space-between et width: 510px."></a></p>
+<ol start="7" type="1">
+<li>Juste en dessous, <em>Result</em> : le résultat de cet exemple. <strong>Vous devez voir</strong> : des cases colorées, réparties ligne par ligne, et une liste déroulante pour changer la valeur de <code>justify-content</code>.</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-07-resultat-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="../s05-html-css/img/s05-mdn-07-resultat-zoom-2x.webp" class="img-fluid" alt="Zoom sur le résultat de l'exemple, encadré en jaune avec le numéro 7 : des cases roses, jaune, vertes et bleue, rangées sur quatre lignes dans un cadre en pointillés ; en dessous, une liste déroulante réglée sur space-between."></a></p>
+<ol start="8" type="1">
+<li>Rubrique <em>Browser compatibility</em>, en bas de la page. <strong>Vous devez voir</strong> : un tableau : une colonne par navigateur, une ligne par usage. Une coche et un numéro : la version à partir de laquelle ce navigateur reconnaît la propriété. La ligne <em>Supported in flex layout</em> concerne Flexbox.</li>
+</ol>
+<p><a href="../s05-html-css/img/s05-mdn-08-compatibilite-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="../s05-html-css/img/s05-mdn-08-compatibilite-zoom-2x.webp" class="img-fluid" alt="Zoom sur le tableau « Browser compatibility », encadré en jaune avec le numéro 8 : en colonnes, Chrome, Edge, Firefox, Opera, Safari et leurs versions mobiles ; en lignes, justify-content, center, puis « Supported in flex layout » ; chaque case porte une coche et un numéro de version, par exemple 52 pour Chrome sur la ligne flex."></a></p>
+<ol start="9" type="1">
+<li>Essayez vous-même : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code>, créez le fichier avec <code>touch essai-justify.html</code> ; dans VS Code, écrivez-y le code ci-dessous, et ouvrez-le avec Live Preview. Remplacez <code>space-between</code> par chaque valeur de la liste <em>Values</em> (<code>center</code>, <code>space-around</code>, <code>space-evenly</code>…), en enregistrant à chaque fois. <strong>Vous devez voir</strong> : à chaque enregistrement, les trois liens changent de place dans l’aperçu, comme dans l’exemple de MDN.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"fr"</span><span class="dt">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Essai de justify-content<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    nav { <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span> <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">space-between</span><span class="op">;</span> <span class="kw">border</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">dashed</span><span class="op">;</span> }</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">nav</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"#"</span><span class="dt">&gt;</span>Accueil<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"#"</span><span class="dt">&gt;</span>Projets<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"#"</span><span class="dt">&gt;</span>Contact<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Les publicités affichées par MDN ont été retirées des captures : vous les verrez peut-être sur la page.</p>
+</section>
+<section id="quatre-questions-en-anglais-dans-le-texte" class="level4">
+<h4 class="anchored" data-anchor-id="quatre-questions-en-anglais-dans-le-texte">Quatre questions, en anglais dans le texte</h4>
+<p>Répondez en français, en citant la rubrique où vous avez trouvé la réponse.</p>
+<ol type="1">
+<li>Sur quel axe <code>justify-content</code> répartit-il les éléments d’un conteneur flex ?</li>
+<li>Que fait <code>space-between</code> ? Et <code>space-evenly</code> ?</li>
+<li>Quelle valeur place tous les éléments au centre ?</li>
+<li>À partir de quelle version de Chrome <code>justify-content</code> marche-t-il avec Flexbox ?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="#anglais">Lundi, « Lire une page de documentation »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/justify-content"><code>justify-content</code></a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="enregistrer-et-envoyer-2-min-1" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
+<p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add essai-justify.html</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Essaie les valeurs de justify-content"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
+</section>
+</section>
+<section id="exercices-2-et-3-la-fiche-et-les-badges-1-h" class="level3">
+<h3 class="anchored" data-anchor-id="exercices-2-et-3-la-fiche-et-les-badges-1-h">Exercices 2 et 3 — La fiche et les badges (1 h)</h3>
+<ol type="1">
+<li>Exercice 2 (guidé) : la fiche, l’image à côté du texte.</li>
+<li>Exercice 3 (semi-guidé) : les badges, qui passent à la ligne.</li>
+<li><strong>Réussi si</strong> : <code>node --test flex-exercices.test.js</code> passe en entier.</li>
+</ol>
+<p><strong>Niveau</strong> : guidé pour l’exercice 2, semi-guidé pour l’exercice 3. Vérifiez chaque résultat à 375 px, avec le mode responsive des outils (F12).</p>
+<p>Commencez chaque exercice par écrire en commentaire ce que vous attendez à l’écran. Pour l’exercice 3, relisez la valeur <code>flex-wrap</code> dans la planche de ce matin.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un test échoue avec <code>display: flex is missing</code> alors que vous l’avez écrit ? Regardez le sélecteur : la règle est peut-être sur les enfants (<code>.menu a</code>) et non sur le parent (<code>.menu</code>).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>L’exercice 3 demande quatre déclarations : le parent en Flexbox, le retour à la ligne, l’espace, et le retrait des puces. Retirer les puces : <code>list-style: none</code>, comme dans la carte de profil.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/lundi.html#apport-flexbox">Lundi, « Apport — Flexbox »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox">Boîtes flexibles</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/flex-wrap"><code>flex-wrap</code></a>.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min-2" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-2">Enregistrer et envoyer (2 min)</h4>
+<p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add flex-exercices</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Termine les exercices Flexbox"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
+</section>
+</section>
+<section id="à-retenir-cet-après-midi" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Toujours vérifier à 375 px.</li>
+<li>Une page de référence MDN a toujours le même plan.</li>
+<li><code>flex-wrap: wrap</code> évite le débordement.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Terminez les 24 niveaux de Flexbox Froggy.</li>
+<li>Mettez en Flexbox le menu de votre page personnelle : copiez-la d’abord avec <code>cp -r ../semaine-05/page-perso/. page-perso/</code>, depuis <code>semaine-06</code>.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Défi">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Défi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Expliquez à un voisin la différence entre <code>align-items</code> et <code>align-content</code>, avec un niveau de Froggy comme exemple.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/lundi.html#apport-flexbox">Lundi, « Apport — Flexbox »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox">Boîtes flexibles</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="débrief-1" class="level3">
+<h3 class="anchored" data-anchor-id="débrief-1">Débrief</h3>
+<ul>
+<li>Quand Flexbox vous a-t-il évité un calcul ?</li>
+<li>Quel niveau de Froggy vous a fait comprendre quelque chose ?</li>
+</ul>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-mdn-flexbox" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;Boîtes flexibles - Apprendre&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox">https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox</a>.
+</div>
+<div id="ref-mdn-justify-content-en" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;justify-content CSS property&nbsp;»</span>. Consulté le 23 octobre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/justify-content">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/justify-content</a>.
+</div>
+<div id="ref-flexbox-froggy" class="csl-entry" role="listitem">
+Thomas Park. s.&nbsp;d. <span>«&nbsp;Flexbox Froggy - A game for learning CSS flexbox&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://flexboxfroggy.com/#fr">https://flexboxfroggy.com/#fr</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s06-html-css-suite/index.html" class="pagination-link" aria-label="Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s06-html-css-suite/mardi.html" class="pagination-link" aria-label="Mardi 10/11 — Grid, puis le mobile first">
+        <span class="nav-page-text">Mardi 10/11 — Grid, puis le mobile first</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

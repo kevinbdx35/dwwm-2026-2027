@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Mardi 10/11 — Grid, puis le mobile first – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s06-html-css-suite/mercredi.html" rel="next">
+<link href="../../semaines/s06-html-css-suite/lundi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-098c5701b2072b58505aa6340787a2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/index.html">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/mardi.html">Mardi 10/11 — Grid, puis le mobile first</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s06-html-css-suite/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mardi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mardi 10/11 — Grid, puis le mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 11/11 — Férié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 12/11 — Parcours d’autonomie, puis publier sa page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 13/11 — Vérifier sa page, puis la corriger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-grid-démonstration-et-pas-à-pas-ensemble" id="toc-matin-grid-démonstration-et-pas-à-pas-ensemble" class="nav-link" data-scroll-target="#matin-grid-démonstration-et-pas-à-pas-ensemble">Matin — Grid : démonstration et pas à pas ensemble</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-grid" id="toc-apport-grid" class="nav-link" data-scroll-target="#apport-grid">Apport — Grid (20 min)</a></li>
+  <li><a href="#grid-attention-et-vérification" id="toc-grid-attention-et-vérification" class="nav-link" data-scroll-target="#grid-attention-et-vérification">Grid — attention et vérification</a></li>
+  <li><a href="#pas-à-pas-ensemble-la-grille-de-projets-1-h" id="toc-pas-à-pas-ensemble-la-grille-de-projets-1-h" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-la-grille-de-projets-1-h">Pas à pas ensemble — La grille de projets (1 h)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#exercices-1-et-2-la-galerie-et-la-page-30-min" id="toc-exercices-1-et-2-la-galerie-et-la-page-30-min" class="nav-link" data-scroll-target="#exercices-1-et-2-la-galerie-et-la-page-30-min">Exercices 1 et 2 — La galerie et la page (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-1" id="toc-enregistrer-et-envoyer-2-min-1" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-ce-matin" id="toc-à-retenir-ce-matin" class="nav-link" data-scroll-target="#à-retenir-ce-matin">À retenir — ce matin</a></li>
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#si-le-temps-le-permet-grid-garden" id="toc-si-le-temps-le-permet-grid-garden" class="nav-link" data-scroll-target="#si-le-temps-le-permet-grid-garden">Si le temps le permet — Grid Garden</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  </ul></li>
+  <li><a href="#après-midi-le-responsive-mobile-first" id="toc-après-midi-le-responsive-mobile-first" class="nav-link" data-scroll-target="#après-midi-le-responsive-mobile-first">Après-midi — Le responsive : mobile first</a>
+  <ul>
+  <li><a href="#apport-mobile-first" id="toc-apport-mobile-first" class="nav-link" data-scroll-target="#apport-mobile-first">Apport — Mobile first (15 min)</a></li>
+  <li><a href="#mobile-first-attention-et-vérification" id="toc-mobile-first-attention-et-vérification" class="nav-link" data-scroll-target="#mobile-first-attention-et-vérification">Mobile first — attention et vérification</a></li>
+  <li><a href="#pas-à-pas-ensemble-la-page-en-deux-largeurs-55-min" id="toc-pas-à-pas-ensemble-la-page-en-deux-largeurs-55-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-la-page-en-deux-largeurs-55-min">Pas à pas ensemble — La page en deux largeurs (55 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-2" id="toc-enregistrer-et-envoyer-2-min-2" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-2">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#exercices-la-galerie-et-le-menu-35-min" id="toc-exercices-la-galerie-et-le-menu-35-min" class="nav-link" data-scroll-target="#exercices-la-galerie-et-le-menu-35-min">Exercices — La galerie et le menu (35 min)</a></li>
+  <li><a href="#layout-lab-votre-page-personnelle-25-min" id="toc-layout-lab-votre-page-personnelle-25-min" class="nav-link" data-scroll-target="#layout-lab-votre-page-personnelle-25-min">« Layout Lab » : votre page personnelle (25 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-3" id="toc-enregistrer-et-envoyer-2-min-3" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-3">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a></li>
+  <li><a href="#si-le-temps-le-permet-1" id="toc-si-le-temps-le-permet-1" class="nav-link" data-scroll-target="#si-le-temps-le-permet-1">Si le temps le permet</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="mardi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="mardi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/index.html">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</a></li><li class="breadcrumb-item"><a href="../../semaines/s06-html-css-suite/mardi.html">Mardi 10/11 — Grid, puis le mobile first</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Mardi 10/11 — Grid, puis le mobile first</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">mardi 10 novembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+/* Écran étroit : le bouton de copie ne cache plus la fin de la première ligne */
+@media (max-width: 40rem) { div.sourceCode pre.sourceCode { padding-right: 2.25rem; } }
+</style>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C3<br> <strong>Livrable</strong> : <code>node --test grid-exercices.test.js</code> et <code>node --test responsive-exercices.test.js</code> au vert ; le Layout Lab commencé.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Le minimum du jour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Le minimum du jour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Les deux pas à pas, faits avec le groupe.</li>
+<li><code>node --test grid-exercices.test.js</code> : exercices 1 et 2.</li>
+<li><code>node --test responsive-exercices.test.js</code> au vert.</li>
+</ul>
+<p>Le reste (rubrique « Si le temps le permet » et encadrés « Défi ») est la suite naturelle, pour ceux qui avancent.</p>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Construire une grille à deux dimensions, et choisir entre Grid et Flexbox.</li>
+<li>Écrire des styles de base pour le téléphone, puis une media query en <code>min-width</code>.</li>
+<li>Vérifier une page à 375 et à 1280 px.</li>
+</ul>
+<p><strong>Comment se passe la journée.</strong> Une notion le matin (Grid), une notion l’après-midi (le <em>mobile first</em>). Chacune : une démonstration lente, un pas à pas ensemble, puis des exercices.</p>
+</section>
+<section id="matin-grid-démonstration-et-pas-à-pas-ensemble" class="level2">
+<h2 class="anchored" data-anchor-id="matin-grid-démonstration-et-pas-à-pas-ensemble">Matin — Grid : démonstration et pas à pas ensemble</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li>Sur quel élément écrit-on <code>display: flex</code> ?</li>
+<li>Quelle unité pour une taille de texte accessible ?</li>
+<li>Que fait un <code>.gitignore</code> ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille, la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-grid" class="level3">
+<h3 class="anchored" data-anchor-id="apport-grid">Apport — Grid (20 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : ranger des cartes en lignes <strong>et</strong> en colonnes.</li>
+<li><strong>Grid</strong> : un parent <code>display: grid</code> place ses enfants dans une grille.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Une galerie de projets, une page avec en-tête, contenu et pied : il faut aligner dans les deux sens à la fois.</p>
+<p><strong>Définition.</strong> <a href="../../ressources/lexique.html#t-grid">Grid</a> organise en <strong>deux</strong> dimensions, lignes et colonnes <span class="citation" data-cites="mdn-grilles mdn-grid-concepts">(<a href="#ref-mdn-grilles" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>, <a href="#ref-mdn-grid-concepts" role="doc-biblioref">s.&nbsp;d.-b</a>)</span>. <code>grid-template-columns</code> définit les colonnes ; <code>1fr</code> est une fraction de l’espace disponible. <strong>Flexbox ou Grid ?</strong> Flexbox pour une rangée d’éléments (un menu, une liste de badges) ; Grid pour une grille à deux dimensions (des cartes, la page entière). Les deux se combinent : une grille de cartes, un menu en Flexbox.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-grid.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Grid : repeat(3, 1fr) fait trois colonnes égales ; les cartes remplissent la grille ligne par ligne, avec le même gap dans les deux sens."><img src="../s05-html-css/img/s05-grid.svg" class="img-fluid figure-img" alt="Un rectangle parent, marqué .projets { display: grid; }, contient six cartes, en deux lignes de trois colonnes. Au-dessus de chaque colonne : 1fr, trois colonnes de même largeur. Entre deux colonnes et entre deux lignes, un même espace, marqué gap. En bas : grid-template-columns: repeat(3, 1fr);"></a></p>
+<figcaption>Grid : <code>repeat(3, 1fr)</code> fait trois colonnes égales ; les cartes remplissent la grille ligne par ligne, avec le même <code>gap</code> dans les deux sens.</figcaption>
+</figure>
+</div>
+<p>Démonstration en direct, à ouvrir dans le navigateur : <a href="../s05-html-css/heberge/demos-vivantes/grid.html">grid-template-columns sur six cartes</a>. Elle se règle au clavier (Tab, puis les flèches) ou à la souris.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.projets</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="fu">repeat(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="dt">fr</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Pas à pas.</strong></p>
+<ol type="1">
+<li><code>display: grid</code> sur le conteneur des projets.</li>
+<li><code>grid-template-columns: repeat(3, 1fr)</code> : trois colonnes égales.</li>
+<li><code>gap: 1rem</code> : l’espace entre les cartes, dans les deux sens.</li>
+<li>F12 : cliquez sur le badge <code>grid</code> à côté de l’élément : la grille se dessine sur la page.</li>
+</ol>
+<p><strong>Quelques motifs courants</strong> de <code>grid-template-columns</code>, sur les mêmes six cartes :</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gtc-1fr-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="1fr"><img src="../s05-html-css/img/s05-gtc-1fr-2x.webp" class="img-fluid figure-img" alt="Une seule colonne, six lignes."></a></p>
+<figcaption><code>1fr</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gtc-repeat-2-1fr-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="repeat(2, 1fr)"><img src="../s05-html-css/img/s05-gtc-repeat-2-1fr-2x.webp" class="img-fluid figure-img" alt="Deux colonnes égales, trois lignes."></a></p>
+<figcaption><code>repeat(2, 1fr)</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gtc-repeat-3-1fr-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="repeat(3, 1fr)"><img src="../s05-html-css/img/s05-gtc-repeat-3-1fr-2x.webp" class="img-fluid figure-img" alt="Trois colonnes égales, deux lignes."></a></p>
+<figcaption><code>repeat(3, 1fr)</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gtc-1fr-2fr-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="1fr 2fr"><img src="../s05-html-css/img/s05-gtc-1fr-2fr-2x.webp" class="img-fluid figure-img" alt="Deux colonnes, la seconde deux fois plus large."></a></p>
+<figcaption><code>1fr 2fr</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gtc-10rem-1fr-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="10rem 1fr"><img src="../s05-html-css/img/s05-gtc-10rem-1fr-2x.webp" class="img-fluid figure-img" alt="Une colonne fixe de 10rem, puis une colonne qui prend le reste."></a></p>
+<figcaption><code>10rem 1fr</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-gtc-repeat-3-10rem-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="repeat(3, 10rem)"><img src="../s05-html-css/img/s05-gtc-repeat-3-10rem-2x.webp" class="img-fluid figure-img" alt="Trois colonnes fixes de 10rem."></a></p>
+<figcaption><code>repeat(3, 10rem)</code></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="grid-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="grid-attention-et-vérification">Grid — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Trois colonnes fixes sur un téléphone : les cartes deviennent minuscules. Une seule colonne au départ, plusieurs sur grand écran : c’est l’apport de cet après-midi.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : Flexbox ou Grid pour une galerie de 9 photos ?</li>
+</ul>
+</section>
+<section id="pas-à-pas-ensemble-la-grille-de-projets-1-h" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-ensemble-la-grille-de-projets-1-h">Pas à pas ensemble — La grille de projets (1 h)</h3>
+<ul>
+<li>Je code, vous tapez en même temps : une étape à la fois.</li>
+<li>À chaque étape : une question, puis « Vous devez voir ».</li>
+<li>Perdu ? Dossier <code>rattrapage/grid/</code>, une étape à la fois.</li>
+<li>Dossier : <code>pas-a-pas-grid</code>.</li>
+</ul>
+<p><strong>Niveau</strong> : guidé. Ouvrez <code>pas-a-pas-grid/index.html</code> avec Live Preview, et <code>style.css</code> à côté. Tout se passe dans <code>style.css</code>, à la fin du fichier.</p>
+<p><strong>Étape 1.</strong> Passez <code>.projets</code> en Grid.</p>
+<p><em>Avant d’enregistrer</em> : l’écran va-t-il changer ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.projets</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : rien ne change : par défaut, une seule colonne. Dans F12, le badge <code>grid</code> est apparu.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/grid/etape-1/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 2.</strong> Définissez trois colonnes égales.</p>
+<p><em>Avant d’enregistrer</em> : combien de cartes par ligne ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.projets</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : trois colonnes égales, 1fr chacune */</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="fu">repeat(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="dt">fr</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : trois cartes par ligne, sur deux lignes, collées les unes aux autres.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/grid/etape-2/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 3.</strong> Ajoutez un espace.</p>
+<p><em>Avant d’enregistrer</em> : dans quels sens l’espace va-t-il s’appliquer ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.projets</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : trois colonnes égales, 1fr chacune */</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="fu">repeat(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="dt">fr</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : un espace entre les cartes */</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-3</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : le même espace entre les colonnes et entre les lignes. À 375 px, les trois colonnes sont trop étroites et la page déborde : c’est ce que corrige le <em>mobile first</em>, cet après-midi.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/grid/etape-3/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 4.</strong> Dans F12, cliquez sur le badge <code>grid</code>. Essayez <code>1fr 2fr</code> à la place de <code>repeat(3, 1fr)</code>, regardez, puis remettez <code>repeat(3, 1fr)</code>.</p>
+<p><em>Avant d’enregistrer</em> : que dessine le badge ?</p>
+<p><strong>Vous devez voir</strong> : la grille dessinée sur la page ; avec <code>1fr 2fr</code>, une colonne deux fois plus large que l’autre.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/grid/etape-4/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<section id="enregistrer-et-envoyer-2-min" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
+<p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pas-a-pas-grid</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute la grille de projets"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
+</section>
+</section>
+<section id="exercices-1-et-2-la-galerie-et-la-page-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercices-1-et-2-la-galerie-et-la-page-30-min">Exercices 1 et 2 — La galerie et la page (30 min)</h3>
+<ol type="1">
+<li>Exercice 1 : ensemble. Exercice 2 : seuls.</li>
+<li>Dossier <code>grid-exercices</code>, fichier <code>style.css</code>.</li>
+<li><strong>Réussi si</strong> : les tests de ces deux exercices passent.</li>
+</ol>
+<p><strong>Niveau</strong> : guidé.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--test</span> grid-exercices.test.js</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/mardi.html#apport-grid">Mardi, « Apport — Grid »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Grids">Grilles</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/grid-template-columns"><code>grid-template-columns</code></a>.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min-1" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
+<p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add grid-exercices</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute les exercices Grid"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
+</section>
+</section>
+<section id="à-retenir-ce-matin" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-ce-matin">À retenir — ce matin</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Grid : deux dimensions, sur le parent.</li>
+<li><code>1fr</code> : une part de l’espace disponible.</li>
+<li>Flexbox pour une rangée, Grid pour une grille.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Exercice 3 de <code>grid-exercices</code> (semi-guidé), les tarifs : <strong>Réussi si</strong> les trois tests passent.</li>
+<li>Les niveaux suivants de Grid Garden, jusqu’au 28.</li>
+<li>Le défi 6 du dossier <code>defis-css</code> (semaine 5), le damier : la grille que l’on n’avait pas encore mercredi.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/mardi.html#apport-grid">Mardi, « Apport — Grid »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Grids">Grilles</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/grid-template-columns"><code>grid-template-columns</code></a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet-grid-garden" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-grid-garden">Si le temps le permet — Grid Garden</h3>
+<ol type="1">
+<li>Ouvrez <a href="../s05-html-css/heberge/grid-garden/index.html#fr">Grid Garden, version du cours</a> : le jeu s’affiche en français.</li>
+<li>Arrosez les carottes en plaçant le terrain en CSS Grid.</li>
+<li><strong>Réussi si</strong> : le niveau 12 au moins ; capture du dernier niveau réussi.</li>
+</ol>
+<p><strong>Niveau</strong> : guidé.</p>
+<p>Grid Garden existe en français et compte 28 niveaux <span class="citation" data-cites="grid-garden">(<a href="#ref-grid-garden" role="doc-biblioref">Thomas Park, s.&nbsp;d.</a>)</span>. Cette copie est hébergée avec le cours, sans mesure d’audience ; votre progression reste dans votre navigateur. Code : <a href="../s05-html-css/heberge/grid-garden/LICENSE">MIT</a>, © Thomas Park. Images : <a href="https://creativecommons.org/licenses/by/3.0/legalcode">Creative Commons BY 3.0</a>, © Thomas Park.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/mardi.html#apport-grid">Mardi, « Apport — Grid »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Grids">Grilles</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Flexbox ou Grid pour une galerie de 9 photos ?</li>
+</ul>
+</section>
+</section>
+<section id="après-midi-le-responsive-mobile-first" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-le-responsive-mobile-first">Après-midi — Le responsive : mobile first</h2>
+<section id="apport-mobile-first" class="level3">
+<h3 class="anchored" data-anchor-id="apport-mobile-first">Apport — Mobile first (15 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : la majorité des visiteurs arrivent sur un téléphone.</li>
+<li><strong>Mobile first</strong> : les styles de base pour le téléphone, puis on enrichit.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Commencer par le petit écran oblige à décider ce qui compte ; le grand écran ajoute de la place, pas de nouvelles idées.</p>
+<p><strong>Définition.</strong> En <a href="../../ressources/lexique.html#t-mobile-first">mobile first</a>, les styles de base visent le téléphone (une seule colonne) ; une <a href="../../ressources/lexique.html#t-media-query">media query</a> en <code>min-width</code> ajoute les styles des grands écrans <span class="citation" data-cites="mdn-media-queries">(<a href="#ref-mdn-media-queries" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>. La balise <code>meta name="viewport"</code> de lundi est indispensable pour que le téléphone utilise sa vraie largeur <span class="citation" data-cites="mdn-responsive">(<a href="#ref-mdn-responsive" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span>.</p>
+<p><strong>Exemple.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.projets</span> { <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span> <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">fr</span><span class="op">;</span> }</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">48</span><span class="dt">rem</span><span class="fu">)</span> {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.projets</span> { <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="fu">repeat(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="dt">fr</span><span class="fu">)</span><span class="op">;</span> }</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Résultat</strong> : une page qui utilise ce code (un menu en Flexbox, trois projets en Grid, la media query <code>min-width: 48rem</code>), à trois largeurs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-responsive-375-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="375 px, un téléphone : une colonne"><img src="../s05-html-css/img/s05-responsive-375-2x.webp" class="img-fluid figure-img" alt="La page à 375 px, comme sur un téléphone : le menu en haut, le titre sur deux lignes, puis les trois cartes de projets les unes sous les autres." width="375"></a></p>
+<figcaption>375 px, un téléphone : une colonne</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-responsive-768-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="768 px, une tablette : la media query s’applique, trois colonnes"><img src="../s05-html-css/img/s05-responsive-768-2x.webp" class="img-fluid figure-img" alt="La même page à 768 px, comme sur une tablette : les trois cartes sont côte à côte sur trois colonnes."></a></p>
+<figcaption>768 px, une tablette : la media query s’applique, trois colonnes</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../s05-html-css/img/s05-responsive-1280-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="1280 px, un ordinateur : trois colonnes, contenu centré"><img src="../s05-html-css/img/s05-responsive-1280-2x.webp" class="img-fluid figure-img" alt="La même page à 1280 px : trois colonnes, et un contenu limité en largeur, centré, avec des marges de chaque côté."></a></p>
+<figcaption>1280 px, un ordinateur : trois colonnes, contenu centré</figcaption>
+</figure>
+</div>
+<p><strong>Pas à pas.</strong></p>
+<ol type="1">
+<li>Écrivez la règle de base : une colonne.</li>
+<li>F12, mode responsive : réglez la largeur à 375 px ; une colonne.</li>
+<li>Ajoutez la media query ; élargissez à plus de 768 px (48 rem) : trois colonnes.</li>
+</ol>
+</section>
+<section id="mobile-first-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="mobile-first-attention-et-vérification">Mobile first — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une media query en <code>max-width</code> (héritée d’un tutoriel) inverse la logique : le téléphone reçoit des corrections au lieu des styles de base. Ici, toujours <code>min-width</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : à 375 px, combien de colonnes dans l’exemple ?</li>
+</ul>
+</section>
+<section id="pas-à-pas-ensemble-la-page-en-deux-largeurs-55-min" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-ensemble-la-page-en-deux-largeurs-55-min">Pas à pas ensemble — La page en deux largeurs (55 min)</h3>
+<ul>
+<li>Je code, vous tapez en même temps : une étape à la fois.</li>
+<li>Perdu ? Dossier <code>rattrapage/responsive/</code>.</li>
+<li>Dossier : <code>pas-a-pas-responsive</code>.</li>
+<li>F12, mode responsive, ouvert du début à la fin.</li>
+</ul>
+<p><strong>Niveau</strong> : guidé. Ouvrez <code>pas-a-pas-responsive/index.html</code> avec Live Preview, puis le mode responsive des outils (F12).</p>
+<p><strong>Étape 1.</strong> Écrivez les styles de base : une colonne. Réglez F12 à 375 px, en mode responsive.</p>
+<p><em>Avant d’enregistrer</em> : à 375 px, combien de colonnes ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Mobile first : la grille, pour le téléphone */</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.projets</span> {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Mobile first : une seule colonne */</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">fr</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grid : un espace entre les cartes */</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-3</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : une colonne à 375 px ; et encore une seule à 1280 px : c’est le départ.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/responsive/etape-1/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 2.</strong> Ajoutez la media query, à la fin du fichier. Élargissez, puis réduisez.</p>
+<p><em>Avant d’enregistrer</em> : à 1280 px, combien de colonnes ? Et à 375 px ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Media query : à partir de 48rem (768 px) */</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">48</span><span class="dt">rem</span><span class="fu">)</span> {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grand écran : la grille change */</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.projets</span> {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Grid : trois colonnes égales */</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="fu">repeat(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="dt">fr</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : trois colonnes à 1280 px, une seule à 375 px. Le changement se fait à 768 px.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/responsive/etape-2/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 3.</strong> Écrivez les styles de base de l’en-tête, <strong>au-dessus</strong> de la media query : le logo au-dessus du menu.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Mobile first : l'en-tête, pour le téléphone */</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.entete</span> {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : l'en-tête est un parent flex */</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : logo au-dessus du menu */</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : un petit espace entre les deux */</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-2</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">/* Flexbox : le menu est un parent flex */</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">.menu</span> {</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : les liens se placent en ligne */</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Flexbox : un espace entre les liens */</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-3</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : à 375 px, le logo au-dessus du menu.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/responsive/etape-3/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<p><strong>Étape 4.</strong> Dans la media query existante, ajoutez la règle des grands écrans.</p>
+<p><em>Avant d’enregistrer</em> : où va le logo à 1280 px ?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Media query : à partir de 48rem (768 px) */</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">48</span><span class="dt">rem</span><span class="fu">)</span> {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grand écran : l'en-tête change */</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.entete</span> {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Flexbox : logo et menu côte à côte */</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">row</span><span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Axe principal : un enfant à chaque bout */</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">space-between</span><span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Axe secondaire : centrés en hauteur */</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Grand écran : la grille change */</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.projets</span> {</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Grid : trois colonnes égales */</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">grid-template-columns</span><span class="ch">:</span> <span class="fu">repeat(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="dt">fr</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : à 1280 px, le logo à gauche et le menu à droite ; à 375 px, rien n’a changé.</p>
+<p><em>Perdu ?</em> Copiez <code>rattrapage/responsive/etape-4/style.css</code> à la place de votre <code>style.css</code>, puis repartez avec le groupe.</p>
+<section id="enregistrer-et-envoyer-2-min-2" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-2">Enregistrer et envoyer (2 min)</h4>
+<p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pas-a-pas-responsive</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute la page en mobile first"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
+</section>
+</section>
+<section id="exercices-la-galerie-et-le-menu-35-min" class="level3">
+<h3 class="anchored" data-anchor-id="exercices-la-galerie-et-le-menu-35-min">Exercices — La galerie et le menu (35 min)</h3>
+<ol type="1">
+<li>Exercice 1 : ensemble. Exercice 2 : seuls (semi-guidé).</li>
+<li>Dossier <code>responsive-exercices</code>, fichier <code>style.css</code>.</li>
+<li><strong>Réussi si</strong> : <code>node --test responsive-exercices.test.js</code> passe.</li>
+</ol>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/mardi.html#apport-mobile-first">Mardi, « Apport — Mobile first »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Responsive_Design">Responsive design</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Guides/Media_queries/Using">Media queries</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="layout-lab-votre-page-personnelle-25-min" class="level3">
+<h3 class="anchored" data-anchor-id="layout-lab-votre-page-personnelle-25-min">« Layout Lab » : votre page personnelle (25 min)</h3>
+<ol type="1">
+<li>Copiez votre page dans <code>semaine-06</code>.</li>
+<li>En-tête et menu : Flexbox ; projets ou compétences : Grid.</li>
+<li>Une media query en <code>min-width</code> pour les grands écrans.</li>
+<li><strong>Réussi si</strong> : <code>node --test layout.test.js</code> passe (fin jeudi).</li>
+</ol>
+<p><strong>Niveau</strong> : semi-guidé.</p>
+<p>Depuis <code>~/dwwm/dwwm-tp/semaine-06</code>, copiez votre page de la semaine dernière par-dessus le fichier de départ du kit :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ../semaine-05/page-perso/. page-perso/</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vous devez voir</strong> : dans VS Code, votre <code>page-perso/index.html</code>, et non le fichier de départ. Ce travail continue jeudi, dans le parcours d’autonomie.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/mardi.html#apport-mobile-first">Mardi, « Apport — Mobile first »</a> ; <a href="../../semaines/s06-html-css-suite/lundi.html#apport-flexbox">Lundi, « Apport — Flexbox »</a> ; <a href="../../semaines/s06-html-css-suite/mardi.html#apport-grid">Mardi, « Apport — Grid »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Responsive_Design">Responsive design</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Guides/Media_queries/Using">Media queries</a>.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min-3" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-3">Enregistrer et envoyer (2 min)</h4>
+<p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-06</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add responsive-exercices page-perso</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Commence la mise en page en mobile first"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
+</section>
+</section>
+<section id="à-retenir-cet-après-midi" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir-cet-après-midi">À retenir — cet après-midi</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>D’abord le téléphone : une colonne.</li>
+<li>Ensuite <code>@media (min-width: 48rem)</code>.</li>
+<li>Toujours vérifier à 375 et à 1280 px.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet-1" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet-1">Si le temps le permet</h3>
+<p>Avancez le Layout Lab.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Défi">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Défi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le <a href="../s05-html-css/heberge/demos-vivantes/terrain.html">terrain d’essai Flexbox et Grid</a> : changez chaque réglage, prédisez le résultat <strong>avant</strong> de regarder, puis recopiez dans votre page le code affiché qui vous sert (15 min).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s06-html-css-suite/mardi.html#apport-mobile-first">Mardi, « Apport — Mobile first »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier 1) : demandez une explication, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Flexbox">Boîtes flexibles</a> ; <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Grids">Grilles</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-mdn-grilles" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;Grilles - Apprendre&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Grids">https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Grids</a>.
+</div>
+<div id="ref-mdn-grid-concepts" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Les concepts de base des grilles - CSS&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Guides/Grid_layout/Basic_concepts">https://developer.mozilla.org/fr/docs/Web/CSS/Guides/Grid_layout/Basic_concepts</a>.
+</div>
+<div id="ref-mdn-media-queries" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Media queries - CSS&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Guides/Media_queries/Using">https://developer.mozilla.org/fr/docs/Web/CSS/Guides/Media_queries/Using</a>.
+</div>
+<div id="ref-mdn-responsive" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;Responsive design - Apprendre&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Responsive_Design">https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Responsive_Design</a>.
+</div>
+<div id="ref-grid-garden" class="csl-entry" role="listitem">
+Thomas Park. s.&nbsp;d. <span>«&nbsp;Grid Garden - A game for learning CSS grid layout&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://cssgridgarden.com/#fr">https://cssgridgarden.com/#fr</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s06-html-css-suite/lundi.html" class="pagination-link" aria-label="Lundi 09/11 — Flexbox : comprendre, puis pratiquer">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s06-html-css-suite/mercredi.html" class="pagination-link" aria-label="Mercredi 11/11 — Férié">
+        <span class="nav-page-text">Mercredi 11/11 — Férié</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

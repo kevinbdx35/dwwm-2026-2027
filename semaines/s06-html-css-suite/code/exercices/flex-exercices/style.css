@@ -1,0 +1,56 @@
+/* Exercices Flexbox. Ouvrez index.html avec Live Preview. Vérifiez : node --test flex-exercices.test.js */
+:root {
+  --couleur-texte: #1f2a37;
+  --couleur-fond: #fbfaf7;
+  --couleur-accent: #0b6e4f;
+  --couleur-discrete: #d9d4c7;
+  --espace-1: 0.25rem;
+  --espace-2: 0.5rem;
+  --espace-3: 1rem;
+  --espace-4: 1.5rem;
+  --espace-5: 2.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--espace-3);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+}
+
+a {
+  color: var(--couleur-accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--couleur-texte);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Exercice 1 — Le menu (ensemble)
+   a) .menu en Flexbox.
+   b) Les liens répartis sur toute la largeur : justify-content: space-between. */
+
+
+/* Exercice 2 — La fiche (seuls, guidé)
+   a) .fiche en Flexbox : l'image à côté du texte.
+   b) Un espace entre les deux : gap: var(--espace-3).
+   c) Centrés en hauteur : align-items: center. */
+
+
+/* Exercice 3 — Les badges (seuls, semi-guidé)
+   La liste .badges : sur une ligne, sans puces, avec un espace, et qui passe à la ligne à 375 px. */
