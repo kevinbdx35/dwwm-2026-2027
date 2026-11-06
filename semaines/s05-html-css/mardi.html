@@ -562,6 +562,7 @@ div.csl-indent {
   <li><a href="#css-from-scratch-1-h-05" id="toc-css-from-scratch-1-h-05" class="nav-link" data-scroll-target="#css-from-scratch-1-h-05">« CSS from scratch » (1 h 05)</a>
   <ul class="collapse">
   <li><a href="#tutoriel-mesurer-un-contraste-dans-le-navigateur-10-min" id="toc-tutoriel-mesurer-un-contraste-dans-le-navigateur-10-min" class="nav-link" data-scroll-target="#tutoriel-mesurer-un-contraste-dans-le-navigateur-10-min">Tutoriel — Mesurer un contraste dans le navigateur (10 min)</a></li>
+  <li><a href="#enregistrer-et-envoyer-2-min-1" id="toc-enregistrer-et-envoyer-2-min-1" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</a></li>
   </ul></li>
   <li><a href="#à-retenir-cet-après-midi" id="toc-à-retenir-cet-après-midi" class="nav-link" data-scroll-target="#à-retenir-cet-après-midi">À retenir — cet après-midi</a></li>
   <li><a href="#critères-de-réussite" id="toc-critères-de-réussite" class="nav-link" data-scroll-target="#critères-de-réussite">Critères de réussite</a></li>
@@ -1257,7 +1258,7 @@ flowchart LR
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>body { <span class="kw">color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-texte</span><span class="fu">)</span><span class="op">;</span> <span class="kw">background</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-fond</span><span class="fu">)</span><span class="op">;</span> }</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="tutoriel-mesurer-un-contraste-dans-le-navigateur-10-min" class="level4">
-<h4 class="anchored">Tutoriel — Mesurer un contraste dans le navigateur (10 min)</h4>
+<h4 class="anchored" data-anchor-id="tutoriel-mesurer-un-contraste-dans-le-navigateur-10-min">Tutoriel — Mesurer un contraste dans le navigateur (10 min)</h4>
 <p>Sur la page brouillonne de l’exercice, dans Chrome (Edge est identique) <span class="citation" data-cites="chrome-devtools-color">(<a href="#ref-chrome-devtools-color" role="doc-biblioref">Google, s.&nbsp;d.-d</a>)</span>.</p>
 <ol type="1">
 <li>Dans Chrome, ouvrez <code>interface-propre/index.html</code>, la version <strong>brouillonne</strong> du kit (Live Preview : <em>Ouvrir dans le navigateur</em>). <strong>Vous devez voir</strong> : la page « Réparez votre vélo vous-même », aux couleurs vives, avec un pied de page gris clair.</li>
@@ -1307,16 +1308,7 @@ flowchart LR
 </figure>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
 <section id="enregistrer-et-envoyer-2-min-1" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
 <p>Fin du TP : dans le terminal, depuis <code>~/dwwm/dwwm-tp/semaine-05</code> :</p>
@@ -1325,9 +1317,16 @@ Note
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute le style de la page personnelle"</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Réussi si</strong> : <code>git status</code> affiche <code>Votre branche est à jour avec 'origin/main'</code> et <code>rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code>dwwm-tp</code>. Le message suit la règle de la semaine 4 : ce que fait le commit, à l’impératif, en une ligne (fiche aide-mémoire commit du Drive partagé, ou <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision</a>).</p>
-</section>
-<section id="les-éditeurs-du-navigateur" class="level3">
-<h3 class="anchored" data-anchor-id="les-éditeurs-du-navigateur">Les éditeurs du navigateur</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Les éditeurs du navigateur
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Les outils de développement (F12) de Chrome et de Firefox cachent de petits éditeurs visuels dans le panneau des styles : cliquez sur l’icône placée à côté d’une valeur.</p>
 <ul>
 <li><strong>Sélecteur de couleur</strong> : la pastille à côté de chaque couleur ; il affiche aussi le rapport de contraste du texte avec son fond <span class="citation" data-cites="chrome-devtools-color firefox-devtools-colors">(<a href="#ref-chrome-devtools-color" role="doc-biblioref">Google, s.&nbsp;d.-d</a>; <a href="#ref-firefox-devtools-colors" role="doc-biblioref">Mozilla, s.&nbsp;d.-d</a>)</span>.</li>
@@ -1337,7 +1336,6 @@ Note
 <li><strong>Inspecteurs flexbox et grid</strong> : les badges <code>flex</code> et <code>grid</code> dessinent la mise en page sur l’écran ; ils serviront jeudi <span class="citation" data-cites="chrome-devtools-flexbox chrome-devtools-grid firefox-devtools-flexbox firefox-devtools-grid">(<a href="#ref-chrome-devtools-flexbox" role="doc-biblioref">Google, s.&nbsp;d.-c</a>, <a href="#ref-chrome-devtools-grid" role="doc-biblioref">s.&nbsp;d.-e</a>; <a href="#ref-firefox-devtools-flexbox" role="doc-biblioref">Mozilla, s.&nbsp;d.-b</a>, <a href="#ref-firefox-devtools-grid" role="doc-biblioref">s.&nbsp;d.-c</a>)</span>.</li>
 </ul>
 <p><strong>Écrivez le CSS à la main d’abord ; l’éditeur sert à ajuster et à vérifier.</strong> Ce que vous modifiez dans le navigateur n’est pas enregistré : recopiez la valeur retenue dans <code>style.css</code>, en variable dans <code>:root</code>.</p>
-</section>
 </div>
 </div>
 </section>
