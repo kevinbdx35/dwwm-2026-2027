@@ -1,0 +1,34 @@
+// Pas à pas : Ajouter sans modifier (vendredi matin)
+// Lancez ce fichier avec : node copies.js
+// Données : data.gouv.fr, Licence Ouverte (ministère de la Culture)
+
+// Deux noms de musées
+const names = ['musée Unterlinden', "écomusée d'Alsace"];
+// Affiche les données de départ
+console.log(names);
+
+// Spread : ... recopie les éléments dans un NOUVEAU tableau
+const copy = [...names];
+// push ne touche que la copie
+copy.push('musée Arthur Rimbaud');
+// Affiche l'original, puis la copie
+console.log(names, copy);
+
+// Spread : un nouveau tableau, avec un nom en plus à la fin
+const withNew = [...names, "musée de l'Ardenne"];
+// L'original n'a pas changé
+console.log(names, withNew);
+
+// Un objet : un musée et sa ville
+const museum = { name: 'musée Unterlinden', city: 'COLMAR' };
+// Spread : un NOUVEL objet, avec une autre ville
+const moved = { ...museum, city: 'METZ' };
+// L'original garde sa ville
+console.log(museum, moved);
+
+// Visites de trois musées
+const visits = [51775, 3165, 29212];
+// Spread puis sort : on trie la copie, pas l'original
+const sorted = [...visits].sort((a, b) => a - b);
+// Deuxième façon de trier sans modifier le tableau reçu
+console.log(visits, sorted);

@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -213,7 +215,7 @@ Kevin Bardoux
 </section>
 <section id="la-formation-attention-et-vérification" class="slide level3">
 <h3>La formation — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -243,7 +245,7 @@ Kevin Bardoux
 </section>
 <section id="le-rythme-attention-et-vérification" class="slide level3">
 <h3>Le rythme — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -299,7 +301,7 @@ Kevin Bardoux
 </section>
 <section id="charte-ia-attention-et-vérification" class="slide level3">
 <h3>Charte IA — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -371,15 +373,15 @@ Kevin Bardoux
 <h3>Exercice 1 — Le robot sur la grille (25 min)</h3>
 <ul>
 <li>Le robot part de <strong>A1</strong> et regarde vers la droite.</li>
-<li>Les cases <code>#</code> sont des murs.</li>
+<li>Les cases <code translate="no">#</code> sont des murs.</li>
 <li>Il doit atteindre l’étoile ★ en <strong>E2</strong>.</li>
-<li>Il ne comprend que <code>AVANCER</code>, <code>GAUCHE</code> et <code>DROITE</code>.</li>
-<li><code>GAUCHE</code> et <code>DROITE</code> : un quart de tour, sur place.</li>
+<li>Il ne comprend que <code translate="no">AVANCER</code>, <code translate="no">GAUCHE</code> et <code translate="no">DROITE</code>.</li>
+<li><code translate="no">GAUCHE</code> et <code translate="no">DROITE</code> : un quart de tour, sur place.</li>
 </ul>
 </section>
 <section id="exercice-1-la-grille" class="slide level3">
 <h3>Exercice 1 — La grille</h3>
-<pre><code>      A   B   C   D   E
+<pre translate="no"><code>      A   B   C   D   E
   1   R   .   #   .   .
   2   .   .   #   .   ★
   3   .   .   .   .   #
@@ -390,8 +392,8 @@ Kevin Bardoux
 <h3>Exercice 1 — À faire</h3>
 <ol type="1">
 <li>Écrivez les instructions jusqu’à l’étoile. Comptez-les.</li>
-<li>Réécrivez-les avec <code>RÉPÉTER n FOIS [ … ]</code> : plus court ?</li>
-<li>Que fait le programme <code>AVANCER, AVANCER, DROITE, AVANCER</code> ?</li>
+<li>Réécrivez-les avec <code translate="no">RÉPÉTER n FOIS [ … ]</code> : plus court ?</li>
+<li>Que fait le programme <code translate="no">AVANCER, AVANCER, DROITE, AVANCER</code> ?</li>
 </ol>
 </section>
 <section id="exercice-2-suites-et-motifs-20-min" class="slide level3">
@@ -417,14 +419,14 @@ Kevin Bardoux
 <ul>
 <li>Un <strong>algorithme</strong> : une suite d’instructions.</li>
 <li>Ici en <strong>pseudo-code</strong> : du français structuré.</li>
-<li><code>←</code> signifie « prend la valeur ».</li>
+<li><code translate="no">←</code> signifie « prend la valeur ».</li>
 <li>Exécutez chaque algorithme <strong>à la main</strong>.</li>
 <li>Notez les variables à chaque tour, puis ce qui est affiché.</li>
 </ul>
 </section>
 <section id="exercice-3-la-somme" class="slide level3">
 <h3>Exercice 3 — La somme</h3>
-<pre><code>total ← 0
+<pre translate="no"><code>total ← 0
 POUR i DE 1 À 4
     total ← total + i
 FIN POUR
@@ -432,7 +434,7 @@ AFFICHER total</code></pre>
 </section>
 <section id="exercice-3-diviser-ou-tripler" class="slide level3">
 <h3>Exercice 3 — Diviser ou tripler</h3>
-<pre><code>n ← 13 ; compteur ← 0
+<pre translate="no"><code>n ← 13 ; compteur ← 0
 TANT QUE n &gt; 1
     SI n est pair ALORS
         n ← n / 2
@@ -445,7 +447,7 @@ AFFICHER compteur</code></pre>
 </section>
 <section id="exercice-3-parcourir-une-liste" class="slide level3">
 <h3>Exercice 3 — Parcourir une liste</h3>
-<pre><code>liste ← [7, 3, 12, 5, 12, 1]
+<pre translate="no"><code>liste ← [7, 3, 12, 5, 12, 1]
 resultat ← premier élément de liste
 POUR CHAQUE nombre DANS liste
     SI nombre &gt; resultat ALORS
@@ -455,7 +457,7 @@ FIN POUR
 AFFICHER resultat</code></pre>
 <ul>
 <li>À quoi sert cet algorithme ? Répondez en une phrase.</li>
-<li>Donnez à <code>resultat</code> un nom plus clair.</li>
+<li>Donnez à <code translate="no">resultat</code> un nom plus clair.</li>
 </ul>
 </section>
 <section id="exercice-4-trouver-le-bug-30-min" class="slide level3">
@@ -469,11 +471,11 @@ AFFICHER resultat</code></pre>
 </section>
 <section id="exercice-4-la-moyenne-de-trois-notes" class="slide level3">
 <h3>Exercice 4 — La moyenne de trois notes</h3>
-<pre><code>moyenne ← note1 + note2 + note3 / 3</code></pre>
+<pre translate="no"><code>moyenne ← note1 + note2 + note3 / 3</code></pre>
 </section>
 <section id="exercice-4-le-compte-à-rebours" class="slide level3">
 <h3>Exercice 4 — Le compte à rebours</h3>
-<pre><code>n ← 10
+<pre translate="no"><code>n ← 10
 TANT QUE n &gt; 0
     AFFICHER n
 FIN TANT QUE
@@ -481,7 +483,7 @@ AFFICHER "Décollage !"</code></pre>
 </section>
 <section id="exercice-4-la-majorité" class="slide level3">
 <h3>Exercice 4 — La majorité</h3>
-<pre><code>SI age &gt; 18 ALORS
+<pre translate="no"><code>SI age &gt; 18 ALORS
     AFFICHER "majeur"
 SINON
     AFFICHER "mineur"
@@ -498,9 +500,9 @@ FIN SI</code></pre>
 <section id="exercice-5-aisance-numérique-25-min" class="slide level3">
 <h3>Exercice 5 — Aisance numérique (25 min)</h3>
 <ol type="1">
-<li>Créez <code>dwwm/semaine-01</code> si besoin, puis <code>presentation.txt</code> dedans.</li>
+<li>Créez <code translate="no">dwwm/semaine-01</code> si besoin, puis <code translate="no">presentation.txt</code> dedans.</li>
 <li>Écrivez-y votre prénom, ancien métier, un site favori.</li>
-<li>Renommez-le <code>moi.txt</code> ; notez son <strong>chemin complet</strong>.</li>
+<li>Renommez-le <code translate="no">moi.txt</code> ; notez son <strong>chemin complet</strong>.</li>
 <li>Complétez le tableau des raccourcis clavier.</li>
 <li>Sur <strong>MDN Web Docs</strong>, trouvez ce que signifie <strong>HTML</strong>.</li>
 </ol>
@@ -521,7 +523,7 @@ FIN SI</code></pre>
 <ul class="task-list">
 <li><label><input type="checkbox">Le questionnaire est rempli honnêtement</label></li>
 <li><label><input type="checkbox">Chaque exercice est tenté, démarche notée</label></li>
-<li><label><input type="checkbox">Le fichier <code>moi.txt</code> existe dans <code>dwwm/semaine-01</code></label></li>
+<li><label><input type="checkbox">Le fichier <code translate="no">moi.txt</code> existe dans <code translate="no">dwwm/semaine-01</code></label></li>
 <li><label><input type="checkbox">La fiche est remise au formateur</label></li>
 <li><label><input type="checkbox">Le navigateur est à jour, l’éditeur Scratch s’ouvre</label></li>
 <li><label><input type="checkbox">Le questionnaire « Mon ordinateur » est remis</label></li>
@@ -563,7 +565,6 @@ FIN SI</code></pre>
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -731,27 +732,9 @@ FIN SI</code></pre>
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

@@ -102,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-098c5701b2072b58505aa6340787a2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -134,6 +134,7 @@ div.csl-indent {
 
 <link rel="stylesheet" href="../polices.css">
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../theme-commun.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -502,6 +503,83 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s07-js-avance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, matin — Séance PAF</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, après-midi — Fonctions en paramètre (callback) et map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, matin — Garder et trouver : filter et find</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, après-midi — Les objets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 18/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -615,16 +693,16 @@ div.csl-indent {
 <section id="la-recherche-linéaire" class="level3">
 <h3 class="anchored" data-anchor-id="la-recherche-linéaire">La recherche linéaire</h3>
 <p>On ouvre les casiers un par un, de gauche à droite.</p>
-<pre class="text"><code>Pour chaque case, de la première à la dernière
+<pre class="text" translate="no"><code>Pour chaque case, de la première à la dernière
   Si la case contient la valeur cherchée
     Renvoyer vrai
 Renvoyer faux</code></pre>
-<p>Attention au piège : « renvoyer faux » se place <strong>après</strong> la boucle. Si on l’écrit dans un <code>else</code> à l’intérieur, on abandonne dès la première case différente !</p>
-<div class="code-with-filename">
+<p>Attention au piège : « renvoyer faux » se place <strong>après</strong> la boucle. Si on l’écrit dans un <code translate="no">else</code> à l’intérieur, on abandonne dès la première case différente !</p>
+<div class="code-with-filename" translate="no">
 <div class="code-with-filename-file">
 <pre><strong>recherche-lineaire.js</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="recherche-lineaire.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/** Returns the index of value in numbers, or -1. */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="recherche-lineaire.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/** Returns the index of value in numbers, or -1. */</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">linearSearch</span>(numbers<span class="op">,</span> value) {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> numbers<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (numbers[i] <span class="op">===</span> value) {</span>
@@ -636,12 +714,12 @@ Renvoyer faux</code></pre>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">linearSearch</span>([<span class="dv">20</span><span class="op">,</span> <span class="dv">500</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span> <span class="co">// 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Pour chercher un texte, <code>===</code> suffit en JavaScript : <code>'Chloé' === 'Chloé'</code> vaut <code>true</code> (en C, il faut une fonction dédiée, <code>strcmp</code>).</p>
+<p>Pour chercher un texte, <code translate="no">===</code> suffit en JavaScript : <code translate="no">'Chloé' === 'Chloé'</code> vaut <code translate="no">true</code> (en C, il faut une fonction dédiée, <code translate="no">strcmp</code>).</p>
 </section>
 <section id="la-recherche-dichotomique" class="level3">
 <h3 class="anchored" data-anchor-id="la-recherche-dichotomique">La recherche dichotomique</h3>
 <p>Si le tableau est <strong>trié</strong>, on peut faire beaucoup mieux, comme avec l’annuaire :</p>
-<pre class="text"><code>S'il ne reste plus de case
+<pre class="text" translate="no"><code>S'il ne reste plus de case
   Renvoyer faux
 Regarder la case du milieu
 Si elle contient la valeur cherchée
@@ -716,11 +794,11 @@ Sinon si la valeur cherchée est plus grande
 </tbody>
 </table>
 <p>Trois étapes au lieu de cinq pour la recherche linéaire. L’écart se creuse énormément avec de grands tableaux.</p>
-<div class="code-with-filename">
+<div class="code-with-filename" translate="no">
 <div class="code-with-filename-file">
 <pre><strong>dichotomie.js</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="dichotomie.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/** Returns the index of target in the SORTED array, or -1. */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="dichotomie.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/** Returns the index of target in the SORTED array, or -1. */</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">binarySearch</span>(array<span class="op">,</span> target) {</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> left <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> right <span class="op">=</span> array<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
@@ -900,12 +978,12 @@ Sinon si la valeur cherchée est plus grande
 </section>
 <section id="regrouper-des-données-les-objets" class="level2">
 <h2 class="anchored" data-anchor-id="regrouper-des-données-les-objets">4. Regrouper des données : les objets</h2>
-<p>Un annuaire associe un nom à un numéro. Deux tableaux séparés (<code>names</code> et <code>numbers</code>) seraient fragiles : un décalage, et tout est faux. On regroupe plutôt les deux dans un <strong>objet</strong> (semaine 6) <span class="citation" data-cites="mdn-objets">(<a href="#ref-mdn-objets" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.</a>)</span> ; en C, on écrirait une structure (<code>struct</code>).</p>
-<div class="code-with-filename">
+<p>Un annuaire associe un nom à un numéro. Deux tableaux séparés (<code translate="no">names</code> et <code translate="no">numbers</code>) seraient fragiles : un décalage, et tout est faux. On regroupe plutôt les deux dans un <strong>objet</strong> (semaine 6) <span class="citation" data-cites="mdn-objets">(<a href="#ref-mdn-objets" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.</a>)</span> ; en C, on écrirait une structure (<code translate="no">struct</code>).</p>
+<div class="code-with-filename" translate="no">
 <div class="code-with-filename-file">
 <pre><strong>annuaire.js</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="annuaire.js"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> directory <span class="op">=</span> [</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="annuaire.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> directory <span class="op">=</span> [</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">'Alice'</span><span class="op">,</span> <span class="dt">number</span><span class="op">:</span> <span class="st">'01 23 45 67 89'</span> }<span class="op">,</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">'Bob'</span><span class="op">,</span> <span class="dt">number</span><span class="op">:</span> <span class="st">'06 12 34 56 78'</span> }<span class="op">,</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
@@ -917,7 +995,7 @@ Sinon si la valeur cherchée est plus grande
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Le numéro est un <strong>texte</strong> et non un nombre : il commence par 0, contient des espaces, et on ne fait jamais de calcul dessus. Le point (<code>.</code>) donne accès à une propriété.</p>
+<p>Le numéro est un <strong>texte</strong> et non un nombre : il commence par 0, contient des espaces, et on ne fait jamais de calcul dessus. Le point (<code translate="no">.</code>) donne accès à une propriété.</p>
 </section>
 <section id="sources" class="level2">
 <h2 class="anchored" data-anchor-id="sources">Sources</h2>

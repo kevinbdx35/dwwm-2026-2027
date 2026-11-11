@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -101,8 +102,9 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -217,7 +219,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C3<br> <strong>Livrable</strong> : l’adresse HTTPS de votre page publiée, et <code>node --test layout.test.js</code> au vert.</p>
+<p><strong>Compétences visées</strong> : C3<br> <strong>Livrable</strong> : l’adresse HTTPS de votre page publiée, et <code translate="no">node --test layout.test.js</code> au vert.</p>
 </div>
 </div>
 </div>
@@ -266,7 +268,7 @@ Kevin Bardoux
 </section>
 <section id="publier-attention-et-vérification" class="slide level3">
 <h3>Publier — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -275,27 +277,27 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>GitHub Pages distingue les majuscules : <code>Avatar.svg</code> et <code>avatar.svg</code> sont deux fichiers. Sur votre ordinateur sous Windows, ça marche ; en ligne, l’image est absente (erreur 404). Écrivez les noms de fichiers à l’identique.</p>
+<p>GitHub Pages distingue les majuscules : <code translate="no">Avatar.svg</code> et <code translate="no">avatar.svg</code> sont deux fichiers. Sur votre ordinateur sous Windows, ça marche ; en ligne, l’image est absente (erreur 404). Écrivez les noms de fichiers à l’identique.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : pourquoi un dépôt à part, et non <code>dwwm-tp</code> ?</li>
+<li><strong>Vérifiez</strong> : pourquoi un dépôt à part, et non <code translate="no">dwwm-tp</code> ?</li>
 </ul>
 </section>
 <section id="pas-à-pas-ensemble-publier-page-perso-1-h-10" class="slide level3">
-<h3>Pas à pas ensemble — Publier <code>page-perso</code> (1 h 10)</h3>
+<h3>Pas à pas ensemble — Publier <code translate="no">page-perso</code> (1 h 10)</h3>
 <ol type="1">
-<li>Un dépôt <strong>public</strong> à part, <code>page-perso</code> : <code>dwwm-tp</code> reste privé.</li>
-<li><code>git clone</code>, puis copie de <code>index.html</code> et <code>style.css</code> ; <code>git push</code>.</li>
-<li><em>Settings</em> → <em>Pages</em> → <em>Deploy from a branch</em> : <code>main</code>, <code>/ (root)</code>.</li>
-<li>Après deux minutes : <code>pseudo.github.io/page-perso/</code>.</li>
+<li>Un dépôt <strong>public</strong> à part, <code translate="no">page-perso</code> : <code translate="no">dwwm-tp</code> reste privé.</li>
+<li><code translate="no">git clone</code>, puis copie de <code translate="no">index.html</code> et <code translate="no">style.css</code> ; <code translate="no">git push</code>.</li>
+<li><em>Settings</em> → <em>Pages</em> → <em>Deploy from a branch</em> : <code translate="no">main</code>, <code translate="no">/ (root)</code>.</li>
+<li>Après deux minutes : <code translate="no">pseudo.github.io/page-perso/</code>.</li>
 <li><strong>Réussi si</strong> : la page s’affiche, avec le cadenas (HTTPS).</li>
 </ol>
 </section>
 <section id="publier-les-commandes-12" class="slide level3">
 <h3>Publier, les commandes (1/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Terminal : aller dans le dossier dwwm</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Terminal : aller dans le dossier dwwm</span></span>
 <span id="cb1-2"><a aria-label="2"></a><span class="bu">cd</span> ~/dwwm</span>
 <span id="cb1-3"><a aria-label="3"></a><span class="co"># Git : copier le dépôt public sur l'ordinateur</span></span>
 <span id="cb1-4"><a aria-label="4"></a><span class="fu">git</span> clone git@github.com:pseudo/page-perso.git</span>
@@ -308,7 +310,7 @@ Kevin Bardoux
 </section>
 <section id="publier-les-commandes-22" class="slide level3">
 <h3>Publier, les commandes (2/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Git : préparer les deux fichiers</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Git : préparer les deux fichiers</span></span>
 <span id="cb2-2"><a aria-label="2"></a><span class="fu">git</span> add index.html style.css</span>
 <span id="cb2-3"><a aria-label="3"></a><span class="co"># Git : enregistrer une version, avec un message</span></span>
 <span id="cb2-4"><a aria-label="4"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Publie la page personnelle"</span></span>
@@ -318,8 +320,8 @@ Kevin Bardoux
 <section id="mettre-à-jour-la-page-publiée-30-min" class="slide level3">
 <h3>Mettre à jour la page publiée (30 min)</h3>
 <ol type="1">
-<li>Refaites la copie (<code>cp</code>) vers <code>~/dwwm/page-perso</code>.</li>
-<li><code>git add</code>, <code>git commit</code>, <code>git push</code> depuis ce dossier.</li>
+<li>Refaites la copie (<code translate="no">cp</code>) vers <code translate="no">~/dwwm/page-perso</code>.</li>
+<li><code translate="no">git add</code>, <code translate="no">git commit</code>, <code translate="no">git push</code> depuis ce dossier.</li>
 <li><strong>Réussi si</strong> : après deux minutes, le site montre votre mise en page.</li>
 </ol>
 </section>
@@ -327,8 +329,8 @@ Kevin Bardoux
 <h3>Finir la mise en page et republier (45 min)</h3>
 <ol type="1">
 <li>Terminez la ligne 1 du parcours, si elle reste à faire.</li>
-<li>Republiez : <code>cp</code>, puis <code>git push</code> depuis <code>page-perso</code>.</li>
-<li><strong>Réussi si</strong> : <code>node --test layout.test.js</code> passe.</li>
+<li>Republiez : <code translate="no">cp</code>, puis <code translate="no">git push</code> depuis <code translate="no">page-perso</code>.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test layout.test.js</code> passe.</li>
 <li>Le site publié montre votre mise en page.</li>
 </ol>
 </section>
@@ -344,7 +346,7 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><code>dwwm-tp</code> reste privé ; <code>page-perso</code> est public.</li>
+<li><code translate="no">dwwm-tp</code> reste privé ; <code translate="no">page-perso</code> est public.</li>
 <li>Public : visible par tous, aucune donnée personnelle.</li>
 <li>En ligne, seul ce qui est poussé compte.</li>
 </ul>
@@ -363,7 +365,7 @@ Kevin Bardoux
 <ul class="task-list">
 <li><label><input type="checkbox">Les lignes 1 et 2 du parcours d’autonomie sont faites</label></li>
 <li><label><input type="checkbox">La page est publiée sur GitHub Pages, en HTTPS</label></li>
-<li><label><input type="checkbox"><code>node --test layout.test.js</code> : tout au vert</label></li>
+<li><label><input type="checkbox"><code translate="no">node --test layout.test.js</code> : tout au vert</label></li>
 <li><label><input type="checkbox">Aucune barre de défilement horizontale à 375 px</label></li>
 </ul>
 </section>
@@ -397,7 +399,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -565,27 +566,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

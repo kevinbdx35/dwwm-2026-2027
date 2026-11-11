@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -120,8 +121,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -240,7 +242,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C1 · apprendre en continu (veille, anglais)<br> <strong>Livrable</strong> : une Pull Request fusionnée dans <code>git-journal</code> et le dépôt privé <code>journal-de-veille</code> avec ses premières entrées.</p>
+<p><strong>Compétences visées</strong> : C1 · apprendre en continu (veille, anglais)<br> <strong>Livrable</strong> : une Pull Request fusionnée dans <code translate="no">git-journal</code> et le dépôt privé <code translate="no">journal-de-veille</code> avec ses premières entrées.</p>
 </div>
 </div>
 </div>
@@ -276,26 +278,26 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li>Différence entre <code>git add</code> et <code>git commit</code> ?</li>
-<li>Que fait <code>git restore</code> ?</li>
+<li>Différence entre <code translate="no">git add</code> et <code translate="no">git commit</code> ?</li>
+<li>Que fait <code translate="no">git restore</code> ?</li>
 <li>Pourquoi renvoyer un nouveau tableau ?</li>
 </ol>
 </section>
 <section id="ajouter-sa-clé-ssh-10-min" class="slide level3">
 <h3>Ajouter sa clé SSH (10 min)</h3>
 <ol type="1">
-<li>Git Bash : <code>cat ~/.ssh/id_ed25519.pub</code> ; copiez la ligne affichée.</li>
+<li>Git Bash : <code translate="no">cat ~/.ssh/id_ed25519.pub</code> ; copiez la ligne affichée.</li>
 <li>GitHub : <em>Settings</em>, <em>SSH and GPG keys</em>, <em>New SSH key</em> ; collez.</li>
-<li>Git Bash : <code>ssh -T git@github.com</code> ; répondez <code>yes</code> la première fois.</li>
+<li>Git Bash : <code translate="no">ssh -T git@github.com</code> ; répondez <code translate="no">yes</code> la première fois.</li>
 <li><strong>Réussi si</strong> : « Hi pseudo! You’ve successfully authenticated… ».</li>
 </ol>
 </section>
 <section id="publier-le-git-journal-15-min" class="slide level3">
 <h3>Publier le Git Journal (15 min)</h3>
 <ol type="1">
-<li>GitHub : créez un dépôt <strong>vide</strong> <code>git-journal</code>.</li>
-<li>Git Bash : <code>git remote add</code> (commande dans le support).</li>
-<li>Puis <code>git push -u origin main</code>.</li>
+<li>GitHub : créez un dépôt <strong>vide</strong> <code translate="no">git-journal</code>.</li>
+<li>Git Bash : <code translate="no">git remote add</code> (commande dans le support).</li>
+<li>Puis <code translate="no">git push -u origin main</code>.</li>
 <li><strong>Réussi si</strong> : la page du dépôt montre vos commits.</li>
 </ol>
 <div class="schema-diapo" style="--h: 170px">
@@ -348,14 +350,14 @@ flowchart LR
   </g>
 </svg>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="fu">git</span> switch <span class="at">-c</span> ajout-liens         <span class="co"># créer la branche et s'y placer</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="fu">git</span> switch <span class="at">-c</span> ajout-liens         <span class="co"># créer la branche et s'y placer</span></span>
 <span id="cb1-2"><a aria-label="2"></a><span class="fu">git</span> add journal.md</span>
 <span id="cb1-3"><a aria-label="3"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute trois liens de documentation"</span></span>
 <span id="cb1-4"><a aria-label="4"></a><span class="fu">git</span> push <span class="at">-u</span> origin ajout-liens    <span class="co"># envoyer la branche sur GitHub</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="branches-attention-et-vérification" class="slide level3">
 <h3>Branches — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -364,7 +366,7 @@ flowchart LR
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Avant de modifier, vérifiez la branche où vous êtes : l’invite de Git Bash l’affiche entre parenthèses, et <code>git status</code> en première ligne (<code>Sur la branche …</code>, ou <code>On branch …</code> si Git s’affiche en anglais).</p>
+<p>Avant de modifier, vérifiez la branche où vous êtes : l’invite de Git Bash l’affiche entre parenthèses, et <code translate="no">git status</code> en première ligne (<code translate="no">Sur la branche …</code>, ou <code translate="no">On branch …</code> si Git s’affiche en anglais).</p>
 </div>
 </div>
 </div>
@@ -375,28 +377,28 @@ flowchart LR
 <section id="exercice-ma-première-pull-request-25-min" class="slide level3">
 <h3>Exercice — Ma première Pull Request (25 min)</h3>
 <ol type="1">
-<li>Ensemble : créez la branche <code>ajout-liens</code> dans <code>git-journal</code>.</li>
-<li>Ajoutez à <code>journal.md</code> trois liens de documentation ; commitez.</li>
+<li>Ensemble : créez la branche <code translate="no">ajout-liens</code> dans <code translate="no">git-journal</code>.</li>
+<li>Ajoutez à <code translate="no">journal.md</code> trois liens de documentation ; commitez.</li>
 <li>Poussez la branche ; sur GitHub, <em>Compare &amp; pull request</em>.</li>
-<li>Fusionnez (<em>Merge</em>) ; puis <code>git switch main</code> et <code>git pull</code>.</li>
-<li><strong>Réussi si</strong> : <code>git log --oneline</code> sur <code>main</code> montre vos liens.</li>
+<li>Fusionnez (<em>Merge</em>) ; puis <code translate="no">git switch main</code> et <code translate="no">git pull</code>.</li>
+<li><strong>Réussi si</strong> : <code translate="no">git log --oneline</code> sur <code translate="no">main</code> montre vos liens.</li>
 </ol>
 </section>
 <section id="apport-2-les-conflits-10-min" class="slide level3">
 <h3>Apport 2 — Les conflits (10 min)</h3>
 <p><strong>Avant</strong> : le fichier tel que Git le laisse.</p>
-<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<pre translate="no"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 Ma phrase, sur la branche main.
 =======
 Une autre phrase, sur la branche ajout-conclusion.
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; ajout-conclusion</code></pre>
 <div class="fragment">
-<p><strong>Après</strong> : <code>Ma phrase, sur la branche main.</code></p>
+<p><strong>Après</strong> : <code translate="no">Ma phrase, sur la branche main.</code></p>
 </div>
 </section>
 <section id="conflits-attention-et-vérification" class="slide level3">
 <h3>Conflits — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -405,7 +407,7 @@ Une autre phrase, sur la branche ajout-conclusion.
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Un marqueur oublié (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) reste dans le fichier et casse le code. Cherchez-les avant le commit.</p>
+<p>Un marqueur oublié (<code translate="no">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code translate="no">=======</code>, <code translate="no">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) reste dans le fichier et casse le code. Cherchez-les avant le commit.</p>
 </div>
 </div>
 </div>
@@ -416,7 +418,7 @@ Une autre phrase, sur la branche ajout-conclusion.
 <section id="mise-en-place-du-journal-de-veille-15-min" class="slide level3">
 <h3>Mise en place du journal de veille (15 min)</h3>
 <ol type="1">
-<li>GitHub : dépôt <strong>privé</strong> <code>journal-de-veille</code>, avec <code>README.md</code>.</li>
+<li>GitHub : dépôt <strong>privé</strong> <code translate="no">journal-de-veille</code>, avec <code translate="no">README.md</code>.</li>
 <li>Reprenez le modèle d’entrée fourni dans l’archive.</li>
 <li>Première entrée : les mots de passe (ce matin).</li>
 <li>Ajoutez vos feuilles de veille des semaines 1 et 2.</li>
@@ -435,8 +437,8 @@ Une autre phrase, sur la branche ajout-conclusion.
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Branche</strong> : <code>git switch -c nom</code> ; <code>main</code> reste intact.</li>
-<li><strong>Pull Request</strong> : proposer, relire, fusionner ; puis <code>git pull</code>.</li>
+<li><strong>Branche</strong> : <code translate="no">git switch -c nom</code> ; <code translate="no">main</code> reste intact.</li>
+<li><strong>Pull Request</strong> : proposer, relire, fusionner ; puis <code translate="no">git pull</code>.</li>
 <li><strong>Conflit</strong> : vous choisissez ; aucun marqueur ne doit rester.</li>
 </ul>
 </div>
@@ -446,7 +448,7 @@ Une autre phrase, sur la branche ajout-conclusion.
 <section id="débrief" class="slide level3">
 <h3>Débrief</h3>
 <ul>
-<li>Pourquoi travailler sur une branche plutôt que sur <code>main</code> ?</li>
+<li>Pourquoi travailler sur une branche plutôt que sur <code translate="no">main</code> ?</li>
 <li>À quoi sert une Pull Request, même quand on travaille seul ?</li>
 <li>Qui décide de la version à garder lors d’un conflit ?</li>
 </ul>
@@ -474,7 +476,7 @@ Une autre phrase, sur la branche ajout-conclusion.
 <section id="pour-aller-plus-loin" class="slide level3">
 <h3>Pour aller plus loin</h3>
 <ul>
-<li>Markdown Guide : la syntaxe de vos <code>README.md</code>, avec des exemples.</li>
+<li>Markdown Guide : la syntaxe de vos <code translate="no">README.md</code>, avec des exemples.</li>
 </ul>
 </section>
 <section id="sources" class="slide level3 smaller scrollable">
@@ -505,7 +507,6 @@ Une autre phrase, sur la branche ajout-conclusion.
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -673,27 +674,9 @@ Une autre phrase, sur la branche ajout-conclusion.
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

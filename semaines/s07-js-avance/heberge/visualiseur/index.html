@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visualiseur pas à pas</title>
+<style>
+  /* Original tool for the DWWM course (licence of the course site). No dependency, no network request. */
+  :root {
+    --fond: #ffffff; --texte: #14182b; --discret: #4a5068; --bord: #8a90a6;
+    --accent: #1f4fa0; --accent-fond: #e3ecfa; --change: #8a4b00; --change-fond: #fff1dc;
+    --code-fond: #f4f5f8; --focus: #b35900;
+    --mono: "Atkinson Hyperlegible Mono", ui-monospace, "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fond); color: var(--texte); font: 18px/1.5 "Atkinson Hyperlegible Next", system-ui, sans-serif; }
+  main { max-width: 1240px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .aide { color: var(--discret); margin: 0 0 16px; max-width: 70ch; }
+  label { font-weight: bold; margin-right: 8px; }
+  select { max-width: 100%; }
+  select, button { font: inherit; color: var(--texte); background: #fff; border: 2px solid var(--bord); border-radius: 6px; padding: 6px 14px; min-height: 44px; }
+  button { cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .barre { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+  .compteur { font-weight: bold; margin-left: 8px; }
+  .grille { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  @media (max-width: 760px) { .grille { grid-template-columns: minmax(0, 1fr); } }
+  section { border: 2px solid var(--bord); border-radius: 8px; padding: 12px; min-width: 0; }
+  h2 { font-size: 1.1rem; margin: 0 0 8px; }
+  ol.code { list-style: none; margin: 0; padding: 0; background: var(--code-fond); border-radius: 6px; font-family: var(--mono); font-size: 15px; overflow-x: auto; padding: 4px 0; }
+  ol.code li { display: grid; grid-template-columns: 1.4em 1.8em max-content; padding: 2px 8px; white-space: pre; border-left: 6px solid transparent; }
+  ol.code .marque { font-family: system-ui, sans-serif; font-weight: bold; color: var(--discret); }
+  .legende { font-size: 15px; color: var(--discret); margin: 4px 0 0; }
+  .lecteur { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  ol.code .num { color: var(--discret); text-align: right; padding-right: 8px; }
+  ol.code li.executee { background: var(--accent-fond); border-left-color: var(--accent); font-weight: bold; }
+  ol.code li.executee .marque { color: var(--accent); font-weight: bold; }
+  ol.code li.prochaine .marque { color: var(--texte); }
+  .etat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 12px 48px; position: relative; min-height: 120px; }
+  .colonne h3 { font-size: 1rem; margin: 0 0 6px; color: var(--discret); }
+  .etiquette, .objet { border: 2px solid var(--bord); border-radius: 6px; padding: 4px 10px; margin-bottom: 10px; background: #fff; position: relative; z-index: 1; }
+  .etiquette { font-family: var(--mono); font-weight: bold; }
+  .etiquette .cible { font-family: system-ui, sans-serif; font-weight: normal; color: var(--discret); font-size: 15px; display: block; }
+  .objet .titre { font-size: 15px; color: var(--discret); }
+  .objet dl { margin: 0; font-family: var(--mono); font-size: 16px; }
+  .objet dl div { display: flex; flex-wrap: wrap; column-gap: 6px; }
+  .objet dd { overflow-wrap: anywhere; }
+  .colonne { min-width: 0; }
+  /* Narrow screen: labels above objects; the written « → objet n » replaces the arrows. */
+  @media (max-width: 480px) { .etat { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
+  .objet dt::after { content: ":"; }
+  .objet dd { margin: 0; }
+  .nouveau, .modifie { border-color: var(--change); background: var(--change-fond); }
+  .modifie-champ { background: var(--change-fond); outline: 2px dashed var(--change); }
+  .badge { font-family: system-ui, sans-serif; font-size: 13px; font-weight: bold; color: var(--change); margin-left: 6px; }
+  svg.fleches { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+  .vide { color: var(--discret); font-style: normal; }
+  .console { font-family: var(--mono); background: #1b1f27; color: #e6edf3; border-radius: 6px; padding: 8px 12px; min-height: 2.5em; white-space: pre-wrap; }
+  .explication { font-size: 1.05rem; background: var(--accent-fond); border-left: 6px solid var(--accent); padding: 8px 12px; border-radius: 4px; margin: 12px 0; }
+  .note { color: var(--discret); font-size: 15px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .nouveau, .modifie, .modifie-champ { transition: background-color 200ms ease-out; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Visualiseur pas à pas</h1>
+  <p class="aide">Avancez ligne par ligne : chaque étiquette (chaque variable) montre sa valeur, ou l'objet, le tableau ou la fonction sur lequel elle est collée.
+    Au clavier : <kbd>→</kbd> ligne suivante, <kbd>←</kbd> ligne précédente, <kbd>Début</kbd> pour recommencer,
+    quand le focus est sur un bouton du visualiseur. Prédisez chaque <code>console.log</code> avant d'avancer.</p>
+
+  <div class="barre">
+    <label for="exemple">Exemple</label>
+    <select id="exemple"></select>
+  </div>
+
+  <div class="barre" id="commandes">
+    <button type="button" id="debut">⏮ Recommencer</button>
+    <button type="button" id="precedent">◀ Ligne précédente</button>
+    <button type="button" id="suivant">Ligne suivante ▶</button>
+    <span class="compteur" id="compteur"></span>
+  </div>
+
+  <p class="explication" id="explication" role="status" aria-live="polite"></p>
+
+  <div class="grille">
+    <section aria-labelledby="titre-code">
+      <h2 id="titre-code">Le code</h2>
+      <ol class="code" id="code" tabindex="0" aria-label="Code, ligne par ligne"></ol>
+      <p class="legende">✔ ligne exécutée à l’instant · → prochaine ligne</p>
+      <h2 style="margin-top:12px">Console</h2>
+      <div class="console" id="console" aria-label="Affichage de la console"></div>
+    </section>
+    <section aria-labelledby="titre-etat">
+      <h2 id="titre-etat">Étiquettes et valeurs</h2>
+      <div class="etat" id="etat">
+        <div class="colonne"><h3>Étiquettes (variables)</h3><div id="etiquettes"></div></div>
+        <div class="colonne"><h3>Objets, tableaux, fonctions</h3><div id="objets"></div></div>
+        <svg class="fleches" id="fleches" aria-hidden="true" focusable="false"></svg>
+      </div>
+      <p class="note">Chaque étiquette indique par écrit sa valeur (« = 5 ») ou son objet (« → objet 1 ») ; les flèches le montrent aussi.</p>
+    </section>
+  </div>
+</main>
+<script>
+// Each example is written by hand: the code, then the state after each line (no interpreter).
+// A step: line (1-based number of the line just executed, 0 = nothing yet), next (next line to execute),
+// vars [{ name, ref } or { name, value }], objects [{ id, kind, fields: [[key, value]], status, changed }], out (console), say.
+const EXAMPLES = [
+  {
+    id: 'etiquettes',
+    title: 'Deux étiquettes, un seul objet (vendredi)',
+    code: [
+      "const person = { name: 'Ada', city: 'Londres' };",
+      'const alias = person;                        // une 2e étiquette',
+      "alias.city = 'Paris';",
+      'console.log(person.city);                    // ?',
+      '',
+      "const moved = { ...person, city: 'Rome' };   // un nouvel objet",
+      'console.log(person.city);                    // ?',
+    ],
+    steps: [
+      { line: 0, next: 1, vars: [], objects: [], out: [],
+        say: 'Aucune ligne exécutée. Prédisez les deux console.log, puis avancez.' },
+      { line: 1, next: 2, vars: [{ name: 'person', ref: 1 }],
+        objects: [{ id: 1, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Londres'"]], status: 'nouveau' }], out: [],
+        say: 'Ligne 1 : un objet est créé, l’objet 1 ; l’étiquette person est collée dessus.' },
+      { line: 2, next: 3, vars: [{ name: 'person', ref: 1 }, { name: 'alias', ref: 1, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Londres'"]] }], out: [],
+        say: 'Ligne 2 : alias est une deuxième étiquette, collée sur le même objet 1. Rien n’est copié.' },
+      { line: 3, next: 4, vars: [{ name: 'person', ref: 1 }, { name: 'alias', ref: 1 }],
+        objects: [{ id: 1, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Paris'"]], status: 'modifie', changed: 'city' }], out: [],
+        say: 'Ligne 3 : on modifie city dans l’objet 1, par l’étiquette alias. person est collée sur ce même objet.' },
+      { line: 4, next: 6, vars: [{ name: 'person', ref: 1 }, { name: 'alias', ref: 1 }],
+        objects: [{ id: 1, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Paris'"]] }], out: ['Paris'],
+        say: 'Ligne 4 : la console affiche Paris : person et alias désignent le même objet.' },
+      { line: 6, next: 7, vars: [{ name: 'person', ref: 1 }, { name: 'alias', ref: 1 }, { name: 'moved', ref: 2, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Paris'"]] },
+          { id: 2, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Rome'"]], status: 'nouveau' }], out: ['Paris'],
+        say: 'Ligne 6 : le spread crée un nouvel objet, l’objet 2, avec city à Rome. L’objet 1 ne change pas.' },
+      { line: 7, next: 0, vars: [{ name: 'person', ref: 1 }, { name: 'alias', ref: 1 }, { name: 'moved', ref: 2 }],
+        objects: [{ id: 1, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Paris'"]] },
+          { id: 2, kind: 'objet', fields: [['name', "'Ada'"], ['city', "'Rome'"]] }], out: ['Paris', 'Paris'],
+        say: 'Ligne 7 : la console affiche encore Paris : seul l’objet 2 contient Rome. Fin du programme.' },
+    ],
+  },
+  {
+    id: 'tableau',
+    title: 'Copier un tableau, ou coller une étiquette',
+    code: [
+      "const list = ['Louvre', 'Orsay'];",
+      'const same = list;          // une 2e étiquette',
+      'const copy = [...list];     // un nouveau tableau',
+      "same.push('Guimet');",
+      'console.log(list.length);   // ?',
+      'console.log(copy.length);   // ?',
+    ],
+    steps: [
+      { line: 0, next: 1, vars: [], objects: [], out: [],
+        say: 'Aucune ligne exécutée. Prédisez les deux console.log, puis avancez.' },
+      { line: 1, next: 2, vars: [{ name: 'list', ref: 1, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"]], status: 'nouveau' }], out: [],
+        say: 'Ligne 1 : un tableau est créé, le tableau 1 ; l’étiquette list est collée dessus.' },
+      { line: 2, next: 3, vars: [{ name: 'list', ref: 1 }, { name: 'same', ref: 1, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"]] }], out: [],
+        say: 'Ligne 2 : same est une deuxième étiquette sur le même tableau 1.' },
+      { line: 3, next: 4, vars: [{ name: 'list', ref: 1 }, { name: 'same', ref: 1 }, { name: 'copy', ref: 2, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"]] },
+          { id: 2, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"]], status: 'nouveau' }], out: [],
+        say: 'Ligne 3 : le spread crée un nouveau tableau, le tableau 2, avec les mêmes valeurs ; copy est collée dessus.' },
+      { line: 4, next: 5, vars: [{ name: 'list', ref: 1 }, { name: 'same', ref: 1 }, { name: 'copy', ref: 2 }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"], ['2', "'Guimet'"]], status: 'modifie', changed: '2' },
+          { id: 2, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"]] }], out: [],
+        say: 'Ligne 4 : push ajoute Guimet au tableau 1, par l’étiquette same. Le tableau 2 ne change pas.' },
+      { line: 5, next: 6, vars: [{ name: 'list', ref: 1 }, { name: 'same', ref: 1 }, { name: 'copy', ref: 2 }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"], ['2', "'Guimet'"]] },
+          { id: 2, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"]] }], out: ['3'],
+        say: 'Ligne 5 : la console affiche 3 : list désigne le tableau 1, qui a maintenant trois éléments.' },
+      { line: 6, next: 0, vars: [{ name: 'list', ref: 1 }, { name: 'same', ref: 1 }, { name: 'copy', ref: 2 }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"], ['2', "'Guimet'"]] },
+          { id: 2, kind: 'tableau', fields: [['0', "'Louvre'"], ['1', "'Orsay'"]] }], out: ['3', '2'],
+        say: 'Ligne 6 : la console affiche 2 : copy désigne le tableau 2, qui n’a pas changé. Fin du programme.' },
+    ],
+  },
+  {
+    id: 'map',
+    title: 'map : transformer chaque élément (lundi)',
+    code: [
+      'const prices = [10, 25, 8];',
+      'const withTax = prices.map((price) => price * 1.2);',
+      'console.log(withTax);   // ?',
+    ],
+    steps: [
+      { line: 0, next: 1, vars: [], objects: [], out: [],
+        say: 'Aucune ligne exécutée. Prédisez le console.log, puis avancez.' },
+      { line: 1, next: 2, vars: [{ name: 'prices', ref: 1, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '10'], ['1', '25'], ['2', '8']], status: 'nouveau' }], out: [],
+        say: 'Ligne 1 : le tableau 1 est créé ; l’étiquette prices est collée dessus.' },
+      { line: 2, next: 2, vars: [{ name: 'prices', ref: 1 }, { name: 'price', value: '10', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '10'], ['1', '25'], ['2', '8']] },
+          { id: 2, kind: 'tableau', fields: [['0', '12']], status: 'nouveau' }], out: [],
+        say: 'Ligne 2, élément 0 : map appelle la fonction avec price = 10 ; elle renvoie 12, rangé dans un nouveau tableau, le tableau 2.' },
+      { line: 2, next: 2, vars: [{ name: 'prices', ref: 1 }, { name: 'price', value: '25', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '10'], ['1', '25'], ['2', '8']] },
+          { id: 2, kind: 'tableau', fields: [['0', '12'], ['1', '30']], status: 'modifie', changed: '1' }], out: [],
+        say: 'Ligne 2, élément 1 : price = 25 ; la fonction renvoie 30, ajouté au tableau 2.' },
+      { line: 2, next: 2, vars: [{ name: 'prices', ref: 1 }, { name: 'price', value: '8', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '10'], ['1', '25'], ['2', '8']] },
+          { id: 2, kind: 'tableau', fields: [['0', '12'], ['1', '30'], ['2', '9.6']], status: 'modifie', changed: '2' }], out: [],
+        say: 'Ligne 2, élément 2 : price = 8 ; la fonction renvoie 9.6. Trois éléments au départ, trois à l’arrivée.' },
+      { line: 2, next: 3, vars: [{ name: 'prices', ref: 1 }, { name: 'withTax', ref: 2, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '10'], ['1', '25'], ['2', '8']] },
+          { id: 2, kind: 'tableau', fields: [['0', '12'], ['1', '30'], ['2', '9.6']] }], out: [],
+        say: 'Fin de la ligne 2 : map renvoie le tableau 2 ; withTax est collée dessus. Le tableau 1 n’a pas changé.' },
+      { line: 3, next: 0, vars: [{ name: 'prices', ref: 1 }, { name: 'withTax', ref: 2 }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '10'], ['1', '25'], ['2', '8']] },
+          { id: 2, kind: 'tableau', fields: [['0', '12'], ['1', '30'], ['2', '9.6']] }], out: ['[ 12, 30, 9.6 ]'],
+        say: 'Ligne 3 : la console affiche le nouveau tableau. Fin du programme.' },
+    ],
+  },
+  {
+    id: 'reduce',
+    title: 'reduce : résumer un tableau en une valeur (jeudi)',
+    code: [
+      'const numbers = [3, 8, 5];',
+      'const total = numbers.reduce((sum, n) => sum + n, 0);',
+      'console.log(total);   // ?',
+    ],
+    steps: [
+      { line: 0, next: 1, vars: [], objects: [], out: [],
+        say: 'Aucune ligne exécutée. Prédisez le console.log, puis avancez.' },
+      { line: 1, next: 2, vars: [{ name: 'numbers', ref: 1, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '3'], ['1', '8'], ['2', '5']], status: 'nouveau' }], out: [],
+        say: 'Ligne 1 : le tableau 1 est créé ; l’étiquette numbers est collée dessus.' },
+      { line: 2, next: 2, vars: [{ name: 'numbers', ref: 1 }, { name: 'sum', value: '0', status: 'nouveau' }, { name: 'n', value: '3', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '3'], ['1', '8'], ['2', '5']] }], out: [],
+        say: 'Tour 1 : sum vaut la valeur de départ, 0 ; n vaut 3. La fonction renvoie 0 + 3 = 3.' },
+      { line: 2, next: 2, vars: [{ name: 'numbers', ref: 1 }, { name: 'sum', value: '3', status: 'nouveau' }, { name: 'n', value: '8', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '3'], ['1', '8'], ['2', '5']] }], out: [],
+        say: 'Tour 2 : sum reçoit le résultat du tour 1, 3 ; n vaut 8. La fonction renvoie 3 + 8 = 11.' },
+      { line: 2, next: 2, vars: [{ name: 'numbers', ref: 1 }, { name: 'sum', value: '11', status: 'nouveau' }, { name: 'n', value: '5', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '3'], ['1', '8'], ['2', '5']] }], out: [],
+        say: 'Tour 3 : sum vaut 11 ; n vaut 5. La fonction renvoie 11 + 5 = 16. C’était le dernier élément.' },
+      { line: 2, next: 3, vars: [{ name: 'numbers', ref: 1 }, { name: 'total', value: '16', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '3'], ['1', '8'], ['2', '5']] }], out: [],
+        say: 'Fin de la ligne 2 : reduce renvoie le résultat du dernier tour, 16 ; total vaut 16. Une seule valeur, pas un tableau.' },
+      { line: 3, next: 0, vars: [{ name: 'numbers', ref: 1 }, { name: 'total', value: '16' }],
+        objects: [{ id: 1, kind: 'tableau', fields: [['0', '3'], ['1', '8'], ['2', '5']] }], out: ['16'],
+        say: 'Ligne 3 : la console affiche 16. Fin du programme.' },
+    ],
+  },
+  {
+    id: 'fabrique',
+    title: 'Une fonction qui fabrique une fonction (pour aller plus loin)',
+    code: [
+      'function makeAdder(amount) {',
+      '  return (n) => n + amount;',
+      '}',
+      '',
+      'const addFive = makeAdder(5);',
+      'console.log(addFive(10));   // ?',
+    ],
+    steps: [
+      { line: 0, next: 1, vars: [], objects: [], out: [],
+        say: 'Aucune ligne exécutée. Prédisez le console.log, puis avancez.' },
+      { line: 1, next: 5, vars: [{ name: 'makeAdder', ref: 1, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['paramètre', 'amount'], ['renvoie', '(n) => n + amount']], status: 'nouveau' }], out: [],
+        say: 'Lignes 1 à 3 : la fonction makeAdder est déclarée (fonction 1). Son code ne s’exécute pas encore.' },
+      { line: 5, next: 2, vars: [{ name: 'makeAdder', ref: 1 }, { name: 'amount', value: '5', status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['paramètre', 'amount'], ['renvoie', '(n) => n + amount']] }], out: [],
+        say: 'Ligne 5 : makeAdder(5) commence ; dans makeAdder, amount vaut 5.' },
+      { line: 2, next: 5, vars: [{ name: 'makeAdder', ref: 1 }, { name: 'amount', value: '5' }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['paramètre', 'amount'], ['renvoie', '(n) => n + amount']] },
+          { id: 2, kind: 'fonction', fields: [['code', '(n) => n + amount'], ['se souvient de', 'amount = 5']], status: 'nouveau' }], out: [],
+        say: 'Ligne 2 : return crée une nouvelle fonction, la fonction 2. Elle se souvient de amount = 5 : c’est la closure.' },
+      { line: 5, next: 6, vars: [{ name: 'makeAdder', ref: 1 }, { name: 'addFive', ref: 2, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['paramètre', 'amount'], ['renvoie', '(n) => n + amount']] },
+          { id: 2, kind: 'fonction', fields: [['code', '(n) => n + amount'], ['se souvient de', 'amount = 5']] }], out: [],
+        say: 'Fin de la ligne 5 : makeAdder a fini, l’étiquette amount a disparu ; la fonction 2 garde pourtant amount = 5. addFive est collée sur la fonction 2.' },
+      { line: 6, next: 0, vars: [{ name: 'makeAdder', ref: 1 }, { name: 'addFive', ref: 2 }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['paramètre', 'amount'], ['renvoie', '(n) => n + amount']] },
+          { id: 2, kind: 'fonction', fields: [['code', '(n) => n + amount'], ['se souvient de', 'amount = 5']] }], out: ['15'],
+        say: 'Ligne 6 : addFive(10) calcule n + amount, avec n = 10 et amount = 5 (son souvenir) ; la console affiche 15. Fin du programme.' },
+    ],
+  },
+  {
+    id: 'compteur',
+    title: 'Un compteur à l’état privé (pour aller plus loin)',
+    code: [
+      'function createCounter() {',
+      '  let count = 0;',
+      '  return () => {',
+      '    count = count + 1;',
+      '    return count;',
+      '  };',
+      '}',
+      '',
+      'const a = createCounter();',
+      'console.log(a());   // ?',
+      'console.log(a());   // ?',
+      'const b = createCounter();',
+      'console.log(b());   // ?',
+    ],
+    steps: [
+      { line: 0, next: 1, vars: [], objects: [], out: [],
+        say: 'Aucune ligne exécutée. Prédisez les trois console.log, puis avancez.' },
+      { line: 1, next: 9, vars: [{ name: 'createCounter', ref: 1, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['crée', 'count = 0'], ['renvoie', 'une fonction qui ajoute 1']], status: 'nouveau' }], out: [],
+        say: 'Lignes 1 à 7 : la fonction createCounter est déclarée (fonction 1). Rien ne s’exécute encore.' },
+      { line: 9, next: 10, vars: [{ name: 'createCounter', ref: 1 }, { name: 'a', ref: 2, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['crée', 'count = 0'], ['renvoie', 'une fonction qui ajoute 1']] },
+          { id: 2, kind: 'fonction', fields: [['se souvient de', 'count = 0']], status: 'nouveau' }], out: [],
+        say: 'Ligne 9 : createCounter() crée count à 0, puis renvoie la fonction 2, qui se souvient de ce count. a est collée sur la fonction 2. Aucune étiquette count dans le programme : il est privé.' },
+      { line: 10, next: 11, vars: [{ name: 'createCounter', ref: 1 }, { name: 'a', ref: 2 }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['crée', 'count = 0'], ['renvoie', 'une fonction qui ajoute 1']] },
+          { id: 2, kind: 'fonction', fields: [['se souvient de', 'count = 1']], status: 'modifie', changed: 'se souvient de' }], out: ['1'],
+        say: 'Ligne 10 : a() ajoute 1 au count de la fonction 2 et le renvoie ; la console affiche 1.' },
+      { line: 11, next: 12, vars: [{ name: 'createCounter', ref: 1 }, { name: 'a', ref: 2 }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['crée', 'count = 0'], ['renvoie', 'une fonction qui ajoute 1']] },
+          { id: 2, kind: 'fonction', fields: [['se souvient de', 'count = 2']], status: 'modifie', changed: 'se souvient de' }], out: ['1', '2'],
+        say: 'Ligne 11 : a() repart du count gardé, 1 ; la console affiche 2.' },
+      { line: 12, next: 13, vars: [{ name: 'createCounter', ref: 1 }, { name: 'a', ref: 2 }, { name: 'b', ref: 3, status: 'nouveau' }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['crée', 'count = 0'], ['renvoie', 'une fonction qui ajoute 1']] },
+          { id: 2, kind: 'fonction', fields: [['se souvient de', 'count = 2']] },
+          { id: 3, kind: 'fonction', fields: [['se souvient de', 'count = 0']], status: 'nouveau' }], out: ['1', '2'],
+        say: 'Ligne 12 : un nouvel appel à createCounter crée un nouveau count, à 0, et la fonction 3 ; b est collée dessus.' },
+      { line: 13, next: 0, vars: [{ name: 'createCounter', ref: 1 }, { name: 'a', ref: 2 }, { name: 'b', ref: 3 }],
+        objects: [{ id: 1, kind: 'fonction', fields: [['crée', 'count = 0'], ['renvoie', 'une fonction qui ajoute 1']] },
+          { id: 2, kind: 'fonction', fields: [['se souvient de', 'count = 2']] },
+          { id: 3, kind: 'fonction', fields: [['se souvient de', 'count = 1']], status: 'modifie', changed: 'se souvient de' }], out: ['1', '2', '1'],
+        say: 'Ligne 13 : b() ajoute 1 à son propre count ; la console affiche 1. Le count de a vaut toujours 2. Fin du programme.' },
+    ],
+  },
+];
+
+const $ = (id) => document.getElementById(id);
+let example = EXAMPLES[0];
+let index = 0;
+
+function el(tag, props = {}, ...children) {
+  const node = document.createElement(tag);
+  Object.assign(node, props);
+  for (const child of children) node.append(child);
+  return node;
+}
+
+function renderCode(step) {
+  const list = $('code');
+  list.replaceChildren();
+  example.code.forEach((text, i) => {
+    const n = i + 1;
+    const item = el('li');
+    let mark = '';
+    if (n === step.line) { item.className = 'executee'; item.setAttribute('aria-current', 'step'); mark = '✔'; }
+    else if (n === step.next) { item.className = 'prochaine'; mark = '→'; }
+    const hidden = mark === '✔' ? ' (ligne exécutée)' : mark === '→' ? ' (prochaine ligne)' : '';
+    item.append(el('span', { className: 'marque', textContent: mark, ariaHidden: 'true' }), el('span', { className: 'num', textContent: String(n) }), el('span', { textContent: text || ' ' }), el('span', { className: 'lecteur', textContent: hidden }));
+    list.append(item);
+  });
+}
+
+function renderState(step) {
+  const labels = $('etiquettes');
+  const objects = $('objets');
+  labels.replaceChildren();
+  objects.replaceChildren();
+  if (step.vars.length === 0) labels.append(el('p', { className: 'vide', textContent: 'Aucune étiquette pour l’instant.' }));
+  for (const v of step.vars) {
+    const box = el('div', { className: `etiquette${v.status === 'nouveau' ? ' nouveau' : ''}` }, v.name);
+    if (v.ref === undefined) {
+      // A plain value (number, text): written next to the label, no arrow.
+      box.append(el('span', { className: 'cible', textContent: `= ${v.value}` }));
+    } else {
+      const target = step.objects.find((o) => o.id === v.ref);
+      box.dataset.ref = String(v.ref);
+      box.append(el('span', { className: 'cible', textContent: `→ ${target.kind} ${target.id}` }));
+    }
+    if (v.status === 'nouveau') box.append(el('span', { className: 'badge', textContent: 'nouvelle' }));
+    labels.append(box);
+  }
+  for (const o of step.objects) {
+    const box = el('div', { className: `objet${o.status ? ` ${o.status}` : ''}` });
+    box.id = `objet-${o.id}`;
+    const head = el('div', { className: 'titre', textContent: `${o.kind} ${o.id}` });
+    if (o.status === 'nouveau') head.append(el('span', { className: 'badge', textContent: { tableau: 'nouveau', fonction: 'nouvelle' }[o.kind] ?? 'nouvel objet' }));
+    if (o.status === 'modifie') head.append(el('span', { className: 'badge', textContent: 'modifié' }));
+    const fields = el('dl');
+    for (const [key, value] of o.fields) {
+      const row = el('div', { className: key === o.changed ? 'modifie-champ' : '' }, el('dt', { textContent: key }), el('dd', { textContent: value }));
+      fields.append(row);
+    }
+    box.append(head, fields);
+    objects.append(box);
+  }
+  $('console').textContent = step.out.length ? step.out.join('\n') : '';
+  drawArrows();
+}
+
+function drawArrows() {
+  const svg = $('fleches');
+  const zone = $('etat').getBoundingClientRect();
+  svg.replaceChildren();
+  const ns = 'http://www.w3.org/2000/svg';
+  const defs = document.createElementNS(ns, 'defs');
+  defs.innerHTML = '<marker id="pointe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f4fa0"/></marker>';
+  svg.append(defs);
+  // Side by side only: when the columns stack (narrow screen), the written « → objet n » is enough.
+  const labels = [...document.querySelectorAll('.etiquette[data-ref]')];
+  for (const label of labels) {
+    const target = $(`objet-${label.dataset.ref}`);
+    if (!target) continue;
+    const a = label.getBoundingClientRect();
+    const b = target.getBoundingClientRect();
+    if (b.left < a.right) continue;
+    const x1 = a.right - zone.left, y1 = a.top + a.height / 2 - zone.top;
+    const x2 = b.left - zone.left - 2, y2 = b.top + 18 - zone.top;
+    const path = document.createElementNS(ns, 'path');
+    const mid = (x1 + x2) / 2;
+    path.setAttribute('d', `M${x1} ${y1} C${mid} ${y1} ${mid} ${y2} ${x2} ${y2}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', '#1f4fa0');
+    path.setAttribute('stroke-width', '2.5');
+    path.setAttribute('marker-end', 'url(#pointe)');
+    svg.append(path);
+  }
+}
+
+function render() {
+  const step = example.steps[index];
+  renderCode(step);
+  renderState(step);
+  $('compteur').textContent = `Étape ${index + 1} sur ${example.steps.length}`;
+  const output = step.out.length && (index === 0 || step.out.length > example.steps[index - 1].out.length)
+    ? ` Console : ${step.out[step.out.length - 1]}.` : '';
+  $('explication').textContent = step.say + output;
+}
+
+function go(to) {
+  if (to < 0) { $('explication').textContent = 'C’est la première étape : aucune ligne n’est encore exécutée.'; return; }
+  if (to >= example.steps.length) { $('explication').textContent = 'C’est la dernière étape : le programme est terminé. Recommencez avec le bouton Recommencer.'; return; }
+  index = to;
+  render();
+}
+
+for (const [i, ex] of EXAMPLES.entries()) $('exemple').append(el('option', { value: String(i), textContent: ex.title }));
+// The address can open one example: index.html#reduce (the course pages link to each example this way).
+function choose(i) { example = EXAMPLES[i]; index = 0; $('exemple').value = String(i); render(); }
+const fromHash = EXAMPLES.findIndex((ex) => `#${ex.id}` === location.hash);
+if (fromHash > 0) example = EXAMPLES[fromHash];
+$('exemple').value = String(Math.max(fromHash, 0));
+$('exemple').addEventListener('change', (e) => {
+  choose(Number(e.target.value));
+  history.replaceState(null, '', `#${example.id}`);
+});
+window.addEventListener('hashchange', () => {
+  const i = EXAMPLES.findIndex((ex) => `#${ex.id}` === location.hash);
+  if (i >= 0) choose(i);
+});
+$('debut').addEventListener('click', () => go(0));
+$('precedent').addEventListener('click', () => go(index - 1));
+$('suivant').addEventListener('click', () => go(index + 1));
+$('commandes').addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
+  else if (e.key === 'Home') { e.preventDefault(); go(0); }
+});
+window.addEventListener('resize', drawArrows);
+render();
+</script>
+</body>
+</html>

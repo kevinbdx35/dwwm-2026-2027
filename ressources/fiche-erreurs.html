@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -67,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-098c5701b2072b58505aa6340787a2ca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -101,6 +136,7 @@ div.csl-indent {
 
 <link rel="stylesheet" href="../polices.css">
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../theme-commun.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -469,6 +505,83 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../semaines/s07-js-avance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, matin — Séance PAF</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, après-midi — Fonctions en paramètre (callback) et map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, matin — Garder et trouver : filter et find</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, après-midi — Les objets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 18/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../semaines/s07-js-avance/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -484,12 +597,13 @@ div.csl-indent {
   <li><a href="#la-méthode-pour-tous-les-outils" id="toc-la-méthode-pour-tous-les-outils" class="nav-link active" data-scroll-target="#la-méthode-pour-tous-les-outils">La méthode, pour tous les outils</a></li>
   <li><a href="#node.js-semaine-2" id="toc-node.js-semaine-2" class="nav-link" data-scroll-target="#node.js-semaine-2">Node.js (semaine 2)</a>
   <ul>
-  <li><a href="#une-variable-qui-nexiste-pas-referenceerror" id="toc-une-variable-qui-nexiste-pas-referenceerror" class="nav-link" data-scroll-target="#une-variable-qui-nexiste-pas-referenceerror">Une variable qui n’existe pas : <code>ReferenceError</code></a></li>
-  <li><a href="#une-opération-impossible-typeerror" id="toc-une-opération-impossible-typeerror" class="nav-link" data-scroll-target="#une-opération-impossible-typeerror">Une opération impossible : <code>TypeError</code></a></li>
-  <li><a href="#une-faute-de-syntaxe-syntaxerror" id="toc-une-faute-de-syntaxe-syntaxerror" class="nav-link" data-scroll-target="#une-faute-de-syntaxe-syntaxerror">Une faute de syntaxe : <code>SyntaxError</code></a></li>
-  <li><a href="#un-fichier-introuvable-cannot-find-module" id="toc-un-fichier-introuvable-cannot-find-module" class="nav-link" data-scroll-target="#un-fichier-introuvable-cannot-find-module">Un fichier introuvable : <code>Cannot find module</code></a></li>
-  <li><a href="#test-rouge" id="toc-test-rouge" class="nav-link" data-scroll-target="#test-rouge">Un test rouge : <code>node --test</code></a></li>
-  <li><a href="#tout-le-fichier" id="toc-tout-le-fichier" class="nav-link" data-scroll-target="#tout-le-fichier">Tout le fichier de tests échoue : <code>tests 1</code>, <code>fail 1</code></a></li>
+  <li><a href="#une-variable-qui-nexiste-pas-referenceerror" id="toc-une-variable-qui-nexiste-pas-referenceerror" class="nav-link" data-scroll-target="#une-variable-qui-nexiste-pas-referenceerror">Une variable qui n’existe pas : <code translate="no">ReferenceError</code></a></li>
+  <li><a href="#une-opération-impossible-typeerror" id="toc-une-opération-impossible-typeerror" class="nav-link" data-scroll-target="#une-opération-impossible-typeerror">Une opération impossible : <code translate="no">TypeError</code></a></li>
+  <li><a href="#une-faute-de-syntaxe-syntaxerror" id="toc-une-faute-de-syntaxe-syntaxerror" class="nav-link" data-scroll-target="#une-faute-de-syntaxe-syntaxerror">Une faute de syntaxe : <code translate="no">SyntaxError</code></a></li>
+  <li><a href="#un-fichier-introuvable-cannot-find-module" id="toc-un-fichier-introuvable-cannot-find-module" class="nav-link" data-scroll-target="#un-fichier-introuvable-cannot-find-module">Un fichier introuvable : <code translate="no">Cannot find module</code></a></li>
+  <li><a href="#test-rouge" id="toc-test-rouge" class="nav-link" data-scroll-target="#test-rouge">Un test rouge : <code translate="no">node --test</code></a></li>
+  <li><a href="#tout-le-fichier" id="toc-tout-le-fichier" class="nav-link" data-scroll-target="#tout-le-fichier">Tout le fichier de tests échoue : <code translate="no">tests 1</code>, <code translate="no">fail 1</code></a></li>
+  <li><a href="#export-manquant" id="toc-export-manquant" class="nav-link" data-scroll-target="#export-manquant">Le test ne trouve pas ma fonction : <code translate="no">is not a function</code>, <code translate="no">undefined</code></a></li>
   </ul></li>
   <li><a href="#vocabulaire-tests" id="toc-vocabulaire-tests" class="nav-link" data-scroll-target="#vocabulaire-tests">Le vocabulaire des messages de test (semaine 5)</a></li>
   <li><a href="#eslint-semaine-2" id="toc-eslint-semaine-2" class="nav-link" data-scroll-target="#eslint-semaine-2">ESLint (semaine 2)</a>
@@ -500,7 +614,7 @@ div.csl-indent {
   <li><a href="#git-semaine-4" id="toc-git-semaine-4" class="nav-link" data-scroll-target="#git-semaine-4">Git (semaine 4)</a>
   <ul>
   <li><a href="#pas-dans-un-dépôt" id="toc-pas-dans-un-dépôt" class="nav-link" data-scroll-target="#pas-dans-un-dépôt">Pas dans un dépôt</a></li>
-  <li><a href="#git-log-vide" id="toc-git-log-vide" class="nav-link" data-scroll-target="#git-log-vide"><code>git log</code> ne montre rien</a></li>
+  <li><a href="#git-log-vide" id="toc-git-log-vide" class="nav-link" data-scroll-target="#git-log-vide"><code translate="no">git log</code> ne montre rien</a></li>
   <li><a href="#un-conflit-de-fusion" id="toc-un-conflit-de-fusion" class="nav-link" data-scroll-target="#un-conflit-de-fusion">Un conflit de fusion</a></li>
   <li><a href="#un-envoi-refusé" id="toc-un-envoi-refusé" class="nav-link" data-scroll-target="#un-envoi-refusé">Un envoi refusé</a></li>
   <li><a href="#un-avertissement-de-fin-de-ligne-windows" id="toc-un-avertissement-de-fin-de-ligne-windows" class="nav-link" data-scroll-target="#un-avertissement-de-fin-de-ligne-windows">Un avertissement de fin de ligne (Windows)</a></li>
@@ -542,83 +656,84 @@ div.csl-indent {
 <section id="la-méthode-pour-tous-les-outils" class="level2">
 <h2 class="anchored" data-anchor-id="la-méthode-pour-tous-les-outils">La méthode, pour tous les outils</h2>
 <ol type="1">
-<li><strong>Lisez le type</strong> : le premier mot important (<code>TypeError</code>, <code>error</code>, <code>fatal</code>, <code>CONFLICT</code>…).</li>
+<li><strong>Lisez le type</strong> : le premier mot important (<code translate="no">TypeError</code>, <code translate="no">error</code>, <code translate="no">fatal</code>, <code translate="no">CONFLICT</code>…).</li>
 <li><strong>Lisez le message</strong> : la phrase qui suit, mot par mot. Cherchez les mots inconnus.</li>
 <li><strong>Trouvez l’endroit</strong> : le fichier, la ligne, parfois la colonne.</li>
 <li><strong>Corrigez une chose à la fois</strong>, puis relancez.</li>
 </ol>
-<p>C’est la démarche de débogage de la semaine 3 : lire, isoler, tester, corriger. Les chemins des fichiers affichés ici viennent d’un ordinateur sous Linux ; sous Windows, ils commencent par <code>C:/Users/…</code>. Certains outils affichent leurs messages en français : le sens et la place de chaque partie restent les mêmes.</p>
+<p>C’est la démarche de débogage de la semaine 3 : lire, isoler, tester, corriger. Les chemins des fichiers affichés ici viennent d’un ordinateur sous Linux ; sous Windows, ils commencent par <code translate="no">C:/Users/…</code>. Certains outils affichent leurs messages en français : le sens et la place de chaque partie restent les mêmes.</p>
 </section>
 <section id="node.js-semaine-2" class="level2">
 <h2 class="anchored" data-anchor-id="node.js-semaine-2">Node.js (semaine 2)</h2>
 <section id="une-variable-qui-nexiste-pas-referenceerror" class="level3">
-<h3 class="anchored" data-anchor-id="une-variable-qui-nexiste-pas-referenceerror">Une variable qui n’existe pas : <code>ReferenceError</code></h3>
-<pre class="text"><code>file:///…/dwwm/semaine-02/ref.js:1
+<h3 class="anchored" data-anchor-id="une-variable-qui-nexiste-pas-referenceerror">Une variable qui n’existe pas : <code translate="no">ReferenceError</code></h3>
+<pre class="text" translate="no"><code>file:///…/dwwm/semaine-02/ref.js:1
 console.log(prix);
             ^
 
 ReferenceError: prix is not defined
     at file:///…/dwwm/semaine-02/ref.js:1:13</code></pre>
 <ul>
-<li><strong>Où</strong> : la première ligne donne le fichier et la ligne (<code>ref.js:1</code>) ; le <code>^</code> montre l’endroit exact.</li>
-<li><strong>Type</strong> : <code>ReferenceError</code>, une variable utilisée alors qu’elle n’existe pas <span class="citation" data-cites="mdn-referenceerror">(<a href="#ref-mdn-referenceerror" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span>.</li>
-<li><strong>Message</strong> : <code>prix is not defined</code>, « <code>prix</code> n’est pas défini ».</li>
-<li><strong>Quoi faire</strong> : vérifiez l’orthographe du nom, et que la variable est déclarée (<code>const</code>, <code>let</code>) <strong>avant</strong> cette ligne, dans le même bloc.</li>
+<li><strong>Où</strong> : la première ligne donne le fichier et la ligne (<code translate="no">ref.js:1</code>) ; le <code translate="no">^</code> montre l’endroit exact.</li>
+<li><strong>Type</strong> : <code translate="no">ReferenceError</code>, une variable utilisée alors qu’elle n’existe pas <span class="citation" data-cites="mdn-referenceerror">(<a href="#ref-mdn-referenceerror" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span>.</li>
+<li><strong>Message</strong> : <code translate="no">prix is not defined</code>, « <code translate="no">prix</code> n’est pas défini ».</li>
+<li><strong>Quoi faire</strong> : vérifiez l’orthographe du nom, et que la variable est déclarée (<code translate="no">const</code>, <code translate="no">let</code>) <strong>avant</strong> cette ligne, dans le même bloc.</li>
 </ul>
 </section>
 <section id="une-opération-impossible-typeerror" class="level3">
-<h3 class="anchored" data-anchor-id="une-opération-impossible-typeerror">Une opération impossible : <code>TypeError</code></h3>
-<pre class="text"><code>file:///…/dwwm/semaine-02/type.js:2
+<h3 class="anchored" data-anchor-id="une-opération-impossible-typeerror">Une opération impossible : <code translate="no">TypeError</code></h3>
+<pre class="text" translate="no"><code>file:///…/dwwm/semaine-02/type.js:2
 console.log(word.length);
                  ^
 
 TypeError: Cannot read properties of undefined (reading 'length')
     at file:///…/dwwm/semaine-02/type.js:2:18</code></pre>
 <ul>
-<li><strong>Type</strong> : <code>TypeError</code>, une opération impossible sur une valeur du mauvais type <span class="citation" data-cites="mdn-typeerror">(<a href="#ref-mdn-typeerror" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>.</li>
-<li><strong>Message</strong> : « impossible de lire les propriétés de <code>undefined</code> (en lisant <code>length</code>) » : <code>word</code> vaut <code>undefined</code>.</li>
-<li><strong>Quoi faire</strong> : cherchez pourquoi la valeur vaut <code>undefined</code> (un argument oublié, une variable jamais remplie), puis traitez ce cas d’abord (style défensif).</li>
+<li><strong>Type</strong> : <code translate="no">TypeError</code>, une opération impossible sur une valeur du mauvais type <span class="citation" data-cites="mdn-typeerror">(<a href="#ref-mdn-typeerror" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>.</li>
+<li><strong>Message</strong> : « impossible de lire les propriétés de <code translate="no">undefined</code> (en lisant <code translate="no">length</code>) » : <code translate="no">word</code> vaut <code translate="no">undefined</code>.</li>
+<li><strong>Quoi faire</strong> : cherchez pourquoi la valeur vaut <code translate="no">undefined</code> (un argument oublié, une variable jamais remplie), puis traitez ce cas d’abord (style défensif).</li>
 </ul>
 </section>
 <section id="une-faute-de-syntaxe-syntaxerror" class="level3">
-<h3 class="anchored" data-anchor-id="une-faute-de-syntaxe-syntaxerror">Une faute de syntaxe : <code>SyntaxError</code></h3>
-<pre class="text"><code>file:///…/dwwm/semaine-02/syn.js:1
+<h3 class="anchored" data-anchor-id="une-faute-de-syntaxe-syntaxerror">Une faute de syntaxe : <code translate="no">SyntaxError</code></h3>
+<pre class="text" translate="no"><code>file:///…/dwwm/semaine-02/syn.js:1
 console.log('bonjour';
             ^^^^^^^^^
 
 SyntaxError: missing ) after argument list</code></pre>
 <ul>
-<li><strong>Type</strong> : <code>SyntaxError</code>, le code ne respecte pas la grammaire de JavaScript <span class="citation" data-cites="mdn-syntaxerror">(<a href="#ref-mdn-syntaxerror" role="doc-biblioref">MDN contributors, s.&nbsp;d.</a>)</span> : le programme ne démarre même pas.</li>
-<li><strong>Message</strong> : « il manque <code>)</code> après la liste des arguments ».</li>
+<li><strong>Type</strong> : <code translate="no">SyntaxError</code>, le code ne respecte pas la grammaire de JavaScript <span class="citation" data-cites="mdn-syntaxerror">(<a href="#ref-mdn-syntaxerror" role="doc-biblioref">MDN contributors, s.&nbsp;d.</a>)</span> : le programme ne démarre même pas.</li>
+<li><strong>Message</strong> : « il manque <code translate="no">)</code> après la liste des arguments ».</li>
 <li><strong>Quoi faire</strong> : regardez la ligne indiquée <strong>et</strong> la précédente ; comptez les parenthèses, les accolades et les guillemets ouverts et fermés.</li>
 </ul>
 </section>
 <section id="un-fichier-introuvable-cannot-find-module" class="level3">
-<h3 class="anchored" data-anchor-id="un-fichier-introuvable-cannot-find-module">Un fichier introuvable : <code>Cannot find module</code></h3>
-<pre class="text"><code>Error: Cannot find module '/…/dwwm/semaine-02/absent.js'</code></pre>
+<h3 class="anchored" data-anchor-id="un-fichier-introuvable-cannot-find-module">Un fichier introuvable : <code translate="no">Cannot find module</code></h3>
+<pre class="text" translate="no"><code>Error: Cannot find module '/…/dwwm/semaine-02/absent.js'</code></pre>
 <ul>
 <li><strong>Message</strong> : Node ne trouve pas le fichier demandé <span class="citation" data-cites="nodejs-errors">(<a href="#ref-nodejs-errors" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-a</a>)</span>.</li>
-<li><strong>Quoi faire</strong> : tapez <code>pwd</code>, puis <code>ls</code> : êtes-vous dans le bon dossier ? Le nom est-il exact, extension comprise (pas <code>absent.js.txt</code>) ?</li>
+<li><strong>Quoi faire</strong> : tapez <code translate="no">pwd</code>, puis <code translate="no">ls</code> : êtes-vous dans le bon dossier ? Le nom est-il exact, extension comprise (pas <code translate="no">absent.js.txt</code>) ?</li>
 </ul>
-<p>Sous chaque erreur, les lignes qui commencent par <code>at</code> forment la <strong>pile d’appels</strong> : la première ligne qui mentionne <strong>votre</strong> fichier est la plus utile ; les lignes <code>node:internal/…</code> concernent Node lui-même.</p>
+<p>Sous chaque erreur, les lignes qui commencent par <code translate="no">at</code> forment la <strong>pile d’appels</strong> : la première ligne qui mentionne <strong>votre</strong> fichier est la plus utile ; les lignes <code translate="no">node:internal/…</code> concernent Node lui-même.</p>
 </section>
 <section id="test-rouge" class="level3">
-<h3 class="anchored" data-anchor-id="test-rouge">Un test rouge : <code>node --test</code></h3>
-<pre class="text"><code>✖ affiche Hello, world!
+<h3 class="anchored" data-anchor-id="test-rouge">Un test rouge : <code translate="no">node --test</code></h3>
+<pre class="text" translate="no"><code>✖ affiche Hello, world!
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
   + actual - expected
 
   + 'À faire'
   - 'Hello, world!'</code></pre>
 <ul>
-<li><strong>Où</strong> : le nom du test qui échoue, après <code>✖</code>.</li>
-<li><strong><code>+ actual</code></strong> : ce que votre programme affiche ou renvoie ; <strong><code>- expected</code></strong> : ce qu’il devrait afficher <span class="citation" data-cites="nodejs-test-runner">(<a href="#ref-nodejs-test-runner" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span>.</li>
+<li><strong>Où</strong> : le nom du test qui échoue, après <code translate="no">✖</code>.</li>
+<li><strong><code translate="no">+ actual</code></strong> : ce que votre programme affiche ou renvoie ; <strong><code translate="no">- expected</code></strong> : ce qu’il devrait afficher <span class="citation" data-cites="nodejs-test-runner">(<a href="#ref-nodejs-test-runner" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-c</a>)</span>.</li>
 <li><strong>Quoi faire</strong> : comparez les deux lignes caractère par caractère (espaces, majuscules, ponctuation), corrigez, relancez.</li>
 </ul>
+<p>Les mots anglais de ces messages sont traduits dans le <a href="#vocabulaire-tests">vocabulaire des messages de test</a>, plus bas.</p>
 </section>
 <section id="tout-le-fichier" class="level3">
-<h3 class="anchored" data-anchor-id="tout-le-fichier">Tout le fichier de tests échoue : <code>tests 1</code>, <code>fail 1</code></h3>
-<pre class="text"><code>file:///…/aire.js:2
+<h3 class="anchored" data-anchor-id="tout-le-fichier">Tout le fichier de tests échoue : <code translate="no">tests 1</code>, <code translate="no">fail 1</code></h3>
+<pre class="text" translate="no"><code>file:///…/aire.js:2
   let width = 3;
       ^
 
@@ -629,9 +744,33 @@ SyntaxError: Identifier 'width' has already been declared
 ℹ pass 0
 ℹ fail 1</code></pre>
 <ul>
-<li><strong>Où</strong> : après <code>✖</code>, le nom du <strong>fichier</strong> de tests, pas celui d’un test ; et <code>tests 1</code> alors que ce fichier en contient plusieurs.</li>
-<li><strong>Message</strong> : votre fichier ne s’est pas chargé, aucun test n’a pu tourner <span class="citation" data-cites="nodejs-test-runner">(<a href="#ref-nodejs-test-runner" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span>. La cause est écrite au-dessus : une erreur de syntaxe (ici, un paramètre déclaré une deuxième fois), ou une ligne placée hors d’une fonction qui plante au chargement.</li>
-<li><strong>Quoi faire</strong> : lancez <code>node votre-fichier.js</code> pour voir l’erreur seule ; lisez la ligne indiquée et le <code>^</code> ; essayez vos fonctions dans un fichier <code>essai.js</code> séparé, jamais dans le fichier testé.</li>
+<li><strong>Où</strong> : après <code translate="no">✖</code>, le nom du <strong>fichier</strong> de tests, pas celui d’un test ; et <code translate="no">tests 1</code> alors que ce fichier en contient plusieurs.</li>
+<li><strong>Message</strong> : votre fichier ne s’est pas chargé, aucun test n’a pu tourner <span class="citation" data-cites="nodejs-test-runner">(<a href="#ref-nodejs-test-runner" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-c</a>)</span>. La cause est écrite au-dessus : une erreur de syntaxe (ici, un paramètre déclaré une deuxième fois), ou une ligne placée hors d’une fonction qui plante au chargement.</li>
+<li><strong>Quoi faire</strong> : lancez <code translate="no">node votre-fichier.js</code> pour voir l’erreur seule ; lisez la ligne indiquée et le <code translate="no">^</code> ; essayez vos fonctions dans un fichier <code translate="no">essai.js</code> séparé, jamais dans le fichier testé.</li>
+</ul>
+</section>
+<section id="export-manquant" class="level3">
+<h3 class="anchored" data-anchor-id="export-manquant">Le test ne trouve pas ma fonction : <code translate="no">is not a function</code>, <code translate="no">undefined</code></h3>
+<pre class="text" translate="no"><code>✖ withTax ajoute 20 %
+  TypeError: withTax is not a function</code></pre>
+<pre class="text" translate="no"><code>✖ TAX_RATE est exportée et vaut 0.2
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  undefined !== 0.2</code></pre>
+<pre class="text" translate="no"><code>file:///…/essai.js:1
+import { withTax } from './l7-exporter.js';
+         ^^^^^^^
+SyntaxError: The requested module './l7-exporter.js' does not provide an export named 'withTax'</code></pre>
+<ul>
+<li><p><strong>Où</strong> : tous les tests de la même fonction échouent, avec le même message ; le nom cité (<code translate="no">withTax</code>, <code translate="no">TAX_RATE</code>) est celui de votre fonction ou de votre constante.</p></li>
+<li><p><strong>Message</strong> : le fichier de tests importe votre fichier, mais n’y trouve pas ce nom : il n’est pas <strong>exporté</strong>, ou il est écrit autrement. Un nom introuvable vaut <code translate="no">undefined</code> : appeler <code translate="no">undefined</code> donne <code translate="no">is not a function</code> ; comparer <code translate="no">undefined</code> à la valeur attendue donne <code translate="no">undefined !== 0.2</code>. Avec un <code translate="no">import { … } from …</code> écrit en haut d’un fichier, comme dans votre <code translate="no">essai.js</code>, Node refuse même de démarrer : <code translate="no">does not provide an export named 'withTax'</code> (« ne fournit pas d’export nommé ») <span class="citation" data-cites="nodejs-esm">(<a href="#ref-nodejs-esm" role="doc-biblioref">OpenJS Foundation, s.&nbsp;d.-b</a>)</span>.</p></li>
+<li><p><strong>Quoi faire</strong> : dans votre fichier, écrivez <code translate="no">export</code> devant la déclaration, puis relancez les tests :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> TAX_RATE <span class="op">=</span> <span class="fl">0.2</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">withTax</span>(prices) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> prices<span class="op">.</span><span class="fu">map</span>((price) <span class="kw">=&gt;</span> price <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> TAX_RATE))<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Vérifiez aussi que le nom est écrit exactement comme dans le test, majuscules comprises. Indice dans VS Code : ESLint souligne une fonction ou une constante jamais utilisée ni exportée (<code translate="no">'withTax' is defined but never used</code>, règle <code translate="no">no-unused-vars</code>).</p></li>
 </ul>
 </section>
 </section>
@@ -655,26 +794,26 @@ SyntaxError: Identifier 'width' has already been declared
 <tr class="odd">
 <td><em>test</em>, <em>pass</em>, <em>fail</em></td>
 <td>test, réussi, échoué</td>
-<td><code>ℹ tests 4</code>, <code>ℹ pass 3</code>, <code>ℹ fail 1</code> : le bilan, en bas</td>
+<td><code translate="no">ℹ tests 4</code>, <code translate="no">ℹ pass 3</code>, <code translate="no">ℹ fail 1</code> : le bilan, en bas</td>
 </tr>
 <tr class="even">
 <td><em>assertion</em></td>
 <td>affirmation vérifiée par le test</td>
-<td><code>AssertionError</code> : une affirmation du test est fausse</td>
+<td><code translate="no">AssertionError</code> : une affirmation du test est fausse</td>
 </tr>
 <tr class="odd">
 <td><em>actual</em></td>
 <td>obtenu : ce que votre code a renvoyé</td>
-<td><code>+ actual</code>, et les lignes qui commencent par <code>+</code></td>
+<td><code translate="no">+ actual</code>, et les lignes qui commencent par <code translate="no">+</code></td>
 </tr>
 <tr class="even">
 <td><em>expected</em></td>
 <td>attendu : ce que le test demandait</td>
-<td><code>- expected</code>, et les lignes qui commencent par <code>-</code></td>
+<td><code translate="no">- expected</code>, et les lignes qui commencent par <code translate="no">-</code></td>
 </tr>
 <tr class="odd">
 <td><em>strictly equal</em></td>
-<td>strictement égal (<code>===</code>)</td>
+<td>strictement égal (<code translate="no">===</code>)</td>
 <td>comparaison de deux valeurs simples (nombre, texte)</td>
 </tr>
 <tr class="even">
@@ -684,7 +823,7 @@ SyntaxError: Identifier 'width' has already been declared
 </tr>
 <tr class="odd">
 <td><em>falsy value</em></td>
-<td>valeur fausse (<code>false</code>, <code>0</code>, <code>''</code>, <code>null</code>, <code>undefined</code>)</td>
+<td>valeur fausse (<code translate="no">false</code>, <code translate="no">0</code>, <code translate="no">''</code>, <code translate="no">null</code>, <code translate="no">undefined</code>)</td>
 <td>le test attendait une valeur vraie</td>
 </tr>
 <tr class="even">
@@ -695,75 +834,99 @@ SyntaxError: Identifier 'width' has already been declared
 <tr class="odd">
 <td><em>is missing (from)</em></td>
 <td>est absent (de)</td>
-<td><code>--couleur-texte is missing from :root</code> : la déclaration manque dans <code>:root</code></td>
+<td><code translate="no">--couleur-texte is missing from :root</code> : la déclaration manque dans <code translate="no">:root</code></td>
 </tr>
 <tr class="even">
 <td><em>no</em>, <em>not</em>, <em>without</em></td>
 <td>aucun, n’est pas, sans</td>
-<td><code>no min-width media query</code>, <code>margin-left is not auto</code>, <code>image without alt</code></td>
+<td><code translate="no">no min-width media query</code>, <code translate="no">margin-left is not auto</code>, <code translate="no">image without alt</code></td>
 </tr>
 <tr class="odd">
 <td><em>fewer than</em></td>
 <td>moins de</td>
-<td><code>fewer than three --espace-… variables</code></td>
+<td><code translate="no">fewer than three --espace-… variables</code></td>
 </tr>
 <tr class="even">
 <td><em>outside the scale</em></td>
 <td>hors de l’échelle</td>
-<td>la valeur n’est pas une variable de l’échelle (<code>--espace-…</code>, <code>--texte-…</code>)</td>
+<td>la valeur n’est pas une variable de l’échelle (<code translate="no">--espace-…</code>, <code translate="no">--texte-…</code>)</td>
 </tr>
 <tr class="odd">
 <td><em>hard-coded</em></td>
 <td>écrit en dur, à la main</td>
-<td>une couleur écrite directement, au lieu d’une <code>var(--couleur-…)</code></td>
+<td>une couleur écrite directement, au lieu d’une <code translate="no">var(--couleur-…)</code></td>
 </tr>
 <tr class="even">
 <td><em>exactly one</em>, <em>must</em></td>
 <td>un seul, exactement ; doit</td>
-<td><code>exactly one element must have the accent background</code></td>
+<td><code translate="no">exactly one element must have the accent background</code></td>
 </tr>
 <tr class="odd">
 <td><em>found</em>, <em>unitless</em>, <em>running text</em></td>
 <td>trouvé, sans unité, texte courant</td>
-<td><code>no spacing found</code>, <code>line-height (unitless)</code>, <code>text-align: center on running text</code></td>
+<td><code translate="no">no spacing found</code>, <code translate="no">line-height (unitless)</code>, <code translate="no">text-align: center on running text</code></td>
 </tr>
 </tbody>
 </table>
+<p>Trois messages réels de <code translate="no">node --test</code> (Node 24, chemins raccourcis), avec leur lecture :</p>
+<pre class="text" translate="no"><code>AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+15 !== 16</code></pre>
+<ul>
+<li><strong>Lecture</strong> : votre code a renvoyé <code translate="no">15</code> (<em>actual</em>), le test attendait <code translate="no">16</code> (<em>expected</em>) ; <code translate="no">!==</code> : « n’est pas égal à ».</li>
+</ul>
+<pre class="text" translate="no"><code>AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    2,
+    4,
+-   6
+  ]</code></pre>
+<ul>
+<li><strong>Lecture</strong> : les deux tableaux diffèrent ; la ligne <code translate="no">- 6</code> est attendue mais absente de votre résultat : il manque le <code translate="no">6</code>.</li>
+</ul>
+<pre class="text" translate="no"><code>AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(false)</code></pre>
+<ul>
+<li><strong>Lecture</strong> : le test vérifiait qu’une valeur est vraie (par exemple <code translate="no">Number.isNaN(…)</code>) ; elle est fausse.</li>
+</ul>
 </section>
 <section id="eslint-semaine-2" class="level2">
 <h2 class="anchored" data-anchor-id="eslint-semaine-2">ESLint (semaine 2)</h2>
-<pre class="text"><code> 8:1   error  Unexpected var, use let or const instead  no-var
+<pre class="text" translate="no"><code> 8:1   error  Unexpected var, use let or const instead  no-var
 12:15  error  Expected '===' and instead saw '=='       eqeqeq
 17:13  error  'mesage' is not defined                   no-undef
 
 ✖ 5 problems (5 errors, 0 warnings)</code></pre>
 <ul>
-<li><strong>Où</strong> : <code>ligne:colonne</code> en début de ligne (<code>12:15</code> : ligne 12, colonne 15).</li>
+<li><strong>Où</strong> : <code translate="no">ligne:colonne</code> en début de ligne (<code translate="no">12:15</code> : ligne 12, colonne 15).</li>
 <li><strong>Message</strong> : ce qui ne va pas, en anglais.</li>
-<li><strong>Règle</strong> : le dernier mot (<code>eqeqeq</code>) ; il mène à sa page de documentation <span class="citation" data-cites="eslint-getting-started">(<a href="#ref-eslint-getting-started" role="doc-biblioref">ESLint, s.&nbsp;d.</a>)</span>.</li>
-<li><strong>Quoi faire</strong> : corrigez une alerte à la fois, en partant du haut, puis relancez <code>npx eslint .</code>.</li>
+<li><strong>Règle</strong> : le dernier mot (<code translate="no">eqeqeq</code>) ; il mène à sa page de documentation <span class="citation" data-cites="eslint-getting-started">(<a href="#ref-eslint-getting-started" role="doc-biblioref">ESLint, s.&nbsp;d.</a>)</span>.</li>
+<li><strong>Quoi faire</strong> : corrigez une alerte à la fois, en partant du haut, puis relancez <code translate="no">npx eslint .</code>.</li>
 </ul>
 <section id="eslint-rien" class="level3">
 <h3 class="anchored" data-anchor-id="eslint-rien">ESLint ne souligne rien dans VS Code</h3>
-<p>Pas de message ici : c’est l’absence de vague rouge qui alerte, alors que le fichier contient une erreur (par exemple <code>var x = 1;</code>). Vérifiez dans l’ordre :</p>
+<p>Pas de message ici : c’est l’absence de vague rouge qui alerte, alors que le fichier contient une erreur (par exemple <code translate="no">var x = 1;</code>). Vérifiez dans l’ordre :</p>
 <ol type="1">
-<li><strong><code>npm install</code> a-t-il été lancé dans ce dossier ?</strong> Un dossier <code>node_modules</code> doit être à côté de <code>package.json</code>. Sans lui, <code>npm run lint</code> dans le terminal se termine par une ligne qui dit que la commande <code>eslint</code> est introuvable (son libellé dépend du système ; sous Linux : <code>sh: 1: eslint: not found</code>). Lancez <code>npm install</code> dans le dossier de la semaine.</li>
-<li><strong>Le bon dossier est-il ouvert ?</strong> VS Code doit avoir ouvert le dossier de la semaine (celui qui contient <code>eslint.config.js</code>), pas <code>dwwm</code> tout entier ni un fichier seul : <em>Fichier</em>, <em>Ouvrir le dossier…</em>.</li>
+<li><strong><code translate="no">npm install</code> a-t-il été lancé dans ce dossier ?</strong> Un dossier <code translate="no">node_modules</code> doit être à côté de <code translate="no">package.json</code>. Sans lui, <code translate="no">npm run lint</code> dans le terminal se termine par une ligne qui dit que la commande <code translate="no">eslint</code> est introuvable (son libellé dépend du système ; sous Linux : <code translate="no">sh: 1: eslint: not found</code>). Lancez <code translate="no">npm install</code> dans le dossier de la semaine.</li>
+<li><strong>Le bon dossier est-il ouvert ?</strong> VS Code doit avoir ouvert le dossier de la semaine (celui qui contient <code translate="no">eslint.config.js</code>), pas <code translate="no">dwwm</code> tout entier ni un fichier seul : <em>Fichier</em>, <em>Ouvrir le dossier…</em>.</li>
 <li><strong>L’extension ESLint est-elle installée et activée ?</strong> Vue Extensions (<kbd title="mac: Cmd+Shift+X, windows: Ctrl+Shift+X" aria-hidden="true" data-mac="Cmd+Shift+X" data-windows="Ctrl+Shift+X"></kbd><span class="visually-hidden"></span>) : cherchez ESLint (éditeur Microsoft) ; le bouton doit proposer <em>Désactiver</em>, pas <em>Installer</em> ni <em>Activer</em>.</li>
-<li><strong>Toujours rien ?</strong> Tapez <code>npx eslint nom-du-fichier.js</code> dans le terminal. S’il affiche les erreurs, ESLint marche et c’est l’éditeur qui ne l’a pas encore chargé : fermez puis rouvrez VS Code. S’il n’affiche rien non plus, appelez le formateur.</li>
+<li><strong>Toujours rien ?</strong> Tapez <code translate="no">npx eslint nom-du-fichier.js</code> dans le terminal. S’il affiche les erreurs, ESLint marche et c’est l’éditeur qui ne l’a pas encore chargé : fermez puis rouvrez VS Code. S’il n’affiche rien non plus, appelez le formateur.</li>
 </ol>
 </section>
 <section id="npm-vulnerabilites" class="level3">
 <h3 class="anchored" data-anchor-id="npm-vulnerabilites">npm parle de vulnérabilités</h3>
-<pre class="text"><code>5 moderate severity vulnerabilities
+<pre class="text" translate="no"><code>5 moderate severity vulnerabilities
 
 To address all issues (including breaking changes), run:
   npm audit fix --force</code></pre>
 <ul>
-<li><strong>Ce que ça veut dire</strong> : à la fin de <code>npm install</code>, npm compare les paquets installés à une liste de failles connues <span class="citation" data-cites="npm-audit">(<a href="#ref-npm-audit" role="doc-biblioref"><span class="nocase">npm Docs</span>, s.&nbsp;d.</a>)</span>. Ici, une faille a été publiée dans un paquet dont ESLint a besoin. Elle concerne l’outil installé sur votre poste, pas votre code, et <code>npm install</code> a bien fonctionné.</li>
-<li><strong>Ce qu’il ne faut pas faire</strong> : lancer <code>npm audit fix --force</code> sans comprendre. <em>including breaking changes</em> : « y compris des changements qui cassent ». Pour faire disparaître le message, npm peut installer une tout autre version d’un paquet : en octobre 2026, il proposait ESLint 4.0.0, une version de 2017, et VS Code ne soulignait plus vos erreurs.</li>
-<li><strong>Quoi faire</strong> : rien pendant un TP ; signalez-le au formateur, qui vérifie la faille et met à jour le kit si besoin. <code>npm audit</code> affiche le détail : le paquet en cause et la version corrigée.</li>
-<li><strong>Pour le savoir</strong> : sur un vrai projet, on lit chaque faille avant de corriger (semaine 2 : les risques des paquets). <code>npm audit fix</code>, sans <code>--force</code>, ne fait que des mises à jour compatibles.</li>
+<li><strong>Ce que ça veut dire</strong> : à la fin de <code translate="no">npm install</code>, npm compare les paquets installés à une liste de failles connues <span class="citation" data-cites="npm-audit">(<a href="#ref-npm-audit" role="doc-biblioref"><span class="nocase">npm Docs</span>, s.&nbsp;d.</a>)</span>. Ici, une faille a été publiée dans un paquet dont ESLint a besoin. Elle concerne l’outil installé sur votre poste, pas votre code, et <code translate="no">npm install</code> a bien fonctionné.</li>
+<li><strong>Ce qu’il ne faut pas faire</strong> : lancer <code translate="no">npm audit fix --force</code> sans comprendre. <em>including breaking changes</em> : « y compris des changements qui cassent ». Pour faire disparaître le message, npm peut installer une tout autre version d’un paquet : en octobre 2026, il proposait ESLint 4.0.0, une version de 2017, et VS Code ne soulignait plus vos erreurs.</li>
+<li><strong>Quoi faire</strong> : rien pendant un TP ; signalez-le au formateur, qui vérifie la faille et met à jour le kit si besoin. <code translate="no">npm audit</code> affiche le détail : le paquet en cause et la version corrigée.</li>
+<li><strong>Pour le savoir</strong> : sur un vrai projet, on lit chaque faille avant de corriger (semaine 2 : les risques des paquets). <code translate="no">npm audit fix</code>, sans <code translate="no">--force</code>, ne fait que des mises à jour compatibles.</li>
 </ul>
 </section>
 </section>
@@ -771,54 +934,54 @@ To address all issues (including breaking changes), run:
 <h2 class="anchored" data-anchor-id="git-semaine-4">Git (semaine 4)</h2>
 <section id="pas-dans-un-dépôt" class="level3">
 <h3 class="anchored" data-anchor-id="pas-dans-un-dépôt">Pas dans un dépôt</h3>
-<pre class="text"><code>fatal: not a git repository (or any of the parent directories): .git</code></pre>
+<pre class="text" translate="no"><code>fatal: not a git repository (or any of the parent directories): .git</code></pre>
 <ul>
 <li><strong>Message</strong> : le dossier courant n’est pas un dépôt Git, ni aucun dossier parent.</li>
-<li><strong>Quoi faire</strong> : tapez <code>pwd</code> ; placez-vous dans le dossier du projet (<code>cd …</code>), ou créez le dépôt avec <code>git init</code> s’il n’existe pas encore.</li>
+<li><strong>Quoi faire</strong> : tapez <code translate="no">pwd</code> ; placez-vous dans le dossier du projet (<code translate="no">cd …</code>), ou créez le dépôt avec <code translate="no">git init</code> s’il n’existe pas encore.</li>
 </ul>
 </section>
 <section id="git-log-vide" class="level3">
-<h3 class="anchored" data-anchor-id="git-log-vide"><code>git log</code> ne montre rien</h3>
-<pre class="text"><code>fatal: votre branche actuelle 'main' ne contient encore aucun commit</code></pre>
-<p>En anglais : <code>fatal: your current branch 'main' does not have any commits yet</code>. Avec <code>--graph --all</code>, <code>git log</code> n’affiche rien du tout, sans message.</p>
+<h3 class="anchored" data-anchor-id="git-log-vide"><code translate="no">git log</code> ne montre rien</h3>
+<pre class="text" translate="no"><code>fatal: votre branche actuelle 'main' ne contient encore aucun commit</code></pre>
+<p>En anglais : <code translate="no">fatal: your current branch 'main' does not have any commits yet</code>. Avec <code translate="no">--graph --all</code>, <code translate="no">git log</code> n’affiche rien du tout, sans message.</p>
 <ul>
 <li><strong>Message</strong> : le dossier est bien un dépôt Git, mais aucun commit n’y est encore enregistré.</li>
-<li><strong>Quoi faire</strong> : tapez <code>pwd</code> : êtes-vous dans le bon dossier (par exemple <code>~/dwwm/git-journal</code>) ? Un <code>git init</code> lancé dans un autre dossier crée un second dépôt, vide. Dans le bon dossier, tapez <code>git status</code> : des fichiers en rouge ou en vert attendent <code>git add</code>, puis <code>git commit -m "…"</code>. Si le message est <code>not a git repository</code>, voir « Pas dans un dépôt ».</li>
+<li><strong>Quoi faire</strong> : tapez <code translate="no">pwd</code> : êtes-vous dans le bon dossier (par exemple <code translate="no">~/dwwm/git-journal</code>) ? Un <code translate="no">git init</code> lancé dans un autre dossier crée un second dépôt, vide. Dans le bon dossier, tapez <code translate="no">git status</code> : des fichiers en rouge ou en vert attendent <code translate="no">git add</code>, puis <code translate="no">git commit -m "…"</code>. Si le message est <code translate="no">not a git repository</code>, voir « Pas dans un dépôt ».</li>
 </ul>
 </section>
 <section id="un-conflit-de-fusion" class="level3">
 <h3 class="anchored" data-anchor-id="un-conflit-de-fusion">Un conflit de fusion</h3>
-<pre class="text"><code>Auto-merging journal.md
+<pre class="text" translate="no"><code>Auto-merging journal.md
 CONFLICT (content): Merge conflict in journal.md
 Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 <p>Le même message, quand Git s’affiche en français :</p>
-<pre class="text"><code>Fusion automatique de journal.md
+<pre class="text" translate="no"><code>Fusion automatique de journal.md
 CONFLIT (contenu) : Conflit de fusion dans journal.md
 La fusion automatique a échoué ; réglez les conflits et validez le résultat.</code></pre>
 <ul>
-<li><strong>Où</strong> : le fichier en conflit (<code>journal.md</code>).</li>
+<li><strong>Où</strong> : le fichier en conflit (<code translate="no">journal.md</code>).</li>
 <li><strong>Message</strong> : les deux branches ont modifié les mêmes lignes ; Git ne choisit pas.</li>
-<li><strong>Quoi faire</strong> : ouvrez le fichier, gardez le bon texte entre les marqueurs <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> et <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, effacez les marqueurs, puis <code>git add</code> et <code>git commit</code> <span class="citation" data-cites="github-conflit">(<a href="#ref-github-conflit" role="doc-biblioref">GitHub, s.&nbsp;d.-b</a>)</span>.</li>
+<li><strong>Quoi faire</strong> : ouvrez le fichier, gardez le bon texte entre les marqueurs <code translate="no">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code translate="no">=======</code> et <code translate="no">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, effacez les marqueurs, puis <code translate="no">git add</code> et <code translate="no">git commit</code> <span class="citation" data-cites="github-conflit">(<a href="#ref-github-conflit" role="doc-biblioref">GitHub, s.&nbsp;d.-b</a>)</span>.</li>
 </ul>
 </section>
 <section id="un-envoi-refusé" class="level3">
 <h3 class="anchored" data-anchor-id="un-envoi-refusé">Un envoi refusé</h3>
-<pre class="text"><code> ! [rejected]        HEAD -&gt; main (fetch first)
+<pre class="text" translate="no"><code> ! [rejected]        HEAD -&gt; main (fetch first)
 error: failed to push some refs to '…'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally.</code></pre>
 <ul>
 <li><strong>Message</strong> : le dépôt distant contient des commits que vous n’avez pas.</li>
-<li><strong>Quoi faire</strong> : récupérez-les d’abord avec <code>git pull</code>, réglez un éventuel conflit, puis relancez <code>git push</code> <span class="citation" data-cites="progit-depots-distants">(<a href="#ref-progit-depots-distants" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.</a>)</span>. Jamais de <code>git push --force</code> sans l’accord du formateur.</li>
+<li><strong>Quoi faire</strong> : récupérez-les d’abord avec <code translate="no">git pull</code>, réglez un éventuel conflit, puis relancez <code translate="no">git push</code> <span class="citation" data-cites="progit-depots-distants">(<a href="#ref-progit-depots-distants" role="doc-biblioref">Scott Chacon et Ben Straub, s.&nbsp;d.</a>)</span>. Jamais de <code translate="no">git push --force</code> sans l’accord du formateur.</li>
 </ul>
 </section>
 <section id="un-avertissement-de-fin-de-ligne-windows" class="level3">
 <h3 class="anchored" data-anchor-id="un-avertissement-de-fin-de-ligne-windows">Un avertissement de fin de ligne (Windows)</h3>
-<pre class="text"><code>warning: in the working copy of 'notes.md', LF will be replaced by CRLF the next time Git touches it</code></pre>
+<pre class="text" translate="no"><code>warning: in the working copy of 'notes.md', LF will be replaced by CRLF the next time Git touches it</code></pre>
 <ul>
-<li><strong>Où</strong> : après <code>git add</code>, sous Windows, pour un fichier créé dans Git Bash (par exemple avec <code>echo</code>).</li>
+<li><strong>Où</strong> : après <code translate="no">git add</code>, sous Windows, pour un fichier créé dans Git Bash (par exemple avec <code translate="no">echo</code>).</li>
 <li><strong>Message</strong> : ce n’est pas une erreur. Windows termine les lignes autrement que macOS et Linux (CRLF au lieu de LF) ; Git convertit tout seul <span class="citation" data-cites="github-fins-de-ligne">(<a href="#ref-github-fins-de-ligne" role="doc-biblioref">GitHub, s.&nbsp;d.-a</a>)</span>. Le fichier est bien ajouté.</li>
-<li><strong>Quoi faire</strong> : rien ; continuez avec <code>git commit</code>. Cet avertissement reste en anglais, même quand Git s’affiche en français.</li>
+<li><strong>Quoi faire</strong> : rien ; continuez avec <code translate="no">git commit</code>. Cet avertissement reste en anglais, même quand Git s’affiche en français.</li>
 </ul>
 </section>
 </section>
@@ -849,8 +1012,11 @@ MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;TypeError - JavaScript&nbsp;»</span>.
 <div id="ref-nodejs-errors" class="csl-entry" role="listitem">
 OpenJS Foundation. s.&nbsp;d.-a. <span>«&nbsp;Errors — Node.js Documentation&nbsp;»</span>. Consulté le 3 octobre 2026. <a href="https://nodejs.org/api/errors.html">https://nodejs.org/api/errors.html</a>.
 </div>
+<div id="ref-nodejs-esm" class="csl-entry" role="listitem">
+OpenJS Foundation. s.&nbsp;d.-b. <span>«&nbsp;Modules: ECMAScript modules — Node.js Documentation&nbsp;»</span>. Consulté le 30 septembre 2026. <a href="https://nodejs.org/api/esm.html">https://nodejs.org/api/esm.html</a>.
+</div>
 <div id="ref-nodejs-test-runner" class="csl-entry" role="listitem">
-OpenJS Foundation. s.&nbsp;d.-b. <span>«&nbsp;Test runner | Node.js Documentation&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://nodejs.org/api/test.html">https://nodejs.org/api/test.html</a>.
+OpenJS Foundation. s.&nbsp;d.-c. <span>«&nbsp;Test runner | Node.js Documentation&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://nodejs.org/api/test.html">https://nodejs.org/api/test.html</a>.
 </div>
 <div id="ref-progit-depots-distants" class="csl-entry" role="listitem">
 Scott Chacon et Ben Straub. s.&nbsp;d. <span>«&nbsp;Pro Git : Travailler avec des dépôts distants&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-d%C3%A9p%C3%B4ts-distants">https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-d%C3%A9p%C3%B4ts-distants</a>.

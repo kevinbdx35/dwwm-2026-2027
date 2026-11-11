@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -174,7 +176,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : résolution de problème · communiquer · apprendre en continu<br> <strong>Livrable</strong> : votre projet Scratch (lien ou fichier <code>.sb3</code>), déposé à 11 h 45.</p>
+<p><strong>Compétences visées</strong> : résolution de problème · communiquer · apprendre en continu<br> <strong>Livrable</strong> : votre projet Scratch (lien ou fichier <code translate="no">.sb3</code>), déposé à 11 h 45.</p>
 </div>
 </div>
 </div>
@@ -241,13 +243,13 @@ Kevin Bardoux
 <li><strong>Pourquoi</strong> : un ordinateur ne fait que ce qu’on lui dit.</li>
 <li><strong>Algorithme</strong> : des instructions précises, dans l’ordre.</li>
 </ul>
-<pre><code>entrée      →  traitement        →  sortie
+<pre translate="no"><code>entrée      →  traitement        →  sortie
 départ,        calcul du            le trajet
 arrivée        plus court chemin</code></pre>
 </section>
 <section id="algorithme-attention-et-vérification" class="slide level3">
 <h3>Algorithme — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -306,7 +308,7 @@ flowchart LR
 </section>
 <section id="scratch-attention-et-vérification" class="slide level3">
 <h3>Scratch — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -338,7 +340,7 @@ flowchart LR
 <li><strong>Pourquoi</strong> : répéter sans recopier, et agir seulement si besoin.</li>
 <li><strong>Boucle</strong> : répète des blocs ; <strong>condition</strong> : « si … alors ».</li>
 </ul>
-<pre><code>quand ⚑ est cliqué
+<pre translate="no"><code>quand ⚑ est cliqué
 répéter indéfiniment
     avancer de 5 pas
     si &lt;touche le pointeur de souris ?&gt; alors
@@ -346,7 +348,7 @@ répéter indéfiniment
 </section>
 <section id="boucle-et-condition-attention-et-vérification" class="slide level3">
 <h3>Boucle et condition — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -378,7 +380,7 @@ répéter indéfiniment
 <li>Avec un compte : cliquez sur <strong>Partager</strong>.</li>
 <li>Copiez l’adresse du projet, déposez-la.</li>
 <li>Sans compte : <strong>Fichier</strong>, puis <strong>Sauvegarder sur votre ordinateur</strong>.</li>
-<li>Déposez alors le fichier <code>.sb3</code>.</li>
+<li>Déposez alors le fichier <code translate="no">.sb3</code>.</li>
 </ol>
 </section>
 <section id="à-retenir-ce-matin" class="slide level3">
@@ -469,7 +471,6 @@ OWASP Foundation. 2025. <span>«&nbsp;OWASP Top 10:2025&nbsp;»</span>. <a href=
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -637,27 +638,9 @@ OWASP Foundation. 2025. <span>«&nbsp;OWASP Top 10:2025&nbsp;»</span>. <a href=
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

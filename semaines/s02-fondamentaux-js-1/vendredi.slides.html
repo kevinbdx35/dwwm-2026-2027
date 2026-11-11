@@ -36,6 +36,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -122,8 +123,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -242,7 +244,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : résolution de problème · apprendre en continu<br> <strong>Livrable</strong> : <code>lint-moi.js</code> corrigé ; exercice 06 au vert ; <code>npx eslint .</code> sans alerte sur vos fichiers.</p>
+<p><strong>Compétences visées</strong> : résolution de problème · apprendre en continu<br> <strong>Livrable</strong> : <code translate="no">lint-moi.js</code> corrigé ; exercice 06 au vert ; <code translate="no">npx eslint .</code> sans alerte sur vos fichiers.</p>
 </div>
 </div>
 </div>
@@ -253,17 +255,17 @@ Kevin Bardoux
 
 </section>
 <section id="avant-la-veille-npm-install-2-min" class="slide level3">
-<h3>Avant la veille : <code>npm install</code> (2 min)</h3>
+<h3>Avant la veille : <code translate="no">npm install</code> (2 min)</h3>
 <ol type="1">
-<li>Terminal : <code>cd ~/dwwm/semaine-02</code>, puis <code>npm install</code>.</li>
+<li>Terminal : <code translate="no">cd ~/dwwm/semaine-02</code>, puis <code translate="no">npm install</code>.</li>
 <li>Laissez-le travailler pendant la veille.</li>
-<li><strong>Réussi si</strong> : un dossier <code>node_modules</code> apparaît.</li>
+<li><strong>Réussi si</strong> : un dossier <code translate="no">node_modules</code> apparaît.</li>
 </ol>
 </section>
 <section id="pourquoi-cette-question" class="slide level3">
 <h3>Pourquoi cette question ?</h3>
 <ul>
-<li><code>npm install</code> télécharge ESLint… et bien d’autres paquets.</li>
+<li><code translate="no">npm install</code> télécharge ESLint… et bien d’autres paquets.</li>
 <li>Chacun a été écrit par des inconnus.</li>
 <li>Question du jour : quels risques, et quelles précautions ?</li>
 </ul>
@@ -282,7 +284,7 @@ Kevin Bardoux
 <h3>Mise en commun et trace écrite (15 min)</h3>
 <ol type="1">
 <li>Chaque porte-parole présente ce que son groupe a trouvé (3 min).</li>
-<li>Seul : notez une précaution à prendre avant un <code>npm install</code>.</li>
+<li>Seul : notez une précaution à prendre avant un <code translate="no">npm install</code>.</li>
 </ol>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -307,7 +309,7 @@ Kevin Bardoux
 <h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Quelle commande lance les tests d’un exercice ?</li>
-<li>Que montre la ligne <code>-</code> d’un test rouge ?</li>
+<li>Que montre la ligne <code translate="no">-</code> d’un test rouge ?</li>
 <li>Un script Scratch sans événement : que se passe-t-il ?</li>
 </ol>
 </section>
@@ -318,7 +320,7 @@ Kevin Bardoux
 <li><strong>ESLint</strong> relit votre code et signale chaque écart à une règle.</li>
 </ul>
 <div class="terminal">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>PS C:\…\semaine-02&gt; npx eslint lint-moi.js</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>PS C:\…\semaine-02&gt; npx eslint lint-moi.js</span>
 <span id="cb1-2"><a aria-label="2"></a> 8:1   error  Unexpected var, use let or const …  no-var</span>
 <span id="cb1-3"><a aria-label="3"></a> 9:5   error  'greeting' is never reassigned. …   prefer-const</span>
 <span id="cb1-4"><a aria-label="4"></a>10:7   error  'unused' is assigned a value but …  no-unused-vars</span>
@@ -329,7 +331,7 @@ Kevin Bardoux
 </section>
 <section id="eslint-attention-et-vérification" class="slide level3">
 <h3>ESLint — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -343,21 +345,21 @@ Kevin Bardoux
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : dans <code>12:15</code>, que désignent <code>12</code> et <code>15</code> ?</li>
+<li><strong>Vérifiez</strong> : dans <code translate="no">12:15</code>, que désignent <code translate="no">12</code> et <code translate="no">15</code> ?</li>
 </ul>
 </section>
 <section id="exercice-lint-moi.js-20-min" class="slide level3">
-<h3>Exercice — <code>lint-moi.js</code> (20 min)</h3>
+<h3>Exercice — <code translate="no">lint-moi.js</code> (20 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : la première alerte, comme dans le pas à pas.</li>
 <li>Seuls (10 min) : corrigez les quatre autres, une par une.</li>
-<li><code>node --test lint-moi.test.js</code> : le test doit passer.</li>
-<li><code>npx eslint .</code> : aucune alerte dans tout le dossier.</li>
-<li><strong>Réussi si</strong> : <code>npx eslint .</code> n’affiche rien.</li>
+<li><code translate="no">node --test lint-moi.test.js</code> : le test doit passer.</li>
+<li><code translate="no">npx eslint .</code> : aucune alerte dans tout le dossier.</li>
+<li><strong>Réussi si</strong> : <code translate="no">npx eslint .</code> n’affiche rien.</li>
 </ol>
 </section>
 <section id="apport-2-if-else-if-else-15-min" class="slide level3">
-<h3>Apport 2 — <code>if</code>, <code>else if</code>, <code>else</code> (15 min)</h3>
+<h3>Apport 2 — <code translate="no">if</code>, <code translate="no">else if</code>, <code translate="no">else</code> (15 min)</h3>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -380,7 +382,7 @@ flowchart LR
 </section>
 <section id="conditions-attention-et-vérification" class="slide level3">
 <h3>Conditions — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -389,25 +391,25 @@ flowchart LR
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>Number('')</code> donne <code>0</code>, pas <code>NaN</code> : un texte vide passe pour zéro. Et <code>=</code> dans une condition ne compare pas : écrivez <code>===</code>.</p>
+<p><code translate="no">Number('')</code> donne <code translate="no">0</code>, pas <code translate="no">NaN</code> : un texte vide passe pour zéro. Et <code translate="no">=</code> dans une condition ne compare pas : écrivez <code translate="no">===</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : qu’affiche <code>node meteo.js 0</code> ? Prédisez, puis lancez.</li>
+<li><strong>Vérifiez</strong> : qu’affiche <code translate="no">node meteo.js 0</code> ? Prédisez, puis lancez.</li>
 </ul>
 </section>
 <section id="exercice-06-majeur-ou-mineur-20-min" class="slide level3">
 <h3>Exercice 06 — Majeur ou mineur ? (20 min)</h3>
 <ol type="1">
 <li>Ensemble (5 min) : écrivez la première condition, l’âge invalide.</li>
-<li>Seuls : <code>majeur</code> à partir de 18 ans, <code>mineur</code> avant.</li>
-<li><code>node --test 06-majorite.test.js</code>, puis <code>npx eslint .</code>.</li>
+<li>Seuls : <code translate="no">majeur</code> à partir de 18 ans, <code translate="no">mineur</code> avant.</li>
+<li><code translate="no">node --test 06-majorite.test.js</code>, puis <code translate="no">npx eslint .</code>.</li>
 <li><strong>Réussi si</strong> : tests au vert, aucune alerte.</li>
 </ol>
 </section>
 <section id="apport-3-la-boucle-while-8-min" class="slide level3">
-<h3>Apport 3 — La boucle <code>while</code> (8 min)</h3>
+<h3>Apport 3 — La boucle <code translate="no">while</code> (8 min)</h3>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -429,8 +431,8 @@ flowchart LR
 </div>
 </section>
 <section id="while-attention-et-vérification" class="slide level3">
-<h3><code>while</code> — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<h3><code translate="no">while</code> — attention et vérification</h3>
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -439,16 +441,16 @@ flowchart LR
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Si <code>n</code> ne change jamais, la boucle ne s’arrête pas : le terminal se fige. Arrêtez-la avec <kbd title="mac: Ctrl+C, windows: Ctrl+C" aria-hidden="true" data-mac="Ctrl+C" data-windows="Ctrl+C"></kbd><span class="visually-hidden"></span>, puis ajoutez la ligne qui change <code>n</code>.</p>
+<p>Si <code translate="no">n</code> ne change jamais, la boucle ne s’arrête pas : le terminal se fige. Arrêtez-la avec <kbd title="mac: Ctrl+C, windows: Ctrl+C" aria-hidden="true" data-mac="Ctrl+C" data-windows="Ctrl+C"></kbd><span class="visually-hidden"></span>, puis ajoutez la ligne qui change <code translate="no">n</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : avec <code>n = n * 3</code>, combien de nombres s’affichent ?</li>
+<li><strong>Vérifiez</strong> : avec <code translate="no">n = n * 3</code>, combien de nombres s’affichent ?</li>
 </ul>
 </section>
 <section id="apport-4-la-boucle-for-7-min" class="slide level3">
-<h3>Apport 4 — La boucle <code>for</code> (7 min)</h3>
+<h3>Apport 4 — La boucle <code translate="no">for</code> (7 min)</h3>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -471,8 +473,8 @@ flowchart LR
 </div>
 </section>
 <section id="for-attention-et-vérification" class="slide level3">
-<h3><code>for</code> — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<h3><code translate="no">for</code> — attention et vérification</h3>
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -481,12 +483,12 @@ flowchart LR
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Un test qui affiche <code>ETIMEDOUT</code> : votre programme a dépassé le temps permis. C’est presque toujours une boucle infinie : vérifiez le pas.</p>
+<p>Un test qui affiche <code translate="no">ETIMEDOUT</code> : votre programme a dépassé le temps permis. C’est presque toujours une boucle infinie : vérifiez le pas.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : écrivez une boucle <code>for</code> qui affiche 3, 2, 1.</li>
+<li><strong>Vérifiez</strong> : écrivez une boucle <code translate="no">for</code> qui affiche 3, 2, 1.</li>
 </ul>
 </section>
 <section id="à-retenir-ce-matin" class="slide level3">
@@ -501,10 +503,10 @@ flowchart LR
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>ESLint</strong> : <code>npx eslint .</code> ; une alerte à la fois, du haut vers le bas.</li>
+<li><strong>ESLint</strong> : <code translate="no">npx eslint .</code> ; une alerte à la fois, du haut vers le bas.</li>
 <li><strong>Conditions</strong> : l’entrée invalide d’abord ; la première vraie gagne.</li>
-<li><strong><code>while</code></strong> : quelque chose doit changer, sinon la boucle ne s’arrête pas.</li>
-<li><strong><code>for</code></strong> : départ, condition, pas, sur une ligne.</li>
+<li><strong><code translate="no">while</code></strong> : quelque chose doit changer, sinon la boucle ne s’arrête pas.</li>
+<li><strong><code translate="no">for</code></strong> : départ, condition, pas, sur une ligne.</li>
 </ul>
 </div>
 </div>
@@ -514,7 +516,7 @@ flowchart LR
 <h3>Débrief</h3>
 <ul>
 <li>Pourquoi traiter les entrées invalides en premier ?</li>
-<li>Quand choisir <code>while</code>, quand choisir <code>for</code> ?</li>
+<li>Quand choisir <code translate="no">while</code>, quand choisir <code translate="no">for</code> ?</li>
 <li>Quelle alerte ESLint avez-vous le plus rencontrée ?</li>
 </ul>
 </section></section>
@@ -532,8 +534,8 @@ flowchart LR
 <section id="au-programme" class="slide level3">
 <h3>Au programme</h3>
 <ol type="1">
-<li><strong>Terminer</strong> (1 h) : <code>lint-moi</code> et 06, tests et ESLint.</li>
-<li><strong>Consolider</strong> (1 h) : 07, puis 08 (<code>while</code>, puis <code>for</code>).</li>
+<li><strong>Terminer</strong> (1 h) : <code translate="no">lint-moi</code> et 06, tests et ESLint.</li>
+<li><strong>Consolider</strong> (1 h) : 07, puis 08 (<code translate="no">while</code>, puis <code translate="no">for</code>).</li>
 <li><strong>Papier</strong> (45 min) : 06 et 08 sur une feuille, puis à la machine.</li>
 <li><strong>Relire</strong> (16 h 15) : un exercice d’un camarade, en binôme.</li>
 </ol>
@@ -571,7 +573,6 @@ OWASP Foundation. 2025. <span>«&nbsp;A03 Software Supply Chain Failures - OWASP
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -739,27 +740,9 @@ OWASP Foundation. 2025. <span>«&nbsp;A03 Software Supply Chain Failures - OWASP
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

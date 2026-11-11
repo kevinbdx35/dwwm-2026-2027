@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -120,8 +121,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -240,7 +242,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C3 · résolution de problème<br> <strong>Livrable</strong> : <code>css-exercices</code> et <code>interface-propre</code> au vert, les captures avant / après de l’interface propre, et le <code>style.css</code> de la page personnelle.</p>
+<p><strong>Compétences visées</strong> : C3 · résolution de problème<br> <strong>Livrable</strong> : <code translate="no">css-exercices</code> et <code translate="no">interface-propre</code> au vert, les captures avant / après de l’interface propre, et le <code translate="no">style.css</code> de la page personnelle.</p>
 </div>
 </div>
 </div>
@@ -254,17 +256,17 @@ Kevin Bardoux
 <h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Quelle balise pour le contenu principal d’une page ?</li>
-<li>Que fait <code>git restore</code> ?</li>
-<li>Que renvoie <code>[1, 2, 3].length - 1</code> ?</li>
+<li>Que fait <code translate="no">git restore</code> ?</li>
+<li>Que renvoie <code translate="no">[1, 2, 3].length - 1</code> ?</li>
 </ol>
 </section>
 <section id="apport-1-une-règle-css-et-ses-sélecteurs-15-min" class="slide level3">
 <h3>Apport 1 — Une règle CSS et ses sélecteurs (15 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : donner une apparence à la page, sans toucher au HTML.</li>
-<li><strong>Règle CSS</strong> : un sélecteur, puis <code>propriété: valeur;</code>.</li>
+<li><strong>Règle CSS</strong> : un sélecteur, puis <code translate="no">propriété: valeur;</code>.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a>h1 {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a>h1 {</span>
 <span id="cb1-2"><a aria-label="2"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#1f2a5a</span><span class="op">;</span></span>
 <span id="cb1-3"><a aria-label="3"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">rem</span><span class="op">;</span></span>
 <span id="cb1-4"><a aria-label="4"></a>}</span>
@@ -273,7 +275,7 @@ Kevin Bardoux
 </section>
 <section id="règle-css-attention-et-vérification" class="slide level3">
 <h3>Règle CSS — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -287,15 +289,15 @@ Kevin Bardoux
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : quel sélecteur vise <code>&lt;p class="note"&gt;</code> ?</li>
+<li><strong>Vérifiez</strong> : quel sélecteur vise <code translate="no">&lt;p class="note"&gt;</code> ?</li>
 </ul>
 </section>
 <section id="exercice-1-sélecteurs-15-min" class="slide level3">
 <h3>Exercice 1 — Sélecteurs (15 min)</h3>
 <ol type="1">
 <li>Ensemble (3 min) : la première consigne de l’exercice 1.</li>
-<li>Seuls : les autres consignes, en commentaire dans <code>style.css</code>.</li>
-<li>Vérifiez dans l’aperçu, puis <code>node --test css-exercices.test.js</code>.</li>
+<li>Seuls : les autres consignes, en commentaire dans <code translate="no">style.css</code>.</li>
+<li>Vérifiez dans l’aperçu, puis <code translate="no">node --test css-exercices.test.js</code>.</li>
 <li><strong>Réussi si</strong> : les tests de l’exercice 1 passent.</li>
 </ol>
 </section>
@@ -323,13 +325,13 @@ Kevin Bardoux
   <text x="560" y="252" font-size="30" fill="#1f2a5a" text-anchor="middle">À égalité : la <tspan font-weight="bold">dernière</tspan> règle écrite gagne</text>
 </svg>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a aria-label="1"></a>button { <span class="kw">background</span><span class="ch">:</span> <span class="cn">grey</span><span class="op">;</span> }</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a aria-label="1"></a>button { <span class="kw">background</span><span class="ch">:</span> <span class="cn">grey</span><span class="op">;</span> }</span>
 <span id="cb2-2"><a aria-label="2"></a><span class="fu">.bouton</span> { <span class="kw">background</span><span class="ch">:</span> <span class="cn">crimson</span><span class="op">;</span> }   <span class="co">/* gagne : une classe */</span></span>
 <span id="cb2-3"><a aria-label="3"></a>button { <span class="kw">background</span><span class="ch">:</span> <span class="cn">navy</span><span class="op">;</span> }       <span class="co">/* perd, même écrite après */</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="cascade-attention-et-vérification" class="slide level3">
 <h3>Cascade — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -343,14 +345,14 @@ Kevin Bardoux
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : <code>#intro</code> ou <code>.intro</code> : lequel gagne ?</li>
+<li><strong>Vérifiez</strong> : <code translate="no">#intro</code> ou <code translate="no">.intro</code> : lequel gagne ?</li>
 </ul>
 </section>
 <section id="exercice-2-cascade-15-min" class="slide level3">
 <h3>Exercice 2 — Cascade (15 min)</h3>
 <ol type="1">
-<li>Seuls : la consigne de l’exercice 2 dans <code>style.css</code>.</li>
-<li>Déplacez votre règle avant, puis après la règle <code>button</code>.</li>
+<li>Seuls : la consigne de l’exercice 2 dans <code translate="no">style.css</code>.</li>
+<li>Déplacez votre règle avant, puis après la règle <code translate="no">button</code>.</li>
 <li><strong>Réussi si</strong> : vous expliquez par écrit ce qui se passe, et pourquoi.</li>
 </ol>
 </section>
@@ -383,7 +385,7 @@ Kevin Bardoux
 </section>
 <section id="box-model-attention-et-vérification" class="slide level3">
 <h3>Box model — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -392,18 +394,18 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Sans <code>border-box</code>, une boîte de <code>width: 300px</code> avec <code>padding: 20px</code> mesure 340 px : elle déborde. Mettez la règle <code>border-box</code> en haut de chaque feuille de style.</p>
+<p>Sans <code translate="no">border-box</code>, une boîte de <code translate="no">width: 300px</code> avec <code translate="no">padding: 20px</code> mesure 340 px : elle déborde. Mettez la règle <code translate="no">border-box</code> en haut de chaque feuille de style.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : une marge <strong>intérieure</strong> : <code>padding</code> ou <code>margin</code> ?</li>
+<li><strong>Vérifiez</strong> : une marge <strong>intérieure</strong> : <code translate="no">padding</code> ou <code translate="no">margin</code> ?</li>
 </ul>
 </section>
 <section id="exercice-3-les-cartes-15-min" class="slide level3">
 <h3>Exercice 3 — Les cartes (15 min)</h3>
 <ol type="1">
-<li>Seuls : <strong>exercice 3</strong>, <code>box-sizing</code> et les cartes (<code>.carte</code>).</li>
+<li>Seuls : <strong>exercice 3</strong>, <code translate="no">box-sizing</code> et les cartes (<code translate="no">.carte</code>).</li>
 <li><strong>Réussi si</strong> : les tests des exercices 1 à 3 passent.</li>
 </ol>
 <ul>
@@ -414,7 +416,7 @@ Kevin Bardoux
 <h3>Les outils du navigateur (15 min)</h3>
 <ol type="1">
 <li>Inspectez une carte de vos exercices (clic droit, <em>Inspecter</em>).</li>
-<li>Décochez son <code>padding</code>, puis recochez-le.</li>
+<li>Décochez son <code translate="no">padding</code>, puis recochez-le.</li>
 <li>Onglet <em>Calculé</em> : lisez son box model.</li>
 <li><strong>Réussi si</strong> : vous retrouvez les valeurs de l’exercice 3.</li>
 </ol>
@@ -431,9 +433,9 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Règle</strong> : sélecteur, puis <code>propriété: valeur;</code>.</li>
-<li><strong>Cascade</strong> : <code>id</code> &gt; classe &gt; élément ; à égalité, la dernière gagne.</li>
-<li><strong>Box model</strong> : contenu, <code>padding</code>, <code>border</code>, <code>margin</code> ; <code>border-box</code>.</li>
+<li><strong>Règle</strong> : sélecteur, puis <code translate="no">propriété: valeur;</code>.</li>
+<li><strong>Cascade</strong> : <code translate="no">id</code> &gt; classe &gt; élément ; à égalité, la dernière gagne.</li>
+<li><strong>Box model</strong> : contenu, <code translate="no">padding</code>, <code translate="no">border</code>, <code translate="no">margin</code> ; <code translate="no">border-box</code>.</li>
 </ul>
 </div>
 </div>
@@ -442,8 +444,8 @@ Kevin Bardoux
 <section id="débrief" class="slide level3">
 <h3>Débrief</h3>
 <ul>
-<li>Pourquoi <code>.bouton</code> gagne-t-il, avant comme après <code>button</code> ?</li>
-<li>Que change <code>box-sizing: border-box</code> ?</li>
+<li>Pourquoi <code translate="no">.bouton</code> gagne-t-il, avant comme après <code translate="no">button</code> ?</li>
+<li>Que change <code translate="no">box-sizing: border-box</code> ?</li>
 <li>Que montre l’onglet <em>Calculé</em> des outils du navigateur ?</li>
 </ul>
 </section></section>
@@ -464,7 +466,7 @@ Kevin Bardoux
 </section>
 <section id="interface-propre-attention-et-vérification" class="slide level3">
 <h3>Interface propre — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -473,7 +475,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Des espacements « presque » dans l’échelle (<code>0.6rem</code> au lieu de <code>0.5rem</code>) : la page paraît brouillonne sans qu’on sache pourquoi. Prenez toujours une valeur de l’échelle.</p>
+<p>Des espacements « presque » dans l’échelle (<code translate="no">0.6rem</code> au lieu de <code translate="no">0.5rem</code>) : la page paraît brouillonne sans qu’on sache pourquoi. Prenez toujours une valeur de l’échelle.</p>
 </div>
 </div>
 </div>
@@ -485,9 +487,9 @@ Kevin Bardoux
 <h3>Apport 6 — Les variables CSS (5 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : changer une couleur partout, à un seul endroit.</li>
-<li><strong>Variable CSS</strong> : déclarée dans <code>:root</code>, utilisée avec <code>var(--…)</code>.</li>
+<li><strong>Variable CSS</strong> : déclarée dans <code translate="no">:root</code>, utilisée avec <code translate="no">var(--…)</code>.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a aria-label="1"></a><span class="in">:root</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a aria-label="1"></a><span class="in">:root</span> {</span>
 <span id="cb3-2"><a aria-label="2"></a>  <span class="va">--couleur-accent</span><span class="ch">:</span> <span class="cn">#0b6e4f</span><span class="op">;</span></span>
 <span id="cb3-3"><a aria-label="3"></a>  <span class="va">--espace-3</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span></span>
 <span id="cb3-4"><a aria-label="4"></a>  <span class="va">--texte-titre</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">rem</span><span class="op">;</span></span>
@@ -497,7 +499,7 @@ Kevin Bardoux
 </section>
 <section id="variables-attention-et-vérification" class="slide level3">
 <h3>Variables — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -506,7 +508,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>var(--couleur-acent)</code> (mal écrit) ne donne aucune erreur : la propriété est simplement ignorée. Vérifiez l’orthographe, au caractère près.</p>
+<p><code translate="no">var(--couleur-acent)</code> (mal écrit) ne donne aucune erreur : la propriété est simplement ignorée. Vérifiez l’orthographe, au caractère près.</p>
 </div>
 </div>
 </div>
@@ -517,20 +519,20 @@ Kevin Bardoux
 <section id="exercice-avant-après-30-min" class="slide level3">
 <h3>Exercice — Avant / après (30 min)</h3>
 <ol type="1">
-<li>Dossier <code>interface-propre</code> : une page volontairement brouillonne.</li>
+<li>Dossier <code translate="no">interface-propre</code> : une page volontairement brouillonne.</li>
 <li>Faites une capture <strong>avant</strong> (375 px et grand écran).</li>
-<li>Réécrivez <code>style.css</code> : les cinq règles (consignes en commentaire).</li>
-<li><strong>Réussi si</strong> : <code>interface-propre.test.js</code> passe ; capture <strong>après</strong>.</li>
+<li>Réécrivez <code translate="no">style.css</code> : les cinq règles (consignes en commentaire).</li>
+<li><strong>Réussi si</strong> : <code translate="no">interface-propre.test.js</code> passe ; capture <strong>après</strong>.</li>
 </ol>
 </section>
 <section id="css-from-scratch-1-h-05" class="slide level3">
 <h3>« CSS from scratch » (1 h 05)</h3>
 <ol type="1">
-<li>Stylez votre page personnelle, dans <code>page-perso/style.css</code>.</li>
-<li>Commencez par <code>:root</code> : votre palette, vos espacements, vos tailles.</li>
+<li>Stylez votre page personnelle, dans <code translate="no">page-perso/style.css</code>.</li>
+<li>Commencez par <code translate="no">:root</code> : votre palette, vos espacements, vos tailles.</li>
 <li>Appliquez les cinq règles d’une interface propre.</li>
 <li>Contrastes : 4,5:1 au moins pour le texte (pas de colonnes : jeudi).</li>
-<li><strong>Réussi si</strong> : <code>node --test page-perso-style.test.js</code> passe.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test page-perso-style.test.js</code> passe.</li>
 </ol>
 <ul>
 <li>Pas fini ? « Si le temps le permet », puis jeudi après-midi.</li>
@@ -549,7 +551,7 @@ Kevin Bardoux
 <div class="callout-content">
 <ul>
 <li><strong>Interface propre</strong> : hiérarchie, échelle, typographie, palette, alignement.</li>
-<li><strong>Variables</strong> : déclarées dans <code>:root</code>, utilisées avec <code>var(--…)</code>.</li>
+<li><strong>Variables</strong> : déclarées dans <code translate="no">:root</code>, utilisées avec <code translate="no">var(--…)</code>.</li>
 <li><strong>Éditeurs du navigateur</strong> : le CSS à la main d’abord, l’éditeur pour ajuster.</li>
 </ul>
 </div>
@@ -559,9 +561,9 @@ Kevin Bardoux
 <section id="critères-de-réussite" class="slide level3">
 <h3>Critères de réussite</h3>
 <ul class="task-list">
-<li><label><input type="checkbox"><code>css-exercices</code> : les tests des exercices 1 à 3 au vert</label></li>
-<li><label><input type="checkbox"><code>interface-propre</code> au vert ; captures avant / après</label></li>
-<li><label><input type="checkbox">Page perso : <code>page-perso-style</code> au vert, contrastes vérifiés</label></li>
+<li><label><input type="checkbox"><code translate="no">css-exercices</code> : les tests des exercices 1 à 3 au vert</label></li>
+<li><label><input type="checkbox"><code translate="no">interface-propre</code> au vert ; captures avant / après</label></li>
+<li><label><input type="checkbox">Page perso : <code translate="no">page-perso-style</code> au vert, contrastes vérifiés</label></li>
 </ul>
 </section>
 <section id="si-le-temps-le-permet-la-page-perso-plus-loin" class="slide level3">
@@ -580,7 +582,7 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li>Stylez <code>:hover</code> <strong>et</strong> <code>:focus-visible</code> sur les liens.</li>
+<li>Stylez <code translate="no">:hover</code> <strong>et</strong> <code translate="no">:focus-visible</code> sur les liens.</li>
 <li>Testez au clavier : le focus doit toujours être visible.</li>
 </ul>
 </div>
@@ -632,7 +634,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -800,27 +801,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

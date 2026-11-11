@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -170,7 +172,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : résolution de problème · communiquer<br> <strong>Livrable</strong> : votre projet Scratch commencé (lien ou fichier <code>.sb3</code>).</p>
+<p><strong>Compétences visées</strong> : résolution de problème · communiquer<br> <strong>Livrable</strong> : votre projet Scratch commencé (lien ou fichier <code translate="no">.sb3</code>).</p>
 </div>
 </div>
 </div>
@@ -194,7 +196,7 @@ Kevin Bardoux
 <li><strong>Pourquoi</strong> : écrire un algorithme avant de le programmer.</li>
 <li><strong>Pseudo-code</strong> : du français structuré, une instruction par ligne.</li>
 </ul>
-<pre><code>ouvrir l'annuaire à la première page
+<pre translate="no"><code>ouvrir l'annuaire à la première page
 TANT QUE le nom n'est pas sur la page
     SI c'est la dernière page ALORS
         AFFICHER "absent"
@@ -206,7 +208,7 @@ AFFICHER "trouvé"</code></pre>
 </section>
 <section id="pseudo-code-attention-et-vérification" class="slide level3">
 <h3>Pseudo-code — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -226,7 +228,7 @@ AFFICHER "trouvé"</code></pre>
 <section id="exercice-1-couper-en-deux-en-pseudo-code-15-min" class="slide level3">
 <h3>Exercice 1 — « Couper en deux » en pseudo-code (15 min)</h3>
 <ol type="1">
-<li>Ensemble (5 min) : la première ligne et le <code>TANT QUE</code>.</li>
+<li>Ensemble (5 min) : la première ligne et le <code translate="no">TANT QUE</code>.</li>
 <li>Seuls (7 min) : écrivez la suite de « couper en deux ».</li>
 <li>Avec un voisin (3 min) : l’un lit, l’autre joue avec un livre.</li>
 <li><strong>Réussi si</strong> : trois issues (trouvé, gauche, droite) et le cas « absent ».</li>
@@ -247,14 +249,14 @@ AFFICHER "trouvé"</code></pre>
 <li><strong>Pourquoi</strong> : retenir une valeur qui change, comme un score.</li>
 <li><strong>Variable</strong> : un nom qui désigne une valeur.</li>
 </ul>
-<pre><code>quand ⚑ est cliqué
+<pre translate="no"><code>quand ⚑ est cliqué
 mettre score à 0
 quand ce sprite est cliqué
 ajouter 1 à score</code></pre>
 </section>
 <section id="variables-scratch-attention-et-vérification" class="slide level3">
 <h3>Variables Scratch — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -268,7 +270,7 @@ ajouter 1 à score</code></pre>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : <code>score</code> à 5, puis « ajouter -2 » : combien ?</li>
+<li><strong>Vérifiez</strong> : <code translate="no">score</code> à 5, puis « ajouter -2 » : combien ?</li>
 </ul>
 </section>
 <section id="exercices-3-à-5-scratch-45-min" class="slide level3">
@@ -319,12 +321,12 @@ ajouter 1 à score</code></pre>
 <li><strong>Pourquoi</strong> : comprendre ce que l’ordinateur manipule vraiment.</li>
 <li><strong>Binaire</strong> : compter avec seulement deux chiffres, 0 et 1.</li>
 </ul>
-<pre><code>cartes :  16   8   4   2   1
+<pre translate="no"><code>cartes :  16   8   4   2   1
 9      :   0   1   0   0   1</code></pre>
 </section>
 <section id="binaire-attention-et-vérification" class="slide level3">
 <h3>Binaire — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -338,7 +340,7 @@ ajouter 1 à score</code></pre>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que vaut <code>00110</code> ?</li>
+<li><strong>Vérifiez</strong> : que vaut <code translate="no">00110</code> ?</li>
 </ul>
 </section>
 <section id="apport-4-dans-lordinateur-5-min" class="slide level3">
@@ -352,7 +354,7 @@ ajouter 1 à score</code></pre>
 </section>
 <section id="dans-lordinateur-attention-et-vérification" class="slide level3">
 <h3>Dans l’ordinateur — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -375,7 +377,7 @@ ajouter 1 à score</code></pre>
 <li><strong>Pourquoi</strong> : qu’un sprite déclenche l’action d’un autre.</li>
 <li><strong>Message</strong> : un signal envoyé à tous, reçu par ceux qui l’attendent.</li>
 </ul>
-<pre><code>Sprite « Chat » :
+<pre translate="no"><code>Sprite « Chat » :
 quand ⚑ est cliqué
 attendre 1 secondes
 envoyer à tous [départ]
@@ -386,7 +388,7 @@ dire [C'est parti !] pendant 2 secondes</code></pre>
 </section>
 <section id="messages-attention-et-vérification" class="slide level3">
 <h3>Messages — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -400,7 +402,7 @@ dire [C'est parti !] pendant 2 secondes</code></pre>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : ajoutez un troisième sprite qui réagit aussi à <code>départ</code>.</li>
+<li><strong>Vérifiez</strong> : ajoutez un troisième sprite qui réagit aussi à <code translate="no">départ</code>.</li>
 </ul>
 </section>
 <section id="le-projet-consignes-2-h-10" class="slide level3">
@@ -471,7 +473,6 @@ dire [C'est parti !] pendant 2 secondes</code></pre>
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -639,27 +640,9 @@ dire [C'est parti !] pendant 2 secondes</code></pre>
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -120,8 +121,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -244,7 +246,7 @@ Kevin Bardoux
 <section id="objectifs-de-la-journée" class="title-slide slide level2 center">
 <h2>Objectifs de la journée</h2>
 <ul>
-<li>Choisir une unité adaptée : <code>rem</code>, <code>%</code>, <code>px</code>.</li>
+<li>Choisir une unité adaptée : <code translate="no">rem</code>, <code translate="no">%</code>, <code translate="no">px</code>.</li>
 <li>Intégrer un composant fidèle à la maquette, 375 px et bureau.</li>
 <li>Ranger le guide de style de la maquette en variables CSS.</li>
 <li>Reproduire une cible visuelle au pixel près, en CSS.</li>
@@ -261,24 +263,24 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li>Quel attribut relie un <code>label</code> à son champ ?</li>
-<li>Que fait un <code>.gitignore</code> ?</li>
-<li>Que donne <code>'4' * 2</code> ?</li>
+<li>Quel attribut relie un <code translate="no">label</code> à son champ ?</li>
+<li>Que fait un <code translate="no">.gitignore</code> ?</li>
+<li>Que donne <code translate="no">'4' * 2</code> ?</li>
 </ol>
 </section>
 <section id="apport-les-unités-15-min" class="slide level3">
 <h3>Apport — Les unités (15 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : une page lisible quand le visiteur agrandit le texte.</li>
-<li><strong><code>rem</code></strong> suit la taille de texte choisie par l’utilisateur.</li>
+<li><strong><code translate="no">rem</code></strong> suit la taille de texte choisie par l’utilisateur.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a>body       { <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span> }</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a>body       { <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span> }</span>
 <span id="cb1-2"><a aria-label="2"></a><span class="fu">.conteneur</span> { <span class="kw">width</span><span class="ch">:</span> <span class="dv">90</span><span class="dt">%</span><span class="op">;</span> <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">60</span><span class="dt">rem</span><span class="op">;</span> <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span> }</span>
 <span id="cb1-3"><a aria-label="3"></a><span class="fu">.carte</span>     { <span class="kw">border</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#ccc</span><span class="op">;</span> }</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="unités-attention-et-vérification" class="slide level3">
 <h3>Unités — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -287,7 +289,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Un texte en <code>px</code> ne grandit pas quand le visiteur agrandit le texte. Pour les tailles de texte, <code>rem</code>.</p>
+<p>Un texte en <code translate="no">px</code> ne grandit pas quand le visiteur agrandit le texte. Pour les tailles de texte, <code translate="no">rem</code>.</p>
 </div>
 </div>
 </div>
@@ -298,9 +300,9 @@ Kevin Bardoux
 <section id="exercice-4-le-conteneur-10-min" class="slide level3">
 <h3>Exercice 4 — Le conteneur (10 min)</h3>
 <ol type="1">
-<li>Dans <code>css-exercices/style.css</code> : <strong>exercice 4</strong>, le conteneur.</li>
-<li>Largeur en <code>%</code>, largeur maximale en <code>rem</code>, centré.</li>
-<li><strong>Réussi si</strong> : <code>node --test css-exercices.test.js</code> passe en entier.</li>
+<li>Dans <code translate="no">css-exercices/style.css</code> : <strong>exercice 4</strong>, le conteneur.</li>
+<li>Largeur en <code translate="no">%</code>, largeur maximale en <code translate="no">rem</code>, centré.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test css-exercices.test.js</code> passe en entier.</li>
 </ol>
 </section>
 <section id="lactivité" class="slide level3">
@@ -326,8 +328,8 @@ Kevin Bardoux
 <ol type="1">
 <li>Lisez l’énoncé et observez la maquette mobile, puis bureau.</li>
 <li>Écrivez d’abord le HTML sémantique, sans aucun style.</li>
-<li>Recopiez le guide de style en variables, dans <code>:root</code> (mardi).</li>
-<li>Polices : téléchargez-les et déclarez-les avec <code>@font-face</code>.</li>
+<li>Recopiez le guide de style en variables, dans <code translate="no">:root</code> (mardi).</li>
+<li>Polices : téléchargez-les et déclarez-les avec <code translate="no">@font-face</code>.</li>
 <li>Stylez pour le mobile, puis élargissez l’écran.</li>
 <li>Comparez à la maquette ; notez et corrigez trois écarts.</li>
 </ol>
@@ -335,8 +337,8 @@ Kevin Bardoux
 <section id="sans-compte-la-carte-de-profil" class="slide level3">
 <h3>Sans compte : la carte de profil</h3>
 <ul>
-<li>Dossier <code>composant-carte</code> de l’archive de la semaine.</li>
-<li>Cibles : <code>cible-mobile.png</code> (375 px) et <code>cible-bureau.png</code>.</li>
+<li>Dossier <code translate="no">composant-carte</code> de l’archive de la semaine.</li>
+<li>Cibles : <code translate="no">cible-mobile.png</code> (375 px) et <code translate="no">cible-bureau.png</code>.</li>
 <li>Le contenu est fourni : à vous la structure et le style.</li>
 <li>Même objectif, même preuve : elle compte aussi pour le portfolio.</li>
 </ul>
@@ -349,7 +351,7 @@ Kevin Bardoux
 <section id="lactivité-1" class="slide level3">
 <h3>L’activité</h3>
 <ul>
-<li><strong>Outil</strong> : le dossier <code>defis-css</code> de l’archive, hors ligne, sans compte.</li>
+<li><strong>Outil</strong> : le dossier <code translate="no">defis-css</code> de l’archive, hors ligne, sans compte.</li>
 <li><strong>Objectif</strong> : 3 défis au moins ; les 8 au mieux.</li>
 <li><strong>Pourquoi</strong> : maîtriser tailles, positions et couleurs.</li>
 <li><strong>Preuve</strong> : une capture de chaque défi réussi, en mode différence.</li>
@@ -358,9 +360,9 @@ Kevin Bardoux
 <section id="les-huit-défis-css" class="slide level3">
 <h3>Les huit défis CSS</h3>
 <ol type="1">
-<li>Dossier <code>defis-css</code> : <code>cible-1.png</code> à <code>cible-8.png</code> (400 × 300 px).</li>
-<li>Un fichier de départ par cible : <code>defi-1.html</code> à <code>defi-8.html</code>.</li>
-<li>Ouvrez <code>comparer.html</code> avec Live Preview : choisissez le défi.</li>
+<li>Dossier <code translate="no">defis-css</code> : <code translate="no">cible-1.png</code> à <code translate="no">cible-8.png</code> (400 × 300 px).</li>
+<li>Un fichier de départ par cible : <code translate="no">defi-1.html</code> à <code translate="no">defi-8.html</code>.</li>
+<li>Ouvrez <code translate="no">comparer.html</code> avec Live Preview : choisissez le défi.</li>
 <li><strong>Réussi si</strong> : en mode différence, il ne reste que du noir.</li>
 </ol>
 <ul>
@@ -410,7 +412,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -578,27 +579,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

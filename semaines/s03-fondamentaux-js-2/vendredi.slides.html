@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -212,10 +214,10 @@ Kevin Bardoux
 <section id="ce-qui-est-évalué" class="slide level3">
 <h3>Ce qui est évalué</h3>
 <ul>
-<li>Écrire une fonction qui renvoie son résultat avec <code>return</code>.</li>
-<li>Parcourir un tableau avec <code>for...of</code>.</li>
-<li>Utiliser une condition (<code>if</code>).</li>
-<li>Manipuler une chaîne : <code>split</code>, <code>[0]</code>, <code>toUpperCase</code>.</li>
+<li>Écrire une fonction qui renvoie son résultat avec <code translate="no">return</code>.</li>
+<li>Parcourir un tableau avec <code translate="no">for...of</code>.</li>
+<li>Utiliser une condition (<code translate="no">if</code>).</li>
+<li>Manipuler une chaîne : <code translate="no">split</code>, <code translate="no">[0]</code>, <code translate="no">toUpperCase</code>.</li>
 <li>Lire une erreur et trouver sa cause.</li>
 <li>Traiter le cas du texte vide.</li>
 </ul>
@@ -232,11 +234,11 @@ Kevin Bardoux
 <section id="pour-vous-préparer" class="slide level3">
 <h3>Pour vous préparer</h3>
 <ul>
-<li>Semaine 2 : 06, et une boucle <code>for</code> (07 et 08 si faits).</li>
+<li>Semaine 2 : 06, et une boucle <code translate="no">for</code> (07 et 08 si faits).</li>
 <li>Cette semaine : l1 à l6, les Problem sets 1 et 2.</li>
 <li>La fiche de révision papier du mercredi.</li>
 <li>Les tris et le grand O ne sont <strong>pas</strong> au programme.</li>
-<li>Le cas du texte vide : <code>''.split(' ')</code> donne <code>['']</code>.</li>
+<li>Le cas du texte vide : <code translate="no">''.split(' ')</code> donne <code translate="no">['']</code>.</li>
 </ul>
 </section></section>
 <section>
@@ -255,7 +257,7 @@ Kevin Bardoux
 <ul>
 <li>L’ECF est terminé : pas de correction cet après-midi.</li>
 <li>Elle se fait pour tous, mercredi 28/10.</li>
-<li><strong>Approfondir</strong> : <code>tri-insertion</code> (pour aller plus loin, jeudi).</li>
+<li><strong>Approfondir</strong> : <code translate="no">tri-insertion</code> (pour aller plus loin, jeudi).</li>
 <li><strong>Approfondir</strong> : les bulles sur une liste déjà triée.</li>
 <li><strong>Au choix</strong> : Exercism, ou le palindrome qui ignore les espaces.</li>
 </ul>
@@ -290,7 +292,6 @@ Formation DWWM 2026-2027. 2026. <em>Charte IA de la formation</em>.
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -458,27 +459,9 @@ Formation DWWM 2026-2027. 2026. <em>Charte IA de la formation</em>.
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

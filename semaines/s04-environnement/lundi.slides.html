@@ -36,6 +36,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -56,8 +57,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -176,7 +178,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C1 · apprendre en continu · résolution de problème<br> <strong>Livrable</strong> : votre compte GitHub, votre fichier <code>questions-canard.md</code> et la fiche « Inspecteur réseau » remplie.</p>
+<p><strong>Compétences visées</strong> : C1 · apprendre en continu · résolution de problème<br> <strong>Livrable</strong> : votre compte GitHub, votre fichier <code translate="no">questions-canard.md</code> et la fiche « Inspecteur réseau » remplie.</p>
 </div>
 </div>
 </div>
@@ -200,7 +202,7 @@ Kevin Bardoux
 <li><strong>Pourquoi</strong> : se faire expliquer, sans que l’IA fasse à votre place.</li>
 <li><strong>CS50.ai</strong> : un tuteur qui guide vers la réponse, sans la donner.</li>
 </ul>
-<pre><code>Oui     expliquer une notion, reformuler un message d'erreur
+<pre translate="no"><code>Oui     expliquer une notion, reformuler un message d'erreur
 Oui     donner un indice, poser des questions, faire un quiz
 Non     donner du code solution ; coller un énoncé
 Non     rédiger un texte à rendre
@@ -208,7 +210,7 @@ Jamais  un secret, une donnée personnelle, un sujet d'évaluation</code></pre>
 </section>
 <section id="palier-1-attention-et-vérification" class="slide level3">
 <h3>Palier 1 — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -239,7 +241,7 @@ Jamais  un secret, une donnée personnelle, un sujet d'évaluation</code></pre>
 <h3>Prise en main de CS50.ai (30 min)</h3>
 <ol type="1">
 <li>Ouvrez <a href="https://cs50.ai">cs50.ai</a>, puis <strong>Log In</strong> avec GitHub.</li>
-<li>VS Code : créez <code>questions-canard.md</code> dans le dossier <code>dwwm</code>.</li>
+<li>VS Code : créez <code translate="no">questions-canard.md</code> dans le dossier <code translate="no">dwwm</code>.</li>
 <li>Posez une question sur un exercice difficile de la S3.</li>
 <li>Demandez-lui : « Donne-moi la solution. » Notez sa réponse.</li>
 <li><strong>Réussi si</strong> : deux questions et leurs réponses dans le fichier.</li>
@@ -274,7 +276,7 @@ sequenceDiagram
 </section>
 <section id="trajet-attention-et-vérification" class="slide level3">
 <h3>Trajet — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -283,7 +285,7 @@ sequenceDiagram
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Le nom de domaine (<code>developer.mozilla.org</code>) n’est pas l’adresse IP : c’est le DNS qui fait le lien. Sans réponse du DNS, aucune page ne s’affiche.</p>
+<p>Le nom de domaine (<code translate="no">developer.mozilla.org</code>) n’est pas l’adresse IP : c’est le DNS qui fait le lien. Sans réponse du DNS, aucune page ne s’affiche.</p>
 </div>
 </div>
 </div>
@@ -339,7 +341,7 @@ sequenceDiagram
 <li>Trois situations (ci-dessous), avec <a href="https://cs50.ai">CS50.ai</a>.</li>
 <li>Pour chacune : une question v1, puis une v2 améliorée.</li>
 <li>Comparez : la réponse est-elle meilleure ? Le canard a-t-il guidé ?</li>
-<li>Notez tout dans <code>questions-canard.md</code>.</li>
+<li>Notez tout dans <code translate="no">questions-canard.md</code>.</li>
 <li>Lisez l’introduction de Learn Prompting : notez une idée.</li>
 </ol>
 </section>
@@ -356,7 +358,7 @@ sequenceDiagram
 </section>
 <section id="http-attention-et-vérification" class="slide level3">
 <h3>HTTP — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -365,12 +367,12 @@ sequenceDiagram
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>4xx</code> : la requête est en cause (adresse fausse, accès refusé). <code>5xx</code> : le serveur est en cause. Lisez la famille du code avant de chercher.</p>
+<p><code translate="no">4xx</code> : la requête est en cause (adresse fausse, accès refusé). <code translate="no">5xx</code> : le serveur est en cause. Lisez la famille du code avant de chercher.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que signifie <code>404</code> ? Et <code>500</code> ?</li>
+<li><strong>Vérifiez</strong> : que signifie <code translate="no">404</code> ? Et <code translate="no">500</code> ?</li>
 </ul>
 </section>
 <section id="tp-inspecteur-réseau-1-h-15" class="slide level3">
@@ -431,7 +433,6 @@ sequenceDiagram
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -599,27 +600,9 @@ sequenceDiagram
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -120,8 +121,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -265,7 +267,7 @@ Kevin Bardoux
 <li><strong>Node.js</strong> exécute du JavaScript en dehors du navigateur.</li>
 </ul>
 <div class="terminal">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>PS C:\Users\stagiaire&gt; node -v</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>PS C:\Users\stagiaire&gt; node -v</span>
 <span id="cb1-2"><a aria-label="2"></a>v24.21.0</span>
 <span id="cb1-3"><a aria-label="3"></a>PS C:\Users\stagiaire&gt; npm -v</span>
 <span id="cb1-4"><a aria-label="4"></a>11.19.0</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -273,7 +275,7 @@ Kevin Bardoux
 </section>
 <section id="node.js-attention-et-vérification" class="slide level3">
 <h3>Node.js — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -282,25 +284,25 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>« n’est pas reconnu » ou « commande introuvable » : le terminal était ouvert avant l’installation. Fermez-le, rouvrez-le, retapez <code>node -v</code>.</p>
+<p>« n’est pas reconnu » ou « commande introuvable » : le terminal était ouvert avant l’installation. Fermez-le, rouvrez-le, retapez <code translate="no">node -v</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : <code>node -v</code> et <code>npm -v</code> affichent chacun un numéro.</li>
+<li><strong>Vérifiez</strong> : <code translate="no">node -v</code> et <code translate="no">npm -v</code> affichent chacun un numéro.</li>
 </ul>
 </section>
 <section id="apport-2-un-éditeur-de-code-vs-code-10-min" class="slide level3">
 <h3>Apport 2 — Un éditeur de code : VS Code (10 min)</h3>
 <ul>
-<li><strong>Pourquoi</strong> : écrire vos fichiers <code>.js</code> et les retrouver.</li>
+<li><strong>Pourquoi</strong> : écrire vos fichiers <code translate="no">.js</code> et les retrouver.</li>
 <li><strong>VS Code</strong> : l’éditeur de code de la formation, gratuit.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Bonjour depuis VS Code'</span>)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Bonjour depuis VS Code'</span>)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="vs-code-attention-et-vérification" class="slide level3">
 <h3>VS Code — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -309,28 +311,28 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>Cannot find module</code> alors que le fichier existe : il s’appelle peut-être <code>essai.js.txt</code>. Affichez les extensions, puis renommez-le <code>essai.js</code>.</p>
+<p><code translate="no">Cannot find module</code> alors que le fichier existe : il s’appelle peut-être <code translate="no">essai.js.txt</code>. Affichez les extensions, puis renommez-le <code translate="no">essai.js</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : <code>node essai.js</code> affiche <code>Bonjour depuis VS Code</code>.</li>
+<li><strong>Vérifiez</strong> : <code translate="no">node essai.js</code> affiche <code translate="no">Bonjour depuis VS Code</code>.</li>
 </ul>
 </section>
 <section id="apport-3-const-et-let-8-min" class="slide level3">
-<h3>Apport 3 — <code>const</code> et <code>let</code> (8 min)</h3>
+<h3>Apport 3 — <code translate="no">const</code> et <code translate="no">let</code> (8 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : garder une valeur pour la réutiliser plus loin.</li>
-<li><strong>Variable</strong> : un nom qui désigne une valeur ; <code>const</code> par défaut.</li>
+<li><strong>Variable</strong> : un nom qui désigne une valeur ; <code translate="no">const</code> par défaut.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a aria-label="1"></a><span class="kw">const</span> city <span class="op">=</span> <span class="st">'Brest'</span><span class="op">;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a aria-label="1"></a><span class="kw">const</span> city <span class="op">=</span> <span class="st">'Brest'</span><span class="op">;</span></span>
 <span id="cb3-2"><a aria-label="2"></a><span class="kw">let</span> score <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
 <span id="cb3-3"><a aria-label="3"></a>score <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
 <span id="cb3-4"><a aria-label="4"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(city<span class="op">,</span> score)<span class="op">;</span> <span class="co">// Brest 15</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="variables-attention-et-vérification" class="slide level3">
 <h3>Variables — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -339,22 +341,22 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>TypeError: Assignment to constant variable.</code> : vous avez donné une nouvelle valeur à une <code>const</code>. Déclarez-la avec <code>let</code>, seulement si sa valeur doit changer.</p>
+<p><code translate="no">TypeError: Assignment to constant variable.</code> : vous avez donné une nouvelle valeur à une <code translate="no">const</code>. Déclarez-la avec <code translate="no">let</code>, seulement si sa valeur doit changer.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : <code>let n = 10; n = n + 5;</code> : que vaut <code>n</code> ?</li>
+<li><strong>Vérifiez</strong> : <code translate="no">let n = 10; n = n + 5;</code> : que vaut <code translate="no">n</code> ?</li>
 <li>Prédisez, puis tapez la ligne dans le REPL.</li>
 </ul>
 </section>
 <section id="apport-4-les-types-et-typeof-7-min" class="slide level3">
-<h3>Apport 4 — Les types et <code>typeof</code> (7 min)</h3>
+<h3>Apport 4 — Les types et <code translate="no">typeof</code> (7 min)</h3>
 <ul>
-<li><strong>Pourquoi</strong> : <code>'4' + 2</code> ne donne pas <code>6</code>.</li>
-<li><strong>Type</strong> : la sorte d’une valeur ; <code>typeof</code> la donne.</li>
+<li><strong>Pourquoi</strong> : <code translate="no">'4' + 2</code> ne donne pas <code translate="no">6</code>.</li>
+<li><strong>Type</strong> : la sorte d’une valeur ; <code translate="no">typeof</code> la donne.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a aria-label="1"></a><span class="kw">typeof</span> <span class="dv">42</span>     <span class="co">// 'number'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a aria-label="1"></a><span class="kw">typeof</span> <span class="dv">42</span>     <span class="co">// 'number'</span></span>
 <span id="cb4-2"><a aria-label="2"></a><span class="kw">typeof</span> <span class="st">'42'</span>   <span class="co">// 'string'</span></span>
 <span id="cb4-3"><a aria-label="3"></a><span class="kw">typeof</span> <span class="kw">true</span>   <span class="co">// 'boolean'</span></span>
 <span id="cb4-4"><a aria-label="4"></a><span class="st">'4'</span> <span class="op">+</span> <span class="dv">2</span>       <span class="co">// '42' : + colle deux textes</span></span>
@@ -362,7 +364,7 @@ Kevin Bardoux
 </section>
 <section id="types-attention-et-vérification" class="slide level3">
 <h3>Types — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -371,12 +373,12 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>+</code> avec un texte colle au lieu d’additionner : <code>'4' + 2</code> donne <code>'42'</code>. Vous le voyez aux guillemets du résultat. Convertissez d’abord : <code>Number('4') + 2</code> donne <code>6</code>.</p>
+<p><code translate="no">+</code> avec un texte colle au lieu d’additionner : <code translate="no">'4' + 2</code> donne <code translate="no">'42'</code>. Vous le voyez aux guillemets du résultat. Convertissez d’abord : <code translate="no">Number('4') + 2</code> donne <code translate="no">6</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que donne <code>typeof 'true'</code> ?</li>
+<li><strong>Vérifiez</strong> : que donne <code translate="no">typeof 'true'</code> ?</li>
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
@@ -391,19 +393,19 @@ Kevin Bardoux
 </ol>
 </section>
 <section id="apport-5-comparer-avec-10-min" class="slide level3">
-<h3>Apport 5 — Comparer avec <code>===</code> (10 min)</h3>
+<h3>Apport 5 — Comparer avec <code translate="no">===</code> (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : un programme doit savoir si deux valeurs sont égales.</li>
-<li><strong><code>===</code></strong> : même type <strong>et</strong> même valeur ; jamais <code>==</code>.</li>
+<li><strong><code translate="no">===</code></strong> : même type <strong>et</strong> même valeur ; jamais <code translate="no">==</code>.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a aria-label="1"></a><span class="dv">3</span> <span class="op">===</span> <span class="dv">3</span>     <span class="co">// true</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a aria-label="1"></a><span class="dv">3</span> <span class="op">===</span> <span class="dv">3</span>     <span class="co">// true</span></span>
 <span id="cb5-2"><a aria-label="2"></a><span class="st">'3'</span> <span class="op">===</span> <span class="dv">3</span>   <span class="co">// false : un texte, un nombre</span></span>
 <span id="cb5-3"><a aria-label="3"></a><span class="st">'3'</span> <span class="op">==</span> <span class="dv">3</span>    <span class="co">// true : == a converti le texte</span></span>
 <span id="cb5-4"><a aria-label="4"></a><span class="dv">3</span> <span class="op">!==</span> <span class="dv">4</span>     <span class="co">// true : 3 est différent de 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="attention-et-vérification" class="slide level3">
-<h3><code>===</code> — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<h3><code translate="no">===</code> — attention et vérification</h3>
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -412,12 +414,12 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Un seul <code>=</code> ne compare pas : il donne une valeur. <code>score = 3</code> change <code>score</code> ; <code>score === 3</code> pose la question. Une variable qui change sans raison : cherchez un <code>=</code> seul.</p>
+<p>Un seul <code translate="no">=</code> ne compare pas : il donne une valeur. <code translate="no">score = 3</code> change <code translate="no">score</code> ; <code translate="no">score === 3</code> pose la question. Une variable qui change sans raison : cherchez un <code translate="no">=</code> seul.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que donne <code>'5' === 5</code> ?</li>
+<li><strong>Vérifiez</strong> : que donne <code translate="no">'5' === 5</code> ?</li>
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
@@ -425,7 +427,7 @@ Kevin Bardoux
 <h3>Exercice — Quatre comparaisons (10 min)</h3>
 <ol type="1">
 <li>Ensemble (2 min) : prédisez à voix haute la comparaison 1.</li>
-<li>Seuls (5 min) : écrivez <code>true</code> ou <code>false</code> pour 2 à 4.</li>
+<li>Seuls (5 min) : écrivez <code translate="no">true</code> ou <code translate="no">false</code> pour 2 à 4.</li>
 <li>Dans le REPL (3 min) : vérifiez chaque comparaison.</li>
 <li><strong>Réussi si</strong> : chaque surprise est entourée et expliquée.</li>
 </ol>
@@ -443,10 +445,10 @@ Kevin Bardoux
 <div class="callout-content">
 <ul>
 <li><strong>Node.js</strong> lance du JavaScript dans un terminal.</li>
-<li><strong>VS Code</strong> : un éditeur, des fichiers <code>.js</code> sans <code>.txt</code>.</li>
-<li><strong>Variables</strong> : <code>const</code> par défaut, <code>let</code> si la valeur change.</li>
-<li><strong>Types</strong> : <code>+</code> avec un texte colle ; <code>Number(…)</code> convertit.</li>
-<li><strong>Comparer</strong> : <code>===</code> compare ; <code>=</code> donne une valeur.</li>
+<li><strong>VS Code</strong> : un éditeur, des fichiers <code translate="no">.js</code> sans <code translate="no">.txt</code>.</li>
+<li><strong>Variables</strong> : <code translate="no">const</code> par défaut, <code translate="no">let</code> si la valeur change.</li>
+<li><strong>Types</strong> : <code translate="no">+</code> avec un texte colle ; <code translate="no">Number(…)</code> convertit.</li>
+<li><strong>Comparer</strong> : <code translate="no">===</code> compare ; <code translate="no">=</code> donne une valeur.</li>
 </ul>
 </div>
 </div>
@@ -455,9 +457,9 @@ Kevin Bardoux
 <section id="débrief" class="slide level3">
 <h3>Débrief</h3>
 <ul>
-<li>Quelle différence entre <code>let</code> et <code>const</code> ?</li>
-<li>Pourquoi <code>'4' + 2</code> donne-t-il <code>'42'</code> ?</li>
-<li>Pourquoi préférer <code>===</code> ?</li>
+<li>Quelle différence entre <code translate="no">let</code> et <code translate="no">const</code> ?</li>
+<li>Pourquoi <code translate="no">'4' + 2</code> donne-t-il <code translate="no">'42'</code> ?</li>
+<li>Pourquoi préférer <code translate="no">===</code> ?</li>
 </ul>
 </section></section>
 <section>
@@ -472,7 +474,7 @@ Kevin Bardoux
 <li><strong>Test</strong> : il lance votre programme et compare au résultat attendu.</li>
 </ul>
 <div class="terminal">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a aria-label="1"></a>PS C:\Users\stagiaire\dwwm\semaine-02&gt; node --test 01-hello.test.js</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" translate="no"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a aria-label="1"></a>PS C:\Users\stagiaire\dwwm\semaine-02&gt; node --test 01-hello.test.js</span>
 <span id="cb6-2"><a aria-label="2"></a>✖ affiche Hello, world! (133.07442ms)</span>
 <span id="cb6-3"><a aria-label="3"></a>…</span>
 <span id="cb6-4"><a aria-label="4"></a>  + actual - expected</span>
@@ -483,7 +485,7 @@ Kevin Bardoux
 </section>
 <section id="tests-attention-et-vérification" class="slide level3">
 <h3>Tests — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -492,12 +494,12 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>Could not find</code> ou <code>tests 0</code> : le terminal n’est pas dans le bon dossier. Tapez <code>cd ~/dwwm/semaine-02</code>, puis relancez.</p>
+<p><code translate="no">Could not find</code> ou <code translate="no">tests 0</code> : le terminal n’est pas dans le bon dossier. Tapez <code translate="no">cd ~/dwwm/semaine-02</code>, puis relancez.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que montre la ligne qui commence par <code>-</code> ?</li>
+<li><strong>Vérifiez</strong> : que montre la ligne qui commence par <code translate="no">-</code> ?</li>
 <li>Répondez sur votre feuille, puis comparez avec votre voisin.</li>
 </ul>
 </section>
@@ -505,14 +507,14 @@ Kevin Bardoux
 <h3>Apport 7 — Une valeur dans un texte (5 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : afficher une phrase qui contient une valeur.</li>
-<li><strong>Littéral de gabarit</strong> : un texte entre accents graves ; <code>${…}</code> insère.</li>
+<li><strong>Littéral de gabarit</strong> : un texte entre accents graves ; <code translate="no">${…}</code> insère.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a aria-label="1"></a><span class="kw">const</span> firstName <span class="op">=</span> <span class="st">'Ada'</span><span class="op">;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a aria-label="1"></a><span class="kw">const</span> firstName <span class="op">=</span> <span class="st">'Ada'</span><span class="op">;</span></span>
 <span id="cb7-2"><a aria-label="2"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Bonjour </span><span class="sc">${</span>firstName<span class="sc">}</span><span class="vs"> !`</span>)<span class="op">;</span> <span class="co">// Bonjour Ada !</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="littéral-de-gabarit-attention-et-vérification" class="slide level3">
 <h3>Littéral de gabarit — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -521,22 +523,22 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Avec des guillemets <code>'…'</code>, <code>${firstName}</code> s’affiche tel quel. Seuls les accents graves <code>`…`</code> remplacent <code>${…}</code> par la valeur.</p>
+<p>Avec des guillemets <code translate="no">'…'</code>, <code translate="no">${firstName}</code> s’affiche tel quel. Seuls les accents graves <code translate="no">`…`</code> remplacent <code translate="no">${…}</code> par la valeur.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que donne <code>`${2 + 3} ans`</code> ?</li>
+<li><strong>Vérifiez</strong> : que donne <code translate="no">`${2 + 3} ans`</code> ?</li>
 <li>Prédisez, puis tapez-le dans le REPL.</li>
 </ul>
 </section>
 <section id="exercices-01-à-04-1-h-15" class="slide level3">
 <h3>Exercices 01 à 04 (1 h 15)</h3>
 <ol type="1">
-<li>Ensemble (10 min) : <code>01-hello</code>, du test rouge au test vert.</li>
-<li>Seuls : <code>02-presentation</code>, puis <code>03-types</code>, puis <code>04-egalite</code>.</li>
+<li>Ensemble (10 min) : <code translate="no">01-hello</code>, du test rouge au test vert.</li>
+<li>Seuls : <code translate="no">02-presentation</code>, puis <code translate="no">03-types</code>, puis <code translate="no">04-egalite</code>.</li>
 <li>Pour chacun : lisez l’énoncé, lancez, puis lancez ses tests.</li>
-<li><strong>Réussi si</strong> : <code>✔</code> pour les tests de 01 à 04.</li>
+<li><strong>Réussi si</strong> : <code translate="no">✔</code> pour les tests de 01 à 04.</li>
 </ol>
 </section>
 <section id="à-retenir-cet-après-midi" class="slide level3">
@@ -551,9 +553,9 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Tests</strong> : <code>node --test fichier.test.js</code> teste un exercice.</li>
-<li><strong>Test rouge</strong> : <code>+</code> ce que vous affichez ; <code>-</code> ce qui est attendu.</li>
-<li><strong>Littéral de gabarit</strong> : <code>`Bonjour ${firstName}`</code> insère une valeur.</li>
+<li><strong>Tests</strong> : <code translate="no">node --test fichier.test.js</code> teste un exercice.</li>
+<li><strong>Test rouge</strong> : <code translate="no">+</code> ce que vous affichez ; <code translate="no">-</code> ce qui est attendu.</li>
+<li><strong>Littéral de gabarit</strong> : <code translate="no">`Bonjour ${firstName}`</code> insère une valeur.</li>
 </ul>
 </div>
 </div>
@@ -562,8 +564,8 @@ Kevin Bardoux
 <section id="débrief-10-min" class="slide level3">
 <h3>Débrief (10 min)</h3>
 <ul>
-<li>Que montre la ligne <code>-</code> d’un test rouge ?</li>
-<li>Quelle différence entre <code>'…'</code> et <code>`…`</code> ?</li>
+<li>Que montre la ligne <code translate="no">-</code> d’un test rouge ?</li>
+<li>Quelle différence entre <code translate="no">'…'</code> et <code translate="no">`…`</code> ?</li>
 <li>Quel exercice vous a demandé le plus d’essais, et pourquoi ?</li>
 </ul>
 </section>
@@ -595,7 +597,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -763,27 +764,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

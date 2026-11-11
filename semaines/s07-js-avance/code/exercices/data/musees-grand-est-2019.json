@@ -1,0 +1,1162 @@
+[
+  {
+    "IDMuseofile": "M0290",
+    "nom_du_musee": "musée de la maison de la dernière cartouche",
+    "ville": "BAZEILLES",
+    "departement": "Ardennes",
+    "payant": "1449",
+    "gratuit": "1716",
+    "total": "3165",
+    "scolaires": "53"
+  },
+  {
+    "IDMuseofile": "M0291",
+    "nom_du_musee": "musée Arthur Rimbaud",
+    "ville": "CHARLEVILLE MEZIERES",
+    "departement": "Ardennes",
+    "payant": "10703",
+    "gratuit": "18509",
+    "total": "29212",
+    "scolaires": "2553"
+  },
+  {
+    "IDMuseofile": "M0292",
+    "nom_du_musee": "musée de l'Ardenne",
+    "ville": "CHARLEVILLE MEZIERES",
+    "departement": "Ardennes",
+    "payant": "6501",
+    "gratuit": "45274",
+    "total": "51775",
+    "scolaires": "4342"
+  },
+  {
+    "IDMuseofile": "M0294",
+    "nom_du_musee": "musée du feutre",
+    "ville": "MOUZON",
+    "departement": "Ardennes",
+    "payant": "2274",
+    "gratuit": "1534",
+    "total": "3808",
+    "scolaires": "1376"
+  },
+  {
+    "IDMuseofile": "M0295",
+    "nom_du_musee": "musée du Rethelois et du Porcien",
+    "ville": "RETHEL",
+    "departement": "Ardennes",
+    "payant": "0",
+    "gratuit": "1207",
+    "total": "1207",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0296",
+    "nom_du_musee": "musée du château-fort",
+    "ville": "SEDAN",
+    "departement": "Ardennes",
+    "payant": "52279",
+    "gratuit": "7574",
+    "total": "59853",
+    "scolaires": "5866"
+  },
+  {
+    "IDMuseofile": "M0297",
+    "nom_du_musee": "musée municipal",
+    "ville": "BAR SUR AUBE",
+    "departement": "Aube",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0299",
+    "nom_du_musee": "musée Napoléon Ier",
+    "ville": "BRIENNE LE CHATEAU",
+    "departement": "Aube",
+    "payant": "7306",
+    "gratuit": "1931",
+    "total": "9237",
+    "scolaires": "526"
+  },
+  {
+    "IDMuseofile": "M0300",
+    "nom_du_musee": "musée de la Résistance de l'Aube",
+    "ville": "MUSSY SUR SEINE",
+    "departement": "Aube",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0301",
+    "nom_du_musee": "musée Camille Claudel",
+    "ville": "NOGENT SUR SEINE",
+    "departement": "Aube",
+    "payant": "16331",
+    "gratuit": "8876",
+    "total": "25207",
+    "scolaires": "3304"
+  },
+  {
+    "IDMuseofile": "M7073",
+    "nom_du_musee": "muséum d'histoire naturelle",
+    "ville": "TROYES",
+    "departement": "Aube",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0304",
+    "nom_du_musee": "musée de la Renaissance en Champagne ",
+    "ville": "TROYES",
+    "departement": "Aube",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0304",
+    "nom_du_musee": "musée de la Renaissance en Champagne ",
+    "ville": "TROYES",
+    "departement": "Aube",
+    "payant": "3270",
+    "gratuit": "7786",
+    "total": "11056",
+    "scolaires": "1025"
+  },
+  {
+    "IDMuseofile": "M0303",
+    "nom_du_musee": "musée des beaux-arts et d'archéologie",
+    "ville": "TROYES",
+    "departement": "Aube",
+    "payant": "6490",
+    "gratuit": "23912",
+    "total": "30402",
+    "scolaires": "5704"
+  },
+  {
+    "IDMuseofile": "M0306",
+    "nom_du_musee": "maison de l'outil et de la pensée ouvrière",
+    "ville": "TROYES",
+    "departement": "Aube",
+    "payant": "17643",
+    "gratuit": "5280",
+    "total": "22923",
+    "scolaires": "756"
+  },
+  {
+    "IDMuseofile": "M0302",
+    "nom_du_musee": "musée d'art moderne",
+    "ville": "TROYES",
+    "departement": "Aube",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0305",
+    "nom_du_musee": "apothicairerie de l'hôtel-Dieu-le-Comte",
+    "ville": "TROYES",
+    "departement": "Aube",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0307",
+    "nom_du_musee": "musée municipal",
+    "ville": "CHALONS EN CHAMPAGNE",
+    "departement": "Marne",
+    "payant": "1412",
+    "gratuit": "9392",
+    "total": "10804",
+    "scolaires": "5556"
+  },
+  {
+    "IDMuseofile": "M0308",
+    "nom_du_musee": "musée Garinet",
+    "ville": "CHALONS EN CHAMPAGNE",
+    "departement": "Marne",
+    "payant": "406",
+    "gratuit": "707",
+    "total": "1113",
+    "scolaires": "134"
+  },
+  {
+    "IDMuseofile": "M1178",
+    "nom_du_musee": "musée du cloître de Notre-Dame-en-Vaux",
+    "ville": "CHALONS EN CHAMPAGNE",
+    "departement": "Marne",
+    "payant": "946",
+    "gratuit": "2112",
+    "total": "3058",
+    "scolaires": "539"
+  },
+  {
+    "IDMuseofile": "M0309",
+    "nom_du_musee": "musée du vin de Champagne et d’archéologie régionale",
+    "ville": "EPERNAY",
+    "departement": "Marne",
+    "payant": "0",
+    "gratuit": "386",
+    "total": "386",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0310",
+    "nom_du_musee": "écomusée de la montagne de Reims",
+    "ville": "POURCY",
+    "departement": "Marne",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0311",
+    "nom_du_musee": "musée des beaux-arts de Reims",
+    "ville": "REIMS",
+    "departement": "Marne",
+    "payant": "42423",
+    "gratuit": "0",
+    "total": "42423",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M0312",
+    "nom_du_musee": "musée Saint-Rémi",
+    "ville": "REIMS",
+    "departement": "Marne",
+    "payant": "7009",
+    "gratuit": "18273",
+    "total": "25282",
+    "scolaires": "4521"
+  },
+  {
+    "IDMuseofile": "M0314",
+    "nom_du_musee": "musée-hôtel Le Vergeur – maison Hugues Krafft",
+    "ville": "REIMS",
+    "departement": "Marne",
+    "payant": "10552",
+    "gratuit": "0",
+    "total": "10552",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0313",
+    "nom_du_musee": "musée de l'ancien collège des jésuites",
+    "ville": "REIMS",
+    "departement": "Marne",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0315",
+    "nom_du_musee": "musée de l'Argonne Viard-Morel",
+    "ville": "STE MENEHOULD",
+    "departement": "Marne",
+    "payant": "1810",
+    "gratuit": "947",
+    "total": "2757",
+    "scolaires": "845"
+  },
+  {
+    "IDMuseofile": "M0317",
+    "nom_du_musee": "musée municipal",
+    "ville": "BOURBONNE LES BAINS",
+    "departement": "Haute-Marne",
+    "payant": "0",
+    "gratuit": "1937",
+    "total": "1937",
+    "scolaires": "20"
+  },
+  {
+    "IDMuseofile": "M0319",
+    "nom_du_musee": "musée des beaux-arts et d'archéologie",
+    "ville": "CHAUMONT",
+    "departement": "Haute-Marne",
+    "payant": "2496",
+    "gratuit": "3204",
+    "total": "5700",
+    "scolaires": "1282"
+  },
+  {
+    "IDMuseofile": "M0318",
+    "nom_du_musee": "musée de l'affiche",
+    "ville": "CHAUMONT",
+    "departement": "Haute-Marne",
+    "payant": "0",
+    "gratuit": "28245",
+    "total": "28245",
+    "scolaires": "3325"
+  },
+  {
+    "IDMuseofile": "M0320",
+    "nom_du_musee": "maison des Lumières Denis Diderot",
+    "ville": "LANGRES",
+    "departement": "Haute-Marne",
+    "payant": "4507",
+    "gratuit": "7770",
+    "total": "12277",
+    "scolaires": "1104"
+  },
+  {
+    "IDMuseofile": "M0321",
+    "nom_du_musee": "musée d'art et d'histoire",
+    "ville": "LANGRES",
+    "departement": "Haute-Marne",
+    "payant": "6029",
+    "gratuit": "3917",
+    "total": "9946",
+    "scolaires": "1314"
+  },
+  {
+    "IDMuseofile": "M0322",
+    "nom_du_musee": "musée de la coutellerie",
+    "ville": "NOGENT",
+    "departement": "Haute-Marne",
+    "payant": "3790",
+    "gratuit": "1527",
+    "total": "5317",
+    "scolaires": "551"
+  },
+  {
+    "IDMuseofile": "M0323",
+    "nom_du_musee": "musée municipal",
+    "ville": "ST DIZIER",
+    "departement": "Haute-Marne",
+    "payant": "0",
+    "gratuit": "4390",
+    "total": "4390",
+    "scolaires": "829"
+  },
+  {
+    "IDMuseofile": "M0507",
+    "nom_du_musee": "musée Les sources d'Hercule",
+    "ville": "DENEUVRE",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "1602",
+    "gratuit": "873",
+    "total": "2475",
+    "scolaires": "915"
+  },
+  {
+    "IDMuseofile": "M0509",
+    "nom_du_musee": "Féru des sciences",
+    "ville": "JARVILLE LA MALGRANGE",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "5427",
+    "gratuit": "10200",
+    "total": "15627",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M0508",
+    "nom_du_musee": "château de Montaigu",
+    "ville": "LANEUVEVILLE DEVANT NANCY",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "220",
+    "gratuit": "772",
+    "total": "992",
+    "scolaires": "72"
+  },
+  {
+    "IDMuseofile": "M0510",
+    "nom_du_musee": "musée municipal des émaux et faïence",
+    "ville": "LONGWY",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0511",
+    "nom_du_musee": "musée du château",
+    "ville": "LUNEVILLE",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "15868",
+    "gratuit": "153469",
+    "total": "169337",
+    "scolaires": "4414"
+  },
+  {
+    "IDMuseofile": "M0513",
+    "nom_du_musee": "musée de l'Ecole de Nancy",
+    "ville": "NANCY",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "27128",
+    "gratuit": "16393",
+    "total": "43521",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M7048",
+    "nom_du_musee": "muséum-aquarium de Nancy",
+    "ville": "NANCY",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "18448",
+    "gratuit": "28559",
+    "total": "47007",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M0514",
+    "nom_du_musee": "musée historique lorrain",
+    "ville": "NANCY",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "0",
+    "gratuit": "85841",
+    "total": "85841",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M0512",
+    "nom_du_musee": "musée des beaux-arts",
+    "ville": "NANCY",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "41567",
+    "gratuit": "79567",
+    "total": "121134",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M1080",
+    "nom_du_musee": "musée \"Au fil du papier\"",
+    "ville": "PONT A MOUSSON",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "2549",
+    "gratuit": "3651",
+    "total": "6200",
+    "scolaires": "195"
+  },
+  {
+    "IDMuseofile": "M0515",
+    "nom_du_musee": "musée d'art et d'histoire",
+    "ville": "TOUL",
+    "departement": "Meurthe-et-Moselle",
+    "payant": "0",
+    "gratuit": "12800",
+    "total": "12800",
+    "scolaires": "40"
+  },
+  {
+    "IDMuseofile": "M0517",
+    "nom_du_musee": "musée barrois",
+    "ville": "BAR LE DUC",
+    "departement": "Meuse",
+    "payant": "2552",
+    "gratuit": "6383",
+    "total": "8935",
+    "scolaires": "3363"
+  },
+  {
+    "IDMuseofile": "M0518",
+    "nom_du_musee": "musée de la céramique et de l'ivoire",
+    "ville": "COMMERCY",
+    "departement": "Meuse",
+    "payant": "2110",
+    "gratuit": "500",
+    "total": "2610",
+    "scolaires": "249"
+  },
+  {
+    "IDMuseofile": "M0519",
+    "nom_du_musee": "musée Jules Bastien-Lepage et musée de la fortification",
+    "ville": "MONTMEDY",
+    "departement": "Meuse",
+    "payant": "9137",
+    "gratuit": "2519",
+    "total": "11656",
+    "scolaires": "730"
+  },
+  {
+    "IDMuseofile": "M0520",
+    "nom_du_musee": "musée d'art sacré de la Meuse",
+    "ville": "ST MIHIEL",
+    "departement": "Meuse",
+    "payant": "1393",
+    "gratuit": "314",
+    "total": "1707",
+    "scolaires": "96"
+  },
+  {
+    "IDMuseofile": "M0521",
+    "nom_du_musee": "musée départemental Raymond Poincaré",
+    "ville": "SAMPIGNY",
+    "departement": "Meuse",
+    "payant": "0",
+    "gratuit": "4731",
+    "total": "4731",
+    "scolaires": "639"
+  },
+  {
+    "IDMuseofile": "M0522",
+    "nom_du_musee": "musée de la bière et du pays de Stenay",
+    "ville": "STENAY",
+    "departement": "Meuse",
+    "payant": "6648",
+    "gratuit": "15856",
+    "total": "22504",
+    "scolaires": "1598"
+  },
+  {
+    "IDMuseofile": "M0523",
+    "nom_du_musee": "musée d'Argonne",
+    "ville": "VARENNES EN ARGONNE",
+    "departement": "Meuse",
+    "payant": "1189",
+    "gratuit": "0",
+    "total": "1189",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0524",
+    "nom_du_musee": "musée Jeanne d'Arc",
+    "ville": "VAUCOULEURS",
+    "departement": "Meuse",
+    "payant": "980",
+    "gratuit": "784",
+    "total": "1764",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0525",
+    "nom_du_musee": "musée de la Princerie",
+    "ville": "VERDUN",
+    "departement": "Meuse",
+    "payant": "1819",
+    "gratuit": "4438",
+    "total": "6257",
+    "scolaires": "1706"
+  },
+  {
+    "IDMuseofile": "M0526",
+    "nom_du_musee": "musée de la guerre de 1870",
+    "ville": "GRAVELOTTE",
+    "departement": "Moselle",
+    "payant": "8527",
+    "gratuit": "8912",
+    "total": "17439",
+    "scolaires": "2813"
+  },
+  {
+    "IDMuseofile": "M0530",
+    "nom_du_musee": "musée des mines de fer de Lorraine",
+    "ville": "NEUFCHEF",
+    "departement": "Moselle",
+    "payant": "15157",
+    "gratuit": "1589",
+    "total": "16746",
+    "scolaires": "4670"
+  },
+  {
+    "IDMuseofile": "M0527",
+    "nom_du_musee": "musée du sel",
+    "ville": "MARSAL",
+    "departement": "Moselle",
+    "payant": "0",
+    "gratuit": "636",
+    "total": "636",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M0528",
+    "nom_du_musee": "maison du verre et du cristal",
+    "ville": "MEISENTHAL",
+    "departement": "Moselle",
+    "payant": "15457",
+    "gratuit": "2202",
+    "total": "17659",
+    "scolaires": "697"
+  },
+  {
+    "IDMuseofile": "M0529",
+    "nom_du_musee": "musées de la Cour d'or",
+    "ville": "METZ",
+    "departement": "Moselle",
+    "payant": "29382",
+    "gratuit": "61866",
+    "total": "91248",
+    "scolaires": "13468"
+  },
+  {
+    "IDMuseofile": "",
+    "nom_du_musee": "",
+    "ville": "METZ",
+    "departement": "Moselle",
+    "payant": "127515",
+    "gratuit": "176093",
+    "total": "303608",
+    "scolaires": "45000"
+  },
+  {
+    "IDMuseofile": "M1089",
+    "nom_du_musee": "musée de la mine-carreau Wendel",
+    "ville": "PETITE ROSSELLE",
+    "departement": "Moselle",
+    "payant": "28970",
+    "gratuit": "5411",
+    "total": "34381",
+    "scolaires": "8588"
+  },
+  {
+    "IDMuseofile": "M0531",
+    "nom_du_musee": "musée militaire et Erckmann-Chatrian",
+    "ville": "PHALSBOURG",
+    "departement": "Moselle",
+    "payant": "350",
+    "gratuit": "0",
+    "total": "350",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0532",
+    "nom_du_musee": "musée du pays de Sarrebourg",
+    "ville": "SARREBOURG",
+    "departement": "Moselle",
+    "payant": "9005",
+    "gratuit": "7716",
+    "total": "16721",
+    "scolaires": "3324"
+  },
+  {
+    "IDMuseofile": "M0533",
+    "nom_du_musee": "musée de la faïence et des techniques faïencières",
+    "ville": "SARREGUEMINES",
+    "departement": "Moselle",
+    "payant": "12563",
+    "gratuit": "18653",
+    "total": "31216",
+    "scolaires": "2744"
+  },
+  {
+    "IDMuseofile": "M0534",
+    "nom_du_musee": "musée de la Tour-aux-Puces",
+    "ville": "THIONVILLE",
+    "departement": "Moselle",
+    "payant": "972",
+    "gratuit": "9603",
+    "total": "10575",
+    "scolaires": "4050"
+  },
+  {
+    "IDMuseofile": "M0001",
+    "nom_du_musee": "musée de la Folie Marco",
+    "ville": "BARR",
+    "departement": "Bas-Rhin",
+    "payant": "1104",
+    "gratuit": "2100",
+    "total": "3204",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0003",
+    "nom_du_musee": "musée du pays de Hanau - histoire et vies d'un territoire",
+    "ville": "BOUXWILLER",
+    "departement": "Bas-Rhin",
+    "payant": "2006",
+    "gratuit": "4748",
+    "total": "6754",
+    "scolaires": "947"
+  },
+  {
+    "IDMuseofile": "M0005",
+    "nom_du_musee": "musée historique",
+    "ville": "HAGUENAU",
+    "departement": "Bas-Rhin",
+    "payant": "3133",
+    "gratuit": "1697",
+    "total": "4830",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0004",
+    "nom_du_musee": "musée alsacien",
+    "ville": "HAGUENAU",
+    "departement": "Bas-Rhin",
+    "payant": "975",
+    "gratuit": "464",
+    "total": "1439",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0006",
+    "nom_du_musee": "musée de la chartreuse",
+    "ville": "MOLSHEIM",
+    "departement": "Bas-Rhin",
+    "payant": "5521",
+    "gratuit": "1238",
+    "total": "6759",
+    "scolaires": "67"
+  },
+  {
+    "IDMuseofile": "M0008",
+    "nom_du_musee": "maison de l'archéologie des Vosges du nord",
+    "ville": "NIEDERBRONN LES BAINS",
+    "departement": "Bas-Rhin",
+    "payant": "1732",
+    "gratuit": "699",
+    "total": "2431",
+    "scolaires": "1253"
+  },
+  {
+    "IDMuseofile": "M0002",
+    "nom_du_musee": "musée de la poterie",
+    "ville": "BETSCHDORF",
+    "departement": "Bas-Rhin",
+    "payant": "1956",
+    "gratuit": "642",
+    "total": "2598",
+    "scolaires": "190"
+  },
+  {
+    "IDMuseofile": "M0010",
+    "nom_du_musee": "musée de l'image populaire François Lotz",
+    "ville": "VAL DE MODER",
+    "departement": "Bas-Rhin",
+    "payant": "1041",
+    "gratuit": "2519",
+    "total": "3560",
+    "scolaires": "973"
+  },
+  {
+    "IDMuseofile": "M0011",
+    "nom_du_musee": "musée historique et industriel - musée du fer",
+    "ville": "REICHSHOFFEN",
+    "departement": "Bas-Rhin",
+    "payant": "712",
+    "gratuit": "1517",
+    "total": "2229",
+    "scolaires": "114"
+  },
+  {
+    "IDMuseofile": "M0015",
+    "nom_du_musee": "musée archéologique",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "26173",
+    "gratuit": "29223",
+    "total": "55396",
+    "scolaires": "5934"
+  },
+  {
+    "IDMuseofile": "M0019",
+    "nom_du_musee": "musée des beaux-arts",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "33932",
+    "gratuit": "38764",
+    "total": "72696",
+    "scolaires": "7907"
+  },
+  {
+    "IDMuseofile": "M0018",
+    "nom_du_musee": "musée des arts décoratifs",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "38732",
+    "gratuit": "40801",
+    "total": "79533",
+    "scolaires": "5688"
+  },
+  {
+    "IDMuseofile": "M0013",
+    "nom_du_musee": "cabinet des estampes et des dessins",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "0",
+    "gratuit": "41",
+    "total": "41",
+    "scolaires": "8"
+  },
+  {
+    "IDMuseofile": "M0017",
+    "nom_du_musee": "musée de l'Œuvre Notre-Dame",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "22279",
+    "gratuit": "29595",
+    "total": "51874",
+    "scolaires": "7752"
+  },
+  {
+    "IDMuseofile": "M0020",
+    "nom_du_musee": "musée historique",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "30714",
+    "gratuit": "35380",
+    "total": "66094",
+    "scolaires": "11064"
+  },
+  {
+    "IDMuseofile": "M0014",
+    "nom_du_musee": "musée alsacien",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "40782",
+    "gratuit": "30658",
+    "total": "71440",
+    "scolaires": "9420"
+  },
+  {
+    "IDMuseofile": "M0016",
+    "nom_du_musee": "musée d'art moderne et contemporain de Strasbourg",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "65604",
+    "gratuit": "93807",
+    "total": "159411",
+    "scolaires": "27336"
+  },
+  {
+    "IDMuseofile": "M7071",
+    "nom_du_musee": "musée zoologique de l'université Louis Pasteur et de la ville de Strasbourg",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "8028",
+    "gratuit": "28079",
+    "total": "36107",
+    "scolaires": "8915"
+  },
+  {
+    "IDMuseofile": "M1098",
+    "nom_du_musee": "musée Tomi Ungerer",
+    "ville": "STRASBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "29522",
+    "gratuit": "30001",
+    "total": "59523",
+    "scolaires": "9058"
+  },
+  {
+    "IDMuseofile": "M0021",
+    "nom_du_musee": "musée Oberlin",
+    "ville": "WALDERSBACH",
+    "departement": "Bas-Rhin",
+    "payant": "16415",
+    "gratuit": "7172",
+    "total": "23587",
+    "scolaires": "4429"
+  },
+  {
+    "IDMuseofile": "M1162",
+    "nom_du_musee": "musée Lalique",
+    "ville": "WINGEN SUR MODER",
+    "departement": "Bas-Rhin",
+    "payant": "38546",
+    "gratuit": "13089",
+    "total": "51635",
+    "scolaires": "1941"
+  },
+  {
+    "IDMuseofile": "M0022",
+    "nom_du_musee": "musée Westercamp",
+    "ville": "WISSEMBOURG",
+    "departement": "Bas-Rhin",
+    "payant": "493",
+    "gratuit": "648",
+    "total": "1141",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0023",
+    "nom_du_musee": "musée de la bataille du 6 août 1870",
+    "ville": "WOERTH",
+    "departement": "Bas-Rhin",
+    "payant": "1246",
+    "gratuit": "1899",
+    "total": "3145",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0024",
+    "nom_du_musee": "musée sundgauvien",
+    "ville": "ALTKIRCH",
+    "departement": "Haut-Rhin",
+    "payant": "934",
+    "gratuit": "3257",
+    "total": "4191",
+    "scolaires": "368"
+  },
+  {
+    "IDMuseofile": "M0025",
+    "nom_du_musee": "musée gallo-romain",
+    "ville": "BIESHEIM",
+    "departement": "Haut-Rhin",
+    "payant": "610",
+    "gratuit": "1713",
+    "total": "2323",
+    "scolaires": "429"
+  },
+  {
+    "IDMuseofile": "M0028",
+    "nom_du_musee": "musée Unterlinden",
+    "ville": "COLMAR",
+    "departement": "Haut-Rhin",
+    "payant": "127491",
+    "gratuit": "37993",
+    "total": "165484",
+    "scolaires": "12243"
+  },
+  {
+    "IDMuseofile": "M7033",
+    "nom_du_musee": "muséum d'histoire naturelle et d'ethnographie",
+    "ville": "COLMAR",
+    "departement": "Haut-Rhin",
+    "payant": "10793",
+    "gratuit": "7432",
+    "total": "18225",
+    "scolaires": "2944"
+  },
+  {
+    "IDMuseofile": "M0027",
+    "nom_du_musee": "musée Bartholdi",
+    "ville": "COLMAR",
+    "departement": "Haut-Rhin",
+    "payant": "17766",
+    "gratuit": "9567",
+    "total": "27333",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M0029",
+    "nom_du_musee": "musée Théodore Deck et des pays du Florival",
+    "ville": "GUEBWILLER",
+    "departement": "Haut-Rhin",
+    "payant": "1334",
+    "gratuit": "2386",
+    "total": "3720",
+    "scolaires": "191"
+  },
+  {
+    "IDMuseofile": "M0030",
+    "nom_du_musee": "musée historique et militaire",
+    "ville": "HUNINGUE",
+    "departement": "Haut-Rhin",
+    "payant": "310",
+    "gratuit": "210",
+    "total": "520",
+    "scolaires": "10"
+  },
+  {
+    "IDMuseofile": "M0031",
+    "nom_du_musee": "musée historique",
+    "ville": "KAYSERSBERG VIGNOBLE",
+    "departement": "Haut-Rhin",
+    "payant": "0",
+    "gratuit": "2065",
+    "total": "2065",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0032",
+    "nom_du_musee": "musée du vignoble et des vins d'Alsace",
+    "ville": "KAYSERSBERG VIGNOBLE",
+    "departement": "Haut-Rhin",
+    "payant": "2488",
+    "gratuit": "0",
+    "total": "2488",
+    "scolaires": "176"
+  },
+  {
+    "IDMuseofile": "M0033",
+    "nom_du_musee": "musée des beaux-arts",
+    "ville": "MULHOUSE",
+    "departement": "Haut-Rhin",
+    "payant": "0",
+    "gratuit": "19743",
+    "total": "19743",
+    "scolaires": "4367"
+  },
+  {
+    "IDMuseofile": "M0037",
+    "nom_du_musee": "musée de l'impression sur étoffes",
+    "ville": "MULHOUSE",
+    "departement": "Haut-Rhin",
+    "payant": "12956",
+    "gratuit": "0",
+    "total": "12956",
+    "scolaires": ""
+  },
+  {
+    "IDMuseofile": "M0039",
+    "nom_du_musee": "musée Electropolis",
+    "ville": "MULHOUSE",
+    "departement": "Haut-Rhin",
+    "payant": "34134",
+    "gratuit": "9226",
+    "total": "43360",
+    "scolaires": "7677"
+  },
+  {
+    "IDMuseofile": "M0036",
+    "nom_du_musee": "musée français du chemin de fer",
+    "ville": "MULHOUSE",
+    "departement": "Haut-Rhin",
+    "payant": "78441",
+    "gratuit": "27609",
+    "total": "106050",
+    "scolaires": "7115"
+  },
+  {
+    "IDMuseofile": "M0034",
+    "nom_du_musee": "musée historique",
+    "ville": "MULHOUSE",
+    "departement": "Haut-Rhin",
+    "payant": "0",
+    "gratuit": "40016",
+    "total": "40016",
+    "scolaires": "3308"
+  },
+  {
+    "IDMuseofile": "M7047",
+    "nom_du_musee": "musée minéralogique de la société industrielle de Mulhouse",
+    "ville": "MULHOUSE",
+    "departement": "Haut-Rhin",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0041",
+    "nom_du_musee": "musée paysan",
+    "ville": "OLTINGUE",
+    "departement": "Haut-Rhin",
+    "payant": "595",
+    "gratuit": "130",
+    "total": "725",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0043",
+    "nom_du_musee": "musée du Dolder",
+    "ville": "RIQUEWIHR",
+    "departement": "Haut-Rhin",
+    "payant": "5650",
+    "gratuit": "1474",
+    "total": "7124",
+    "scolaires": "78"
+  },
+  {
+    "IDMuseofile": "M0044",
+    "nom_du_musee": "musée du papier peint",
+    "ville": "RIXHEIM",
+    "departement": "Haut-Rhin",
+    "payant": "7793",
+    "gratuit": "6407",
+    "total": "14200",
+    "scolaires": "1153"
+  },
+  {
+    "IDMuseofile": "M0047",
+    "nom_du_musee": "musée de la société d'histoire \"les amis de Thann\"",
+    "ville": "THANN",
+    "departement": "Haut-Rhin",
+    "payant": "459",
+    "gratuit": "1393",
+    "total": "1852",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0048",
+    "nom_du_musee": "écomusée d'Alsace",
+    "ville": "UNGERSHEIM",
+    "departement": "Haut-Rhin",
+    "payant": "149685",
+    "gratuit": "30247",
+    "total": "179932",
+    "scolaires": "26487"
+  },
+  {
+    "IDMuseofile": "M0038",
+    "nom_du_musee": "musée du sapeur-pompier",
+    "ville": "VIEUX FERRETTE",
+    "departement": "Haut-Rhin",
+    "payant": "2946",
+    "gratuit": "859",
+    "total": "3805",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0536",
+    "nom_du_musee": "musée départemental d'art ancien et contemporain",
+    "ville": "EPINAL",
+    "departement": "Vosges",
+    "payant": "3547",
+    "gratuit": "18077",
+    "total": "21624",
+    "scolaires": "6655"
+  },
+  {
+    "IDMuseofile": "M0537",
+    "nom_du_musee": "musée de l'image",
+    "ville": "EPINAL",
+    "departement": "Vosges",
+    "payant": "9125",
+    "gratuit": "5738",
+    "total": "14863",
+    "scolaires": "2146"
+  },
+  {
+    "IDMuseofile": "M0538",
+    "nom_du_musee": "musée de la lutherie et de l'archeterie françaises",
+    "ville": "MIRECOURT",
+    "departement": "Vosges",
+    "payant": "5302",
+    "gratuit": "3185",
+    "total": "8487",
+    "scolaires": "1692"
+  },
+  {
+    "IDMuseofile": "M0539",
+    "nom_du_musee": "musée Louis Français",
+    "ville": "PLOMBIERES LES BAINS",
+    "departement": "Vosges",
+    "payant": "0",
+    "gratuit": "0",
+    "total": "0",
+    "scolaires": "0"
+  },
+  {
+    "IDMuseofile": "M0540",
+    "nom_du_musee": "musée Charles-de-Bruyères",
+    "ville": "REMIREMONT",
+    "departement": "Vosges",
+    "payant": "676",
+    "gratuit": "2376",
+    "total": "3052",
+    "scolaires": "375"
+  },
+  {
+    "IDMuseofile": "M0541",
+    "nom_du_musee": "musée Charles-Friry",
+    "ville": "REMIREMONT",
+    "departement": "Vosges",
+    "payant": "151",
+    "gratuit": "182",
+    "total": "333",
+    "scolaires": "16"
+  },
+  {
+    "IDMuseofile": "M0542",
+    "nom_du_musee": "musée Pierre Noël, musée de la vie dans les hautes Vosges",
+    "ville": "ST DIE DES VOSGES",
+    "departement": "Vosges",
+    "payant": "13938",
+    "gratuit": "2889",
+    "total": "16827",
+    "scolaires": "2345"
+  }
+]

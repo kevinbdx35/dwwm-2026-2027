@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -120,8 +121,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -236,7 +238,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : résolution de problème · apprendre en continu (anglais)<br> <strong>Livrable</strong> : les quatre premières fonctions du Problem set 1 au vert (<code>p1-premier</code> si le temps le permet).</p>
+<p><strong>Compétences visées</strong> : résolution de problème · apprendre en continu (anglais)<br> <strong>Livrable</strong> : les quatre premières fonctions du Problem set 1 au vert (<code translate="no">p1-premier</code> si le temps le permet).</p>
 </div>
 </div>
 </div>
@@ -249,18 +251,18 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li>Que fait <code>npx eslint .</code> ?</li>
-<li><code>while</code> ou <code>for</code> : lequel pour compter de 1 à 10 ?</li>
-<li>Que vaut <code>01001</code> avec les cartes 16, 8, 4, 2, 1 ?</li>
+<li>Que fait <code translate="no">npx eslint .</code> ?</li>
+<li><code translate="no">while</code> ou <code translate="no">for</code> : lequel pour compter de 1 à 10 ?</li>
+<li>Que vaut <code translate="no">01001</code> avec les cartes 16, 8, 4, 2, 1 ?</li>
 </ol>
 </section>
 <section id="récupérer-les-fichiers-5-min" class="slide level3">
 <h3>Récupérer les fichiers (5 min)</h3>
 <ol type="1">
 <li>Téléchargez l’<a href="code/exercices/s03-exercices.zip">archive de la semaine</a>.</li>
-<li>Extrayez-la ; renommez le dossier <code>semaine-03</code> ; placez-le dans <code>dwwm</code>.</li>
-<li>Terminal : <code>cd ~/dwwm/semaine-03</code>, puis <code>npm install</code>.</li>
-<li>VS Code : <em>File</em>, <em>Open Folder…</em>, puis <code>dwwm/semaine-03</code>.</li>
+<li>Extrayez-la ; renommez le dossier <code translate="no">semaine-03</code> ; placez-le dans <code translate="no">dwwm</code>.</li>
+<li>Terminal : <code translate="no">cd ~/dwwm/semaine-03</code>, puis <code translate="no">npm install</code>.</li>
+<li>VS Code : <em>File</em>, <em>Open Folder…</em>, puis <code translate="no">dwwm/semaine-03</code>.</li>
 <li>ECF vendredi : un <strong>aide-mémoire</strong> manuscrit d’une page est autorisé.</li>
 </ol>
 </section>
@@ -270,7 +272,7 @@ Kevin Bardoux
 <li><strong>Pourquoi</strong> : écrire un calcul une fois, l’utiliser partout.</li>
 <li><strong>Fonction</strong> : un nom, des paramètres, un résultat renvoyé.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a aria-label="1"></a><span class="kw">function</span> <span class="fu">square</span>(n) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a aria-label="1"></a><span class="kw">function</span> <span class="fu">square</span>(n) {</span>
 <span id="cb1-2"><a aria-label="2"></a>  <span class="cf">return</span> n <span class="op">*</span> n<span class="op">;</span></span>
 <span id="cb1-3"><a aria-label="3"></a>}</span>
 <span id="cb1-4"><a aria-label="4"></a></span>
@@ -279,7 +281,7 @@ Kevin Bardoux
 </section>
 <section id="fonctions-attention-et-vérification" class="slide level3">
 <h3>Fonctions — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -288,12 +290,12 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>console.log</code> affiche, <code>return</code> renvoie. Si le test reçoit <code>undefined</code>, la fonction affiche au lieu de renvoyer : remplacez <code>console.log(…)</code> par <code>return …</code>.</p>
+<p><code translate="no">console.log</code> affiche, <code translate="no">return</code> renvoie. Si le test reçoit <code translate="no">undefined</code>, la fonction affiche au lieu de renvoyer : remplacez <code translate="no">console.log(…)</code> par <code translate="no">return …</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que renvoie <code>square(3)</code> ? Et <code>square(-2)</code> ?</li>
+<li><strong>Vérifiez</strong> : que renvoie <code translate="no">square(3)</code> ? Et <code translate="no">square(-2)</code> ?</li>
 </ul>
 </section>
 <section id="exercices-l1-à-l3-premières-fonctions-30-min" class="slide level3">
@@ -309,9 +311,9 @@ Kevin Bardoux
 <h3>Apport 2 — La portée (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : un même nom dans deux fonctions, sans conflit.</li>
-<li><strong>Portée</strong> : une variable n’existe que dans son bloc <code>{ … }</code>.</li>
+<li><strong>Portée</strong> : une variable n’existe que dans son bloc <code translate="no">{ … }</code>.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="kw">function</span> <span class="fu">double</span>(n) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="kw">function</span> <span class="fu">double</span>(n) {</span>
 <span id="cb2-2"><a aria-label="2"></a>  <span class="kw">const</span> result <span class="op">=</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
 <span id="cb2-3"><a aria-label="3"></a>  <span class="cf">return</span> result<span class="op">;</span></span>
 <span id="cb2-4"><a aria-label="4"></a>}</span>
@@ -321,7 +323,7 @@ Kevin Bardoux
 </section>
 <section id="portée-attention-et-vérification" class="slide level3">
 <h3>Portée — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -330,12 +332,12 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>ReferenceError: … is not defined</code> : la variable est utilisée hors de son bloc, ou son nom est mal écrit. Vérifiez où elle est déclarée.</p>
+<p><code translate="no">ReferenceError: … is not defined</code> : la variable est utilisée hors de son bloc, ou son nom est mal écrit. Vérifiez où elle est déclarée.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : <code>if (true) { const x = 1; }</code> puis <code>x</code> : que se passe-t-il ?</li>
+<li><strong>Vérifiez</strong> : <code translate="no">if (true) { const x = 1; }</code> puis <code translate="no">x</code> : que se passe-t-il ?</li>
 </ul>
 </section>
 <section id="apport-3-déboguer-avec-méthode-20-min" class="slide level3">
@@ -344,7 +346,7 @@ Kevin Bardoux
 <li><strong>Pourquoi</strong> : trouver une erreur sans modifier le code au hasard.</li>
 <li><strong>Méthode</strong> : lire, isoler, tester, corriger.</li>
 </ul>
-<pre><code>/…/err.js:2
+<pre translate="no"><code>/…/err.js:2
   return word[word.length - 1];
                    ^
 
@@ -353,7 +355,7 @@ TypeError: Cannot read properties of undefined (reading 'length')
 </section>
 <section id="débogage-attention-et-vérification" class="slide level3">
 <h3>Débogage — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -391,8 +393,8 @@ TypeError: Cannot read properties of undefined (reading 'length')
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Fonction</strong> : <code>return</code> renvoie le résultat ; <code>console.log</code> affiche.</li>
-<li><strong>Portée</strong> : une variable n’existe que dans son bloc <code>{ … }</code>.</li>
+<li><strong>Fonction</strong> : <code translate="no">return</code> renvoie le résultat ; <code translate="no">console.log</code> affiche.</li>
+<li><strong>Portée</strong> : une variable n’existe que dans son bloc <code translate="no">{ … }</code>.</li>
 <li><strong>Déboguer</strong> : lire, isoler, tester, corriger ; une chose à la fois.</li>
 </ul>
 </div>
@@ -403,7 +405,7 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <h3>Débrief</h3>
 <ul>
 <li>Quelle différence entre afficher un résultat et le renvoyer ?</li>
-<li>Pourquoi <code>result</code> n’existe-t-il pas en dehors de <code>double</code> ?</li>
+<li>Pourquoi <code translate="no">result</code> n’existe-t-il pas en dehors de <code translate="no">double</code> ?</li>
 <li>Quelle étape de la démarche avez-vous le plus utilisée ?</li>
 </ul>
 </section></section>
@@ -413,18 +415,18 @@ TypeError: Cannot read properties of undefined (reading 'length')
 
 </section>
 <section id="apport-4-le-reste-10-min" class="slide level3">
-<h3>Apport 4 — Le reste <code>%</code> (10 min)</h3>
+<h3>Apport 4 — Le reste <code translate="no">%</code> (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : le dernier chiffre ; une division qui tombe juste.</li>
-<li><strong><code>a % b</code></strong> : le reste de la division de <code>a</code> par <code>b</code>.</li>
+<li><strong><code translate="no">a % b</code></strong> : le reste de la division de <code translate="no">a</code> par <code translate="no">b</code>.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a aria-label="1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">1234</span> <span class="op">%</span> <span class="dv">10</span>)<span class="op">;</span>             <span class="co">// 4 : le dernier chiffre</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a aria-label="1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">1234</span> <span class="op">%</span> <span class="dv">10</span>)<span class="op">;</span>             <span class="co">// 4 : le dernier chiffre</span></span>
 <span id="cb4-2"><a aria-label="2"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="dv">1234</span> <span class="op">/</span> <span class="dv">10</span>))<span class="op">;</span> <span class="co">// 123 : sans le dernier chiffre</span></span>
 <span id="cb4-3"><a aria-label="3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">12</span> <span class="op">%</span> <span class="dv">3</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span>          <span class="co">// true : 3 divise 12</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="reste-attention-et-vérification" class="slide level3">
 <h3>Reste — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -433,18 +435,18 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Tester « impair » avec <code>n % 2 === 1</code> échoue sur les négatifs (<code>-3 % 2</code> vaut <code>-1</code>). Testez « pair » avec <code>n % 2 === 0</code>.</p>
+<p>Tester « impair » avec <code translate="no">n % 2 === 1</code> échoue sur les négatifs (<code translate="no">-3 % 2</code> vaut <code translate="no">-1</code>). Testez « pair » avec <code translate="no">n % 2 === 0</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : que vaut <code>57 % 10</code> ?</li>
+<li><strong>Vérifiez</strong> : que vaut <code translate="no">57 % 10</code> ?</li>
 </ul>
 </section>
 <section id="consignes-1-h-50" class="slide level3">
 <h3>Consignes (1 h 50)</h3>
 <ol type="1">
-<li>Quatre fonctions à écrire, dans l’ordre, fichiers <code>p1-…</code>.</li>
+<li>Quatre fonctions à écrire, dans l’ordre, fichiers <code translate="no">p1-…</code>.</li>
 <li>Avant de coder : deux exemples d’entrée et de sortie, à la main.</li>
 <li>Un test à la fois : lisez le test rouge, corrigez, relancez.</li>
 <li>Fini quand ses tests et ESLint (sur son fichier) sont au vert.</li>
@@ -453,9 +455,9 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <section id="les-quatre-fonctions" class="slide level3">
 <h3>Les quatre fonctions</h3>
 <ul>
-<li><strong>p1-prix-ttc</strong> (facile) : prix TTC arrondi au centime, <code>null</code> si négatif.</li>
+<li><strong>p1-prix-ttc</strong> (facile) : prix TTC arrondi au centime, <code translate="no">null</code> si négatif.</li>
 <li><strong>p1-bissextile</strong> (facile) : année bissextile ou non.</li>
-<li><strong>p1-somme-chiffres</strong> (moyen) : 1234 → 10, avec <code>%</code> et <code>while</code>.</li>
+<li><strong>p1-somme-chiffres</strong> (moyen) : 1234 → 10, avec <code translate="no">%</code> et <code translate="no">while</code>.</li>
 <li><strong>p1-pgcd</strong> (moyen) : l’algorithme d’Euclide.</li>
 </ul>
 </section>
@@ -482,7 +484,7 @@ TypeError: Cannot read properties of undefined (reading 'length')
 <div class="callout-content">
 <ul>
 <li><strong>Avant de coder</strong> : deux exemples d’entrée et de sortie, à la main.</li>
-<li><strong><code>%</code></strong> : le reste ; <code>n % d === 0</code> si <code>d</code> divise <code>n</code>.</li>
+<li><strong><code translate="no">%</code></strong> : le reste ; <code translate="no">n % d === 0</code> si <code translate="no">d</code> divise <code translate="no">n</code>.</li>
 <li><strong>Un test à la fois</strong> : lire, corriger, relancer.</li>
 </ul>
 </div>
@@ -519,7 +521,6 @@ MDN Web Docs. s.&nbsp;d. <span>«&nbsp;Functions - JavaScript&nbsp;»</span>. Co
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -687,27 +688,9 @@ MDN Web Docs. s.&nbsp;d. <span>«&nbsp;Functions - JavaScript&nbsp;»</span>. Co
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

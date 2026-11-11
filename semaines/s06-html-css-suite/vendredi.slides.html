@@ -34,9 +34,11 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -194,9 +196,9 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li><code>dwwm-tp</code> est-il public ou privé ?</li>
+<li><code translate="no">dwwm-tp</code> est-il public ou privé ?</li>
 <li>Flexbox ou Grid pour un menu horizontal ?</li>
-<li>Que vaut <code>notes[notes.length]</code> ?</li>
+<li>Que vaut <code translate="no">notes[notes.length]</code> ?</li>
 </ol>
 </section>
 <section id="apport-verifier" class="slide level3">
@@ -208,7 +210,7 @@ Kevin Bardoux
 </section>
 <section id="vérifier-attention-et-vérification" class="slide level3">
 <h3>Vérifier — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -217,7 +219,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>outline: none</code> dans le CSS (souvent pour « faire joli ») rend le focus invisible : au clavier, on ne sait plus où l’on est. Gardez un contour visible, avec <code>:focus-visible</code>. Autre piège : lancez Lighthouse en navigation privée, car les extensions installées faussent les scores.</p>
+<p><code translate="no">outline: none</code> dans le CSS (souvent pour « faire joli ») rend le focus invisible : au clavier, on ne sait plus où l’on est. Gardez un contour visible, avec <code translate="no">:focus-visible</code>. Autre piège : lancez Lighthouse en navigation privée, car les extensions installées faussent les scores.</p>
 </div>
 </div>
 </div>
@@ -237,8 +239,8 @@ Kevin Bardoux
 <section id="corriger-et-republier-30-min" class="slide level3">
 <h3>Corriger et republier (30 min)</h3>
 <ol type="1">
-<li>Corrigez dans <code>dwwm-tp</code>, un problème à la fois ; commitez.</li>
-<li>Publiez : <code>cp</code>, puis <code>git push</code> depuis <code>page-perso</code>.</li>
+<li>Corrigez dans <code translate="no">dwwm-tp</code>, un problème à la fois ; commitez.</li>
+<li>Publiez : <code translate="no">cp</code>, puis <code translate="no">git push</code> depuis <code translate="no">page-perso</code>.</li>
 <li>Relancez les contrôles deux minutes plus tard.</li>
 <li><strong>Réussi si</strong> : accessibilité ≥ 90 ; tout au clavier ; contraste ≥ 4,5:1.</li>
 <li>Pas fini ? Vous terminez mercredi 18/11 matin.</li>
@@ -250,7 +252,7 @@ Kevin Bardoux
 <li>Tests au vert : page et mise en page.</li>
 <li>Validateur du W3C : aucune erreur.</li>
 <li>Lisible à 375 px et sur grand écran, sans défilement horizontal.</li>
-<li>Palette, espacements et tailles de texte en variables, dans <code>:root</code>.</li>
+<li>Palette, espacements et tailles de texte en variables, dans <code translate="no">:root</code>.</li>
 <li>Lighthouse : accessibilité <strong>90</strong> au moins ; tout au clavier.</li>
 <li>Publiée en HTTPS, sans donnée personnelle superflue.</li>
 </ul>
@@ -306,7 +308,7 @@ Kevin Bardoux
 <li>Le parcours d’autonomie de jeudi matin.</li>
 <li>Reprenez à la ligne où vous vous êtes arrêté.</li>
 <li>Puis le README de ce matin, s’il reste à faire.</li>
-<li>Un commit par exercice réussi ; <code>git push</code> à la fin.</li>
+<li>Un commit par exercice réussi ; <code translate="no">git push</code> à la fin.</li>
 </ul>
 
 
@@ -331,7 +333,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -499,27 +500,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

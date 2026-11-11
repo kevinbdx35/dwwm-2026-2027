@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -195,7 +197,7 @@ Kevin Bardoux
 <h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Quelle commande affiche le dossier courant ?</li>
-<li>Pour <code>scp</code>, le port s’écrit <code>-p</code> ou <code>-P</code> ?</li>
+<li>Pour <code translate="no">scp</code>, le port s’écrit <code translate="no">-p</code> ou <code translate="no">-P</code> ?</li>
 <li>Quelle commande installe les paquets d’un projet ?</li>
 </ol>
 </section>
@@ -238,8 +240,8 @@ Kevin Bardoux
 <h3>Consignes</h3>
 <ol type="1">
 <li>Lisez la page du niveau sur le site, avant de vous connecter.</li>
-<li>Connectez-vous en <code>ssh</code>, comme hier, avec <code>banditN</code>.</li>
-<li>Trouvez le mot de passe du niveau suivant, puis <code>exit</code>.</li>
+<li>Connectez-vous en <code translate="no">ssh</code>, comme hier, avec <code translate="no">banditN</code>.</li>
+<li>Trouvez le mot de passe du niveau suivant, puis <code translate="no">exit</code>.</li>
 <li>Notez la commande qui a débloqué le niveau (pas le mot de passe).</li>
 <li>Passez au niveau suivant.</li>
 </ol>
@@ -262,7 +264,7 @@ Kevin Bardoux
 <h3>Plan de repli — Défis de terminal locaux</h3>
 <ul>
 <li>Si le port 2220 est bloqué : mêmes compétences, sans réseau.</li>
-<li>Dossier <code>defis-terminal</code> de l’archive de la semaine, dans Git Bash.</li>
+<li>Dossier <code translate="no">defis-terminal</code> de l’archive de la semaine, dans Git Bash.</li>
 <li>7 niveaux, chacun cache un code d’un mot : notez-le.</li>
 <li><strong>Objectif</strong> : 5 codes au moins ; les 7 pour les plus rapides.</li>
 </ul>
@@ -310,7 +312,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -478,27 +479,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

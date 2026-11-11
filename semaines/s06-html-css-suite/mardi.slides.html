@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -101,8 +102,9 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -217,7 +219,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C3<br> <strong>Livrable</strong> : <code>node --test grid-exercices.test.js</code> et <code>node --test responsive-exercices.test.js</code> au vert ; le Layout Lab commencé.</p>
+<p><strong>Compétences visées</strong> : C3<br> <strong>Livrable</strong> : <code translate="no">node --test grid-exercices.test.js</code> et <code translate="no">node --test responsive-exercices.test.js</code> au vert ; le Layout Lab commencé.</p>
 </div>
 </div>
 </div>
@@ -230,9 +232,9 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li>Sur quel élément écrit-on <code>display: flex</code> ?</li>
+<li>Sur quel élément écrit-on <code translate="no">display: flex</code> ?</li>
 <li>Quelle unité pour une taille de texte accessible ?</li>
-<li>Que fait un <code>.gitignore</code> ?</li>
+<li>Que fait un <code translate="no">.gitignore</code> ?</li>
 </ol>
 </section>
 <section id="apport-grid" class="slide level3">
@@ -241,7 +243,7 @@ Kevin Bardoux
 </section>
 <section id="grid-attention-et-vérification" class="slide level3">
 <h3>Grid — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -263,13 +265,13 @@ Kevin Bardoux
 <ul>
 <li>Je code, vous tapez en même temps : une étape à la fois.</li>
 <li>À chaque étape : une question, puis « Vous devez voir ».</li>
-<li>Perdu ? Dossier <code>rattrapage/grid/</code>, une étape à la fois.</li>
-<li>Dossier : <code>pas-a-pas-grid</code>.</li>
+<li>Perdu ? Dossier <code translate="no">rattrapage/grid/</code>, une étape à la fois.</li>
+<li>Dossier : <code translate="no">pas-a-pas-grid</code>.</li>
 </ul>
 </section>
 <section id="grid-étape-1" class="slide level3">
 <h3>Grid, étape 1</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
 <span id="cb1-2"><a aria-label="2"></a><span class="fu">.projets</span> {</span>
 <span id="cb1-3"><a aria-label="3"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
 <span id="cb1-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
@@ -277,7 +279,7 @@ Kevin Bardoux
 </section>
 <section id="grid-étape-2" class="slide level3">
 <h3>Grid, étape 2</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a aria-label="1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a aria-label="1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
 <span id="cb2-2"><a aria-label="2"></a><span class="fu">.projets</span> {</span>
 <span id="cb2-3"><a aria-label="3"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
 <span id="cb2-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
@@ -287,7 +289,7 @@ Kevin Bardoux
 </section>
 <section id="grid-étape-3" class="slide level3">
 <h3>Grid, étape 3</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a aria-label="1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a aria-label="1"></a><span class="co">/* Grid : la section .projets est le parent */</span></span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">.projets</span> {</span>
 <span id="cb3-3"><a aria-label="3"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
 <span id="cb3-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
@@ -301,7 +303,7 @@ Kevin Bardoux
 <h3>Exercices 1 et 2 — La galerie et la page (30 min)</h3>
 <ol type="1">
 <li>Exercice 1 : ensemble. Exercice 2 : seuls.</li>
-<li>Dossier <code>grid-exercices</code>, fichier <code>style.css</code>.</li>
+<li>Dossier <code translate="no">grid-exercices</code>, fichier <code translate="no">style.css</code>.</li>
 <li><strong>Réussi si</strong> : les tests de ces deux exercices passent.</li>
 </ol>
 </section>
@@ -318,7 +320,7 @@ Kevin Bardoux
 <div class="callout-content">
 <ul>
 <li>Grid : deux dimensions, sur le parent.</li>
-<li><code>1fr</code> : une part de l’espace disponible.</li>
+<li><code translate="no">1fr</code> : une part de l’espace disponible.</li>
 <li>Flexbox pour une rangée, Grid pour une grille.</li>
 </ul>
 </div>
@@ -328,9 +330,9 @@ Kevin Bardoux
 <section id="si-le-temps-le-permet" class="slide level3">
 <h3>Si le temps le permet</h3>
 <ul>
-<li>Exercice 3 de <code>grid-exercices</code> : les tarifs.</li>
+<li>Exercice 3 de <code translate="no">grid-exercices</code> : les tarifs.</li>
 <li>Grid Garden jusqu’au niveau 28.</li>
-<li>Le défi 6 de <code>defis-css</code> : le damier.</li>
+<li>Le défi 6 de <code translate="no">defis-css</code> : le damier.</li>
 </ul>
 </section>
 <section id="si-le-temps-le-permet-grid-garden" class="slide level3">
@@ -383,7 +385,7 @@ Kevin Bardoux
 </section>
 <section id="mobile-first-attention-et-vérification" class="slide level3">
 <h3>Mobile first — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -392,7 +394,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Une media query en <code>max-width</code> (héritée d’un tutoriel) inverse la logique : le téléphone reçoit des corrections au lieu des styles de base. Ici, toujours <code>min-width</code>.</p>
+<p>Une media query en <code translate="no">max-width</code> (héritée d’un tutoriel) inverse la logique : le téléphone reçoit des corrections au lieu des styles de base. Ici, toujours <code translate="no">min-width</code>.</p>
 </div>
 </div>
 </div>
@@ -404,14 +406,14 @@ Kevin Bardoux
 <h3>Pas à pas ensemble — La page en deux largeurs (55 min)</h3>
 <ul>
 <li>Je code, vous tapez en même temps : une étape à la fois.</li>
-<li>Perdu ? Dossier <code>rattrapage/responsive/</code>.</li>
-<li>Dossier : <code>pas-a-pas-responsive</code>.</li>
+<li>Perdu ? Dossier <code translate="no">rattrapage/responsive/</code>.</li>
+<li>Dossier : <code translate="no">pas-a-pas-responsive</code>.</li>
 <li>F12, mode responsive, ouvert du début à la fin.</li>
 </ul>
 </section>
 <section id="mobile-first-étape-1" class="slide level3">
 <h3>Mobile first, étape 1</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a aria-label="1"></a><span class="co">/* Mobile first : la grille, pour le téléphone */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a aria-label="1"></a><span class="co">/* Mobile first : la grille, pour le téléphone */</span></span>
 <span id="cb4-2"><a aria-label="2"></a><span class="fu">.projets</span> {</span>
 <span id="cb4-3"><a aria-label="3"></a>  <span class="co">/* Grid : les enfants se placent en grille */</span></span>
 <span id="cb4-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
@@ -423,7 +425,7 @@ Kevin Bardoux
 </section>
 <section id="mobile-first-étape-2" class="slide level3">
 <h3>Mobile first, étape 2</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a aria-label="1"></a><span class="co">/* Media query : à partir de 48rem (768 px) */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a aria-label="1"></a><span class="co">/* Media query : à partir de 48rem (768 px) */</span></span>
 <span id="cb5-2"><a aria-label="2"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">48</span><span class="dt">rem</span><span class="fu">)</span> {</span>
 <span id="cb5-3"><a aria-label="3"></a>  <span class="co">/* Grand écran : la grille change */</span></span>
 <span id="cb5-4"><a aria-label="4"></a>  <span class="fu">.projets</span> {</span>
@@ -434,7 +436,7 @@ Kevin Bardoux
 </section>
 <section id="mobile-first-étape-3-12" class="slide level3">
 <h3>Mobile first, étape 3 (1/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a aria-label="1"></a><span class="co">/* Mobile first : l'en-tête, pour le téléphone */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a aria-label="1"></a><span class="co">/* Mobile first : l'en-tête, pour le téléphone */</span></span>
 <span id="cb6-2"><a aria-label="2"></a><span class="fu">.entete</span> {</span>
 <span id="cb6-3"><a aria-label="3"></a>  <span class="co">/* Flexbox : l'en-tête est un parent flex */</span></span>
 <span id="cb6-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
@@ -446,7 +448,7 @@ Kevin Bardoux
 </section>
 <section id="mobile-first-étape-3-22" class="slide level3">
 <h3>Mobile first, étape 3 (2/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb7-1"><a aria-label="1"></a><span class="co">/* Flexbox : le menu est un parent flex */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb7-1"><a aria-label="1"></a><span class="co">/* Flexbox : le menu est un parent flex */</span></span>
 <span id="cb7-2"><a aria-label="2"></a><span class="fu">.menu</span> {</span>
 <span id="cb7-3"><a aria-label="3"></a>  <span class="co">/* Flexbox : les liens se placent en ligne */</span></span>
 <span id="cb7-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
@@ -456,7 +458,7 @@ Kevin Bardoux
 </section>
 <section id="mobile-first-étape-4-12" class="slide level3">
 <h3>Mobile first, étape 4 (1/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a aria-label="1"></a><span class="co">/* Media query : à partir de 48rem (768 px) */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a aria-label="1"></a><span class="co">/* Media query : à partir de 48rem (768 px) */</span></span>
 <span id="cb8-2"><a aria-label="2"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">48</span><span class="dt">rem</span><span class="fu">)</span> {</span>
 <span id="cb8-3"><a aria-label="3"></a>  <span class="co">/* Grand écran : l'en-tête change */</span></span>
 <span id="cb8-4"><a aria-label="4"></a>  <span class="fu">.entete</span> {</span>
@@ -467,7 +469,7 @@ Kevin Bardoux
 </section>
 <section id="mobile-first-étape-4-22" class="slide level3">
 <h3>Mobile first, étape 4 (2/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb9-1"><a aria-label="1"></a>    <span class="co">/* Axe secondaire : centrés en hauteur */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb9-1"><a aria-label="1"></a>    <span class="co">/* Axe secondaire : centrés en hauteur */</span></span>
 <span id="cb9-2"><a aria-label="2"></a>    align-items<span class="in">:</span> center;</span>
 <span id="cb9-3"><a aria-label="3"></a>  }</span>
 <span id="cb9-4"><a aria-label="4"></a></span>
@@ -482,17 +484,17 @@ Kevin Bardoux
 <h3>Exercices — La galerie et le menu (35 min)</h3>
 <ol type="1">
 <li>Exercice 1 : ensemble. Exercice 2 : seuls (semi-guidé).</li>
-<li>Dossier <code>responsive-exercices</code>, fichier <code>style.css</code>.</li>
-<li><strong>Réussi si</strong> : <code>node --test responsive-exercices.test.js</code> passe.</li>
+<li>Dossier <code translate="no">responsive-exercices</code>, fichier <code translate="no">style.css</code>.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test responsive-exercices.test.js</code> passe.</li>
 </ol>
 </section>
 <section id="layout-lab-votre-page-personnelle-25-min" class="slide level3">
 <h3>« Layout Lab » : votre page personnelle (25 min)</h3>
 <ol type="1">
-<li>Copiez votre page dans <code>semaine-06</code>.</li>
+<li>Copiez votre page dans <code translate="no">semaine-06</code>.</li>
 <li>En-tête et menu : Flexbox ; projets ou compétences : Grid.</li>
-<li>Une media query en <code>min-width</code> pour les grands écrans.</li>
-<li><strong>Réussi si</strong> : <code>node --test layout.test.js</code> passe (fin jeudi).</li>
+<li>Une media query en <code translate="no">min-width</code> pour les grands écrans.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test layout.test.js</code> passe (fin jeudi).</li>
 </ol>
 </section>
 <section id="à-retenir-cet-après-midi" class="slide level3">
@@ -508,7 +510,7 @@ Kevin Bardoux
 <div class="callout-content">
 <ul>
 <li>D’abord le téléphone : une colonne.</li>
-<li>Ensuite <code>@media (min-width: 48rem)</code>.</li>
+<li>Ensuite <code translate="no">@media (min-width: 48rem)</code>.</li>
 <li>Toujours vérifier à 375 et à 1280 px.</li>
 </ul>
 </div>
@@ -544,7 +546,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -712,27 +713,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

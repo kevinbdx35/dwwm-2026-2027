@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s07-js-avance/vendredi-matin.html" rel="next">
+<link href="../../semaines/s07-js-avance/jeudi-matin.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../theme-commun.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s07-js-avance/index.html">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</a></li><li class="breadcrumb-item"><a href="../../semaines/s07-js-avance/jeudi-apres-midi.html">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s06-html-css-suite/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 10/11 — Grid, puis le mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 11/11 — Férié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 12/11 — Parcours d’autonomie, puis publier sa page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 13/11 — Vérifier sa page, puis la corriger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s07-js-avance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, matin — Séance PAF</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, après-midi — Fonctions en paramètre (callback) et map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, matin — Garder et trouver : filter et find</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, après-midi — Les objets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 18/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#après-midi-trier-sans-modifier" id="toc-après-midi-trier-sans-modifier" class="nav-link" data-scroll-target="#après-midi-trier-sans-modifier">Après-midi — Trier sans modifier</a>
+  <ul>
+  <li><a href="#apport-tri" id="toc-apport-tri" class="nav-link" data-scroll-target="#apport-tri">Trier avec toSorted (20 min)</a></li>
+  <li><a href="#trier-en-image-avant-après" id="toc-trier-en-image-avant-après" class="nav-link" data-scroll-target="#trier-en-image-avant-après">Trier, en image : avant / après</a></li>
+  <li><a href="#trier-lexemple-minimal" id="toc-trier-lexemple-minimal" class="nav-link" data-scroll-target="#trier-lexemple-minimal">Trier, l’exemple minimal</a></li>
+  <li><a href="#trier-attention-et-vérification" id="toc-trier-attention-et-vérification" class="nav-link" data-scroll-target="#trier-attention-et-vérification">Trier — attention et vérification</a></li>
+  <li><a href="#pas-à-pas-ensemble-le-palmarès-des-musées-40-min" id="toc-pas-à-pas-ensemble-le-palmarès-des-musées-40-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-le-palmarès-des-musées-40-min">Pas à pas ensemble — Le palmarès des musées (40 min)</a>
+  <ul class="collapse">
+  <li><a href="#variante-à-faire-seuls" id="toc-variante-à-faire-seuls" class="nav-link" data-scroll-target="#variante-à-faire-seuls">Variante à faire seuls</a></li>
+  <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exercices-trier-sans-modifier" id="toc-exercices-trier-sans-modifier" class="nav-link" data-scroll-target="#exercices-trier-sans-modifier">Exercices — Trier sans modifier</a>
+  <ul>
+  <li><a href="#palier-1-trier-des-prix-25-min" id="toc-palier-1-trier-des-prix-25-min" class="nav-link" data-scroll-target="#palier-1-trier-des-prix-25-min">Palier 1 — Trier des prix (25 min)</a></li>
+  <li><a href="#anglais" id="toc-anglais" class="nav-link" data-scroll-target="#anglais">Lire une documentation en anglais — <em>Array.prototype.sort()</em> (15 min)</a></li>
+  <li><a href="#palier-2-le-palmarès-45-min" id="toc-palier-2-le-palmarès-45-min" class="nav-link" data-scroll-target="#palier-2-le-palmarès-45-min">Palier 2 — Le palmarès (45 min)</a></li>
+  <li><a href="#palier-3-trier-des-noms-accentués-35-min" id="toc-palier-3-trier-des-noms-accentués-35-min" class="nav-link" data-scroll-target="#palier-3-trier-des-noms-accentués-35-min">Palier 3 — Trier des noms accentués (35 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-1" id="toc-enregistrer-et-envoyer-2-min-1" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir" id="toc-à-retenir" class="nav-link" data-scroll-target="#à-retenir">À retenir</a></li>
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="jeudi-apres-midi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="jeudi-apres-midi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s07-js-avance/index.html">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</a></li><li class="breadcrumb-item"><a href="../../semaines/s07-js-avance/jeudi-apres-midi.html">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">jeudi 19 novembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C4 · communiquer en anglais · résolution de problème<br> <strong>Livrable</strong> : le pas à pas <code translate="no">pas-a-pas-tri</code> envoyé sur GitHub, <code translate="no">node --test t1-trier-prix.test.js</code> au vert, et vos quatre réponses de lecture en anglais.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Le minimum du jour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Le minimum du jour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Le pas à pas « Le palmarès des musées », fait avec le groupe.</li>
+<li>Le palier 1 : <code translate="no">node --test t1-trier-prix.test.js</code> au vert.</li>
+<li>La lecture en anglais : les quatre réponses écrites.</li>
+</ul>
+<p>Les paliers 2 et 3, puis la rubrique « Si le temps le permet », sont la suite naturelle, pour ceux qui avancent.</p>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Trier un tableau de nombres avec <code translate="no">toSorted</code> et une fonction de comparaison.</li>
+<li>Trier un tableau d’objets selon une propriété.</li>
+<li>Expliquer pourquoi on ne modifie pas le tableau reçu.</li>
+</ul>
+<p><strong>Comment se passe l’après-midi.</strong> Une seule notion : trier sans modifier. Puis, à 14 h 15, un quart d’heure de lecture en anglais, sur la page de documentation de la méthode du jour.</p>
+</section>
+<section id="après-midi-trier-sans-modifier" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-trier-sans-modifier">Après-midi — Trier sans modifier</h2>
+<section id="apport-tri" class="level3">
+<h3 class="anchored" data-anchor-id="apport-tri">Trier avec toSorted (20 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : un palmarès, une liste par prix, sans abîmer les données.</li>
+<li><strong><code translate="no">toSorted</code></strong> : une copie triée ; le tableau reçu ne change pas.</li>
+<li><strong><code translate="no">(a, b) =&gt; a - b</code></strong> : du plus petit au plus grand.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Les musées du plus visité au moins visité, des produits du moins cher au plus cher : il faut trier. Mais le tableau reçu sert peut-être ailleurs (à afficher la liste dans son ordre d’origine, par exemple) : le trier « sur place » le modifierait pour tout le reste du programme.</p>
+<p><strong>Définition.</strong> <a href="../../ressources/lexique.html#t-tosorted"><code translate="no">toSorted</code></a> renvoie un <strong>nouveau</strong> tableau, trié ; le tableau d’origine n’est pas modifié <span class="citation" data-cites="mdn-tosorted">(<a href="#ref-mdn-tosorted" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>. Sans argument, il convertit les éléments en textes et les compare caractère par caractère. Avec une fonction de comparaison <code translate="no">(a, b) =&gt; …</code>, il range <code translate="no">a</code> devant <code translate="no">b</code> quand la fonction renvoie un nombre négatif, derrière quand elle renvoie un nombre positif <span class="citation" data-cites="mdn-sort">(<a href="#ref-mdn-sort" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span> : <code translate="no">(a, b) =&gt; a - b</code> range du plus petit au plus grand, <code translate="no">(a, b) =&gt; b - a</code> du plus grand au plus petit.</p>
+</section>
+<section id="trier-en-image-avant-après" class="level3">
+<h3 class="anchored" data-anchor-id="trier-en-image-avant-après">Trier, en image : avant / après</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><code translate="no">prices</code> avant</th>
+<th>ce qui est renvoyé</th>
+<th><code translate="no">prices</code> après</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code translate="no">prices.toSorted()</code></td>
+<td><code translate="no">[25, 8, 100, 10]</code></td>
+<td><code translate="no">[10, 100, 25, 8]</code> (ordre des textes)</td>
+<td><code translate="no">[25, 8, 100, 10]</code></td>
+</tr>
+<tr class="even">
+<td><code translate="no">prices.toSorted((a, b) =&gt; a - b)</code></td>
+<td><code translate="no">[25, 8, 100, 10]</code></td>
+<td><code translate="no">[8, 10, 25, 100]</code></td>
+<td><code translate="no">[25, 8, 100, 10]</code></td>
+</tr>
+<tr class="odd">
+<td><code translate="no">prices.sort((a, b) =&gt; a - b)</code></td>
+<td><code translate="no">[25, 8, 100, 10]</code></td>
+<td><code translate="no">[8, 10, 25, 100]</code></td>
+<td><strong><code translate="no">[8, 10, 25, 100]</code></strong> : modifié</td>
+</tr>
+</tbody>
+</table>
+<p>Les deux premières lignes laissent <code translate="no">prices</code> intact ; la troisième, avec <code translate="no">sort</code>, le modifie. La première ligne montre l’autre piège : sans fonction de comparaison, <code translate="no">100</code> passe devant <code translate="no">25</code>, comme « 100 » devant « 25 » dans un dictionnaire.</p>
+</section>
+<section id="trier-lexemple-minimal" class="level3">
+<h3 class="anchored" data-anchor-id="trier-lexemple-minimal">Trier, l’exemple minimal</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> prices <span class="op">=</span> [<span class="dv">25</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> cheapFirst <span class="op">=</span> prices<span class="op">.</span><span class="fu">toSorted</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">-</span> b)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">// [ 8, 10, 25, 100 ]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> museums <span class="op">=</span> [{ <span class="dt">name</span><span class="op">:</span> <span class="st">'A'</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">5</span> }<span class="op">,</span> { <span class="dt">name</span><span class="op">:</span> <span class="st">'B'</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">9</span> }]<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ranking <span class="op">=</span> museums<span class="op">.</span><span class="fu">toSorted</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">total</span> <span class="op">-</span> a<span class="op">.</span><span class="at">total</span>)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">// B d'abord : 9 visites</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(prices)<span class="op">;</span> <span class="co">// [ 25, 8, 100, 10 ] : inchangé</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="trier-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="trier-attention-et-vérification">Trier — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled type-attention">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code translate="no">sort</code> trie le tableau <strong>lui-même</strong> : après <code translate="no">prices.sort(…)</code>, <code translate="no">prices</code> est modifié pour tout le programme. Pour ne pas modifier le tableau reçu, utilisez <code translate="no">toSorted</code>. Et donnez toujours une fonction de comparaison pour des nombres : sans elle, <code translate="no">100</code> passe devant <code translate="no">25</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que donne <code translate="no">[3, 20, 100].toSorted()</code> ?</li>
+<li>Et <code translate="no">[3, 20, 100].toSorted((a, b) =&gt; b - a)</code> ?</li>
+</ul>
+</section>
+<section id="pas-à-pas-ensemble-le-palmarès-des-musées-40-min" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-ensemble-le-palmarès-des-musées-40-min">Pas à pas ensemble — Le palmarès des musées (40 min)</h3>
+<ul>
+<li>Le formateur code, vous tapez en même temps, une étape à la fois.</li>
+<li>Code et commentaires : <code translate="no">//</code> au-dessus de chaque ligne.</li>
+<li>Dossier : <code translate="no">pas-a-pas-tri</code>, fichier <code translate="no">palmares.js</code>.</li>
+<li>Perdu ? Dossier <code translate="no">rattrapage/tri/</code>, une étape à la fois.</li>
+</ul>
+<p><strong>Palier 1 : guidé.</strong> Vérifiez d’abord votre version de Node : <code translate="no">node -v</code> doit afficher <code translate="no">v20</code> ou plus (<code translate="no">v24…</code> depuis la semaine 2). Ouvrez <code translate="no">pas-a-pas-tri/palmares.js</code> : les visites de six musées du Grand-Est en 2019 <span class="citation" data-cites="datagouv-frequentation-musees">(<a href="#ref-datagouv-frequentation-musees" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. Dans le terminal : <code translate="no">cd pas-a-pas-tri</code>.</p>
+<p><strong>Avant de commencer.</strong> Lancez <code translate="no">node palmares.js</code>, depuis <code translate="no">pas-a-pas-tri</code>. <strong>Vous devez voir</strong> : les données de départ, sans erreur. Chaque étape ajoute ses lignes à la fin du fichier, et sa sortie à la fin de la console.</p>
+<p><strong>Étape 1 — Trier sans fonction de comparaison.</strong> À la fin du fichier, triez <code translate="no">visits</code> avec <code translate="no">toSorted()</code>, sans argument.</p>
+<p><em>Avant d’exécuter</em> : dans quel ordre les nombres vont-ils sortir ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-07/pas-a-pas-tri/palmares.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="semaine-07/pas-a-pas-tri/palmares.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// toSorted sans argument : trie comme des textes</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> asText <span class="op">=</span> visits<span class="op">.</span><span class="fu">toSorted</span>()<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Surprise : 179932 arrive juste après 1207</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(asText)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis lancez <code translate="no">node palmares.js</code> dans le terminal, depuis <code translate="no">pas-a-pas-tri</code>.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, à la fin de la sortie :</p>
+</div>
+<pre class="text" translate="no"><code>[ 1207, 179932, 29212, 3165, 3808, 51775 ]</code></pre>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/tri/etape-1/palmares.js</code> à la place de votre <code translate="no">palmares.js</code>, puis repartez avec le groupe.</p>
+</div>
+<p><strong>Étape 2 — Comparer des nombres.</strong> Donnez à <code translate="no">toSorted</code> la fonction <code translate="no">(a, b) =&gt; a - b</code>.</p>
+<p><em>Avant d’exécuter</em> : <code translate="no">1207</code> ou <code translate="no">179932</code> en premier ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-07/pas-a-pas-tri/palmares.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="semaine-07/pas-a-pas-tri/palmares.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Comparaison : a - b range du plus petit au plus grand</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ascending <span class="op">=</span> visits<span class="op">.</span><span class="fu">toSorted</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">-</span> b)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Affiche les visites dans l'ordre croissant</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(ascending)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis lancez <code translate="no">node palmares.js</code> dans le terminal, depuis <code translate="no">pas-a-pas-tri</code>.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, à la fin de la sortie :</p>
+</div>
+<pre class="text" translate="no"><code>[ 1207, 3165, 3808, 29212, 51775, 179932 ]</code></pre>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/tri/etape-2/palmares.js</code> à la place de votre <code translate="no">palmares.js</code>, puis repartez avec le groupe.</p>
+</div>
+<p><strong>Étape 3 — Le palmarès, et l’original.</strong> Triez du plus grand au plus petit, puis affichez <code translate="no">visits</code>.</p>
+<p><em>Avant d’exécuter</em> : <code translate="no">visits</code> est-il trié, maintenant ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-07/pas-a-pas-tri/palmares.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="semaine-07/pas-a-pas-tri/palmares.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// b - a : du plus grand au plus petit</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> descending <span class="op">=</span> visits<span class="op">.</span><span class="fu">toSorted</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> b <span class="op">-</span> a)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Affiche le palmarès des visites</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(descending)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// toSorted n'a pas modifié le tableau reçu</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(visits)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis lancez <code translate="no">node palmares.js</code> dans le terminal, depuis <code translate="no">pas-a-pas-tri</code>.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, à la fin de la sortie :</p>
+</div>
+<pre class="text" translate="no"><code>[ 179932, 51775, 29212, 3808, 3165, 1207 ]
+[ 3165, 29212, 51775, 3808, 1207, 179932 ]</code></pre>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/tri/etape-3/palmares.js</code> à la place de votre <code translate="no">palmares.js</code>, puis repartez avec le groupe.</p>
+</div>
+<p><strong>Étape 4 — Trier des objets.</strong> Créez <code translate="no">museums</code>, triez-les selon <code translate="no">total</code>, puis gardez leurs noms avec <code translate="no">map</code>.</p>
+<p><em>Avant d’exécuter</em> : quel musée va arriver en tête ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-07/pas-a-pas-tri/palmares.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="semaine-07/pas-a-pas-tri/palmares.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Tableau d'objets : trois musées</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> museums <span class="op">=</span> [</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Chaque élément : un objet { name, total }</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">'musée Arthur Rimbaud'</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">29212</span> }<span class="op">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">"écomusée d'Alsace"</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">179932</span> }<span class="op">,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">name</span><span class="op">:</span> <span class="st">"musée de l'Ardenne"</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">51775</span> }<span class="op">,</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Trie les objets selon leur champ total</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ranking <span class="op">=</span> museums<span class="op">.</span><span class="fu">toSorted</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">total</span> <span class="op">-</span> a<span class="op">.</span><span class="at">total</span>)<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">// map : les noms, du plus visité au moins visité</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(ranking<span class="op">.</span><span class="fu">map</span>((item) <span class="kw">=&gt;</span> item<span class="op">.</span><span class="at">name</span>))<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis lancez <code translate="no">node palmares.js</code> dans le terminal, depuis <code translate="no">pas-a-pas-tri</code>.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, à la fin de la sortie :</p>
+</div>
+<pre class="text" translate="no"><code>[ "écomusée d'Alsace", "musée de l'Ardenne", 'musée Arthur Rimbaud' ]</code></pre>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/tri/etape-4/palmares.js</code> à la place de votre <code translate="no">palmares.js</code>, puis repartez avec le groupe.</p>
+</div>
+<section id="variante-à-faire-seuls" class="level4">
+<h4 class="anchored" data-anchor-id="variante-à-faire-seuls">Variante à faire seuls</h4>
+<p>Pour ceux qui ont validé l’étape avant les autres, dans le même fichier. Affichez les noms du moins visité au plus visité. <strong>Réussi si</strong> : la console affiche <code translate="no">[ 'musée Arthur Rimbaud', "musée de l'Ardenne", "écomusée d'Alsace" ]</code>.</p>
+</section>
+<section id="enregistrer-et-envoyer-2-min" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
+<p>Depuis <code translate="no">~/dwwm/dwwm-tp/semaine-07</code> : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-tri</code>, <code translate="no">git commit -m "Ajoute le pas à pas tri"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+</section>
+</section>
+</section>
+<section id="exercices-trier-sans-modifier" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-trier-sans-modifier">Exercices — Trier sans modifier</h2>
+<section id="palier-1-trier-des-prix-25-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-trier-des-prix-25-min">Palier 1 — Trier des prix (25 min)</h3>
+<ol type="1">
+<li><code translate="no">t1-trier-prix.js</code> : du moins cher au plus cher, avec <code translate="no">toSorted</code>.</li>
+<li>Le tableau reçu ne doit pas changer.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test t1-trier-prix.test.js</code> au vert.</li>
+</ol>
+<p><strong>Palier 1 : guidé.</strong> Durée : 25 min.</p>
+<ol type="1">
+<li>Ouvrez <code translate="no">t1-trier-prix.js</code>. <code translate="no">sortPrices(prices)</code> renvoie un nouveau tableau, du prix le plus bas au plus haut.</li>
+<li>Écrivez <code translate="no">return prices.toSorted((a, b) =&gt; a - b);</code>.</li>
+<li>Lancez <code translate="no">node --test t1-trier-prix.test.js</code>. Le test « des nombres, pas des textes » échoue si vous oubliez la fonction de comparaison ; le test « le tableau reçu n’est pas modifié » échoue avec <code translate="no">sort</code>.</li>
+<li>Un commit.</li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test t1-trier-prix.test.js</code> affiche <code translate="no">ℹ fail 0</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html#apport-tri">Jeudi après-midi, « Trier avec toSorted »</a> ; le pas à pas, étape 2.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez ce que renvoie <code translate="no">a - b</code> quand <code translate="no">a</code> est plus petit que <code translate="no">b</code>, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted">Array.prototype.toSorted()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="anglais" class="level3">
+<h3 class="anchored" data-anchor-id="anglais">Lire une documentation en anglais — <em>Array.prototype.sort()</em> (15 min)</h3>
+<ul>
+<li>Une page de MDN, en anglais, sans traduction.</li>
+<li>Quatre questions ; réponses en français ou en anglais.</li>
+<li>Sans IA : comme au questionnaire professionnel.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled" title="Sans IA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Sans IA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ni IA, ni traduction automatique : lisez la page en anglais, comme au questionnaire professionnel du titre. Un mot inconnu ? Devinez-le par le contexte, puis vérifiez après la lecture.</p>
+</div>
+</div>
+<p>Ouvrez la page <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">Array.prototype.sort()</a> de MDN, en anglais <span class="citation" data-cites="mdn-sort-en">(<a href="#ref-mdn-sort-en" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>. Lisez l’introduction, puis la partie <em>Parameters</em>, sous-partie <code translate="no">compareFn</code>. Répondez sur votre feuille, en une phrase chacune.</p>
+<ol type="1">
+<li>What happens to the elements when <code translate="no">compareFn</code> is omitted?</li>
+<li>What does a negative return value of <code translate="no">compareFn</code> mean?</li>
+<li>What does a return value of zero mean?</li>
+<li>Which method does the page recommend to sort an array without changing the original array?</li>
+</ol>
+<p><strong>Réussi si</strong> : quatre réponses écrites, chacune avec un mot ou une expression de la page qui la justifie.</p>
+</section>
+<section id="palier-2-le-palmarès-45-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-2-le-palmarès-45-min">Palier 2 — Le palmarès (45 min)</h3>
+<ol type="1">
+<li><code translate="no">dc5-top.js</code> : les <code translate="no">n</code> musées les plus visités.</li>
+<li>Trier des objets, puis garder les <code translate="no">n</code> premiers.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test dc5-top.test.js</code> au vert.</li>
+</ol>
+<p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée : 45 min.</p>
+<ol type="1">
+<li>Ouvrez <code translate="no">dc5-top.js</code>. <code translate="no">topMuseums(museums, n)</code> renvoie les <code translate="no">n</code> musées les plus visités (champ <code translate="no">total</code>), du plus au moins visité, sans modifier le tableau reçu.</li>
+<li>Triez les objets avec <code translate="no">toSorted</code> et une comparaison sur <code translate="no">total</code>, du plus grand au plus petit (le pas à pas, étape 4).</li>
+<li>Étape documentation : dans MDN, page <em>Array</em>, trouvez la méthode qui renvoie un <strong>nouveau</strong> tableau avec une partie des éléments (du début jusqu’à une position), sans modifier l’original. Appliquez-la au tableau trié.</li>
+<li>Lancez <code translate="no">node --test dc5-top.test.js</code>.</li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test dc5-top.test.js</code> affiche <code translate="no">ℹ fail 0</code>. Le dernier test lit le vrai fichier, déjà nettoyé (<code translate="no">data/musees-grand-est-2019-propres.json</code>) : le premier du palmarès est l’écomusée d’Alsace.</p>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html#apport-tri">Jeudi après-midi, « Trier avec toSorted »</a> ; le pas à pas, étape 4.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez comment comparer deux objets selon une propriété, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, liste des méthodes ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted">Array.prototype.toSorted()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-3-trier-des-noms-accentués-35-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-3-trier-des-noms-accentués-35-min">Palier 3 — Trier des noms accentués (35 min)</h3>
+<ul>
+<li><code translate="no">t2-trier-noms.js</code> : l’ordre alphabétique français.</li>
+<li>« Échirolles » entre « Dinan » et « Zillisheim ».</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test t2-trier-noms.defi.test.js</code> au vert.</li>
+</ul>
+<p><strong>Palier 3 : autonome.</strong> Durée : 35 min.</p>
+<p><code translate="no">sortNames(names)</code> renvoie un nouveau tableau de noms dans l’ordre alphabétique <strong>français</strong> : avec <code translate="no">toSorted()</code> seul, « Échirolles » arrive après « Zillisheim », et « Musée C » avant « musée A » : les majuscules passent devant. Trouvez dans MDN la méthode des chaînes de caractères qui compare deux textes selon une langue, et servez-vous-en dans la fonction de comparaison.</p>
+<p><strong>Réussi si</strong> : <code translate="no">node --test t2-trier-noms.defi.test.js</code> affiche <code translate="no">ℹ fail 0</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Autonome">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autonome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez bloquer : c’est voulu, c’est le métier. Méthode : 1. lisez le message d’erreur en entier ; 2. cherchez-le dans la fiche « Lire un message d’erreur » ; 3. lisez la documentation ; 4. après 15 minutes bloqué sur le même point, demandez.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html#apport-tri">Jeudi après-midi, « Trier avec toSorted »</a> ; la lecture en anglais, partie <em>compareFn</em>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi « É » est rangé après « Z », pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, liste des méthodes.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min-1" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
+<p>Même rituel : <code translate="no">git status</code>, <code translate="no">git add</code>, <code translate="no">git commit -m "…"</code>, <code translate="no">git push</code>, depuis <code translate="no">semaine-07</code>. C’est la fin de la demi-journée : le <code translate="no">git push</code> est obligatoire.</p>
+</section>
+</section>
+<section id="à-retenir" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir">À retenir</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong><code translate="no">toSorted</code></strong> : une copie triée ; <code translate="no">sort</code> modifie le tableau lui-même.</li>
+<li><strong>Des nombres</strong> : toujours une fonction de comparaison, <code translate="no">(a, b) =&gt; a - b</code>.</li>
+<li><strong>Des objets</strong> : comparer une propriété, <code translate="no">(a, b) =&gt; b.total - a.total</code>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Les paliers 2 et 3 non terminés.</li>
+<li>Le <a href="../../semaines/s07-js-avance/mercredi.html#parcours-dautonomie-de-la-semaine">parcours d’autonomie</a>, à partir de la ligne 4.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Pourquoi <code translate="no">100</code> passe-t-il devant <code translate="no">25</code> sans fonction de comparaison ?</li>
+<li>Quelle différence entre <code translate="no">sort</code> et <code translate="no">toSorted</code> ?</li>
+</ul>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-mdn-sort" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;Array : méthode sort() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort</a>.
+</div>
+<div id="ref-mdn-tosorted" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Array : méthode toSorted() - JavaScript&nbsp;»</span>. Consulté le 10 novembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted</a>.
+</div>
+<div id="ref-mdn-sort-en" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Array.prototype.sort() - JavaScript&nbsp;»</span>. Consulté le 10 novembre 2026. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort</a>.
+</div>
+<div id="ref-datagouv-frequentation-musees" class="csl-entry" role="listitem">
+Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Fréquentation des Musées de France (data.gouv.fr)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.data.gouv.fr/datasets/frequentation-des-musees-de-france-1">https://www.data.gouv.fr/datasets/frequentation-des-musees-de-france-1</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s07-js-avance/jeudi-matin.html" class="pagination-link" aria-label="Jeudi 19/11, matin — Résumer un tableau : reduce et l'accumulateur">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s07-js-avance/vendredi-matin.html" class="pagination-link" aria-label="Vendredi 20/11, matin — Copier sans modifier : le spread">
+        <span class="nav-page-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

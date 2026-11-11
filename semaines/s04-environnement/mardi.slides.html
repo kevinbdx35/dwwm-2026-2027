@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -120,8 +121,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -254,7 +256,7 @@ Kevin Bardoux
 <h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Que fait le DNS ?</li>
-<li>Que signifie un code <code>404</code> ?</li>
+<li>Que signifie un code <code translate="no">404</code> ?</li>
 <li>Quel outil relit le code sans le lancer ?</li>
 </ol>
 </section>
@@ -262,9 +264,9 @@ Kevin Bardoux
 <h3>Installer Git (10 min)</h3>
 <ol type="1">
 <li>Windows : téléchargez <strong>Git for Windows</strong> ; gardez les choix proposés.</li>
-<li>macOS : dans le Terminal, <code>xcode-select --install</code>.</li>
-<li>Linux : <code>sudo apt install git</code>.</li>
-<li>Ouvrez le terminal (sous Windows : <strong>Git Bash</strong>), tapez <code>git --version</code>.</li>
+<li>macOS : dans le Terminal, <code translate="no">xcode-select --install</code>.</li>
+<li>Linux : <code translate="no">sudo apt install git</code>.</li>
+<li>Ouvrez le terminal (sous Windows : <strong>Git Bash</strong>), tapez <code translate="no">git --version</code>.</li>
 <li><strong>Réussi si</strong> : un numéro de version s’affiche.</li>
 </ol>
 </section>
@@ -274,14 +276,14 @@ Kevin Bardoux
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/s04-arborescence-terminal.svg" alt="Un arbre de dossiers. En haut, le dossier personnel, stagiaire, noté ~. Dessous, le dossier dwwm, mis en évidence : vous êtes ici. Sous dwwm, deux dossiers, semaine-03 et semaine-04. Une flèche verte descend de stagiaire vers dwwm : cd dwwm. Une flèche orange remonte de dwwm vers stagiaire : cd .. remonte d'un niveau. À droite : pwd affiche /c/Users/stagiaire/dwwm ; dans l'Explorateur de Windows, le même dossier s'écrit C:\Users\stagiaire\dwwm."></p>
-<figcaption>Les dossiers forment un arbre. <code>cd dwwm</code> descend dans un dossier, <code>cd ..</code> remonte d’un niveau ; <code>pwd</code> affiche le chemin du dossier où vous êtes.</figcaption>
+<figcaption>Les dossiers forment un arbre. <code translate="no">cd dwwm</code> descend dans un dossier, <code translate="no">cd ..</code> remonte d’un niveau ; <code translate="no">pwd</code> affiche le chemin du dossier où vous êtes.</figcaption>
 </figure>
 </div>
 </div>
 </section>
 <section id="se-repérer-attention-et-vérification" class="slide level3">
 <h3>Se repérer — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -290,21 +292,21 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>No such file or directory</code> : le nom est mal écrit, ou vous n’êtes pas dans le bon dossier. Tapez <code>pwd</code>, puis <code>ls</code>, avant de réessayer.</p>
+<p><code translate="no">No such file or directory</code> : le nom est mal écrit, ou vous n’êtes pas dans le bon dossier. Tapez <code translate="no">pwd</code>, puis <code translate="no">ls</code>, avant de réessayer.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : depuis <code>dwwm/semaine-03</code>, où mène <code>cd ..</code> ?</li>
+<li><strong>Vérifiez</strong> : depuis <code translate="no">dwwm/semaine-03</code>, où mène <code translate="no">cd ..</code> ?</li>
 </ul>
 </section>
 <section id="apport-1-le-terminal-22-les-fichiers-10-min" class="slide level3">
 <h3>Apport 1 — Le terminal (2/2) : les fichiers (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : copier, renommer, chercher sans quitter le clavier.</li>
-<li><strong><code>cp</code>, <code>mv</code>, <code>rm</code>, <code>cat</code>, <code>grep</code></strong> : copier, déplacer, supprimer, lire, chercher.</li>
+<li><strong><code translate="no">cp</code>, <code translate="no">mv</code>, <code translate="no">rm</code>, <code translate="no">cat</code>, <code translate="no">grep</code></strong> : copier, déplacer, supprimer, lire, chercher.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="bu">echo</span> Ada <span class="op">&gt;</span> prenom.txt         <span class="co"># créer un fichier qui contient Ada</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="bu">echo</span> Ada <span class="op">&gt;</span> prenom.txt         <span class="co"># créer un fichier qui contient Ada</span></span>
 <span id="cb1-2"><a aria-label="2"></a><span class="fu">cp</span> prenom.txt copie.txt       <span class="co"># le copier</span></span>
 <span id="cb1-3"><a aria-label="3"></a><span class="fu">mv</span> copie.txt sauvegarde.txt   <span class="co"># renommer la copie</span></span>
 <span id="cb1-4"><a aria-label="4"></a><span class="fu">cat</span> sauvegarde.txt            <span class="co"># afficher : Ada</span></span>
@@ -313,7 +315,7 @@ Kevin Bardoux
 </section>
 <section id="fichiers-attention-et-vérification" class="slide level3">
 <h3>Fichiers — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -322,12 +324,12 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>rm</code> supprime <strong>définitivement</strong> : pas de corbeille. Relisez la commande avant Entrée, et faites <code>ls</code> après.</p>
+<p><code translate="no">rm</code> supprime <strong>définitivement</strong> : pas de corbeille. Relisez la commande avant Entrée, et faites <code translate="no">ls</code> après.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : quelle commande renomme <code>a.txt</code> en <code>b.txt</code> ?</li>
+<li><strong>Vérifiez</strong> : quelle commande renomme <code translate="no">a.txt</code> en <code translate="no">b.txt</code> ?</li>
 </ul>
 </section>
 <section id="exercice-rallye-terminal-30-min" class="slide level3">
@@ -336,7 +338,7 @@ Kevin Bardoux
 <li>Ensemble (5 min) : les étapes 1 et 2.</li>
 <li>Seuls : les étapes 3 à 10, au clavier uniquement.</li>
 <li>Notez chaque commande tapée sur votre fiche.</li>
-<li><strong>Réussi si</strong> : l’étape 10 montre que <code>copie.txt</code> a disparu.</li>
+<li><strong>Réussi si</strong> : l’étape 10 montre que <code translate="no">copie.txt</code> a disparu.</li>
 </ol>
 </section>
 <section id="apport-2-ssh-travailler-sur-un-serveur-distant-15-min" class="slide level3">
@@ -345,13 +347,13 @@ Kevin Bardoux
 <li><strong>Pourquoi</strong> : agir sur un serveur à distance, en toute sécurité.</li>
 <li><strong>SSH</strong> : un terminal chiffré sur une autre machine.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="fu">ssh</span> bandit0@bandit.labs.overthewire.org <span class="at">-p</span> 2220</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="fu">ssh</span> bandit0@bandit.labs.overthewire.org <span class="at">-p</span> 2220</span>
 <span id="cb2-2"><a aria-label="2"></a><span class="fu">scp</span> <span class="at">-P</span> 2220 bandit0@bandit.labs.overthewire.org:readme .</span>
 <span id="cb2-3"><a aria-label="3"></a><span class="ex">sftp</span> <span class="at">-P</span> 2220 bandit0@bandit.labs.overthewire.org</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ssh-attention-et-vérification" class="slide level3">
 <h3>SSH — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -360,7 +362,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Le port s’écrit <code>-p</code> pour <code>ssh</code>, mais <code>-P</code> (majuscule) pour <code>scp</code> et <code>sftp</code>. Une connexion refusée vient souvent de là.</p>
+<p>Le port s’écrit <code translate="no">-p</code> pour <code translate="no">ssh</code>, mais <code translate="no">-P</code> (majuscule) pour <code translate="no">scp</code> et <code translate="no">sftp</code>. Une connexion refusée vient souvent de là.</p>
 </div>
 </div>
 </div>
@@ -371,10 +373,10 @@ Kevin Bardoux
 <section id="exercice-première-connexion-ssh-30-min" class="slide level3">
 <h3>Exercice — Première connexion SSH (30 min)</h3>
 <ol type="1">
-<li>Ensemble (5 min) : la connexion <code>ssh</code> au niveau 0 de Bandit.</li>
-<li>Seuls : listez les fichiers, affichez <code>readme</code>, puis <code>exit</code>.</li>
-<li>Téléchargez <code>readme</code> avec <code>scp</code>.</li>
-<li><strong>Réussi si</strong> : <code>ls</code> montre <code>readme</code> dans votre dossier.</li>
+<li>Ensemble (5 min) : la connexion <code translate="no">ssh</code> au niveau 0 de Bandit.</li>
+<li>Seuls : listez les fichiers, affichez <code translate="no">readme</code>, puis <code translate="no">exit</code>.</li>
+<li>Téléchargez <code translate="no">readme</code> avec <code translate="no">scp</code>.</li>
+<li><strong>Réussi si</strong> : <code translate="no">ls</code> montre <code translate="no">readme</code> dans votre dossier.</li>
 </ol>
 </section>
 <section id="à-retenir-ce-matin" class="slide level3">
@@ -389,9 +391,9 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Se repérer</strong> : <code>pwd</code>, <code>ls</code>, <code>cd</code> ; <strong>Tab</strong> complète les noms.</li>
-<li><strong>Fichiers</strong> : <code>cp</code>, <code>mv</code>, <code>cat</code>, <code>grep</code> ; <code>rm</code> est définitif.</li>
-<li><strong>SSH</strong> : <code>ssh -p</code>, mais <code>scp -P</code> et <code>sftp -P</code> ; <code>exit</code> pour sortir.</li>
+<li><strong>Se repérer</strong> : <code translate="no">pwd</code>, <code translate="no">ls</code>, <code translate="no">cd</code> ; <strong>Tab</strong> complète les noms.</li>
+<li><strong>Fichiers</strong> : <code translate="no">cp</code>, <code translate="no">mv</code>, <code translate="no">cat</code>, <code translate="no">grep</code> ; <code translate="no">rm</code> est définitif.</li>
+<li><strong>SSH</strong> : <code translate="no">ssh -p</code>, mais <code translate="no">scp -P</code> et <code translate="no">sftp -P</code> ; <code translate="no">exit</code> pour sortir.</li>
 </ul>
 </div>
 </div>
@@ -401,7 +403,7 @@ Kevin Bardoux
 <h3>Débrief</h3>
 <ul>
 <li>Quelle commande pour savoir où l’on se trouve ?</li>
-<li>Pourquoi <code>rm</code> est-il dangereux ?</li>
+<li>Pourquoi <code translate="no">rm</code> est-il dangereux ?</li>
 <li>À quoi sert le port dans une commande SSH ?</li>
 </ul>
 </section></section>
@@ -415,23 +417,23 @@ Kevin Bardoux
 <ul class="task-list">
 <li><label><input type="checkbox">Dossier ouvert ; extensions recommandées installées</label></li>
 <li><label><input type="checkbox">VS Code en français (pack de langue), après redémarrage</label></li>
-<li><label><input type="checkbox"><code>chat.disableAIFeatures</code> toujours coché</label></li>
+<li><label><input type="checkbox"><code translate="no">chat.disableAIFeatures</code> toujours coché</label></li>
 </ul>
 </section>
 <section id="la-check-list-c1-23-terminal-node-et-git" class="slide level3">
 <h3>La check-list C1 (2/3) — Terminal, Node et Git</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Windows : Git Bash est le terminal par défaut de VS Code</label></li>
-<li><label><input type="checkbox">Dans le terminal de VS Code : <code>node -v</code> affiche une version LTS</label></li>
-<li><label><input type="checkbox"><code>git --version</code> affiche une version</label></li>
-<li><label><input type="checkbox"><code>git config --global</code> : nom, e-mail, branche <code>main</code></label></li>
-<li><label><input type="checkbox"><code>npm install</code> fait ; ESLint souligne une erreur</label></li>
+<li><label><input type="checkbox">Dans le terminal de VS Code : <code translate="no">node -v</code> affiche une version LTS</label></li>
+<li><label><input type="checkbox"><code translate="no">git --version</code> affiche une version</label></li>
+<li><label><input type="checkbox"><code translate="no">git config --global</code> : nom, e-mail, branche <code translate="no">main</code></label></li>
+<li><label><input type="checkbox"><code translate="no">npm install</code> fait ; ESLint souligne une erreur</label></li>
 </ul>
 </section>
 <section id="la-check-list-c1-33-clé-ssh" class="slide level3">
 <h3>La check-list C1 (3/3) — Clé SSH</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Une paire de clés générée avec <code>ssh-keygen</code></label></li>
+<li><label><input type="checkbox">Une paire de clés générée avec <code translate="no">ssh-keygen</code></label></li>
 <li><label><input type="checkbox">Une phrase de passe choisie pour protéger la clé</label></li>
 </ul>
 <div class="schema-diapo" style="--h: 300px">
@@ -477,8 +479,8 @@ flowchart LR
 <div class="callout-content">
 <ul>
 <li><strong>VS Code</strong> : extensions recommandées, en français, IA toujours désactivée.</li>
-<li><strong>Git</strong> : <code>git config --global</code> une fois : nom, e-mail, <code>main</code>.</li>
-<li><strong>Clé SSH</strong> : la <code>.pub</code> se partage ; la clé privée, jamais.</li>
+<li><strong>Git</strong> : <code translate="no">git config --global</code> une fois : nom, e-mail, <code translate="no">main</code>.</li>
+<li><strong>Clé SSH</strong> : la <code translate="no">.pub</code> se partage ; la clé privée, jamais.</li>
 </ul>
 </div>
 </div>
@@ -512,7 +514,6 @@ flowchart LR
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -680,27 +681,9 @@ flowchart LR
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

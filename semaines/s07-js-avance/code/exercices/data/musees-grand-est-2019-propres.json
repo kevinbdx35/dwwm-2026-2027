@@ -1,0 +1,1142 @@
+[
+  {
+    "id": "M0290",
+    "name": "musée de la maison de la dernière cartouche",
+    "city": "BAZEILLES",
+    "department": "Ardennes",
+    "paid": 1449,
+    "free": 1716,
+    "total": 3165,
+    "schoolVisits": 53
+  },
+  {
+    "id": "M0291",
+    "name": "musée Arthur Rimbaud",
+    "city": "CHARLEVILLE MEZIERES",
+    "department": "Ardennes",
+    "paid": 10703,
+    "free": 18509,
+    "total": 29212,
+    "schoolVisits": 2553
+  },
+  {
+    "id": "M0292",
+    "name": "musée de l'Ardenne",
+    "city": "CHARLEVILLE MEZIERES",
+    "department": "Ardennes",
+    "paid": 6501,
+    "free": 45274,
+    "total": 51775,
+    "schoolVisits": 4342
+  },
+  {
+    "id": "M0294",
+    "name": "musée du feutre",
+    "city": "MOUZON",
+    "department": "Ardennes",
+    "paid": 2274,
+    "free": 1534,
+    "total": 3808,
+    "schoolVisits": 1376
+  },
+  {
+    "id": "M0295",
+    "name": "musée du Rethelois et du Porcien",
+    "city": "RETHEL",
+    "department": "Ardennes",
+    "paid": 0,
+    "free": 1207,
+    "total": 1207,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0296",
+    "name": "musée du château-fort",
+    "city": "SEDAN",
+    "department": "Ardennes",
+    "paid": 52279,
+    "free": 7574,
+    "total": 59853,
+    "schoolVisits": 5866
+  },
+  {
+    "id": "M0297",
+    "name": "musée municipal",
+    "city": "BAR SUR AUBE",
+    "department": "Aube",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0299",
+    "name": "musée Napoléon Ier",
+    "city": "BRIENNE LE CHATEAU",
+    "department": "Aube",
+    "paid": 7306,
+    "free": 1931,
+    "total": 9237,
+    "schoolVisits": 526
+  },
+  {
+    "id": "M0300",
+    "name": "musée de la Résistance de l'Aube",
+    "city": "MUSSY SUR SEINE",
+    "department": "Aube",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0301",
+    "name": "musée Camille Claudel",
+    "city": "NOGENT SUR SEINE",
+    "department": "Aube",
+    "paid": 16331,
+    "free": 8876,
+    "total": 25207,
+    "schoolVisits": 3304
+  },
+  {
+    "id": "M7073",
+    "name": "muséum d'histoire naturelle",
+    "city": "TROYES",
+    "department": "Aube",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0304",
+    "name": "musée de la Renaissance en Champagne",
+    "city": "TROYES",
+    "department": "Aube",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0303",
+    "name": "musée des beaux-arts et d'archéologie",
+    "city": "TROYES",
+    "department": "Aube",
+    "paid": 6490,
+    "free": 23912,
+    "total": 30402,
+    "schoolVisits": 5704
+  },
+  {
+    "id": "M0306",
+    "name": "maison de l'outil et de la pensée ouvrière",
+    "city": "TROYES",
+    "department": "Aube",
+    "paid": 17643,
+    "free": 5280,
+    "total": 22923,
+    "schoolVisits": 756
+  },
+  {
+    "id": "M0302",
+    "name": "musée d'art moderne",
+    "city": "TROYES",
+    "department": "Aube",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0305",
+    "name": "apothicairerie de l'hôtel-Dieu-le-Comte",
+    "city": "TROYES",
+    "department": "Aube",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0307",
+    "name": "musée municipal",
+    "city": "CHALONS EN CHAMPAGNE",
+    "department": "Marne",
+    "paid": 1412,
+    "free": 9392,
+    "total": 10804,
+    "schoolVisits": 5556
+  },
+  {
+    "id": "M0308",
+    "name": "musée Garinet",
+    "city": "CHALONS EN CHAMPAGNE",
+    "department": "Marne",
+    "paid": 406,
+    "free": 707,
+    "total": 1113,
+    "schoolVisits": 134
+  },
+  {
+    "id": "M1178",
+    "name": "musée du cloître de Notre-Dame-en-Vaux",
+    "city": "CHALONS EN CHAMPAGNE",
+    "department": "Marne",
+    "paid": 946,
+    "free": 2112,
+    "total": 3058,
+    "schoolVisits": 539
+  },
+  {
+    "id": "M0309",
+    "name": "musée du vin de Champagne et d’archéologie régionale",
+    "city": "EPERNAY",
+    "department": "Marne",
+    "paid": 0,
+    "free": 386,
+    "total": 386,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0310",
+    "name": "écomusée de la montagne de Reims",
+    "city": "POURCY",
+    "department": "Marne",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0311",
+    "name": "musée des beaux-arts de Reims",
+    "city": "REIMS",
+    "department": "Marne",
+    "paid": 42423,
+    "free": 0,
+    "total": 42423,
+    "schoolVisits": null
+  },
+  {
+    "id": "M0312",
+    "name": "musée Saint-Rémi",
+    "city": "REIMS",
+    "department": "Marne",
+    "paid": 7009,
+    "free": 18273,
+    "total": 25282,
+    "schoolVisits": 4521
+  },
+  {
+    "id": "M0314",
+    "name": "musée-hôtel Le Vergeur – maison Hugues Krafft",
+    "city": "REIMS",
+    "department": "Marne",
+    "paid": 10552,
+    "free": 0,
+    "total": 10552,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0313",
+    "name": "musée de l'ancien collège des jésuites",
+    "city": "REIMS",
+    "department": "Marne",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0315",
+    "name": "musée de l'Argonne Viard-Morel",
+    "city": "STE MENEHOULD",
+    "department": "Marne",
+    "paid": 1810,
+    "free": 947,
+    "total": 2757,
+    "schoolVisits": 845
+  },
+  {
+    "id": "M0317",
+    "name": "musée municipal",
+    "city": "BOURBONNE LES BAINS",
+    "department": "Haute-Marne",
+    "paid": 0,
+    "free": 1937,
+    "total": 1937,
+    "schoolVisits": 20
+  },
+  {
+    "id": "M0319",
+    "name": "musée des beaux-arts et d'archéologie",
+    "city": "CHAUMONT",
+    "department": "Haute-Marne",
+    "paid": 2496,
+    "free": 3204,
+    "total": 5700,
+    "schoolVisits": 1282
+  },
+  {
+    "id": "M0318",
+    "name": "musée de l'affiche",
+    "city": "CHAUMONT",
+    "department": "Haute-Marne",
+    "paid": 0,
+    "free": 28245,
+    "total": 28245,
+    "schoolVisits": 3325
+  },
+  {
+    "id": "M0320",
+    "name": "maison des Lumières Denis Diderot",
+    "city": "LANGRES",
+    "department": "Haute-Marne",
+    "paid": 4507,
+    "free": 7770,
+    "total": 12277,
+    "schoolVisits": 1104
+  },
+  {
+    "id": "M0321",
+    "name": "musée d'art et d'histoire",
+    "city": "LANGRES",
+    "department": "Haute-Marne",
+    "paid": 6029,
+    "free": 3917,
+    "total": 9946,
+    "schoolVisits": 1314
+  },
+  {
+    "id": "M0322",
+    "name": "musée de la coutellerie",
+    "city": "NOGENT",
+    "department": "Haute-Marne",
+    "paid": 3790,
+    "free": 1527,
+    "total": 5317,
+    "schoolVisits": 551
+  },
+  {
+    "id": "M0323",
+    "name": "musée municipal",
+    "city": "ST DIZIER",
+    "department": "Haute-Marne",
+    "paid": 0,
+    "free": 4390,
+    "total": 4390,
+    "schoolVisits": 829
+  },
+  {
+    "id": "M0507",
+    "name": "musée Les sources d'Hercule",
+    "city": "DENEUVRE",
+    "department": "Meurthe-et-Moselle",
+    "paid": 1602,
+    "free": 873,
+    "total": 2475,
+    "schoolVisits": 915
+  },
+  {
+    "id": "M0509",
+    "name": "Féru des sciences",
+    "city": "JARVILLE LA MALGRANGE",
+    "department": "Meurthe-et-Moselle",
+    "paid": 5427,
+    "free": 10200,
+    "total": 15627,
+    "schoolVisits": null
+  },
+  {
+    "id": "M0508",
+    "name": "château de Montaigu",
+    "city": "LANEUVEVILLE DEVANT NANCY",
+    "department": "Meurthe-et-Moselle",
+    "paid": 220,
+    "free": 772,
+    "total": 992,
+    "schoolVisits": 72
+  },
+  {
+    "id": "M0510",
+    "name": "musée municipal des émaux et faïence",
+    "city": "LONGWY",
+    "department": "Meurthe-et-Moselle",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0511",
+    "name": "musée du château",
+    "city": "LUNEVILLE",
+    "department": "Meurthe-et-Moselle",
+    "paid": 15868,
+    "free": 153469,
+    "total": 169337,
+    "schoolVisits": 4414
+  },
+  {
+    "id": "M0513",
+    "name": "musée de l'Ecole de Nancy",
+    "city": "NANCY",
+    "department": "Meurthe-et-Moselle",
+    "paid": 27128,
+    "free": 16393,
+    "total": 43521,
+    "schoolVisits": null
+  },
+  {
+    "id": "M7048",
+    "name": "muséum-aquarium de Nancy",
+    "city": "NANCY",
+    "department": "Meurthe-et-Moselle",
+    "paid": 18448,
+    "free": 28559,
+    "total": 47007,
+    "schoolVisits": null
+  },
+  {
+    "id": "M0514",
+    "name": "musée historique lorrain",
+    "city": "NANCY",
+    "department": "Meurthe-et-Moselle",
+    "paid": 0,
+    "free": 85841,
+    "total": 85841,
+    "schoolVisits": null
+  },
+  {
+    "id": "M0512",
+    "name": "musée des beaux-arts",
+    "city": "NANCY",
+    "department": "Meurthe-et-Moselle",
+    "paid": 41567,
+    "free": 79567,
+    "total": 121134,
+    "schoolVisits": null
+  },
+  {
+    "id": "M1080",
+    "name": "musée \"Au fil du papier\"",
+    "city": "PONT A MOUSSON",
+    "department": "Meurthe-et-Moselle",
+    "paid": 2549,
+    "free": 3651,
+    "total": 6200,
+    "schoolVisits": 195
+  },
+  {
+    "id": "M0515",
+    "name": "musée d'art et d'histoire",
+    "city": "TOUL",
+    "department": "Meurthe-et-Moselle",
+    "paid": 0,
+    "free": 12800,
+    "total": 12800,
+    "schoolVisits": 40
+  },
+  {
+    "id": "M0517",
+    "name": "musée barrois",
+    "city": "BAR LE DUC",
+    "department": "Meuse",
+    "paid": 2552,
+    "free": 6383,
+    "total": 8935,
+    "schoolVisits": 3363
+  },
+  {
+    "id": "M0518",
+    "name": "musée de la céramique et de l'ivoire",
+    "city": "COMMERCY",
+    "department": "Meuse",
+    "paid": 2110,
+    "free": 500,
+    "total": 2610,
+    "schoolVisits": 249
+  },
+  {
+    "id": "M0519",
+    "name": "musée Jules Bastien-Lepage et musée de la fortification",
+    "city": "MONTMEDY",
+    "department": "Meuse",
+    "paid": 9137,
+    "free": 2519,
+    "total": 11656,
+    "schoolVisits": 730
+  },
+  {
+    "id": "M0520",
+    "name": "musée d'art sacré de la Meuse",
+    "city": "ST MIHIEL",
+    "department": "Meuse",
+    "paid": 1393,
+    "free": 314,
+    "total": 1707,
+    "schoolVisits": 96
+  },
+  {
+    "id": "M0521",
+    "name": "musée départemental Raymond Poincaré",
+    "city": "SAMPIGNY",
+    "department": "Meuse",
+    "paid": 0,
+    "free": 4731,
+    "total": 4731,
+    "schoolVisits": 639
+  },
+  {
+    "id": "M0522",
+    "name": "musée de la bière et du pays de Stenay",
+    "city": "STENAY",
+    "department": "Meuse",
+    "paid": 6648,
+    "free": 15856,
+    "total": 22504,
+    "schoolVisits": 1598
+  },
+  {
+    "id": "M0523",
+    "name": "musée d'Argonne",
+    "city": "VARENNES EN ARGONNE",
+    "department": "Meuse",
+    "paid": 1189,
+    "free": 0,
+    "total": 1189,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0524",
+    "name": "musée Jeanne d'Arc",
+    "city": "VAUCOULEURS",
+    "department": "Meuse",
+    "paid": 980,
+    "free": 784,
+    "total": 1764,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0525",
+    "name": "musée de la Princerie",
+    "city": "VERDUN",
+    "department": "Meuse",
+    "paid": 1819,
+    "free": 4438,
+    "total": 6257,
+    "schoolVisits": 1706
+  },
+  {
+    "id": "M0526",
+    "name": "musée de la guerre de 1870",
+    "city": "GRAVELOTTE",
+    "department": "Moselle",
+    "paid": 8527,
+    "free": 8912,
+    "total": 17439,
+    "schoolVisits": 2813
+  },
+  {
+    "id": "M0530",
+    "name": "musée des mines de fer de Lorraine",
+    "city": "NEUFCHEF",
+    "department": "Moselle",
+    "paid": 15157,
+    "free": 1589,
+    "total": 16746,
+    "schoolVisits": 4670
+  },
+  {
+    "id": "M0527",
+    "name": "musée du sel",
+    "city": "MARSAL",
+    "department": "Moselle",
+    "paid": 0,
+    "free": 636,
+    "total": 636,
+    "schoolVisits": null
+  },
+  {
+    "id": "M0528",
+    "name": "maison du verre et du cristal",
+    "city": "MEISENTHAL",
+    "department": "Moselle",
+    "paid": 15457,
+    "free": 2202,
+    "total": 17659,
+    "schoolVisits": 697
+  },
+  {
+    "id": "M0529",
+    "name": "musées de la Cour d'or",
+    "city": "METZ",
+    "department": "Moselle",
+    "paid": 29382,
+    "free": 61866,
+    "total": 91248,
+    "schoolVisits": 13468
+  },
+  {
+    "id": "M1089",
+    "name": "musée de la mine-carreau Wendel",
+    "city": "PETITE ROSSELLE",
+    "department": "Moselle",
+    "paid": 28970,
+    "free": 5411,
+    "total": 34381,
+    "schoolVisits": 8588
+  },
+  {
+    "id": "M0531",
+    "name": "musée militaire et Erckmann-Chatrian",
+    "city": "PHALSBOURG",
+    "department": "Moselle",
+    "paid": 350,
+    "free": 0,
+    "total": 350,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0532",
+    "name": "musée du pays de Sarrebourg",
+    "city": "SARREBOURG",
+    "department": "Moselle",
+    "paid": 9005,
+    "free": 7716,
+    "total": 16721,
+    "schoolVisits": 3324
+  },
+  {
+    "id": "M0533",
+    "name": "musée de la faïence et des techniques faïencières",
+    "city": "SARREGUEMINES",
+    "department": "Moselle",
+    "paid": 12563,
+    "free": 18653,
+    "total": 31216,
+    "schoolVisits": 2744
+  },
+  {
+    "id": "M0534",
+    "name": "musée de la Tour-aux-Puces",
+    "city": "THIONVILLE",
+    "department": "Moselle",
+    "paid": 972,
+    "free": 9603,
+    "total": 10575,
+    "schoolVisits": 4050
+  },
+  {
+    "id": "M0001",
+    "name": "musée de la Folie Marco",
+    "city": "BARR",
+    "department": "Bas-Rhin",
+    "paid": 1104,
+    "free": 2100,
+    "total": 3204,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0003",
+    "name": "musée du pays de Hanau - histoire et vies d'un territoire",
+    "city": "BOUXWILLER",
+    "department": "Bas-Rhin",
+    "paid": 2006,
+    "free": 4748,
+    "total": 6754,
+    "schoolVisits": 947
+  },
+  {
+    "id": "M0005",
+    "name": "musée historique",
+    "city": "HAGUENAU",
+    "department": "Bas-Rhin",
+    "paid": 3133,
+    "free": 1697,
+    "total": 4830,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0004",
+    "name": "musée alsacien",
+    "city": "HAGUENAU",
+    "department": "Bas-Rhin",
+    "paid": 975,
+    "free": 464,
+    "total": 1439,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0006",
+    "name": "musée de la chartreuse",
+    "city": "MOLSHEIM",
+    "department": "Bas-Rhin",
+    "paid": 5521,
+    "free": 1238,
+    "total": 6759,
+    "schoolVisits": 67
+  },
+  {
+    "id": "M0008",
+    "name": "maison de l'archéologie des Vosges du nord",
+    "city": "NIEDERBRONN LES BAINS",
+    "department": "Bas-Rhin",
+    "paid": 1732,
+    "free": 699,
+    "total": 2431,
+    "schoolVisits": 1253
+  },
+  {
+    "id": "M0002",
+    "name": "musée de la poterie",
+    "city": "BETSCHDORF",
+    "department": "Bas-Rhin",
+    "paid": 1956,
+    "free": 642,
+    "total": 2598,
+    "schoolVisits": 190
+  },
+  {
+    "id": "M0010",
+    "name": "musée de l'image populaire François Lotz",
+    "city": "VAL DE MODER",
+    "department": "Bas-Rhin",
+    "paid": 1041,
+    "free": 2519,
+    "total": 3560,
+    "schoolVisits": 973
+  },
+  {
+    "id": "M0011",
+    "name": "musée historique et industriel - musée du fer",
+    "city": "REICHSHOFFEN",
+    "department": "Bas-Rhin",
+    "paid": 712,
+    "free": 1517,
+    "total": 2229,
+    "schoolVisits": 114
+  },
+  {
+    "id": "M0015",
+    "name": "musée archéologique",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 26173,
+    "free": 29223,
+    "total": 55396,
+    "schoolVisits": 5934
+  },
+  {
+    "id": "M0019",
+    "name": "musée des beaux-arts",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 33932,
+    "free": 38764,
+    "total": 72696,
+    "schoolVisits": 7907
+  },
+  {
+    "id": "M0018",
+    "name": "musée des arts décoratifs",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 38732,
+    "free": 40801,
+    "total": 79533,
+    "schoolVisits": 5688
+  },
+  {
+    "id": "M0013",
+    "name": "cabinet des estampes et des dessins",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 0,
+    "free": 41,
+    "total": 41,
+    "schoolVisits": 8
+  },
+  {
+    "id": "M0017",
+    "name": "musée de l'Œuvre Notre-Dame",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 22279,
+    "free": 29595,
+    "total": 51874,
+    "schoolVisits": 7752
+  },
+  {
+    "id": "M0020",
+    "name": "musée historique",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 30714,
+    "free": 35380,
+    "total": 66094,
+    "schoolVisits": 11064
+  },
+  {
+    "id": "M0014",
+    "name": "musée alsacien",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 40782,
+    "free": 30658,
+    "total": 71440,
+    "schoolVisits": 9420
+  },
+  {
+    "id": "M0016",
+    "name": "musée d'art moderne et contemporain de Strasbourg",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 65604,
+    "free": 93807,
+    "total": 159411,
+    "schoolVisits": 27336
+  },
+  {
+    "id": "M7071",
+    "name": "musée zoologique de l'université Louis Pasteur et de la ville de Strasbourg",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 8028,
+    "free": 28079,
+    "total": 36107,
+    "schoolVisits": 8915
+  },
+  {
+    "id": "M1098",
+    "name": "musée Tomi Ungerer",
+    "city": "STRASBOURG",
+    "department": "Bas-Rhin",
+    "paid": 29522,
+    "free": 30001,
+    "total": 59523,
+    "schoolVisits": 9058
+  },
+  {
+    "id": "M0021",
+    "name": "musée Oberlin",
+    "city": "WALDERSBACH",
+    "department": "Bas-Rhin",
+    "paid": 16415,
+    "free": 7172,
+    "total": 23587,
+    "schoolVisits": 4429
+  },
+  {
+    "id": "M1162",
+    "name": "musée Lalique",
+    "city": "WINGEN SUR MODER",
+    "department": "Bas-Rhin",
+    "paid": 38546,
+    "free": 13089,
+    "total": 51635,
+    "schoolVisits": 1941
+  },
+  {
+    "id": "M0022",
+    "name": "musée Westercamp",
+    "city": "WISSEMBOURG",
+    "department": "Bas-Rhin",
+    "paid": 493,
+    "free": 648,
+    "total": 1141,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0023",
+    "name": "musée de la bataille du 6 août 1870",
+    "city": "WOERTH",
+    "department": "Bas-Rhin",
+    "paid": 1246,
+    "free": 1899,
+    "total": 3145,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0024",
+    "name": "musée sundgauvien",
+    "city": "ALTKIRCH",
+    "department": "Haut-Rhin",
+    "paid": 934,
+    "free": 3257,
+    "total": 4191,
+    "schoolVisits": 368
+  },
+  {
+    "id": "M0025",
+    "name": "musée gallo-romain",
+    "city": "BIESHEIM",
+    "department": "Haut-Rhin",
+    "paid": 610,
+    "free": 1713,
+    "total": 2323,
+    "schoolVisits": 429
+  },
+  {
+    "id": "M0028",
+    "name": "musée Unterlinden",
+    "city": "COLMAR",
+    "department": "Haut-Rhin",
+    "paid": 127491,
+    "free": 37993,
+    "total": 165484,
+    "schoolVisits": 12243
+  },
+  {
+    "id": "M7033",
+    "name": "muséum d'histoire naturelle et d'ethnographie",
+    "city": "COLMAR",
+    "department": "Haut-Rhin",
+    "paid": 10793,
+    "free": 7432,
+    "total": 18225,
+    "schoolVisits": 2944
+  },
+  {
+    "id": "M0027",
+    "name": "musée Bartholdi",
+    "city": "COLMAR",
+    "department": "Haut-Rhin",
+    "paid": 17766,
+    "free": 9567,
+    "total": 27333,
+    "schoolVisits": null
+  },
+  {
+    "id": "M0029",
+    "name": "musée Théodore Deck et des pays du Florival",
+    "city": "GUEBWILLER",
+    "department": "Haut-Rhin",
+    "paid": 1334,
+    "free": 2386,
+    "total": 3720,
+    "schoolVisits": 191
+  },
+  {
+    "id": "M0030",
+    "name": "musée historique et militaire",
+    "city": "HUNINGUE",
+    "department": "Haut-Rhin",
+    "paid": 310,
+    "free": 210,
+    "total": 520,
+    "schoolVisits": 10
+  },
+  {
+    "id": "M0031",
+    "name": "musée historique",
+    "city": "KAYSERSBERG VIGNOBLE",
+    "department": "Haut-Rhin",
+    "paid": 0,
+    "free": 2065,
+    "total": 2065,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0032",
+    "name": "musée du vignoble et des vins d'Alsace",
+    "city": "KAYSERSBERG VIGNOBLE",
+    "department": "Haut-Rhin",
+    "paid": 2488,
+    "free": 0,
+    "total": 2488,
+    "schoolVisits": 176
+  },
+  {
+    "id": "M0033",
+    "name": "musée des beaux-arts",
+    "city": "MULHOUSE",
+    "department": "Haut-Rhin",
+    "paid": 0,
+    "free": 19743,
+    "total": 19743,
+    "schoolVisits": 4367
+  },
+  {
+    "id": "M0037",
+    "name": "musée de l'impression sur étoffes",
+    "city": "MULHOUSE",
+    "department": "Haut-Rhin",
+    "paid": 12956,
+    "free": 0,
+    "total": 12956,
+    "schoolVisits": null
+  },
+  {
+    "id": "M0039",
+    "name": "musée Electropolis",
+    "city": "MULHOUSE",
+    "department": "Haut-Rhin",
+    "paid": 34134,
+    "free": 9226,
+    "total": 43360,
+    "schoolVisits": 7677
+  },
+  {
+    "id": "M0036",
+    "name": "musée français du chemin de fer",
+    "city": "MULHOUSE",
+    "department": "Haut-Rhin",
+    "paid": 78441,
+    "free": 27609,
+    "total": 106050,
+    "schoolVisits": 7115
+  },
+  {
+    "id": "M0034",
+    "name": "musée historique",
+    "city": "MULHOUSE",
+    "department": "Haut-Rhin",
+    "paid": 0,
+    "free": 40016,
+    "total": 40016,
+    "schoolVisits": 3308
+  },
+  {
+    "id": "M7047",
+    "name": "musée minéralogique de la société industrielle de Mulhouse",
+    "city": "MULHOUSE",
+    "department": "Haut-Rhin",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0041",
+    "name": "musée paysan",
+    "city": "OLTINGUE",
+    "department": "Haut-Rhin",
+    "paid": 595,
+    "free": 130,
+    "total": 725,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0043",
+    "name": "musée du Dolder",
+    "city": "RIQUEWIHR",
+    "department": "Haut-Rhin",
+    "paid": 5650,
+    "free": 1474,
+    "total": 7124,
+    "schoolVisits": 78
+  },
+  {
+    "id": "M0044",
+    "name": "musée du papier peint",
+    "city": "RIXHEIM",
+    "department": "Haut-Rhin",
+    "paid": 7793,
+    "free": 6407,
+    "total": 14200,
+    "schoolVisits": 1153
+  },
+  {
+    "id": "M0047",
+    "name": "musée de la société d'histoire \"les amis de Thann\"",
+    "city": "THANN",
+    "department": "Haut-Rhin",
+    "paid": 459,
+    "free": 1393,
+    "total": 1852,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0048",
+    "name": "écomusée d'Alsace",
+    "city": "UNGERSHEIM",
+    "department": "Haut-Rhin",
+    "paid": 149685,
+    "free": 30247,
+    "total": 179932,
+    "schoolVisits": 26487
+  },
+  {
+    "id": "M0038",
+    "name": "musée du sapeur-pompier",
+    "city": "VIEUX FERRETTE",
+    "department": "Haut-Rhin",
+    "paid": 2946,
+    "free": 859,
+    "total": 3805,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0536",
+    "name": "musée départemental d'art ancien et contemporain",
+    "city": "EPINAL",
+    "department": "Vosges",
+    "paid": 3547,
+    "free": 18077,
+    "total": 21624,
+    "schoolVisits": 6655
+  },
+  {
+    "id": "M0537",
+    "name": "musée de l'image",
+    "city": "EPINAL",
+    "department": "Vosges",
+    "paid": 9125,
+    "free": 5738,
+    "total": 14863,
+    "schoolVisits": 2146
+  },
+  {
+    "id": "M0538",
+    "name": "musée de la lutherie et de l'archeterie françaises",
+    "city": "MIRECOURT",
+    "department": "Vosges",
+    "paid": 5302,
+    "free": 3185,
+    "total": 8487,
+    "schoolVisits": 1692
+  },
+  {
+    "id": "M0539",
+    "name": "musée Louis Français",
+    "city": "PLOMBIERES LES BAINS",
+    "department": "Vosges",
+    "paid": 0,
+    "free": 0,
+    "total": 0,
+    "schoolVisits": 0
+  },
+  {
+    "id": "M0540",
+    "name": "musée Charles-de-Bruyères",
+    "city": "REMIREMONT",
+    "department": "Vosges",
+    "paid": 676,
+    "free": 2376,
+    "total": 3052,
+    "schoolVisits": 375
+  },
+  {
+    "id": "M0541",
+    "name": "musée Charles-Friry",
+    "city": "REMIREMONT",
+    "department": "Vosges",
+    "paid": 151,
+    "free": 182,
+    "total": 333,
+    "schoolVisits": 16
+  },
+  {
+    "id": "M0542",
+    "name": "musée Pierre Noël, musée de la vie dans les hautes Vosges",
+    "city": "ST DIE DES VOSGES",
+    "department": "Vosges",
+    "paid": 13938,
+    "free": 2889,
+    "total": 16827,
+    "schoolVisits": 2345
+  }
+]

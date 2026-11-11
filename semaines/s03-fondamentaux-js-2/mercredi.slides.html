@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -194,8 +196,8 @@ Kevin Bardoux
 <h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Quel est l’index du dernier élément d’un tableau ?</li>
-<li><code>toUpperCase()</code> modifie-t-il la chaîne ?</li>
-<li>Que donne <code>'3' === 3</code> ?</li>
+<li><code translate="no">toUpperCase()</code> modifie-t-il la chaîne ?</li>
+<li>Que donne <code translate="no">'3' === 3</code> ?</li>
 </ol>
 </section>
 <section id="lactivité" class="slide level3">
@@ -230,7 +232,7 @@ Kevin Bardoux
 <section id="sans-compte-lalternative-locale" class="slide level3">
 <h3>Sans compte : l’alternative locale</h3>
 <ul>
-<li>Cinq exercices dans l’archive de la semaine : <code>e1</code> à <code>e5</code>.</li>
+<li>Cinq exercices dans l’archive de la semaine : <code translate="no">e1</code> à <code translate="no">e5</code>.</li>
 <li>Énoncés <strong>en anglais</strong>, dans le commentaire en haut du fichier.</li>
 <li><strong>Objectif</strong> : les 5 au vert, un fichier de tests à la fois.</li>
 <li><strong>Preuve</strong> : une capture du terminal avec les tests au vert.</li>
@@ -244,9 +246,9 @@ Kevin Bardoux
 <section id="lactivité-1" class="slide level3">
 <h3>L’activité</h3>
 <ul>
-<li><strong>Outil</strong> : l’archive de la semaine, fichiers <code>r1</code> à <code>r4</code>.</li>
+<li><strong>Outil</strong> : l’archive de la semaine, fichiers <code translate="no">r1</code> à <code translate="no">r4</code>.</li>
 <li><strong>Objectif</strong> : les 4 exercices au vert, puis la fiche papier.</li>
-<li><strong>Avant tout</strong> : <code>p2-masquer-carte</code> (mardi), si elle n’est pas au vert.</li>
+<li><strong>Avant tout</strong> : <code translate="no">p2-masquer-carte</code> (mardi), si elle n’est pas au vert.</li>
 <li><strong>Pourquoi</strong> : l’ECF de vendredi mélange papier et machine.</li>
 <li><strong>Preuve</strong> : la fiche papier remplie, déposée ce soir.</li>
 </ul>
@@ -256,7 +258,7 @@ Kevin Bardoux
 <ol type="1">
 <li><strong>r1-minimum</strong> : le plus petit nombre d’un tableau.</li>
 <li><strong>r2-compter-pairs</strong> : combien de nombres pairs ?</li>
-<li><strong>r3-majuscule</strong> : <code>'aDA'</code> devient <code>'Ada'</code>.</li>
+<li><strong>r3-majuscule</strong> : <code translate="no">'aDA'</code> devient <code translate="no">'Ada'</code>.</li>
 <li><strong>r4-fizzbuzz-tableau</strong> : FizzBuzz, renvoyé sous forme de tableau.</li>
 <li>Vers 15 h 30 : la fiche de révision, <strong>sans ordinateur</strong> (45 min).</li>
 </ol>
@@ -312,7 +314,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -480,27 +481,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

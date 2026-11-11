@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -120,8 +121,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -236,7 +238,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C3 · communiquer<br> <strong>Livrable</strong> : le dépôt privé <code>dwwm-tp</code> ; <code>page-perso/index.html</code> au vert sur <code>node --test page-perso.test.js</code> et sans erreur au validateur du W3C.</p>
+<p><strong>Compétences visées</strong> : C3 · communiquer<br> <strong>Livrable</strong> : le dépôt privé <code translate="no">dwwm-tp</code> ; <code translate="no">page-perso/index.html</code> au vert sur <code translate="no">node --test page-perso.test.js</code> et sans erreur au validateur du W3C.</p>
 </div>
 </div>
 </div>
@@ -263,28 +265,28 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li>Que fait <code>git commit</code> ?</li>
+<li>Que fait <code translate="no">git commit</code> ?</li>
 <li>Que contient une Pull Request ?</li>
-<li>Que fait une boucle <code>for</code> ?</li>
+<li>Que fait une boucle <code translate="no">for</code> ?</li>
 </ol>
 </section>
 <section id="votre-dépôt-de-lannée-dwwm-tp-10-min" class="slide level3">
-<h3>Votre dépôt de l’année : <code>dwwm-tp</code> (10 min)</h3>
+<h3>Votre dépôt de l’année : <code translate="no">dwwm-tp</code> (10 min)</h3>
 <ol type="1">
-<li>GitHub : un dépôt <strong>privé</strong> <code>dwwm-tp</code>, vide.</li>
-<li><code>git clone</code> en SSH dans <code>~/dwwm</code>.</li>
+<li>GitHub : un dépôt <strong>privé</strong> <code translate="no">dwwm-tp</code>, vide.</li>
+<li><code translate="no">git clone</code> en SSH dans <code translate="no">~/dwwm</code>.</li>
 <li><em>Settings</em>, <em>Collaborators</em> : ajoutez le formateur.</li>
-<li>Premier commit : le <code>.gitignore</code> ; puis <code>git push</code>.</li>
-<li><strong>Réussi si</strong> : <code>.gitignore</code> est visible dans <code>dwwm-tp</code> sur GitHub.</li>
+<li>Premier commit : le <code translate="no">.gitignore</code> ; puis <code translate="no">git push</code>.</li>
+<li><strong>Réussi si</strong> : <code translate="no">.gitignore</code> est visible dans <code translate="no">dwwm-tp</code> sur GitHub.</li>
 </ol>
 </section>
 <section id="récupérer-le-kit-5-min" class="slide level3">
 <h3>Récupérer le kit (5 min)</h3>
 <ol type="1">
 <li>Téléchargez l’<a href="code/exercices/s05-exercices.zip">archive de la semaine</a>.</li>
-<li>Extrayez-la ; le dossier devient <code>dwwm/dwwm-tp/semaine-05</code>.</li>
-<li>Terminal : <code>cd ~/dwwm/dwwm-tp/semaine-05</code>, puis <code>code .</code>.</li>
-<li>Ouvrez <code>page-perso/index.html</code> avec <strong>Live Preview</strong>.</li>
+<li>Extrayez-la ; le dossier devient <code translate="no">dwwm/dwwm-tp/semaine-05</code>.</li>
+<li>Terminal : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-05</code>, puis <code translate="no">code .</code>.</li>
+<li>Ouvrez <code translate="no">page-perso/index.html</code> avec <strong>Live Preview</strong>.</li>
 <li><strong>Réussi si</strong> : la page s’affiche dans l’aperçu de VS Code.</li>
 </ol>
 </section>
@@ -292,9 +294,9 @@ Kevin Bardoux
 <h3>Apport 1 — La structure d’une page (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : un cadre commun pour afficher la page.</li>
-<li><strong>Document HTML</strong> : un <code>head</code> qui la décrit, un <code>body</code> qui l’affiche.</li>
+<li><strong>Document HTML</strong> : un <code translate="no">head</code> qui la décrit, un <code translate="no">body</code> qui l’affiche.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a aria-label="1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a aria-label="1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
 <span id="cb1-2"><a aria-label="2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"fr"</span><span class="dt">&gt;</span></span>
 <span id="cb1-3"><a aria-label="3"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb1-4"><a aria-label="4"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
@@ -307,7 +309,7 @@ Kevin Bardoux
 </section>
 <section id="structure-attention-et-vérification" class="slide level3">
 <h3>Structure — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -316,12 +318,12 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Oublier la ligne <code>viewport</code> : sur téléphone, la page s’affiche en tout petit, comme sur un écran d’ordinateur réduit. Elle se place dans le <code>head</code>.</p>
+<p>Oublier la ligne <code translate="no">viewport</code> : sur téléphone, la page s’affiche en tout petit, comme sur un écran d’ordinateur réduit. Elle se place dans le <code translate="no">head</code>.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : où s’affiche le contenu de <code>title</code> ?</li>
+<li><strong>Vérifiez</strong> : où s’affiche le contenu de <code translate="no">title</code> ?</li>
 </ul>
 </section>
 <section id="apport-2-le-html-sémantique-15-min" class="slide level3">
@@ -349,7 +351,7 @@ Kevin Bardoux
 </section>
 <section id="sémantique-attention-et-vérification" class="slide level3">
 <h3>Sémantique — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -358,7 +360,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Plusieurs <code>h1</code>, ou des titres qui sautent un niveau (<code>h2</code> puis <code>h4</code>) : le lecteur d’écran perd le plan de la page. Un seul <code>h1</code>, puis les niveaux dans l’ordre.</p>
+<p>Plusieurs <code translate="no">h1</code>, ou des titres qui sautent un niveau (<code translate="no">h2</code> puis <code translate="no">h4</code>) : le lecteur d’écran perd le plan de la page. Un seul <code translate="no">h1</code>, puis les niveaux dans l’ordre.</p>
 </div>
 </div>
 </div>
@@ -369,20 +371,20 @@ Kevin Bardoux
 <section id="exercice-le-squelette-de-la-page-45-min" class="slide level3">
 <h3>Exercice — Le squelette de la page (45 min)</h3>
 <ol type="1">
-<li>Ensemble (5 min) : le <code>head</code> complet.</li>
-<li>Seuls : le <code>body</code>, en-tête avec navigation, puis <code>main</code>.</li>
+<li>Ensemble (5 min) : le <code translate="no">head</code> complet.</li>
+<li>Seuls : le <code translate="no">body</code>, en-tête avec navigation, puis <code translate="no">main</code>.</li>
 <li>Quatre sections : présentation, compétences, projets, contact.</li>
 <li>Prénom <strong>ou</strong> pseudonyme : aucune donnée personnelle obligatoire.</li>
-<li><strong>Réussi si</strong> : <code>page-perso.test.js</code> passe (sauf le formulaire).</li>
+<li><strong>Réussi si</strong> : <code translate="no">page-perso.test.js</code> passe (sauf le formulaire).</li>
 </ol>
 </section>
 <section id="apport-3-le-formulaire-10-min" class="slide level3">
 <h3>Apport 3 — Le formulaire (10 min)</h3>
 <ul>
 <li><strong>Pourquoi</strong> : recevoir une information du visiteur.</li>
-<li><strong>Formulaire</strong> : des champs, chacun relié à son <code>label</code>.</li>
+<li><strong>Formulaire</strong> : des champs, chacun relié à son <code translate="no">label</code>.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a aria-label="1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a aria-label="1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="dt">&gt;</span></span>
 <span id="cb2-2"><a aria-label="2"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">"nom"</span><span class="dt">&gt;</span>Votre nom<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
 <span id="cb2-3"><a aria-label="3"></a>  <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">"text"</span><span class="ot"> id</span><span class="op">=</span><span class="st">"nom"</span><span class="ot"> name</span><span class="op">=</span><span class="st">"nom"</span><span class="dt">&gt;</span></span>
 <span id="cb2-4"><a aria-label="4"></a></span>
@@ -391,7 +393,7 @@ Kevin Bardoux
 </section>
 <section id="formulaire-attention-et-vérification" class="slide level3">
 <h3>Formulaire — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -400,18 +402,18 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Un <code>for</code> qui ne correspond à aucun <code>id</code> : le champ n’a plus d’étiquette pour le lecteur d’écran. Les deux valeurs doivent être identiques, au caractère près.</p>
+<p>Un <code translate="no">for</code> qui ne correspond à aucun <code translate="no">id</code> : le champ n’a plus d’étiquette pour le lecteur d’écran. Les deux valeurs doivent être identiques, au caractère près.</p>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : cliquez sur un <code>label</code> : où va le curseur ?</li>
+<li><strong>Vérifiez</strong> : cliquez sur un <code translate="no">label</code> : où va le curseur ?</li>
 </ul>
 </section>
 <section id="exercice-le-formulaire-de-contact-30-min" class="slide level3">
 <h3>Exercice — Le formulaire de contact (30 min)</h3>
 <ol type="1">
-<li>Seuls : un champ « Votre nom », relié à son <code>label</code> (<code>for</code> = <code>id</code>).</li>
+<li>Seuls : un champ « Votre nom », relié à son <code translate="no">label</code> (<code translate="no">for</code> = <code translate="no">id</code>).</li>
 <li>Un bouton « Envoyer ».</li>
 <li>Ajoutez : « Formulaire non fonctionnel (démonstration) ».</li>
 <li><strong>Réussi si</strong> : les tests du formulaire passent.</li>
@@ -420,7 +422,7 @@ Kevin Bardoux
 <section id="vérifier-sa-page-20-min" class="slide level3">
 <h3>Vérifier sa page (20 min)</h3>
 <ol type="1">
-<li><code>node --test page-perso.test.js</code> : tous les tests au vert.</li>
+<li><code translate="no">node --test page-perso.test.js</code> : tous les tests au vert.</li>
 <li>Validateur du W3C : <em>Validate by Direct Input</em>, collez votre code.</li>
 <li>Corrigez chaque erreur, en commençant par la première.</li>
 <li><strong>Réussi si</strong> : aucune erreur au validateur.</li>
@@ -438,9 +440,9 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Structure</strong> : <code>lang</code>, <code>charset</code>, <code>viewport</code>, <code>title</code> dans le <code>head</code>.</li>
-<li><strong>Sémantique</strong> : la balise dit le rôle ; un seul <code>h1</code>, titres dans l’ordre.</li>
-<li><strong>Formulaire</strong> : chaque champ a son <code>label</code> (<code>for</code> = <code>id</code>) ; un bouton d’envoi.</li>
+<li><strong>Structure</strong> : <code translate="no">lang</code>, <code translate="no">charset</code>, <code translate="no">viewport</code>, <code translate="no">title</code> dans le <code translate="no">head</code>.</li>
+<li><strong>Sémantique</strong> : la balise dit le rôle ; un seul <code translate="no">h1</code>, titres dans l’ordre.</li>
+<li><strong>Formulaire</strong> : chaque champ a son <code translate="no">label</code> (<code translate="no">for</code> = <code translate="no">id</code>) ; un bouton d’envoi.</li>
 </ul>
 </div>
 </div>
@@ -449,8 +451,8 @@ Kevin Bardoux
 <section id="débrief" class="slide level3">
 <h3>Débrief</h3>
 <ul>
-<li>Pourquoi un seul <code>h1</code> par page ?</li>
-<li>À quoi sert le lien entre <code>for</code> et <code>id</code> ?</li>
+<li>Pourquoi un seul <code translate="no">h1</code> par page ?</li>
+<li>À quoi sert le lien entre <code translate="no">for</code> et <code translate="no">id</code> ?</li>
 <li>Quelle erreur du validateur avez-vous corrigée en premier ?</li>
 </ul>
 </section>
@@ -482,7 +484,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -650,27 +651,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

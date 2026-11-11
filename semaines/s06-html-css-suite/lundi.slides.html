@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -101,8 +102,9 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -217,7 +219,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C3 · communiquer (anglais)<br> <strong>Livrable</strong> : <code>node --test flex-exercices.test.js</code> au vert, et le menu du pas à pas envoyé sur GitHub.</p>
+<p><strong>Compétences visées</strong> : C3 · communiquer (anglais)<br> <strong>Livrable</strong> : <code translate="no">node --test flex-exercices.test.js</code> au vert, et le menu du pas à pas envoyé sur GitHub.</p>
 </div>
 </div>
 </div>
@@ -230,15 +232,15 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li><code>padding</code> ou <code>margin</code> : lequel est à l’intérieur de la bordure ?</li>
-<li>À quoi sert <code>box-sizing: border-box</code> ?</li>
-<li>Que fait <code>git push</code> ?</li>
+<li><code translate="no">padding</code> ou <code translate="no">margin</code> : lequel est à l’intérieur de la bordure ?</li>
+<li>À quoi sert <code translate="no">box-sizing: border-box</code> ?</li>
+<li>Que fait <code translate="no">git push</code> ?</li>
 </ol>
 </section>
 <section id="votre-dossier-de-la-semaine-5-min" class="slide level3">
 <h3>Votre dossier de la semaine (5 min)</h3>
 <ol type="1">
-<li>En ligne de commande : un dossier <code>semaine-06</code> dans <code>dwwm-tp</code>.</li>
+<li>En ligne de commande : un dossier <code translate="no">semaine-06</code> dans <code translate="no">dwwm-tp</code>.</li>
 <li>Extrayez-y l’archive de la semaine.</li>
 <li>Ouvrez ce dossier dans VS Code.</li>
 </ol>
@@ -249,7 +251,7 @@ Kevin Bardoux
 </section>
 <section id="flexbox-attention-et-vérification" class="slide level3">
 <h3>Flexbox — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -258,7 +260,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>display: flex</code> se met sur le <strong>parent</strong> (le <code>nav</code>), pas sur les enfants (les liens). Sinon, rien ne bouge.</p>
+<p><code translate="no">display: flex</code> se met sur le <strong>parent</strong> (le <code translate="no">nav</code>), pas sur les enfants (les liens). Sinon, rien ne bouge.</p>
 </div>
 </div>
 </div>
@@ -271,14 +273,14 @@ Kevin Bardoux
 <ul>
 <li>Je code, vous tapez en même temps : une étape à la fois.</li>
 <li>À chaque étape : une question, puis « Vous devez voir ».</li>
-<li>Perdu ? Dossier <code>rattrapage/flexbox/</code>, une étape à la fois.</li>
-<li>Dossier : <code>pas-a-pas-flexbox</code>.</li>
-<li>Tapez aussi les commentaires : <code>/* … */</code> en CSS.</li>
+<li>Perdu ? Dossier <code translate="no">rattrapage/flexbox/</code>, une étape à la fois.</li>
+<li>Dossier : <code translate="no">pas-a-pas-flexbox</code>.</li>
+<li>Tapez aussi les commentaires : <code translate="no">/* … */</code> en CSS.</li>
 </ul>
 </section>
 <section id="flexbox-étape-1" class="slide level3">
 <h3>Flexbox, étape 1</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a><span class="co">/* Flexbox : la liste .menu est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a aria-label="1"></a><span class="co">/* Flexbox : la liste .menu est le parent */</span></span>
 <span id="cb1-2"><a aria-label="2"></a><span class="fu">.menu</span> {</span>
 <span id="cb1-3"><a aria-label="3"></a>  <span class="co">/* Flexbox : les enfants se placent en ligne */</span></span>
 <span id="cb1-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
@@ -286,7 +288,7 @@ Kevin Bardoux
 </section>
 <section id="flexbox-étape-2" class="slide level3">
 <h3>Flexbox, étape 2</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a aria-label="1"></a><span class="co">/* Flexbox : la liste .menu est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a aria-label="1"></a><span class="co">/* Flexbox : la liste .menu est le parent */</span></span>
 <span id="cb2-2"><a aria-label="2"></a><span class="fu">.menu</span> {</span>
 <span id="cb2-3"><a aria-label="3"></a>  <span class="co">/* Flexbox : les enfants se placent en ligne */</span></span>
 <span id="cb2-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
@@ -296,7 +298,7 @@ Kevin Bardoux
 </section>
 <section id="flexbox-étape-3" class="slide level3">
 <h3>Flexbox, étape 3</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a aria-label="1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a aria-label="1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">.entete</span> {</span>
 <span id="cb3-3"><a aria-label="3"></a>  <span class="co">/* Flexbox : logo et menu se placent en ligne */</span></span>
 <span id="cb3-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
@@ -306,7 +308,7 @@ Kevin Bardoux
 </section>
 <section id="flexbox-étape-4" class="slide level3">
 <h3>Flexbox, étape 4</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a aria-label="1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a aria-label="1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
 <span id="cb4-2"><a aria-label="2"></a><span class="fu">.entete</span> {</span>
 <span id="cb4-3"><a aria-label="3"></a>  <span class="co">/* Flexbox : logo et menu se placent en ligne */</span></span>
 <span id="cb4-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
@@ -318,7 +320,7 @@ Kevin Bardoux
 </section>
 <section id="flexbox-étape-5-12" class="slide level3">
 <h3>Flexbox, étape 5 (1/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a aria-label="1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a aria-label="1"></a><span class="co">/* Flexbox : l'en-tête est le parent */</span></span>
 <span id="cb5-2"><a aria-label="2"></a><span class="fu">.entete</span> {</span>
 <span id="cb5-3"><a aria-label="3"></a>  <span class="co">/* Flexbox : logo et menu se placent en ligne */</span></span>
 <span id="cb5-4"><a aria-label="4"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
@@ -329,14 +331,14 @@ Kevin Bardoux
 </section>
 <section id="flexbox-étape-5-22" class="slide level3">
 <h3>Flexbox, étape 5 (2/2)</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a aria-label="1"></a>  <span class="co">/* Axe secondaire : centrés en hauteur */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" translate="no"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a aria-label="1"></a>  <span class="co">/* Axe secondaire : centrés en hauteur */</span></span>
 <span id="cb6-2"><a aria-label="2"></a>  align-items<span class="in">:</span> center;</span>
 <span id="cb6-3"><a aria-label="3"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="exercice-1-le-menu-30-min" class="slide level3">
 <h3>Exercice 1 — Le menu (30 min)</h3>
 <ol type="1">
-<li>Dossier <code>flex-exercices</code>, fichier <code>style.css</code> : exercice 1.</li>
+<li>Dossier <code translate="no">flex-exercices</code>, fichier <code translate="no">style.css</code> : exercice 1.</li>
 <li>Nous le faisons ensemble, puis vous relisez seuls.</li>
 <li><strong>Réussi si</strong> : le test « exercice 1 » passe.</li>
 </ol>
@@ -353,9 +355,9 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><code>display: flex</code> se met sur le <strong>parent</strong>.</li>
-<li><code>justify-content</code> : l’axe principal ; <code>align-items</code> : l’axe secondaire.</li>
-<li><code>gap</code> : l’espace entre les enfants.</li>
+<li><code translate="no">display: flex</code> se met sur le <strong>parent</strong>.</li>
+<li><code translate="no">justify-content</code> : l’axe principal ; <code translate="no">align-items</code> : l’axe secondaire.</li>
+<li><code translate="no">gap</code> : l’espace entre les enfants.</li>
 </ul>
 </div>
 </div>
@@ -365,7 +367,7 @@ Kevin Bardoux
 <h3>Débrief</h3>
 <ul>
 <li>Quelle étape vous a surpris ?</li>
-<li>Que montre le badge <code>flex</code> ?</li>
+<li>Que montre le badge <code translate="no">flex</code> ?</li>
 </ul>
 </section></section>
 <section>
@@ -376,7 +378,7 @@ Kevin Bardoux
 <section id="ce-qui-se-passe-dans-le-navigateur-20-min" class="slide level3">
 <h3>Ce qui se passe dans le navigateur (20 min)</h3>
 <ol type="1">
-<li>Sur votre menu, F12, onglet <em>Éléments</em> : le badge <code>flex</code>.</li>
+<li>Sur votre menu, F12, onglet <em>Éléments</em> : le badge <code translate="no">flex</code>.</li>
 <li>Cliquez dessus : le navigateur dessine les boîtes et les espaces.</li>
 <li>Sur le <a href="../s05-html-css/heberge/demos-vivantes/terrain.html">terrain d’essai</a>, prédisez avant de changer.</li>
 <li><strong>Réussi si</strong> : vous expliquez les deux axes à un voisin.</li>
@@ -392,7 +394,7 @@ Kevin Bardoux
 </ol>
 </section>
 <section id="anglais" class="slide level3">
-<h3>Lire une page de documentation — <code>justify-content</code> (20 min)</h3>
+<h3>Lire une page de documentation — <code translate="no">justify-content</code> (20 min)</h3>
 <ul>
 <li>Une page de référence MDN, en anglais : toujours le même plan.</li>
 <li>Syntaxe, valeurs, exemple, compatibilité : où les trouver.</li>
@@ -405,9 +407,9 @@ Kevin Bardoux
 <ol type="1">
 <li>Exercice 2 (guidé) : la fiche, l’image à côté du texte.</li>
 <li>Exercice 3 (semi-guidé) : les badges, qui passent à la ligne.</li>
-<li><strong>Réussi si</strong> : <code>node --test flex-exercices.test.js</code> passe en entier.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test flex-exercices.test.js</code> passe en entier.</li>
 </ol>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -416,7 +418,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Un test échoue avec <code>display: flex is missing</code> alors que vous l’avez écrit ? Regardez le sélecteur : la règle est peut-être sur les enfants (<code>.menu a</code>) et non sur le parent (<code>.menu</code>).</p>
+<p>Un test échoue avec <code translate="no">display: flex is missing</code> alors que vous l’avez écrit ? Regardez le sélecteur : la règle est peut-être sur les enfants (<code translate="no">.menu a</code>) et non sur le parent (<code translate="no">.menu</code>).</p>
 </div>
 </div>
 </div>
@@ -435,7 +437,7 @@ Kevin Bardoux
 <ul>
 <li>Toujours vérifier à 375 px.</li>
 <li>Une page de référence MDN a toujours le même plan.</li>
-<li><code>flex-wrap: wrap</code> évite le débordement.</li>
+<li><code translate="no">flex-wrap: wrap</code> évite le débordement.</li>
 </ul>
 </div>
 </div>
@@ -446,7 +448,7 @@ Kevin Bardoux
 <ul>
 <li>Flexbox Froggy : les 24 niveaux.</li>
 <li>Le menu de votre page personnelle en Flexbox.</li>
-<li>Défi : <code>align-items</code> et <code>align-content</code>.</li>
+<li>Défi : <code translate="no">align-items</code> et <code translate="no">align-content</code>.</li>
 </ul>
 </section>
 <section id="débrief-1" class="slide level3">
@@ -478,7 +480,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -646,27 +647,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

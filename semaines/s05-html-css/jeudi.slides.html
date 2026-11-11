@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -170,7 +172,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : C3 · communiquer (anglais)<br> <strong>Livrable</strong> : la page personnelle mise en page en <em>mobile first</em>, <code>node --test layout.test.js</code> au vert.</p>
+<p><strong>Compétences visées</strong> : C3 · communiquer (anglais)<br> <strong>Livrable</strong> : la page personnelle mise en page en <em>mobile first</em>, <code translate="no">node --test layout.test.js</code> au vert.</p>
 </div>
 </div>
 </div>
@@ -184,8 +186,8 @@ Kevin Bardoux
 <h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Quelle unité pour une taille de texte accessible ?</li>
-<li>Comment s’appelle un <code>push</code> refusé par GitHub ?</li>
-<li>Que fait <code>typeof</code> ?</li>
+<li>Comment s’appelle un <code translate="no">push</code> refusé par GitHub ?</li>
+<li>Que fait <code translate="no">typeof</code> ?</li>
 </ol>
 </section>
 <section id="apport-1-flexbox-10-min" class="slide level3">
@@ -194,7 +196,7 @@ Kevin Bardoux
 </section>
 <section id="flexbox-attention-et-vérification" class="slide level3">
 <h3>Flexbox — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -203,7 +205,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p><code>display: flex</code> se met sur le <strong>parent</strong> (le <code>nav</code>), pas sur les enfants (les liens). Sinon, rien ne bouge.</p>
+<p><code translate="no">display: flex</code> se met sur le <strong>parent</strong> (le <code translate="no">nav</code>), pas sur les enfants (les liens). Sinon, rien ne bouge.</p>
 </div>
 </div>
 </div>
@@ -226,7 +228,7 @@ Kevin Bardoux
 </section>
 <section id="grid-attention-et-vérification" class="slide level3">
 <h3>Grid — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -244,7 +246,7 @@ Kevin Bardoux
 </ul>
 </section>
 <section id="anglais" class="slide level3">
-<h3>Lire une page de documentation — <code>justify-content</code> (20 min)</h3>
+<h3>Lire une page de documentation — <code translate="no">justify-content</code> (20 min)</h3>
 <ul>
 <li>Une page de référence MDN, en anglais : toujours le même plan.</li>
 <li>Syntaxe, valeurs, exemple, compatibilité : où les trouver.</li>
@@ -264,8 +266,8 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Flexbox</strong> : une dimension ; <code>display: flex</code> sur le parent.</li>
-<li><strong>Grid</strong> : deux dimensions ; <code>grid-template-columns</code> et <code>fr</code>.</li>
+<li><strong>Flexbox</strong> : une dimension ; <code translate="no">display: flex</code> sur le parent.</li>
+<li><strong>Grid</strong> : deux dimensions ; <code translate="no">grid-template-columns</code> et <code translate="no">fr</code>.</li>
 </ul>
 </div>
 </div>
@@ -323,7 +325,7 @@ Kevin Bardoux
 </section>
 <section id="mobile-first-attention-et-vérification" class="slide level3">
 <h3>Mobile first — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -332,7 +334,7 @@ Kevin Bardoux
 <p><strong>Attention</strong></p>
 </div>
 <div class="callout-content">
-<p>Une media query en <code>max-width</code> (héritée d’un tutoriel) inverse la logique : le téléphone reçoit des corrections au lieu des styles de base. Ici, toujours <code>min-width</code>.</p>
+<p>Une media query en <code translate="no">max-width</code> (héritée d’un tutoriel) inverse la logique : le téléphone reçoit des corrections au lieu des styles de base. Ici, toujours <code translate="no">min-width</code>.</p>
 </div>
 </div>
 </div>
@@ -345,18 +347,18 @@ Kevin Bardoux
 <ol type="1">
 <li>Mettez en page votre page personnelle, en <em>mobile first</em>.</li>
 <li>En-tête et menu : Flexbox ; projets ou compétences : Grid.</li>
-<li>Une media query en <code>min-width</code> pour les grands écrans.</li>
+<li>Une media query en <code translate="no">min-width</code> pour les grands écrans.</li>
 <li>Vérifiez à 375 px avec le mode responsive des outils (F12).</li>
-<li><strong>Réussi si</strong> : <code>node --test layout.test.js</code> passe.</li>
+<li><strong>Réussi si</strong> : <code translate="no">node --test layout.test.js</code> passe.</li>
 </ol>
 </section>
 <section id="publier" class="slide level3">
 <h3>Publier sur GitHub Pages (20 min)</h3>
 <ol type="1">
-<li>Un dépôt <strong>public</strong> à part, <code>page-perso</code> : <code>dwwm-tp</code> reste privé.</li>
-<li><code>git clone</code>, puis copie de <code>index.html</code> et <code>style.css</code> ; <code>git push</code>.</li>
-<li><em>Settings</em> → <em>Pages</em> → <em>Deploy from a branch</em> : <code>main</code>, <code>/ (root)</code>.</li>
-<li>Après deux minutes : <code>pseudo.github.io/page-perso/</code>.</li>
+<li>Un dépôt <strong>public</strong> à part, <code translate="no">page-perso</code> : <code translate="no">dwwm-tp</code> reste privé.</li>
+<li><code translate="no">git clone</code>, puis copie de <code translate="no">index.html</code> et <code translate="no">style.css</code> ; <code translate="no">git push</code>.</li>
+<li><em>Settings</em> → <em>Pages</em> → <em>Deploy from a branch</em> : <code translate="no">main</code>, <code translate="no">/ (root)</code>.</li>
+<li>Après deux minutes : <code translate="no">pseudo.github.io/page-perso/</code>.</li>
 <li><strong>Réussi si</strong> : la page s’affiche, avec le cadenas (HTTPS).</li>
 </ol>
 </section>
@@ -372,9 +374,9 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Mobile first</strong> : une colonne, puis <code>@media (min-width)</code>.</li>
+<li><strong>Mobile first</strong> : une colonne, puis <code translate="no">@media (min-width)</code>.</li>
 <li><strong>Mise en page</strong> : vérifiez à 375 px, sans barre de défilement horizontale.</li>
-<li><strong>GitHub Pages</strong> : un dépôt public à part, <em>Deploy from a branch</em>, <code>main</code>.</li>
+<li><strong>GitHub Pages</strong> : un dépôt public à part, <em>Deploy from a branch</em>, <code translate="no">main</code>.</li>
 </ul>
 </div>
 </div>
@@ -384,7 +386,7 @@ Kevin Bardoux
 <h3>Critères de réussite</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Flexbox Froggy : 24 niveaux ; Grid Garden : 12 au moins</label></li>
-<li><label><input type="checkbox"><code>node --test layout.test.js</code> : tout au vert</label></li>
+<li><label><input type="checkbox"><code translate="no">node --test layout.test.js</code> : tout au vert</label></li>
 <li><label><input type="checkbox">Aucune barre de défilement horizontale à 375 px</label></li>
 <li><label><input type="checkbox">La page est publiée sur GitHub Pages, en HTTPS</label></li>
 </ul>
@@ -393,7 +395,7 @@ Kevin Bardoux
 <h3>Si le temps le permet — Publier le défi au portfolio</h3>
 <ul>
 <li>Même méthode, un dépôt public : le composant de mercredi.</li>
-<li>Puis un <code>README.md</code> en anglais : lien publié, trois écarts corrigés.</li>
+<li>Puis un <code translate="no">README.md</code> en anglais : lien publié, trois écarts corrigés.</li>
 <li>Pas fini ? Vendredi après-midi, ou au soutien de mardi.</li>
 </ul>
 </section>
@@ -410,7 +412,7 @@ Kevin Bardoux
 </div>
 <div class="callout-content">
 <ul>
-<li>Sur grand écran, placez chaque <code>label</code> à gauche de son champ.</li>
+<li>Sur grand écran, placez chaque <code translate="no">label</code> à gauche de son champ.</li>
 <li>Une grille à deux colonnes, dans la media query.</li>
 </ul>
 </div>
@@ -421,7 +423,7 @@ Kevin Bardoux
 <section id="pour-aller-plus-loin" class="slide level3">
 <h3>Pour aller plus loin</h3>
 <ul>
-<li>Découvrez <code>grid-template-areas</code> : nommez les zones de la page.</li>
+<li>Découvrez <code translate="no">grid-template-areas</code> : nommez les zones de la page.</li>
 <li>Reconstruisez la mise en page avec ces noms.</li>
 </ul>
 </section>
@@ -453,7 +455,6 @@ Kevin Bardoux
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -621,27 +622,9 @@ Kevin Bardoux
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

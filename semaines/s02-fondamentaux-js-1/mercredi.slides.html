@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -170,7 +172,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Matin</strong> : atelier guidé, avec le formateur. <strong>Après-midi</strong> (12 h 45 – 17 h) : en autonomie, seul ou en binôme.<br> <strong>À déposer ce soir</strong> : le projet Scratch (lien ou <code>.sb3</code>), une capture de Blockly Games et vos réponses sur la documentation d’ESLint.</p>
+<p><strong>Matin</strong> : atelier guidé, avec le formateur. <strong>Après-midi</strong> (12 h 45 – 17 h) : en autonomie, seul ou en binôme.<br> <strong>À déposer ce soir</strong> : le projet Scratch (lien ou <code translate="no">.sb3</code>), une capture de Blockly Games et vos réponses sur la documentation d’ESLint.</p>
 </div>
 </div>
 </div>
@@ -195,8 +197,8 @@ Kevin Bardoux
 <section id="rappel-5-min" class="slide level3">
 <h3>Rappel (5 min)</h3>
 <ol type="1">
-<li>Que donne <code>'4' + 2</code> ?</li>
-<li><code>const</code> ou <code>let</code>, par défaut ?</li>
+<li>Que donne <code translate="no">'4' + 2</code> ?</li>
+<li><code translate="no">const</code> ou <code translate="no">let</code>, par défaut ?</li>
 <li>Que fait « couper en deux » à chaque étape ?</li>
 </ol>
 </section>
@@ -206,7 +208,7 @@ Kevin Bardoux
 <li><strong>Outil</strong> : <a href="https://scratch.mit.edu/">Scratch</a> <span class="citation" data-cites="scratch">(<a href="#/sources" role="doc-biblioref" onclick="">Scratch Foundation, s.&nbsp;d.</a>)</span>.</li>
 <li><strong>Objectif</strong> : toutes les exigences du cahier des charges de lundi.</li>
 <li><strong>Pourquoi</strong> : réinvestir boucle, condition, variable et messages.</li>
-<li><strong>Preuve</strong> : le lien du projet <strong>ou</strong> le fichier <code>.sb3</code>.</li>
+<li><strong>Preuve</strong> : le lien du projet <strong>ou</strong> le fichier <code translate="no">.sb3</code>.</li>
 </ul>
 </section>
 <section id="déroulé-de-latelier" class="slide level3">
@@ -225,7 +227,7 @@ Kevin Bardoux
 <li>Cochez ce qui est déjà fait ; listez ce qui manque.</li>
 <li>Ajoutez une exigence à la fois, testez, sauvegardez.</li>
 <li>Un camarade teste ; vous notez ce qui ne marche pas.</li>
-<li>Déposez le lien ou le fichier <code>.sb3</code>.</li>
+<li>Déposez le lien ou le fichier <code translate="no">.sb3</code>.</li>
 </ol>
 </section>
 <section id="présenter-son-projet-en-binôme-20-min" class="slide level3">
@@ -331,7 +333,6 @@ Scratch Foundation. s.&nbsp;d. <span>«&nbsp;Scratch - Imagine, Program, Share&n
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -499,27 +500,9 @@ Scratch Foundation. s.&nbsp;d. <span>«&nbsp;Scratch - Imagine, Program, Share&n
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

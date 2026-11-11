@@ -34,6 +34,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -54,8 +55,9 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-dc3c7a8bf37ab3946d8c96f32b885d8f.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-7c5ac624ee972acaf982e610f9ba3437.css">
   <link rel="stylesheet" href="../../polices.css">
+  <link rel="stylesheet" href="../../theme-commun.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -170,7 +172,7 @@ Kevin Bardoux
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>Compétences visées</strong> : résolution de problème · communiquer (expliquer un algorithme)<br> <strong>Livrable</strong> : <code>tri-selection</code> au vert et l’entraînement papier fait (les autres tris sont des Défis).</p>
+<p><strong>Compétences visées</strong> : résolution de problème · communiquer (expliquer un algorithme)<br> <strong>Livrable</strong> : <code translate="no">tri-selection</code> au vert et l’entraînement papier fait (les autres tris sont des Défis).</p>
 </div>
 </div>
 </div>
@@ -184,8 +186,8 @@ Kevin Bardoux
 <h3>Rappel (5 min)</h3>
 <ol type="1">
 <li>Comment parcourir chaque valeur d’un tableau ?</li>
-<li>Que renvoie <code>'Ada Lovelace'.split(' ')</code> ?</li>
-<li>Que fait <code>${…}</code> dans un littéral de gabarit ?</li>
+<li>Que renvoie <code translate="no">'Ada Lovelace'.split(' ')</code> ?</li>
+<li>Que fait <code translate="no">${…}</code> dans un littéral de gabarit ?</li>
 </ol>
 </section>
 <section id="apport-1-deux-façons-de-chercher-15-min" class="slide level3">
@@ -194,13 +196,13 @@ Kevin Bardoux
 <li><strong>Pourquoi</strong> : retrouver une valeur, vite, dans une longue liste.</li>
 <li><strong>Linéaire</strong> : case par case ; <strong>dichotomique</strong> : le milieu, une moitié.</li>
 </ul>
-<pre><code>[3, 8, 12, 17, 23, 31, 40, 52]
+<pre translate="no"><code>[3, 8, 12, 17, 23, 31, 40, 52]
 linéaire     : 3, 8, 12, 17, 23        → 5 cases regardées
 dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 </section>
 <section id="chercher-attention-et-vérification" class="slide level3">
 <h3>Chercher — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -214,15 +216,15 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : combien de cases pour trouver <code>3</code>, en dichotomique ?</li>
+<li><strong>Vérifiez</strong> : combien de cases pour trouver <code translate="no">3</code>, en dichotomique ?</li>
 </ul>
 </section>
 <section id="exercice-j1-recherche-linéaire-15-min" class="slide level3">
 <h3>Exercice j1 — Recherche linéaire (15 min)</h3>
 <ol type="1">
-<li>Ensemble (5 min) : la boucle <code>for</code> sur les index, de <code>0</code> à <code>length - 1</code>.</li>
-<li>Seuls : <strong>j1-recherche-lineaire</strong>, l’index de la valeur, ou <code>-1</code>.</li>
-<li>Sans <code>indexOf</code> ; les tests vérifient le tableau vide et l’absent.</li>
+<li>Ensemble (5 min) : la boucle <code translate="no">for</code> sur les index, de <code translate="no">0</code> à <code translate="no">length - 1</code>.</li>
+<li>Seuls : <strong>j1-recherche-lineaire</strong>, l’index de la valeur, ou <code translate="no">-1</code>.</li>
+<li>Sans <code translate="no">indexOf</code> ; les tests vérifient le tableau vide et l’absent.</li>
 <li><strong>Réussi si</strong> : tests au vert, aucune alerte ESLint.</li>
 </ol>
 </section>
@@ -232,13 +234,13 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 <li><strong>Pourquoi</strong> : la dichotomie exige un tableau trié.</li>
 <li><strong>Sélection</strong> : la plus petite en premier ; <strong>bulles</strong> : échanger les voisines.</li>
 </ul>
-<pre><code>[5, 2, 4, 1]   la plus petite est 1 : on l'échange avec 5
+<pre translate="no"><code>[5, 2, 4, 1]   la plus petite est 1 : on l'échange avec 5
 [1, 2, 4, 5]   dans le reste, la plus petite est 2 : déjà en place
 [1, 2, 4, 5]   dans le reste, 4 : déjà en place. Trié.</code></pre>
 </section>
 <section id="trier-attention-et-vérification" class="slide level3">
 <h3>Trier — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -252,7 +254,7 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 </div>
 </div>
 <ul>
-<li><strong>Vérifiez</strong> : triez <code>[3, 1, 2]</code> à bulles : combien d’échanges ?</li>
+<li><strong>Vérifiez</strong> : triez <code translate="no">[3, 1, 2]</code> à bulles : combien d’échanges ?</li>
 </ul>
 </section>
 <section id="activité-trier-des-cartes-à-la-main-30-min" class="slide level3">
@@ -271,13 +273,13 @@ dichotomique : 17 (milieu), 31, 23     → 3 cases regardées</code></pre>
 <li><strong>Pourquoi</strong> : savoir si un programme reste rapide.</li>
 <li><strong>Grand O</strong> : comment les étapes grandissent quand la liste grandit.</li>
 </ul>
-<pre><code>recherche linéaire      O(n)      deux fois plus d'étapes
+<pre translate="no"><code>recherche linéaire      O(n)      deux fois plus d'étapes
 recherche dichotomique  O(log n)  une seule étape de plus
 tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 </section>
 <section id="grand-o-attention-et-vérification" class="slide level3">
 <h3>Grand O — attention et vérification</h3>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default type-attention">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -332,8 +334,8 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 <ol type="1">
 <li>Une seule fonction obligatoire : <strong>tri-selection</strong>.</li>
 <li>Refaites l’algorithme avec vos cartes, puis codez.</li>
-<li>Travaillez sur une copie : <code>array.slice()</code>.</li>
-<li>Interdits : <code>sort</code>, <code>indexOf</code>, <code>includes</code> sur le tableau à trier.</li>
+<li>Travaillez sur une copie : <code translate="no">array.slice()</code>.</li>
+<li>Interdits : <code translate="no">sort</code>, <code translate="no">indexOf</code>, <code translate="no">includes</code> sur le tableau à trier.</li>
 <li><strong>Réussi si</strong> : tests au vert, aucune alerte ESLint.</li>
 </ol>
 </section>
@@ -363,8 +365,8 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 <section id="si-le-temps-le-permet-le-lien-avec-le-grand-o" class="slide level3">
 <h3>Si le temps le permet — le lien avec le grand O</h3>
 <ol type="1">
-<li><code>tri-comparaisons</code> au vert : ajoutez les 3 lignes de la page.</li>
-<li>Lancez <code>node tri-comparaisons.js</code> : 6, 28, puis 120.</li>
+<li><code translate="no">tri-comparaisons</code> au vert : ajoutez les 3 lignes de la page.</li>
+<li>Lancez <code translate="no">node tri-comparaisons.js</code> : 6, 28, puis 120.</li>
 <li>Liste doublée : environ ×4. C’est O(n²).</li>
 <li>Effacez les 3 lignes, puis relancez les tests.</li>
 </ol>
@@ -398,9 +400,9 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Copie</strong> : <code>array.slice()</code> ; le tableau reçu reste intact.</li>
+<li><strong>Copie</strong> : <code translate="no">array.slice()</code> ; le tableau reçu reste intact.</li>
 <li><strong>Sélection</strong> : chercher le plus petit, le placer, recommencer.</li>
-<li><strong>Échange</strong> : <code>const temporary = a[i];</code> d’abord.</li>
+<li><strong>Échange</strong> : <code translate="no">const temporary = a[i];</code> d’abord.</li>
 </ul>
 </div>
 </div>
@@ -434,7 +436,6 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -602,27 +603,9 @@ tri par sélection       O(n²)     environ quatre fois plus</code></pre>
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

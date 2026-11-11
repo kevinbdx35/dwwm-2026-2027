@@ -1,0 +1,253 @@
+/* Site theme « Documentation moderne » (chosen on 09/11/2026): rules shared by the web pages and the slides.
+   Light mode only for now (a dark mode can be added later: redefine these variables).
+   Icons: Bootstrap Icons, shipped by Quarto with the site (site_libs): no request to another site.
+   Contrast (WCAG 2.2, checked with axe-core): text 4.5:1 at least, the « Cette semaine » card 7:1 at least. */
+:root {
+  --t-bg: #ffffff;
+  --t-surface: #f6f7f9;
+  --t-text: #1c1e21;
+  --t-heading: #1c1e21;
+  --t-muted: #525860;
+  --t-border: #dadde1;
+  --t-accent: #1f5fbf;
+  --t-link: #1f5fbf;
+  --t-focus: #1f5fbf;
+  --t-code-bg: #f6f8fa;
+  --t-code-border: #dadde1;
+  --t-code-text: #1c1e21;
+  /* Comments have a colour of their own (the trainees type them): dark brown, 8.4:1 on the code background, apart from every token colour, never italic */
+  --t-code-comment: #723b00;
+  --t-inline-code-bg: #eef1f4;
+  --t-inline-code-text: #1c1e21;
+  --t-demo: #5b3fb8;
+  --t-demo-bg: #f2effb;
+  --t-aides: #1f5fbf;
+  --t-aides-bg: #eef4fc;
+  --t-attention: #b91c1c;
+  --t-attention-bg: #fdf0f0;
+  --t-ressource: #0e6b80;
+  --t-ressource-bg: #ecf6f8;
+  --t-voir: #17703a;
+  --t-voir-bg: #edf7f0;
+  --t-perdu: #a24c00;
+  --t-perdu-bg: #fdf3e8;
+  --t-callout-body: transparent;
+  --t-card-bg: #ffffff;
+  --t-card-border: #dadde1;
+  /* « Cette semaine »: solid blue (the accent, one step darker), white text 7.46:1 */
+  --t-now-bg: #1a52a8;
+  --t-now-text: #ffffff;
+  --t-sidebar-bg: #ffffff;
+  --t-sidebar-active-bg: #eef4fc;
+  --t-sidebar-active: #1f5fbf;
+  --t-radius: 8px;
+  --t-callout-bar: 4px;
+  --t-card-gap: 1rem;
+}
+/* ------------------------------------------------------------------ Base */
+body { background: var(--t-bg); color: var(--t-text); }
+h1, .title, .quarto-title .title { color: var(--t-heading); }
+h2, h3, h4, h5 { color: var(--t-heading); }
+main.content a:not(.sidebar-link) { color: var(--t-link); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.navbar, .sidebar-title { border-bottom: 0; }
+.sidebar-title { color: var(--t-heading); }
+:focus-visible { outline: 3px solid var(--t-focus); outline-offset: 2px; }
+
+/* ------------------------------------------------------------------ Code blocks: room to breathe, readable comments */
+div.sourceCode {
+  background: var(--t-code-bg);
+  border: 1px solid var(--t-code-border);
+  border-radius: var(--t-radius);
+  margin: 1.25rem 0;
+}
+div.sourceCode pre.sourceCode {
+  padding: 1rem 1.25rem;
+  line-height: 1.65;
+  background: transparent;
+}
+pre code, pre.sourceCode code { color: var(--t-code-text); }
+/* Comments: same weight as code, never italic, a colour of their own (the step-by-step code is commented line by line) */
+code span.co, code span.do, code span.cv, code span.an {
+  color: var(--t-code-comment) !important;
+  font-style: normal !important;
+}
+:not(pre) > code {
+  background: var(--t-inline-code-bg);
+  color: var(--t-inline-code-text);
+  padding: 0.08em 0.35em;
+  border-radius: calc(var(--t-radius) / 2);
+}
+/* Terminal blocks keep their dark screen in every theme */
+.terminal { border-radius: var(--t-radius); }
+.terminal pre code span { color: inherit !important; }
+
+/* ------------------------------------------------------------------ Callouts: one colour and one icon per type */
+.callout {
+  border-radius: var(--t-radius) !important;
+  border-left-width: var(--t-callout-bar) !important;
+}
+.callout.callout-titled .callout-header { font-weight: 700; }
+/* Icons: web pages only (#quarto-content). The slides keep Quarto's own icons (no icon font loaded in Reveal),
+   with the type's colours. */
+#quarto-content .callout[class*="type-"] .callout-icon::before {
+  /* Replaces Quarto's SVG icon by a Bootstrap Icons glyph, coloured by the type */
+  background-image: none !important;
+  font-family: "bootstrap-icons" !important;
+  font-style: normal;
+  font-size: 1.15rem;
+  line-height: 1;
+  width: auto !important;
+  height: auto !important;
+  color: var(--c, currentColor);
+}
+.callout.type-demonstration { --c: var(--t-demo); --cbg: var(--t-demo-bg); }
+.callout.type-aides { --c: var(--t-aides); --cbg: var(--t-aides-bg); }
+.callout.type-attention { --c: var(--t-attention); --cbg: var(--t-attention-bg); }
+.callout.type-ressource { --c: var(--t-ressource); --cbg: var(--t-ressource-bg); }
+#quarto-content .callout.type-demonstration .callout-icon::before { content: "\f4f3"; } /* play-circle */
+#quarto-content .callout.type-aides .callout-icon::before { content: "\f467"; }         /* life-preserver */
+#quarto-content .callout.type-attention .callout-icon::before { content: "\f33b"; }     /* exclamation-triangle */
+#quarto-content .callout.type-ressource .callout-icon::before { content: "\f194"; }     /* book */
+.callout[class*="type-"] { border-left-color: var(--c) !important; }
+.callout[class*="type-"] .callout-header,
+.reveal .callout[class*="type-"] .callout-title { background-color: var(--cbg) !important; }
+.callout[class*="type-"] .callout-body-container { background-color: var(--t-callout-body); }
+/* Callouts whose title is a heading inside (### Attention): the heading carries the type colour */
+.callout[class*="type-"] .callout-title-container,
+.callout[class*="type-"] .callout-body > h3:first-child,
+.callout[class*="type-"] .callout-body-container > h3:first-child { color: var(--t-heading); }
+
+/* Paragraph boxes: « Vous devez voir » and « Perdu ? » (step-by-step checkpoints) */
+.encadre-voir, .encadre-perdu {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 0.75rem;
+  align-items: start;
+  margin: 1rem 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border-left: var(--t-callout-bar) solid var(--c);
+  border-radius: var(--t-radius);
+  background: var(--cbg);
+  max-width: calc(29em + 3.5rem);
+}
+.encadre-voir { --c: var(--t-voir); --cbg: var(--t-voir-bg); }
+.encadre-perdu { --c: var(--t-perdu); --cbg: var(--t-perdu-bg); }
+.encadre-voir::before, .encadre-perdu::before {
+  font-family: "bootstrap-icons";
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: var(--c);
+}
+.encadre-voir::before { content: "\f341"; }  /* eye */
+.encadre-perdu::before { content: "\f546"; } /* signpost-2 */
+.encadre-voir > p, .encadre-perdu > p { margin: 0; }
+.encadre-voir > p > strong:first-child, .encadre-perdu > p > em:first-child { color: var(--t-heading); font-style: normal; font-weight: 700; }
+
+/* ------------------------------------------------------------------ Home page: week cards */
+.tableau-semaines table,
+.tableau-semaines tbody { display: block; border: 0; margin: 0; font-size: 1rem; }
+.tableau-semaines thead {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.tableau-semaines tbody {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--t-card-gap);
+}
+.tableau-semaines tr {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "num date" "theme theme" "comp comp";
+  gap: 0.25rem 0.75rem;
+  padding: 1rem 1.1rem;
+  background: var(--t-card-bg);
+  border: 1px solid var(--t-card-border);
+  border-radius: var(--t-radius);
+}
+.tableau-semaines td { display: block; padding: 0; border: 0 !important; background: none !important; box-shadow: none !important; }
+.tableau-semaines td:nth-child(1) { grid-area: num; font-weight: 700; color: var(--t-heading); }
+.tableau-semaines td:nth-child(1)::before { content: "Semaine "; }
+.tableau-semaines td:nth-child(2) { grid-area: date; justify-self: end; color: var(--t-muted); font-variant-numeric: tabular-nums; }
+.tableau-semaines td:nth-child(3) { grid-area: theme; color: var(--t-text); line-height: 1.45; }
+.tableau-semaines td:nth-child(3) em { color: var(--t-muted); }
+.tableau-semaines td:nth-child(4) { grid-area: comp; color: var(--t-muted); font-size: 0.9rem; }
+@media (max-width: 575.98px) {
+  .tableau-semaines td:nth-child(4) { display: block !important; }
+}
+/* The whole card is the link (stretched link on the week number) */
+.tableau-semaines td:nth-child(1) a { color: inherit; text-decoration: none; }
+.tableau-semaines td:nth-child(1) a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.tableau-semaines tr:has(a):hover { border-color: var(--t-accent); background: var(--t-surface); }
+.tableau-semaines tr:has(a:focus-visible) { outline: 3px solid var(--t-focus); outline-offset: 2px; }
+.tableau-semaines td:nth-child(1) a:focus-visible { outline: none; }
+/* Weeks still to come: quieter */
+.tableau-semaines tr:not(:has(a)) { background: transparent; border-style: dashed; }
+/* The current week, in the grid too: a blue border, at its place (reading order unchanged) */
+.tableau-semaines tr:has(a):has(+ tr > td > em) { border: 2px solid var(--t-accent); }
+
+/* « Cette semaine » card, at the top of the home page (written by outils/publication.mjs, before the list):
+   solid blue, white text, the whole card is the link */
+.cette-semaine {
+  position: relative;
+  display: grid;
+  gap: 0.35rem;
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem 1.4rem;
+  background: var(--t-now-bg);
+  color: var(--t-now-text);
+  border-radius: var(--t-radius);
+  max-width: none;
+}
+.cette-semaine p { margin: 0; color: var(--t-now-text); max-width: none; }
+.cette-semaine p:first-child { font-size: 0.95rem; font-weight: 700; }
+.cette-semaine p:nth-child(2) { font-size: 1.3rem; font-weight: 700; line-height: 1.35; }
+main.content .cette-semaine a { color: var(--t-now-text); text-decoration: none; }
+main.content .cette-semaine a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.cette-semaine:has(a:hover) a { text-decoration: underline; text-underline-offset: 0.2em; }
+.cette-semaine:has(a:focus-visible) { outline: 3px solid var(--t-focus); outline-offset: 3px; }
+main.content .cette-semaine a:focus-visible { outline: none; }
+
+/* ------------------------------------------------------------------ Slides (same palette) */
+.reveal .callout { border-radius: var(--t-radius); }
+.reveal div.sourceCode pre.sourceCode { padding: 0.6em 0.9em; line-height: 1.5; }
+/* Slides: inline code keeps its background but no side padding, so a bullet keeps the width it had (no extra line) */
+.reveal :not(pre) > code { padding: 0; }
+
+/* ------------------------------------------------------------------ Quarto's own grey texts (breadcrumbs, previous/next, captions):
+   Bootstrap's #6c757d fails WCAG AA on dark backgrounds (axe-core), and captions are 4.39:1 in the current theme */
+.quarto-title-breadcrumbs .breadcrumb-item a, .quarto-title-breadcrumbs .breadcrumb-item,
+.nav-page .nav-page-text, .nav-page .pagination-link,
+figcaption, .figure-caption, .quarto-figure figcaption,
+.page-footer, .nav-footer { color: var(--t-muted) !important; }
+
+/* Callouts: Quarto writes them at 0.9rem with a header at 85 % opacity; same size as the text, full opacity */
+.callout.callout-style-default .callout-body,
+.callout.callout-style-simple .callout-body,
+.callout.callout-style-default > div.callout-header,
+.callout.callout-style-simple > div.callout-header { font-size: 1em; opacity: 1; }
+
+/* Phone: code a little smaller than the text, so a commented line wraps less */
+@media (max-width: 575.98px) {
+  div.sourceCode pre.sourceCode { padding: 0.8rem 0.9rem; font-size: 0.82em; }
+}
+.reveal .encadre-voir, .reveal .encadre-perdu { display: block; }
+.reveal .encadre-voir::before, .reveal .encadre-perdu::before { content: none; }
+
+/* Phone and tablet: the top bar showed the whole breadcrumb trail on 4 to 6 lines (also in the current theme),
+   hiding the top of the text. One line: the current page only, cut with « … » if too long. */
+@media (max-width: 991.98px) {
+  .quarto-page-breadcrumbs:not(.quarto-title-breadcrumbs) { min-width: 0; flex: 1 1 auto; max-width: calc(100vw - 7.5rem); overflow: hidden; }
+  .quarto-page-breadcrumbs:not(.quarto-title-breadcrumbs) .breadcrumb { flex-wrap: nowrap; margin: 0; overflow: hidden; }
+  .quarto-page-breadcrumbs:not(.quarto-title-breadcrumbs) .breadcrumb-item:not(:last-child) { display: none; }
+  .quarto-page-breadcrumbs:not(.quarto-title-breadcrumbs) .breadcrumb-item:last-child {
+    padding-left: 0; min-width: 0; flex: 1 1 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .quarto-page-breadcrumbs:not(.quarto-title-breadcrumbs) .breadcrumb-item:last-child::before { content: none; }
+}
+
+/* Phone: tables keep within the screen with the slightly larger text (tighter cells, French hyphenation) */
+@media (max-width: 575.98px) {
+  main.content .table > :not(caption) > * > * { padding: 0.4rem 0.3rem; }
+  main.content table td, main.content table th { hyphens: auto; overflow-wrap: break-word; }
+}
