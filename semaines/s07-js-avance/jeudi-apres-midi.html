@@ -103,6 +103,9 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -597,6 +600,7 @@ div.csl-indent {
   <ul>
   <li><a href="#apport-tri" id="toc-apport-tri" class="nav-link" data-scroll-target="#apport-tri">Trier avec toSorted (20 min)</a></li>
   <li><a href="#trier-en-image-avant-après" id="toc-trier-en-image-avant-après" class="nav-link" data-scroll-target="#trier-en-image-avant-après">Trier, en image : avant / après</a></li>
+  <li><a href="#tosorted-ou-sort-loriginal" id="toc-tosorted-ou-sort-loriginal" class="nav-link" data-scroll-target="#tosorted-ou-sort-loriginal">toSorted ou sort : l’original</a></li>
   <li><a href="#trier-lexemple-minimal" id="toc-trier-lexemple-minimal" class="nav-link" data-scroll-target="#trier-lexemple-minimal">Trier, l’exemple minimal</a></li>
   <li><a href="#trier-attention-et-vérification" id="toc-trier-attention-et-vérification" class="nav-link" data-scroll-target="#trier-attention-et-vérification">Trier — attention et vérification</a></li>
   <li><a href="#pas-à-pas-ensemble-le-palmarès-des-musées-40-min" id="toc-pas-à-pas-ensemble-le-palmarès-des-musées-40-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-le-palmarès-des-musées-40-min">Pas à pas ensemble — Le palmarès des musées (40 min)</a>
@@ -744,6 +748,17 @@ div.csl-indent {
 </tbody>
 </table>
 <p>Les deux premières lignes laissent <code translate="no">prices</code> intact ; la troisième, avec <code translate="no">sort</code>, le modifie. La première ligne montre l’autre piège : sans fonction de comparaison, <code translate="no">100</code> passe devant <code translate="no">25</code>, comme « 100 » devant « 25 » dans un dictionnaire.</p>
+</section>
+<section id="tosorted-ou-sort-loriginal" class="level3">
+<h3 class="anchored" data-anchor-id="tosorted-ou-sort-loriginal">toSorted ou sort : l’original</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s07-tri-avant-apres.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="toSorted renvoie un nouveau tableau et garde l’original intact ; sort modifie l’original."><img src="img/s07-tri-avant-apres.svg" class="img-fluid figure-img" alt="En haut, toSorted : prices vaut 25, 8, 100, 10 ; un nouveau tableau trié sort, 8, 10, 25, 100 ; prices reste 25, 8, 100, 10, intact. En bas, sort : le même tableau prices est réordonné en 8, 10, 25, 100 ; l’original est modifié."></a></p>
+<figcaption>toSorted renvoie un nouveau tableau et garde l’original intact ; sort modifie l’original.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="trier-lexemple-minimal" class="level3">
 <h3 class="anchored" data-anchor-id="trier-lexemple-minimal">Trier, l’exemple minimal</h3>
@@ -1508,6 +1523,38 @@ Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Fréquentation des Musées de
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

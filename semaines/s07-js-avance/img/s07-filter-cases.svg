@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-labelledby="filter-t filter-d">
+  <title id="filter-t">filter : les cases gardées et les cases écartées</title>
+  <desc id="filter-d">prices contient 10, 25, 8 et 40. Le test est price &gt; 20. 10 est écarté, 25 est gardé, 8 est écarté, 40 est gardé. Le nouveau tableau contient 25 et 40.</desc>
+  <defs><marker id="filter-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="filter-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="filter-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="filter-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="filter-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+  <text x="40" y="50" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">prices.filter((price) =&gt; price &gt; 20)</text>
+  <rect x="60" y="90" width="170" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="145" y="141" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">10</text>
+  <path d="M145 175 L145 235" stroke="#b91c1c" stroke-width="4" fill="none" marker-end="url(#filter-p-ko)"/>
+  <rect x="50" y="240" width="190" height="70" rx="8" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="145" y="286" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="middle">écarté</text>
+  <rect x="290" y="90" width="170" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="375" y="141" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">25</text>
+  <path d="M375 175 L375 235" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#filter-p-ok)"/>
+  <rect x="280" y="240" width="190" height="70" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="375" y="286" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">gardé</text>
+  <path d="M375 315 L375 365" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#filter-p-ok)"/>
+  <rect x="520" y="90" width="170" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="605" y="141" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">8</text>
+  <path d="M605 175 L605 235" stroke="#b91c1c" stroke-width="4" fill="none" marker-end="url(#filter-p-ko)"/>
+  <rect x="510" y="240" width="190" height="70" rx="8" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="605" y="286" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="middle">écarté</text>
+  <rect x="750" y="90" width="170" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="835" y="141" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">40</text>
+  <path d="M835 175 L835 235" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#filter-p-ok)"/>
+  <rect x="740" y="240" width="190" height="70" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="835" y="286" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">gardé</text>
+  <path d="M835 315 L835 365" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#filter-p-ok)"/>
+  <text x="40" y="420" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">nouveau tableau :</text>
+  <rect x="290" y="375" width="170" height="70" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="375" y="421" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">25</text>
+  <rect x="750" y="375" width="170" height="70" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="835" y="421" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">40</text>
+  <text x="40" y="495" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">Seules les cases qui passent le test sortent : [25, 40].</text>
+</svg>

@@ -265,6 +265,17 @@ Kevin Bardoux
 <span id="cb1-5"><a aria-label="5"></a>prices<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">-</span> b)<span class="op">;</span>    <span class="co">// trie prices lui-même</span></span>
 <span id="cb1-6"><a aria-label="6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(prices)<span class="op">;</span>             <span class="co">// [ 8, 10, 25, 100 ] : modifié</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="tosorted-ou-sort-loriginal" class="slide level3">
+<h3>toSorted ou sort : l’original</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/s07-tri-avant-apres.svg" alt="En haut, toSorted : prices vaut 25, 8, 100, 10 ; un nouveau tableau trié sort, 8, 10, 25, 100 ; prices reste 25, 8, 100, 10, intact. En bas, sort : le même tableau prices est réordonné en 8, 10, 25, 100 ; l’original est modifié."></p>
+<figcaption>toSorted renvoie un nouveau tableau et garde l’original intact ; sort modifie l’original.</figcaption>
+</figure>
+</div>
+</div>
+</section>
 <section id="trier-lexemple-minimal" class="slide level3">
 <h3>Trier, l’exemple minimal</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="kw">const</span> prices <span class="op">=</span> [<span class="dv">25</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">;</span></span>

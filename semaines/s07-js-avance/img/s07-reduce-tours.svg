@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-labelledby="reduce-t reduce-d">
+  <title id="reduce-t">reduce : l’accumulateur, tour par tour</title>
+  <desc id="reduce-d">numbers contient 3, 8 et 5. L’accumulateur sum part de 0. Tour 1 : 0 + 3 = 3. Tour 2 : 3 + 8 = 11. Tour 3 : 11 + 5 = 16. Le résultat est une seule valeur, 16.</desc>
+  <defs><marker id="reduce-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="reduce-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="reduce-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="reduce-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="reduce-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+  <text x="40" y="50" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">numbers.reduce((sum, n) =&gt; sum + n, 0)</text>
+  <text x="40" y="115" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="start">numbers</text>
+  <rect x="310" y="70" width="130" height="70" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="375" y="116" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">3</text>
+  <rect x="530" y="70" width="130" height="70" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="595" y="116" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">8</text>
+  <rect x="750" y="70" width="130" height="70" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="815" y="116" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">5</text>
+  <text x="40" y="255" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="start">sum</text>
+  <rect x="160" y="215" width="120" height="70" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="220" y="261" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">0</text>
+  <path d="M285 250 L375 250" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#reduce-p-accent)"/>
+  <path d="M375 145 L330 240" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#reduce-p-line)" stroke-dasharray="6 6"/>
+  <text x="330" y="330" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="middle">+ 3</text>
+  <rect x="380" y="215" width="120" height="70" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="440" y="261" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">3</text>
+  <path d="M505 250 L595 250" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#reduce-p-accent)"/>
+  <path d="M595 145 L550 240" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#reduce-p-line)" stroke-dasharray="6 6"/>
+  <text x="550" y="330" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="middle">+ 8</text>
+  <rect x="600" y="215" width="120" height="70" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="660" y="261" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">11</text>
+  <path d="M725 250 L815 250" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#reduce-p-accent)"/>
+  <path d="M815 145 L770 240" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#reduce-p-line)" stroke-dasharray="6 6"/>
+  <text x="770" y="330" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="middle">+ 5</text>
+  <rect x="820" y="215" width="120" height="70" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="880" y="261" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="middle">16</text>
+  <text x="220" y="330" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">départ</text>
+  <text x="880" y="330" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">résultat</text>
+  <text x="40" y="400" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">À chaque tour, sum reçoit ce que la fonction a renvoyé.</text>
+  <text x="40" y="445" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">Tour 1 : 0 + 3 = 3 · tour 2 : 3 + 8 = 11 · tour 3 : 11 + 5 = 16</text>
+  <text x="40" y="495" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="start">Un tableau entre, une seule valeur sort : 16.</text>
+</svg>

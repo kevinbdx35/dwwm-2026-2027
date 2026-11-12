@@ -103,6 +103,9 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -598,6 +601,7 @@ div.csl-indent {
   <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
   <li><a href="#apport-reduce" id="toc-apport-reduce" class="nav-link" data-scroll-target="#apport-reduce">reduce (15 min)</a></li>
   <li><a href="#reduce-en-image" id="toc-reduce-en-image" class="nav-link" data-scroll-target="#reduce-en-image">reduce, en image</a></li>
+  <li><a href="#reduce-tour-par-tour" id="toc-reduce-tour-par-tour" class="nav-link" data-scroll-target="#reduce-tour-par-tour">reduce, tour par tour</a></li>
   <li><a href="#reduce-lexemple-minimal" id="toc-reduce-lexemple-minimal" class="nav-link" data-scroll-target="#reduce-lexemple-minimal">reduce, l’exemple minimal</a></li>
   <li><a href="#reduce-attention-et-vérification" id="toc-reduce-attention-et-vérification" class="nav-link" data-scroll-target="#reduce-attention-et-vérification">reduce — attention et vérification</a></li>
   <li><a href="#pas-à-pas-ensemble-le-total-des-visites-40-min" id="toc-pas-à-pas-ensemble-le-total-des-visites-40-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-le-total-des-visites-40-min">Pas à pas ensemble — Le total des visites (40 min)</a>
@@ -759,6 +763,17 @@ div.csl-indent {
 </tbody>
 </table>
 <p><code translate="no">sum</code> est l’accumulateur, <code translate="no">n</code> l’élément du tour, « Renvoyé » ce que la fonction renvoie. Au départ, <code translate="no">sum</code> vaut la valeur de départ, <code translate="no">0</code>. À chaque tour, il reçoit ce que la fonction a renvoyé au tour d’avant. Le résultat est <strong>une seule valeur</strong>, <code translate="no">16</code>. Le même calcul dans le <a href="heberge/visualiseur/index.html#reduce">visualiseur pas à pas</a> : <code translate="no">sum</code> et <code translate="no">n</code> changent à chaque tour.</p>
+</section>
+<section id="reduce-tour-par-tour" class="level3">
+<h3 class="anchored" data-anchor-id="reduce-tour-par-tour">reduce, tour par tour</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s07-reduce-tours.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="À chaque tour, l’accumulateur sum reçoit ce que la fonction a renvoyé ; une seule valeur sort."><img src="img/s07-reduce-tours.svg" class="img-fluid figure-img" alt="numbers contient 3, 8 et 5. L’accumulateur sum part de 0. Tour 1 : 0 + 3 = 3. Tour 2 : 3 + 8 = 11. Tour 3 : 11 + 5 = 16. Le résultat est une seule valeur, 16."></a></p>
+<figcaption>À chaque tour, l’accumulateur sum reçoit ce que la fonction a renvoyé ; une seule valeur sort.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="reduce-lexemple-minimal" class="level3">
 <h3 class="anchored" data-anchor-id="reduce-lexemple-minimal">reduce, l’exemple minimal</h3>
@@ -1515,6 +1530,38 @@ Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Fréquentation des Musées de
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

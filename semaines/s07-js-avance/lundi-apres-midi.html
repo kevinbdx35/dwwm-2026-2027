@@ -103,6 +103,9 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -604,6 +607,7 @@ div.csl-indent {
   <li><a href="#rappel-vérification" id="toc-rappel-vérification" class="nav-link" data-scroll-target="#rappel-vérification">Rappel — vérification</a></li>
   <li><a href="#apport-map" id="toc-apport-map" class="nav-link" data-scroll-target="#apport-map">Callback et map (15 min)</a></li>
   <li><a href="#callback-et-map-en-image" id="toc-callback-et-map-en-image" class="nav-link" data-scroll-target="#callback-et-map-en-image">Callback et map, en image</a></li>
+  <li><a href="#map-case-par-case" id="toc-map-case-par-case" class="nav-link" data-scroll-target="#map-case-par-case">map, case par case</a></li>
   <li><a href="#callback-et-map-lexemple-minimal" id="toc-callback-et-map-lexemple-minimal" class="nav-link" data-scroll-target="#callback-et-map-lexemple-minimal">Callback et map, l’exemple minimal</a></li>
   <li><a href="#callback-et-map-attention-et-vérification" id="toc-callback-et-map-attention-et-vérification" class="nav-link" data-scroll-target="#callback-et-map-attention-et-vérification">Callback et map — attention et vérification</a></li>
   <li><a href="#pas-à-pas-ensemble-les-noms-des-musées-40-min" id="toc-pas-à-pas-ensemble-les-noms-des-musées-40-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-les-noms-des-musées-40-min">Pas à pas ensemble — Les noms des musées (40 min)</a>
@@ -773,7 +777,7 @@ div.csl-indent {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "24px"}}}%%
 flowchart LR
   accTitle: map, un tableau entre, un tableau sort
   accDescr: Le tableau prices contient 10, 25 et 8. map appelle addTax sur chaque élément. Le nouveau tableau contient 12, 30 et 9.6. Le tableau prices ne change pas.
@@ -787,6 +791,17 @@ flowchart LR
 </div>
 </div>
 <p>Le texte du schéma : le tableau <code translate="no">prices</code> (<code translate="no">10</code>, <code translate="no">25</code>, <code translate="no">8</code>) entre dans <code translate="no">map</code> ; <code translate="no">map</code> appelle <code translate="no">addTax</code> sur chaque prix ; un <strong>nouveau</strong> tableau sort (<code translate="no">12</code>, <code translate="no">30</code>, <code translate="no">9.6</code>), de même longueur ; <code translate="no">prices</code> n’a pas changé. Voyez <code translate="no">map</code> élément par élément dans le <a href="heberge/visualiseur/index.html#map">visualiseur pas à pas</a> : avancez avec <strong>Ligne suivante</strong>.</p>
+</section>
+<section id="map-case-par-case" class="level3">
+<h3 class="anchored" data-anchor-id="map-case-par-case">map, case par case</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s07-map-cases.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="map appelle la fonction sur chaque case et range chaque résultat dans un nouveau tableau."><img src="img/s07-map-cases.svg" class="img-fluid figure-img" alt="Le tableau prices contient 10, 25 et 8. Pour chaque case, map appelle addTax : addTax(10) donne 12, addTax(25) donne 30, addTax(8) donne 9.6. Les résultats forment un nouveau tableau de trois cases, dans le même ordre. prices reste [10, 25, 8]."></a></p>
+<figcaption>map appelle la fonction sur chaque case et range chaque résultat dans un nouveau tableau.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="callback-et-map-lexemple-minimal" class="level3">
 <h3 class="anchored" data-anchor-id="callback-et-map-lexemple-minimal">Callback et map, l’exemple minimal</h3>
@@ -1604,6 +1619,38 @@ Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Fréquentation des Musées de
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

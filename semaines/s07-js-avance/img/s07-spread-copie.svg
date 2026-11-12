@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" width="1000" height="525" role="img" aria-labelledby="spread-t spread-d">
+  <title id="spread-t">Le spread : une copie à côté de l’original</title>
+  <desc id="spread-d">museum est un objet : name vaut musée A, city vaut COLMAR. { ...museum, city: 'METZ' } crée un nouvel objet, moved, à côté : name vaut musée A, city vaut METZ. museum n’a pas changé : city vaut toujours COLMAR.</desc>
+  <defs><marker id="spread-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="spread-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="spread-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="spread-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="spread-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="525" fill="#ffffff"/>
+  <text x="40" y="50" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">const moved = { ...museum, city: 'METZ' };</text>
+  <text x="240" y="125" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">museum</text>
+  <rect x="40" y="145" width="400" height="190" rx="12" fill="#eef4fc" stroke="#1f5fbf" stroke-width="4"/>
+  <text x="70" y="215" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">name : 'musée A'</text>
+  <text x="70" y="290" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">city : 'COLMAR'</text>
+  <text x="760" y="125" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="middle">moved</text>
+  <rect x="560" y="145" width="400" height="190" rx="12" fill="#edf7f0" stroke="#17703a" stroke-width="4"/>
+  <text x="590" y="215" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">name : 'musée A'</text>
+  <text x="590" y="290" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="start">city : 'METZ'</text>
+  <path d="M445 240 L555 240" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#spread-p-line)"/>
+  <text x="500" y="222" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">copie</text>
+  <text x="240" y="385" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1f5fbf" text-anchor="middle">l’original : city vaut toujours 'COLMAR'</text>
+  <text x="760" y="385" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#17703a" text-anchor="middle">un nouvel objet, à côté</text>
+  <text x="40" y="460" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">...museum recopie les propriétés ; city: 'METZ' remplace la valeur</text>
+  <text x="40" y="500" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">dans la copie seulement. Deux objets, deux étiquettes.</text>
+</svg>

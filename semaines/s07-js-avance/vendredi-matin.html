@@ -606,6 +606,7 @@ div.csl-indent {
   <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
   <li><a href="#apport-spread" id="toc-apport-spread" class="nav-link" data-scroll-target="#apport-spread">Le spread (15 min)</a></li>
   <li><a href="#le-spread-en-image-deux-étiquettes-ou-deux-objets" id="toc-le-spread-en-image-deux-étiquettes-ou-deux-objets" class="nav-link" data-scroll-target="#le-spread-en-image-deux-étiquettes-ou-deux-objets">Le spread, en image : deux étiquettes, ou deux objets</a></li>
+  <li><a href="#le-spread-une-copie-à-côté" id="toc-le-spread-une-copie-à-côté" class="nav-link" data-scroll-target="#le-spread-une-copie-à-côté">Le spread : une copie à côté</a></li>
   <li><a href="#le-spread-lexemple-minimal" id="toc-le-spread-lexemple-minimal" class="nav-link" data-scroll-target="#le-spread-lexemple-minimal">Le spread, l’exemple minimal</a></li>
   <li><a href="#le-spread-attention-et-vérification" id="toc-le-spread-attention-et-vérification" class="nav-link" data-scroll-target="#le-spread-attention-et-vérification">Le spread — attention et vérification</a></li>
   <li><a href="#pas-à-pas-ensemble-ajouter-sans-modifier-25-min" id="toc-pas-à-pas-ensemble-ajouter-sans-modifier-25-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-ajouter-sans-modifier-25-min">Pas à pas ensemble — Ajouter sans modifier (25 min)</a>
@@ -748,6 +749,17 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="le-spread-en-image-deux-étiquettes-ou-deux-objets">Le spread, en image : deux étiquettes, ou deux objets</h3>
 <p><a href="img/s06-visualiseur-04-etiquettes-zoom-2x.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/s06-visualiseur-04-etiquettes-zoom-2x.webp" class="img-fluid" alt="Zoom sur la zone « Étiquettes et valeurs » du visualiseur pas à pas : les étiquettes person et alias indiquent toutes deux « → objet 1 » ; des flèches les relient au même objet 1, name 'Ada', city 'Londres'."></a></p>
 <p>Ce que montre l’image : après <code translate="no">const alias = person;</code>, les <strong>deux</strong> étiquettes, <code translate="no">person</code> et <code translate="no">alias</code>, désignent le <strong>même</strong> objet. Changer <code translate="no">alias.city</code>, c’est changer l’objet de <code translate="no">person</code>. Avec <code translate="no">{ ...person, city: 'Rome' }</code>, un deuxième objet est créé : <code translate="no">person</code> ne bouge plus. Rejouez l’exemple dans le <a href="heberge/visualiseur/index.html#etiquettes">visualiseur pas à pas</a>, avec <strong>Ligne suivante</strong>.</p>
+</section>
+<section id="le-spread-une-copie-à-côté" class="level3">
+<h3 class="anchored" data-anchor-id="le-spread-une-copie-à-côté">Le spread : une copie à côté</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s07-spread-copie.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Le spread crée un nouvel objet à côté de l’original, qui ne change pas."><img src="img/s07-spread-copie.svg" class="img-fluid figure-img" alt="museum est un objet : name vaut musée A, city vaut COLMAR. { ...museum, city: 'METZ' } crée un nouvel objet, moved, à côté : name vaut musée A, city vaut METZ. museum n’a pas changé : city vaut toujours COLMAR."></a></p>
+<figcaption>Le spread crée un nouvel objet à côté de l’original, qui ne change pas.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="le-spread-lexemple-minimal" class="level3">
 <h3 class="anchored" data-anchor-id="le-spread-lexemple-minimal">Le spread, l’exemple minimal</h3>

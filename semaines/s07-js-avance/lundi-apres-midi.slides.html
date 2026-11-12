@@ -304,7 +304,7 @@ Kevin Bardoux
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "24px"}}}%%
 flowchart LR
   accTitle: map, un tableau entre, un tableau sort
   accDescr: Le tableau prices contient 10, 25 et 8. map appelle addTax sur chaque élément. Le nouveau tableau contient 12, 30 et 9.6. Le tableau prices ne change pas.
@@ -315,6 +315,17 @@ flowchart LR
 </div>
 <p></p><figcaption> map appelle la fonction donnée sur chaque élément, et range chaque résultat dans un nouveau tableau.</figcaption> </figure><p></p>
 </div>
+</div>
+</div>
+</section>
+<section id="map-case-par-case" class="slide level3">
+<h3>map, case par case</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/s07-map-cases.svg" alt="Le tableau prices contient 10, 25 et 8. Pour chaque case, map appelle addTax : addTax(10) donne 12, addTax(25) donne 30, addTax(8) donne 9.6. Les résultats forment un nouveau tableau de trois cases, dans le même ordre. prices reste [10, 25, 8]."></p>
+<figcaption>map appelle la fonction sur chaque case et range chaque résultat dans un nouveau tableau.</figcaption>
+</figure>
 </div>
 </div>
 </section>

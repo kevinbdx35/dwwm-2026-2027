@@ -103,6 +103,9 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -598,6 +601,8 @@ div.csl-indent {
   <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
   <li><a href="#apport-filter" id="toc-apport-filter" class="nav-link" data-scroll-target="#apport-filter">filter et find (15 min)</a></li>
   <li><a href="#filter-et-find-en-image" id="toc-filter-et-find-en-image" class="nav-link" data-scroll-target="#filter-et-find-en-image">filter et find, en image</a></li>
+  <li><a href="#filter-case-par-case" id="toc-filter-case-par-case" class="nav-link" data-scroll-target="#filter-case-par-case">filter, case par case</a></li>
+  <li><a href="#find-case-par-case" id="toc-find-case-par-case" class="nav-link" data-scroll-target="#find-case-par-case">find, case par case</a></li>
   <li><a href="#filter-et-find-lexemple-minimal" id="toc-filter-et-find-lexemple-minimal" class="nav-link" data-scroll-target="#filter-et-find-lexemple-minimal">filter et find, l’exemple minimal</a></li>
   <li><a href="#filter-et-find-attention-et-vérification" id="toc-filter-et-find-attention-et-vérification" class="nav-link" data-scroll-target="#filter-et-find-attention-et-vérification">filter et find — attention et vérification</a></li>
   <li><a href="#pas-à-pas-ensemble-les-grands-musées-35-min" id="toc-pas-à-pas-ensemble-les-grands-musées-35-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-les-grands-musées-35-min">Pas à pas ensemble — Les grands musées (35 min)</a>
@@ -765,6 +770,28 @@ div.csl-indent {
 </tbody>
 </table>
 <p><code translate="no">map</code> renvoie autant d’éléments qu’au départ ; <code translate="no">filter</code>, un tableau peut-être plus court, peut-être vide (<code translate="no">[]</code>) ; <code translate="no">find</code>, <strong>un seul</strong> élément, ou <code translate="no">undefined</code>.</p>
+</section>
+<section id="filter-case-par-case" class="level3">
+<h3 class="anchored" data-anchor-id="filter-case-par-case">filter, case par case</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s07-filter-cases.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="filter garde les cases qui passent le test et écarte les autres."><img src="img/s07-filter-cases.svg" class="img-fluid figure-img" alt="prices contient 10, 25, 8 et 40. Le test est price > 20. 10 est écarté, 25 est gardé, 8 est écarté, 40 est gardé. Le nouveau tableau contient 25 et 40."></a></p>
+<figcaption>filter garde les cases qui passent le test et écarte les autres.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="find-case-par-case" class="level3">
+<h3 class="anchored" data-anchor-id="find-case-par-case">find, case par case</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s07-find-cases.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="find regarde les cases dans l’ordre et s’arrête à la première qui passe le test."><img src="img/s07-find-cases.svg" class="img-fluid figure-img" alt="prices contient 10, 25, 8 et 40. Le test est price > 20. find regarde 10 : non. Il regarde 25 : oui, il s’arrête. 8 et 40 ne sont pas regardés. find renvoie un seul élément, 25. Si aucune case ne passe le test, find renvoie undefined."></a></p>
+<figcaption>find regarde les cases dans l’ordre et s’arrête à la première qui passe le test.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="filter-et-find-lexemple-minimal" class="level3">
 <h3 class="anchored" data-anchor-id="filter-et-find-lexemple-minimal">filter et find, l’exemple minimal</h3>
@@ -1498,6 +1525,38 @@ Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Fréquentation des Musées de
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

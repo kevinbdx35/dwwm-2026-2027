@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" width="1000" height="525" role="img" aria-labelledby="objet-t objet-d">
+  <title id="objet-t">Un objet : une fiche, des clés et leurs valeurs</title>
+  <desc id="objet-d">L’étiquette museum désigne une fiche. La fiche a trois lignes, chacune avec une clé et sa valeur : name vaut musée Unterlinden, city vaut COLMAR, total vaut 165484. museum.city lit la valeur COLMAR. Une clé absente, comme museum.country, donne undefined.</desc>
+  <defs><marker id="objet-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="objet-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="objet-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="objet-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="objet-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="525" fill="#ffffff"/>
+  <text x="40" y="60" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="start">museum</text>
+  <path d="M180 50 L255 50" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#objet-p-line)"/>
+  <rect x="260" y="20" width="700" height="310" rx="14" fill="#ffffff" stroke="#1f5fbf" stroke-width="4"/>
+  <rect x="260" y="20" width="700" height="60" rx="14" fill="#1f5fbf"/>
+  <rect x="260" y="60" width="700" height="20" fill="#1f5fbf"/>
+  <text x="610" y="62" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">un objet : la fiche du musée</text>
+  <text x="370" y="120" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">clé</text>
+  <text x="720" y="120" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">valeur</text>
+  <rect x="280" y="140" width="190" height="52" rx="6" fill="#eef4fc" stroke="#1f5fbf" stroke-width="2"/>
+  <text x="375" y="177" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">name</text>
+  <text x="490" y="177" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">:</text>
+  <rect x="510" y="140" width="430" height="52" rx="6" fill="#f6f7f9" stroke="#525860" stroke-width="2"/>
+  <text x="725" y="177" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">'musée Unterlinden'</text>
+  <rect x="280" y="202" width="190" height="52" rx="6" fill="#eef4fc" stroke="#1f5fbf" stroke-width="2"/>
+  <text x="375" y="239" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">city</text>
+  <text x="490" y="239" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">:</text>
+  <rect x="510" y="202" width="430" height="52" rx="6" fill="#f6f7f9" stroke="#525860" stroke-width="2"/>
+  <text x="725" y="239" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">'COLMAR'</text>
+  <rect x="280" y="264" width="190" height="52" rx="6" fill="#eef4fc" stroke="#1f5fbf" stroke-width="2"/>
+  <text x="375" y="301" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">total</text>
+  <text x="490" y="301" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">:</text>
+  <rect x="510" y="264" width="430" height="52" rx="6" fill="#f6f7f9" stroke="#525860" stroke-width="2"/>
+  <text x="725" y="301" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">165484</text>
+  <text x="40" y="400" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="start">museum.city</text>
+  <path d="M150 365 L272 232" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#objet-p-ok)"/>
+  <text x="40" y="445" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">lit la valeur de la clé city :</text>
+  <rect x="450" y="405" width="230" height="60" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="565" y="446" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="middle">'COLMAR'</text>
+  <text x="40" y="500" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="start">Une clé absente (museum.country) donne undefined.</text>
+</svg>

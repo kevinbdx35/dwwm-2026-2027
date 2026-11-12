@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-labelledby="tri-t tri-d">
+  <title id="tri-t">toSorted garde le tableau d’origine, sort le modifie</title>
+  <desc id="tri-d">En haut, toSorted : prices vaut 25, 8, 100, 10 ; un nouveau tableau trié sort, 8, 10, 25, 100 ; prices reste 25, 8, 100, 10, intact. En bas, sort : le même tableau prices est réordonné en 8, 10, 25, 100 ; l’original est modifié.</desc>
+  <defs><marker id="tri-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="tri-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="tri-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="tri-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="tri-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+  <rect x="20" y="15" width="960" height="240" rx="12" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="40" y="60" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="start">prices.toSorted((a, b) =&gt; a - b)</text>
+  <rect x="110" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="148" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">25</text>
+  <rect x="194" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="232" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">8</text>
+  <rect x="278" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="316" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">100</text>
+  <rect x="362" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="400" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">10</text>
+  <path d="M455 115 L545 115" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#tri-p-ok)"/>
+  <rect x="560" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#17703a" stroke-width="3"/>
+  <text x="598" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">8</text>
+  <rect x="644" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#17703a" stroke-width="3"/>
+  <text x="682" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">10</text>
+  <rect x="728" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#17703a" stroke-width="3"/>
+  <text x="766" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">25</text>
+  <rect x="812" y="85" width="76" height="60" rx="8" fill="#ffffff" stroke="#17703a" stroke-width="3"/>
+  <text x="850" y="126" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">100</text>
+  <text x="268" y="183" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">prices</text>
+  <text x="718" y="183" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">un nouveau tableau</text>
+  <text x="40" y="230" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="start">après : prices vaut toujours [25, 8, 100, 10] : intact</text>
+  <rect x="20" y="275" width="960" height="240" rx="12" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="40" y="320" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#b91c1c" text-anchor="start">prices.sort((a, b) =&gt; a - b)</text>
+  <rect x="110" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="148" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">25</text>
+  <rect x="194" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="232" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">8</text>
+  <rect x="278" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="316" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">100</text>
+  <rect x="362" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="400" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">10</text>
+  <path d="M455 375 L545 375" stroke="#b91c1c" stroke-width="4" fill="none" marker-end="url(#tri-p-ko)"/>
+  <rect x="560" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+  <text x="598" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">8</text>
+  <rect x="644" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+  <text x="682" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">10</text>
+  <rect x="728" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+  <text x="766" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">25</text>
+  <rect x="812" y="345" width="76" height="60" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="3"/>
+  <text x="850" y="386" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">100</text>
+  <text x="268" y="443" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">prices avant</text>
+  <text x="718" y="443" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">prices après</text>
+  <text x="40" y="490" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">le même tableau prices, réordonné : modifié</text>
+</svg>

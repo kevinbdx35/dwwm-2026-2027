@@ -274,6 +274,28 @@ Kevin Bardoux
 <span id="cb1-6"><a aria-label="6"></a>prices<span class="op">.</span><span class="fu">find</span>((price) <span class="kw">=&gt;</span> price <span class="op">&gt;</span> <span class="dv">20</span>)<span class="op">;</span></span>
 <span id="cb1-7"><a aria-label="7"></a><span class="co">// 25 : un élément, ou undefined</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="filter-case-par-case" class="slide level3">
+<h3>filter, case par case</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/s07-filter-cases.svg" alt="prices contient 10, 25, 8 et 40. Le test est price > 20. 10 est écarté, 25 est gardé, 8 est écarté, 40 est gardé. Le nouveau tableau contient 25 et 40."></p>
+<figcaption>filter garde les cases qui passent le test et écarte les autres.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="find-case-par-case" class="slide level3">
+<h3>find, case par case</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/s07-find-cases.svg" alt="prices contient 10, 25, 8 et 40. Le test est price > 20. find regarde 10 : non. Il regarde 25 : oui, il s’arrête. 8 et 40 ne sont pas regardés. find renvoie un seul élément, 25. Si aucune case ne passe le test, find renvoie undefined."></p>
+<figcaption>find regarde les cases dans l’ordre et s’arrête à la première qui passe le test.</figcaption>
+</figure>
+</div>
+</div>
+</section>
 <section id="filter-et-find-lexemple-minimal" class="slide level3">
 <h3>filter et find, l’exemple minimal</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="kw">const</span> prices <span class="op">=</span> [<span class="dv">10</span><span class="op">,</span> <span class="dv">25</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">40</span>]<span class="op">;</span></span>

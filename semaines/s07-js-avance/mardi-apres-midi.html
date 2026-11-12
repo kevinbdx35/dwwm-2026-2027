@@ -103,6 +103,9 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -601,6 +604,7 @@ div.csl-indent {
   <ul>
   <li><a href="#apport-objets" id="toc-apport-objets" class="nav-link" data-scroll-target="#apport-objets">Les objets (20 min)</a></li>
   <li><a href="#les-objets-en-image" id="toc-les-objets-en-image" class="nav-link" data-scroll-target="#les-objets-en-image">Les objets, en image</a></li>
+  <li><a href="#un-objet-comme-une-fiche" id="toc-un-objet-comme-une-fiche" class="nav-link" data-scroll-target="#un-objet-comme-une-fiche">Un objet, comme une fiche</a></li>
   <li><a href="#les-objets-lexemple-minimal" id="toc-les-objets-lexemple-minimal" class="nav-link" data-scroll-target="#les-objets-lexemple-minimal">Les objets, l’exemple minimal</a></li>
   <li><a href="#les-objets-attention-et-vérification" id="toc-les-objets-attention-et-vérification" class="nav-link" data-scroll-target="#les-objets-attention-et-vérification">Les objets — attention et vérification</a></li>
   <li><a href="#apport-nullish" id="toc-apport-nullish" class="nav-link" data-scroll-target="#apport-nullish">Une valeur par défaut : <code translate="no">??</code> (2 min)</a></li>
@@ -715,7 +719,7 @@ div.csl-indent {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "20px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "themeVariables": {"fontSize": "24px"}}}%%
 flowchart LR
   accTitle: Un objet et ses propriétés
   accDescr: La variable museum désigne un objet. L'objet a trois propriétés. La clé name vaut musée Unterlinden. La clé city vaut COLMAR. La clé total vaut 165484. museum.city lit la valeur COLMAR.
@@ -731,6 +735,17 @@ flowchart LR
 </div>
 </div>
 <p>Le texte du schéma : l’étiquette <code translate="no">museum</code> désigne un objet ; l’objet a trois propriétés, <code translate="no">name</code>, <code translate="no">city</code> et <code translate="no">total</code>, chacune avec sa valeur ; <code translate="no">museum.city</code> lit la valeur <code translate="no">'COLMAR'</code>.</p>
+</section>
+<section id="un-objet-comme-une-fiche" class="level3">
+<h3 class="anchored" data-anchor-id="un-objet-comme-une-fiche">Un objet, comme une fiche</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s07-objet-fiche.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Un objet est une fiche : chaque clé a sa valeur, et le point lit la valeur d’une clé."><img src="img/s07-objet-fiche.svg" class="img-fluid figure-img" alt="L’étiquette museum désigne une fiche. La fiche a trois lignes, chacune avec une clé et sa valeur : name vaut musée Unterlinden, city vaut COLMAR, total vaut 165484. museum.city lit la valeur COLMAR. Une clé absente, comme museum.country, donne undefined."></a></p>
+<figcaption>Un objet est une fiche : chaque clé a sa valeur, et le point lit la valeur d’une clé.</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="les-objets-lexemple-minimal" class="level3">
 <h3 class="anchored" data-anchor-id="les-objets-lexemple-minimal">Les objets, l’exemple minimal</h3>
@@ -1535,6 +1550,38 @@ Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Fréquentation des Musées de
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

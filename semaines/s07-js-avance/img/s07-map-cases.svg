@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-labelledby="map-t map-d">
+  <title id="map-t">map, case par case</title>
+  <desc id="map-d">Le tableau prices contient 10, 25 et 8. Pour chaque case, map appelle addTax : addTax(10) donne 12, addTax(25) donne 30, addTax(8) donne 9.6. Les résultats forment un nouveau tableau de trois cases, dans le même ordre. prices reste [10, 25, 8].</desc>
+  <defs><marker id="map-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="map-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="map-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="map-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="map-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+  <text x="150" y="50" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">prices</text>
+  <text x="500" y="50" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">la fonction</text>
+  <text x="850" y="50" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">nouveau tableau</text>
+  <rect x="80" y="80" width="140" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="150" y="131" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">10</text>
+  <path d="M225 120 L325 120" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#map-p-line)"/>
+  <rect x="330" y="85" width="340" height="70" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="500" y="131" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="middle">addTax(10)</text>
+  <path d="M675 120 L775 120" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#map-p-accent)"/>
+  <rect x="780" y="80" width="140" height="80" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="850" y="131" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">12</text>
+  <rect x="80" y="190" width="140" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="150" y="241" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">25</text>
+  <path d="M225 230 L325 230" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#map-p-line)"/>
+  <rect x="330" y="195" width="340" height="70" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="500" y="241" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="middle">addTax(25)</text>
+  <path d="M675 230 L775 230" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#map-p-accent)"/>
+  <rect x="780" y="190" width="140" height="80" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="850" y="241" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">30</text>
+  <rect x="80" y="300" width="140" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="150" y="351" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">8</text>
+  <path d="M225 340 L325 340" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#map-p-line)"/>
+  <rect x="330" y="305" width="340" height="70" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="500" y="351" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="middle">addTax(8)</text>
+  <path d="M675 340 L775 340" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#map-p-accent)"/>
+  <rect x="780" y="300" width="140" height="80" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="850" y="351" font-size="32" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">9.6</text>
+  <text x="40" y="445" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="start">prices après map : [10, 25, 8], inchangé</text>
+  <text x="40" y="490" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">Autant de cases à la sortie qu’à l’entrée, dans le même ordre.</text>
+</svg>

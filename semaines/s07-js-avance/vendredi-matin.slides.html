@@ -289,6 +289,17 @@ Kevin Bardoux
 <h3>Le spread, en image : deux étiquettes, ou deux objets</h3>
 
 <img data-src="img/s06-visualiseur-04-etiquettes-zoom-2x.webp" alt="Zoom sur la zone « Étiquettes et valeurs » du visualiseur pas à pas : les étiquettes person et alias indiquent toutes deux « → objet 1 » ; des flèches les relient au même objet 1, name 'Ada', city 'Londres'." class="r-stretch"></section>
+<section id="le-spread-une-copie-à-côté" class="slide level3">
+<h3>Le spread : une copie à côté</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/s07-spread-copie.svg" alt="museum est un objet : name vaut musée A, city vaut COLMAR. { ...museum, city: 'METZ' } crée un nouvel objet, moved, à côté : name vaut musée A, city vaut METZ. museum n’a pas changé : city vaut toujours COLMAR."></p>
+<figcaption>Le spread crée un nouvel objet à côté de l’original, qui ne change pas.</figcaption>
+</figure>
+</div>
+</div>
+</section>
 <section id="le-spread-lexemple-minimal" class="slide level3">
 <h3>Le spread, l’exemple minimal</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a aria-label="1"></a><span class="kw">const</span> names <span class="op">=</span> [<span class="st">'musée A'</span><span class="op">,</span> <span class="st">'musée B'</span>]<span class="op">;</span></span>
