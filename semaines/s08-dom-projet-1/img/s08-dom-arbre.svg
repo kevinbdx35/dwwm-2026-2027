@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" width="1000" height="525" role="img" aria-labelledby="dom-t dom-d">
+  <title id="dom-t">Le DOM : la page vue comme un arbre</title>
+  <desc id="dom-d">Le document contient body. Body contient trois enfants : le titre h1 d’identifiant titre, le paragraphe p d’identifiant ville et la liste ul d’identifiant domaines. querySelector avec #titre trouve le h1 ; textContent change son texte. createElement crée un li, et append l’ajoute dans la liste.</desc>
+  <defs><marker id="dom-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="dom-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="dom-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="dom-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="dom-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="525" fill="#ffffff"/>
+  <text x="40" y="45" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="start">La page vue par JavaScript : un arbre d’éléments</text>
+  <rect x="400" y="70" width="200" height="56" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="500" y="108" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">document</text>
+  <rect x="400" y="160" width="200" height="56" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="500" y="198" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">body</text>
+  <rect x="60" y="260" width="230" height="56" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="175" y="298" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">h1#titre</text>
+  <rect x="385" y="260" width="230" height="56" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="500" y="298" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">p#ville</text>
+  <rect x="710" y="260" width="230" height="56" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="825" y="298" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">ul#domaines</text>
+  <rect x="710" y="370" width="230" height="56" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="825" y="408" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="middle">li</text>
+  <path d="M500 128 L500 156" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#dom-p-line)"/>
+  <path d="M470 218 L190 256" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#dom-p-line)"/>
+  <path d="M500 218 L500 256" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#dom-p-line)"/>
+  <path d="M530 218 L810 256" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#dom-p-line)"/>
+  <path d="M825 318 L825 366" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#dom-p-ok)"/>
+  <text x="40" y="380" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="start">querySelector('#titre')</text>
+  <text x="40" y="415" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1f5fbf" text-anchor="start">→ trouve le h1 ;</text>
+  <text x="40" y="450" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1f5fbf" text-anchor="start">textContent → change son texte</text>
+  <text x="560" y="470" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#17703a" text-anchor="start">createElement('li') + append</text>
+  <text x="560" y="505" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#17703a" text-anchor="start">→ un nouvel élément, ajouté</text>
+</svg>

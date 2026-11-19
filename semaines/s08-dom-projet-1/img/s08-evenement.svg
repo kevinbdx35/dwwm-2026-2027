@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" width="1000" height="525" role="img" aria-labelledby="evenement-t evenement-d">
+  <title id="evenement-t">Un événement, un écouteur, une fonction</title>
+  <desc id="evenement-d">Trois étapes : 1. un clic sur le bouton, ou Entrée au clavier ; 2. l’écouteur, posé avec addEventListener, attend ce clic ; 3. la fonction donnée s’exécute, à chaque clic. Attention : avec show sans parenthèses, la fonction s’exécute au clic ; avec show(), elle s’exécute tout de suite, une seule fois.</desc>
+  <defs><marker id="evenement-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="evenement-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="evenement-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="evenement-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="evenement-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="525" fill="#ffffff"/>
+  <text x="40" y="45" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">button.addEventListener('click', () =&gt; { … })</text>
+  <rect x="30" y="120" width="260" height="90" rx="8" fill="#fdf3e8" stroke="#a24c00" stroke-width="3"/>
+  <text x="160" y="175" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#a24c00" text-anchor="middle">1. un clic</text>
+  <rect x="370" y="120" width="260" height="90" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="500" y="175" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1f5fbf" text-anchor="middle">2. l’écouteur</text>
+  <rect x="710" y="120" width="260" height="90" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="840" y="175" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">3. la fonction</text>
+  <path d="M295 165 L365 165" stroke="#a24c00" stroke-width="4" fill="none" marker-end="url(#evenement-p-warn)"/>
+  <path d="M635 165 L705 165" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#evenement-p-accent)"/>
+  <text x="160" y="250" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">sur le bouton</text>
+  <text x="500" y="250" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">attend le clic</text>
+  <text x="840" y="250" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">s’exécute</text>
+  <text x="160" y="285" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">(ou Entrée, au clavier)</text>
+  <text x="840" y="285" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">à chaque clic</text>
+  <rect x="30" y="330" width="940" height="170" rx="12" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="50" y="375" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">Attention aux parenthèses :</text>
+  <text x="50" y="420" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">addEventListener('click', show)   → au clic</text>
+  <text x="50" y="465" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#b91c1c" text-anchor="start">addEventListener('click', show()) → tout de suite</text>
+</svg>

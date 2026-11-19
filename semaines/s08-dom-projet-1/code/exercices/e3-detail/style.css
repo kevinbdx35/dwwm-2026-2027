@@ -1,0 +1,70 @@
+/* A small shared style for the exercises of the week. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+button {
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  color: #ffffff;
+  background: #1f5fbf;
+  border: 2px solid #1f5fbf;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #1f5fbf;
+  outline-offset: 2px;
+}
+
+input {
+  padding: 0.4rem;
+  font: inherit;
+  border: 2px solid #8a8f98;
+  border-radius: 6px;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+}
+
+.erreur {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.important {
+  font-weight: 700;
+  border-left: 4px solid #1f5fbf;
+  padding-left: 0.5rem;
+}
+
+.liste-boutons {
+  padding: 0;
+  list-style: none;
+}
+
+.liste-boutons li {
+  margin-bottom: 0.4rem;
+}
+
+#detail {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f6f7f9;
+  border-left: 4px solid #1f5fbf;
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 530" width="1000" height="530" role="img" aria-labelledby="decomp-t decomp-d">
+  <title id="decomp-t">La décomposition : sortir des valeurs d’un objet</title>
+  <desc id="decomp-d">L’objet museum a trois clés : Nom_officiel, Ville et Departement. const { Ville, Departement } = museum crée deux variables, Ville qui vaut Concarneau et Departement qui vaut Finistère, en une ligne. Pour renommer : const { Nom_officiel: name } = museum ; la variable name reçoit la valeur de Nom_officiel. L’objet museum ne change pas.</desc>
+  <defs><marker id="decomp-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="decomp-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="decomp-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="decomp-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="decomp-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="530" fill="#ffffff"/>
+  <text x="40" y="45" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">const { Ville, Departement } = museum;</text>
+  <text x="280" y="105" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">museum</text>
+  <rect x="20" y="120" width="530" height="220" rx="12" fill="#eef4fc" stroke="#1f5fbf" stroke-width="4"/>
+  <text x="35" y="175" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#525860" text-anchor="start">Nom_officiel : 'musée de la pêche'</text>
+  <text x="35" y="235" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="start">Ville : 'Concarneau'</text>
+  <text x="35" y="295" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="start">Departement : 'Finistère'</text>
+  <path d="M555 228 L595 190" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#decomp-p-ok)"/>
+  <path d="M555 288 L595 300" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#decomp-p-ok)"/>
+  <rect x="600" y="160" width="390" height="60" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="795" y="200" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">Ville = 'Concarneau'</text>
+  <rect x="600" y="270" width="390" height="60" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="795" y="310" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">Departement = 'Finistère'</text>
+  <text x="795" y="365" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#17703a" text-anchor="middle">deux variables, en une ligne</text>
+  <text x="40" y="420" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="start">Renommer :</text>
+  <text x="200" y="420" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">const { Nom_officiel: name } = museum;</text>
+  <text x="40" y="470" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">La variable name reçoit la valeur de la clé Nom_officiel.</text>
+  <text x="40" y="510" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="start">L’objet museum ne change pas : on lit, on ne retire rien.</text>
+</svg>

@@ -40,3 +40,17 @@ main p, main li { overflow-wrap: break-word; }
   font-family: "Atkinson Hyperlegible Mono", "Cascadia Mono", "Segoe UI Symbol", "DejaVu Sans Mono", monospace;
 }
 .terminal .code-copy-button { display: none; }
+
+/* Outil du cours affiché dans la page (raccourci {{< visualiseur … >}}) : cadre sur toute la largeur de la colonne.
+   La hauteur écrite ici sert sans JavaScript ; sinon _filtres/cadre-outil.js donne au cadre la hauteur de son contenu. */
+.cadre-outil { margin: 1.25rem 0; }
+.cadre-outil-cadre {
+  display: block;
+  width: 100%;
+  height: 46rem;
+  border: 2px solid var(--t-border);
+  border-radius: var(--t-radius);
+  background: #fff;
+}
+.cadre-outil-cadre:focus-visible { outline: 3px solid var(--t-focus); outline-offset: 2px; }
+.cadre-outil-lien { margin: 0.4rem 0 0; }

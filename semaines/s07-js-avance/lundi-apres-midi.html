@@ -103,6 +103,7 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/cadre-outil-1.0.0/cadre-outil.js"></script>
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -587,6 +588,83 @@ div.csl-indent {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s08-dom-projet-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, matin — Le DOM : lire et modifier la page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, après-midi — Les événements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, matin — Séparer la logique et l’affichage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, après-midi — La décomposition (destructuring)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 25/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, matin — Formulaires : valider côté client</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, matin — La faille XSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, après-midi — Groupe B : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -790,7 +868,12 @@ flowchart LR
 </div>
 </div>
 </div>
-<p>Le texte du schéma : le tableau <code translate="no">prices</code> (<code translate="no">10</code>, <code translate="no">25</code>, <code translate="no">8</code>) entre dans <code translate="no">map</code> ; <code translate="no">map</code> appelle <code translate="no">addTax</code> sur chaque prix ; un <strong>nouveau</strong> tableau sort (<code translate="no">12</code>, <code translate="no">30</code>, <code translate="no">9.6</code>), de même longueur ; <code translate="no">prices</code> n’a pas changé. Voyez <code translate="no">map</code> élément par élément dans le <a href="heberge/visualiseur/index.html#map">visualiseur pas à pas</a> : avancez avec <strong>Ligne suivante</strong>.</p>
+<p>Le texte du schéma : le tableau <code translate="no">prices</code> (<code translate="no">10</code>, <code translate="no">25</code>, <code translate="no">8</code>) entre dans <code translate="no">map</code> ; <code translate="no">map</code> appelle <code translate="no">addTax</code> sur chaque prix ; un <strong>nouveau</strong> tableau sort (<code translate="no">12</code>, <code translate="no">30</code>, <code translate="no">9.6</code>), de même longueur ; <code translate="no">prices</code> n’a pas changé.</p>
+<p>Voyez <code translate="no">map</code> élément par élément dans le visualiseur pas à pas : avancez avec <strong>Ligne suivante</strong>.</p>
+<div class="cadre-outil">
+<iframe class="cadre-outil-cadre" src="heberge/visualiseur/index.html#map" title="Visualiseur pas à pas : map, transformer chaque élément" loading="lazy"></iframe>
+<p class="cadre-outil-lien"><a href="heberge/visualiseur/index.html#map">Ouvrir en plein écran<span class="visually-hidden"> : Visualiseur pas à pas : map, transformer chaque élément</span></a></p>
+</div>
 </section>
 <section id="map-case-par-case" class="level3">
 <h3 class="anchored" data-anchor-id="map-case-par-case">map, case par case</h3>

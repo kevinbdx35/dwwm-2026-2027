@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-labelledby="flow-t flow-d">
+  <title id="flow-t">Le GitHub Flow : une branche par histoire</title>
+  <desc id="flow-d">La branche main reçoit le premier commit, avec .gitignore et .env.example. Une branche us-1-liste part de main, reçoit deux commits, puis revient dans main par une fusion. Quatre étapes : 1. une branche par histoire, avec git switch -c ; 2. des commits, avec add, commit et push ; 3. une Pull Request, relue par vous avec la grille ; 4. la fusion dans main, puis git pull.</desc>
+  <defs><marker id="flow-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="flow-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="flow-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="flow-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="flow-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+  <path d="M40 120 H960" stroke="#1f5fbf" stroke-width="6" fill="none"/>
+  <text x="40" y="95" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="start">main</text>
+  <path d="M200 120 C 260 120, 260 260, 320 260 H640 C 700 260, 700 120, 760 120" stroke="#17703a" stroke-width="6" fill="none"/>
+  <text x="470" y="300" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="middle">us-1-liste</text>
+  <circle cx="120" cy="120" r="16" fill="#1f5fbf" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="200" cy="120" r="16" fill="#1f5fbf" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="400" cy="260" r="16" fill="#17703a" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="560" cy="260" r="16" fill="#17703a" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="760" cy="120" r="16" fill="#1f5fbf" stroke="#ffffff" stroke-width="4"/>
+  <text x="230" y="80" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">1er commit : .gitignore, .env.example</text>
+  <rect x="20" y="340" width="220" height="165" rx="10" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="130" y="385" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">1. branche</text>
+  <text x="130" y="430" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">git switch -c</text>
+  <text x="130" y="470" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">une par histoire</text>
+  <rect x="265" y="340" width="220" height="165" rx="10" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="375" y="385" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">2. commits</text>
+  <text x="375" y="430" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">add, commit,</text>
+  <text x="375" y="470" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">push</text>
+  <rect x="510" y="340" width="220" height="165" rx="10" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="620" y="385" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">3. Pull Request</text>
+  <text x="620" y="430" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">relue par vous,</text>
+  <text x="620" y="470" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">avec la grille</text>
+  <rect x="755" y="340" width="220" height="165" rx="10" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="865" y="385" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">4. fusion</text>
+  <text x="865" y="430" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">dans main,</text>
+  <text x="865" y="470" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">puis git pull</text>
+</svg>

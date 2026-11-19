@@ -1,0 +1,61 @@
+/* R2 — L'en-tête qui reste en haut. Styles déjà écrits : ne les modifiez pas. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+.en-tete {
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  background: #1c1e21;
+  border-radius: 8px;
+}
+
+.titre-site {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* La carte et son badge : le résultat de l'exercice R1 */
+.carte {
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid #8a8f98;
+  border-radius: 8px;
+}
+
+.carte h2 {
+  margin: 0;
+  padding-right: 5rem;
+  font-size: 1.25rem;
+}
+
+.carte p {
+  margin: 0.25rem 0 0;
+}
+
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.1rem 0.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #1f5fbf;
+  border-radius: 1rem;
+}
+
+/* Écrivez vos règles sous cette ligne, une étape à la fois. */

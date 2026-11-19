@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chercher un musée</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Chercher un musée</h1>
+      <p>Formulaire de démonstration : il n’envoie rien.</p>
+
+      <form id="recherche">
+        <label for="ville">Ville</label>
+        <!-- Champ de recherche (search), obligatoire (required) -->
+        <input id="ville" name="ville" type="search" required>
+
+        <!-- label : relié à la liste par for et id -->
+        <label for="departement">Département</label>
+        <!-- select : une liste déroulante, un seul choix -->
+        <select id="departement" name="departement">
+          <!-- option : un choix ; value est la valeur envoyée -->
+          <option value="">Tous</option>
+          <!-- Les Côtes-d'Armor, valeur 22 -->
+          <option value="22">Côtes-d’Armor</option>
+          <!-- Le Finistère, valeur 29 -->
+          <option value="29">Finistère</option>
+          <!-- L'Ille-et-Vilaine, valeur 35 -->
+          <option value="35">Ille-et-Vilaine</option>
+          <!-- Le Morbihan, valeur 56 -->
+          <option value="56">Morbihan</option>
+        </select>
+
+        <p><button type="submit">Chercher</button></p>
+      </form>
+    </main>
+  </body>
+</html>

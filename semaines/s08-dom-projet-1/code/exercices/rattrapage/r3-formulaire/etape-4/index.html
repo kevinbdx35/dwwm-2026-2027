@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chercher un musée</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Chercher un musée</h1>
+      <p>Formulaire de démonstration : il n’envoie rien.</p>
+
+      <form id="recherche">
+        <label for="ville">Ville</label>
+        <!-- Champ de recherche (search), obligatoire (required) -->
+        <input id="ville" name="ville" type="search" required>
+
+        <!-- label : relié à la liste par for et id -->
+        <label for="departement">Département</label>
+        <!-- select : une liste déroulante, un seul choix -->
+        <select id="departement" name="departement">
+          <!-- option : un choix ; value est la valeur envoyée -->
+          <option value="">Tous</option>
+          <!-- Les Côtes-d'Armor, valeur 22 -->
+          <option value="22">Côtes-d’Armor</option>
+          <!-- Le Finistère, valeur 29 -->
+          <option value="29">Finistère</option>
+          <!-- L'Ille-et-Vilaine, valeur 35 -->
+          <option value="35">Ille-et-Vilaine</option>
+          <!-- Le Morbihan, valeur 56 -->
+          <option value="56">Morbihan</option>
+        </select>
+
+        <!-- label du nombre de résultats -->
+        <label for="nombre">Nombre de résultats (1 à 34)</label>
+        <!-- type number : des chiffres ; min, max : les bornes -->
+        <input id="nombre" name="nombre" type="number" min="1" max="34">
+
+        <!-- label de l'adresse e-mail -->
+        <label for="email">Votre e-mail, pour recevoir la liste</label>
+        <!-- type email : la forme de l'adresse est vérifiée -->
+        <input id="email" name="email" type="email">
+
+        <!-- label de la remarque -->
+        <label for="remarque">Une remarque</label>
+        <!-- textarea : un texte sur plusieurs lignes -->
+        <textarea id="remarque" name="remarque" rows="3"></textarea>
+
+        <p><button type="submit">Chercher</button></p>
+      </form>
+    </main>
+  </body>
+</html>

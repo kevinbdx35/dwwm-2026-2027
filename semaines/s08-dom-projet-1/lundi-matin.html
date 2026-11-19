@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Lundi 23/11, matin — Le DOM : lire et modifier la page – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" rel="next">
+<link href="../../semaines/s08-dom-projet-1/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../theme-commun.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/index.html">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/lundi-matin.html">Lundi 23/11, matin — Le DOM : lire et modifier la page</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s06-html-css-suite/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 10/11 — Grid, puis le mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 11/11 — Férié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 12/11 — Parcours d’autonomie, puis publier sa page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 13/11 — Vérifier sa page, puis la corriger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s07-js-avance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, matin — Séance PAF</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, après-midi — Fonctions en paramètre (callback) et map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, matin — Garder et trouver : filter et find</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, après-midi — Les objets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 18/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s08-dom-projet-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-matin.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lundi 23/11, matin — Le DOM : lire et modifier la page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, après-midi — Les événements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, matin — Séparer la logique et l’affichage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, après-midi — La décomposition (destructuring)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 25/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, matin — Formulaires : valider côté client</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, matin — La faille XSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, après-midi — Groupe B : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-le-dom-lire-et-modifier-la-page" id="toc-matin-le-dom-lire-et-modifier-la-page" class="nav-link" data-scroll-target="#matin-le-dom-lire-et-modifier-la-page">Matin — Le DOM : lire et modifier la page</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#votre-dossier-de-la-semaine-10-min" id="toc-votre-dossier-de-la-semaine-10-min" class="nav-link" data-scroll-target="#votre-dossier-de-la-semaine-10-min">Votre dossier de la semaine (10 min)</a></li>
+  <li><a href="#apport-dom" id="toc-apport-dom" class="nav-link" data-scroll-target="#apport-dom">Le DOM (15 min)</a></li>
+  <li><a href="#le-dom-en-image" id="toc-le-dom-en-image" class="nav-link" data-scroll-target="#le-dom-en-image">Le DOM, en image</a></li>
+  <li><a href="#le-dom-lexemple-minimal" id="toc-le-dom-lexemple-minimal" class="nav-link" data-scroll-target="#le-dom-lexemple-minimal">Le DOM, l’exemple minimal</a></li>
+  <li><a href="#le-dom-attention-et-vérification" id="toc-le-dom-attention-et-vérification" class="nav-link" data-scroll-target="#le-dom-attention-et-vérification">Le DOM — attention et vérification</a></li>
+  <li><a href="#pas-à-pas-ensemble-la-fiche-dun-musée-40-min" id="toc-pas-à-pas-ensemble-la-fiche-dun-musée-40-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-la-fiche-dun-musée-40-min">Pas à pas ensemble — La fiche d’un musée (40 min)</a>
+  <ul class="collapse">
+  <li><a href="#variante-à-faire-seuls" id="toc-variante-à-faire-seuls" class="nav-link" data-scroll-target="#variante-à-faire-seuls">Variante à faire seuls</a></li>
+  <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exercices-le-dom" id="toc-exercices-le-dom" class="nav-link" data-scroll-target="#exercices-le-dom">Exercices — Le DOM</a>
+  <ul>
+  <li><a href="#palier-1-le-titre-et-le-lieu-25-min" id="toc-palier-1-le-titre-et-le-lieu-25-min" class="nav-link" data-scroll-target="#palier-1-le-titre-et-le-lieu-25-min">Palier 1 — Le titre et le lieu (25 min)</a></li>
+  <li><a href="#palier-1-entraînement" id="toc-palier-1-entraînement" class="nav-link" data-scroll-target="#palier-1-entraînement">Palier 1 : entraînement</a></li>
+  <li><a href="#palier-2-une-liste-puis-mettre-en-valeur-40-min" id="toc-palier-2-une-liste-puis-mettre-en-valeur-40-min" class="nav-link" data-scroll-target="#palier-2-une-liste-puis-mettre-en-valeur-40-min">Palier 2 — Une liste, puis mettre en valeur (40 min)</a></li>
+  <li><a href="#palier-3-un-tableau-html-30-min" id="toc-palier-3-un-tableau-html-30-min" class="nav-link" data-scroll-target="#palier-3-un-tableau-html-30-min">Palier 3 — Un tableau HTML (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-1" id="toc-enregistrer-et-envoyer-2-min-1" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir" id="toc-à-retenir" class="nav-link" data-scroll-target="#à-retenir">À retenir</a></li>
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="lundi-matin.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="lundi-matin.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/index.html">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/lundi-matin.html">Lundi 23/11, matin — Le DOM : lire et modifier la page</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lundi 23/11, matin — Le DOM : lire et modifier la page</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">lundi 23 novembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C4 · résolution de problème<br> <strong>Livrable</strong> : le pas à pas <code translate="no">pas-a-pas-dom</code> envoyé sur GitHub, et la page <code translate="no">d1-titre</code> complète dans le navigateur.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Le minimum du jour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Le minimum du jour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Le pas à pas « La fiche d’un musée », fait avec le groupe.</li>
+<li>Le palier 1 : <code translate="no">d1-titre</code> affiche le nom, la ville et le département du musée.</li>
+</ul>
+<p>Les paliers 2 et 3, puis la rubrique « Si le temps le permet », sont la suite naturelle, pour ceux qui avancent.</p>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Expliquer ce qu’est le <a href="../../ressources/lexique.html#t-dom">DOM</a> : la page vue par JavaScript, comme un arbre d’éléments.</li>
+<li>Trouver un élément avec <code translate="no">querySelector</code>, puis changer son texte avec <code translate="no">textContent</code>.</li>
+<li>Créer un élément avec <code translate="no">createElement</code>, puis l’ajouter à la page avec <code translate="no">append</code>.</li>
+</ul>
+<p><strong>Comment se passe la matinée.</strong> Une seule notion : le DOM, pour lire et modifier la page. Jusqu’ici, votre JavaScript tournait dans le terminal, avec Node ; cette semaine, il tourne <strong>dans la page</strong>, dans le navigateur. D’abord une démonstration lente, puis nous codons ensemble, une étape à la fois, puis vos exercices, en trois paliers.</p>
+<p><strong>Les exercices de la semaine.</strong> Comme en semaine 7, trois paliers : le palier 1 est le minimum, guidé ; le palier 2 est recommandé, semi-guidé ; le palier 3 est autonome. Ce matin, les exercices se vérifient <strong>dans le navigateur</strong> : la page doit afficher ce qui est demandé, sans erreur dans la console. Cet après-midi aussi ; demain matin, les tests reviennent.</p>
+</section>
+<section id="matin-le-dom-lire-et-modifier-la-page" class="level2">
+<h2 class="anchored" data-anchor-id="matin-le-dom-lire-et-modifier-la-page">Matin — Le DOM : lire et modifier la page</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li>Le <em>spread</em> <code translate="no">{ ...museum }</code> modifie-t-il <code translate="no">museum</code> ?</li>
+<li>Que renvoie <code translate="no">[3, 8].map((n) =&gt; n * 2)</code> ?</li>
+<li>Combien de <code translate="no">h1</code> dans une page HTML bien construite ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille (vendredi), la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="votre-dossier-de-la-semaine-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="votre-dossier-de-la-semaine-10-min">Votre dossier de la semaine (10 min)</h3>
+<ol type="1">
+<li>Téléchargez l’<a href="code/exercices/s08-exercices.zip">archive de la semaine</a>.</li>
+<li>En ligne de commande : créez <code translate="no">semaine-08</code> dans <code translate="no">~/dwwm/dwwm-tp</code>.</li>
+<li>Extrayez l’archive dans <code translate="no">semaine-08</code>, puis ouvrez-y VS Code.</li>
+<li>Dans le terminal de VS Code : <code translate="no">npm install</code>.</li>
+<li><strong>Vous devez voir</strong>, à la fin : <code translate="no">found 0 vulnerabilities</code>.</li>
+</ol>
+<p>L’archive n’a pas de dossier à l’intérieur : ses fichiers vont directement dans <code translate="no">semaine-08</code>. Sous Windows, <em>Extraire tout…</em> propose un dossier <code translate="no">s08-exercices</code> : remplacez ce chemin par celui de <code translate="no">semaine-08</code>. <strong>Réussi si</strong> : <code translate="no">semaine-08</code> contient <code translate="no">package.json</code>, le dossier <code translate="no">data</code> et le dossier <code translate="no">pas-a-pas-dom</code>.</p>
+<p>Les commandes du terminal (créer un dossier, aller dedans, ouvrir VS Code avec <code translate="no">code .</code>) sont dans la fiche aide-mémoire Linux du Drive partagé de la formation et dans la <a href="../../semaines/s04-environnement/revision.html#le-terminal-et-ssh-mardi">fiche de révision de la semaine 4</a>. <code translate="no">code .</code> est inconnue ? Ouvrez VS Code, puis <em>Fichier</em> &gt; <em>Ouvrir le dossier…</em>, et choisissez <code translate="no">semaine-08</code>.</p>
+<p><strong>Les pages de la semaine s’ouvrent avec Live Preview</strong>, comme en semaines 5 et 6 : clic droit sur <code translate="no">index.html</code>, puis l’aperçu ; pour la console, <em>Ouvrir dans le navigateur</em>, puis F12, onglet <strong>Console</strong>. La fin de <code translate="no">npm install</code> parle de vulnérabilités ? <strong>Ne lancez pas</strong> <code translate="no">npm audit fix --force</code> : lisez l’entrée <a href="../../ressources/fiche-erreurs.html#npm-vulnerabilites">« npm parle de vulnérabilités »</a> de la fiche, et prévenez le formateur.</p>
+<p><strong>Les données de la semaine.</strong> Le dossier <code translate="no">data</code> contient les 34 musées de France de Bretagne, une copie figée de la base Muséofile du ministère de la Culture <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>, sous Licence Ouverte <span class="citation" data-cites="licence-ouverte">(<a href="#ref-licence-ouverte" role="doc-biblioref">Etalab, s.&nbsp;d.</a>)</span>. Aujourd’hui, chaque exercice a ses propres données, écrites dans son fichier ; demain matin, nous lirons le fichier complet.</p>
+</section>
+<section id="apport-dom" class="level3">
+<h3 class="anchored" data-anchor-id="apport-dom">Le DOM (15 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : afficher des données dans la page.</li>
+<li><strong>DOM</strong> : la page vue par JavaScript, un arbre d’éléments.</li>
+<li><strong>Trouver</strong>, <strong>changer</strong> : <code translate="no">querySelector</code>, <code translate="no">textContent</code>.</li>
+<li><strong>Créer</strong>, <strong>ajouter</strong> : <code translate="no">createElement</code>, <code translate="no">append</code>.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Jusqu’ici, le texte de vos pages était écrit à la main dans le HTML. Pour afficher 34 musées à partir d’un fichier de données, ou, cet après-midi, réagir à un clic, JavaScript doit <strong>lire</strong> et <strong>modifier</strong> la page.</p>
+<p><strong>Définition.</strong> Le <a href="../../ressources/lexique.html#t-dom">DOM</a> (<em>Document Object Model</em>) représente la page sous forme d’un arbre d’objets que JavaScript peut lire et modifier <span class="citation" data-cites="mdn-dom">(<a href="#ref-mdn-dom" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-f</a>)</span>. <code translate="no">document.querySelector(sélecteur)</code> renvoie le premier élément qui correspond à un <a href="../../ressources/lexique.html#t-selecteur">sélecteur</a> CSS, ou <code translate="no">null</code> <span class="citation" data-cites="mdn-queryselector">(<a href="#ref-mdn-queryselector" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span> ; <code translate="no">textContent</code> lit ou remplace le texte d’un élément <span class="citation" data-cites="mdn-textcontent">(<a href="#ref-mdn-textcontent" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-e</a>)</span> ; <code translate="no">document.createElement('li')</code> crée un élément, qui n’est pas encore dans la page <span class="citation" data-cites="mdn-createelement">(<a href="#ref-mdn-createelement" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span> ; <code translate="no">append</code> l’ajoute à la fin d’un autre élément <span class="citation" data-cites="mdn-append">(<a href="#ref-mdn-append" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span>.</p>
+</section>
+<section id="le-dom-en-image" class="level3">
+<h3 class="anchored" data-anchor-id="le-dom-en-image">Le DOM, en image</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s08-dom-arbre.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Le DOM : la page vue par JavaScript, un arbre d’éléments ; querySelector trouve, textContent change, createElement et append ajoutent."><img src="img/s08-dom-arbre.svg" class="img-fluid figure-img" alt="Le document contient body. Body contient trois enfants : le titre h1 d’identifiant titre, le paragraphe p d’identifiant ville et la liste ul d’identifiant domaines. querySelector avec #titre trouve le h1 ; textContent change son texte. createElement crée un li, et append l’ajoute dans la liste."></a></p>
+<figcaption>Le DOM : la page vue par JavaScript, un arbre d’éléments ; querySelector trouve, textContent change, createElement et append ajoutent.</figcaption>
+</figure>
+</div>
+</div>
+<p>Le texte du schéma : le <code translate="no">document</code> contient <code translate="no">body</code>, qui contient un titre <code translate="no">h1#titre</code>, un paragraphe <code translate="no">p#ville</code> et une liste <code translate="no">ul#domaines</code>. <code translate="no">querySelector('#titre')</code> trouve le titre ; <code translate="no">textContent</code> change son texte. <code translate="no">createElement('li')</code> crée un nouvel élément, et <code translate="no">append</code> l’ajoute dans la liste. Le même arbre est visible dans les outils du navigateur (F12), onglet <strong>Éléments</strong>.</p>
+</section>
+<section id="le-dom-lexemple-minimal" class="level3">
+<h3 class="anchored" data-anchor-id="le-dom-lexemple-minimal">Le DOM, l’exemple minimal</h3>
+<p>Le premier programme de la notion, annoté :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/exemple/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="semaine-08/exemple/app.js" translate="no"><pre class="sourceCode js code-annotation-code code-with-copy code-annotated"><code class="sourceCode javascript"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> title <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#titre'</span>)<span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>title<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">'musée de Dinan'</span><span class="op">;</span></span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> item <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">'Histoire'</span><span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#domaines'</span>)<span class="op">.</span><span class="fu">append</span>(item)<span class="op">;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1"><code translate="no">querySelector</code> reçoit un sélecteur CSS, comme en semaine 5 : <code translate="no">#titre</code> désigne l’élément d’<code translate="no">id="titre"</code>. La variable <code translate="no">title</code> désigne cet élément.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="2" data-code-annotation="2"><code translate="no">textContent</code> remplace le texte de l’élément : la page change aussitôt.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="3"><code translate="no">createElement</code> crée un élément <code translate="no">li</code>. Il n’est pas encore dans la page : il n’existe que dans la variable <code translate="no">item</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="5" data-code-annotation="4">On lui donne son texte, toujours avec <code translate="no">textContent</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="5"><code translate="no">append</code> l’ajoute à la fin de la liste <code translate="no">#domaines</code> : maintenant, il apparaît.</span>
+</dd>
+</dl>
+</section>
+<section id="le-dom-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="le-dom-attention-et-vérification">Le DOM — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled type-attention">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code translate="no">TypeError: Cannot set properties of null (setting 'textContent')</code> : <code translate="no">querySelector</code> n’a rien trouvé, il a renvoyé <code translate="no">null</code>. Un <code translate="no">#</code> oublié, une faute dans le nom ? Comparez le sélecteur avec l’<code translate="no">id</code> dans l’onglet Éléments (<a href="../../ressources/fiche-erreurs.html#dom-null">fiche « Lire un message d’erreur »</a>).</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : quel sélecteur pour <code translate="no">&lt;p id="resume"&gt;</code> ?</li>
+<li>Un <code translate="no">li</code> créé, sans <code translate="no">append</code> : est-il dans la page ?</li>
+</ul>
+</section>
+<section id="pas-à-pas-ensemble-la-fiche-dun-musée-40-min" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-ensemble-la-fiche-dun-musée-40-min">Pas à pas ensemble — La fiche d’un musée (40 min)</h3>
+<ul>
+<li>Le formateur code, vous tapez en même temps, une étape à la fois.</li>
+<li>Vous tapez aussi les commentaires : <code translate="no">//</code> en JavaScript.</li>
+<li>Dossier : <code translate="no">pas-a-pas-dom</code>, fichiers <code translate="no">index.html</code> et <code translate="no">app.js</code>.</li>
+<li>Perdu ? Dossier <code translate="no">rattrapage/dom/</code>, une étape à la fois.</li>
+</ul>
+<p><strong>Palier 1 : guidé.</strong> Dans VS Code, ouvrez <code translate="no">pas-a-pas-dom/index.html</code> : un titre, un paragraphe et une liste vide, chacun avec un <code translate="no">id</code>. Ouvrez aussi <code translate="no">pas-a-pas-dom/app.js</code> : il contient déjà les données d’un musée de Concarneau, tirées de la base Muséofile <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. La page charge <code translate="no">app.js</code> par la ligne <code translate="no">&lt;script src="app.js"&gt;&lt;/script&gt;</code>, placée à la fin du <code translate="no">body</code> : quand le script s’exécute, les éléments existent déjà.</p>
+<p><strong>Les commentaires.</strong> Dans chaque pas à pas, vous tapez le code <strong>et</strong> ses commentaires : ils disent ce que fait la ligne et le nom de la notion. En JavaScript, un commentaire commence par <code translate="no">//</code> ; en HTML, il s’écrit <code translate="no">&lt;!-- … --&gt;</code>. Il est sur sa propre ligne, juste au-dessus de la ligne qu’il explique. Le navigateur les ignore : ils servent à vous relire.</p>
+<p><strong>Avant de commencer.</strong> Ouvrez <code translate="no">pas-a-pas-dom/index.html</code> avec Live Preview, puis <em>Ouvrir dans le navigateur</em> ; F12, onglet <strong>Console</strong>. <strong>Vous devez voir</strong> : la page « Titre à remplacer », et, dans la console, l’objet du musée, sans erreur en rouge. Chaque étape ajoute ses lignes à la fin d’<code translate="no">app.js</code> ; enregistrez, puis rechargez la page du navigateur.</p>
+<p><strong>Étape 1 — Trouver un élément.</strong> À la fin d’<code translate="no">app.js</code>, cherchez le titre avec <code translate="no">querySelector</code>, puis affichez-le dans la console.</p>
+<p><em>Avant d’exécuter</em> : que va afficher la console, le texte du titre ou l’élément entier ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-dom/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="semaine-08/pas-a-pas-dom/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// querySelector : trouve l'élément d'id titre</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> title <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#titre'</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Affiche l'élément trouvé dans la console</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(title)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez la page du navigateur.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, dans la console : <code translate="no">&lt;h1 id="titre"&gt;Titre à remplacer&lt;/h1&gt;</code>. Survolez-le : le titre s’éclaire dans la page.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/dom/etape-1/app.js</code> à la place de votre <code translate="no">app.js</code>, puis repartez avec le groupe.</p>
+</div>
+<p><strong>Étape 2 — Changer le texte.</strong> Remplacez le texte du titre et celui du paragraphe de la ville.</p>
+<p><em>Avant d’exécuter</em> : le <code translate="no">h1</code> du fichier <code translate="no">index.html</code> va-t-il changer ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-dom/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="semaine-08/pas-a-pas-dom/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// textContent : remplace le texte du titre</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>title<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> museum<span class="op">.</span><span class="at">name</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Même chose pour le paragraphe de la ville</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#ville'</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> museum<span class="op">.</span><span class="at">city</span><span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : le titre « musée de la pêche » et la ville « Concarneau ». Le fichier <code translate="no">index.html</code>, lui, n’a pas changé : JavaScript modifie la page affichée, pas le fichier.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/dom/etape-2/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<p><strong>Étape 3 — Créer un élément.</strong> Créez un paragraphe, donnez-lui un texte, puis ajoutez-le à la fin de <code translate="no">main</code>.</p>
+<p><em>Avant d’exécuter</em> : sans la dernière ligne, le paragraphe serait-il visible ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-dom/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="semaine-08/pas-a-pas-dom/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// createElement : crée un paragraphe, pas encore affiché</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> note <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'p'</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Son texte</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>note<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">'Un musée de France, en Bretagne.'</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// append : l'ajoute à la fin de &lt;main&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'main'</span>)<span class="op">.</span><span class="fu">append</span>(note)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : sous la liste vide, la phrase « Un musée de France, en Bretagne. ». Dans l’onglet <strong>Éléments</strong>, le nouveau <code translate="no">&lt;p&gt;</code> est à la fin de <code translate="no">&lt;main&gt;</code>.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/dom/etape-3/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<p><strong>Étape 4 — Une liste à partir d’un tableau.</strong> Pour chaque domaine du musée, créez un <code translate="no">&lt;li&gt;</code> et ajoutez-le à la liste.</p>
+<p><em>Avant d’exécuter</em> : combien de <code translate="no">&lt;li&gt;</code> vont apparaître ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-dom/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="semaine-08/pas-a-pas-dom/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// La liste des domaines, vide pour l'instant</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> list <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#domaines'</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// for...of : une fois pour chaque domaine</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> domain <span class="kw">of</span> museum<span class="op">.</span><span class="at">domains</span>) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Un nouveau &lt;li&gt; pour ce domaine</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> item <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Son texte : le nom du domaine</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> domain<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// append : l'ajoute à la fin de la liste</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  list<span class="op">.</span><span class="fu">append</span>(item)<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : sous « Domaines », trois lignes : Ethnologie, Histoire, Sciences de la nature.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/dom/etape-4/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<p><strong>Étape 5 — Masquer un élément.</strong> Masquez le paragraphe créé à l’étape 3, avec sa propriété <code translate="no">hidden</code> (« caché »).</p>
+<p><em>Avant d’exécuter</em> : le paragraphe sera-t-il encore dans l’onglet <strong>Éléments</strong> ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-dom/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="semaine-08/pas-a-pas-dom/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// hidden : masque le paragraphe, sans le supprimer</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>note<span class="op">.</span><span class="at">hidden</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : la phrase « Un musée de France, en Bretagne. » a disparu de la page. Dans l’onglet <strong>Éléments</strong>, le <code translate="no">&lt;p hidden&gt;</code> est toujours à la fin de <code translate="no">&lt;main&gt;</code> : il est masqué, pas supprimé. Remplacez <code translate="no">true</code> par <code translate="no">false</code>, enregistrez, rechargez : la phrase revient. Remettez <code translate="no">true</code>.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/dom/etape-5/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<p><strong>Étape 6 — Poser une classe CSS.</strong> Ouvrez <code translate="no">pas-a-pas-dom/style.css</code> : à la fin, la classe <code translate="no">.important</code> est déjà écrite (du gras, une barre bleue à gauche). Posez-la sur le paragraphe de la ville, avec <code translate="no">classList.add</code>.</p>
+<p><em>Avant d’exécuter</em> : faut-il écrire le point de <code translate="no">.important</code> dans <code translate="no">classList.add</code> ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-dom/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="semaine-08/pas-a-pas-dom/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// classList.add : ajoute la classe CSS important à la ville</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#ville'</span>)<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">add</span>(<span class="st">'important'</span>)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : « Concarneau » en gras, avec une barre bleue à gauche. Dans l’onglet <strong>Éléments</strong> : <code translate="no">&lt;p id="ville" class="important"&gt;</code>. Le style est écrit dans <code translate="no">style.css</code> ; JavaScript pose seulement la classe, sans point : le point appartient aux sélecteurs CSS.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/dom/etape-6/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<section id="variante-à-faire-seuls" class="level4">
+<h4 class="anchored" data-anchor-id="variante-à-faire-seuls">Variante à faire seuls</h4>
+<p>Pour ceux qui ont validé l’étape avant les autres, dans le même fichier. Ajoutez un domaine au tableau <code translate="no">museum.domains</code> (par exemple <code translate="no">'Technique et industrie'</code>), enregistrez, rechargez. <strong>Réussi si</strong> : quatre lignes s’affichent, sans changer la boucle.</p>
+</section>
+<section id="enregistrer-et-envoyer-2-min" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
+<p>Dans le terminal, depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pas-a-pas-dom</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute le pas à pas DOM"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code translate="no">dwwm-tp</code>. Le message suit la fiche aide-mémoire commit du Drive partagé (ou la <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision de la semaine 4</a>).</p>
+</div>
+</section>
+</section>
+</section>
+<section id="exercices-le-dom" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-le-dom">Exercices — Le DOM</h2>
+<p>Chaque exercice est un dossier avec <code translate="no">index.html</code>, <code translate="no">app.js</code> et <code translate="no">style.css</code> ; la consigne est en commentaire en haut d’<code translate="no">app.js</code>. Ce matin, pas de fichier de tests, y compris pour les exercices d’entraînement : vous vérifiez dans le navigateur, avec Live Preview, que la page affiche ce qui est demandé, <strong>et</strong> que la console (F12) n’affiche aucune erreur en rouge.</p>
+<section id="palier-1-le-titre-et-le-lieu-25-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-le-titre-et-le-lieu-25-min">Palier 1 — Le titre et le lieu (25 min)</h3>
+<ol type="1">
+<li>Ouvrez <code translate="no">d1-titre/app.js</code> ; lisez la consigne.</li>
+<li>Trouvez les trois éléments avec <code translate="no">querySelector</code>.</li>
+<li>Changez leur texte avec <code translate="no">textContent</code>.</li>
+<li><strong>Réussi si</strong> : plus aucun texte « à remplacer ».</li>
+</ol>
+<p><strong>Palier 1 : guidé.</strong> Durée : 25 min.</p>
+<ol type="1">
+<li>Ouvrez <code translate="no">d1-titre/index.html</code> avec Live Preview : trois textes « à remplacer », chacun avec un <code translate="no">id</code>. Notez les trois <code translate="no">id</code>.</li>
+<li>Ouvrez <code translate="no">d1-titre/app.js</code> : l’objet <code translate="no">museum</code> contient le nom, la ville et le département du musée bigouden.</li>
+<li>Sous l’objet, écrivez le nom dans le titre : <code translate="no">document.querySelector('#titre').textContent = museum.name;</code>.</li>
+<li>Faites de même pour la ville (<code translate="no">#ville</code>).</li>
+<li>Pour le département, écrivez un texte composé avec un littéral de gabarit : <code translate="no">`Département : ${museum.department}`</code>.</li>
+<li>Enregistrez, rechargez, regardez la console.</li>
+<li>Rituel : un commit (<code translate="no">git add d1-titre</code>, <code translate="no">git commit -m "Ajoute la solution de d1"</code>).</li>
+</ol>
+<p><strong>Réussi si</strong> : la page affiche « musée bigouden », « Pont-l’Abbé » et « Département : Finistère », et la console n’affiche aucune erreur.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/d1-titre-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="À 375 px"><img src="img/resultats/d1-titre-375.webp" class="img-fluid figure-img" alt="Résultat attendu à 375 pixels de large : le titre « musée bigouden », puis « Pont-l'Abbé » et « Département : Finistère »." width="375"></a></p>
+<figcaption>À 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/d1-titre-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="À 1280 px"><img src="img/resultats/d1-titre-1280.webp" class="img-fluid figure-img" alt="Résultat attendu à 1280 pixels de large : la même page, centrée, avec le titre « musée bigouden », la ville et le département."></a></p>
+<figcaption>À 1280 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/lundi-matin.html#apport-dom">Lundi matin, « Le DOM »</a> ; le pas à pas, étape 2.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez ce que signifie un message d’erreur de la console, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector">Document.querySelector()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent">Node.textContent</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-1-entraînement" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-entraînement">Palier 1 : entraînement</h3>
+<ul>
+<li>Le palier 1 vous a demandé de l’aide ou la correction ?</li>
+<li>Faites ces deux exercices à la place du palier 2 : 2 × 10 min.</li>
+<li><code translate="no">d1b-port-musee</code>, <code translate="no">d1c-musee-de-bretagne</code>.</li>
+<li>Exercices complets : un peu de HTML, de CSS et de JavaScript.</li>
+<li><strong>Réussi si</strong> : chaque page affiche ce que dit sa consigne.</li>
+</ul>
+<p><strong>Palier 1 : entraînement.</strong> Entraînement : 2 × 10 min, à faire à la place du palier 2, si le palier 1 vous a demandé de l’aide ou la correction. Même travail que <code translate="no">d1-titre</code>, avec d’autres musées.</p>
+<p>Ce sont des exercices <strong>complets</strong> : les trois fichiers sont fournis, et vous modifiez un peu chacun. La consigne détaillée est en commentaire en haut d’<code translate="no">app.js</code>.</p>
+<ol type="1">
+<li><strong><code translate="no">d1b-port-musee</code></strong> :
+<ul>
+<li><code translate="no">index.html</code> : ajoutez le paragraphe <code translate="no">&lt;p id="departement"&gt;</code>.</li>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.discret</code> (une couleur, une taille de texte).</li>
+<li><code translate="no">app.js</code> : écrivez le nom, la ville et le département, puis posez la classe <code translate="no">discret</code> sur le département (<code translate="no">classList.add</code>, étape 6 du pas à pas).</li>
+</ul>
+<strong>Vous devez voir</strong> : « port musée », « Douarnenez », puis « Département : Finistère » en gris et plus petit ; aucune erreur dans la console.</li>
+<li><strong><code translate="no">d1c-musee-de-bretagne</code></strong> :
+<ul>
+<li><code translate="no">index.html</code> : ajoutez le paragraphe <code translate="no">&lt;p id="telephone"&gt;</code>.</li>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.encadre</code> (un espace intérieur, une bordure).</li>
+<li><code translate="no">app.js</code> : écrivez le nom, la ville et le téléphone, posez la classe <code translate="no">encadre</code> sur le téléphone, puis masquez le paragraphe « Chargement de la fiche… » (<code translate="no">hidden</code>, étape 5 du pas à pas).</li>
+</ul>
+<strong>Vous devez voir</strong> : « musée de Bretagne », « Rennes », puis « Téléphone : 02 23 40 66 70 » dans un cadre bleu ; « Chargement de la fiche… » a disparu ; aucune erreur dans la console.</li>
+<li>Rituel : un commit par exercice réussi (<code translate="no">git add d1b-port-musee</code>, <code translate="no">git commit -m "Ajoute la solution de d1b"</code>).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/d1b-port-musee-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="d1b-port-musee, à 375 px"><img src="img/resultats/d1b-port-musee-375.webp" class="img-fluid figure-img" alt="Résultat attendu de d1b à 375 pixels : le titre « port musée », « Douarnenez », puis « Département : Finistère » en gris et plus petit." width="375"></a></p>
+<figcaption>d1b-port-musee, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/d1c-musee-de-bretagne-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="d1c-musee-de-bretagne, à 375 px"><img src="img/resultats/d1c-musee-de-bretagne-375.webp" class="img-fluid figure-img" alt="Résultat attendu de d1c à 375 pixels : le titre « musée de Bretagne », « Rennes », puis « Téléphone : 02 23 40 66 70 » dans un cadre bleu ; aucun texte « Chargement »." width="375"></a></p>
+<figcaption>d1c-musee-de-bretagne, à 375 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/lundi-matin.html#apport-dom">Lundi matin, « Le DOM »</a> ; le pas à pas, étapes 2, 5 et 6.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi une classe s’écrit avec un point dans le CSS et sans point dans <code translate="no">classList.add</code>, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList">Element.classList</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent">Node.textContent</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-2-une-liste-puis-mettre-en-valeur-40-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-2-une-liste-puis-mettre-en-valeur-40-min">Palier 2 — Une liste, puis mettre en valeur (40 min)</h3>
+<ol type="1">
+<li><code translate="no">d2-liste</code> : un résumé, puis un <code translate="no">&lt;li&gt;</code> par nom.</li>
+<li><code translate="no">d3-classe</code> : la classe <code translate="no">important</code> sur les musées de Rennes.</li>
+<li>Dans <code translate="no">d3-classe</code>, vous écrivez aussi la classe dans <code translate="no">style.css</code>.</li>
+<li><strong>Réussi si</strong> : chaque page affiche ce qui est demandé.</li>
+</ol>
+<p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 40 min (20 min par exercice) ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
+<ol type="1">
+<li><strong><code translate="no">d2-liste</code></strong> : le tableau <code translate="no">names</code> contient cinq musées du Morbihan.
+<ul>
+<li>Dans le <code translate="no">&lt;p id="resume"&gt;</code>, écrivez « 5 musées », avec <code translate="no">names.length</code>.</li>
+<li>Pour chaque nom (<code translate="no">for...of</code>), créez un <code translate="no">&lt;li&gt;</code>, donnez-lui le nom, ajoutez-le à <code translate="no">#liste</code>.</li>
+</ul></li>
+<li><strong><code translate="no">d3-classe</code></strong> : le tableau <code translate="no">museums</code> contient cinq objets <code translate="no">{ name, city }</code>. Vous écrivez <strong>deux fichiers sur trois</strong> : <code translate="no">style.css</code> et <code translate="no">app.js</code> ; <code translate="no">index.html</code> est fourni.
+<ul>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.important</code> : du gras, une bordure gauche de 4 px, pleine, bleue (<code translate="no">#1f5fbf</code>), et <code translate="no">0.5rem</code> d’espace intérieur à gauche (semaine 5).</li>
+<li><code translate="no">app.js</code> : pour chaque musée, un <code translate="no">&lt;li&gt;</code> « nom — ville », ajouté à <code translate="no">#liste</code>.</li>
+<li><code translate="no">app.js</code> : si la ville est <code translate="no">'Rennes'</code>, ajoutez au <code translate="no">&lt;li&gt;</code> la classe <code translate="no">important</code> (<code translate="no">classList.add</code>, étape 6 du pas à pas).</li>
+</ul></li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">d2-liste</code> affiche « 5 musées » et cinq lignes, dans l’ordre du tableau ; dans <code translate="no">d3-classe</code>, les trois musées de Rennes sont en gras, avec une barre bleue à gauche ; aucune erreur dans la console.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/d2-liste-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="d2-liste, à 375 px"><img src="img/resultats/d2-liste-375.webp" class="img-fluid figure-img" alt="Résultat attendu de d2-liste à 375 pixels : le titre « Musées du Morbihan », « 5 musées », puis une liste de cinq musées." width="375"></a></p>
+<figcaption>d2-liste, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/d3-classe-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="d3-classe, à 1280 px"><img src="img/resultats/d3-classe-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de d3-classe à 1280 pixels : cinq musées « nom — ville » ; les trois musées de Rennes sont en gras, avec une barre bleue à gauche."></a></p>
+<figcaption>d3-classe, à 1280 px</figcaption>
+</figure>
+</div>
+<p><strong>Trois indices pour <code translate="no">d2-liste</code></strong>, du plus léger au plus complet. Ouvrez-les un par un : après chaque indice, essayez de nouveau avant d’ouvrir le suivant.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 1 — l'idée">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 1 — l’idée
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le résumé est un seul texte à écrire, comme dans <code translate="no">d1-titre</code>. La liste, c’est la boucle de l’étape 4 du pas à pas : un <code translate="no">&lt;li&gt;</code> créé, rempli, puis ajouté, pour chaque nom du tableau.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 2 — le squelette">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 2 — le squelette
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 1. Trouver le paragraphe #resume ; y écrire « 5 musées », avec names.length</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. Trouver la liste #liste, la garder dans une variable</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 3. Pour chaque nom du tableau names (for...of) :</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">//    - créer un &lt;li&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">//    - lui donner le nom comme texte</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">//    - l'ajouter à la fin de la liste</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 3 — la solution, moins une ligne">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 3 — la solution, moins une ligne
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#resume'</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>names<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs"> musées`</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> list <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#liste'</span>)<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> name <span class="kw">of</span> names) {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> item <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> name<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Il manque une ligne : sans elle, aucun &lt;li&gt; n'apparaît dans la page.</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/lundi-matin.html#apport-dom">Lundi matin, « Le DOM »</a> ; le pas à pas, étape 4 (la boucle).</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez la différence entre une classe CSS et un <code translate="no">id</code>, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/append">Element.append()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList">Element.classList</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-3-un-tableau-html-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-3-un-tableau-html-30-min">Palier 3 — Un tableau HTML (30 min)</h3>
+<ul>
+<li><code translate="no">d4-tableau-html</code> : une ligne <code translate="no">&lt;tr&gt;</code> par musée, trois cellules <code translate="no">&lt;td&gt;</code>.</li>
+<li><strong>Réussi si</strong> : trois lignes, trois colonnes, sous les en-têtes.</li>
+</ul>
+<p><strong>Palier 3 : autonome.</strong> Durée indicative : 30 min ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
+<p>Dans <code translate="no">d4-tableau-html/app.js</code>, remplissez le corps du tableau (<code translate="no">&lt;tbody id="lignes"&gt;</code>) : une ligne par musée, avec trois cellules : le nom, la ville, le nombre de domaines. Vous savez déjà créer et ajouter des éléments ; à vous de trouver comment s’organisent <code translate="no">tr</code> et <code translate="no">td</code>, et comment écrire les trois cellules sans répéter trois fois le même code.</p>
+<p><strong>Réussi si</strong> : le tableau affiche trois lignes et trois colonnes, sous les en-têtes « Musée », « Ville », « Domaines », et la console n’affiche aucune erreur.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Autonome">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autonome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez bloquer : c’est voulu, c’est le métier. Méthode : 1. lisez le message d’erreur en entier ; 2. cherchez-le dans la fiche « Lire un message d’erreur » ; 3. lisez la documentation ; 4. après 15 minutes bloqué sur le même point, demandez.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/lundi-matin.html#apport-dom">Lundi matin, « Le DOM »</a> ; le pas à pas, étapes 3 et 4.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez comment est construit un tableau HTML, pas le code JavaScript.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/table"><code translate="no">&lt;table&gt;</code> : l’élément de tableau</a>.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min-1" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
+<p>Même rituel, depuis <code translate="no">semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add</code> de vos dossiers, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> (le push de fin de demi-journée). <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled type-ressource" title="Ressource">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ressource
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/DOM_scripting">Manipuler des documents</a></strong> — MDN, en français <span class="citation" data-cites="mdn-manipuler-documents">(<a href="#ref-mdn-manipuler-documents" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span> - <strong>Pourquoi</strong> : voir le DOM d’une autre façon que dans le cours. - <strong>Quoi</strong> : les parties « Le modèle objet du document » et « Apprentissage actif : manipulations basiques du DOM ». - <strong>Durée</strong> : 15 min · <strong>Langue</strong> : français · <strong>Niveau</strong> : débutant. - <strong>Mission</strong> : dans l’onglet Éléments de votre page <code translate="no">d1-titre</code>, retrouvez les trois éléments que votre code a modifiés ; notez, en commentaire à la fin d’<code translate="no">app.js</code>, le nom de la balise qui les contient tous.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="à-retenir" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir">À retenir</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le DOM</strong> : la page vue par JavaScript, un arbre d’éléments.</li>
+<li><strong><code translate="no">querySelector</code></strong> trouve (ou renvoie <code translate="no">null</code>) ; <strong><code translate="no">textContent</code></strong> change le texte.</li>
+<li><strong><code translate="no">createElement</code></strong> crée, <strong><code translate="no">append</code></strong> ajoute : rien n’apparaît avant <code translate="no">append</code>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Les paliers 2 et 3 non terminés.</li>
+<li>La ressource du jour, avec sa mission.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Que renvoie <code translate="no">querySelector</code> quand il ne trouve rien ?</li>
+<li>Pourquoi le fichier <code translate="no">index.html</code> n’a-t-il pas changé ?</li>
+</ul>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-licence-ouverte" class="csl-entry" role="listitem">
+Etalab. s.&nbsp;d. <span>«&nbsp;Licence Ouverte / Open Licence&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf">https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf</a>.
+</div>
+<div id="ref-mdn-createelement" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;Document : méthode createElement()&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Document/createElement">https://developer.mozilla.org/fr/docs/Web/API/Document/createElement</a>.
+</div>
+<div id="ref-mdn-queryselector" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Document : méthode querySelector()&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector">https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector</a>.
+</div>
+<div id="ref-mdn-append" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Element : méthode append()&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/append">https://developer.mozilla.org/fr/docs/Web/API/Element/append</a>.
+</div>
+<div id="ref-mdn-manipuler-documents" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;Manipuler des documents&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/DOM_scripting">https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/DOM_scripting</a>.
+</div>
+<div id="ref-mdn-textcontent" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-e. <span>«&nbsp;Node : propriété textContent&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent">https://developer.mozilla.org/fr/docs/Web/API/Node/textContent</a>.
+</div>
+<div id="ref-mdn-dom" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-f. <span>«&nbsp;Référence du DOM - Les API Web&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model/Introduction">https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model/Introduction</a>.
+</div>
+<div id="ref-datagouv-museofile" class="csl-entry" role="listitem">
+Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Répertoire des Musées de France : base Muséofile&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://www.data.gouv.fr/datasets/musees-de-france-base-museofile">https://www.data.gouv.fr/datasets/musees-de-france-base-museofile</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s08-dom-projet-1/index.html" class="pagination-link" aria-label="Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" class="pagination-link" aria-label="Lundi 23/11, après-midi — Les événements">
+        <span class="nav-page-text">Lundi 23/11, après-midi — Les événements</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Mardi 24/11, matin — Séparer la logique et l’affichage – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s08-dom-projet-1/mardi-apres-midi.html" rel="next">
+<link href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../theme-commun.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/index.html">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/mardi-matin.html">Mardi 24/11, matin — Séparer la logique et l’affichage</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s06-html-css-suite/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 10/11 — Grid, puis le mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 11/11 — Férié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 12/11 — Parcours d’autonomie, puis publier sa page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 13/11 — Vérifier sa page, puis la corriger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s07-js-avance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, matin — Séance PAF</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, après-midi — Fonctions en paramètre (callback) et map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, matin — Garder et trouver : filter et find</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, après-midi — Les objets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 18/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s08-dom-projet-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, matin — Le DOM : lire et modifier la page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, après-midi — Les événements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-matin.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mardi 24/11, matin — Séparer la logique et l’affichage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, après-midi — La décomposition (destructuring)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 25/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, matin — Formulaires : valider côté client</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, matin — La faille XSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, après-midi — Groupe B : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#matin-séparer-la-logique-et-laffichage" id="toc-matin-séparer-la-logique-et-laffichage" class="nav-link" data-scroll-target="#matin-séparer-la-logique-et-laffichage">Matin — Séparer la logique et l’affichage</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-logique" id="toc-apport-logique" class="nav-link" data-scroll-target="#apport-logique">Séparer la logique et l’affichage (15 min)</a></li>
+  <li><a href="#logique-et-affichage-en-image" id="toc-logique-et-affichage-en-image" class="nav-link" data-scroll-target="#logique-et-affichage-en-image">Logique et affichage, en image</a></li>
+  <li><a href="#logique-et-affichage-lexemple-minimal" id="toc-logique-et-affichage-lexemple-minimal" class="nav-link" data-scroll-target="#logique-et-affichage-lexemple-minimal">Logique et affichage, l’exemple minimal</a></li>
+  <li><a href="#import-donne" id="toc-import-donne" class="nav-link" data-scroll-target="#import-donne">Les lignes <code translate="no">import</code> (2 min)</a></li>
+  <li><a href="#logique-et-affichage-attention-et-vérification" id="toc-logique-et-affichage-attention-et-vérification" class="nav-link" data-scroll-target="#logique-et-affichage-attention-et-vérification">Logique et affichage — attention et vérification</a></li>
+  <li><a href="#pas-à-pas-ensemble-les-musées-de-bretagne-40-min" id="toc-pas-à-pas-ensemble-les-musées-de-bretagne-40-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-les-musées-de-bretagne-40-min">Pas à pas ensemble — Les musées de Bretagne (40 min)</a>
+  <ul class="collapse">
+  <li><a href="#variante-à-faire-seuls" id="toc-variante-à-faire-seuls" class="nav-link" data-scroll-target="#variante-à-faire-seuls">Variante à faire seuls</a></li>
+  <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exercices-séparer-la-logique-et-laffichage" id="toc-exercices-séparer-la-logique-et-laffichage" class="nav-link" data-scroll-target="#exercices-séparer-la-logique-et-laffichage">Exercices — Séparer la logique et l’affichage</a>
+  <ul>
+  <li><a href="#palier-1-la-ville-et-le-département-30-min" id="toc-palier-1-la-ville-et-le-département-30-min" class="nav-link" data-scroll-target="#palier-1-la-ville-et-le-département-30-min">Palier 1 — La ville et le département (30 min)</a></li>
+  <li><a href="#palier-1-entraînement" id="toc-palier-1-entraînement" class="nav-link" data-scroll-target="#palier-1-entraînement">Palier 1 : entraînement</a></li>
+  <li><a href="#palier-2-filtrer-par-département-le-détail-dun-musée-45-min" id="toc-palier-2-filtrer-par-département-le-détail-dun-musée-45-min" class="nav-link" data-scroll-target="#palier-2-filtrer-par-département-le-détail-dun-musée-45-min">Palier 2 — Filtrer par département, le détail d’un musée (45 min)</a></li>
+  <li><a href="#palier-2-les-musées-dun-domaine-30-min" id="toc-palier-2-les-musées-dun-domaine-30-min" class="nav-link" data-scroll-target="#palier-2-les-musées-dun-domaine-30-min">Palier 2 — Les musées d’un domaine (30 min)</a></li>
+  <li><a href="#palier-3-ville-par-ville-30-min" id="toc-palier-3-ville-par-ville-30-min" class="nav-link" data-scroll-target="#palier-3-ville-par-ville-30-min">Palier 3 — Ville par ville (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-1" id="toc-enregistrer-et-envoyer-2-min-1" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir" id="toc-à-retenir" class="nav-link" data-scroll-target="#à-retenir">À retenir</a></li>
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="mardi-matin.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="mardi-matin.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/index.html">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/mardi-matin.html">Mardi 24/11, matin — Séparer la logique et l’affichage</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Mardi 24/11, matin — Séparer la logique et l’affichage</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">mardi 24 novembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C4 · résolution de problème<br> <strong>Livrable</strong> : le pas à pas <code translate="no">pas-a-pas-logique</code> envoyé sur GitHub, et <code translate="no">node --test s1-etiquette.test.js</code> au vert.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Le minimum du jour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Le minimum du jour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Le pas à pas « Les musées de Bretagne », fait avec le groupe.</li>
+<li>Le palier 1 : <code translate="no">node --test s1-etiquette.test.js</code> au vert, et la liste affichée dans le navigateur.</li>
+</ul>
+<p>Les paliers 2 et 3, puis la rubrique « Si le temps le permet », sont la suite naturelle, pour ceux qui avancent.</p>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Ranger ce qui <strong>calcule</strong> (la logique) à part de ce qui <strong>affiche</strong> (l’affichage).</li>
+<li>Tester la logique avec <code translate="no">node --test</code>, sans navigateur.</li>
+<li>Afficher dans la page le résultat d’une fonction de la logique.</li>
+</ul>
+<p><strong>Comment se passe la matinée.</strong> Une seule notion : séparer la logique et l’affichage. Hier, tout le code était dans <code translate="no">app.js</code>, et vous vérifiiez tout à l’œil. Ce matin, chaque exercice a deux fichiers : <code translate="no">logic.js</code> calcule, et les tests le vérifient ; <code translate="no">app.js</code> affiche, et vous le vérifiez dans le navigateur. C’est l’organisation du projet n° 1, qui commence jeudi.</p>
+</section>
+<section id="matin-séparer-la-logique-et-laffichage" class="level2">
+<h2 class="anchored" data-anchor-id="matin-séparer-la-logique-et-laffichage">Matin — Séparer la logique et l’affichage</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li>Dans un écouteur : <code translate="no">show</code> ou <code translate="no">show()</code> ? Pourquoi ?</li>
+<li>Que renvoie <code translate="no">[25, 8].toSorted((a, b) =&gt; a - b)</code> ?</li>
+<li>Quelle commande Git crée une branche et s’y place ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille (lundi), la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-logique" class="level3">
+<h3 class="anchored" data-anchor-id="apport-logique">Séparer la logique et l’affichage (15 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : tester ce qui calcule, sans navigateur.</li>
+<li><strong><code translate="no">logic.js</code></strong> calcule ; <strong><code translate="no">app.js</code></strong> écrit dans la page.</li>
+<li>La logique ne touche <strong>jamais</strong> à <code translate="no">document</code>.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Hier, vous vérifiiez vos pages à l’œil, dans le navigateur. Avec 34 musées, puis des centaines quand les données viendront d’une API, l’œil ne suffit plus. Or Node, qui lance les tests, n’a pas de page : il ne connaît pas <code translate="no">document</code>. Tout ce qui calcule peut donc être testé automatiquement, à condition de ne pas dépendre du DOM. C’est aussi ce qu’attend le jury : des <a href="../../ressources/lexique.html#t-test">tests</a> unitaires de la logique.</p>
+<p><strong>Définition.</strong> La <strong>logique</strong> (<code translate="no">logic.js</code>) calcule, filtre, formate : des <a href="../../ressources/lexique.html#t-fonction">fonctions</a> qui reçoivent des données et renvoient un résultat, sans jamais toucher au DOM ; on la vérifie avec <code translate="no">node --test</code>. L’<strong>affichage</strong> (<code translate="no">app.js</code>) trouve les éléments de la page et y écrit le résultat de la logique ; on le vérifie dans le navigateur.</p>
+</section>
+<section id="logique-et-affichage-en-image" class="level3">
+<h3 class="anchored" data-anchor-id="logique-et-affichage-en-image">Logique et affichage, en image</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s08-logique-affichage.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="La logique calcule et se teste avec node –test ; l’affichage écrit dans la page et se vérifie dans le navigateur."><img src="img/s08-logique-affichage.svg" class="img-fluid figure-img" alt="À gauche, logic.js, la logique : elle calcule, filtre et formate, sans document ; par exemple museumLabel(museum) ; elle est vérifiée par node --test. À droite, app.js, l’affichage : il lit et écrit la page avec querySelector et textContent ; il est vérifié dans le navigateur. Une flèche import va de logic.js vers app.js."></a></p>
+<figcaption>La logique calcule et se teste avec node –test ; l’affichage écrit dans la page et se vérifie dans le navigateur.</figcaption>
+</figure>
+</div>
+</div>
+<p>Le texte du schéma : à gauche, <code translate="no">logic.js</code>, la logique : elle calcule, sans <code translate="no">document</code>, et <code translate="no">node --test</code> la vérifie. À droite, <code translate="no">app.js</code>, l’affichage : il trouve les éléments de la page et y écrit ; vous le vérifiez dans le navigateur. Une ligne <code translate="no">import</code>, en haut d’<code translate="no">app.js</code>, apporte les fonctions de <code translate="no">logic.js</code>.</p>
+</section>
+<section id="logique-et-affichage-lexemple-minimal" class="level3">
+<h3 class="anchored" data-anchor-id="logique-et-affichage-lexemple-minimal">Logique et affichage, l’exemple minimal</h3>
+<p>Le premier programme de la notion, annoté : deux fichiers.</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/exemple/logic.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="semaine-08/exemple/logic.js" translate="no"><pre class="sourceCode js code-annotation-code code-with-copy code-annotated"><code class="sourceCode javascript"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">museumLabel</span>(museum) {</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Nom_officiel</span><span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Ville</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1">La fonction est déjà déclarée dans les fichiers de départ, avec <code translate="no">export</code> devant : ce mot la rend utilisable par <code translate="no">app.js</code> et par les tests.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="2" data-code-annotation="2">Elle reçoit un musée, renvoie un texte : aucun <code translate="no">document</code>. Les noms <code translate="no">Nom_officiel</code> et <code translate="no">Ville</code> sont ceux du fichier de données.</span>
+</dd>
+</dl>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/exemple/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="semaine-08/exemple/app.js" translate="no"><pre class="sourceCode js code-annotation-code code-with-copy code-annotated"><code class="sourceCode javascript"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { MUSEUMS } <span class="im">from</span> <span class="st">'../data/musees-bretagne.js'</span><span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { museumLabel } <span class="im">from</span> <span class="st">'./logic.js'</span><span class="op">;</span></span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> list <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#liste'</span>)<span class="op">;</span></span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> museum <span class="kw">of</span> MUSEUMS) {</span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> item <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-2-7" class="code-annotation-target"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>  item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="fu">museumLabel</span>(museum)<span class="op">;</span></span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>  list<span class="op">.</span><span class="fu">append</span>(item)<span class="op">;</span></span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1">Déjà écrite : elle apporte le tableau des 34 musées.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="2">Déjà écrite : elle apporte la fonction de <code translate="no">logic.js</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="3">À partir d’ici, le DOM d’hier.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="7" data-code-annotation="4">L’affichage demande le texte à la logique, puis l’écrit dans la page.</span>
+</dd>
+</dl>
+</section>
+<section id="import-donne" class="level3">
+<h3 class="anchored" data-anchor-id="import-donne">Les lignes <code translate="no">import</code> (2 min)</h3>
+<div class="callout callout-style-default callout-warning callout-titled type-attention">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les lignes <code translate="no">import</code> sont <strong>déjà écrites</strong> dans vos fichiers : ne les modifiez pas. Elles ne marchent que si la page est servie par <strong>Live Preview</strong> (une adresse en <code translate="no">http://</code>). Ouverte par un double-clic (<code translate="no">file://</code>), la page reste vide et la console parle de <code translate="no">CORS</code> (<a href="../../ressources/fiche-erreurs.html#double-clic">fiche « Lire un message d’erreur »</a>). Les modules sont expliqués en semaine 10.</p>
+</div>
+</div>
+<p>Pour l’instant, une seule chose à savoir : <code translate="no">import { museumLabel } from './logic.js';</code> veut dire « prends la fonction <code translate="no">museumLabel</code> du fichier <code translate="no">logic.js</code>, qui est à côté ». C’est pour cela que la fonction porte le mot <code translate="no">export</code> dans <code translate="no">logic.js</code>. Dans <code translate="no">index.html</code>, la ligne <code translate="no">&lt;script type="module" src="app.js"&gt;&lt;/script&gt;</code> est, elle aussi, déjà écrite.</p>
+</section>
+<section id="logique-et-affichage-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="logique-et-affichage-attention-et-vérification">Logique et affichage — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled type-attention">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code translate="no">ReferenceError: document is not defined</code> en lançant les tests : votre <code translate="no">logic.js</code> touche à la page. Déplacez cette ligne dans <code translate="no">app.js</code> : la logique ne fait que calculer et renvoyer.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : <code translate="no">museum.Ville.toUpperCase()</code> va dans quel fichier ?</li>
+<li>Et <code translate="no">list.append(item)</code> ?</li>
+</ul>
+</section>
+<section id="pas-à-pas-ensemble-les-musées-de-bretagne-40-min" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-ensemble-les-musées-de-bretagne-40-min">Pas à pas ensemble — Les musées de Bretagne (40 min)</h3>
+<ul>
+<li>Le formateur code, vous tapez en même temps, une étape à la fois.</li>
+<li>Code et commentaires : <code translate="no">//</code> au-dessus de chaque ligne.</li>
+<li>Dossier : <code translate="no">pas-a-pas-logique</code> : <code translate="no">logic.js</code>, <code translate="no">app.js</code>, <code translate="no">essai.js</code>.</li>
+<li>Perdu ? Dossier <code translate="no">rattrapage/logique/</code>, une étape à la fois.</li>
+</ul>
+<p><strong>Palier 1 : guidé.</strong> Ouvrez le dossier <code translate="no">pas-a-pas-logique</code> : <code translate="no">logic.js</code> déclare deux fonctions, encore vides ; <code translate="no">app.js</code> commence par les deux lignes <code translate="no">import</code>, déjà écrites ; <code translate="no">essai.js</code> appelle les deux fonctions et affiche leur résultat dans le terminal. Les données sont les 34 musées de Bretagne du dossier <code translate="no">data</code> <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. Dans le terminal : <code translate="no">cd pas-a-pas-logique</code>.</p>
+<p><strong>Avant de commencer.</strong> Lancez <code translate="no">node essai.js</code>. <strong>Vous devez voir</strong> : une ligne vide, puis <code translate="no">0</code> : les fonctions ne renvoient encore rien d’utile. Ouvrez aussi <code translate="no">index.html</code> avec Live Preview : le titre, et une liste vide.</p>
+<p><strong>Étape 1 — La logique : une étiquette.</strong> Dans <code translate="no">logic.js</code>, remplacez la ligne <code translate="no">return '';</code> de <code translate="no">museumLabel</code> par les deux lignes ci-dessous.</p>
+<p><em>Avant d’exécuter</em> : que va afficher la première ligne de <code translate="no">node essai.js</code> ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-logique/logic.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="semaine-08/pas-a-pas-logique/logic.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">museumLabel</span>(museum) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Le nom, un tiret, la ville : un texte, sans document</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Nom_officiel</span><span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Ville</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis lancez <code translate="no">node essai.js</code> dans le terminal, depuis <code translate="no">pas-a-pas-logique</code>.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, en première ligne : <code translate="no">musée de Dinan — Dinan</code>. La logique marche, sans aucun navigateur.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/logique/etape-1/logic.js</code> à la place de votre <code translate="no">logic.js</code>, puis repartez avec le groupe.</p>
+</div>
+<p><strong>Étape 2 — L’affichage : la liste.</strong> À la fin d’<code translate="no">app.js</code>, affichez un <code translate="no">&lt;li&gt;</code> par musée, avec le texte de <code translate="no">museumLabel</code>.</p>
+<p><em>Avant d’exécuter</em> : combien de lignes dans la page ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-logique/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="semaine-08/pas-a-pas-logique/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// La liste de la page, vide pour l'instant</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> list <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#liste'</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// for...of : un &lt;li&gt; par musée du fichier</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> museum <span class="kw">of</span> MUSEUMS) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Un nouveau &lt;li&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> item <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Son texte vient de la logique : museumLabel</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="fu">museumLabel</span>(museum)<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Ajouté à la fin de la liste</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  list<span class="op">.</span><span class="fu">append</span>(item)<span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez ; l’aperçu se met à jour.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : 34 lignes, de « musée de Dinan — Dinan » à « musée du Faouët — Le Faouët ».</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/logique/etape-2/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<p><strong>Étape 3 — La logique : un filtre.</strong> Dans <code translate="no">logic.js</code>, remplacez la ligne <code translate="no">return [];</code> d’<code translate="no">inDepartment</code>.</p>
+<p><em>Avant d’exécuter</em> : que va afficher la deuxième ligne de <code translate="no">node essai.js</code> ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-logique/logic.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="semaine-08/pas-a-pas-logique/logic.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">inDepartment</span>(museums<span class="op">,</span> department) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// filter : garde les musées de ce département</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> museums<span class="op">.</span><span class="fu">filter</span>((item) <span class="kw">=&gt;</span> item<span class="op">.</span><span class="at">Departement</span> <span class="op">===</span> department)<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis lancez <code translate="no">node essai.js</code>.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, en deuxième ligne : <code translate="no">10</code> : les dix musées du Morbihan.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/logique/etape-3/logic.js</code> à la place de votre <code translate="no">logic.js</code>.</p>
+</div>
+<p><strong>Étape 4 — L’affichage : le résumé.</strong> À la fin d’<code translate="no">app.js</code>, demandez les musées du Morbihan à la logique, puis écrivez leur nombre dans le résumé.</p>
+<p><em>Avant d’exécuter</em> : la liste va-t-elle changer ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/pas-a-pas-logique/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="semaine-08/pas-a-pas-logique/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// La logique calcule : les musées du Morbihan</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> morbihan <span class="op">=</span> <span class="fu">inDepartment</span>(MUSEUMS<span class="op">,</span> <span class="st">'Morbihan'</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Le résumé de la page</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> summary <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#resume'</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">// L'affichage écrit le résultat dans le résumé</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>summary<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>morbihan<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs"> musées dans le Morbihan`</span><span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : sous le titre, « 10 musées dans le Morbihan » ; la liste, elle, n’a pas changé : on n’a rien demandé d’autre.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/logique/etape-4/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<section id="variante-à-faire-seuls" class="level4">
+<h4 class="anchored" data-anchor-id="variante-à-faire-seuls">Variante à faire seuls</h4>
+<p>Pour ceux qui ont validé l’étape avant les autres. Dans <code translate="no">essai.js</code>, ajoutez une ligne qui affiche le nombre de musées du Finistère, avec <code translate="no">inDepartment</code> et son commentaire. <strong>Réussi si</strong> : <code translate="no">node essai.js</code> affiche <code translate="no">13</code> en dernière ligne.</p>
+</section>
+<section id="enregistrer-et-envoyer-2-min" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
+<p>Depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-logique</code>, <code translate="no">git commit -m "Ajoute le pas à pas logique et affichage"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+</section>
+</section>
+</section>
+<section id="exercices-séparer-la-logique-et-laffichage" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-séparer-la-logique-et-laffichage">Exercices — Séparer la logique et l’affichage</h2>
+<p>Chaque exercice est un dossier : <code translate="no">logic.js</code> (la consigne de la logique en commentaire), <code translate="no">app.js</code> (la consigne de l’affichage, et les lignes <code translate="no">import</code> déjà écrites), <code translate="no">index.html</code> et <code translate="no">style.css</code>. Toujours dans cet ordre : d’abord la logique et ses tests (<code translate="no">node --test nom.test.js</code>, depuis <code translate="no">semaine-08</code>), puis l’affichage, dans le navigateur. Les exercices <code translate="no">e2</code> et <code translate="no">e3</code> ajoutent les événements d’hier.</p>
+<section id="palier-1-la-ville-et-le-département-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-la-ville-et-le-département-30-min">Palier 1 — La ville et le département (30 min)</h3>
+<ol type="1">
+<li><code translate="no">s1-etiquette/logic.js</code> : <code translate="no">placeLabel(museum)</code>.</li>
+<li><code translate="no">node --test s1-etiquette.test.js</code> au vert.</li>
+<li><code translate="no">s1-etiquette/app.js</code> : le résumé, puis la liste.</li>
+<li><strong>Réussi si</strong> : les tests au vert, 34 lignes dans la page.</li>
+</ol>
+<p><strong>Palier 1 : guidé.</strong> Durée : 30 min.</p>
+<ol type="1">
+<li>Ouvrez <code translate="no">s1-etiquette/logic.js</code>. <code translate="no">placeLabel(museum)</code> doit renvoyer « ville (département) », par exemple <code translate="no">'Concarneau (Finistère)'</code>.</li>
+<li>Remplacez la ligne <code translate="no">return '';</code> par un littéral de gabarit qui utilise <code translate="no">museum.Ville</code> et <code translate="no">museum.Departement</code>.</li>
+<li>Depuis <code translate="no">semaine-08</code>, lancez <code translate="no">node --test s1-etiquette.test.js</code>.</li>
+<li>Ouvrez <code translate="no">s1-etiquette/app.js</code>. Sous les lignes <code translate="no">import</code>, écrivez « 34 musées » dans <code translate="no">#resume</code>, avec <code translate="no">MUSEUMS.length</code>.</li>
+<li>Puis, pour chaque musée, un <code translate="no">&lt;li&gt;</code> qui contient <code translate="no">placeLabel(museum)</code>, ajouté à <code translate="no">#liste</code> (comme l’étape 2 du pas à pas).</li>
+<li>Ouvrez <code translate="no">s1-etiquette/index.html</code> avec Live Preview.</li>
+<li>Rituel : un commit (<code translate="no">git add s1-etiquette</code>, <code translate="no">git commit -m "Ajoute la solution de s1"</code>).</li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test s1-etiquette.test.js</code> affiche <code translate="no">ℹ fail 0</code>, et la page affiche « 34 musées » puis 34 lignes, la première « Dinan (Côtes-d’Armor) », sans erreur dans la console.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/s1-etiquette-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="À 375 px"><img src="img/resultats/s1-etiquette-375.webp" class="img-fluid figure-img" alt="Résultat attendu de s1-etiquette à 375 pixels : le titre « Où sont les musées de Bretagne ? », « 34 musées », puis la liste qui commence par « Dinan (Côtes-d'Armor) »." width="375"></a></p>
+<figcaption>À 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/s1-etiquette-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="À 1280 px"><img src="img/resultats/s1-etiquette-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de s1-etiquette à 1280 pixels : la même page centrée, « 34 musées », puis la liste des villes et départements."></a></p>
+<figcaption>À 1280 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/mardi-matin.html#apport-logique">Mardi matin, « Séparer la logique et l’affichage »</a> ; le pas à pas, étapes 1 et 2.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez ce que veut dire un test rouge (<code translate="no">+</code> et <code translate="no">-</code>), pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals">Littéraux de gabarits</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-1-entraînement" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-entraînement">Palier 1 : entraînement</h3>
+<ul>
+<li>Le palier 1 vous a demandé de l’aide ou la correction ?</li>
+<li>Faites ces deux exercices à la place du palier 2 : 2 × 10 min.</li>
+<li><code translate="no">s1b-code-postal</code>, <code translate="no">s1c-identifiant</code> : la logique, puis la page.</li>
+<li>Exercices complets : un peu de HTML, de CSS et de JavaScript.</li>
+<li><strong>Réussi si</strong> : leurs tests au vert, 34 lignes dans chaque page.</li>
+</ul>
+<p><strong>Palier 1 : entraînement.</strong> Entraînement : 2 × 10 min, à faire à la place du palier 2, si le palier 1 vous a demandé de l’aide ou la correction. Même travail que <code translate="no">s1-etiquette</code> : une fonction dans la logique, testée, puis l’affichage.</p>
+<p>Ce sont des exercices <strong>complets</strong> : les fichiers sont fournis, et vous modifiez un peu chacun. La consigne détaillée est en commentaire en haut de <code translate="no">logic.js</code>, puis d’<code translate="no">app.js</code>.</p>
+<ol type="1">
+<li><strong><code translate="no">s1b-code-postal</code></strong> :
+<ul>
+<li><code translate="no">logic.js</code> : <code translate="no">postalLabel(museum)</code> renvoie « code postal ville », par exemple <code translate="no">'29900 Concarneau'</code>. Puis <code translate="no">node --test s1b-code-postal.test.js</code>.</li>
+<li><code translate="no">index.html</code> : ajoutez le paragraphe <code translate="no">&lt;p id="resume" class="resume"&gt;</code>.</li>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.resume</code> (du gras, une couleur).</li>
+<li><code translate="no">app.js</code> : le résumé, puis un <code translate="no">&lt;li&gt;</code> par musée, avec <code translate="no">postalLabel(museum)</code>.</li>
+</ul>
+<strong>Réussi si</strong> : <code translate="no">node --test s1b-code-postal.test.js</code> affiche <code translate="no">ℹ fail 0</code>, et la page affiche « 34 musées » en gras et en bleu, puis 34 lignes, la première « 22100 Dinan ».</li>
+<li><strong><code translate="no">s1c-identifiant</code></strong> :
+<ul>
+<li><code translate="no">logic.js</code> : <code translate="no">idLabel(museum)</code> renvoie « nom (identifiant) », par exemple <code translate="no">'musée de Dinan (M0194)'</code>. Puis <code translate="no">node --test s1c-identifiant.test.js</code>.</li>
+<li><code translate="no">index.html</code> : ajoutez la liste <code translate="no">&lt;ul id="liste" class="liste-bleue"&gt;</code>.</li>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.liste-bleue</code> (une couleur).</li>
+<li><code translate="no">app.js</code> : le résumé, puis un <code translate="no">&lt;li&gt;</code> par musée, avec <code translate="no">idLabel(museum)</code>.</li>
+</ul>
+<strong>Réussi si</strong> : <code translate="no">node --test s1c-identifiant.test.js</code> affiche <code translate="no">ℹ fail 0</code>, et la page affiche « 34 identifiants », puis 34 lignes bleues, la première « musée de Dinan (M0194) ».</li>
+<li>Rituel : un commit par exercice réussi (<code translate="no">git add s1b-code-postal</code>, <code translate="no">git commit -m "Ajoute la solution de s1b"</code>).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/s1b-code-postal-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="s1b-code-postal, à 375 px"><img src="img/resultats/s1b-code-postal-375.webp" class="img-fluid figure-img" alt="Résultat attendu de s1b à 375 pixels : le titre « Les musées de Bretagne, par code postal », « 34 musées » en gras et en bleu, puis la liste qui commence par « 22100 Dinan »." width="375"></a></p>
+<figcaption>s1b-code-postal, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/s1c-identifiant-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="s1c-identifiant, à 375 px"><img src="img/resultats/s1c-identifiant-375.webp" class="img-fluid figure-img" alt="Résultat attendu de s1c à 375 pixels : le titre « Les musées de Bretagne et leur identifiant », « 34 identifiants », puis une liste bleue qui commence par « musée de Dinan (M0194) »." width="375"></a></p>
+<figcaption>s1c-identifiant, à 375 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/mardi-matin.html#apport-logique">Mardi matin, « Séparer la logique et l’affichage »</a> ; le pas à pas, étapes 1 et 2.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez ce que veut dire un test rouge (<code translate="no">+</code> et <code translate="no">-</code>), pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals">Littéraux de gabarits</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-2-filtrer-par-département-le-détail-dun-musée-45-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-2-filtrer-par-département-le-détail-dun-musée-45-min">Palier 2 — Filtrer par département, le détail d’un musée (45 min)</h3>
+<ol type="1">
+<li><code translate="no">e2-filtre-bouton</code> : <code translate="no">inDepartment</code>, puis un écouteur par bouton.</li>
+<li><code translate="no">e3-detail</code> : la zone de détail en HTML, <code translate="no">findMuseum</code>, les boutons.</li>
+<li><strong>Réussi si</strong> : leurs tests au vert, et chaque page réagit aux clics.</li>
+</ol>
+<p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 45 min (20 à 25 min par exercice) ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
+<ol type="1">
+<li><strong><code translate="no">e2-filtre-bouton</code></strong> : cinq boutons, un par département, et « Tous ».
+<ul>
+<li>La logique : <code translate="no">inDepartment(museums, department)</code> renvoie les musées de ce département ; pour <code translate="no">''</code> (« Tous »), une <strong>copie</strong> de tous les musées (le <em>spread</em>, semaine 7). <code translate="no">node --test e2-filtre-bouton.test.js</code>.</li>
+<li>L’affichage : <code translate="no">showList</code> est déjà écrite. Posez un écouteur <code translate="no">click</code> sur chaque bouton, qui appelle <code translate="no">showList(inDepartment(MUSEUMS, 'Finistère'))</code>, et ainsi de suite.</li>
+</ul></li>
+<li><strong><code translate="no">e3-detail</code></strong> : la liste des musées du Morbihan, et un détail. Vous écrivez <strong>deux fichiers sur trois</strong> : <code translate="no">index.html</code> et <code translate="no">app.js</code> (avec <code translate="no">logic.js</code>) ; <code translate="no">style.css</code> est fourni.
+<ul>
+<li>La page : dans <code translate="no">index.html</code>, sous la liste, écrivez la zone de détail : une <code translate="no">&lt;section id="detail" aria-live="polite"&gt;</code>, qui contient un paragraphe « Choisissez un musée pour voir son détail. ». L’attribut <code translate="no">aria-live="polite"</code> demande à un lecteur d’écran d’annoncer le détail quand il change : recopiez-le tel quel.</li>
+<li>La logique : <code translate="no">findMuseum(museums, id)</code> renvoie le musée dont l’<code translate="no">Identifiant</code> vaut <code translate="no">id</code>, ou <code translate="no">undefined</code> (<code translate="no">find</code>, semaine 7). <code translate="no">node --test e3-detail.test.js</code>.</li>
+<li>L’affichage : <code translate="no">showDetail(id)</code> est déjà écrite. Dans la boucle, créez un <code translate="no">&lt;li&gt;</code>, et dedans un <code translate="no">&lt;button type="button"&gt;</code> au nom du musée ; posez sur <strong>ce</strong> bouton un écouteur <code translate="no">click</code> qui appelle <code translate="no">showDetail(museum.Identifiant)</code>, comme dans <code translate="no">e6</code> hier ; ajoutez le bouton au <code translate="no">&lt;li&gt;</code>, le <code translate="no">&lt;li&gt;</code> à la liste.</li>
+</ul></li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test e2-filtre-bouton.test.js</code> et <code translate="no">node --test e3-detail.test.js</code> affichent <code translate="no">ℹ fail 0</code> ; dans <code translate="no">e2</code>, Finistère affiche 13 musées, Morbihan 10, Ille-et-Vilaine 8, Côtes-d’Armor 3, Tous 34 ; dans <code translate="no">e3</code>, un clic (ou Entrée) sur un musée affiche son nom, sa ville et ses domaines.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/e2-filtre-bouton-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="e2, après un clic sur « Finistère »"><img src="img/resultats/e2-filtre-bouton-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de e2-filtre-bouton à 1280 pixels, après un clic sur Finistère : cinq boutons, « 13 musées », puis la liste des musées du Finistère."></a></p>
+<figcaption>e2, après un clic sur « Finistère »</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/e3-detail-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="e3, après un clic sur le deuxième musée"><img src="img/resultats/e3-detail-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de e3-detail à 1280 pixels, après un clic sur l'écomusée de Saint-Degan : la liste des musées du Morbihan en boutons, puis un encadré « écomusée de Saint-Degan », « Ville : Brech », « Domaines : Ethnologie, Histoire »."></a></p>
+<figcaption>e3, après un clic sur le deuxième musée</figcaption>
+</figure>
+</div>
+<p><strong>Trois indices pour <code translate="no">e2-filtre-bouton</code></strong>, du plus léger au plus complet. Ouvrez-les un par un : après chaque indice, essayez de nouveau avant d’ouvrir le suivant.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 1 — l'idée">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 1 — l’idée
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Deux cas dans la logique : pour <code translate="no">''</code>, une copie de tout le tableau (le <em>spread</em>) ; sinon, un <code translate="no">filter</code> sur le champ <code translate="no">Departement</code>. Dans l’affichage : un écouteur <code translate="no">click</code> par bouton ; chacun appelle <code translate="no">showList</code> avec le résultat de <code translate="no">inDepartment</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 2 — le squelette">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 2 — le squelette
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// logic.js — dans inDepartment(museums, department) :</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">//   si department vaut '' : renvoyer une copie du tableau museums</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">//   sinon : renvoyer les musées dont le champ Departement vaut department (filter)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">// app.js — pour chaque bouton (#tous, #finistere, #morbihan, #ille, #armor) :</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">//   trouver le bouton, écouter son clic ;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">//   dans la fonction : appeler showList avec inDepartment(MUSEUMS, le département du bouton)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 3 — la solution, moins une ligne">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 3 — la solution, moins une ligne
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// logic.js</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">inDepartment</span>(museums<span class="op">,</span> department) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (department <span class="op">===</span> <span class="st">''</span>) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="op">...</span>museums]<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Il manque une ligne : le return, avec filter.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">// app.js : un écouteur est écrit ; les quatre autres suivent le même modèle.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#finistere'</span>)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">showList</span>(<span class="fu">inDepartment</span>(MUSEUMS<span class="op">,</span> <span class="st">'Finistère'</span>))<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/mardi-matin.html#apport-logique">Mardi matin, « Séparer la logique et l’affichage »</a> ; <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html#apport-evenements">lundi après-midi, « Les événements »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi l’écouteur posé dans une boucle « se souvient » du bon musée, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.prototype.find()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-2-les-musées-dun-domaine-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-2-les-musées-dun-domaine-30-min">Palier 2 — Les musées d’un domaine (30 min)</h3>
+<ol type="1">
+<li><code translate="no">s2-domaine/logic.js</code> : <code translate="no">withDomain(museums, domain)</code>.</li>
+<li>Une méthode des chaînes de la semaine 3 suffit.</li>
+<li><code translate="no">s2-domaine/app.js</code> : les musées de photographie.</li>
+<li><strong>Réussi si</strong> : les tests au vert, 8 musées affichés.</li>
+</ol>
+<p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 30 min ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie. Sans événement : la logique, puis l’affichage au chargement.</p>
+<ol type="1">
+<li><strong>La logique</strong> : <code translate="no">withDomain(museums, domain)</code> renvoie un <strong>nouveau</strong> tableau, avec les musées dont le champ <code translate="no">Domaine_thematique</code> contient <code translate="no">domain</code>. Ce champ est un texte, par exemple <code translate="no">'Ethnologie;Histoire;Photographie'</code> : la méthode des chaînes qui dit si un texte en contient un autre (semaine 3) suffit, dans un <code translate="no">filter</code> (semaine 7).</li>
+<li>Lancez <code translate="no">node --test s2-domaine.test.js</code> : trois tests, dont « le tableau reçu ne change pas ».</li>
+<li><strong>L’affichage</strong> : dans <code translate="no">app.js</code>, demandez à la logique les musées du domaine <code translate="no">'Photographie'</code> ; écrivez « 8 musées avec de la photographie » dans le résumé, puis un <code translate="no">&lt;li&gt;</code> « nom — ville » par musée.</li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test s2-domaine.test.js</code> affiche <code translate="no">ℹ fail 0</code>, et la page affiche le résumé et 8 lignes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/s2-domaine-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="À 375 px"><img src="img/resultats/s2-domaine-375.webp" class="img-fluid figure-img" alt="Résultat attendu de s2-domaine à 375 pixels : « Musées et photographie », « 8 musées avec de la photographie », puis huit musées." width="375"></a></p>
+<figcaption>À 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/s2-domaine-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="À 1280 px"><img src="img/resultats/s2-domaine-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de s2-domaine à 1280 pixels : la même page, avec le résumé et huit lignes « nom — ville »."></a></p>
+<figcaption>À 1280 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/mardi-matin.html#apport-logique">Mardi matin, « Séparer la logique et l’affichage »</a> ; le pas à pas, étape 3 (un filtre dans la logique).</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez comment savoir si un texte en contient un autre, pas le code de l’exercice.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.prototype.filter()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-3-ville-par-ville-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-3-ville-par-ville-30-min">Palier 3 — Ville par ville (30 min)</h3>
+<ul>
+<li><code translate="no">s3-par-ville</code> : trier par ville, dans l’ordre du français.</li>
+<li><strong>Réussi si</strong> : <code translate="no">s3-par-ville.defi.test.js</code> au vert.</li>
+</ul>
+<p><strong>Palier 3 : autonome.</strong> Durée indicative : 30 min ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
+<p>Dans <code translate="no">s3-par-ville/logic.js</code>, <code translate="no">sortByCity(museums)</code> renvoie un <strong>nouveau</strong> tableau, trié par ville dans l’ordre alphabétique du français : « Étel » se range avec les E, pas après le Z. Le tableau reçu ne change pas. Vous connaissez <code translate="no">toSorted</code> (semaine 7) ; pour comparer deux textes comme un dictionnaire français, cherchez la bonne méthode des chaînes. Puis, dans <code translate="no">app.js</code>, affichez la liste triée, « ville — nom ».</p>
+<p><strong>Réussi si</strong> : <code translate="no">node --test s3-par-ville.defi.test.js</code> affiche <code translate="no">ℹ fail 0</code> (3 tests), et la page commence par « Baud — musée de la carte postale ».</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Autonome">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autonome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez bloquer : c’est voulu, c’est le métier. Méthode : 1. lisez le message d’erreur en entier ; 2. cherchez-le dans la fiche « Lire un message d’erreur » ; 3. lisez la documentation ; 4. après 15 minutes bloqué sur le même point, demandez.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html#apport-tri">Jeudi 19/11, « toSorted »</a> ; le pas à pas de ce matin.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi « É » se range après « Z » quand on compare deux textes avec <code translate="no">&lt;</code>, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare">String.prototype.localeCompare()</a>.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min-1" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
+<p>Même rituel, depuis <code translate="no">semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add</code>, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> (le push de fin de demi-journée).</p>
+</section>
+</section>
+<section id="à-retenir" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir">À retenir</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong><code translate="no">logic.js</code></strong> calcule et renvoie ; <code translate="no">node --test</code> le vérifie.</li>
+<li><strong><code translate="no">app.js</code></strong> trouve les éléments et écrit le résultat dans la page.</li>
+<li><strong>Live Preview</strong>, jamais le double-clic : les lignes <code translate="no">import</code> en ont besoin.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Les paliers 2 et 3 non terminés.</li>
+<li>Le <a href="../../semaines/s08-dom-projet-1/mercredi.html#parcours-dautonomie-de-la-semaine">parcours d’autonomie</a>, lignes 4 et 5.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Pourquoi la logique ne touche-t-elle jamais à <code translate="no">document</code> ?</li>
+<li>Quel fichier vérifient les tests ?</li>
+</ul>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-datagouv-museofile" class="csl-entry" role="listitem">
+Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Répertoire des Musées de France : base Muséofile&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://www.data.gouv.fr/datasets/musees-de-france-base-museofile">https://www.data.gouv.fr/datasets/musees-de-france-base-museofile</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" class="pagination-link" aria-label="Lundi 23/11, après-midi — Les événements">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lundi 23/11, après-midi — Les événements</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s08-dom-projet-1/mardi-apres-midi.html" class="pagination-link" aria-label="Mardi 24/11, après-midi — La décomposition (destructuring)">
+        <span class="nav-page-text">Mardi 24/11, après-midi — La décomposition (destructuring)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

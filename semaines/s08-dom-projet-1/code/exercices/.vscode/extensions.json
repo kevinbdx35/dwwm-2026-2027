@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "MS-CEINTL.vscode-language-pack-fr",
+    "ms-vscode.live-server"
+  ]
+}

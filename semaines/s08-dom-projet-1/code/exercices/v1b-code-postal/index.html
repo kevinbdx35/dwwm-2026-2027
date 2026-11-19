@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palier 1 : entraînement — Le code postal</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <main>
+      <h1>Chercher par code postal</h1>
+      <form id="recherche" novalidate>
+        <label for="code">Code postal</label>
+        <input id="code" name="code" type="text" inputmode="numeric" aria-describedby="erreur">
+        <button type="submit">Chercher</button>
+        <!-- Étape 3 : ajoutez ici le paragraphe d'id erreur, avec la classe erreur. -->
+      </form>
+      <p id="resultat"></p>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

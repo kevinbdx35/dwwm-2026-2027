@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 515" width="1000" height="515" role="img" aria-labelledby="form-t form-d">
+  <title id="form-t">Valider un formulaire côté client</title>
+  <desc id="form-d">Le formulaire est envoyé (submit), par le bouton ou par Entrée. preventDefault empêche le rechargement de la page. value.trim donne le texte du champ, sans espaces autour. Est-il valide ? Non : un message d’erreur visible sous le champ, avec textContent. Oui : le résultat s’affiche et le message est effacé.</desc>
+  <defs><marker id="form-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="form-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="form-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="form-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="form-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="515" fill="#ffffff"/>
+  <rect x="30" y="30" width="280" height="80" rx="8" fill="#fdf3e8" stroke="#a24c00" stroke-width="3"/>
+  <text x="170" y="80" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#a24c00" text-anchor="middle">submit</text>
+  <text x="170" y="140" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">bouton ou Entrée</text>
+  <path d="M315 70 L375 70" stroke="#a24c00" stroke-width="4" fill="none" marker-end="url(#form-p-warn)"/>
+  <rect x="380" y="30" width="280" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="520" y="80" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">preventDefault()</text>
+  <text x="520" y="140" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">la page reste</text>
+  <path d="M665 70 L715 70" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#form-p-line)"/>
+  <rect x="720" y="30" width="250" height="80" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="845" y="80" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">value.trim()</text>
+  <text x="845" y="140" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">le texte du champ</text>
+  <path d="M845 160 L845 200" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#form-p-line)"/>
+  <rect x="650" y="205" width="340" height="80" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="820" y="255" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1f5fbf" text-anchor="middle">valide ?</text>
+  <path d="M700 290 L330 360" stroke="#b91c1c" stroke-width="4" fill="none" marker-end="url(#form-p-ko)"/>
+  <path d="M880 290 L880 355" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#form-p-ok)"/>
+  <text x="470" y="315" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="middle">non</text>
+  <text x="915" y="330" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">oui</text>
+  <rect x="30" y="365" width="520" height="130" rx="10" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="50" y="410" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">message d’erreur visible</text>
+  <text x="50" y="455" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">sous le champ (textContent)</text>
+  <rect x="620" y="365" width="360" height="130" rx="10" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="640" y="410" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="start">le résultat</text>
+  <text x="640" y="455" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">message effacé</text>
+</svg>

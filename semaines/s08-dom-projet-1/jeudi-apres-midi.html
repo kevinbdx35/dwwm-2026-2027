@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s08-dom-projet-1/vendredi-matin.html" rel="next">
+<link href="../../semaines/s08-dom-projet-1/jeudi-matin.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-29f977d4a79e54cdbf1bd36864c85e44.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../theme-commun.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/index.html">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s06-html-css-suite/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 10/11 — Grid, puis le mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 11/11 — Férié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 12/11 — Parcours d’autonomie, puis publier sa page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 13/11 — Vérifier sa page, puis la corriger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s07-js-avance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, matin — Séance PAF</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, après-midi — Fonctions en paramètre (callback) et map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, matin — Garder et trouver : filter et find</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, après-midi — Les objets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 18/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s08-dom-projet-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, matin — Le DOM : lire et modifier la page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, après-midi — Les événements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, matin — Séparer la logique et l’affichage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, après-midi — La décomposition (destructuring)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 25/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, matin — Formulaires : valider côté client</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, matin — La faille XSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, après-midi — Groupe B : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#après-midi-lancement-du-projet-n-1" id="toc-après-midi-lancement-du-projet-n-1" class="nav-link" data-scroll-target="#après-midi-lancement-du-projet-n-1">Après-midi — Lancement du projet n° 1</a>
+  <ul>
+  <li><a href="#projet" id="toc-projet" class="nav-link" data-scroll-target="#projet">Le projet n° 1 : l’Explorateur des musées (10 min)</a></li>
+  <li><a href="#apport-github-flow" id="toc-apport-github-flow" class="nav-link" data-scroll-target="#apport-github-flow">Le GitHub Flow (15 min)</a></li>
+  <li><a href="#le-github-flow-en-image" id="toc-le-github-flow-en-image" class="nav-link" data-scroll-target="#le-github-flow-en-image">Le GitHub Flow, en image</a></li>
+  <li><a href="#le-github-flow-lexemple-minimal" id="toc-le-github-flow-lexemple-minimal" class="nav-link" data-scroll-target="#le-github-flow-lexemple-minimal">Le GitHub Flow, l’exemple minimal</a></li>
+  <li><a href="#le-github-flow-attention-et-vérification" id="toc-le-github-flow-attention-et-vérification" class="nav-link" data-scroll-target="#le-github-flow-attention-et-vérification">Le GitHub Flow — attention et vérification</a></li>
+  <li><a href="#live-coding" id="toc-live-coding" class="nav-link" data-scroll-target="#live-coding">Live coding — La première étape, tous ensemble (75 min)</a></li>
+  <li><a href="#grille" id="toc-grille" class="nav-link" data-scroll-target="#grille">La grille de relecture (5 min)</a></li>
+  <li><a href="#palier-1-us-1-livrée-30-min" id="toc-palier-1-us-1-livrée-30-min" class="nav-link" data-scroll-target="#palier-1-us-1-livrée-30-min">Palier 1 — US-1 livrée (30 min)</a></li>
+  <li><a href="#palier-1-entraînement" id="toc-palier-1-entraînement" class="nav-link" data-scroll-target="#palier-1-entraînement">Palier 1 : entraînement</a></li>
+  <li><a href="#palier-2-us-2-la-recherche-1-h-15" id="toc-palier-2-us-2-la-recherche-1-h-15" class="nav-link" data-scroll-target="#palier-2-us-2-la-recherche-1-h-15">Palier 2 — US-2, la recherche (1 h 15)</a></li>
+  <li><a href="#palier-3-compter-par-département-30-min" id="toc-palier-3-compter-par-département-30-min" class="nav-link" data-scroll-target="#palier-3-compter-par-département-30-min">Palier 3 — Compter par département (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#à-retenir" id="toc-à-retenir" class="nav-link" data-scroll-target="#à-retenir">À retenir</a></li>
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="jeudi-apres-midi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="jeudi-apres-midi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/index.html">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</a></li><li class="breadcrumb-item"><a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">jeudi 26 novembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C4 · communiquer en anglais · apprendre en continu<br> <strong>Livrable</strong> : votre dépôt public <code translate="no">explorateur-musees</code>, avec l’histoire US-1 fusionnée dans <code translate="no">main</code> par une Pull Request.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Le minimum du jour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Le minimum du jour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>La première étape du projet, faite avec le groupe : le dépôt public, le premier commit, la branche <code translate="no">us-1-liste</code>.</li>
+<li>Le palier 1 : l’histoire US-1 (la liste) livrée par une Pull Request relue avec la grille, puis fusionnée.</li>
+</ul>
+<p>Les paliers 2 et 3, puis la rubrique « Si le temps le permet », sont la suite naturelle, pour ceux qui avancent.</p>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Démarrer un projet dans son propre dépôt GitHub <strong>public</strong>, avec un premier commit propre.</li>
+<li>Livrer une histoire du backlog par le <a href="../../ressources/lexique.html#t-github-flow">GitHub Flow</a> : une branche, des commits, une Pull Request relue, une fusion.</li>
+<li>Relire son propre code avec une grille, avant de le fusionner.</li>
+</ul>
+<p><strong>Comment se passe l’après-midi.</strong> Le projet n° 1 commence. Une seule notion : le GitHub Flow, la façon de livrer chaque histoire. Les branches et les Pull Requests datent de la semaine 4 ; le code de l’histoire US-1, de lundi. D’abord la présentation du projet, puis une démonstration du GitHub Flow, puis la première étape <strong>tous ensemble</strong>, en live coding avec le formateur. Ensuite, vous continuez seuls.</p>
+</section>
+<section id="après-midi-lancement-du-projet-n-1" class="level2">
+<h2 class="anchored" data-anchor-id="après-midi-lancement-du-projet-n-1">Après-midi — Lancement du projet n° 1</h2>
+<section id="projet" class="level3">
+<h3 class="anchored" data-anchor-id="projet">Le projet n° 1 : l’Explorateur des musées (10 min)</h3>
+<ul>
+<li>Une page pour <strong>parcourir</strong> les 34 musées de France de Bretagne.</li>
+<li><strong>Rechercher</strong>, voir le <strong>détail</strong> ; puis les données de l’<strong>API</strong> (semaine 9).</li>
+<li>Un dépôt <strong>public</strong>, rien que pour le projet.</li>
+<li>2 semaines et demie ; défense orale en semaine 11.</li>
+</ul>
+<p><strong>Le besoin.</strong> Un office de tourisme veut une page simple pour faire découvrir les musées de France de la région : la liste, une recherche par nom ou par ville, le détail d’un musée. Les données viennent de la base Muséofile du ministère de la Culture, publiée en données ouvertes <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>, sous Licence Ouverte <span class="citation" data-cites="licence-ouverte">(<a href="#ref-licence-ouverte" role="doc-biblioref">Etalab, s.&nbsp;d.</a>)</span>. Ce ne sont pas les données de la semaine 7 : une autre région (la Bretagne, et non le Grand Est) et un autre jeu de données, l’annuaire des musées, sans les chiffres de fréquentation.</p>
+<p><strong>Le périmètre minimum</strong>, ce que chacun livre :</p>
+<ol type="1">
+<li>la <strong>liste</strong> des musées (US-1) ;</li>
+<li>la <strong>recherche</strong> par nom ou par ville (US-2) ;</li>
+<li>le <strong>détail</strong> d’un musée (US-3) ;</li>
+<li>les données lues dans l’<strong>API</strong>, et non plus dans la copie figée (US-4, semaine 9) ;</li>
+<li>les <strong>quatre états</strong> : chargement, erreur, vide, succès (US-5, semaine 9) ;</li>
+<li>les <strong>tests fournis</strong> au vert, et la <strong>publication</strong> du site (US-6, semaine 11).</li>
+</ol>
+<p>Pour ceux qui avancent (palier 3) : compter les musées par département (aujourd’hui) ; garder ses musées favoris (semaine 9, vendredi, avec <code translate="no">localStorage</code>).</p>
+<p><strong>Le calendrier.</strong> Aujourd’hui, US-1 et US-2 ; vendredi après-midi (groupe B) et mercredi prochain, US-3 ; jeudi 03/12, l’API et les quatre états ; semaine 10, les tests avec Vitest et la revue de sprint ; lundi 14/12, la publication ; jeudi 17/12, la défense orale.</p>
+<p><strong>Le backlog.</strong> Les <a href="../../ressources/lexique.html#t-user-story">histoires utilisateur</a> (<em>user stories</em>) sont écrites pour vous dans <code translate="no">projet-1/BACKLOG.md</code>, le <a href="../../ressources/lexique.html#t-backlog">backlog</a> du projet : « En tant que visiteur, je veux… afin de… », avec un critère d’acceptation. Lisez-les avant le live coding (5 min).</p>
+<p><strong>L’API du projet.</strong> Les données viennent de l’API tabulaire de data.gouv.fr <span class="citation" data-cites="api-tabulaire">(<a href="#ref-api-tabulaire" role="doc-biblioref"><span class="nocase">data.gouv.fr</span>, s.&nbsp;d.</a>)</span>, ouverte, sans clé. Jusqu’à la semaine 9, la page lit une <strong>copie figée</strong> de sa réponse (<code translate="no">data/musees-bretagne.js</code>) : on apprend une chose à la fois. Le fichier <code translate="no">api.js</code> est <strong>déjà écrit</strong> : il construit l’adresse de la requête, toujours bien formée, et vous ne le modifiez pas. <code translate="no">data/musees-bretagne.json</code> est la copie de secours, au format exact de l’API : elle servira si l’API ne répond pas, et le jour de la défense. Si un jour la console affiche <code translate="no">TypeError: Failed to fetch</code>, ce n’est pas votre code : le réseau, ou le serveur de l’API, a refusé la requête (<a href="../../ressources/fiche-erreurs.html#failed-to-fetch">fiche « Lire un message d’erreur »</a>).</p>
+</section>
+<section id="apport-github-flow" class="level3">
+<h3 class="anchored" data-anchor-id="apport-github-flow">Le GitHub Flow (15 min)</h3>
+<ul>
+<li><strong>Une branche par histoire</strong> ; <code translate="no">main</code> reste toujours fonctionnelle.</li>
+<li><strong>Pull Request</strong> : vous relisez votre code avec une grille.</li>
+<li><strong>Fusion</strong> dans <code translate="no">main</code>, puis <code translate="no">git pull</code>.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Dans une équipe, personne ne travaille directement sur <code translate="no">main</code> : elle doit toujours marcher, parce qu’elle est publiée. Chaque changement passe par une branche et une relecture. Dans le projet n° 1, vous êtes seul : vous vous relisez vous-même, avec une grille. Au projet n° 3, en binôme, c’est votre binôme qui relira.</p>
+<p><strong>Définition.</strong> Le <a href="../../ressources/lexique.html#t-github-flow">GitHub Flow</a> est une façon de travailler en quatre temps : une branche par changement ; des commits poussés sur cette branche ; une <a href="../../ressources/lexique.html#t-pull-request">Pull Request</a> qui propose de fusionner, relue avant d’être acceptée ; la fusion dans <code translate="no">main</code> <span class="citation" data-cites="github-flow">(<a href="#ref-github-flow" role="doc-biblioref">GitHub, s.&nbsp;d.</a>)</span>. Un <a href="../../ressources/lexique.html#t-code-smell"><em>code smell</em></a> est un signe, dans le code, qu’il pourrait être écrit plus simplement : la grille en cherche trois <span class="citation" data-cites="refactoring-guru-smells">(<a href="#ref-refactoring-guru-smells" role="doc-biblioref">Refactoring Guru, s.&nbsp;d.</a>)</span>.</p>
+</section>
+<section id="le-github-flow-en-image" class="level3">
+<h3 class="anchored" data-anchor-id="le-github-flow-en-image">Le GitHub Flow, en image</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s08-github-flow.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Le GitHub Flow : une branche part de main, reçoit des commits, revient dans main par une Pull Request relue, puis git pull."><img src="img/s08-github-flow.svg" class="img-fluid figure-img" alt="La branche main reçoit le premier commit, avec .gitignore et .env.example. Une branche us-1-liste part de main, reçoit deux commits, puis revient dans main par une fusion. Quatre étapes : 1. une branche par histoire, avec git switch -c ; 2. des commits, avec add, commit et push ; 3. une Pull Request, relue par vous avec la grille ; 4. la fusion dans main, puis git pull."></a></p>
+<figcaption>Le GitHub Flow : une branche part de main, reçoit des commits, revient dans main par une Pull Request relue, puis git pull.</figcaption>
+</figure>
+</div>
+</div>
+<p>Le texte du schéma : <code translate="no">main</code> reçoit le premier commit (<code translate="no">.gitignore</code>, <code translate="no">.env.example</code>, <code translate="no">README.md</code>). La branche <code translate="no">us-1-liste</code> part de <code translate="no">main</code>, reçoit deux commits, puis revient dans <code translate="no">main</code> par une fusion. Quatre étapes : 1. une branche par histoire ; 2. des commits poussés ; 3. une Pull Request, relue avec la grille ; 4. la fusion, puis <code translate="no">git pull</code>.</p>
+</section>
+<section id="le-github-flow-lexemple-minimal" class="level3">
+<h3 class="anchored" data-anchor-id="le-github-flow-lexemple-minimal">Le GitHub Flow, l’exemple minimal</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> us-1-liste</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add logic.js app.js</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Affiche la liste des musées (US-1)"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin us-1-liste</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sur GitHub : Pull Request, relecture, fusion</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Toutes ces commandes datent de la semaine 4 ; ce qui est nouveau, c’est leur <strong>ordre</strong>, à chaque histoire. <code translate="no">git push -u origin us-1-liste</code> envoie la branche sur GitHub (<code translate="no">-u</code> : les <code translate="no">git push</code> suivants de cette branche n’ont plus besoin du nom). Sous macOS, si le <code translate="no">#</code> de la ligne de commentaire est refusé par le terminal, tapez d’abord <code translate="no">setopt interactivecomments</code> (ou ne tapez pas cette ligne : c’est une note).</p>
+</section>
+<section id="le-github-flow-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="le-github-flow-attention-et-vérification">Le GitHub Flow — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled type-attention">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un commit fait sur <code translate="no">main</code> échappe à la relecture. <strong>Avant</strong> de coder une histoire, vérifiez votre branche : <code translate="no">git status</code> affiche <code translate="no">Sur la branche us-1-liste</code>. Sinon : <code translate="no">git switch -c us-1-liste</code> (vos modifications non enregistrées vous suivent).</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : après la fusion sur GitHub, que faut-il taper ?</li>
+<li>Une branche pour combien d’histoires ?</li>
+</ul>
+</section>
+<section id="live-coding" class="level3">
+<h3 class="anchored" data-anchor-id="live-coding">Live coding — La première étape, tous ensemble (75 min)</h3>
+<ul>
+<li>Le formateur projette, vous faites en même temps, une étape à la fois.</li>
+<li>Code et commentaires tapés, comme dans chaque pas à pas.</li>
+<li>Vérifiez « Vous devez voir » à chaque étape.</li>
+<li>Perdu ? Levez la main : on ne laisse personne derrière.</li>
+</ul>
+<p><strong>Palier 1 : guidé.</strong> Dix étapes, tous ensemble ; le formateur attend que chacun voie le résultat avant de passer à la suivante. Les chemins supposent votre dossier de semaine <code translate="no">~/dwwm/dwwm-tp/semaine-08</code>, avec le kit <code translate="no">projet-1</code>.</p>
+<p><strong>Étape 1 — Le dépôt sur GitHub</strong> (7 min). Sur GitHub, <em>New repository</em> : nom <code translate="no">explorateur-musees</code>, <strong>Public</strong>, <strong>sans</strong> README, sans <code translate="no">.gitignore</code>, sans licence (le kit les fournit). <em>Create repository</em>.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : la page « Quick setup » du dépôt vide, avec son adresse SSH (<code translate="no">git@github.com:…/explorateur-musees.git</code>). Ce dépôt est <strong>public</strong> : ce qui est public est visible par tous ; aucune donnée personnelle dedans (ni nom complet, ni adresse, ni téléphone).</p>
+</div>
+<p><strong>Étape 2 — Le cloner</strong> (7 min). Dans le terminal de VS Code, copiez l’adresse SSH de la page « Quick setup », puis :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/dwwm</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:votre-compte/explorateur-musees.git</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> explorateur-musees</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : <code translate="no">warning: You appear to have cloned an empty repository.</code> : c’est normal, le dépôt est vide. <code translate="no">ls ~/dwwm</code> affiche <code translate="no">dwwm-tp</code> et <code translate="no">explorateur-musees</code>.</p>
+</div>
+<p><strong>Étape 3 — Le premier commit</strong> (7 min). Le premier commit contient le <code translate="no">.gitignore</code>, le <code translate="no">.env.example</code> et le <code translate="no">README.md</code>, <strong>avant</strong> tout code :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/.gitignore .</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/.env.example .</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/README.md .</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore .env.example README.md</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initialise le projet : gitignore, env.example, README"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : sur GitHub, après avoir rechargé, les trois fichiers sur <code translate="no">main</code>. Ouvrez <code translate="no">.env.example</code> : il ne contient que des commentaires. Il dit quelles valeurs secrètes le projet attendrait, jamais leur valeur ; le vrai <code translate="no">.env</code>, lui, est listé dans <code translate="no">.gitignore</code> et ne sera jamais envoyé.</p>
+</div>
+<p><strong>Étape 4 — La branche de l’histoire US-1</strong> (2 min).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> us-1-liste</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : <code translate="no">Basculement sur la nouvelle branche 'us-1-liste'</code>.</p>
+</div>
+<p><strong>Étape 5 — Le reste du kit</strong> (7 min). Copiez le kit, puis les deux fichiers de tests, et ouvrez VS Code sur le dossier du projet :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/. .</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1.test.js .</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1.defi.test.js .</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : dans VS Code, <code translate="no">index.html</code>, <code translate="no">logic.js</code>, <code translate="no">app.js</code>, <code translate="no">api.js</code>, <code translate="no">data/</code>, <code translate="no">BACKLOG.md</code> et les deux fichiers de tests ; <code translate="no">npm install</code> se termine par <code translate="no">found 0 vulnerabilities</code>. <code translate="no">git status</code> ne propose <strong>pas</strong> <code translate="no">node_modules/</code> : le <code translate="no">.gitignore</code> fait son travail. <code translate="no">code .</code> est inconnue ? Ouvrez VS Code, puis <em>Fichier</em> &gt; <em>Ouvrir le dossier…</em>, et choisissez <code translate="no">explorateur-musees</code>.</p>
+</div>
+<p><strong>Étape 6 — La logique de US-1</strong> (10 min). Dans <code translate="no">logic.js</code>, remplacez la fonction <code translate="no">museumLabel</code> par celle-ci, avec la décomposition de mardi dans les paramètres :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>explorateur-musees/logic.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="explorateur-musees/logic.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Décomposition dans les paramètres : name et city</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">museumLabel</span>({ <span class="dt">Nom_officiel</span><span class="op">:</span> name<span class="op">,</span> <span class="dt">Ville</span><span class="op">:</span> city }) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Le nom, un tiret, la ville</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>name<span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>city<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Puis lancez seulement le test de US-1 : <code translate="no">--test-name-pattern</code> ne lance que les tests dont le nom contient ce mot.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--test</span> <span class="at">--test-name-pattern</span><span class="op">=</span>museumLabel projet-1.test.js</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : <code translate="no">ℹ pass 1</code> et <code translate="no">ℹ fail 0</code>. Les tests de US-2 et US-3 viendront avec leurs histoires.</p>
+</div>
+<p><strong>Étape 7 — L’affichage de US-1</strong> (12 min). Dans <code translate="no">app.js</code>, sous les deux lignes <code translate="no">import</code>, supprimez la ligne <code translate="no">console.log('À faire', …)</code>, puis tapez :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>explorateur-musees/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="explorateur-musees/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Le résumé de la page</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> summary <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#resume'</span>)<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">// La liste de la page, vide pour l'instant</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> list <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">'#liste'</span>)<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Le nombre de musées, dans le résumé</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>summary<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>MUSEUMS<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs"> musées`</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">// for...of : un &lt;li&gt; par musée</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> museum <span class="kw">of</span> MUSEUMS) {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Un nouveau &lt;li&gt;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> item <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Son texte vient de la logique : museumLabel</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="fu">museumLabel</span>(museum)<span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Ajouté à la fin de la liste</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  list<span class="op">.</span><span class="fu">append</span>(item)<span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Ouvrez <code translate="no">index.html</code> avec Live Preview.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : « Musées de Bretagne », un champ de recherche (qui ne fait encore rien), « 34 musées », puis 34 lignes ; aucune erreur dans la console.</p>
+</div>
+<p><strong>Étape 8 — Enregistrer et pousser la branche</strong> (6 min).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add logic.js app.js index.html style.css api.js data BACKLOG.md package.json package-lock.json eslint.config.js projet-1.test.js projet-1.defi.test.js .vscode</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Affiche la liste des musées (US-1)"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin us-1-liste</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code> ; GitHub propose un bandeau jaune <em>us-1-liste had recent pushes</em>.</p>
+</div>
+<p><strong>Étape 9 — La Pull Request et la relecture</strong> (12 min). Sur GitHub : <em>Compare &amp; pull request</em> ; titre « US-1 — La liste des musées » ; description : le critère d’acceptation de US-1, recopié du backlog. <em>Create pull request</em>. Puis, onglet <em>Files changed</em>, relisez <strong>votre</strong> code avec la grille ci-dessous, et cochez chaque ligne dans la description de la PR.</p>
+<p><strong>Étape 10 — La fusion</strong> (5 min). <em>Merge pull request</em>, <em>Confirm merge</em>. Puis, dans le terminal :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : sur GitHub, la PR marquée <em>Merged</em> ; dans le terminal, la liste des fichiers arrivés sur <code translate="no">main</code>. <code translate="no">git log --oneline</code> affiche le commit de US-1.</p>
+</div>
+</section>
+<section id="grille" class="level3">
+<h3 class="anchored" data-anchor-id="grille">La grille de relecture (5 min)</h3>
+<ul>
+<li>Les tests de l’histoire passent ; <code translate="no">npx eslint .</code> : aucune erreur.</li>
+<li>Aucun <code translate="no">innerHTML</code> ; aucune donnée personnelle.</li>
+<li>Trois <em>code smells</em> : nom vague, fonction trop longue, code dupliqué.</li>
+</ul>
+<p>Recopiez cette grille dans la description de chaque Pull Request, et cochez chaque ligne (<code translate="no">- [x]</code>) après l’avoir vérifiée dans l’onglet <em>Files changed</em> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" translate="no"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Les tests de l'histoire passent (node --test …)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> npx eslint . n'affiche aucune erreur</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Aucun innerHTML (vendredi : pourquoi)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Aucune donnée personnelle, aucun secret</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Pas de nom vague (data, x, truc) : chaque nom dit ce qu'il contient</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Pas de fonction trop longue : une fonction, une tâche</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Pas de code dupliqué : deux blocs identiques deviennent une fonction</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Les trois dernières lignes sont des <em>code smells</em> : des signes qu’un code pourrait être plus simple, sans être faux <span class="citation" data-cites="refactoring-guru-smells">(<a href="#ref-refactoring-guru-smells" role="doc-biblioref">Refactoring Guru, s.&nbsp;d.</a>)</span>. Un <em>code smell</em> n’empêche pas la fusion : notez-le dans la PR, et corrigez-le dans une prochaine histoire.</p>
+</section>
+<section id="palier-1-us-1-livrée-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-us-1-livrée-30-min">Palier 1 — US-1 livrée (30 min)</h3>
+<ol type="1">
+<li>Finir le live coding, jusqu’à la fusion.</li>
+<li>Compléter le <code translate="no">README.md</code> : « What it does », en anglais.</li>
+<li>Un commit sur une branche <code translate="no">readme</code>, une PR, une fusion.</li>
+<li><strong>Réussi si</strong> : deux PR fusionnées, la liste sur <code translate="no">main</code>.</li>
+</ol>
+<p><strong>Palier 1 : guidé.</strong> Durée : 30 min.</p>
+<ol type="1">
+<li>Si une étape du live coding manque, finissez-la (la page vous guide, étape par étape).</li>
+<li>Créez une branche <code translate="no">readme</code> (<code translate="no">git switch -c readme</code>).</li>
+<li>Dans <code translate="no">README.md</code>, écrivez la partie <em>What it does</em> en anglais, en deux phrases : ce qu’un visiteur peut faire avec la page.</li>
+<li><code translate="no">git add README.md</code>, <code translate="no">git commit -m "Décrit le projet dans le README"</code>, <code translate="no">git push -u origin readme</code>.</li>
+<li>Une Pull Request, relue avec la grille, puis fusionnée ; <code translate="no">git switch main</code>, <code translate="no">git pull</code>.</li>
+</ol>
+<p><strong>Réussi si</strong> : sur GitHub, deux Pull Requests sont fusionnées (US-1 et le README) ; <code translate="no">main</code> affiche la liste des 34 musées avec Live Preview ; <code translate="no">node --test --test-name-pattern=museumLabel projet-1.test.js</code> affiche <code translate="no">ℹ fail 0</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/projet-1-us1-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="US-1, à 375 px"><img src="img/resultats/projet-1-us1-375.webp" class="img-fluid figure-img" alt="Résultat attendu de US-1 à 375 pixels : « Musées de Bretagne », le champ de recherche, « 34 musées », puis la liste des musées, « musée de Dinan — Dinan » en premier." width="375"></a></p>
+<figcaption>US-1, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/projet-1-us1-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="US-1, à 1280 px"><img src="img/resultats/projet-1-us1-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de US-1 à 1280 pixels : la même page centrée, avec l'en-tête, le formulaire de recherche, « 34 musées » et la liste."></a></p>
+<figcaption>US-1, à 1280 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html#live-coding">le live coding</a> ; <a href="../../semaines/s04-environnement/revision.html#github-vendredi">la fiche de révision de la semaine 4</a> (branches et PR). Un jour, <code translate="no">TypeError: Failed to fetch</code> dans la console ? Ce n’est pas votre code : <a href="../../ressources/fiche-erreurs.html#failed-to-fetch">la fiche « Lire un message d’erreur »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez ce que fait <code translate="no">git push -u origin nom-de-branche</code>, pas autre chose ; ne collez pas une <em>user story</em> pour la faire coder.</li>
+<li><strong>MDN</strong> : MDN ne documente pas Git : la page <a href="https://docs.github.com/en/get-started/using-github/github-flow">GitHub flow</a>, en anglais, et la fiche aide-mémoire Git du Drive partagé.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-1-entraînement" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-entraînement">Palier 1 : entraînement</h3>
+<ul>
+<li>Le palier 1 vous a demandé de l’aide ou la correction ?</li>
+<li>Refaites le cycle complet, deux fois, à la place du palier 2.</li>
+<li><code translate="no">g1b-date-donnees</code>, <code translate="no">g1c-badge-favori</code>, dans <code translate="no">dwwm-tp</code>.</li>
+<li>Une branche, un commit, une PR relue, une fusion, <code translate="no">git pull</code>.</li>
+<li><strong>Réussi si</strong> : deux PR fusionnées, et vous êtes revenu sur <code translate="no">main</code>.</li>
+</ul>
+<p><strong>Palier 1 : entraînement.</strong> Entraînement : 2 × 10 à 15 min, à faire à la place du palier 2, si le palier 1 vous a demandé de l’aide ou la correction. Même travail que la branche <code translate="no">readme</code> : une branche, un commit, une Pull Request relue, une fusion.</p>
+<p>Les deux exercices sont dans <code translate="no">~/dwwm/dwwm-tp/semaine-08</code>, <strong>pas</strong> dans votre projet : <code translate="no">dwwm-tp</code> est aussi un dépôt GitHub, une branche et une Pull Request y marchent de la même façon. Ce sont des exercices <strong>complets</strong> : les trois fichiers sont fournis, et vous modifiez un peu chacun. La consigne détaillée est en commentaire en haut d’<code translate="no">app.js</code>.</p>
+<ol type="1">
+<li>Dans le terminal : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code>, puis <code translate="no">git status</code>. <strong>Vous devez voir</strong> : <code translate="no">Sur la branche main</code> et <code translate="no">rien à valider, la copie de travail est propre</code>.</li>
+<li>Créez la branche : <code translate="no">git switch -c g1b-date-donnees</code>.</li>
+<li><strong><code translate="no">g1b-date-donnees</code></strong> :
+<ul>
+<li><code translate="no">index.html</code> : ajoutez le paragraphe <code translate="no">&lt;p id="mise-a-jour"&gt;</code>.</li>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.discret</code> (une couleur, une taille de texte).</li>
+<li><code translate="no">app.js</code> : écrivez « Données copiées le 12/11/2026 » dans ce paragraphe, puis posez la classe <code translate="no">discret</code> (<code translate="no">classList.add</code>).</li>
+</ul>
+<strong>Vous devez voir</strong>, avec Live Preview : sous la phrase d’introduction, « Données copiées le 12/11/2026 », en gris et plus petit.</li>
+<li>Livrez : <code translate="no">git add g1b-date-donnees</code>, <code translate="no">git commit -m "Affiche la date des données"</code>, <code translate="no">git push -u origin g1b-date-donnees</code>.</li>
+<li>Sur GitHub, dans le dépôt <code translate="no">dwwm-tp</code> : la Pull Request, relue avec la grille (ligne des tests : écrivez « pas de test pour cet exercice »), puis la fusion.</li>
+<li>Revenez sur <code translate="no">main</code> : <code translate="no">git switch main</code>, puis <code translate="no">git pull</code>.</li>
+<li><strong><code translate="no">g1c-badge-favori</code></strong> : le même cycle, sur une branche <code translate="no">g1c-badge-favori</code>.
+<ul>
+<li><code translate="no">index.html</code> : dans la carte, ajoutez le badge, masqué : <code translate="no">&lt;span id="badge" class="badge" hidden&gt;Favori&lt;/span&gt;</code>.</li>
+<li><code translate="no">style.css</code> : placez le badge en haut à droite de la carte, comme dans R1 hier (<code translate="no">position: absolute</code>, <code translate="no">top</code>, <code translate="no">right</code>) ; la carte est déjà son repère.</li>
+<li><code translate="no">app.js</code> : au clic sur « Ajouter à mes favoris », affichez le badge (<code translate="no">hidden</code>, étape 5 du pas à pas de lundi matin).</li>
+</ul>
+<strong>Vous devez voir</strong> : avant le clic, pas de badge ; après le clic, le badge bleu « Favori » en haut à droite de la carte ; au clavier aussi.</li>
+<li>Livrez de la même façon, puis revenez sur <code translate="no">main</code> : <code translate="no">git switch main</code>, <code translate="no">git pull</code>.</li>
+</ol>
+<p><strong>Réussi si</strong> : sur GitHub, <code translate="no">dwwm-tp</code> affiche deux Pull Requests fusionnées ; dans le terminal, <code translate="no">git branch --show-current</code> affiche <code translate="no">main</code> ; les deux pages affichent ce que dit leur consigne, sans erreur dans la console.</p>
+<div class="callout callout-style-default callout-warning callout-titled type-attention">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Après chaque fusion, revenez sur <code translate="no">main</code> (<code translate="no">git switch main</code>, puis <code translate="no">git pull</code>). Sinon, vos prochains commits de <code translate="no">dwwm-tp</code> partent sur la branche de l’exercice, et le rituel « Enregistrer et envoyer » ne les envoie plus sur <code translate="no">main</code>.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/g1b-date-donnees-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="g1b-date-donnees, à 375 px"><img src="img/resultats/g1b-date-donnees-375.webp" class="img-fluid figure-img" alt="Résultat attendu de g1b à 375 pixels : le titre « Musées de Bretagne », la phrase d'introduction, puis « Données copiées le 12/11/2026 » en gris et plus petit." width="375"></a></p>
+<figcaption>g1b-date-donnees, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/g1c-badge-favori-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="g1c-badge-favori, après le clic, à 375 px"><img src="img/resultats/g1c-badge-favori-375.webp" class="img-fluid figure-img" alt="Résultat attendu de g1c à 375 pixels, après un clic sur « Ajouter à mes favoris » : la carte du musée de la pêche, avec le badge bleu « Favori » en haut à droite." width="375"></a></p>
+<figcaption>g1c-badge-favori, après le clic, à 375 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html#live-coding">le live coding</a>, étapes 4 et 8 à 10 ; <a href="../../semaines/s08-dom-projet-1/mercredi.html">mercredi, R1</a>, pour le badge ; <a href="../../semaines/s04-environnement/revision.html#github-vendredi">la fiche de révision de la semaine 4</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez ce que fait <code translate="no">git switch -c</code>, pas autre chose.</li>
+<li><strong>MDN</strong> : MDN ne documente pas Git : la page <a href="https://docs.github.com/en/get-started/using-github/github-flow">GitHub flow</a>, en anglais ; pour le badge, <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/position">position</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-2-us-2-la-recherche-1-h-15" class="level3">
+<h3 class="anchored" data-anchor-id="palier-2-us-2-la-recherche-1-h-15">Palier 2 — US-2, la recherche (1 h 15)</h3>
+<ol type="1">
+<li>Une branche <code translate="no">us-2-recherche</code>.</li>
+<li><code translate="no">logic.js</code> : <code translate="no">searchMuseums(museums, query)</code>.</li>
+<li><code translate="no">app.js</code> : une fonction <code translate="no">showList</code>, puis l’écouteur <code translate="no">submit</code>.</li>
+<li><strong>Réussi si</strong> : les tests de <code translate="no">searchMuseums</code> au vert, PR fusionnée.</li>
+</ol>
+<p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 1 h 15 ; ce qui n’est pas fini se termine vendredi après-midi (groupe B) ou mercredi 02/12, dans le parcours d’autonomie.</p>
+<ol type="1">
+<li><strong>La branche</strong> : <code translate="no">git switch -c us-2-recherche</code>.</li>
+<li><strong>La logique</strong> : <code translate="no">searchMuseums(museums, query)</code> renvoie un <strong>nouveau</strong> tableau : les musées dont le nom <strong>ou</strong> la ville contient <code translate="no">query</code>, sans tenir compte des majuscules ni des espaces autour ; une recherche vide renvoie une <strong>copie</strong> de tous les musées. Les briques : <code translate="no">trim</code>, <code translate="no">toLowerCase</code>, <code translate="no">includes</code> (semaine 3), <code translate="no">filter</code> et le <em>spread</em> (semaine 7), la décomposition (mardi). Puis : <code translate="no">node --test --test-name-pattern=searchMuseums projet-1.test.js</code>.</li>
+<li><strong>L’affichage, en deux temps</strong> :
+<ul>
+<li>Déplacez la boucle de US-1 dans une fonction <code translate="no">showList(museums)</code> qui commence par vider la liste (<code translate="no">list.textContent = ''</code>), écrit le résumé, puis affiche chaque musée ; appelez <code translate="no">showList(MUSEUMS)</code> au chargement. Vérifiez : la page n’a pas changé.</li>
+<li>Posez un écouteur <code translate="no">submit</code> sur le formulaire <code translate="no">#recherche</code> : <code translate="no">preventDefault</code>, la valeur du champ <code translate="no">#champ-recherche</code>, une validation comme ce matin (une seule lettre : un message dans <code translate="no">#erreur-recherche</code>), puis <code translate="no">showList(searchMuseums(MUSEUMS, query))</code>. Aucun musée : le résumé dit « Aucun musée ne correspond. ».</li>
+</ul></li>
+<li><strong>Livrer</strong> : commit, <code translate="no">git push -u origin us-2-recherche</code>, PR relue avec la grille, fusion, <code translate="no">git pull</code>.</li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test --test-name-pattern=searchMuseums projet-1.test.js</code> affiche <code translate="no">ℹ fail 0</code> ; « quimper » affiche 2 musées, « q » le message d’erreur, « zzz » « Aucun musée ne correspond. », un champ vide les 34 ; la PR est fusionnée.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/projet-1-us2-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="US-2, la recherche « quimper », à 375 px"><img src="img/resultats/projet-1-us2-375.webp" class="img-fluid figure-img" alt="Résultat attendu de US-2 à 375 pixels, après la recherche « quimper » : « 2 musées », le musée des beaux-arts et le musée départemental breton, tous deux à Quimper." width="375"></a></p>
+<figcaption>US-2, la recherche « quimper », à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/projet-1-us2-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="US-2, la recherche « quimper », à 1280 px"><img src="img/resultats/projet-1-us2-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de US-2 à 1280 pixels, après la recherche « quimper » : le formulaire, « 2 musées », puis les deux musées de Quimper."></a></p>
+<figcaption>US-2, la recherche « quimper », à 1280 px</figcaption>
+</figure>
+</div>
+<p><strong>Trois indices pour <code translate="no">searchMuseums</code></strong>, du plus léger au plus complet. Ouvrez-les un par un : après chaque indice, essayez de nouveau avant d’ouvrir le suivant.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 1 — l'idée">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 1 — l’idée
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>On nettoie la recherche une seule fois : sans espaces autour, en minuscules. Si elle est vide, on renvoie une copie de tous les musées. Sinon, un <code translate="no">filter</code> : on garde un musée si son nom <strong>ou</strong> sa ville, en minuscules, contient la recherche.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 2 — le squelette">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 2 — le squelette
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Dans searchMuseums(museums, query) :</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">//   1. la recherche nettoyée : sans espaces autour, en minuscules</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">//   2. si elle est vide : renvoyer une copie du tableau museums</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">//   3. sinon : renvoyer les musées (filter) dont le nom, en minuscules, contient la recherche,</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">//      OU dont la ville, en minuscules, la contient</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 3 — le squelette, en code">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 3 — le squelette, en code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">searchMuseums</span>(museums<span class="op">,</span> query) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 1. La recherche nettoyée</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> cleaned <span class="op">=</span> <span class="co">/* query, sans espaces autour, en minuscules */</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 2. Recherche vide : une copie</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="co">/* cleaned est vide */</span>) {</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="co">/* une copie de museums */</span><span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 3. Sinon : le filtre, avec la décomposition de mardi</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> museums<span class="op">.</span><span class="fu">filter</span>(({ Nom_officiel<span class="op">,</span> Ville }) <span class="kw">=&gt;</span> <span class="co">/* le nom OU la ville contient cleaned */</span>)<span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s08-dom-projet-1/jeudi-matin.html#apport-validation">jeudi matin, « Valider côté client »</a> ; <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html#apport-evenements">lundi après-midi, « Les événements »</a> (<code translate="no">showList</code>, étape 4) ; « Failed to fetch » : <a href="../../ressources/fiche-erreurs.html#failed-to-fetch">la fiche</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez comment comparer deux textes sans tenir compte des majuscules, pas le code de la fonction.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase">String.prototype.toLowerCase()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-3-compter-par-département-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-3-compter-par-département-30-min">Palier 3 — Compter par département (30 min)</h3>
+<ul>
+<li><code translate="no">countByDepartment(museums)</code> : un objet <code translate="no">{ Finistère: 13, … }</code>.</li>
+<li><code translate="no">reduce</code> avec un objet comme accumulateur.</li>
+<li><strong>Réussi si</strong> : <code translate="no">projet-1.defi.test.js</code> au vert.</li>
+</ul>
+<p><strong>Palier 3 : autonome.</strong> Durée indicative : 30 min ; ce qui n’est pas fini se termine mercredi 02/12, dans le parcours d’autonomie. Sur une branche <code translate="no">p3-departements</code>.</p>
+<p><code translate="no">countByDepartment(museums)</code> renvoie un <strong>objet</strong> : chaque département, avec son nombre de musées (<code translate="no">{ "Côtes-d'Armor": 3, Finistère: 13, … }</code>) ; un tableau vide donne <code translate="no">{}</code>. Vous connaissez <code translate="no">reduce</code> avec un nombre comme accumulateur (semaine 7) ; ici, l’accumulateur est un objet. À vous de trouver comment lire et écrire une clé dont le nom est dans une variable. Puis affichez, sous le résumé, une ligne par département, et livrez par une PR.</p>
+<p><strong>Réussi si</strong> : <code translate="no">node --test projet-1.defi.test.js</code> affiche <code translate="no">ℹ fail 0</code> (2 tests) ; la page affiche les quatre départements et leur nombre ; la PR est fusionnée.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Autonome">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autonome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez bloquer : c’est voulu, c’est le métier. Méthode : 1. lisez le message d’erreur en entier ; 2. cherchez-le dans la fiche « Lire un message d’erreur » ; 3. lisez la documentation ; 4. après 15 minutes bloqué sur le même point, demandez.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s07-js-avance/jeudi-matin.html#apport-reduce">Jeudi 19/11, « reduce »</a> ; <a href="../../semaines/s07-js-avance/mardi-apres-midi.html#apport-objets">Mardi 17/11, « Les objets »</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez comment lire la clé d’un objet quand son nom est dans une variable, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">Array.prototype.reduce()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Property_accessors">Accesseurs de propriétés</a>.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
+<p>Le projet a son propre dépôt : chaque histoire se termine par sa Pull Request fusionnée et un <code translate="no">git pull</code> sur <code translate="no">main</code>. Dans <code translate="no">dwwm-tp</code>, rien à envoyer cet après-midi, sauf les deux exercices d’entraînement, déjà livrés par leur Pull Request.</p>
+</section>
+</section>
+<section id="à-retenir" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir">À retenir</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Un dépôt public par projet</strong> ; premier commit : <code translate="no">.gitignore</code>, <code translate="no">.env.example</code>, <code translate="no">README.md</code>.</li>
+<li><strong>Une branche par histoire</strong>, une PR relue avec la grille, une fusion.</li>
+<li><strong>Après la fusion</strong> : <code translate="no">git switch main</code>, puis <code translate="no">git pull</code>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Les paliers 2 et 3 non terminés.</li>
+<li>US-3, le détail, comme <code translate="no">e3</code> mardi.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Pourquoi ne jamais coder directement sur <code translate="no">main</code> ?</li>
+<li>Que contient <code translate="no">.env.example</code>, et pourquoi le commiter ?</li>
+</ul>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-api-tabulaire" class="csl-entry" role="listitem">
+<span class="nocase">data.gouv.fr</span>. s.&nbsp;d. <span>«&nbsp;API tabulaire data.gouv.fr (beta)&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.data.gouv.fr/dataservices/api-tabulaire-data-gouv-fr-beta">https://www.data.gouv.fr/dataservices/api-tabulaire-data-gouv-fr-beta</a>.
+</div>
+<div id="ref-licence-ouverte" class="csl-entry" role="listitem">
+Etalab. s.&nbsp;d. <span>«&nbsp;Licence Ouverte / Open Licence&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf">https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf</a>.
+</div>
+<div id="ref-github-flow" class="csl-entry" role="listitem">
+GitHub. s.&nbsp;d. <span>«&nbsp;GitHub flow - GitHub Docs&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://docs.github.com/en/get-started/using-github/github-flow">https://docs.github.com/en/get-started/using-github/github-flow</a>.
+</div>
+<div id="ref-datagouv-museofile" class="csl-entry" role="listitem">
+Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Répertoire des Musées de France : base Muséofile&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://www.data.gouv.fr/datasets/musees-de-france-base-museofile">https://www.data.gouv.fr/datasets/musees-de-france-base-museofile</a>.
+</div>
+<div id="ref-refactoring-guru-smells" class="csl-entry" role="listitem">
+Refactoring Guru. s.&nbsp;d. <span>«&nbsp;Code Smells&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://refactoring.guru/refactoring/smells">https://refactoring.guru/refactoring/smells</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s08-dom-projet-1/jeudi-matin.html" class="pagination-link" aria-label="Jeudi 26/11, matin — Formulaires : valider côté client">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Jeudi 26/11, matin — Formulaires : valider côté client</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s08-dom-projet-1/vendredi-matin.html" class="pagination-link" aria-label="Vendredi 27/11, matin — La faille XSS">
+        <span class="nav-page-text">Vendredi 27/11, matin — La faille XSS</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
