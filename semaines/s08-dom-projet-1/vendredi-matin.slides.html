@@ -340,7 +340,7 @@ Kevin Bardoux
 </section>
 <section id="xss-étape-1" class="slide level3">
 <h3>XSS, étape 1</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="co">// À l'envoi : afficher ce qui a été tapé (version dangereuse)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a aria-label="1"></a><span class="co">// Au moment de l'envoi : afficher la saisie (version dangereuse)</span></span>
 <span id="cb2-2"><a aria-label="2"></a>form<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'submit'</span><span class="op">,</span> (<span class="bu">event</span>) <span class="kw">=&gt;</span> {</span>
 <span id="cb2-3"><a aria-label="3"></a>  <span class="co">// La page ne se recharge pas</span></span>
 <span id="cb2-4"><a aria-label="4"></a>  <span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>

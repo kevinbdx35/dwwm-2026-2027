@@ -9,8 +9,8 @@ const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { checkFirstName } = await import(pathToFileURL(path.join(dir, 'v1c-prenom', 'logic.js')).href);
 
 test('checkFirstName : un champ vide ou plein d’espaces', () => {
-  assert.equal(checkFirstName(''), 'Écrivez votre prénom.');
-  assert.equal(checkFirstName('   '), 'Écrivez votre prénom.');
+  assert.equal(checkFirstName(''), 'Veuillez écrire votre prénom.');
+  assert.equal(checkFirstName('   '), 'Veuillez écrire votre prénom.');
 });
 
 test('checkFirstName : plus de 20 caractères', () => {

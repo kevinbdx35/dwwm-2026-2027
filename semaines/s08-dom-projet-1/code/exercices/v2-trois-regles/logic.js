@@ -4,7 +4,7 @@
 // - name, sans espaces autour, a moins de 3 caractères : 'Le nom compte au moins 3 caractères.' ;
 // - postcode n'a pas exactement 5 caractères, ou n'est pas un nombre :
 //   'Le code postal compte 5 chiffres.' (Number(texte) donne NaN si le texte n'est pas un nombre) ;
-// - city, sans espaces autour, est vide : 'Écrivez la ville.'.
+// - city, sans espaces autour, est vide : 'Veuillez écrire la ville.'.
 // Lancez les tests : node --test v2-trois-regles.test.js
 
 export function checkProposal(proposal) {

@@ -5,7 +5,7 @@
 //    (documentation : MDN, « HTMLElement: dataset »).
 // 2. L'écouteur de la liste retrouve le bouton cliqué à partir de event.target
 //    (documentation : MDN, « Element: closest() »), puis le musée qui a cet identifiant (find),
-//    et écrit dans #choix : « Musée choisi : nom — ville ».
+//    et écrit dans #choix : « Musée choisi : nom - ville ».
 // 3. Un clic dans la liste, entre deux boutons, ne doit provoquer aucune erreur dans la console.
 
 const museums = [

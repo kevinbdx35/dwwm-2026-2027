@@ -23,6 +23,6 @@ form.addEventListener('submit', (event) => {
   const found = museums.filter((museum) => museum.name.includes(query) || museum.city.includes(query));
   list.textContent = '';
   for (const museum of found) {
-    list.innerHTML += `<li>${museum.name} — ${museum.city}</li>`;
+    list.innerHTML += `<li>${museum.name} - ${museum.city}</li>`;
   }
 });

@@ -816,7 +816,7 @@ div.csl-indent {
 <pre><strong>semaine-08/exemple/logic.js</strong></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="semaine-08/exemple/logic.js" translate="no"><pre class="sourceCode js code-annotation-code code-with-copy code-annotated"><code class="sourceCode javascript"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">museumLabel</span>(museum) {</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Nom_officiel</span><span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Ville</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Nom_officiel</span><span class="sc">}</span><span class="vs"> - </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Ville</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <dl class="code-annotation-container-grid">
@@ -917,12 +917,12 @@ div.csl-indent {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="semaine-08/pas-a-pas-logique/logic.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">museumLabel</span>(museum) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Le nom, un tiret, la ville : un texte, sans document</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Nom_officiel</span><span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Ville</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Nom_officiel</span><span class="sc">}</span><span class="vs"> - </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">Ville</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Enregistrez, puis lancez <code translate="no">node essai.js</code> dans le terminal, depuis <code translate="no">pas-a-pas-logique</code>.</p>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong>, en première ligne : <code translate="no">musée de Dinan — Dinan</code>. La logique marche, sans aucun navigateur.</p>
+<p><strong>Vous devez voir</strong>, en première ligne : <code translate="no">musée de Dinan - Dinan</code>. La logique marche, sans aucun navigateur.</p>
 </div>
 <div class="encadre-perdu">
 <p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/logique/etape-1/logic.js</code> à la place de votre <code translate="no">logic.js</code>, puis repartez avec le groupe.</p>
@@ -947,7 +947,7 @@ div.csl-indent {
 </div>
 <p>Enregistrez ; l’aperçu se met à jour.</p>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : 34 lignes, de « musée de Dinan — Dinan » à « musée du Faouët — Le Faouët ».</p>
+<p><strong>Vous devez voir</strong> : 34 lignes, de « musée de Dinan - Dinan » à « musée du Faouët - Le Faouët ».</p>
 </div>
 <div class="encadre-perdu">
 <p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/logique/etape-2/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
@@ -1242,7 +1242,7 @@ div.csl-indent {
 <ol type="1">
 <li><strong>La logique</strong> : <code translate="no">withDomain(museums, domain)</code> renvoie un <strong>nouveau</strong> tableau, avec les musées dont le champ <code translate="no">Domaine_thematique</code> contient <code translate="no">domain</code>. Ce champ est un texte, par exemple <code translate="no">'Ethnologie;Histoire;Photographie'</code> : la méthode des chaînes qui dit si un texte en contient un autre (semaine 3) suffit, dans un <code translate="no">filter</code> (semaine 7).</li>
 <li>Lancez <code translate="no">node --test s2-domaine.test.js</code> : trois tests, dont « le tableau reçu ne change pas ».</li>
-<li><strong>L’affichage</strong> : dans <code translate="no">app.js</code>, demandez à la logique les musées du domaine <code translate="no">'Photographie'</code> ; écrivez « 8 musées avec de la photographie » dans le résumé, puis un <code translate="no">&lt;li&gt;</code> « nom — ville » par musée.</li>
+<li><strong>L’affichage</strong> : dans <code translate="no">app.js</code>, demandez à la logique les musées du domaine <code translate="no">'Photographie'</code> ; écrivez « 8 musées avec de la photographie » dans le résumé, puis un <code translate="no">&lt;li&gt;</code> « nom - ville » par musée.</li>
 </ol>
 <p><strong>Réussi si</strong> : <code translate="no">node --test s2-domaine.test.js</code> affiche <code translate="no">ℹ fail 0</code>, et la page affiche le résumé et 8 lignes.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1253,7 +1253,7 @@ div.csl-indent {
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/resultats/s2-domaine-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="À 1280 px"><img src="img/resultats/s2-domaine-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de s2-domaine à 1280 pixels : la même page, avec le résumé et huit lignes « nom — ville »."></a></p>
+<p><a href="img/resultats/s2-domaine-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="À 1280 px"><img src="img/resultats/s2-domaine-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de s2-domaine à 1280 pixels : la même page, avec le résumé et huit lignes « nom - ville »."></a></p>
 <figcaption>À 1280 px</figcaption>
 </figure>
 </div>
@@ -1282,8 +1282,8 @@ div.csl-indent {
 <li><strong>Réussi si</strong> : <code translate="no">s3-par-ville.defi.test.js</code> au vert.</li>
 </ul>
 <p><strong>Palier 3 : autonome.</strong> Durée indicative : 30 min ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
-<p>Dans <code translate="no">s3-par-ville/logic.js</code>, <code translate="no">sortByCity(museums)</code> renvoie un <strong>nouveau</strong> tableau, trié par ville dans l’ordre alphabétique du français : « Étel » se range avec les E, pas après le Z. Le tableau reçu ne change pas. Vous connaissez <code translate="no">toSorted</code> (semaine 7) ; pour comparer deux textes comme un dictionnaire français, cherchez la bonne méthode des chaînes. Puis, dans <code translate="no">app.js</code>, affichez la liste triée, « ville — nom ».</p>
-<p><strong>Réussi si</strong> : <code translate="no">node --test s3-par-ville.defi.test.js</code> affiche <code translate="no">ℹ fail 0</code> (3 tests), et la page commence par « Baud — musée de la carte postale ».</p>
+<p>Dans <code translate="no">s3-par-ville/logic.js</code>, <code translate="no">sortByCity(museums)</code> renvoie un <strong>nouveau</strong> tableau, trié par ville dans l’ordre alphabétique du français : « Étel » se range avec les E, pas après le Z. Le tableau reçu ne change pas. Vous connaissez <code translate="no">toSorted</code> (semaine 7) ; pour comparer deux textes comme un dictionnaire français, cherchez la bonne méthode des chaînes. Puis, dans <code translate="no">app.js</code>, affichez la liste triée, « ville - nom ».</p>
+<p><strong>Réussi si</strong> : <code translate="no">node --test s3-par-ville.defi.test.js</code> affiche <code translate="no">ℹ fail 0</code> (3 tests), et la page commence par « Baud - musée de la carte postale ».</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Autonome">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

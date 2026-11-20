@@ -9,8 +9,8 @@ const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { checkPostcode } = await import(pathToFileURL(path.join(dir, 'v1b-code-postal', 'logic.js')).href);
 
 test('checkPostcode : un champ vide ou plein d’espaces', () => {
-  assert.equal(checkPostcode(''), 'Écrivez un code postal.');
-  assert.equal(checkPostcode('   '), 'Écrivez un code postal.');
+  assert.equal(checkPostcode(''), 'Veuillez écrire un code postal.');
+  assert.equal(checkPostcode('   '), 'Veuillez écrire un code postal.');
 });
 
 test('checkPostcode : trop court ou trop long', () => {

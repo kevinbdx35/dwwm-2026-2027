@@ -907,7 +907,7 @@ div.csl-indent {
 <div class="code-with-filename-file">
 <pre><strong>semaine-08/pas-a-pas-xss/app.js</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="semaine-08/pas-a-pas-xss/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// À l'envoi : afficher ce qui a été tapé (version dangereuse)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="semaine-08/pas-a-pas-xss/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Au moment de l'envoi : afficher la saisie (version dangereuse)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>form<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'submit'</span><span class="op">,</span> (<span class="bu">event</span>) <span class="kw">=&gt;</span> {</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// La page ne se recharge pas</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
@@ -1000,7 +1000,7 @@ div.csl-indent {
 <ol type="1">
 <li>Ouvrez <code translate="no">xss1-reparer/index.html</code> avec Live Preview, puis cliquez sur <em>Ouvrir dans le navigateur</em>, comme dans le pas à pas ; cherchez <code translate="no">&lt;img src="x" onerror="alert('XSS')"&gt;</code> : une alerte s’ouvre.</li>
 <li>Dans <code translate="no">app.js</code>, le message : remplacez <code translate="no">innerHTML</code> par <code translate="no">textContent</code>, et retirez la balise <code translate="no">&lt;strong&gt;</code> du texte (elle s’afficherait telle quelle).</li>
-<li>La liste : à la place de <code translate="no">list.innerHTML += …</code>, créez un <code translate="no">&lt;li&gt;</code> avec <code translate="no">createElement</code>, écrivez « nom — ville » avec <code translate="no">textContent</code>, puis <code translate="no">list.append(item)</code> (comme l’étape 3 du pas à pas).</li>
+<li>La liste : à la place de <code translate="no">list.innerHTML += …</code>, créez un <code translate="no">&lt;li&gt;</code> avec <code translate="no">createElement</code>, écrivez « nom - ville » avec <code translate="no">textContent</code>, puis <code translate="no">list.append(item)</code> (comme l’étape 3 du pas à pas).</li>
 <li>Refaites l’attaque, puis cherchez « musée ».</li>
 <li>Depuis <code translate="no">semaine-08</code> : <code translate="no">node --test xss1-reparer.test.js</code>.</li>
 <li>Rituel : un commit (<code translate="no">git add xss1-reparer</code>, <code translate="no">git commit -m "Corrige la faille XSS de xss1"</code>).</li>

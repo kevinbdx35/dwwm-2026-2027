@@ -28,7 +28,7 @@ console.log(name);
 // Dans les paramètres : la fonction reçoit un musée
 function label({ Nom_officiel: title, Ville: city }) {
   // title et city viennent du musée reçu
-  return `${title} — ${city}`;
+  return `${title} - ${city}`;
 }
 // Le même appel qu'avant : on donne un musée entier
 console.log(label(other));

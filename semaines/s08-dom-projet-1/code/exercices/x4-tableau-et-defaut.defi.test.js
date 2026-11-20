@@ -9,12 +9,12 @@ const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { podium, website } = await import(pathToFileURL(path.join(dir, 'x4-tableau-et-defaut.js')).href);
 
 test('podium : les deux premiers noms', () => {
-  assert.equal(podium(['musée de Bretagne', 'musée bigouden', 'port musée']), '1. musée de Bretagne · 2. musée bigouden');
+  assert.equal(podium(['musée de Bretagne', 'musée bigouden', 'port musée']), '1. musée de Bretagne, 2. musée bigouden');
 });
 
 test('podium : un nom qui manque est remplacé par un tiret', () => {
-  assert.equal(podium(['musée de Bretagne']), '1. musée de Bretagne · 2. —');
-  assert.equal(podium([]), '1. — · 2. —');
+  assert.equal(podium(['musée de Bretagne']), '1. musée de Bretagne, 2. -');
+  assert.equal(podium([]), '1. -, 2. -');
 });
 
 test("website : l'adresse, ou « non renseigné »", () => {

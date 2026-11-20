@@ -275,7 +275,7 @@ Kevin Bardoux
 <span id="cb1-4"><a aria-label="4"></a><span class="kw">const</span> { <span class="dt">Nom_officiel</span><span class="op">:</span> name } <span class="op">=</span> museum<span class="op">;</span></span>
 <span id="cb1-5"><a aria-label="5"></a></span>
 <span id="cb1-6"><a aria-label="6"></a><span class="kw">function</span> <span class="fu">label</span>({ Nom_officiel<span class="op">,</span> <span class="dt">Ville</span><span class="op">:</span> city }) {</span>
-<span id="cb1-7"><a aria-label="7"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>Nom_officiel<span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>city<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>Nom_officiel<span class="sc">}</span><span class="vs"> - </span><span class="sc">${</span>city<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb1-8"><a aria-label="8"></a>}</span>
 <span id="cb1-9"><a aria-label="9"></a></span>
 <span id="cb1-10"><a aria-label="10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(Ville<span class="op">,</span> name<span class="op">,</span> <span class="fu">label</span>(museum))<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -328,7 +328,7 @@ Kevin Bardoux
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a aria-label="1"></a><span class="co">// Dans les paramètres : la fonction reçoit un musée</span></span>
 <span id="cb4-2"><a aria-label="2"></a><span class="kw">function</span> <span class="fu">label</span>({ <span class="dt">Nom_officiel</span><span class="op">:</span> title<span class="op">,</span> <span class="dt">Ville</span><span class="op">:</span> city }) {</span>
 <span id="cb4-3"><a aria-label="3"></a>  <span class="co">// title et city viennent du musée reçu</span></span>
-<span id="cb4-4"><a aria-label="4"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>title<span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>city<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>title<span class="sc">}</span><span class="vs"> - </span><span class="sc">${</span>city<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb4-5"><a aria-label="5"></a>}</span>
 <span id="cb4-6"><a aria-label="6"></a><span class="co">// Le même appel qu'avant : on donne un musée entier</span></span>
 <span id="cb4-7"><a aria-label="7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">label</span>(other))<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>

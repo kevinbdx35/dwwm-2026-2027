@@ -16,7 +16,7 @@ test('checkProposal : tout vide donne les trois messages, dans l’ordre', () =>
   assert.deepEqual(checkProposal({ name: '', postcode: '', city: '  ' }), [
     'Le nom compte au moins 3 caractères.',
     'Le code postal compte 5 chiffres.',
-    'Écrivez la ville.',
+    'Veuillez écrire la ville.',
   ]);
 });
 

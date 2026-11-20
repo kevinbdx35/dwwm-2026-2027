@@ -3,7 +3,7 @@
 
 export function museumLabel(museum) {
   // Le nom, un tiret, la ville : un texte, sans document
-  return `${museum.Nom_officiel} — ${museum.Ville}`;
+  return `${museum.Nom_officiel} - ${museum.Ville}`;
 }
 
 export function inDepartment(museums, department) {

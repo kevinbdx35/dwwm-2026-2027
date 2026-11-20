@@ -9,12 +9,12 @@ const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { checkQuery } = await import(pathToFileURL(path.join(dir, 'v1-champ-obligatoire', 'logic.js')).href);
 
 test('checkQuery : un champ vide ou plein d’espaces', () => {
-  assert.equal(checkQuery(''), 'Écrivez un nom ou une ville.');
-  assert.equal(checkQuery('   '), 'Écrivez un nom ou une ville.');
+  assert.equal(checkQuery(''), 'Veuillez écrire un nom ou une ville.');
+  assert.equal(checkQuery('   '), 'Veuillez écrire un nom ou une ville.');
 });
 
 test('checkQuery : un seul caractère', () => {
-  assert.equal(checkQuery(' a '), 'Écrivez au moins 2 caractères.');
+  assert.equal(checkQuery(' a '), 'Veuillez écrire au moins 2 caractères.');
 });
 
 test('checkQuery : une recherche valide donne un texte vide', () => {

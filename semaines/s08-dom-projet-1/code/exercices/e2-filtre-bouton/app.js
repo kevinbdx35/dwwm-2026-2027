@@ -15,7 +15,7 @@ function showList(museums) {
   summary.textContent = `${museums.length} musées`;
   for (const museum of museums) {
     const item = document.createElement('li');
-    item.textContent = `${museum.Nom_officiel} — ${museum.Ville}`;
+    item.textContent = `${museum.Nom_officiel} - ${museum.Ville}`;
     list.append(item);
   }
 }

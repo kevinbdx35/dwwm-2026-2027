@@ -1116,13 +1116,13 @@ div.csl-indent {
 <ul>
 <li>À chaque caractère tapé (événement <code translate="no">input</code>), gardez avec <code translate="no">filter</code> les musées dont la ville <strong>commence</strong> par le texte tapé, sans tenir compte des majuscules.</li>
 <li>Étape documentation : dans MDN, page <em>String</em>, trouvez la méthode qui dit si un texte commence par un autre.</li>
-<li>Videz la liste (<code translate="no">list.textContent = ''</code>), puis ajoutez un <code translate="no">&lt;li&gt;</code> « nom — ville » par musée gardé.</li>
+<li>Videz la liste (<code translate="no">list.textContent = ''</code>), puis ajoutez un <code translate="no">&lt;li&gt;</code> « nom - ville » par musée gardé.</li>
 <li>Écrivez dans <code translate="no">#resume</code> le nombre de musées gardés, ou « Aucun musée ».</li>
 </ul></li>
 <li><strong><code translate="no">e6-choisir</code></strong> : les mêmes six musées, un bouton chacun.
 <ul>
 <li>Dans une boucle <code translate="no">for...of</code>, créez un <code translate="no">&lt;li&gt;</code>, et dedans un <code translate="no">&lt;button type="button"&gt;</code> au nom du musée.</li>
-<li>Dans la boucle, posez sur <strong>ce</strong> bouton un écouteur <code translate="no">click</code> qui écrit dans <code translate="no">#choix</code> : « Musée choisi : nom — ville ».</li>
+<li>Dans la boucle, posez sur <strong>ce</strong> bouton un écouteur <code translate="no">click</code> qui écrit dans <code translate="no">#choix</code> : « Musée choisi : nom - ville ».</li>
 <li>Le bouton <code translate="no">#effacer</code> remet « Aucun musée choisi. ».</li>
 </ul></li>
 </ol>
@@ -1135,7 +1135,7 @@ div.csl-indent {
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/resultats/e6-choisir-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="e6, après un clic sur le quatrième musée, à 1280 px"><img src="img/resultats/e6-choisir-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de e6 à 1280 pixels, après un clic sur le quatrième bouton : six boutons, puis l'encadré « Musée choisi : musée départemental breton — Quimper » et le bouton « Effacer mon choix »."></a></p>
+<p><a href="img/resultats/e6-choisir-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="e6, après un clic sur le quatrième musée, à 1280 px"><img src="img/resultats/e6-choisir-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de e6 à 1280 pixels, après un clic sur le quatrième bouton : six boutons, puis l'encadré « Musée choisi : musée départemental breton - Quimper » et le bouton « Effacer mon choix »."></a></p>
 <figcaption>e6, après un clic sur le quatrième musée, à 1280 px</figcaption>
 </figure>
 </div>
@@ -1173,7 +1173,7 @@ div.csl-indent {
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">//   1. lire la valeur du champ, en minuscules</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">//   2. garder (filter) les musées dont la ville, en minuscules, commence par ce texte</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">//   3. vider la liste</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">//   4. pour chaque musée gardé : créer un &lt;li&gt; « nom — ville », l'ajouter à la liste</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">//   4. pour chaque musée gardé : créer un &lt;li&gt; « nom - ville », l'ajouter à la liste</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">//   5. aucun musée gardé : écrire « Aucun musée » dans le résumé ; sinon, le nombre et « musées »</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -1200,7 +1200,7 @@ div.csl-indent {
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  list<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">''</span><span class="op">;</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> museum <span class="kw">of</span> found) {</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> item <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'li'</span>)<span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">name</span><span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">city</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    item<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>museum<span class="op">.</span><span class="at">name</span><span class="sc">}</span><span class="vs"> - </span><span class="sc">${</span>museum<span class="op">.</span><span class="at">city</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span><span class="fu">append</span>(item)<span class="op">;</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (found<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span>) {</span>
@@ -1239,7 +1239,7 @@ div.csl-indent {
 </ul>
 <p><strong>Palier 3 : autonome.</strong> Durée indicative : 25 min ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
 <p>Dans <code translate="no">e6</code>, chaque bouton a son propre écouteur : avec 1 200 musées, cela ferait 1 200 écouteurs. Faites une page semblable dans <code translate="no">e4-delegation/app.js</code>, avec <strong>un seul</strong> écouteur, posé sur la liste : c’est la <a href="../../ressources/lexique.html#t-delegation">délégation</a> d’événements. L’écouteur reçoit un objet <code translate="no">event</code> ; à vous de trouver comment savoir sur quel bouton on a cliqué, et comment ranger l’identifiant du musée dans le bouton.</p>
-<p><strong>Réussi si</strong> : un clic (ou Entrée) sur un musée affiche « Musée choisi : nom — ville » ; un clic dans la liste, entre deux boutons, ne provoque aucune erreur dans la console ; <code translate="no">app.js</code> ne contient qu’un seul <code translate="no">addEventListener</code>.</p>
+<p><strong>Réussi si</strong> : un clic (ou Entrée) sur un musée affiche « Musée choisi : nom - ville » ; un clic dans la liste, entre deux boutons, ne provoque aucune erreur dans la console ; <code translate="no">app.js</code> ne contient qu’un seul <code translate="no">addEventListener</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Autonome">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

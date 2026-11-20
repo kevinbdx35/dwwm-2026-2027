@@ -23,7 +23,7 @@ form.addEventListener('submit', (event) => {
   // Champ vide : un message d'erreur, et aucun résultat
   if (city === '') {
     // Le message, visible sous le champ
-    error.textContent = "Écrivez le nom d'une ville.";
+    error.textContent = "Veuillez écrire le nom d'une ville.";
     // On efface un ancien résultat
     result.textContent = '';
   } else {

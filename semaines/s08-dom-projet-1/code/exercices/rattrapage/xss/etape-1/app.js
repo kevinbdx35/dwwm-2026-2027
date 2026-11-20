@@ -7,7 +7,7 @@ const message = document.querySelector('#message');
 const list = document.querySelector('#liste');
 console.log(names, form, field, message, list);
 
-// À l'envoi : afficher ce qui a été tapé (version dangereuse)
+// Au moment de l'envoi : afficher la saisie (version dangereuse)
 form.addEventListener('submit', (event) => {
   // La page ne se recharge pas
   event.preventDefault();
