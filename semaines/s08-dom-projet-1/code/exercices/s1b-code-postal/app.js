@@ -1,6 +1,7 @@
 // Palier 1 : entraînement — L'affichage (mardi matin). Les lignes import sont déjà écrites.
 // Un exercice complet : la logique d'abord (logic.js et ses tests), puis les trois fichiers.
-// Quand les tests sont au vert :
+// 1. logic.js : écrivez postalLabel (sa consigne est en haut de logic.js).
+// 2. Terminal, depuis semaine-08 : node --test s1b-code-postal.test.js ; quand les tests sont au vert :
 // 3. index.html : au-dessus de la liste, ajoutez <p id="resume" class="resume"></p>.
 // 4. style.css : à la fin, écrivez la classe .resume : font-weight: 700; et color: #1f5fbf;
 // 5. app.js : dans #resume, écrivez « 34 musées » avec MUSEUMS.length ;

@@ -861,7 +861,7 @@ div.csl-indent {
 <li>Dossier : <code translate="no">pas-a-pas-decomposition</code>, fichier <code translate="no">decomposer.js</code>.</li>
 <li>Perdu ? Dossier <code translate="no">rattrapage/decomposition/</code>, une étape à la fois.</li>
 </ul>
-<p><strong>Palier 1 : guidé.</strong> Ouvrez <code translate="no">pas-a-pas-decomposition/decomposer.js</code> : deux musées du Finistère, avec les clés du fichier Muséofile <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. Dans le terminal : <code translate="no">cd pas-a-pas-decomposition</code>.</p>
+<p><strong>Pas à pas.</strong> Ouvrez <code translate="no">pas-a-pas-decomposition/decomposer.js</code> : deux musées du Finistère, avec les clés du fichier Muséofile <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. Dans le terminal : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08/pas-a-pas-decomposition</code>.</p>
 <p><strong>Avant de commencer.</strong> Lancez <code translate="no">node decomposer.js</code>. <strong>Vous devez voir</strong> : <code translate="no">musée de la pêche / musée bigouden</code>. Chaque étape ajoute ses lignes à la fin du fichier, et sa sortie à la fin de la console.</p>
 <p><strong>Étape 1 — Deux variables en une ligne.</strong> Sortez la ville et le département du premier musée.</p>
 <p><em>Avant d’exécuter</em> : quels noms auront les deux variables ?</p>
@@ -944,7 +944,7 @@ div.csl-indent {
 </section>
 <section id="enregistrer-et-envoyer-2-min" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
-<p>Depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-decomposition</code>, <code translate="no">git commit -m "Ajoute le pas à pas décomposition"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+<p>Dans le terminal, revenez dans le dossier de la semaine : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code> (l’invite se termine par <code translate="no">semaine-08</code>). Puis : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-decomposition</code>, <code translate="no">git commit -m "Ajoute le pas à pas décomposition"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : après le <code translate="no">git push</code>, relancez <code translate="no">git status</code> : il affiche <code translate="no">Sur la branche main</code>, et le dossier que vous venez d’ajouter n’est plus dans la liste. Les dossiers de l’archive pas encore faits restent sous <code translate="no">Fichiers non suivis</code> : c’est normal.</p>
 </section>
 </section>
 </section>
@@ -962,7 +962,7 @@ div.csl-indent {
 <ol type="1">
 <li>Ouvrez <code translate="no">x1-decomposer.js</code>. <code translate="no">placeLine(museum)</code> renvoie « ville, département », par exemple <code translate="no">'Concarneau, Finistère'</code>.</li>
 <li>Remplacez la ligne <code translate="no">return '';</code> par deux lignes : d’abord <code translate="no">const { Ville, Departement } = museum;</code>, puis un <code translate="no">return</code> avec un littéral de gabarit qui utilise ces deux variables.</li>
-<li>Lancez <code translate="no">node --test x1-decomposer.test.js</code>.</li>
+<li>Dans le terminal : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code> (l’invite se termine par <code translate="no">semaine-08</code>), puis <code translate="no">node --test x1-decomposer.test.js</code>.</li>
 <li>Rituel : un commit (<code translate="no">git add x1-decomposer.js</code>, <code translate="no">git commit -m "Ajoute la solution de x1"</code>).</li>
 </ol>
 <p><strong>Réussi si</strong> : <code translate="no">node --test x1-decomposer.test.js</code> affiche <code translate="no">ℹ fail 0</code>, et VS Code ne souligne rien en rouge.</p>
@@ -1198,7 +1198,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
 <ul>
 <li>Les paliers 2 et 3 non terminés.</li>
-<li>Le <a href="../../semaines/s08-dom-projet-1/mercredi.html#parcours-dautonomie-de-la-semaine">parcours d’autonomie</a>, ligne 6.</li>
+<li>Le <a href="../../semaines/s08-dom-projet-1/mercredi.html#parcours-dautonomie-de-la-semaine">parcours d’autonomie</a>, ligne 7 (<code translate="no">x4-tableau-et-defaut</code>).</li>
 </ul>
 </section>
 <section id="débrief" class="level3">

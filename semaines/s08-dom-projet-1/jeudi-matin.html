@@ -821,7 +821,7 @@ div.csl-indent {
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">event</span><span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> city <span class="op">=</span> field<span class="op">.</span><span class="at">value</span><span class="op">.</span><span class="fu">trim</span>()<span class="op">;</span></span>
 <span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (city <span class="op">===</span> <span class="st">''</span>) {</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-9" class="code-annotation-target"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>    error<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">'Écrivez le nom d’une ville.'</span><span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-9" class="code-annotation-target"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>    error<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">"Écrivez le nom d'une ville."</span><span class="op">;</span></span>
 <span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-11" class="code-annotation-target"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>    error<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">''</span><span class="op">;</span></span>
 <span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>  }</span>
@@ -878,7 +878,7 @@ div.csl-indent {
 <li>Dossier : <code translate="no">pas-a-pas-formulaire</code>, fichier <code translate="no">app.js</code>.</li>
 <li>Perdu ? Dossier <code translate="no">rattrapage/formulaire/</code>, une étape à la fois.</li>
 </ul>
-<p><strong>Palier 1 : guidé.</strong> Ouvrez <code translate="no">pas-a-pas-formulaire/index.html</code> : un formulaire avec un champ « Ville », son <code translate="no">label</code>, un bouton, et deux paragraphes vides, <code translate="no">#erreur</code> et <code translate="no">#resultat</code>. Le <code translate="no">&lt;form&gt;</code> porte l’attribut <code translate="no">novalidate</code> : les bulles du navigateur sont coupées, nos messages les remplacent. <code translate="no">app.js</code> trouve déjà les quatre éléments. Ouvrez la page avec Live Preview, puis dans le navigateur, F12, Console.</p>
+<p><strong>Pas à pas.</strong> Ouvrez <code translate="no">pas-a-pas-formulaire/index.html</code> : un formulaire avec un champ « Ville », son <code translate="no">label</code>, un bouton, et deux paragraphes vides, <code translate="no">#erreur</code> et <code translate="no">#resultat</code>. Le <code translate="no">&lt;form&gt;</code> porte l’attribut <code translate="no">novalidate</code> : les bulles du navigateur sont coupées, nos messages les remplacent. <code translate="no">app.js</code> trouve déjà les quatre éléments. Ouvrez la page avec Live Preview, puis dans le navigateur, F12, Console.</p>
 <p><strong>Avant de commencer.</strong> <strong>Vous devez voir</strong> : le formulaire, et dans la console, les quatre éléments, sans erreur.</p>
 <p><strong>Étape 1 — Garder la main.</strong> Un écouteur <code translate="no">submit</code> qui empêche le rechargement.</p>
 <p><em>Avant d’exécuter</em> : « envoyé ! » restera-t-il dans la console ?</p>
@@ -896,7 +896,7 @@ div.csl-indent {
 </div>
 <p>Enregistrez, rechargez, cliquez sur « Chercher », puis tapez Entrée dans le champ.</p>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : « envoyé ! » deux fois, et la page ne se recharge pas.</p>
+<p><strong>Vous devez voir</strong> : « envoyé ! » dans la console, avec un petit « 2 » à côté (la console regroupe deux messages identiques), et la page ne se recharge pas.</p>
 </div>
 <div class="encadre-perdu">
 <p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/formulaire/etape-1/app.js</code> à la place de votre <code translate="no">app.js</code>, puis repartez avec le groupe.</p>
@@ -939,7 +939,7 @@ div.csl-indent {
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Champ vide : un message d'erreur, et aucun résultat</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (city <span class="op">===</span> <span class="st">''</span>) {</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Le message, visible sous le champ</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    error<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">'Écrivez le nom d’une ville.'</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    error<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">"Écrivez le nom d'une ville."</span><span class="op">;</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// On efface un ancien résultat</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    result<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">''</span><span class="op">;</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
@@ -950,6 +950,7 @@ div.csl-indent {
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Le message est entre guillemets doubles, <code translate="no">"…"</code> : il contient une apostrophe, qui fermerait des guillemets simples. Tapez l’apostrophe du clavier.</p>
 <p>Enregistrez, rechargez ; envoyez vide, puis « Vannes ».</p>
 <div class="encadre-voir">
 <p><strong>Vous devez voir</strong> : vide, le message rouge « Écrivez le nom d’une ville. » ; puis « Vannes » : le message disparaît, « Recherche : Vannes » s’affiche.</p>
@@ -982,7 +983,7 @@ div.csl-indent {
 </section>
 <section id="enregistrer-et-envoyer-2-min" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
-<p>Depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-formulaire</code>, <code translate="no">git commit -m "Ajoute le pas à pas formulaire"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+<p>Dans le terminal, revenez dans le dossier de la semaine : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code> (l’invite se termine par <code translate="no">semaine-08</code>). Puis : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-formulaire</code>, <code translate="no">git commit -m "Ajoute le pas à pas formulaire"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : après le <code translate="no">git push</code>, relancez <code translate="no">git status</code> : il affiche <code translate="no">Sur la branche main</code>, et le dossier que vous venez d’ajouter n’est plus dans la liste. Les dossiers de l’archive pas encore faits restent sous <code translate="no">Fichiers non suivis</code> : c’est normal.</p>
 </section>
 </section>
 </section>
@@ -1004,7 +1005,7 @@ div.csl-indent {
 <li>Si <code translate="no">query</code> vaut <code translate="no">''</code>, renvoyez <code translate="no">'Écrivez un nom ou une ville.'</code> ; si <code translate="no">query.length</code> vaut <code translate="no">1</code>, renvoyez <code translate="no">'Écrivez au moins 2 caractères.'</code> ; sinon, renvoyez <code translate="no">''</code>.</li>
 <li>Depuis <code translate="no">semaine-08</code> : <code translate="no">node --test v1-champ-obligatoire.test.js</code>.</li>
 <li>Dans <code translate="no">app.js</code>, posez un écouteur <code translate="no">submit</code> sur <code translate="no">form</code> : <code translate="no">event.preventDefault();</code>, puis <code translate="no">const message = checkQuery(field.value);</code>, puis écrivez <code translate="no">message</code> dans <code translate="no">error</code>.</li>
-<li>Si <code translate="no">message</code> vaut <code translate="no">''</code>, écrivez « Recherche : » et le texte nettoyé dans <code translate="no">result</code> ; sinon, videz <code translate="no">result</code>.</li>
+<li>Si <code translate="no">message</code> vaut <code translate="no">''</code>, écrivez dans <code translate="no">result</code> « Recherche : » suivi du texte nettoyé, <code translate="no">field.value.trim()</code> ; sinon, videz <code translate="no">result</code>.</li>
 <li>Essayez : vide, « a », puis « Brest », avec le bouton <strong>et</strong> avec Entrée.</li>
 <li>Rituel : un commit (<code translate="no">git add v1-champ-obligatoire</code>, <code translate="no">git commit -m "Ajoute la solution de v1"</code>).</li>
 </ol>

@@ -5,7 +5,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 // Imports the exercise (or, for the trainer, the solution folder given in EXERCISES_DIR).
-const dir = process.env.EXERCISES_DIR ?? import.meta.dirname;
+const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { checkProposal } = await import(pathToFileURL(path.join(dir, 'v2-trois-regles', 'logic.js')).href);
 
 test('checkProposal : une proposition valide ne donne aucun message', () => {

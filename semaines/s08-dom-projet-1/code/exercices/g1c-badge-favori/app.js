@@ -3,7 +3,8 @@
 // 1. Terminal : git switch -c g1c-badge-favori
 // 2. index.html : dans la carte, sous la ville, ajoutez le badge, masqué :
 //    <span id="badge" class="badge" hidden>Favori</span>
-// 3. style.css : à la fin, placez le badge en haut à droite de la carte, comme dans R1 :
+// 3. style.css : sous la ligne « Écrivez votre classe sous cette ligne. », ajoutez une seconde
+//    règle .badge (elle s'ajoute à la première) pour placer le badge en haut à droite :
 //    .badge { position: absolute; top: 0.5rem; right: 0.5rem; }
 //    (la carte a déjà position: relative : elle est le repère du badge).
 // 4. app.js : au clic sur le bouton #ajouter, affichez le badge (sa propriété hidden passe à false).

@@ -2,7 +2,8 @@
 // Tested by projet-1.test.js (node --test projet-1.test.js).
 // A museum is an object of the data set: { Identifiant, Nom_officiel, Ville, Departement, … }.
 
-// US-1 — museumLabel(museum) renvoie « nom — ville » : 'musée de Dinan — Dinan'.
+// US-1 — museumLabel(museum) renvoie « nom - ville » : 'musée de Dinan - Dinan'.
+// Le tiret est le signe moins du clavier (-), entouré de deux espaces.
 export function museumLabel(museum) {
   // TODO: replace the line below with your code.
   return '';

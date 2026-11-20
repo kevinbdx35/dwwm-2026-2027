@@ -5,7 +5,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 // Imports the exercise (or, for the trainer, the solution folder given in EXERCISES_DIR).
-const dir = process.env.EXERCISES_DIR ?? import.meta.dirname;
+const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { toCard } = await import(pathToFileURL(path.join(dir, 'x3-renommer.js')).href);
 
 test('toCard : trois propriétés, aux noms anglais', () => {

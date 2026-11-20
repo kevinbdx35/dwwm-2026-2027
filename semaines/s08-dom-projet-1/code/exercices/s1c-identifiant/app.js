@@ -1,6 +1,7 @@
 // Palier 1 : entraînement — L'affichage (mardi matin). Les lignes import sont déjà écrites.
 // Un exercice complet : la logique d'abord (logic.js et ses tests), puis les trois fichiers.
-// Quand les tests sont au vert :
+// 1. logic.js : écrivez idLabel (sa consigne est en haut de logic.js).
+// 2. Terminal, depuis semaine-08 : node --test s1c-identifiant.test.js ; quand les tests sont au vert :
 // 3. index.html : sous le résumé, ajoutez <ul id="liste" class="liste-bleue"></ul>.
 // 4. style.css : à la fin, écrivez la classe .liste-bleue : color: #1f5fbf;
 // 5. app.js : dans #resume, écrivez « 34 identifiants » avec MUSEUMS.length ;

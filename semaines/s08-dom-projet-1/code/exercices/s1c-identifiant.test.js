@@ -5,7 +5,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 // Imports the exercise (or, for the trainer, the solution folder given in EXERCISES_DIR).
-const dir = process.env.EXERCISES_DIR ?? import.meta.dirname;
+const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { idLabel } = await import(pathToFileURL(path.join(dir, 's1c-identifiant', 'logic.js')).href);
 
 test('idLabel : le nom, puis l’identifiant entre parenthèses', () => {

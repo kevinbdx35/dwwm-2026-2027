@@ -5,7 +5,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 // Imports the exercise (or, for the trainer, the solution folder given in EXERCISES_DIR).
-const dir = process.env.EXERCISES_DIR ?? import.meta.dirname;
+const dir = process.env.EXERCISES_DIR || import.meta.dirname;
 const { placeLine } = await import(pathToFileURL(path.join(dir, 'x1-decomposer.js')).href);
 
 test('placeLine : la ville, une virgule, le département', () => {

@@ -13,14 +13,14 @@ function projectFolder(base) {
   return fs.existsSync(path.join(inWeek, 'logic.js')) ? inWeek : base;
 }
 
-const logicDir = projectFolder(process.env.EXERCISES_DIR ?? import.meta.dirname);
+const logicDir = projectFolder(process.env.EXERCISES_DIR || import.meta.dirname);
 const dataDir = projectFolder(import.meta.dirname);
 const { museumLabel, searchMuseums, findMuseum } = await import(pathToFileURL(path.join(logicDir, 'logic.js')).href);
 const { MUSEUMS } = await import(pathToFileURL(path.join(dataDir, 'data', 'musees-bretagne.js')).href);
 
 test('museumLabel : le nom, un tiret, la ville', () => {
   const dinan = { Identifiant: 'M0194', Nom_officiel: 'musée de Dinan', Ville: 'Dinan' };
-  assert.equal(museumLabel(dinan), 'musée de Dinan — Dinan');
+  assert.equal(museumLabel(dinan), 'musée de Dinan - Dinan');
 });
 
 test('searchMuseums : une recherche vide renvoie une copie de tous les musées', () => {

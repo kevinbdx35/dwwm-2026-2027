@@ -11,7 +11,7 @@ function projectFolder(base) {
   return fs.existsSync(path.join(inWeek, 'logic.js')) ? inWeek : base;
 }
 
-const logicDir = projectFolder(process.env.EXERCISES_DIR ?? import.meta.dirname);
+const logicDir = projectFolder(process.env.EXERCISES_DIR || import.meta.dirname);
 const dataDir = projectFolder(import.meta.dirname);
 const { countByDepartment } = await import(pathToFileURL(path.join(logicDir, 'logic.js')).href);
 const { MUSEUMS } = await import(pathToFileURL(path.join(dataDir, 'data', 'musees-bretagne.js')).href);

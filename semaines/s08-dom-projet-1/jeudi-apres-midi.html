@@ -800,7 +800,7 @@ div.csl-indent {
 <li><strong>Fusion</strong> dans <code translate="no">main</code>, puis <code translate="no">git pull</code>.</li>
 </ul>
 <p><strong>Pourquoi.</strong> Dans une équipe, personne ne travaille directement sur <code translate="no">main</code> : elle doit toujours marcher, parce qu’elle est publiée. Chaque changement passe par une branche et une relecture. Dans le projet n° 1, vous êtes seul : vous vous relisez vous-même, avec une grille. Au projet n° 3, en binôme, c’est votre binôme qui relira.</p>
-<p><strong>Définition.</strong> Le <a href="../../ressources/lexique.html#t-github-flow">GitHub Flow</a> est une façon de travailler en quatre temps : une branche par changement ; des commits poussés sur cette branche ; une <a href="../../ressources/lexique.html#t-pull-request">Pull Request</a> qui propose de fusionner, relue avant d’être acceptée ; la fusion dans <code translate="no">main</code> <span class="citation" data-cites="github-flow">(<a href="#ref-github-flow" role="doc-biblioref">GitHub, s.&nbsp;d.</a>)</span>. Un <a href="../../ressources/lexique.html#t-code-smell"><em>code smell</em></a> est un signe, dans le code, qu’il pourrait être écrit plus simplement : la grille en cherche trois <span class="citation" data-cites="refactoring-guru-smells">(<a href="#ref-refactoring-guru-smells" role="doc-biblioref">Refactoring Guru, s.&nbsp;d.</a>)</span>.</p>
+<p><strong>Définition.</strong> Le <a href="../../ressources/lexique.html#t-github-flow">GitHub Flow</a> est une façon de travailler en quatre temps : une branche par changement ; des commits poussés sur cette branche ; une <a href="../../ressources/lexique.html#t-pull-request">Pull Request</a> qui propose de fusionner, relue avant d’être acceptée ; la fusion dans <code translate="no">main</code> <span class="citation" data-cites="github-flow">(<a href="#ref-github-flow" role="doc-biblioref">GitHub, s.&nbsp;d.-b</a>)</span>. Un <a href="../../ressources/lexique.html#t-code-smell"><em>code smell</em></a> est un signe, dans le code, qu’il pourrait être écrit plus simplement : la grille en cherche trois <span class="citation" data-cites="refactoring-guru-smells">(<a href="#ref-refactoring-guru-smells" role="doc-biblioref">Refactoring Guru, s.&nbsp;d.</a>)</span>.</p>
 </section>
 <section id="le-github-flow-en-image" class="level3">
 <h3 class="anchored" data-anchor-id="le-github-flow-en-image">Le GitHub Flow, en image</h3>
@@ -853,41 +853,71 @@ div.csl-indent {
 <li>Vérifiez « Vous devez voir » à chaque étape.</li>
 <li>Perdu ? Levez la main : on ne laisse personne derrière.</li>
 </ul>
-<p><strong>Palier 1 : guidé.</strong> Dix étapes, tous ensemble ; le formateur attend que chacun voie le résultat avant de passer à la suivante. Les chemins supposent votre dossier de semaine <code translate="no">~/dwwm/dwwm-tp/semaine-08</code>, avec le kit <code translate="no">projet-1</code>.</p>
+<p><strong>Pas à pas.</strong> Dix étapes, tous ensemble ; le formateur attend que chacun voie le résultat avant de passer à la suivante. Les chemins supposent votre dossier de semaine <code translate="no">~/dwwm/dwwm-tp/semaine-08</code>, avec le kit <code translate="no">projet-1</code>.</p>
 <p><strong>Étape 1 — Le dépôt sur GitHub</strong> (7 min). Sur GitHub, <em>New repository</em> : nom <code translate="no">explorateur-musees</code>, <strong>Public</strong>, <strong>sans</strong> README, sans <code translate="no">.gitignore</code>, sans licence (le kit les fournit). <em>Create repository</em>.</p>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : la page « Quick setup » du dépôt vide, avec son adresse SSH (<code translate="no">git@github.com:…/explorateur-musees.git</code>). Ce dépôt est <strong>public</strong> : ce qui est public est visible par tous ; aucune donnée personnelle dedans (ni nom complet, ni adresse, ni téléphone).</p>
+<p><strong>Vous devez voir</strong> : la page « Quick setup » du dépôt vide, avec son adresse. Ce dépôt est <strong>public</strong> : ce qui est public est visible par tous ; aucune donnée personnelle dedans (ni nom complet, ni adresse, ni téléphone).</p>
 </div>
-<p><strong>Étape 2 — Le cloner</strong> (7 min). Dans le terminal de VS Code, copiez l’adresse SSH de la page « Quick setup », puis :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/dwwm</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:votre-compte/explorateur-musees.git</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> explorateur-musees</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Sur GitHub, cliquez sur votre photo (en haut à droite), puis <em>Your repositories</em> : si <code translate="no">explorateur-musees</code> existe déjà, ouvrez-le ; sinon, refaites l’étape avec le formateur.</p>
+</div>
+<p><strong>Étape 2 — Le cloner</strong> (7 min). Sur la page « Quick setup », cliquez sur le bouton <strong>SSH</strong> (à côté de <em>HTTPS</em>) : l’adresse doit commencer par <code translate="no">git@github.com:</code>. Copiez-la. Dans le terminal de VS Code, tapez ensuite les trois commandes, en collant votre adresse après <code translate="no">git clone</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Le dossier qui contient vos dépôts</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/dwwm</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copie le dépôt de GitHub sur votre ordinateur</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:votre-compte/explorateur-musees.git</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Entre dans le dossier du projet</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> explorateur-musees</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : <code translate="no">warning: You appear to have cloned an empty repository.</code> : c’est normal, le dépôt est vide. <code translate="no">ls ~/dwwm</code> affiche <code translate="no">dwwm-tp</code> et <code translate="no">explorateur-musees</code>.</p>
+<p><strong>Vous devez voir</strong> : <code translate="no">avertissement : Vous semblez avoir cloné un dépôt vide.</code> (en anglais : <code translate="no">warning: You appear to have cloned an empty repository.</code>) : c’est normal, le dépôt est vide. <code translate="no">ls ~/dwwm</code> affiche <code translate="no">dwwm-tp</code> et <code translate="no">explorateur-musees</code> (et <code translate="no">dwwm-soutien</code>, si vous l’avez cloné).</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> L’adresse commence par <code translate="no">https://</code> ? Supprimez le dossier (<code translate="no">cd ~/dwwm</code>, puis <code translate="no">rm -rf explorateur-musees</code>), cliquez sur <strong>SSH</strong> sur GitHub, et recommencez l’étape. <code translate="no">Permission denied (publickey)</code> : levez la main, le formateur vérifie votre clé SSH (semaine 4).</p>
 </div>
 <p><strong>Étape 3 — Le premier commit</strong> (7 min). Le premier commit contient le <code translate="no">.gitignore</code>, le <code translate="no">.env.example</code> et le <code translate="no">README.md</code>, <strong>avant</strong> tout code :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/.gitignore .</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/.env.example .</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/README.md .</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore .env.example README.md</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initialise le projet : gitignore, env.example, README"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copie les fichiers ignorés par Git</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/.gitignore .</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copie la liste des valeurs secrètes attendues</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/.env.example .</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Copie la présentation du projet</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/README.md .</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prépare les trois fichiers pour le commit</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore .env.example README.md</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistre le premier commit</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initialise le projet : gitignore, env.example, README"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Envoie main sur GitHub, et la relie à origin</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="encadre-voir">
 <p><strong>Vous devez voir</strong> : sur GitHub, après avoir rechargé, les trois fichiers sur <code translate="no">main</code>. Ouvrez <code translate="no">.env.example</code> : il ne contient que des commentaires. Il dit quelles valeurs secrètes le projet attendrait, jamais leur valeur ; le vrai <code translate="no">.env</code>, lui, est listé dans <code translate="no">.gitignore</code> et ne sera jamais envoyé.</p>
 </div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> <code translate="no">git push</code> est refusé (<code translate="no">rejected</code>) ? Vous avez coché une case à l’étape 1 : tapez <code translate="no">git pull</code>, puis de nouveau <code translate="no">git push -u origin main</code>.</p>
+</div>
 <p><strong>Étape 4 — La branche de l’histoire US-1</strong> (2 min).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> us-1-liste</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crée la branche de US-1 et passe dessus</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> us-1-liste</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : <code translate="no">Basculement sur la nouvelle branche 'us-1-liste'</code>.</p>
+<p><strong>Vous devez voir</strong> : <code translate="no">Basculement sur la nouvelle branche 'us-1-liste'</code> (en anglais : <code translate="no">Switched to a new branch 'us-1-liste'</code>).</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> <code translate="no">git branch --show-current</code> doit afficher <code translate="no">us-1-liste</code> ; sinon, retapez la commande.</p>
 </div>
 <p><strong>Étape 5 — Le reste du kit</strong> (7 min). Copiez le kit, puis les deux fichiers de tests, et ouvrez VS Code sur le dossier du projet :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/. .</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1.test.js .</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1.defi.test.js .</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copie tout le kit dans le dossier du projet</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/dwwm/dwwm-tp/semaine-08/projet-1/. .</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copie les tests des histoires</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1.test.js .</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Copie les tests du palier 3</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/dwwm/dwwm-tp/semaine-08/projet-1.defi.test.js .</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Installe ESLint, listé dans package.json</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ouvre VS Code sur le dossier du projet</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : dans VS Code, <code translate="no">index.html</code>, <code translate="no">logic.js</code>, <code translate="no">app.js</code>, <code translate="no">api.js</code>, <code translate="no">data/</code>, <code translate="no">BACKLOG.md</code> et les deux fichiers de tests ; <code translate="no">npm install</code> se termine par <code translate="no">found 0 vulnerabilities</code>. <code translate="no">git status</code> ne propose <strong>pas</strong> <code translate="no">node_modules/</code> : le <code translate="no">.gitignore</code> fait son travail. <code translate="no">code .</code> est inconnue ? Ouvrez VS Code, puis <em>Fichier</em> &gt; <em>Ouvrir le dossier…</em>, et choisissez <code translate="no">explorateur-musees</code>.</p>
+<p><strong>Vous devez voir</strong> : dans VS Code, <code translate="no">index.html</code>, <code translate="no">logic.js</code>, <code translate="no">app.js</code>, <code translate="no">api.js</code>, <code translate="no">data/</code>, <code translate="no">BACKLOG.md</code> et les deux fichiers de tests ; <code translate="no">npm install</code> se termine par <code translate="no">found 0 vulnerabilities</code>. Tapez ensuite <code translate="no">git status</code> : il ne propose <strong>pas</strong> <code translate="no">node_modules/</code> ; le <code translate="no">.gitignore</code> fait son travail. <code translate="no">code .</code> est inconnue ? Ouvrez VS Code, puis <em>Fichier</em> &gt; <em>Ouvrir le dossier…</em>, et choisissez <code translate="no">explorateur-musees</code>.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> <code translate="no">No such file or directory</code> ? Vérifiez avec <code translate="no">pwd</code> que vous êtes dans <code translate="no">~/dwwm/explorateur-musees</code>, puis relancez les commandes une par une.</p>
 </div>
 <p><strong>Étape 6 — La logique de US-1</strong> (10 min). Dans <code translate="no">logic.js</code>, remplacez la fonction <code translate="no">museumLabel</code> par celle-ci, avec la décomposition de mardi dans les paramètres :</p>
 <div class="code-with-filename" translate="no">
@@ -897,13 +927,17 @@ div.csl-indent {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="explorateur-musees/logic.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Décomposition dans les paramètres : name et city</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">museumLabel</span>({ <span class="dt">Nom_officiel</span><span class="op">:</span> name<span class="op">,</span> <span class="dt">Ville</span><span class="op">:</span> city }) {</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Le nom, un tiret, la ville</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>name<span class="sc">}</span><span class="vs"> — </span><span class="sc">${</span>city<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>name<span class="sc">}</span><span class="vs"> - </span><span class="sc">${</span>city<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Puis lancez seulement le test de US-1 : <code translate="no">--test-name-pattern</code> ne lance que les tests dont le nom contient ce mot.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--test</span> <span class="at">--test-name-pattern</span><span class="op">=</span>museumLabel projet-1.test.js</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Le tiret est le signe moins du clavier (<code translate="no">-</code>), avec une espace avant et après : le test compare le texte caractère par caractère.</p>
 <div class="encadre-voir">
 <p><strong>Vous devez voir</strong> : <code translate="no">ℹ pass 1</code> et <code translate="no">ℹ fail 0</code>. Les tests de US-2 et US-3 viendront avec leurs histoires.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Le test est rouge ? Comparez les lignes <code translate="no">+</code> (votre texte) et <code translate="no">-</code> (le texte attendu) : une espace ou un tiret différent suffit. Sinon, copiez la fonction depuis le bloc ci-dessus, à la place de la vôtre.</p>
 </div>
 <p><strong>Étape 7 — L’affichage de US-1</strong> (12 min). Dans <code translate="no">app.js</code>, sous les deux lignes <code translate="no">import</code>, supprimez la ligne <code translate="no">console.log('À faire', …)</code>, puis tapez :</p>
 <div class="code-with-filename" translate="no">
@@ -930,21 +964,49 @@ div.csl-indent {
 <div class="encadre-voir">
 <p><strong>Vous devez voir</strong> : « Musées de Bretagne », un champ de recherche (qui ne fait encore rien), « 34 musées », puis 34 lignes ; aucune erreur dans la console.</p>
 </div>
-<p><strong>Étape 8 — Enregistrer et pousser la branche</strong> (6 min).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add logic.js app.js index.html style.css api.js data BACKLOG.md package.json package-lock.json eslint.config.js projet-1.test.js projet-1.defi.test.js .vscode</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Affiche la liste des musées (US-1)"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin us-1-liste</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code> ; GitHub propose un bandeau jaune <em>us-1-liste had recent pushes</em>.</p>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Une erreur rouge dans la console ? Lisez son nom et sa ligne, puis cherchez-la dans <a href="../../ressources/fiche-erreurs.html">la fiche « Lire un message d’erreur »</a>. Page vide sans erreur ? Vérifiez que la ligne <code translate="no">console.log('À faire', …)</code> est supprimée et que les deux <code translate="no">import</code> sont restés.</p>
 </div>
-<p><strong>Étape 9 — La Pull Request et la relecture</strong> (12 min). Sur GitHub : <em>Compare &amp; pull request</em> ; titre « US-1 — La liste des musées » ; description : le critère d’acceptation de US-1, recopié du backlog. <em>Create pull request</em>. Puis, onglet <em>Files changed</em>, relisez <strong>votre</strong> code avec la grille ci-dessous, et cochez chaque ligne dans la description de la PR.</p>
+<p><strong>Étape 8 — Enregistrer et pousser la branche</strong> (6 min).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ce qui a changé depuis le dernier commit</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prépare les fichiers du kit, sans node_modules</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add logic.js app.js index.html style.css api.js data BACKLOG.md package.json package-lock.json eslint.config.js projet-1.test.js projet-1.defi.test.js .vscode</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistre le commit de US-1</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Affiche la liste des musées (US-1)"</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Envoie la branche sur GitHub</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin us-1-liste</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Le premier <code translate="no">git status</code> liste les fichiers du kit, en rouge : c’est normal, ils ne sont pas encore ajoutés.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong>, après le <code translate="no">git push</code> : un nouveau <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code> ; sur GitHub, un bandeau jaune <em>us-1-liste had recent pushes</em>.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Un fichier est encore en rouge après le commit ? Ajoutez-le (<code translate="no">git add</code> suivi de son nom), refaites un commit, puis <code translate="no">git push</code>.</p>
+</div>
+<p><strong>Étape 9 — La Pull Request et la relecture</strong> (12 min). Sur GitHub : <em>Compare &amp; pull request</em> ; titre « US-1 - La liste des musées ». Dans la description, <strong>avant</strong> de créer la PR :</p>
+<ol type="1">
+<li>Recopiez le critère d’acceptation de US-1, depuis <code translate="no">BACKLOG.md</code>.</li>
+<li>En dessous, recopiez <a href="#grille">la grille de relecture</a> (le bloc qui commence par <code translate="no">- [ ]</code>), sans rien cocher.</li>
+<li>Cliquez sur <em>Create pull request</em>.</li>
+<li>Onglet <em>Files changed</em> : relisez <strong>votre</strong> code, une ligne de la grille à la fois.</li>
+<li>Revenez à l’onglet <em>Conversation</em> : cochez chaque ligne vérifiée, directement dans la description (les cases se cochent au clic).</li>
+</ol>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : la PR ouverte, avec le badge vert <em>Open</em>, le critère d’acceptation et les sept lignes de la grille cochées.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> La grille est oubliée ? Dans l’onglet <em>Conversation</em>, cliquez sur les trois points <code translate="no">…</code> de la description, puis <em>Edit</em> : collez la grille, puis <em>Update comment</em>.</p>
+</div>
 <p><strong>Étape 10 — La fusion</strong> (5 min). <em>Merge pull request</em>, <em>Confirm merge</em>. Puis, dans le terminal :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="encadre-voir">
 <p><strong>Vous devez voir</strong> : sur GitHub, la PR marquée <em>Merged</em> ; dans le terminal, la liste des fichiers arrivés sur <code translate="no">main</code>. <code translate="no">git log --oneline</code> affiche le commit de US-1.</p>
 </div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> <code translate="no">git pull</code> n’affiche rien de nouveau ? Vérifiez avec <code translate="no">git branch --show-current</code> que vous êtes sur <code translate="no">main</code>, puis relancez <code translate="no">git pull</code>.</p>
+</div>
+<p><strong>Variante à faire seuls</strong>, pour ceux qui ont fini avant les autres : dans <code translate="no">README.md</code>, sur <code translate="no">main</code>, écrivez déjà la partie <em>What it does</em> (palier 1, ci-dessous), en anglais.</p>
 </section>
 <section id="grille" class="level3">
 <h3 class="anchored" data-anchor-id="grille">La grille de relecture (5 min)</h3>
@@ -982,7 +1044,7 @@ div.csl-indent {
 <p><strong>Réussi si</strong> : sur GitHub, deux Pull Requests sont fusionnées (US-1 et le README) ; <code translate="no">main</code> affiche la liste des 34 musées avec Live Preview ; <code translate="no">node --test --test-name-pattern=museumLabel projet-1.test.js</code> affiche <code translate="no">ℹ fail 0</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/resultats/projet-1-us1-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="US-1, à 375 px"><img src="img/resultats/projet-1-us1-375.webp" class="img-fluid figure-img" alt="Résultat attendu de US-1 à 375 pixels : « Musées de Bretagne », le champ de recherche, « 34 musées », puis la liste des musées, « musée de Dinan — Dinan » en premier." width="375"></a></p>
+<p><a href="img/resultats/projet-1-us1-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="US-1, à 375 px"><img src="img/resultats/projet-1-us1-375.webp" class="img-fluid figure-img" alt="Résultat attendu de US-1 à 375 pixels : « Musées de Bretagne », le champ de recherche, « 34 musées », puis la liste des musées, « musée de Dinan - Dinan » en premier." width="375"></a></p>
 <figcaption>US-1, à 375 px</figcaption>
 </figure>
 </div>
@@ -1022,7 +1084,7 @@ div.csl-indent {
 <p><strong>Palier 1 : entraînement.</strong> Entraînement : 2 × 10 à 15 min, à faire à la place du palier 2, si le palier 1 vous a demandé de l’aide ou la correction. Même travail que la branche <code translate="no">readme</code> : une branche, un commit, une Pull Request relue, une fusion.</p>
 <p>Les deux exercices sont dans <code translate="no">~/dwwm/dwwm-tp/semaine-08</code>, <strong>pas</strong> dans votre projet : <code translate="no">dwwm-tp</code> est aussi un dépôt GitHub, une branche et une Pull Request y marchent de la même façon. Ce sont des exercices <strong>complets</strong> : les trois fichiers sont fournis, et vous modifiez un peu chacun. La consigne détaillée est en commentaire en haut d’<code translate="no">app.js</code>.</p>
 <ol type="1">
-<li>Dans le terminal : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code>, puis <code translate="no">git status</code>. <strong>Vous devez voir</strong> : <code translate="no">Sur la branche main</code> et <code translate="no">rien à valider, la copie de travail est propre</code>.</li>
+<li>Dans le terminal : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code>, puis <code translate="no">git status</code>. <strong>Vous devez voir</strong> : <code translate="no">Sur la branche main</code>. Les dossiers de l’archive que vous n’avez pas encore faits (dont <code translate="no">g1b-date-donnees</code> et <code translate="no">g1c-badge-favori</code>) apparaissent sous <code translate="no">Fichiers non suivis</code> : c’est normal.</li>
 <li>Créez la branche : <code translate="no">git switch -c g1b-date-donnees</code>.</li>
 <li><strong><code translate="no">g1b-date-donnees</code></strong> :
 <ul>
@@ -1037,7 +1099,7 @@ div.csl-indent {
 <li><strong><code translate="no">g1c-badge-favori</code></strong> : le même cycle, sur une branche <code translate="no">g1c-badge-favori</code>.
 <ul>
 <li><code translate="no">index.html</code> : dans la carte, ajoutez le badge, masqué : <code translate="no">&lt;span id="badge" class="badge" hidden&gt;Favori&lt;/span&gt;</code>.</li>
-<li><code translate="no">style.css</code> : placez le badge en haut à droite de la carte, comme dans R1 hier (<code translate="no">position: absolute</code>, <code translate="no">top</code>, <code translate="no">right</code>) ; la carte est déjà son repère.</li>
+<li><code translate="no">style.css</code> : sous la ligne « Écrivez votre classe sous cette ligne. », ajoutez une <strong>seconde</strong> règle <code translate="no">.badge</code> (elle s’ajoute à la première, qui donne déjà la couleur) : <code translate="no">position: absolute; top: 0.5rem; right: 0.5rem;</code>, comme dans R1 de mercredi ; la carte est déjà son repère.</li>
 <li><code translate="no">app.js</code> : au clic sur « Ajouter à mes favoris », affichez le badge (<code translate="no">hidden</code>, étape 5 du pas à pas de lundi matin).</li>
 </ul>
 <strong>Vous devez voir</strong> : avant le clic, pas de badge ; après le clic, le badge bleu « Favori » en haut à droite de la carte ; au clavier aussi.</li>
@@ -1098,7 +1160,7 @@ div.csl-indent {
 <p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 1 h 15 ; ce qui n’est pas fini se termine vendredi après-midi (groupe B) ou mercredi 02/12, dans le parcours d’autonomie.</p>
 <ol type="1">
 <li><strong>La branche</strong> : <code translate="no">git switch -c us-2-recherche</code>.</li>
-<li><strong>La logique</strong> : <code translate="no">searchMuseums(museums, query)</code> renvoie un <strong>nouveau</strong> tableau : les musées dont le nom <strong>ou</strong> la ville contient <code translate="no">query</code>, sans tenir compte des majuscules ni des espaces autour ; une recherche vide renvoie une <strong>copie</strong> de tous les musées. Les briques : <code translate="no">trim</code>, <code translate="no">toLowerCase</code>, <code translate="no">includes</code> (semaine 3), <code translate="no">filter</code> et le <em>spread</em> (semaine 7), la décomposition (mardi). Puis : <code translate="no">node --test --test-name-pattern=searchMuseums projet-1.test.js</code>.</li>
+<li><strong>La logique</strong> : <code translate="no">searchMuseums(museums, query)</code> renvoie un <strong>nouveau</strong> tableau : les musées dont le nom <strong>ou</strong> la ville contient <code translate="no">query</code>, sans tenir compte des majuscules ni des espaces autour ; une recherche vide renvoie une <strong>copie</strong> de tous les musées. Les briques : <code translate="no">trim</code> (ce matin), <code translate="no">toLowerCase</code>, <code translate="no">includes</code> (semaine 3), <code translate="no">filter</code> et le <em>spread</em> (semaine 7), la décomposition (mardi). Puis : <code translate="no">node --test --test-name-pattern=searchMuseums projet-1.test.js</code>.</li>
 <li><strong>L’affichage, en deux temps</strong> :
 <ul>
 <li>Déplacez la boucle de US-1 dans une fonction <code translate="no">showList(museums)</code> qui commence par vider la liste (<code translate="no">list.textContent = ''</code>), écrit le résumé, puis affiche chaque musée ; appelez <code translate="no">showList(MUSEUMS)</code> au chargement. Vérifiez : la page n’a pas changé.</li>
@@ -1242,6 +1304,19 @@ div.csl-indent {
 <section id="enregistrer-et-envoyer-2-min" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
 <p>Le projet a son propre dépôt : chaque histoire se termine par sa Pull Request fusionnée et un <code translate="no">git pull</code> sur <code translate="no">main</code>. Dans <code translate="no">dwwm-tp</code>, rien à envoyer cet après-midi, sauf les deux exercices d’entraînement, déjà livrés par leur Pull Request.</p>
+<div class="callout callout-style-default callout-note callout-titled type-ressource" title="Ressource">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ressource
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><a href="https://docs.github.com/fr/get-started/using-github/github-flow">Flux de GitHub</a></strong> — GitHub Docs, en français <span class="citation" data-cites="github-flow-fr">(<a href="#ref-github-flow-fr" role="doc-biblioref">GitHub, s.&nbsp;d.-a</a>)</span> - <strong>Pourquoi</strong> : relire, à votre rythme, le cycle branche, Pull Request, fusion. - <strong>Quoi</strong> : la partie « Flux GitHub suivant ». - <strong>Durée</strong> : 10 min · <strong>Langue</strong> : français · <strong>Niveau</strong> : débutant. - <strong>Mission</strong> : la dernière étape de la page n’a pas été faite dans le live coding. Laquelle ? Écrivez-la en commentaire de votre Pull Request <code translate="no">readme</code>.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="à-retenir" class="level3">
@@ -1287,8 +1362,11 @@ div.csl-indent {
 <div id="ref-licence-ouverte" class="csl-entry" role="listitem">
 Etalab. s.&nbsp;d. <span>«&nbsp;Licence Ouverte / Open Licence&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf">https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf</a>.
 </div>
+<div id="ref-github-flow-fr" class="csl-entry" role="listitem">
+GitHub. s.&nbsp;d.-a. <span>«&nbsp;Flux de GitHub - Documentation GitHub&nbsp;»</span>. Consulté le 20 novembre 2026. <a href="https://docs.github.com/fr/get-started/using-github/github-flow">https://docs.github.com/fr/get-started/using-github/github-flow</a>.
+</div>
 <div id="ref-github-flow" class="csl-entry" role="listitem">
-GitHub. s.&nbsp;d. <span>«&nbsp;GitHub flow - GitHub Docs&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://docs.github.com/en/get-started/using-github/github-flow">https://docs.github.com/en/get-started/using-github/github-flow</a>.
+GitHub. s.&nbsp;d.-b. <span>«&nbsp;GitHub flow - GitHub Docs&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://docs.github.com/en/get-started/using-github/github-flow">https://docs.github.com/en/get-started/using-github/github-flow</a>.
 </div>
 <div id="ref-datagouv-museofile" class="csl-entry" role="listitem">
 Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Répertoire des Musées de France : base Muséofile&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://www.data.gouv.fr/datasets/musees-de-france-base-museofile">https://www.data.gouv.fr/datasets/musees-de-france-base-museofile</a>.

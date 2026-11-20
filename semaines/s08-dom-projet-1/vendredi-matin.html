@@ -899,7 +899,7 @@ div.csl-indent {
 <li>Dossier : <code translate="no">pas-a-pas-xss</code>, fichier <code translate="no">app.js</code>.</li>
 <li>Perdu ? Dossier <code translate="no">rattrapage/xss/</code>, une étape à la fois.</li>
 </ul>
-<p><strong>Palier 1 : guidé.</strong> Ouvrez <code translate="no">pas-a-pas-xss/app.js</code> : quatre noms de musées, et les éléments de la page (le formulaire, le champ, le message, la liste) déjà trouvés. Ouvrez <code translate="no">index.html</code> avec Live Preview, puis dans le navigateur, F12, Console.</p>
+<p><strong>Pas à pas.</strong> Ouvrez <code translate="no">pas-a-pas-xss/app.js</code> : quatre noms de musées, et les éléments de la page (le formulaire, le champ, le message, la liste) déjà trouvés. Ouvrez <code translate="no">index.html</code> avec Live Preview, puis dans le navigateur, F12, Console.</p>
 <p><strong>Avant de commencer.</strong> <strong>Vous devez voir</strong> : un formulaire « Nom du musée », et dans la console, les données et les éléments, sans erreur.</p>
 <p><strong>Étape 1 — La version dangereuse.</strong> On écrit d’abord ce qu’il ne faut <strong>pas</strong> faire, pour voir la faille.</p>
 <p><em>Avant d’exécuter</em> : en cherchant <code translate="no">&lt;b&gt;Brest&lt;/b&gt;</code>, que va afficher la page ?</p>
@@ -981,7 +981,7 @@ div.csl-indent {
 </section>
 <section id="enregistrer-et-envoyer-2-min" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
-<p>Depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-xss</code>, <code translate="no">git commit -m "Ajoute le pas à pas XSS"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+<p>Dans le terminal, revenez dans le dossier de la semaine : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code> (l’invite se termine par <code translate="no">semaine-08</code>). Puis : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-xss</code>, <code translate="no">git commit -m "Ajoute le pas à pas XSS"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : après le <code translate="no">git push</code>, relancez <code translate="no">git status</code> : il affiche <code translate="no">Sur la branche main</code>, et le dossier que vous venez d’ajouter n’est plus dans la liste. Les dossiers de l’archive pas encore faits restent sous <code translate="no">Fichiers non suivis</code> : c’est normal.</p>
 </section>
 </section>
 </section>
@@ -998,7 +998,7 @@ div.csl-indent {
 </ol>
 <p><strong>Palier 1 : guidé.</strong> Durée : 20 min.</p>
 <ol type="1">
-<li>Ouvrez <code translate="no">xss1-reparer/index.html</code> avec Live Preview ; cherchez <code translate="no">&lt;img src="x" onerror="alert('XSS')"&gt;</code> : une alerte s’ouvre.</li>
+<li>Ouvrez <code translate="no">xss1-reparer/index.html</code> avec Live Preview, puis cliquez sur <em>Ouvrir dans le navigateur</em>, comme dans le pas à pas ; cherchez <code translate="no">&lt;img src="x" onerror="alert('XSS')"&gt;</code> : une alerte s’ouvre.</li>
 <li>Dans <code translate="no">app.js</code>, le message : remplacez <code translate="no">innerHTML</code> par <code translate="no">textContent</code>, et retirez la balise <code translate="no">&lt;strong&gt;</code> du texte (elle s’afficherait telle quelle).</li>
 <li>La liste : à la place de <code translate="no">list.innerHTML += …</code>, créez un <code translate="no">&lt;li&gt;</code> avec <code translate="no">createElement</code>, écrivez « nom — ville » avec <code translate="no">textContent</code>, puis <code translate="no">list.append(item)</code> (comme l’étape 3 du pas à pas).</li>
 <li>Refaites l’attaque, puis cherchez « musée ».</li>
@@ -1250,6 +1250,19 @@ div.csl-indent {
 <section id="enregistrer-et-envoyer-2-min-1" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
 <p>Même rituel, depuis <code translate="no">semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add</code>, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> (le push de fin de demi-journée).</p>
+<div class="callout callout-style-default callout-note callout-titled type-ressource" title="Ressource">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ressource
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><a href="https://developer.mozilla.org/fr/docs/Web/Security/Attacks/XSS">Script inter-site (XSS)</a></strong> — MDN, en français <span class="citation" data-cites="mdn-attaques-xss">(<a href="#ref-mdn-attaques-xss" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>)</span> - <strong>Pourquoi</strong> : revoir l’attaque de ce matin avec deux autres exemples. - <strong>Quoi</strong> : la partie « Deux exemples de XSS », puis « Défenses contre les attaques XSS » jusqu’à la fin d’« Encodage de sortie » (la suite parle d’outils que nous verrons plus tard). - <strong>Durée</strong> : 15 min · <strong>Langue</strong> : français · <strong>Niveau</strong> : intermédiaire. - <strong>Mission</strong> : à la fin d’<code translate="no">app.js</code> de <code translate="no">pas-a-pas-xss</code>, notez en commentaire la défense de la page qui correspond à votre correction de ce matin.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="à-retenir" class="level3">
@@ -1297,6 +1310,9 @@ MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;Element : propriété innerHTML&nbsp;�
 </div>
 <div id="ref-mdn-textcontent" class="csl-entry" role="listitem">
 MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Node : propriété textContent&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent">https://developer.mozilla.org/fr/docs/Web/API/Node/textContent</a>.
+</div>
+<div id="ref-mdn-attaques-xss" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;Script inter-site (XSS) - Sécurité&nbsp;»</span>. Consulté le 20 novembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/Security/Attacks/XSS">https://developer.mozilla.org/fr/docs/Web/Security/Attacks/XSS</a>.
 </div>
 <div id="ref-owasp-top10-2025-a05" class="csl-entry" role="listitem">
 OWASP Foundation. s.&nbsp;d.-a. <span>«&nbsp;A05 Injection - OWASP Top 10:2025&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://top10.owasp.org/2025/A05_2025-Injection">https://top10.owasp.org/2025/A05_2025-Injection</a>.

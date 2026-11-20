@@ -907,9 +907,9 @@ div.csl-indent {
 <li>Dossier : <code translate="no">pas-a-pas-logique</code> : <code translate="no">logic.js</code>, <code translate="no">app.js</code>, <code translate="no">essai.js</code>.</li>
 <li>Perdu ? Dossier <code translate="no">rattrapage/logique/</code>, une étape à la fois.</li>
 </ul>
-<p><strong>Palier 1 : guidé.</strong> Ouvrez le dossier <code translate="no">pas-a-pas-logique</code> : <code translate="no">logic.js</code> déclare deux fonctions, encore vides ; <code translate="no">app.js</code> commence par les deux lignes <code translate="no">import</code>, déjà écrites ; <code translate="no">essai.js</code> appelle les deux fonctions et affiche leur résultat dans le terminal. Les données sont les 34 musées de Bretagne du dossier <code translate="no">data</code> <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. Dans le terminal : <code translate="no">cd pas-a-pas-logique</code>.</p>
+<p><strong>Pas à pas.</strong> Ouvrez le dossier <code translate="no">pas-a-pas-logique</code> : <code translate="no">logic.js</code> déclare deux fonctions, encore vides ; <code translate="no">app.js</code> commence par les deux lignes <code translate="no">import</code>, déjà écrites ; <code translate="no">essai.js</code> appelle les deux fonctions et affiche leur résultat dans le terminal. Les données sont les 34 musées de Bretagne du dossier <code translate="no">data</code> <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. Dans le terminal : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08/pas-a-pas-logique</code>.</p>
 <p><strong>Avant de commencer.</strong> Lancez <code translate="no">node essai.js</code>. <strong>Vous devez voir</strong> : une ligne vide, puis <code translate="no">0</code> : les fonctions ne renvoient encore rien d’utile. Ouvrez aussi <code translate="no">index.html</code> avec Live Preview : le titre, et une liste vide.</p>
-<p><strong>Étape 1 — La logique : une étiquette.</strong> Dans <code translate="no">logic.js</code>, remplacez la ligne <code translate="no">return '';</code> de <code translate="no">museumLabel</code> par les deux lignes ci-dessous.</p>
+<p><strong>Étape 1 — La logique : une étiquette.</strong> Dans <code translate="no">logic.js</code>, remplacez la ligne <code translate="no">return '';</code> de <code translate="no">museumLabel</code> par les deux lignes du milieu du bloc ci-dessous : le commentaire et la ligne <code translate="no">return</code>. La première et la dernière ligne sont déjà dans le fichier.</p>
 <p><em>Avant d’exécuter</em> : que va afficher la première ligne de <code translate="no">node essai.js</code> ?</p>
 <div class="code-with-filename" translate="no">
 <div class="code-with-filename-file">
@@ -996,7 +996,7 @@ div.csl-indent {
 </section>
 <section id="enregistrer-et-envoyer-2-min" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
-<p>Depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-logique</code>, <code translate="no">git commit -m "Ajoute le pas à pas logique et affichage"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+<p>Dans le terminal, revenez dans le dossier de la semaine : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code> (l’invite se termine par <code translate="no">semaine-08</code>). Puis : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-logique</code>, <code translate="no">git commit -m "Ajoute le pas à pas logique et affichage"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : après le <code translate="no">git push</code>, relancez <code translate="no">git status</code> : il affiche <code translate="no">Sur la branche main</code>, et le dossier que vous venez d’ajouter n’est plus dans la liste. Les dossiers de l’archive pas encore faits restent sous <code translate="no">Fichiers non suivis</code> : c’est normal.</p>
 </section>
 </section>
 </section>
@@ -1014,8 +1014,8 @@ div.csl-indent {
 <p><strong>Palier 1 : guidé.</strong> Durée : 30 min.</p>
 <ol type="1">
 <li>Ouvrez <code translate="no">s1-etiquette/logic.js</code>. <code translate="no">placeLabel(museum)</code> doit renvoyer « ville (département) », par exemple <code translate="no">'Concarneau (Finistère)'</code>.</li>
-<li>Remplacez la ligne <code translate="no">return '';</code> par un littéral de gabarit qui utilise <code translate="no">museum.Ville</code> et <code translate="no">museum.Departement</code>.</li>
-<li>Depuis <code translate="no">semaine-08</code>, lancez <code translate="no">node --test s1-etiquette.test.js</code>.</li>
+<li>Remplacez la ligne <code translate="no">return '';</code> par une ligne <code translate="no">return</code> suivie d’un littéral de gabarit qui utilise <code translate="no">museum.Ville</code> et <code translate="no">museum.Departement</code>. Gardez le mot <code translate="no">return</code> : sans lui, la fonction renvoie <code translate="no">undefined</code>.</li>
+<li>Revenez dans <code translate="no">semaine-08</code> : <code translate="no">cd ..</code> (l’invite se termine par <code translate="no">semaine-08</code>). Puis lancez <code translate="no">node --test s1-etiquette.test.js</code>.</li>
 <li>Ouvrez <code translate="no">s1-etiquette/app.js</code>. Sous les lignes <code translate="no">import</code>, écrivez « 34 musées » dans <code translate="no">#resume</code>, avec <code translate="no">MUSEUMS.length</code>.</li>
 <li>Puis, pour chaque musée, un <code translate="no">&lt;li&gt;</code> qui contient <code translate="no">placeLabel(museum)</code>, ajouté à <code translate="no">#liste</code> (comme l’étape 2 du pas à pas).</li>
 <li>Ouvrez <code translate="no">s1-etiquette/index.html</code> avec Live Preview.</li>
@@ -1121,7 +1121,7 @@ div.csl-indent {
 </ol>
 <p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 45 min (20 à 25 min par exercice) ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
 <ol type="1">
-<li><strong><code translate="no">e2-filtre-bouton</code></strong> : cinq boutons, un par département, et « Tous ».
+<li><strong><code translate="no">e2-filtre-bouton</code></strong> : quatre boutons de département, et un bouton « Tous ».
 <ul>
 <li>La logique : <code translate="no">inDepartment(museums, department)</code> renvoie les musées de ce département ; pour <code translate="no">''</code> (« Tous »), une <strong>copie</strong> de tous les musées (le <em>spread</em>, semaine 7). <code translate="no">node --test e2-filtre-bouton.test.js</code>.</li>
 <li>L’affichage : <code translate="no">showList</code> est déjà écrite. Posez un écouteur <code translate="no">click</code> sur chaque bouton, qui appelle <code translate="no">showList(inDepartment(MUSEUMS, 'Finistère'))</code>, et ainsi de suite.</li>
@@ -1317,6 +1317,19 @@ div.csl-indent {
 <section id="enregistrer-et-envoyer-2-min-1" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
 <p>Même rituel, depuis <code translate="no">semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add</code>, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> (le push de fin de demi-journée).</p>
+<div class="callout callout-style-default callout-note callout-titled type-ressource" title="Ressource">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ressource
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules">Les modules JavaScript</a></strong> — MDN, en français <span class="citation" data-cites="mdn-modules">(<a href="#ref-mdn-modules" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.</a>)</span> - <strong>Pourquoi</strong> : voir comment <code translate="no">export</code> et <code translate="no">import</code> relient <code translate="no">logic.js</code> et <code translate="no">app.js</code>. - <strong>Quoi</strong> : les parties « Exporter des fonctionnalités » et « Importer des fonctionnalités ». - <strong>Durée</strong> : 15 min · <strong>Langue</strong> : français · <strong>Niveau</strong> : débutant. - <strong>Mission</strong> : à la fin d’<code translate="no">app.js</code> de <code translate="no">pas-a-pas-logique</code>, écrivez un commentaire par fonction importée : son nom, et le fichier qui l’exporte.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="à-retenir" class="level3">
@@ -1356,6 +1369,9 @@ div.csl-indent {
 <section id="sources" class="level3">
 <h3 class="anchored" data-anchor-id="sources">Sources</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-mdn-modules" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d. <span>«&nbsp;Les modules JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules">https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules</a>.
+</div>
 <div id="ref-datagouv-museofile" class="csl-entry" role="listitem">
 Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Répertoire des Musées de France : base Muséofile&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://www.data.gouv.fr/datasets/musees-de-france-base-museofile">https://www.data.gouv.fr/datasets/musees-de-france-base-museofile</a>.
 </div>

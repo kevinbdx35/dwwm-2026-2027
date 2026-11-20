@@ -862,7 +862,7 @@ div.csl-indent {
 <li>Dossier : <code translate="no">pas-a-pas-evenements</code>, fichier <code translate="no">app.js</code>.</li>
 <li>Perdu ? Dossier <code translate="no">rattrapage/evenements/</code>, une étape à la fois.</li>
 </ul>
-<p><strong>Palier 1 : guidé.</strong> Ouvrez <code translate="no">pas-a-pas-evenements/app.js</code> : il contient déjà six noms de musées et une fonction <code translate="no">showList(items)</code>, écrite avec le DOM de ce matin, qui vide la liste puis l’affiche. Ouvrez <code translate="no">index.html</code> avec Live Preview, puis dans le navigateur, F12, onglet Console.</p>
+<p><strong>Pas à pas.</strong> Ouvrez <code translate="no">pas-a-pas-evenements/app.js</code> : il contient déjà six noms de musées et une fonction <code translate="no">showList(items)</code>, écrite avec le DOM de ce matin, qui vide la liste puis l’affiche. Ouvrez <code translate="no">index.html</code> avec Live Preview, puis dans le navigateur, F12, onglet Console.</p>
 <p><strong>Avant de commencer.</strong> <strong>Vous devez voir</strong> : un bouton « Cliquez-moi », « 0 clic », un champ « Filtrer les musées » et la liste des six musées ; aucune erreur dans la console. Chaque étape ajoute ses lignes à la fin d’<code translate="no">app.js</code> ; enregistrez, puis rechargez.</p>
 <p><strong>Étape 1 — Un écouteur sur le bouton.</strong> Posez un écouteur <code translate="no">click</code> qui écrit dans la console.</p>
 <p><em>Avant d’exécuter</em> : au chargement de la page, la console affichera-t-elle « clic ! » ?</p>
@@ -905,7 +905,7 @@ div.csl-indent {
 </div>
 <p>Enregistrez, rechargez, cliquez.</p>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : « 1 clics », « 2 clics »… et toujours « clic ! » dans la console : les deux écouteurs s’exécutent à chaque clic. (« 1 clics » : le pluriel se corrige au palier 3, si vous voulez.)</p>
+<p><strong>Vous devez voir</strong> : « 1 clics », « 2 clics »… et toujours « clic ! » dans la console : les deux écouteurs s’exécutent à chaque clic. (« 1 clics » : c’est attendu ; le pluriel n’est pas corrigé aujourd’hui.)</p>
 </div>
 <div class="encadre-perdu">
 <p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/evenements/etape-2/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
@@ -962,7 +962,7 @@ div.csl-indent {
 </section>
 <section id="enregistrer-et-envoyer-2-min" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
-<p>Depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-evenements</code>, <code translate="no">git commit -m "Ajoute le pas à pas événements"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+<p>Dans le terminal, revenez dans le dossier de la semaine : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-08</code> (l’invite se termine par <code translate="no">semaine-08</code>). Puis : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-evenements</code>, <code translate="no">git commit -m "Ajoute le pas à pas événements"</code>, puis <code translate="no">git push</code>. <strong>Réussi si</strong> : après le <code translate="no">git push</code>, relancez <code translate="no">git status</code> : il affiche <code translate="no">Sur la branche main</code>, et le dossier que vous venez d’ajouter n’est plus dans la liste. Les dossiers de l’archive pas encore faits restent sous <code translate="no">Fichiers non suivis</code> : c’est normal.</p>
 </section>
 </section>
 <section id="anglais" class="level3">
@@ -1126,7 +1126,7 @@ div.csl-indent {
 <li>Le bouton <code translate="no">#effacer</code> remet « Aucun musée choisi. ».</li>
 </ul></li>
 </ol>
-<p><strong>Réussi si</strong> : dans <code translate="no">e5</code>, « r » affiche « 2 musées », « z » « Aucun musée », et un champ vidé réaffiche les six ; dans <code translate="no">e6</code>, chaque bouton affiche <strong>son</strong> musée, à la souris et au clavier ; aucune erreur dans la console.</p>
+<p><strong>Réussi si</strong> : dans <code translate="no">e5</code>, « r » affiche « 2 musées », « z » « Aucun musée », et un champ vidé affiche les six ; dans <code translate="no">e6</code>, chaque bouton affiche <strong>son</strong> musée, à la souris et au clavier ; aucune erreur dans la console.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img/resultats/e5-chercher-ville-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="e5, après avoir tapé « r », à 375 px"><img src="img/resultats/e5-chercher-ville-375.webp" class="img-fluid figure-img" alt="Résultat attendu de e5 à 375 pixels, après avoir tapé « r » dans le champ Ville : « 2 musées », puis les deux musées de Rennes." width="375"></a></p>
@@ -1233,12 +1233,12 @@ div.csl-indent {
 <section id="palier-3-un-seul-écouteur-la-délégation-25-min" class="level3">
 <h3 class="anchored" data-anchor-id="palier-3-un-seul-écouteur-la-délégation-25-min">Palier 3 — Un seul écouteur : la délégation (25 min)</h3>
 <ul>
-<li><code translate="no">e4-delegation</code> : la page de <code translate="no">e6</code>, avec <strong>un seul</strong> écouteur.</li>
+<li><code translate="no">e4-delegation</code> : une page proche de <code translate="no">e6</code>, avec <strong>un seul</strong> écouteur.</li>
 <li><code translate="no">data-id</code>, <code translate="no">event.target</code>, <code translate="no">closest</code> : dans MDN.</li>
 <li><strong>Réussi si</strong> : le choix s’affiche, aucune erreur entre deux boutons.</li>
 </ul>
 <p><strong>Palier 3 : autonome.</strong> Durée indicative : 25 min ; ce qui n’est pas fini se termine mercredi dans le parcours d’autonomie.</p>
-<p>Dans <code translate="no">e6</code>, chaque bouton a son propre écouteur : avec 1 200 musées, cela ferait 1 200 écouteurs. Faites la même page dans <code translate="no">e4-delegation/app.js</code> avec <strong>un seul</strong> écouteur, posé sur la liste : c’est la <a href="../../ressources/lexique.html#t-delegation">délégation</a> d’événements. L’écouteur reçoit un objet <code translate="no">event</code> ; à vous de trouver comment savoir sur quel bouton on a cliqué, et comment ranger l’identifiant du musée dans le bouton.</p>
+<p>Dans <code translate="no">e6</code>, chaque bouton a son propre écouteur : avec 1 200 musées, cela ferait 1 200 écouteurs. Faites une page semblable dans <code translate="no">e4-delegation/app.js</code>, avec <strong>un seul</strong> écouteur, posé sur la liste : c’est la <a href="../../ressources/lexique.html#t-delegation">délégation</a> d’événements. L’écouteur reçoit un objet <code translate="no">event</code> ; à vous de trouver comment savoir sur quel bouton on a cliqué, et comment ranger l’identifiant du musée dans le bouton.</p>
 <p><strong>Réussi si</strong> : un clic (ou Entrée) sur un musée affiche « Musée choisi : nom — ville » ; un clic dans la liste, entre deux boutons, ne provoque aucune erreur dans la console ; <code translate="no">app.js</code> ne contient qu’un seul <code translate="no">addEventListener</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Autonome">
 <div class="callout-header d-flex align-content-center">
@@ -1283,7 +1283,7 @@ div.csl-indent {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong><a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/Events">Introduction aux événements</a></strong> — MDN, en français <span class="citation" data-cites="mdn-introduction-evenements">(<a href="#ref-mdn-introduction-evenements" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span> - <strong>Pourquoi</strong> : d’autres exemples d’événements que ceux du cours. - <strong>Quoi</strong> : le début de la page, jusqu’à l’exemple du bouton qui change la couleur de fond. - <strong>Durée</strong> : 15 min · <strong>Langue</strong> : français · <strong>Niveau</strong> : débutant. - <strong>Mission</strong> : dans <code translate="no">pas-a-pas-evenements</code>, ajoutez un écouteur qui change la couleur de fond de la page au clic sur le bouton. Écrivez le commentaire au-dessus de chaque ligne.</p>
+<p><strong><a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/Events">Introduction aux événements</a></strong> — MDN, en français <span class="citation" data-cites="mdn-introduction-evenements">(<a href="#ref-mdn-introduction-evenements" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-c</a>)</span> - <strong>Pourquoi</strong> : d’autres exemples d’événements que ceux du cours. - <strong>Quoi</strong> : le début de la page, jusqu’à l’exemple du bouton qui change la couleur de fond. - <strong>Durée</strong> : 15 min · <strong>Langue</strong> : français · <strong>Niveau</strong> : débutant. - <strong>Mission</strong> : à la fin d’<code translate="no">app.js</code> de <code translate="no">pas-a-pas-evenements</code>, notez en commentaire, pour l’exemple du bouton de la page : l’événement écouté, puis le nom de la fonction appelée.</p>
 </div>
 </div>
 </section>

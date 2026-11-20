@@ -888,7 +888,7 @@ div.csl-indent {
 <li>Dossier : <code translate="no">pas-a-pas-dom</code>, fichiers <code translate="no">index.html</code> et <code translate="no">app.js</code>.</li>
 <li>Perdu ? Dossier <code translate="no">rattrapage/dom/</code>, une étape à la fois.</li>
 </ul>
-<p><strong>Palier 1 : guidé.</strong> Dans VS Code, ouvrez <code translate="no">pas-a-pas-dom/index.html</code> : un titre, un paragraphe et une liste vide, chacun avec un <code translate="no">id</code>. Ouvrez aussi <code translate="no">pas-a-pas-dom/app.js</code> : il contient déjà les données d’un musée de Concarneau, tirées de la base Muséofile <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. La page charge <code translate="no">app.js</code> par la ligne <code translate="no">&lt;script src="app.js"&gt;&lt;/script&gt;</code>, placée à la fin du <code translate="no">body</code> : quand le script s’exécute, les éléments existent déjà.</p>
+<p><strong>Pas à pas.</strong> Dans VS Code, ouvrez <code translate="no">pas-a-pas-dom/index.html</code> : un titre, un paragraphe et une liste vide, chacun avec un <code translate="no">id</code>. Ouvrez aussi <code translate="no">pas-a-pas-dom/app.js</code> : il contient déjà les données d’un musée de Concarneau, tirées de la base Muséofile <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>. La page charge <code translate="no">app.js</code> par la ligne <code translate="no">&lt;script src="app.js"&gt;&lt;/script&gt;</code>, placée à la fin du <code translate="no">body</code> : quand le script s’exécute, les éléments existent déjà.</p>
 <p><strong>Les commentaires.</strong> Dans chaque pas à pas, vous tapez le code <strong>et</strong> ses commentaires : ils disent ce que fait la ligne et le nom de la notion. En JavaScript, un commentaire commence par <code translate="no">//</code> ; en HTML, il s’écrit <code translate="no">&lt;!-- … --&gt;</code>. Il est sur sa propre ligne, juste au-dessus de la ligne qu’il explique. Le navigateur les ignore : ils servent à vous relire.</p>
 <p><strong>Avant de commencer.</strong> Ouvrez <code translate="no">pas-a-pas-dom/index.html</code> avec Live Preview, puis <em>Ouvrir dans le navigateur</em> ; F12, onglet <strong>Console</strong>. <strong>Vous devez voir</strong> : la page « Titre à remplacer », et, dans la console, l’objet du musée, sans erreur en rouge. Chaque étape ajoute ses lignes à la fin d’<code translate="no">app.js</code> ; enregistrez, puis rechargez la page du navigateur.</p>
 <p><strong>Étape 1 — Trouver un élément.</strong> À la fin d’<code translate="no">app.js</code>, cherchez le titre avec <code translate="no">querySelector</code>, puis affichez-le dans la console.</p>
@@ -1010,13 +1010,19 @@ div.csl-indent {
 </section>
 <section id="enregistrer-et-envoyer-2-min" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
-<p>Dans le terminal, depuis <code translate="no">~/dwwm/dwwm-tp/semaine-08</code> :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pas-a-pas-dom</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute le pas à pas DOM"</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dans le terminal, revenez dans le dossier de la semaine, puis enregistrez :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Le dossier de la semaine, dans dwwm-tp</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/dwwm/dwwm-tp/semaine-08</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ce qui a changé depuis le dernier commit</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prépare le dossier du pas à pas</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pas-a-pas-dom</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistre le commit, avec son message</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajoute le pas à pas DOM"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Envoie le commit sur GitHub</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="encadre-voir">
-<p><strong>Vous devez voir</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code> ; sur GitHub, le commit apparaît dans <code translate="no">dwwm-tp</code>. Le message suit la fiche aide-mémoire commit du Drive partagé (ou la <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision de la semaine 4</a>).</p>
+<p><strong>Vous devez voir</strong>, après le <code translate="no">git push</code> : relancez <code translate="no">git status</code> ; il affiche <code translate="no">Sur la branche main</code>, et <code translate="no">pas-a-pas-dom</code> n’est plus dans la liste. Les dossiers de l’archive pas encore faits restent sous <code translate="no">Fichiers non suivis</code> : c’est normal. Sur GitHub, le commit apparaît dans <code translate="no">dwwm-tp</code>. Le message suit la fiche aide-mémoire commit du Drive partagé (ou la <a href="../../semaines/s04-environnement/revision.html#git-jeudi">fiche de révision de la semaine 4</a>).</p>
 </div>
 </section>
 </section>
@@ -1038,7 +1044,7 @@ div.csl-indent {
 <li>Ouvrez <code translate="no">d1-titre/app.js</code> : l’objet <code translate="no">museum</code> contient le nom, la ville et le département du musée bigouden.</li>
 <li>Sous l’objet, écrivez le nom dans le titre : <code translate="no">document.querySelector('#titre').textContent = museum.name;</code>.</li>
 <li>Faites de même pour la ville (<code translate="no">#ville</code>).</li>
-<li>Pour le département, écrivez un texte composé avec un littéral de gabarit : <code translate="no">`Département : ${museum.department}`</code>.</li>
+<li>Pour le département (<code translate="no">#departement</code>), écrivez un texte composé avec un littéral de gabarit : <code translate="no">document.querySelector('#departement').textContent = `Département : ${museum.department}`;</code>.</li>
 <li>Enregistrez, rechargez, regardez la console.</li>
 <li>Rituel : un commit (<code translate="no">git add d1-titre</code>, <code translate="no">git commit -m "Ajoute la solution de d1"</code>).</li>
 </ol>
@@ -1285,7 +1291,7 @@ div.csl-indent {
 </div>
 <section id="enregistrer-et-envoyer-2-min-1" class="level4">
 <h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
-<p>Même rituel, depuis <code translate="no">semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add</code> de vos dossiers, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> (le push de fin de demi-journée). <strong>Réussi si</strong> : <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code>.</p>
+<p>Même rituel, depuis <code translate="no">semaine-08</code> : <code translate="no">git status</code>, <code translate="no">git add</code> de vos dossiers, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> (le push de fin de demi-journée). <strong>Réussi si</strong> : après le <code translate="no">git push</code>, relancez <code translate="no">git status</code> : il affiche <code translate="no">Sur la branche main</code>, et le dossier que vous venez d’ajouter n’est plus dans la liste. Les dossiers de l’archive pas encore faits restent sous <code translate="no">Fichiers non suivis</code> : c’est normal.</p>
 <div class="callout callout-style-default callout-note callout-titled type-ressource" title="Ressource">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
