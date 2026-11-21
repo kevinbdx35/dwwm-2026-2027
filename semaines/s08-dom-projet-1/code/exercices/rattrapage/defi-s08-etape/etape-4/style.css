@@ -1,0 +1,94 @@
+/* Défi de la semaine 8 - la frise du sémaphore : la feuille de style. */
+
+/* Fourni : la police, rangée dans le dossier fonts */
+@font-face {
+  font-family: "Atkinson";
+  src: url("fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+/* Fourni : la même police, en gras */
+@font-face {
+  font-family: "Atkinson";
+  src: url("fonts/AtkinsonHyperlegible-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+/* Fourni : les couleurs et les espaces du guide de style */
+:root {
+  --couleur-encre: #102a43;
+  --couleur-discret: #52606d;
+  --couleur-ecume: #f4f7f6;
+  --couleur-bord: #d9e2e7;
+  --couleur-mer: #1f5f7a;
+  --couleur-sable: #f3d9a4;
+  --espace-petit: 0.5rem;
+  --espace-moyen: 1rem;
+  --espace-grand: 2rem;
+}
+
+/* Palier 1 : écrivez vos règles sous cette ligne, une étape à la fois. */
+
+/* La page : la police, les couleurs */
+body {
+  /* La police du guide, sinon celle du système */
+  font-family: "Atkinson", sans-serif;
+  /* Un interligne confortable */
+  line-height: 1.5;
+  /* La couleur du texte */
+  color: var(--couleur-encre);
+  /* Le fond couleur écume */
+  background: var(--couleur-ecume);
+  /* Pas de marge autour de la page */
+  margin: 0;
+}
+
+/* Le contenu : de l'espace sur les bords */
+main {
+  /* L'espace intérieur */
+  padding: var(--espace-moyen);
+}
+
+/* La carte d'une date : un bloc blanc, la ligne à gauche */
+.etape {
+  /* relative : le repère de l'année (R1) */
+  position: relative;
+  /* 36rem au plus : la carte ne s'étire pas */
+  max-width: 36rem;
+  /* De la place en haut pour l'année ; centrée */
+  margin: 1.5rem auto 0;
+  /* L'espace intérieur, plus grand en haut */
+  padding: var(--espace-grand) var(--espace-moyen) var(--espace-moyen);
+  /* Le fond blanc */
+  background: #ffffff;
+  /* Un bord fin tout autour */
+  border: 2px solid var(--couleur-bord);
+  /* La ligne de la frise, à gauche */
+  border-left: 4px solid var(--couleur-mer);
+  /* Les coins arrondis */
+  border-radius: 8px;
+}
+
+/* L'année, posée sur le haut de la carte (R1) */
+.etape-annee {
+  /* absolute : sortie du flux, placée dans le repère */
+  position: absolute;
+  /* Un peu au-dessus du bord de la carte */
+  top: -0.9rem;
+  /* A 16 px du bord gauche */
+  left: var(--espace-moyen);
+  /* Pas de marge : un paragraphe en a une */
+  margin: 0;
+  /* L'espace intérieur de la pastille */
+  padding: 0.125rem 0.75rem;
+  /* Le texte blanc */
+  color: #ffffff;
+  /* Le texte en gras */
+  font-weight: 700;
+  /* Le texte un peu plus petit : 14 px */
+  font-size: 0.875rem;
+  /* Le fond couleur mer */
+  background: var(--couleur-mer);
+  /* Des bords tout ronds */
+  border-radius: 999px;
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="titre">
+  <title id="titre">Le sémaphore de Kerbrézen : une maison en granit au toit d'ardoise, avec un grand mât, sur une pointe au bord de la mer</title>
+  <!-- Sky -->
+  <rect width="800" height="450" fill="#dbe9ef"/>
+  <!-- Sun -->
+  <circle cx="660" cy="90" r="42" fill="#f3d9a4"/>
+  <!-- Sea -->
+  <rect y="300" width="800" height="150" fill="#1f5f7a"/>
+  <path d="M0 330 q40 -10 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#5f97ad" stroke-width="4"/>
+  <path d="M0 380 q40 -10 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#5f97ad" stroke-width="4"/>
+  <!-- The headland -->
+  <path d="M0 300 L0 260 Q120 220 260 230 Q420 240 520 300 Z" fill="#7c8c6e"/>
+  <path d="M0 300 L520 300 Q470 330 380 340 L0 340 Z" fill="#5b5f66"/>
+  <!-- The granite house -->
+  <rect x="150" y="160" width="220" height="90" fill="#b9b2a6" stroke="#5b5f66" stroke-width="3"/>
+  <!-- Granite stones -->
+  <g stroke="#8f887c" stroke-width="2">
+    <line x1="150" y1="190" x2="370" y2="190"/>
+    <line x1="150" y1="220" x2="370" y2="220"/>
+    <line x1="200" y1="160" x2="200" y2="190"/>
+    <line x1="300" y1="190" x2="300" y2="220"/>
+    <line x1="240" y1="220" x2="240" y2="250"/>
+  </g>
+  <!-- Slate roof -->
+  <path d="M140 162 L260 110 L380 162 Z" fill="#3d4650" stroke="#2a3038" stroke-width="3"/>
+  <!-- Door and windows -->
+  <rect x="245" y="205" width="30" height="45" fill="#6e2a14"/>
+  <rect x="175" y="200" width="36" height="30" fill="#f4f7f6" stroke="#5b5f66" stroke-width="3"/>
+  <rect x="310" y="200" width="36" height="30" fill="#f4f7f6" stroke="#5b5f66" stroke-width="3"/>
+  <!-- The signal mast -->
+  <rect x="425" y="60" width="10" height="185" fill="#3d4650"/>
+  <rect x="395" y="90" width="70" height="8" fill="#3d4650"/>
+  <rect x="405" y="140" width="50" height="8" fill="#3d4650"/>
+  <!-- Signal flags -->
+  <path d="M465 98 L495 108 L465 118 Z" fill="#9c3d1f"/>
+  <path d="M395 98 L365 108 L395 118 Z" fill="#f2c14e"/>
+  <!-- Mast foot -->
+  <rect x="410" y="240" width="40" height="10" fill="#5b5f66"/>
+</svg>

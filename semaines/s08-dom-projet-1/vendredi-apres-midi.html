@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -620,10 +655,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#groupe-b-projet-consolidation" id="toc-groupe-b-projet-consolidation" class="nav-link active" data-scroll-target="#groupe-b-projet-consolidation">Groupe B : projet &amp; consolidation</a>
   <ul>
-  <li><a href="#au-programme" id="toc-au-programme" class="nav-link" data-scroll-target="#au-programme">Au programme</a>
-  <ul class="collapse">
+  <li><a href="#au-programme" id="toc-au-programme" class="nav-link" data-scroll-target="#au-programme">Au programme</a></li>
+  <li><a href="#defi-s08" id="toc-defi-s08" class="nav-link" data-scroll-target="#defi-s08">Défi de la semaine : la frise du sémaphore</a></li>
+  <li><a href="#defi-s08-palier-1" id="toc-defi-s08-palier-1" class="nav-link" data-scroll-target="#defi-s08-palier-1">Palier 1 — La carte d’une date</a></li>
+  <li><a href="#defi-s08-palier-2" id="toc-defi-s08-palier-2" class="nav-link" data-scroll-target="#defi-s08-palier-2">Palier 2 — La page de la frise</a></li>
+  <li><a href="#defi-s08-palier-3" id="toc-defi-s08-palier-3" class="nav-link" data-scroll-target="#defi-s08-palier-3">Palier 3 — Choisir un thème</a></li>
   <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
-  </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="vendredi-apres-midi.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="vendredi-apres-midi.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -670,21 +707,22 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Groupe B</strong> en formation de 12 h 45 à 17 h ; le groupe A est au sport (13 h 15 – 16 h).<br> Pas de notion nouvelle : on termine, on consolide, on avance dans le projet.</p>
+<p><strong>Groupe B</strong> en formation de 12 h 45 à 17 h ; le groupe A est au sport (13 h 15 – 16 h).<br> Pas de notion nouvelle : on termine, on avance dans le projet, puis le défi de la semaine.</p>
 </div>
 </div>
 </div>
 <section id="au-programme" class="level3">
 <h3 class="anchored" data-anchor-id="au-programme">Au programme</h3>
 <ol type="1">
-<li><strong>Terminer</strong> : les paliers 1 et 2 de la semaine.</li>
-<li><strong>Le projet</strong> : US-2, puis US-3, le détail d’un musée.</li>
-<li><strong>Consolider</strong> : le <a href="../../semaines/s08-dom-projet-1/mercredi.html#parcours-dautonomie-de-la-semaine">parcours d’autonomie</a>.</li>
-<li><strong>Relire</strong> (16 h 15) : la Pull Request d’un camarade, en binôme.</li>
+<li><strong>Terminer</strong> : les paliers 1 de la semaine.</li>
+<li><strong>Le projet</strong> : US-3, le détail d’un musée.</li>
+<li><strong>Le défi de la semaine</strong> : la frise du sémaphore.</li>
+<li><strong>À rendre mardi 01/12</strong> : le lien de votre commit.</li>
 </ol>
 <p>Aucune notion nouvelle : le DOM, la logique et l’affichage, les événements, la décomposition, la validation et la faille XSS ont été vus cette semaine. Rien de ce qui se fait cet après-midi n’est nécessaire pour lundi : le groupe A fera US-3 mercredi 02/12, avec le parcours de la semaine 9.</p>
-<p><strong>Terminer, dans cet ordre</strong> : les paliers 1 de la semaine (le minimum de chaque demi-journée), puis les paliers 2. La liste des exercices est dans la <a href="../../semaines/s08-dom-projet-1/revision.html">fiche de révision</a>.</p>
-<p><strong>Le projet : US-3, le détail</strong> (1 h 30). Sur une branche <code translate="no">us-3-detail</code> :</p>
+<p><strong>Dans cet ordre.</strong> Le projet passe avant le défi ; un palier 1 de la semaine non fini passe avant le défi.</p>
+<p><strong>1. Terminer, seul (30 min)</strong> : les paliers 1 de la semaine que vous n’avez pas validés, dans l’ordre des jours. La liste des exercices est dans la <a href="../../semaines/s08-dom-projet-1/revision.html">fiche de révision</a>. Tout est validé ? Passez directement au projet.</p>
+<p><strong>2. Le projet : US-3, le détail</strong> (1 h 30). Sur une branche <code translate="no">us-3-detail</code> :</p>
 <ol type="1">
 <li>La logique : <code translate="no">findMuseum(museums, id)</code> renvoie le musée dont l’<code translate="no">Identifiant</code> vaut <code translate="no">id</code>, ou <code translate="no">undefined</code>. <code translate="no">node --test --test-name-pattern=findMuseum projet-1.test.js</code>.</li>
 <li>L’affichage : dans <code translate="no">showList</code>, chaque musée devient un <code translate="no">&lt;button type="button"&gt;</code> dans son <code translate="no">&lt;li&gt;</code>, avec son propre écouteur <code translate="no">click</code>, comme l’exercice <code translate="no">e3</code> de mardi. Le clic affiche, dans la <code translate="no">&lt;section id="detail"&gt;</code>, au moins trois informations du musée, avec <code translate="no">createElement</code> et <code translate="no">textContent</code>.</li>
@@ -703,19 +741,485 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>US-3, après un clic, à 1280 px</figcaption>
 </figure>
 </div>
-<p><strong>Relire en binôme (30 min)</strong> : chacun ouvre une Pull Request de l’autre, déjà fusionnée ou non.</p>
-<ol type="1">
-<li>Le premier lit l’onglet <em>Files changed</em> de la PR de l’autre, à voix haute, avec la grille de relecture (10 min) ; le second répond aux questions.</li>
-<li>Les rôles s’inversent (10 min).</li>
-<li>Chacun écrit <strong>un</strong> commentaire sur la PR de l’autre : une chose bien faite, ou un <em>code smell</em> repéré, avec la ligne (5 min).</li>
-</ol>
-<p><strong>Réussi si</strong> : chaque PR relue a un commentaire de l’autre. Vous préférez relire seul ? Relisez votre propre PR de US-1 avec la grille, et notez un <em>code smell</em> en commentaire.</p>
-<section id="enregistrer-et-envoyer-2-min" class="level4">
-<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
-<p>À la fin de l’après-midi : dans <code translate="no">dwwm-tp</code>, depuis <code translate="no">semaine-08</code>, <code translate="no">git status</code>, <code translate="no">git add</code>, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> ; dans le projet, chaque histoire finie a sa PR fusionnée.</p>
-
-
+<p><strong>3. Le défi de la semaine, seul (1 h 15)</strong> : le <a href="#defi-s08-palier-1">palier 1</a> (30 min), puis le <a href="#defi-s08-palier-2">palier 2</a> (45 min). Le palier 3 est pour ceux qui ont fini.</p>
+<p><strong>4. Ensuite, si vous avez fini</strong> : relisez une Pull Request d’un camarade avec la grille de relecture, et écrivez <strong>un</strong> commentaire (une chose bien faite, ou un <em>code smell</em>, avec la ligne). Vous préférez relire seul ? Relisez votre propre PR de US-1 avec la grille.</p>
 </section>
+<section id="defi-s08" class="level3">
+<h3 class="anchored" data-anchor-id="defi-s08">Défi de la semaine : la frise du sémaphore</h3>
+<ul>
+<li>Une maquette à reproduire : une carte, puis une page.</li>
+<li>Tout est fourni : textes, image, police, guide de style.</li>
+<li>Dossier <code translate="no">defi-s08-frise</code>, dans l’archive de la semaine.</li>
+<li>À rendre mardi 01/12 : le lien de votre commit.</li>
+</ul>
+<p><strong>Le principe.</strong> Dans une entreprise, l’intégrateur reçoit une <a href="../../ressources/lexique.html#t-maquette">maquette</a> (l’image de la page attendue), un <strong>guide de style</strong> (les couleurs, la police, les tailles) et les textes. Il écrit le HTML et le CSS qui donnent la même page, sur un téléphone comme sur un ordinateur. Chaque semaine, un nouveau défi vous entraîne à ce métier, avec des notions déjà vues seulement. Celui-ci : HTML et CSS (semaines 5 et 6), <code translate="no">position</code> (<a href="../../semaines/s08-dom-projet-1/mercredi.html#r1">R1</a>, <a href="../../semaines/s08-dom-projet-1/mercredi.html#r2">R2</a>), le focus visible (semaine 5) ; au palier 3, les méthodes de tableau et les objets (semaine 7), le DOM et les événements (cette semaine).</p>
+<p><strong>Le dossier.</strong> Il est dans l’<a href="code/exercices/s08-exercices.zip">archive de la semaine</a>, déjà extraite dans <code translate="no">semaine-08</code> : <code translate="no">defi-s08-frise/</code>. Ouvrez d’abord <code translate="no">README.md</code> (les user stories et la liste de contrôle), puis <code translate="no">guide-de-style.md</code> et <code translate="no">contenu.md</code>. Le sémaphore, la pointe de Kerbrézen et le musée sont inventés pour le cours.</p>
+<p><strong>À rendre, mardi 01/12 avant 15 h 30</strong> : le lien de votre dernier commit du défi dans <code translate="no">dwwm-tp</code> (sur GitHub, ouvrez le commit, copiez l’adresse de la page), envoyé au formateur. Rendez ce que vous avez fait cet après-midi : <strong>le travail à la maison n’est jamais obligatoire</strong>. Mardi 01/12, de 15 h 30 à 17 h, le groupe B corrige le défi ensemble, avec le formateur.</p>
+<p><strong>La liste de contrôle</strong>, pour chaque palier, avant de dire « fini » :</p>
+<ol type="1">
+<li><strong>Vous devez voir</strong> : votre page ressemble à la maquette, à 375 px et à 1280 px (outils du navigateur, mode appareil).</li>
+<li><strong>Le validateur du W3C</strong> : collez votre HTML dans l’onglet <em>Validate by Direct Input</em> : aucune erreur.</li>
+<li><strong>WAVE</strong> : aucune erreur, aucune erreur de contraste.</li>
+<li><strong>Lighthouse</strong>, catégorie <em>Accessibilité</em> : 90 ou plus.</li>
+<li><strong>Au clavier</strong> : avec Tab, chaque lien a un contour bien visible.</li>
+</ol>
+</section>
+<section id="defi-s08-palier-1" class="level3">
+<h3 class="anchored" data-anchor-id="defi-s08-palier-1">Palier 1 — La carte d’une date</h3>
+<ol type="1">
+<li>Étape 1 : le HTML de la carte, dans <code translate="no">etape.html</code>.</li>
+<li>Étape 2 : la page.</li>
+<li>Étape 3 : la carte et sa ligne.</li>
+<li>Étape 4 : l’année sur la carte (R1).</li>
+<li>Étapes 5 et 6 : le titre, le thème, le lien au clavier.</li>
+</ol>
+<p><strong>Palier 1 : guidé.</strong> Durée indicative : 30 min. Dossier <code translate="no">defi-s08-frise</code>, fichiers <code translate="no">etape.html</code> et <code translate="no">style.css</code>. La police et les couleurs sont déjà écrites en haut de <code translate="no">style.css</code>. Vous tapez le code <strong>et</strong> ses commentaires, une étape à la fois. En HTML, un commentaire s’écrit <code translate="no">&lt;!-- … --&gt;</code> ; en CSS, <code translate="no">/* … */</code>.</p>
+<p><strong>La maquette.</strong> Votre carte doit ressembler à celle-ci ; à droite, au focus du clavier :</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-etape-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="La carte d’une date, à 375 px"><img src="img/resultats/defi-s08-etape-375.webp" class="img-fluid figure-img" alt="Maquette de la carte à 375 pixels : le titre « Une date de l'histoire », puis une carte blanche aux coins arrondis, avec une ligne bleu mer épaisse à gauche. Sur le bord du haut, à cheval, une pastille bleu mer « 1862 » en blanc. Dans la carte : « La construction » en gras, une phrase, l'étiquette couleur sable « Le bâtiment », puis le lien souligné « Voir la salle »." width="375"></a></p>
+<figcaption>La carte d’une date, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-etape-focus-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="La carte, au focus du clavier, à 375 px"><img src="img/resultats/defi-s08-etape-focus-375.webp" class="img-fluid figure-img" alt="Maquette de la carte à 375 pixels, après un appui sur Tab : la même carte ; le lien « Voir la salle » est entouré d'un contour bleu nuit épais, à deux pixels du texte." width="375"></a></p>
+<figcaption>La carte, au focus du clavier, à 375 px</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-etape-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="La carte à 1280 px : elle ne s’étire pas, elle reste centrée"><img src="img/resultats/defi-s08-etape-1280.webp" class="img-fluid figure-img" alt="Maquette de la carte à 1280 pixels : le titre « Une date de l'histoire » à gauche ; la carte, large de 36rem au plus, centrée dans la page, sur un fond gris très clair."></a></p>
+<figcaption>La carte à 1280 px : elle ne s’étire pas, elle reste centrée</figcaption>
+</figure>
+</div>
+<p><strong>Avant de commencer.</strong> Ouvrez <code translate="no">defi-s08-frise/etape.html</code> avec Live Preview, puis <em>Ouvrir dans le navigateur</em>. <strong>Vous devez voir</strong> : le titre « Une date de l’histoire », en police du système, sur un fond blanc.</p>
+<p><strong>Étape 1 — Le HTML de la carte.</strong> Dans <code translate="no">etape.html</code>, à la place de la ligne de commentaire « Palier 1, étape 1 », tapez la carte. Les textes viennent de <code translate="no">contenu.md</code>.</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/defi-s08-frise/etape.html</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="semaine-08/defi-s08-frise/etape.html" translate="no"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- La carte : un article, une date --&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">"etape"</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- L'année, posée sur le haut de la carte --&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"etape-annee"</span><span class="dt">&gt;</span>1862<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Le titre de la date --&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> class</span><span class="op">=</span><span class="st">"etape-titre"</span><span class="dt">&gt;</span>La construction<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Ce qui s'est passé --&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Des maçons bâtissent le sémaphore en granit, au bout de la pointe de Kerbrézen.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Le thème de la date --&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"etape-theme"</span><span class="dt">&gt;</span>Le bâtiment<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Le lien vers la frise (palier 2), dans un paragraphe --&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> class</span><span class="op">=</span><span class="st">"etape-lien"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"#frise"</span><span class="dt">&gt;</span>Voir la salle<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez la page du navigateur.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : « 1862 », le titre « La construction » en gras, la phrase, « Le bâtiment » et le lien souligné « Voir la salle », l’un sous l’autre. Rien n’est encore mis en forme : c’est le travail du CSS.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/defi-s08-etape/etape-1/etape.html</code> à la place de votre <code translate="no">etape.html</code>.</p>
+</div>
+<p><strong>Étape 2 — La page.</strong> Les valeurs viennent de <code translate="no">guide-de-style.md</code>. Dans <code translate="no">style.css</code>, sous la ligne « Palier 1 : écrivez vos règles… » :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/defi-s08-frise/style.css</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="semaine-08/defi-s08-frise/style.css" translate="no"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* La page : la police, les couleurs */</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* La police du guide, sinon celle du système */</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="st">"Atkinson"</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Un interligne confortable */</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.5</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* La couleur du texte */</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-encre</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le fond couleur écume */</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-ecume</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Pas de marge autour de la page */</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">/* Le contenu : de l'espace sur les bords */</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>main {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* L'espace intérieur */</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-moyen</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : le fond gris très clair, et tout le texte dans la police Atkinson Hyperlegible : regardez le « l » de « salle » : il a une petite queue en bas. Sinon, la police n’est pas chargée : vérifiez le nom <code translate="no">"Atkinson"</code> dans votre règle <code translate="no">body</code>.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/defi-s08-etape/etape-2/style.css</code> à la place de votre <code translate="no">style.css</code>.</p>
+</div>
+<p><strong>Étape 3 — La carte et sa ligne.</strong> Sous la règle <code translate="no">main</code> :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/defi-s08-frise/style.css</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="semaine-08/defi-s08-frise/style.css" translate="no"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* La carte d'une date : un bloc blanc, la ligne à gauche */</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.etape</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* relative : le repère de l'année (R1) */</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span><span class="ch">:</span> <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* 36rem au plus : la carte ne s'étire pas */</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">36</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* De la place en haut pour l'année ; centrée */</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span> <span class="bu">auto</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* L'espace intérieur, plus grand en haut */</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-grand</span><span class="fu">)</span> <span class="fu">var(</span><span class="va">--espace-moyen</span><span class="fu">)</span> <span class="fu">var(</span><span class="va">--espace-moyen</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le fond blanc */</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="cn">#ffffff</span><span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Un bord fin tout autour */</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">solid</span> <span class="fu">var(</span><span class="va">--couleur-bord</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* La ligne de la frise, à gauche */</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-left</span><span class="ch">:</span> <span class="dv">4</span><span class="dt">px</span> <span class="dv">solid</span> <span class="fu">var(</span><span class="va">--couleur-mer</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Les coins arrondis */</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">8</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : un bloc blanc aux coins arrondis, centré, avec un bord fin gris et, à gauche, une ligne bleu mer plus épaisse : c’est la ligne de la frise.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/defi-s08-etape/etape-3/style.css</code>.</p>
+</div>
+<p><strong>Étape 4 — L’année sur la carte (R1).</strong> L’année sort du flux et se pose à cheval sur le haut de la carte. Son repère est la carte : <code translate="no">position: relative</code> est déjà écrit dans <code translate="no">.etape</code>, à l’étape 3.</p>
+<p><em>Avant d’enregistrer</em> : avec <code translate="no">top: -0.9rem</code>, l’année sera-t-elle dans la carte, ou un peu au-dessus ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/defi-s08-frise/style.css</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="semaine-08/defi-s08-frise/style.css" translate="no"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* L'année, posée sur le haut de la carte (R1) */</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.etape-annee</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* absolute : sortie du flux, placée dans le repère */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Un peu au-dessus du bord de la carte */</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">top</span><span class="ch">:</span> <span class="dv">-0.9</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* A 16 px du bord gauche */</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">left</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-moyen</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Pas de marge : un paragraphe en a une */</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* L'espace intérieur de la pastille */</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">0.125</span><span class="dt">rem</span> <span class="dv">0.75</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le texte blanc */</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#ffffff</span><span class="op">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le texte en gras */</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">700</span><span class="op">;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le texte un peu plus petit : 14 px */</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">0.875</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le fond couleur mer */</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-mer</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Des bords tout ronds */</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">999</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : la pastille bleu mer « 1862 », en blanc et en gras, posée sur le bord du haut de la carte, à gauche. Une valeur négative de <code translate="no">top</code> fait remonter l’élément au-dessus du haut de son repère. Sans <code translate="no">position: relative</code> sur <code translate="no">.etape</code>, la pastille se placerait par rapport à la page entière : tout en haut de l’écran.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/defi-s08-etape/etape-4/style.css</code>.</p>
+</div>
+<p><strong>Étape 5 — Le titre et le thème.</strong> Sous la règle <code translate="no">.etape-annee</code> :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/defi-s08-frise/style.css</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="semaine-08/defi-s08-frise/style.css" translate="no"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Le titre de la date */</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.etape-titre</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Pas de marge au-dessus du titre */</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* La taille du guide : 20 px */</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1.25</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">/* Le thème : une étiquette couleur sable */</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.etape-theme</span> {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* inline-block : aussi large que son texte */</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">inline-block</span><span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* L'espace intérieur de l'étiquette */</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">0.125</span><span class="dt">rem</span> <span class="dv">0.75</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le fond sable */</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-sable</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Des bords tout ronds */</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">999</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le texte en gras */</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">700</span><span class="op">;</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le texte un peu plus petit : 14 px */</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">0.875</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : « La construction » collé sous la pastille, un peu plus grand ; « Le bâtiment » dans une étiquette couleur sable, aux bords tout ronds, aussi large que son texte.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/defi-s08-etape/etape-5/style.css</code>.</p>
+</div>
+<p><strong>Étape 6 — Le lien, au clavier.</strong> Sous la règle <code translate="no">.etape-theme</code> :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-08/defi-s08-frise/style.css</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="semaine-08/defi-s08-frise/style.css" translate="no"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Le lien vers la salle */</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.etape-lien</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* La couleur mer */</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--couleur-mer</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le texte en gras */</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">700</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">/* Le clavier : un contour épais */</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.etape-lien</span><span class="in">:focus-visible</span> {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* Le contour : 3 px, couleur du texte */</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">outline</span><span class="ch">:</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">solid</span> <span class="fu">var(</span><span class="va">--couleur-encre</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* L'écart entre le lien et le contour */</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">outline-offset</span><span class="ch">:</span> <span class="dv">2</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, rechargez. Cliquez dans la barre d’adresse, puis appuyez sur Tab.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : le lien « Voir la salle » en bleu mer et en gras ; au clavier, il a un contour bleu nuit épais. Comparez avec la maquette, à 375 px et à 1280 px.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/defi-s08-etape/etape-6/style.css</code>.</p>
+</div>
+<p><strong>Réussi si</strong> : votre carte ressemble à la maquette, à 375 px et à 1280 px, et au clavier ; la liste de contrôle est passée (validateur, WAVE, Lighthouse, clavier).</p>
+<p><strong>Variante à faire seuls.</strong> Ajoutez une ombre légère à la carte, avec <code translate="no">box-shadow</code> (cherchez sa syntaxe sur MDN). <strong>Réussi si</strong> : la carte semble posée au-dessus du fond.</p>
+<p><strong>Enregistrer et envoyer</strong> : depuis <code translate="no">semaine-08</code>, <code translate="no">git status</code>, <code translate="no">git add defi-s08-frise</code>, <code translate="no">git commit -m "Ajoute la carte du defi de la semaine 8"</code>, <code translate="no">git push</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : cette page, les six étapes et la maquette ; <a href="../../semaines/s08-dom-projet-1/mercredi.html#r1">R1</a> pour l’année posée sur la carte ; le focus visible en <a href="../../semaines/s05-html-css/vendredi.html">semaine 5</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi votre règle ne s’applique pas, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/position">position</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/border">border</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Selectors/:focus-visible">:focus-visible</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="defi-s08-palier-2" class="level3">
+<h3 class="anchored" data-anchor-id="defi-s08-palier-2">Palier 2 — La page de la frise</h3>
+<ol type="1">
+<li>Créez <code translate="no">index.html</code> : en-tête, trois sections, pied de page.</li>
+<li>Textes et image : <code translate="no">contenu.md</code>, <code translate="no">images/</code>.</li>
+<li><code translate="no">style.css</code> : en-tête collé en haut (R2), haut de page en grille.</li>
+<li>Mobile first : 1 colonne, puis 2 à partir de 48rem.</li>
+<li><strong>Réussi si</strong> : la page ressemble à la maquette.</li>
+</ol>
+<p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 45 min. Vous écrivez <strong>deux fichiers sur trois</strong> : <code translate="no">index.html</code>, que vous créez, et la suite de <code translate="no">style.css</code>. Les règles du palier 1 servent telles quelles : chaque date de la frise est la carte du palier 1.</p>
+<ol type="1">
+<li>Dans <code translate="no">defi-s08-frise</code>, créez <code translate="no">index.html</code>, avec la même tête que <code translate="no">etape.html</code> et le titre « Le sémaphore de Kerbrézen - Musées de Bretagne ».</li>
+<li>Dans <code translate="no">body</code>, écrivez trois parties : un <code translate="no">header</code> (le nom du site, puis un <code translate="no">nav</code> avec les deux liens du menu), un <code translate="no">main</code>, un <code translate="no">footer</code> (les deux phrases du pied de page).</li>
+<li>Dans <code translate="no">main</code>, trois <code translate="no">section</code> :
+<ul>
+<li>le haut de la page : l’image, puis un bloc avec le titre en <code translate="no">h1</code>, le lieu et le texte ;</li>
+<li>la frise, avec l’identifiant <code translate="no">frise</code> : le titre « Cinq dates » en <code translate="no">h2</code>, puis une liste numérotée (<code translate="no">ol</code>) de cinq <code translate="no">li</code>, chacun avec une carte du palier 1. Le titre de chaque carte devient un <code translate="no">h3</code> (la page a déjà un <code translate="no">h1</code> et un <code translate="no">h2</code>), avec la même classe <code translate="no">etape-titre</code> ;</li>
+<li>les chiffres, avec l’identifiant <code translate="no">chiffres</code> : le titre « En chiffres » en <code translate="no">h2</code>, puis une liste (<code translate="no">ul</code>) de trois chiffres.</li>
+</ul></li>
+<li>Vérifiez la page <strong>sans style</strong> d’abord : tout le contenu est là, dans l’ordre de la maquette.</li>
+<li>Dans <code translate="no">style.css</code>, à la suite du palier 1 : l’en-tête qui reste en haut quand on fait défiler (R2) ; le contenu centré, 64rem au plus ; la frise sans puces, centrée, 36rem au plus ; les trois blocs des chiffres.</li>
+<li>Mobile first : une colonne sur un téléphone ; à partir de 48rem, le haut de la page sur deux colonnes (grille) et les trois chiffres sur une ligne (Flexbox). Les tailles sont dans <code translate="no">guide-de-style.md</code>.</li>
+</ol>
+<p><strong>Réussi si</strong> : à 375 px et à 1280 px, votre page ressemble à la maquette ; l’en-tête reste en haut quand on fait défiler ; un clic sur un lien du menu descend à la bonne section ; la liste de contrôle est passée.</p>
+<div class="grille-visuels">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-page-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="La page, en haut, à 375 px"><img src="img/resultats/defi-s08-page-375.webp" class="img-fluid figure-img" alt="Maquette de la page à 375 pixels : un en-tête bleu nuit avec « Musées de Bretagne » et les deux liens du menu ; l'illustration du sémaphore aux coins arrondis ; « Le sémaphore de Kerbrézen » en très gros, sur deux lignes ; « Pointe de Kerbrézen » en gris ; le texte ; « Cinq dates », puis la première carte, « 1862, La construction »." width="375"></a></p>
+<figcaption>La page, en haut, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-chiffres-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="En chiffres, à 375 px"><img src="img/resultats/defi-s08-chiffres-375.webp" class="img-fluid figure-img" alt="Maquette de la page à 375 pixels, après défilement jusqu'à « En chiffres » : l'en-tête bleu nuit est resté en haut ; dessous, la fin de la dernière carte, puis « En chiffres » et trois blocs couleur sable, l'un sous l'autre : 1862, 18 m, 100 ans, chacun avec sa phrase." width="375"></a></p>
+<figcaption>En chiffres, à 375 px</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-page-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="La page, en haut, à 1280 px"><img src="img/resultats/defi-s08-page-1280.webp" class="img-fluid figure-img" alt="Maquette de la page à 1280 pixels : l'en-tête bleu nuit sur toute la largeur, « Musées de Bretagne » à gauche et les deux liens du menu à droite ; le haut de la page sur deux colonnes : l'illustration à gauche, le titre, le lieu et le texte à droite ; dessous, « Cinq dates » et les cartes de la frise, centrées, l'une sous l'autre."></a></p>
+<figcaption>La page, en haut, à 1280 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-chiffres-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="En chiffres, à 1280 px"><img src="img/resultats/defi-s08-chiffres-1280.webp" class="img-fluid figure-img" alt="Maquette de la page à 1280 pixels, après défilement : l'en-tête est resté en haut ; « En chiffres », puis trois blocs couleur sable côte à côte, de même largeur : 1862, 18 m, 100 ans ; dessous, le pied de page centré, en gris."></a></p>
+<figcaption>En chiffres, à 1280 px</figcaption>
+</figure>
+</div>
+<p><strong>Trois indices pour la page</strong>, du plus léger au plus complet. Ouvrez-les un par un : après chaque indice, essayez de nouveau avant d’ouvrir le suivant.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 1 — l'idée">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 1 — l’idée
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Écrivez tout le HTML d’abord, sans style. Puis trois choses en CSS : l’en-tête en <code translate="no">position: sticky</code> avec <code translate="no">top: 0</code>, comme R2 ; le haut de la page en grille (<code translate="no">display: grid</code>), avec un écart (<code translate="no">gap</code>) ; les chiffres en Flexbox, en colonne sur un téléphone. Une seule règle <code translate="no">@media (min-width: 48rem)</code> : deux colonnes pour la grille, une ligne pour les chiffres.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 2 — le squelette">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 2 — le squelette
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- body : header, puis main, puis footer --&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- header class entete : p (nom du site), puis nav &gt; ul &gt; 2 li &gt; a --&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- main : 3 section --&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   section intro : img, puis div (h1, p lieu, p texte) --&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   section id frise : h2, puis ol frise &gt; 5 li &gt; article etape --&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   section id chiffres : h2, puis ul chiffres &gt; 3 li (strong + texte) --&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- footer : 2 p --&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" translate="no"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* .entete : sticky en haut ; flex : nom à gauche, menu à droite */</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">/* main : 64rem au plus, centré */</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* .intro : grid, avec un gap ; l'image sur toute la largeur */</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">/* la section frise : 36rem au plus, centrée ; .frise sans puces */</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">/* .chiffres : flex en colonne, sans puces ; chaque li fond sable */</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">/* @media à partir de 48rem : h1 plus grand, .intro sur 2 colonnes, */</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">/*   .chiffres en ligne */</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 3 — la solution, moins une ligne">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 3 — la solution, moins une ligne
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La partie la plus difficile : le haut de la page et les chiffres.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" translate="no"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Une colonne sur un téléphone */</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.intro</span> {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">grid</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-moyen</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">.chiffres</span> {</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">gap</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--espace-moyen</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">list-style</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">/* A partir de 48rem */</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">48</span><span class="dt">rem</span><span class="fu">)</span> {</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.intro</span> {</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* Il manque une ligne : les deux colonnes de même largeur. */</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">align-items</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.chiffres</span> {</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">row</span><span class="op">;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p><strong>Enregistrer et envoyer</strong> : <code translate="no">git add defi-s08-frise</code>, <code translate="no">git commit -m "Ajoute la page du defi de la semaine 8"</code>, <code translate="no">git push</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : cette page et la maquette ; <a href="../../semaines/s08-dom-projet-1/mercredi.html#r2">R2</a> pour l’en-tête ; <a href="../../semaines/s06-html-css-suite/lundi.html#apport-flexbox">Flexbox</a>, <a href="../../semaines/s06-html-css-suite/mardi.html#apport-grid">Grid</a> et <a href="../../semaines/s06-html-css-suite/mardi.html#apport-mobile-first">mobile first</a> en semaine 6.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi vos colonnes ne se placent pas, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/grid-template-columns">grid-template-columns</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Properties/flex-direction">flex-direction</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Guides/Media_queries/Using">requêtes média</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="defi-s08-palier-3" class="level3">
+<h3 class="anchored" data-anchor-id="defi-s08-palier-3">Palier 3 — Choisir un thème</h3>
+<ol type="1">
+<li>Une liste des thèmes, au-dessus de la frise.</li>
+<li><code translate="no">logic.js</code> : trier, filtrer, compter ; testées.</li>
+<li><code translate="no">app.js</code> : la frise se remplit avec le thème choisi.</li>
+<li>Tests : <code translate="no">node --test defi-s08-frise.defi.test.js</code>.</li>
+</ol>
+<p><strong>Palier 3 : autonome.</strong> Pour ceux qui ont fini le palier 2. Consigne ouverte : il n’y a pas de pas à pas, cherchez dans la documentation.</p>
+<p>Au-dessus de la frise, le visiteur choisit un thème dans une liste ; la frise ne montre plus que les dates de ce thème, dans l’ordre, et la page dit combien il y en a.</p>
+<ul>
+<li><strong>Le HTML</strong> : une étiquette « Choisissez un thème », une liste <code translate="no">select</code> (identifiant <code translate="no">theme</code>) des quatre choix de <code translate="no">contenu.md</code>, comme dans <a href="../../semaines/s08-dom-projet-1/mercredi.html#r3">R3</a>, et un paragraphe vide (identifiant <code translate="no">nombre</code>). La liste <code translate="no">ol</code> de la frise reste, mais c’est <code translate="no">app.js</code> qui la remplit. Le script <code translate="no">app.js</code> est un module, comme dans les exercices de la semaine.</li>
+<li><strong>La logique</strong> : <code translate="no">logic.js</code> décrit <code translate="no">sortByYear</code>, <code translate="no">filterByTheme</code> et <code translate="no">countByTheme</code>. Les dates sont dans <code translate="no">frise.js</code>, déjà écrit, et pas dans l’ordre : c’est voulu. Les méthodes de tableau de la semaine 7 suffisent : <code translate="no">toSorted</code>, <code translate="no">filter</code>, <code translate="no">reduce</code>.</li>
+<li><strong>L’affichage</strong> : <code translate="no">app.js</code>, que vous créez, affiche les cartes des dates du thème choisi, triées, avec <code translate="no">createElement</code> et <code translate="no">textContent</code> (pas d’<code translate="no">innerHTML</code>) : au chargement, puis à chaque changement de la liste. Le paragraphe <code translate="no">nombre</code> affiche, par exemple, « 2 dates ».</li>
+</ul>
+<p><strong>Réussi si</strong> : <code translate="no">node --test defi-s08-frise.defi.test.js</code> affiche <code translate="no">ℹ fail 0</code> (5 tests) ; au chargement, la frise montre les cinq dates, de 1862 à 2011, et « 5 dates » ; en choisissant « La technique », seulement 1898 et 1931, et « 2 dates » ; au clavier, Tab atteint la liste et les flèches changent le thème.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/defi-s08-theme-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Palier 3, « La technique » choisie, à 1280 px"><img src="img/resultats/defi-s08-theme-1280.webp" class="img-fluid figure-img" alt="Résultat attendu du palier 3 à 1280 pixels : sous « Cinq dates », l'étiquette « Choisissez un thème » en gras, une liste déroulante sur « La technique », « 2 dates », puis la carte de 1898, « Le télégraphe »."></a></p>
+<figcaption>Palier 3, « La technique » choisie, à 1280 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Autonome">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autonome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez bloquer : c’est voulu, c’est le métier. Méthode : 1. lisez le message d’erreur en entier ; 2. cherchez-le dans la fiche « Lire un message d’erreur » ; 3. lisez la documentation ; 4. après 15 minutes bloqué sur le même point, demandez.</p>
+</div>
+</div>
+<p><strong>Enregistrer et envoyer</strong> : <code translate="no">git add defi-s08-frise</code>, <code translate="no">git commit -m "Ajoute le choix du theme au defi de la semaine 8"</code>, <code translate="no">git push</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html#apport-tri">toSorted</a>, <a href="../../semaines/s07-js-avance/mardi-matin.html#apport-filter">filter</a> et <a href="../../semaines/s07-js-avance/jeudi-matin.html#apport-reduce">reduce</a> en semaine 7 ; le formulaire de <a href="../../semaines/s08-dom-projet-1/mercredi.html#r3">R3</a> pour <code translate="no">select</code> et <code translate="no">label</code>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez quel événement se produit quand on change de choix dans une liste, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/select">l’élément select</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/change_event">l’événement change</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">Array.prototype.reduce()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="enregistrer-et-envoyer-2-min" class="level3">
+<h3 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h3>
+<p>À la fin de l’après-midi : dans <code translate="no">dwwm-tp</code>, depuis <code translate="no">semaine-08</code>, <code translate="no">git status</code>, <code translate="no">git add</code>, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> ; dans le projet, chaque histoire finie a sa PR fusionnée. Pour le défi, copiez l’adresse de votre dernier commit : c’est elle que vous rendez.</p>
+
+
 </section>
 </section>
 
