@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" width="1000" height="525" role="img" aria-labelledby="file-t file-d">
+  <title id="file-t">setTimeout et la file d’attente</title>
+  <desc id="file-d">Trois étapes. 1. Le code en cours s’exécute de haut en bas, sans attendre : il affiche A, confie la fonction B au minuteur avec setTimeout, puis affiche C. 2. Le minuteur du navigateur compte 2 secondes. 3. Le délai écoulé, la fonction B est rangée dans la file d’attente : elle s’exécute quand le code en cours est terminé. Résultat affiché : A, C, puis B.</desc>
+  <defs><marker id="file-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="file-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="file-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="file-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="525" fill="#ffffff"/>
+  <rect x="20" y="20" width="390" height="290" rx="12" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="40" y="62" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1f5fbf" text-anchor="start">1. Le code en cours</text>
+  <text x="40" y="118" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">afficher('A');</text>
+  <text x="40" y="163" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#a24c00" text-anchor="start">setTimeout(B, 2000);</text>
+  <text x="40" y="208" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">afficher('C');</text>
+  <text x="40" y="258" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">de haut en bas,</text>
+  <text x="40" y="290" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">sans attendre le minuteur</text>
+  <rect x="520" y="20" width="460" height="125" rx="12" fill="#fdf3e8" stroke="#a24c00" stroke-width="3"/>
+  <text x="540" y="62" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#a24c00" text-anchor="start">2. Le minuteur du navigateur</text>
+  <text x="540" y="112" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">garde B et compte 2 secondes</text>
+  <path d="M366 150 L514 96" stroke="#a24c00" stroke-width="4" fill="none" marker-end="url(#file-p-warn)"/>
+  <rect x="520" y="205" width="460" height="125" rx="12" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="540" y="247" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="start">3. La file d’attente</text>
+  <text x="540" y="297" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">B attend la fin du code en cours</text>
+  <path d="M750 148 L750 199" stroke="#a24c00" stroke-width="4" fill="none" marker-end="url(#file-p-warn)"/>
+  <path d="M750 333 L750 384" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#file-p-ok)"/>
+  <rect x="20" y="390" width="960" height="115" rx="12" fill="#ffffff" stroke="#525860" stroke-width="3"/>
+  <text x="40" y="435" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="start">Ce qui s’affiche :</text>
+  <text x="40" y="482" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">A, puis C…</text>
+  <text x="330" y="482" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="start">et B, 2 secondes plus tard</text>
+</svg>

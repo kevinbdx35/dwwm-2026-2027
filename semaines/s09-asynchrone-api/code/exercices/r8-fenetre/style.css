@@ -1,0 +1,83 @@
+/* R8 — Une fenêtre par-dessus la page (palier 3). Styles déjà écrits. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+.en-tete {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  background: #1c1e21;
+  border-radius: 8px;
+}
+
+.titre-site {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.contenu {
+  position: relative;
+  z-index: 1;
+}
+
+.carte {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid #8a8f98;
+  border-radius: 8px;
+}
+
+.carte h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.carte p {
+  margin: 0.25rem 0 0;
+}
+
+.carte-lien {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  background: #1f5fbf;
+  border-radius: 6px;
+}
+
+.voile {
+  background: rgb(0 0 0 / 0.5);
+}
+
+.fenetre {
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+  border: 3px solid #1f5fbf;
+  border-radius: 8px;
+}
+
+.fenetre h2 {
+  margin: 0;
+}
+
+/* À vous : la consigne est dans la page du mercredi, ligne 8 du parcours (R8).
+   1. Le voile couvre toute la fenêtre du navigateur, en-tête compris.
+   2. La fenêtre « Bienvenue » reste à l'écran pendant le défilement, devant le voile.
+   3. Expliquez, dans un commentaire d'une phrase, pourquoi z-index: 999 ne suffisait pas. */

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 515" width="1000" height="515" role="img" aria-labelledby="fetch-t fetch-d">
+  <title id="fetch-t">fetch, la réponse et response.ok</title>
+  <desc id="fetch-d">En haut à gauche, app.js exécute await fetch(adresse) : une requête part vers le serveur. Le serveur renvoie toujours une réponse, avec un code de statut : 200, 404, 500. Ensuite, la question response.ok. Oui, statut de 200 à 299 : await response.json() donne les données, en objets JavaScript. Non, par exemple 404 ou 500 : fetch n’a levé aucune erreur ; c’est à vous de le faire, avec throw new Error ; le catch l’attrape et affiche un message dans la page.</desc>
+  <defs><marker id="fetch-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="fetch-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="fetch-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="fetch-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="515" fill="#ffffff"/>
+  <rect x="30" y="40" width="330" height="90" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="195" y="95" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">await fetch(adresse)</text>
+  <rect x="640" y="40" width="330" height="90" rx="8" fill="#f6f7f9" stroke="#525860" stroke-width="3"/>
+  <text x="805" y="95" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">le serveur</text>
+  <path d="M365 68 L632 68" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#fetch-p-accent)"/>
+  <text x="500" y="56" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1f5fbf" text-anchor="middle">requête</text>
+  <path d="M635 106 L368 106" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#fetch-p-line)"/>
+  <text x="500" y="140" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">réponse : 200, 404…</text>
+  <path d="M195 135 L195 190" stroke="#525860" stroke-width="4" fill="none" marker-end="url(#fetch-p-line)"/>
+  <rect x="30" y="195" width="330" height="85" rx="8" fill="#fdf3e8" stroke="#a24c00" stroke-width="3"/>
+  <text x="195" y="248" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#a24c00" text-anchor="middle">response.ok ?</text>
+  <path d="M365 237 L452 237" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#fetch-p-ok)"/>
+  <text x="408" y="225" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">oui</text>
+  <rect x="458" y="195" width="512" height="85" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="714" y="230" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="middle">await response.json()</text>
+  <text x="714" y="265" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">200 à 299 : les données, en objets</text>
+  <path d="M195 285 L195 350" stroke="#b91c1c" stroke-width="4" fill="none" marker-end="url(#fetch-p-ko)"/>
+  <text x="240" y="328" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="middle">non</text>
+  <rect x="30" y="355" width="940" height="140" rx="10" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="50" y="402" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">404, 500… : fetch ne lève pas d’erreur, à vous de le faire</text>
+  <text x="50" y="462" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">throw new Error(…)</text>
+  <path d="M325 454 L375 454" stroke="#b91c1c" stroke-width="4" fill="none" marker-end="url(#fetch-p-ko)"/>
+  <text x="390" y="462" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">catch</text>
+  <path d="M478 454 L528 454" stroke="#b91c1c" stroke-width="4" fill="none" marker-end="url(#fetch-p-ko)"/>
+  <text x="543" y="462" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="start">un message dans la page</text>
+</svg>

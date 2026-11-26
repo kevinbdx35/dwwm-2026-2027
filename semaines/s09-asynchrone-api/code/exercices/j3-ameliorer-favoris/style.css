@@ -1,0 +1,53 @@
+/* The shared style of the Friday morning pages (JSON and localStorage). */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+button {
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  color: #ffffff;
+  background: #1f5fbf;
+  border: 2px solid #1f5fbf;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #1f5fbf;
+  outline-offset: 2px;
+}
+
+.secondaire {
+  color: #1f5fbf;
+  background: #ffffff;
+}
+
+.resume {
+  font-weight: 700;
+}
+
+.liste {
+  padding: 0;
+  list-style: none;
+}
+
+.liste li {
+  margin-bottom: 0.5rem;
+}
+
+.favori {
+  background: #17703a;
+  border-color: #17703a;
+}

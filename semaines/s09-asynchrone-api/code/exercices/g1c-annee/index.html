@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palier 1 : entraînement — L’année d’ouverture</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <main>
+      <h1>L’année d’ouverture du musée</h1>
+      <form id="formulaire" novalidate>
+        <label for="champ">Année d’ouverture (par exemple 1985)</label>
+        <input id="champ" name="champ" type="text" aria-describedby="erreur">
+        <button type="submit">Valider</button>
+        <p id="erreur" class="erreur"></p>
+      </form>
+      <p id="resultat"></p>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

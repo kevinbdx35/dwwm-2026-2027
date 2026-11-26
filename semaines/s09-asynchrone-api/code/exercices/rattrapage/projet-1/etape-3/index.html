@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Explorateur des musées de Bretagne</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="entete">
+      <h1>Musées de Bretagne</h1>
+      <p>Les musées de France de la région, d'après le ministère de la Culture.</p>
+    </header>
+
+    <main class="contenu">
+      <form id="recherche" class="recherche" novalidate>
+        <label for="champ-recherche">Rechercher un musée ou une ville</label>
+        <div class="recherche-ligne">
+          <input id="champ-recherche" name="query" type="search" aria-describedby="erreur-recherche">
+          <button type="submit">Rechercher</button>
+        </div>
+        <p id="erreur-recherche" class="erreur"></p>
+      </form>
+
+      <p id="resume" class="resume"></p>
+      <ul id="liste" class="liste"></ul>
+
+      <section id="detail" class="detail" aria-live="polite"></section>
+    </main>
+
+    <footer class="pied">
+      <p>
+        Données : <a href="https://www.data.gouv.fr/datasets/musees-de-france-base-museofile">Répertoire des
+        Musées de France, base Muséofile</a>, ministère de la Culture, Licence Ouverte 2.0.
+      </p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

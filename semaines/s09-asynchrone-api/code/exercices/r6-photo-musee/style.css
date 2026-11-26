@@ -1,0 +1,84 @@
+/* R6 — La photo du musée. Styles déjà écrits : ne les modifiez pas. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+.carte {
+  margin: 1.5rem 0;
+  border: 2px solid #8a8f98;
+  border-radius: 16px;
+  transition: border-color 0.3s;
+}
+
+.carte:hover {
+  border-color: #1f5fbf;
+}
+
+.carte-texte {
+  padding: 1rem;
+}
+
+.carte h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.carte p {
+  margin: 0.25rem 0 0;
+}
+
+.carte-lien {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  background: #1f5fbf;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.carte-lien:hover,
+.carte-lien:focus-visible {
+  background: #143f80;
+}
+
+.carte-lien:focus-visible {
+  outline: 3px solid #1c1e21;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carte,
+  .carte-lien {
+    transition: none;
+  }
+}
+
+/* La photo : une image fluide, jamais plus large que la carte */
+.photo {
+  display: block;
+  max-width: 100%;
+  background: #dfe3e8;
+}
+
+#fiche {
+  margin-top: 3rem;
+  padding: 1rem;
+  background: #f6f7f9;
+  border-radius: 8px;
+}
+
+/* Écrivez vos règles sous cette ligne, une étape à la fois. */

@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Bardoux">
+
+<title>Vendredi 04/12, matin — JSON et localStorage – DWWM 2026-2027</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../semaines/s09-asynchrone-api/vendredi-apres-midi.html" rel="next">
+<link href="../../semaines/s09-asynchrone-api/jeudi-apres-midi.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-13312cbcd2af751ba0c6440786bab3d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e8e58643e884b90215ec2fb950234ecd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../polices.css">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../theme-commun.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s09-asynchrone-api/index.html">Semaine 9 — C4 - Développer la partie dynamique des interfaces (l’asynchrone et les API REST)</a></li><li class="breadcrumb-item"><a href="../../semaines/s09-asynchrone-api/vendredi-matin.html">Vendredi 04/12, matin — JSON et localStorage</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DWWM 2026-2027</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accueil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/lexique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lexique</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/charte-ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Charte IA — Formation DWWM 2026-2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/finition-visuelle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finition visuelle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fiches de lecture</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-erreurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lire un message d’erreur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-ordinateur.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C’est quoi un ordinateur ?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-numeration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Systèmes de numération</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le Web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-recherche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (1/2) : chercher, mesurer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ressources/fiche-algorithmes-tris.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les algorithmes (2/2) : trier, récursivité</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Semaines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s01-rentree/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 1 — Rentrée</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 08/10 — Rentrée et positionnement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 09/10 — Pensée computationnelle et Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s01-rentree/questionnaire-apprendre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Questionnaire — Ce qui m’aide à apprendre</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s02-fondamentaux-js-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 2 — Positionnement — fondations à la CS50 (Scratch, JavaScript)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 12/10 — Algorithmes et projet Scratch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 13/10 — Premiers pas en JavaScript avec Node</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 14/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 15/10 — Journée d’intégration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s02-fondamentaux-js-1/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 16/10 — ESLint, conditions et boucles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s03-fondamentaux-js-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 3 — Fondations à la CS50 en JavaScript (fonctions, tableaux, algorithmes)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 19/10 — Fonctions et démarche de débogage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 20/10 — Tableaux et chaînes de caractères</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 21/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 22/10 — Recherche, tris et complexité</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s03-fondamentaux-js-2/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 23/10 — ECF « Point d’étape fondamentaux »</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s04-environnement/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — C1 - Installer et configurer son environnement de travail</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 26/10 — IA tutrice (CS50.ai) et fonctionnement du web</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 27/10 — Terminal, SSH et poste de développeur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 28/10 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 29/10 — Versionner son travail avec Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 30/10 — GitHub et journal de veille</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s04-environnement/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 4 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s05-html-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — C3 - Réaliser des interfaces utilisateur statiques</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 02/11 — Recherche de stage et page sémantique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 03/11 — Les bases du CSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 04/11 — Atelier guidé &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 05/11 — Flexbox, Grid et mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 06/11 — Livraison de la page personnelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s05-html-css/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 5 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s06-html-css-suite/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — C3 - Réaliser des interfaces utilisateur statiques (suite)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/lundi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 09/11 — Flexbox : comprendre, puis pratiquer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mardi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 10/11 — Grid, puis le mobile first</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 11/11 — Férié</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/jeudi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 12/11 — Parcours d’autonomie, puis publier sa page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/vendredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 13/11 — Vérifier sa page, puis la corriger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s06-html-css-suite/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 6 — Fiche de révision</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s07-js-avance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — C4 - Développer la partie dynamique des interfaces (JavaScript avancé)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, matin — Séance PAF</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 16/11, après-midi — Fonctions en paramètre (callback) et map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, matin — Garder et trouver : filter et find</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 17/11, après-midi — Les objets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 18/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, matin — Résumer un tableau : reduce et l’accumulateur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 19/11, après-midi — Trier sans modifier le tableau reçu : toSorted</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, matin — Copier sans modifier : le spread</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 20/11, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s07-js-avance/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 7 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s08-dom-projet-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — C4 - Développer la partie dynamique des interfaces (le DOM · lancement du projet #1)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, matin — Le DOM : lire et modifier la page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 23/11, après-midi — Les événements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, matin — Séparer la logique et l’affichage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 24/11, après-midi — La décomposition (destructuring)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 25/11 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, matin — Formulaires : valider côté client</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 26/11, après-midi — Lancement du projet #1 « Explorateur open data » : dépôt public, première étape en live coding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, matin — La faille XSS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 27/11, après-midi — Groupe B : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s08-dom-projet-1/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 8 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../semaines/s09-asynchrone-api/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 9 — C4 - Développer la partie dynamique des interfaces (l’asynchrone et les API REST)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/lundi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 30/11, matin — La faille XSS (reportée du vendredi 27/11)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/lundi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lundi 30/11, après-midi — setTimeout et l’ordre d’exécution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/mardi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 01/12, matin — Les promesses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/mardi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mardi 01/12, après-midi — async / await</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/mercredi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mercredi 02/12 — Soutien &amp; autonomie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/jeudi-matin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 03/12, matin — Gérer les erreurs : throw et try / catch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/jeudi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jeudi 03/12, après-midi — fetch et response.ok : appeler une API REST ouverte (documentation en anglais) · projet #1 : US-4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/vendredi-matin.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Vendredi 04/12, matin — JSON et localStorage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/vendredi-apres-midi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vendredi 04/12, après-midi — Groupe A : projet &amp; consolidation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/revision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 9 — Fiche de révision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../semaines/s09-asynchrone-api/soutien.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semaine 9 — Soutien de la semaine</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#veille-les-données-stockées-dans-le-navigateur-30-min" id="toc-veille-les-données-stockées-dans-le-navigateur-30-min" class="nav-link" data-scroll-target="#veille-les-données-stockées-dans-le-navigateur-30-min">Veille — Les données stockées dans le navigateur (30 min)</a>
+  <ul>
+  <li><a href="#en-groupe-15-min" id="toc-en-groupe-15-min" class="nav-link" data-scroll-target="#en-groupe-15-min">En groupe (15 min)</a></li>
+  <li><a href="#mise-en-commun-et-journal-de-veille-15-min" id="toc-mise-en-commun-et-journal-de-veille-15-min" class="nav-link" data-scroll-target="#mise-en-commun-et-journal-de-veille-15-min">Mise en commun et journal de veille (15 min)</a></li>
+  </ul></li>
+  <li><a href="#matin-json-et-localstorage" id="toc-matin-json-et-localstorage" class="nav-link" data-scroll-target="#matin-json-et-localstorage">Matin — JSON et localStorage</a>
+  <ul>
+  <li><a href="#rappel-5-min" id="toc-rappel-5-min" class="nav-link" data-scroll-target="#rappel-5-min">Rappel (5 min)</a></li>
+  <li><a href="#apport-json-localstorage" id="toc-apport-json-localstorage" class="nav-link" data-scroll-target="#apport-json-localstorage">JSON et localStorage (15 min)</a></li>
+  <li><a href="#json-et-localstorage-en-image" id="toc-json-et-localstorage-en-image" class="nav-link" data-scroll-target="#json-et-localstorage-en-image">JSON et localStorage, en image</a></li>
+  <li><a href="#json-et-localstorage-lexemple-minimal" id="toc-json-et-localstorage-lexemple-minimal" class="nav-link" data-scroll-target="#json-et-localstorage-lexemple-minimal">JSON et localStorage, l’exemple minimal</a></li>
+  <li><a href="#json-et-localstorage-attention-et-vérification" id="toc-json-et-localstorage-attention-et-vérification" class="nav-link" data-scroll-target="#json-et-localstorage-attention-et-vérification">JSON et localStorage — attention et vérification</a></li>
+  <li><a href="#pas-à-pas-ensemble-mes-musées-favoris-25-min" id="toc-pas-à-pas-ensemble-mes-musées-favoris-25-min" class="nav-link" data-scroll-target="#pas-à-pas-ensemble-mes-musées-favoris-25-min">Pas à pas ensemble — Mes musées favoris (25 min)</a>
+  <ul class="collapse">
+  <li><a href="#variante-à-faire-seuls" id="toc-variante-à-faire-seuls" class="nav-link" data-scroll-target="#variante-à-faire-seuls">Variante à faire seuls</a></li>
+  <li><a href="#enregistrer-et-envoyer-2-min" id="toc-enregistrer-et-envoyer-2-min" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exercices-json-et-localstorage" id="toc-exercices-json-et-localstorage" class="nav-link" data-scroll-target="#exercices-json-et-localstorage">Exercices — JSON et localStorage</a>
+  <ul>
+  <li><a href="#palier-1-garder-un-favori-15-min" id="toc-palier-1-garder-un-favori-15-min" class="nav-link" data-scroll-target="#palier-1-garder-un-favori-15-min">Palier 1 — Garder un favori (15 min)</a></li>
+  <li><a href="#palier-1-entraînement" id="toc-palier-1-entraînement" class="nav-link" data-scroll-target="#palier-1-entraînement">Palier 1 : entraînement</a></li>
+  <li><a href="#palier-2-retirer-un-favori" id="toc-palier-2-retirer-un-favori" class="nav-link" data-scroll-target="#palier-2-retirer-un-favori">Palier 2 — Retirer un favori</a></li>
+  <li><a href="#palier-3-améliorer-la-page-des-favoris" id="toc-palier-3-améliorer-la-page-des-favoris" class="nav-link" data-scroll-target="#palier-3-améliorer-la-page-des-favoris">Palier 3 — Améliorer la page des favoris</a></li>
+  <li><a href="#favoris-projet" id="toc-favoris-projet" class="nav-link" data-scroll-target="#favoris-projet">Palier 3 — Les favoris de votre projet</a>
+  <ul class="collapse">
+  <li><a href="#enregistrer-et-envoyer-2-min-1" id="toc-enregistrer-et-envoyer-2-min-1" class="nav-link" data-scroll-target="#enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</a></li>
+  </ul></li>
+  <li><a href="#ou-j-en-suis" id="toc-ou-j-en-suis" class="nav-link" data-scroll-target="#ou-j-en-suis">Où j’en suis (10 min)</a></li>
+  <li><a href="#à-retenir" id="toc-à-retenir" class="nav-link" data-scroll-target="#à-retenir">À retenir</a></li>
+  <li><a href="#si-le-temps-le-permet" id="toc-si-le-temps-le-permet" class="nav-link" data-scroll-target="#si-le-temps-le-permet">Si le temps le permet</a></li>
+  <li><a href="#débrief" id="toc-débrief" class="nav-link" data-scroll-target="#débrief">Débrief</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="vendredi-matin.slides.html"><i class="bi bi-file-slides"></i>Diapositives</a></li><li><a href="vendredi-matin.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../semaines/s01-rentree/index.html">Semaines</a></li><li class="breadcrumb-item"><a href="../../semaines/s09-asynchrone-api/index.html">Semaine 9 — C4 - Développer la partie dynamique des interfaces (l’asynchrone et les API REST)</a></li><li class="breadcrumb-item"><a href="../../semaines/s09-asynchrone-api/vendredi-matin.html">Vendredi 04/12, matin — JSON et localStorage</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Vendredi 04/12, matin — JSON et localStorage</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Formateur</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Bardoux </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">vendredi 4 décembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Compétences visées</strong> : C4 · communiquer en anglais · apprendre en continu<br> <strong>Livrable</strong> : l’entrée du jour dans votre journal de veille, le pas à pas <code translate="no">pas-a-pas-favoris</code> envoyé sur GitHub, <code translate="no">node --test j1-garder-un-favori.test.js</code> au vert, et la feuille « Où j’en suis » remise.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Le minimum du jour">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Le minimum du jour
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>La veille du vendredi, consignée dans votre journal.</li>
+<li>Le pas à pas « Mes musées favoris », fait avec le groupe.</li>
+<li>Le palier 1 : <code translate="no">node --test j1-garder-un-favori.test.js</code> au vert, et deux favoris toujours là après un rechargement de la page.</li>
+<li>La feuille « Où j’en suis », remplie et remise.</li>
+</ul>
+<p>Les paliers 2 et 3, puis la rubrique « Si le temps le permet », sont la suite naturelle, pour ceux qui avancent.</p>
+</div>
+</div>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Garder une donnée dans le navigateur avec <a href="../../ressources/lexique.html#t-localstorage"><code translate="no">localStorage</code></a> : <code translate="no">setItem</code>, <code translate="no">getItem</code>, <code translate="no">removeItem</code>.</li>
+<li>Transformer un tableau ou un objet en texte <a href="../../ressources/lexique.html#t-json">JSON</a> avec <code translate="no">JSON.stringify</code>, et l’inverse avec <code translate="no">JSON.parse</code>.</li>
+<li>Traiter le cas où rien n’est encore enregistré : <code translate="no">getItem</code> renvoie <code translate="no">null</code>.</li>
+</ul>
+<p><strong>Comment se passe la matinée.</strong> D’abord la veille, sur les données rangées dans le navigateur. Puis une seule notion : JSON et <code translate="no">localStorage</code>. Hier, <code translate="no">response.json()</code> transformait la réponse de l’API en objets JavaScript ; ce matin, vous voyez ce format de texte, JSON, et vous vous en servez pour garder des favoris après un rechargement de la page. La matinée se termine par les 10 minutes « Où j’en suis », annoncées lundi.</p>
+</section>
+<section id="veille-les-données-stockées-dans-le-navigateur-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="veille-les-données-stockées-dans-le-navigateur-30-min">Veille — Les données stockées dans le navigateur (30 min)</h2>
+<section id="en-groupe-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="en-groupe-15-min">En groupe (15 min)</h3>
+<ol type="1">
+<li><strong>Groupe 1</strong> : l’OWASP et le <em>Local Storage</em> (en anglais).</li>
+<li>Groupe 1 : que ne faut-il jamais y ranger ? Pourquoi ?</li>
+<li><strong>Groupe 2</strong> : la CNIL : des favoris demandent-ils un consentement ?</li>
+<li>Groupe 2 : quels traceurs en sont dispensés ?</li>
+<li>Dans chaque groupe : un lecteur, un secrétaire, un porte-parole.</li>
+</ol>
+<ul>
+<li><strong>Groupe 1</strong> : la section <em>Local Storage</em> de l’antisèche HTML5 de l’OWASP, en anglais <span class="citation" data-cites="owasp-html5-cheatsheet">(<a href="#ref-owasp-html5-cheatsheet" role="doc-biblioref">OWASP Foundation, s.&nbsp;d.</a>)</span>. Relevez trois recommandations, et reliez l’une d’elles à la faille <a href="../../ressources/lexique.html#t-xss">XSS</a> de vendredi dernier. Ne traduisez pas tout : cherchez les titres et les listes.</li>
+<li><strong>Groupe 2</strong> : la page « Cookies et traceurs : que dit la loi ? » de la CNIL <span class="citation" data-cites="cnil-cookies-loi">(<a href="#ref-cnil-cookies-loi" role="doc-biblioref">CNIL, s.&nbsp;d.-a</a>)</span>, puis les lignes directrices de la CNIL sur les cookies et autres traceurs (délibération n° 2020-091), point 13 et article 5 <span class="citation" data-cites="cnil-lignes-directrices-2020">(<a href="#ref-cnil-lignes-directrices-2020" role="doc-biblioref">CNIL, s.&nbsp;d.-b</a>)</span>. Le <code translate="no">localStorage</code> est-il concerné ? Quels traceurs sont dispensés de consentement ? Les favoris de votre projet en font-ils partie ? Argumentez.</li>
+</ul>
+<p><strong>Les rôles</strong> : le lecteur lit la page à voix haute ; le secrétaire note les réponses ; le porte-parole présente. Celui qui préfère ne pas parler devant le groupe prend le rôle de secrétaire.</p>
+</section>
+<section id="mise-en-commun-et-journal-de-veille-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="mise-en-commun-et-journal-de-veille-15-min">Mise en commun et journal de veille (15 min)</h3>
+<ol type="1">
+<li>Chaque porte-parole présente ce que son groupe a trouvé (3 min).</li>
+<li>Seul : ajoutez l’entrée du jour à votre journal de veille.</li>
+</ol>
+<p><strong>Réussi si</strong> : votre journal de veille a une entrée datée du 04/12, avec la source (le lien), ce que vous avez appris en deux phrases, et une règle que vous appliquerez aux favoris du projet n° 1.</p>
+</section>
+</section>
+<section id="matin-json-et-localstorage" class="level2">
+<h2 class="anchored" data-anchor-id="matin-json-et-localstorage">Matin — JSON et localStorage</h2>
+<section id="rappel-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="rappel-5-min">Rappel (5 min)</h3>
+<ol type="1">
+<li><code translate="no">fetch</code> reçoit une réponse 404 : le <code translate="no">catch</code> s’exécute-t-il ?</li>
+<li>Une donnée d’une API : <code translate="no">textContent</code> ou <code translate="no">innerHTML</code> ?</li>
+<li>Que vaut <code translate="no">[...['M1'], 'M2']</code> ?</li>
+</ol>
+<p>Trois questions courtes, sans regarder vos notes : la veille (jeudi), la semaine passée, puis plus loin. Répondez sur une feuille ; la correction suit, à l’oral.</p>
+</section>
+<section id="apport-json-localstorage" class="level3">
+<h3 class="anchored" data-anchor-id="apport-json-localstorage">JSON et localStorage (15 min)</h3>
+<ul>
+<li><strong>Pourquoi</strong> : garder des favoris après un rechargement de la page.</li>
+<li><strong><code translate="no">localStorage</code></strong> : une clé, un texte, gardés par le navigateur.</li>
+<li><strong>JSON</strong> : un tableau ou un objet, écrit en texte.</li>
+<li><strong><code translate="no">JSON.stringify</code></strong> pour enregistrer, <strong><code translate="no">JSON.parse</code></strong> pour relire.</li>
+</ul>
+<p><strong>Pourquoi.</strong> Un visiteur choisit trois musées favoris, recharge la page : tout a disparu. Une variable JavaScript ne vit que le temps de la page. Pour retrouver ces choix à la prochaine visite, il faut les ranger dans le navigateur.</p>
+<p><strong>Définition.</strong> <a href="../../ressources/lexique.html#t-localstorage"><code translate="no">localStorage</code></a> est un espace de rangement du navigateur, propre à chaque site : <code translate="no">setItem(clé, texte)</code> range un texte sous une clé, <code translate="no">getItem(clé)</code> le relit (ou renvoie <code translate="no">null</code> s’il n’y a rien), <code translate="no">removeItem(clé)</code> l’efface ; le contenu reste après la fermeture du navigateur <span class="citation" data-cites="mdn-localstorage mdn-web-storage">(<a href="#ref-mdn-localstorage" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-d</a>, <a href="#ref-mdn-web-storage" role="doc-biblioref">s.&nbsp;d.-c</a>)</span>. Il ne garde que du <strong>texte</strong>. <a href="../../ressources/lexique.html#t-json">JSON</a> est un format de texte qui écrit des données comme des tableaux et des objets JavaScript : <code translate="no">JSON.stringify</code> transforme un tableau ou un objet en texte <span class="citation" data-cites="mdn-json-stringify">(<a href="#ref-mdn-json-stringify" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span>, <code translate="no">JSON.parse</code> fait l’inverse <span class="citation" data-cites="mdn-json-parse">(<a href="#ref-mdn-json-parse" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-a</a>)</span>. C’est le format de la réponse de l’API d’hier : <code translate="no">response.json()</code> faisait ce travail de lecture pour vous.</p>
+</section>
+<section id="json-et-localstorage-en-image" class="level3">
+<h3 class="anchored" data-anchor-id="json-et-localstorage-en-image">JSON et localStorage, en image</h3>
+<div class="schema-diapo" style="--h: 520px">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/s09-json-localstorage.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Pour enregistrer : JSON.stringify, puis setItem. Pour relire : getItem, puis JSON.parse."><img src="img/s09-json-localstorage.svg" class="img-fluid figure-img" alt="À gauche, dans la page, un tableau JavaScript de deux identifiants : M0194 et M0213. À droite, dans le navigateur, localStorage : sous la clé favoris, un texte qui contient ce tableau écrit en JSON. Flèche du haut, de gauche à droite : JSON.stringify transforme le tableau en texte, puis setItem range ce texte. Flèche du bas, de droite à gauche : getItem relit le texte, puis JSON.parse le retransforme en tableau. localStorage ne garde que du texte ; s’il n’y a rien sous la clé, getItem renvoie null."></a></p>
+<figcaption>Pour enregistrer : JSON.stringify, puis setItem. Pour relire : getItem, puis JSON.parse.</figcaption>
+</figure>
+</div>
+</div>
+<p>Le texte du schéma : à gauche, dans la page, un tableau de deux identifiants. À droite, dans le navigateur, <code translate="no">localStorage</code> : sous la clé <code translate="no">favoris</code>, le texte <code translate="no">'["M0194","M0213"]'</code>. Pour enregistrer, de gauche à droite : <code translate="no">JSON.stringify</code>, puis <code translate="no">setItem</code>. Pour relire, de droite à gauche : <code translate="no">getItem</code>, puis <code translate="no">JSON.parse</code>. S’il n’y a rien sous la clé, <code translate="no">getItem</code> renvoie <code translate="no">null</code>.</p>
+</section>
+<section id="json-et-localstorage-lexemple-minimal" class="level3">
+<h3 class="anchored" data-anchor-id="json-et-localstorage-lexemple-minimal">JSON et localStorage, l’exemple minimal</h3>
+<p>Le premier programme de la notion, annoté : enregistrer, puis relire.</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-09/exemple/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="semaine-09/exemple/app.js" translate="no"><pre class="sourceCode js code-annotation-code code-with-copy code-annotated"><code class="sourceCode javascript"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> favorites <span class="op">=</span> [<span class="st">'M0194'</span><span class="op">,</span> <span class="st">'M0213'</span>]<span class="op">;</span></span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> text <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(favorites)<span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>localStorage<span class="op">.</span><span class="fu">setItem</span>(<span class="st">'favoris'</span><span class="op">,</span> text)<span class="op">;</span></span>
+<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> stored <span class="op">=</span> localStorage<span class="op">.</span><span class="fu">getItem</span>(<span class="st">'favoris'</span>)<span class="op">;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (stored <span class="op">!==</span> <span class="kw">null</span>) {</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> again <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(stored)<span class="op">;</span></span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(again<span class="op">.</span><span class="at">length</span>)<span class="op">;</span></span>
+<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1">Un tableau JavaScript : il disparaît quand la page se recharge.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="3" data-code-annotation="2"><code translate="no">JSON.stringify</code> l’écrit en texte : <code translate="no">'["M0194","M0213"]'</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="3"><code translate="no">setItem</code> range ce texte dans le navigateur, sous la clé <code translate="no">'favoris'</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="4"><code translate="no">getItem</code> relit le texte rangé sous cette clé, même après un rechargement.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="7" data-code-annotation="5">S’il n’y a rien sous cette clé, <code translate="no">getItem</code> renvoie <code translate="no">null</code> : on traite ce cas d’abord (style défensif).</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="8" data-code-annotation="6"><code translate="no">JSON.parse</code> retransforme le texte en tableau : <code translate="no">again.length</code> vaut <code translate="no">2</code>.</span>
+</dd>
+</dl>
+</section>
+<section id="json-et-localstorage-attention-et-vérification" class="level3">
+<h3 class="anchored" data-anchor-id="json-et-localstorage-attention-et-vérification">JSON et localStorage — attention et vérification</h3>
+<div class="callout callout-style-default callout-warning callout-titled type-attention">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Avertissement</span>Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sans <code translate="no">JSON.stringify</code>, <code translate="no">setItem</code> enregistre le texte <code translate="no">M0194,M0213</code> : <code translate="no">JSON.parse</code> ne sait pas le relire.</p>
+<p><code translate="no">localStorage.setItem('favoris', favorites)</code> enregistre ce texte, qui n’est pas du JSON. À la relecture, <code translate="no">JSON.parse</code> s’arrête : <code translate="no">SyntaxError: Unexpected token 'M', "M0194,M0213" is not valid JSON</code> (<a href="../../ressources/fiche-erreurs.html#json-invalide">fiche « Lire un message d’erreur »</a>). Enregistrez toujours <code translate="no">JSON.stringify(favorites)</code>.</p>
+</div>
+</div>
+<ul>
+<li><strong>Vérifiez</strong> : que renvoie <code translate="no">getItem</code> pour une clé jamais enregistrée ?</li>
+<li>Et <code translate="no">JSON.stringify({ id: 'M0194' })</code> : quel est son type ?</li>
+</ul>
+</section>
+<section id="pas-à-pas-ensemble-mes-musées-favoris-25-min" class="level3">
+<h3 class="anchored" data-anchor-id="pas-à-pas-ensemble-mes-musées-favoris-25-min">Pas à pas ensemble — Mes musées favoris (25 min)</h3>
+<ul>
+<li>Le formateur code, vous tapez en même temps, une étape à la fois.</li>
+<li>Code et commentaires : <code translate="no">//</code> au-dessus de chaque ligne.</li>
+<li>Dossier : <code translate="no">pas-a-pas-favoris</code>, fichier <code translate="no">app.js</code>.</li>
+<li>Perdu ? Dossier <code translate="no">rattrapage/favoris/</code>, une étape à la fois.</li>
+</ul>
+<p><strong>Pas à pas, tous ensemble.</strong> Ouvrez <code translate="no">pas-a-pas-favoris/app.js</code> : les trois musées des Côtes-d’Armor <span class="citation" data-cites="datagouv-museofile">(<a href="#ref-datagouv-museofile" role="doc-biblioref">Ministère de la Culture, s.&nbsp;d.</a>)</span>, un bouton par musée et le résumé sont déjà écrits ; la fonction <code translate="no">choose(id)</code> est vide. Ouvrez <code translate="no">index.html</code> avec Live Preview, puis dans le navigateur, F12, <strong>Console</strong>.</p>
+<p><strong>Avant de commencer.</strong> <strong>Vous devez voir</strong> : trois boutons « Ajouter : … », le résumé « 0 favori(s) : », et dans la console « Clé de cette page : pas-a-pas-favoris ». Toutes les pages ouvertes avec Live Preview partagent le même <code translate="no">localStorage</code> : chaque page de la matinée a donc <strong>sa</strong> clé, écrite dans la constante <code translate="no">KEY</code>.</p>
+<p><strong>Étape 1 — Enregistrer.</strong> Dans <code translate="no">app.js</code>, remplacez la ligne <code translate="no">// Étape 1 : écrivez ici.</code> de la fonction <code translate="no">choose</code> par les lignes ci-dessous.</p>
+<p><em>Avant d’exécuter</em> : après un clic, puis un rechargement de la page, que dira le résumé ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-09/pas-a-pas-favoris/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="semaine-09/pas-a-pas-favoris/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">choose</span>(id) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Spread : un nouveau tableau, avec cet identifiant en plus</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  favorites <span class="op">=</span> [<span class="op">...</span>favorites<span class="op">,</span> id]<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// JSON.stringify : le tableau devient un texte</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> text <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(favorites)<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// setItem : range ce texte dans le navigateur, sous KEY</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  localStorage<span class="op">.</span><span class="fu">setItem</span>(KEY<span class="op">,</span> text)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Met à jour le résumé de la page</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">showSummary</span>()<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez. Cliquez sur « Ajouter : musée de Dinan ». Dans la console, tapez <code translate="no">localStorage.getItem('pas-a-pas-favoris')</code>. Puis rechargez la page.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : après le clic, « 1 favori(s) : M0194 » ; dans la console, le texte <code translate="no">'["M0194"]'</code> ; après le rechargement, « 0 favori(s) : ». Le texte est bien rangé dans le navigateur, mais la page ne le relit pas encore.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/favoris/etape-1/app.js</code> à la place de votre <code translate="no">app.js</code>, puis repartez avec le groupe.</p>
+</div>
+<p><strong>Étape 2 — Relire.</strong> Sous la ligne <code translate="no">// Étape 2 — sous cette ligne…</code>, à la fin du fichier, écrivez la fonction <code translate="no">loadFavorites</code>.</p>
+<p><em>Avant d’exécuter</em> : que renvoie <code translate="no">getItem</code> la toute première fois, quand rien n’est enregistré ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-09/pas-a-pas-favoris/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="semaine-09/pas-a-pas-favoris/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Relit les favoris rangés dans le navigateur</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">loadFavorites</span>() {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// getItem : le texte rangé sous KEY, ou null si rien</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> text <span class="op">=</span> localStorage<span class="op">.</span><span class="fu">getItem</span>(KEY)<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Rien d'enregistré : on part d'un tableau vide</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (text <span class="op">===</span> <span class="kw">null</span>) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Un tableau vide : aucun favori</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> []<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// JSON.parse : le texte redevient un tableau</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(text)<span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Puis, en haut du fichier, remplacez la ligne <code translate="no">let favorites = [];</code> par celle-ci, avec son commentaire :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-09/pas-a-pas-favoris/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="semaine-09/pas-a-pas-favoris/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Au chargement : les favoris déjà enregistrés</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> favorites <span class="op">=</span> <span class="fu">loadFavorites</span>()<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez, puis rechargez la page.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : « 1 favori(s) : M0194 » dès le chargement : le favori de l’étape 1 est revenu. Cliquez de nouveau sur « Ajouter : musée de Dinan » : « 2 favori(s) : M0194, M0194 ». Le même musée y est deux fois : c’est l’étape 3.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/favoris/etape-2/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<p><strong>Étape 3 — Pas de doublon, et tout retirer.</strong> Au début de la fonction <code translate="no">choose</code>, avant la ligne du <em>spread</em>, ajoutez ces lignes.</p>
+<p><em>Avant d’exécuter</em> : après « Tout retirer », puis un rechargement, combien de favoris ?</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-09/pas-a-pas-favoris/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="semaine-09/pas-a-pas-favoris/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Déjà dans les favoris : on ne l'ajoute pas deux fois</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (favorites<span class="op">.</span><span class="fu">includes</span>(id)) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// return : la fonction s'arrête, rien n'est ajouté</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Puis, dans l’écouteur du bouton « Tout retirer », remplacez la ligne <code translate="no">// Étape 3 : une ligne à ajouter ici…</code> par ces deux lignes :</p>
+<div class="code-with-filename" translate="no">
+<div class="code-with-filename-file">
+<pre><strong>semaine-09/pas-a-pas-favoris/app.js</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="semaine-09/pas-a-pas-favoris/app.js" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// removeItem : efface ce qui est rangé sous la clé KEY</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  localStorage<span class="op">.</span><span class="fu">removeItem</span>(KEY)<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Enregistrez. Cliquez sur « Tout retirer », puis deux fois sur « Ajouter : musée de Dinan », puis une fois sur « Ajouter : musée Mathurin-Méheut ». Rechargez. Cliquez sur « Tout retirer », puis rechargez encore.</p>
+<div class="encadre-voir">
+<p><strong>Vous devez voir</strong> : « 2 favori(s) : M0194, M0195 », avant et après le premier rechargement ; puis « 0 favori(s) : » après « Tout retirer », et encore après le dernier rechargement.</p>
+</div>
+<div class="encadre-perdu">
+<p><em>Perdu ?</em> Copiez <code translate="no">rattrapage/favoris/etape-3/app.js</code> à la place de votre <code translate="no">app.js</code>.</p>
+</div>
+<section id="variante-à-faire-seuls" class="level4">
+<h4 class="anchored" data-anchor-id="variante-à-faire-seuls">Variante à faire seuls</h4>
+<p>Pour ceux qui ont validé l’étape avant les autres. À la fin de <code translate="no">choose</code>, enregistrez aussi l’identifiant du dernier musée ajouté sous une deuxième clé, <code translate="no">'pas-a-pas-dernier'</code> : c’est déjà un texte, sans <code translate="no">JSON.stringify</code>. Écrivez la ligne et son commentaire. <strong>Réussi si</strong> : après un clic et un rechargement, <code translate="no">localStorage.getItem('pas-a-pas-dernier')</code>, tapé dans la console, affiche l’identifiant du musée cliqué.</p>
+</section>
+<section id="enregistrer-et-envoyer-2-min" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min">Enregistrer et envoyer (2 min)</h4>
+<p>Revenez dans <code translate="no">semaine-09</code> : <code translate="no">cd ~/dwwm/dwwm-tp/semaine-09</code>. Puis : <code translate="no">git status</code>, <code translate="no">git add pas-a-pas-favoris</code>, <code translate="no">git commit -m "Ajoute le pas à pas des favoris"</code>, <code translate="no">git push</code>. <strong>Réussi si</strong> : après le push, <code translate="no">git status</code> affiche <code translate="no">rien à valider, la copie de travail est propre</code> (le kit de la semaine a été commité lundi matin).</p>
+</section>
+</section>
+</section>
+<section id="exercices-json-et-localstorage" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-json-et-localstorage">Exercices — JSON et localStorage</h2>
+<p>Tous les exercices partent de la même page : un résumé, la liste des musées en boutons, et le bouton « Tout retirer ». Chaque exercice a quatre fichiers : <code translate="no">logic.js</code> (la consigne de la logique en commentaire), <code translate="no">app.js</code> (la consigne de l’affichage, et les lignes <code translate="no">import</code> déjà écrites), <code translate="no">index.html</code> et <code translate="no">style.css</code>. Toujours dans cet ordre : d’abord la logique et ses tests (<code translate="no">node --test nom.test.js</code>, depuis <code translate="no">semaine-09</code>), puis l’affichage, dans le navigateur. La logique ne touche jamais à <code translate="no">localStorage</code> : Node n’en a pas. Elle reçoit un texte ou un tableau, et renvoie un résultat ; c’est <code translate="no">app.js</code> qui lit et écrit dans le navigateur.</p>
+<section id="palier-1-garder-un-favori-15-min" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-garder-un-favori-15-min">Palier 1 — Garder un favori (15 min)</h3>
+<ol type="1">
+<li><code translate="no">j1-garder-un-favori</code> : <code translate="no">addFavorite</code>, puis <code translate="no">readFavorites</code>.</li>
+<li><code translate="no">node --test j1-garder-un-favori.test.js</code> au vert.</li>
+<li><code translate="no">app.js</code> : relire au chargement, enregistrer à chaque clic.</li>
+<li><strong>Réussi si</strong> : tests au vert, 2 favoris gardés après rechargement.</li>
+</ol>
+<p><strong>Palier 1 : guidé.</strong> Durée : 15 min. La page (<code translate="no">index.html</code>, <code translate="no">style.css</code>) est fournie : vous écrivez la logique, puis trois lignes d’<code translate="no">app.js</code>.</p>
+<ol type="1">
+<li>Ouvrez <code translate="no">j1-garder-un-favori/logic.js</code>. <code translate="no">addFavorite(favorites, id)</code> renvoie un <strong>nouveau</strong> tableau : les favoris, puis <code translate="no">id</code> à la fin (le <em>spread</em>, comme à l’étape 1 du pas à pas). Si <code translate="no">id</code> y est déjà (<code translate="no">includes</code>, étape 3), elle renvoie une copie, sans rien ajouter.</li>
+<li><code translate="no">readFavorites(text)</code> reçoit ce que renvoie <code translate="no">getItem</code> : pour <code translate="no">null</code>, elle renvoie <code translate="no">[]</code> ; sinon, <code translate="no">JSON.parse(text)</code> (comme <code translate="no">loadFavorites</code>, étape 2).</li>
+<li>Depuis <code translate="no">semaine-09</code>, lancez <code translate="no">node --test j1-garder-un-favori.test.js</code>.</li>
+<li>Ouvrez <code translate="no">app.js</code>. Ligne A : remplacez <code translate="no">[]</code> par <code translate="no">readFavorites(localStorage.getItem(KEY))</code>.</li>
+<li>Lignes B, dans <code translate="no">choose(id)</code>, avant <code translate="no">showPage()</code> : <code translate="no">favorites = addFavorite(favorites, id);</code>, puis enregistrez <code translate="no">favorites</code> sous la clé <code translate="no">KEY</code>, avec <code translate="no">localStorage.setItem</code> et <code translate="no">JSON.stringify</code>.</li>
+<li>Supprimez la ligne <code translate="no">console.log</code> qui suit les lignes <code translate="no">import</code>.</li>
+<li>Ouvrez <code translate="no">index.html</code> avec Live Preview. Cliquez sur deux musées, puis rechargez la page.</li>
+<li>Rituel : un commit (<code translate="no">git add j1-garder-un-favori</code>, <code translate="no">git commit -m "Ajoute la solution de j1"</code>).</li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test j1-garder-un-favori.test.js</code> affiche <code translate="no">ℹ fail 0</code> ; après deux clics et un rechargement, la page affiche toujours « 2 favori(s) », et les deux musées gardent leur étoile ; aucune erreur dans la console.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/j1-garder-un-favori-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Après deux clics et un rechargement, à 375 px"><img src="img/resultats/j1-garder-un-favori-375.webp" class="img-fluid figure-img" alt="Résultat attendu de j1 à 375 pixels, après deux clics et un rechargement : le titre « Mes musées favoris », « 2 favori(s) », puis huit musées d'Ille-et-Vilaine en boutons ; deux d'entre eux commencent par une étoile ; en bas, le bouton « Tout retirer »." width="375"></a></p>
+<figcaption>Après deux clics et un rechargement, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/j1-garder-un-favori-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Après deux clics et un rechargement, à 1280 px"><img src="img/resultats/j1-garder-un-favori-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de j1 à 1280 pixels : la même page centrée, « 2 favori(s) », et deux musées marqués d'une étoile."></a></p>
+<figcaption>Après deux clics et un rechargement, à 1280 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s09-asynchrone-api/vendredi-matin.html#apport-json-localstorage">Vendredi matin, « JSON et localStorage »</a> ; le pas à pas, étapes 1 et 2.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi <code translate="no">getItem</code> renvoie <code translate="no">null</code>, ou ce que veut dire un test rouge, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage">Window.localStorage</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">JSON.parse()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-1-entraînement" class="level3">
+<h3 class="anchored" data-anchor-id="palier-1-entraînement">Palier 1 : entraînement</h3>
+<ul>
+<li>Le palier 1 vous a demandé de l’aide ou la correction ?</li>
+<li>Faites ces deux exercices à la place du palier 2 : 2 × 10 min.</li>
+<li><code translate="no">j1b-musees-visites</code> : un tableau ; <code translate="no">j1c-dernier-musee</code> : un objet.</li>
+<li>Exercices complets : un peu de HTML, de CSS et de JavaScript.</li>
+<li><strong>Réussi si</strong> : tests au vert, la donnée gardée après rechargement.</li>
+</ul>
+<p><strong>Palier 1 : entraînement.</strong> Entraînement : 2 × 10 min, à faire à la place du palier 2, si le palier 1 vous a demandé de l’aide ou la correction. Même travail que <code translate="no">j1-garder-un-favori</code> : la logique, testée, puis relire au chargement et enregistrer au clic.</p>
+<p>Ce sont des exercices <strong>complets</strong> : les fichiers sont fournis, et vous modifiez un peu chacun. La consigne détaillée est en commentaire en haut de <code translate="no">logic.js</code>, puis d’<code translate="no">app.js</code>.</p>
+<ol type="1">
+<li><strong><code translate="no">j1b-musees-visites</code></strong> : les musées du Morbihan que vous avez déjà visités.
+<ul>
+<li><code translate="no">logic.js</code> : <code translate="no">addVisit(visits, id)</code> et <code translate="no">readVisits(text)</code>, comme dans <code translate="no">j1</code>. Puis <code translate="no">node --test j1b-musees-visites.test.js</code>.</li>
+<li><code translate="no">index.html</code> : sous le résumé, ajoutez le paragraphe <code translate="no">&lt;p id="conseil" class="conseil"&gt;Cliquez sur un musée que vous avez déjà visité.&lt;/p&gt;</code>.</li>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.conseil</code> (une couleur, une taille de texte).</li>
+<li><code translate="no">app.js</code> : relisez les visites au chargement (ligne A), enregistrez-les à chaque clic (lignes B).</li>
+</ul>
+<strong>Réussi si</strong> : <code translate="no">node --test j1b-musees-visites.test.js</code> affiche <code translate="no">ℹ fail 0</code> ; après deux clics et un rechargement, la page affiche « 2 musée(s) visité(s) sur 10 », et les deux musées gardent leur coche.</li>
+<li><strong><code translate="no">j1c-dernier-musee</code></strong> : le dernier musée consulté. Cette fois, on enregistre un <strong>objet</strong>, pas un tableau.
+<ul>
+<li><code translate="no">logic.js</code> : <code translate="no">lastVisit(museum)</code> renvoie <code translate="no">{ id, name }</code> ; <code translate="no">readLast(text)</code> renvoie <code translate="no">null</code> pour <code translate="no">null</code>, sinon l’objet obtenu avec <code translate="no">JSON.parse</code>. Puis <code translate="no">node --test j1c-dernier-musee.test.js</code>.</li>
+<li><code translate="no">index.html</code> : ajoutez la classe <code translate="no">dernier</code> au paragraphe <code translate="no">#resume</code>.</li>
+<li><code translate="no">style.css</code> : écrivez la classe <code translate="no">.dernier</code> (un trait à gauche).</li>
+<li><code translate="no">app.js</code> : relisez le dernier musée au chargement (ligne A), enregistrez-le à chaque clic (lignes B).</li>
+</ul>
+<strong>Réussi si</strong> : <code translate="no">node --test j1c-dernier-musee.test.js</code> affiche <code translate="no">ℹ fail 0</code> ; après un clic sur « musée de Dinan » et un rechargement, la page affiche « Dernier musée consulté : musée de Dinan (M0194) ».</li>
+<li>Rituel : un commit par exercice réussi (<code translate="no">git add j1b-musees-visites</code>, <code translate="no">git commit -m "Ajoute la solution de j1b"</code>).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/j1b-musees-visites-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="j1b-musees-visites, après deux clics et un rechargement, à 375 px"><img src="img/resultats/j1b-musees-visites-375.webp" class="img-fluid figure-img" alt="Résultat attendu de j1b à 375 pixels : le titre « Les musées que j'ai visités », « 2 musée(s) visité(s) sur 10 », le conseil en gris, puis dix musées du Morbihan en boutons, dont deux commencent par une coche." width="375"></a></p>
+<figcaption>j1b-musees-visites, après deux clics et un rechargement, à 375 px</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/j1c-dernier-musee-375.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="j1c-dernier-musee, après un clic et un rechargement, à 375 px"><img src="img/resultats/j1c-dernier-musee-375.webp" class="img-fluid figure-img" alt="Résultat attendu de j1c à 375 pixels : le titre « Le dernier musée consulté », la phrase « Dernier musée consulté : musée de Dinan (M0194) » avec un trait bleu à gauche, puis trois musées des Côtes-d'Armor en boutons." width="375"></a></p>
+<figcaption>j1c-dernier-musee, après un clic et un rechargement, à 375 px</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s09-asynchrone-api/vendredi-matin.html#apport-json-localstorage">Vendredi matin, « JSON et localStorage »</a> ; le pas à pas, étapes 1 et 2.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez la différence entre un tableau et le texte JSON de ce tableau, pas le code de l’exercice.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">JSON.stringify()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/API/Storage/setItem">Storage.setItem()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-2-retirer-un-favori" class="level3">
+<h3 class="anchored" data-anchor-id="palier-2-retirer-un-favori">Palier 2 — Retirer un favori</h3>
+<ol type="1">
+<li><code translate="no">j2-retirer-un-favori</code> : <code translate="no">toggleFavorite</code>, <code translate="no">readFavorites</code>.</li>
+<li>Un texte abîmé dans le stockage : <code translate="no">try</code> / <code translate="no">catch</code>, et <code translate="no">[]</code>.</li>
+<li><code translate="no">style.css</code> : la classe <code translate="no">.favori</code> ; puis <code translate="no">app.js</code>.</li>
+<li><strong>Réussi si</strong> : les tests au vert ; un second clic retire le favori.</li>
+</ol>
+<p><strong>Palier 2 : recommandé, semi-guidé.</strong> Durée indicative : 25 min ; ce qui n’est pas fini se termine cet après-midi (groupe A) ou mercredi 09/12, dans le parcours d’autonomie. Vous écrivez <strong>deux fichiers sur trois</strong> : <code translate="no">style.css</code> (la classe <code translate="no">.favori</code>) et le JavaScript (<code translate="no">logic.js</code>, <code translate="no">app.js</code>) ; <code translate="no">index.html</code> est fourni.</p>
+<ol type="1">
+<li><strong>La logique</strong> : <code translate="no">toggleFavorite(favorites, id)</code> renvoie un <strong>nouveau</strong> tableau : avec <code translate="no">id</code> à la fin s’il n’y était pas, sans <code translate="no">id</code> s’il y était (<code translate="no">filter</code>, semaine 7).</li>
+<li><code translate="no">readFavorites(text)</code> : <code translate="no">[]</code> pour <code translate="no">null</code> ; le tableau pour un texte JSON ; et <code translate="no">[]</code> aussi pour un texte qui n’est pas du JSON. N’importe qui peut modifier le stockage à la main, dans l’onglet <strong>Application</strong> : <code translate="no">JSON.parse</code> lance alors une erreur, que vous attrapez avec <code translate="no">try</code> / <code translate="no">catch</code> (mardi après-midi). Écrivez <code translate="no">catch (error)</code>, comme mardi, même si vous n’utilisez pas <code translate="no">error</code> ici.</li>
+<li>Lancez <code translate="no">node --test j2-retirer-un-favori.test.js</code> : cinq tests.</li>
+<li><strong>Le style</strong> : dans <code translate="no">style.css</code>, écrivez la classe <code translate="no">.favori</code> : un bouton de musée favori se distingue des autres (un autre fond, par exemple).</li>
+<li><strong>L’affichage</strong> : dans <code translate="no">app.js</code>, suivez les étapes 4 à 8 écrites en commentaire : relire au chargement ; le texte et la classe de chaque bouton ; un clic appelle <code translate="no">toggleFavorite</code>, enregistre, puis réaffiche ; « Tout retirer » efface la clé.</li>
+</ol>
+<p><strong>Réussi si</strong> : <code translate="no">node --test j2-retirer-un-favori.test.js</code> affiche <code translate="no">ℹ fail 0</code> ; un clic sur un musée affiche « * Retirer : … » avec la classe <code translate="no">favori</code>, un second clic le retire ; les favoris sont toujours là après un rechargement ; dans la console, <code translate="no">localStorage.setItem('j2-favoris', 'abc')</code> puis un rechargement affichent « 0 favori(s) sur 13 musées », sans erreur.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/resultats/j2-retirer-un-favori-1280.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="j2, après un favori, à 1280 px"><img src="img/resultats/j2-retirer-un-favori-1280.webp" class="img-fluid figure-img" alt="Résultat attendu de j2 à 1280 pixels, après un clic sur le deuxième musée : « 1 favori(s) sur 13 musées », puis treize musées du Finistère en boutons bleus « Ajouter : … », sauf le deuxième, en vert : « * Retirer : musée des beaux-arts »."></a></p>
+<figcaption>j2, après un favori, à 1280 px</figcaption>
+</figure>
+</div>
+<p><strong>Trois indices pour <code translate="no">j2-retirer-un-favori</code></strong>, du plus léger au plus complet. Ouvrez-les un par un : après chaque indice, essayez de nouveau avant d’ouvrir le suivant.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 1 — l'idée">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 1 — l’idée
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dans <code translate="no">toggleFavorite</code>, deux cas, selon <code translate="no">favorites.includes(id)</code> : s’il y est, un <code translate="no">filter</code> qui garde tous les autres ; sinon, le <em>spread</em> de <code translate="no">j1</code>. Dans <code translate="no">readFavorites</code>, trois cas : <code translate="no">null</code> ; un texte que <code translate="no">JSON.parse</code> sait lire ; un texte qui le fait échouer, attrapé par <code translate="no">catch</code>. Dans <code translate="no">app.js</code>, tout passe par <code translate="no">showPage</code> : après chaque changement, on enregistre, puis on réaffiche toute la liste.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 2 — le squelette">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 2 — le squelette
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// logic.js — dans toggleFavorite(favorites, id) :</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">//   si favorites contient id : renvoyer les favoris différents de id (filter)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">//   sinon : renvoyer un nouveau tableau, les favoris puis id (spread)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// logic.js — dans readFavorites(text) :</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">//   si text vaut null : renvoyer []</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">//   essayer (try) : renvoyer JSON.parse(text)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">//   si une erreur est levée (catch) : renvoyer []</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">// app.js — au chargement : favorites reçoit readFavorites(le texte rangé sous KEY)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">// app.js — dans la boucle de showPage, pour chaque bouton :</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">//   si le musée est un favori : texte « * Retirer : nom », classe favori (classList.add)</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">//   sinon : texte « Ajouter : nom »</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">//   écouter le clic : toggleFavorite, puis setItem avec JSON.stringify, puis showPage()</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">// app.js — « Tout retirer » : removeItem(KEY), en plus des deux lignes déjà écrites</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Indice 3 — la solution, moins une ligne">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Indice 3 — la solution, moins une ligne
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" translate="no"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// logic.js</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">toggleFavorite</span>(favorites<span class="op">,</span> id) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (favorites<span class="op">.</span><span class="fu">includes</span>(id)) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Il manque une ligne : le return, avec filter.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> [<span class="op">...</span>favorites<span class="op">,</span> id]<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">readFavorites</span>(text) {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (text <span class="op">===</span> <span class="kw">null</span>) {</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> []<span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span> {</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(text)<span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">catch</span> (error) {</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> []<span class="op">;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">// app.js : l'écouteur d'un bouton, dans la boucle de showPage.</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>button<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  favorites <span class="op">=</span> <span class="fu">toggleFavorite</span>(favorites<span class="op">,</span> museum<span class="op">.</span><span class="at">Identifiant</span>)<span class="op">;</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  localStorage<span class="op">.</span><span class="fu">setItem</span>(KEY<span class="op">,</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(favorites))<span class="op">;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">showPage</span>()<span class="op">;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s09-asynchrone-api/vendredi-matin.html#apport-json-localstorage">Vendredi matin, « JSON et localStorage »</a> ; <a href="../../semaines/s09-asynchrone-api/jeudi-matin.html#apport-erreurs">jeudi matin, <code translate="no">try</code> / <code translate="no">catch</code></a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi il faut se méfier de ce qu’on relit dans <code translate="no">localStorage</code>, pas le code.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/try...catch">try…catch</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.prototype.filter()</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/API/Storage/removeItem">Storage.removeItem()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palier-3-améliorer-la-page-des-favoris" class="level3">
+<h3 class="anchored" data-anchor-id="palier-3-améliorer-la-page-des-favoris">Palier 3 — Améliorer la page des favoris</h3>
+<ul>
+<li><code translate="no">j3-ameliorer-favoris</code> : une page qui marche, mal écrite.</li>
+<li>Améliorez le code <strong>sans changer</strong> ce que fait la page.</li>
+<li><strong>Réussi si</strong> : les 4 tests du palier 3 au vert, ESLint muet.</li>
+</ul>
+<p><strong>Palier 3 : autonome.</strong> Type d’exercice : <strong>améliorer</strong>. Durée indicative : 30 min ; ce qui n’est pas fini se termine cet après-midi (groupe A) ou mercredi 09/12, dans le parcours d’autonomie.</p>
+<p>Ouvrez <code translate="no">j3-ameliorer-favoris/index.html</code> avec Live Preview : la page marche. Ajoutez des favoris, retirez-en, rechargez. Puis lisez <code translate="no">app.js</code> et <code translate="no">logic.js</code> : le code est difficile à relire. Améliorez-le, <strong>sans changer ce que fait la page</strong> :</p>
+<ul>
+<li>plus aucun <code translate="no">var</code> : <code translate="no">var</code> est l’ancienne façon de déclarer une variable ; remplacez-la par <code translate="no">let</code> ou <code translate="no">const</code> (c’est l’alerte <code translate="no">no-var</code> d’ESLint, semaine 2) ;</li>
+<li>plus aucun <code translate="no">==</code> ni <code translate="no">!=</code> : seulement <code translate="no">===</code> et <code translate="no">!==</code> ;</li>
+<li>la lecture du stockage (<code translate="no">getItem</code>, puis <code translate="no">JSON.parse</code>) est écrite trois fois : écrivez-la <strong>une</strong> fois, dans une fonction ;</li>
+<li>des noms qui disent ce que contient chaque variable ;</li>
+<li>à la fin, supprimez la première ligne des deux fichiers (<code translate="no">eslint-disable</code>) : elle faisait taire ESLint.</li>
+</ul>
+<p><strong>Réussi si</strong> : <code translate="no">node --test j3-ameliorer-favoris.defi.test.js</code> affiche <code translate="no">ℹ fail 0</code> (4 tests : le premier vérifie que le comportement n’a pas changé, les trois autres <strong>lisent votre code</strong>) ; <code translate="no">npx eslint j3-ameliorer-favoris</code> n’affiche rien ; la page se comporte comme avant.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Autonome">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autonome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez bloquer : c’est voulu, c’est le métier. Méthode : 1. lisez le message d’erreur en entier ; 2. cherchez-le dans la fiche « Lire un message d’erreur » ; 3. lisez la documentation ; 4. après 15 minutes bloqué sur le même point, demandez.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s09-asynchrone-api/vendredi-matin.html#apport-json-localstorage">Vendredi matin, « JSON et localStorage »</a> ; le palier 2 de ce matin (<code translate="no">toggleFavorite</code>).</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez pourquoi on préfère <code translate="no">const</code> et <code translate="no">let</code> à <code translate="no">var</code>, pas le code amélioré.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/var">var</a> ; <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">Array.prototype.includes()</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="favoris-projet" class="level3">
+<h3 class="anchored" data-anchor-id="favoris-projet">Palier 3 — Les favoris de votre projet</h3>
+<ul>
+<li>Projet n° 1 : garder ses musées favoris (<code translate="no">BACKLOG.md</code>).</li>
+<li>Une branche <code translate="no">favoris</code>, la logique testée, une Pull Request.</li>
+<li><strong>Réussi si</strong> : favoris gardés après rechargement ; PR fusionnée.</li>
+</ul>
+<p><strong>Palier 3 : autonome.</strong> Durée indicative : 1 h, cet après-midi pour le groupe A, sur un prochain créneau de projet pour le groupe B. Rien de ce palier n’est nécessaire pour la suite du projet.</p>
+<p>Dans votre dépôt <code translate="no">explorateur-musees</code>, sur une branche <code translate="no">favoris</code> : chaque musée de la liste peut être ajouté aux favoris, puis retiré ; les favoris sont gardés dans <code translate="no">localStorage</code>, sous une clé au nom du projet (<code translate="no">explorateur-musees-favoris</code>) ; ils sont toujours là après un rechargement. À vous de décider où va chaque partie, avec la règle de la semaine : ce qui calcule dans <code translate="no">logic.js</code> (avec au moins deux tests que vous écrivez, sur le modèle de ceux de <code translate="no">j2</code>), ce qui lit et écrit le navigateur dans <code translate="no">app.js</code>. Aucune donnée personnelle dans le stockage (la veille de ce matin).</p>
+<p><strong>Réussi si</strong> : un favori ajouté est toujours là après un rechargement ; un second clic le retire ; <code translate="no">node --test projet-1.test.js</code> reste au vert ; la Pull Request est relue avec la grille, par vous puis par votre binôme, et fusionnée.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Autonome">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autonome
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez bloquer : c’est voulu, c’est le métier. Méthode : 1. lisez le message d’erreur en entier ; 2. cherchez-le dans la fiche « Lire un message d’erreur » ; 3. lisez la documentation ; 4. après 15 minutes bloqué sur le même point, demandez.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-aides" title="Aides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Aides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Le cours</strong> : <a href="../../semaines/s09-asynchrone-api/vendredi-matin.html#apport-json-localstorage">Vendredi matin, « JSON et localStorage »</a> ; <a href="../../semaines/s09-asynchrone-api/jeudi-apres-midi.html#pas-a-pas">jeudi après-midi, US-4</a>.</li>
+<li><strong>L’IA</strong> : <a href="https://cs50.ai">CS50.ai</a> (palier IA 1) : demandez comment tester une fonction qui ne touche pas à <code translate="no">localStorage</code>, pas le code de votre projet.</li>
+<li><strong>MDN</strong> : <a href="https://developer.mozilla.org/fr/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API">Utiliser l’API Web Storage</a>.</li>
+</ul>
+</div>
+</div>
+<section id="enregistrer-et-envoyer-2-min-1" class="level4">
+<h4 class="anchored" data-anchor-id="enregistrer-et-envoyer-2-min-1">Enregistrer et envoyer (2 min)</h4>
+<p>Même rituel, depuis <code translate="no">semaine-09</code> : <code translate="no">git status</code>, <code translate="no">git add</code>, <code translate="no">git commit -m "…"</code>, puis <code translate="no">git push</code> (le push de fin de demi-journée).</p>
+</section>
+</section>
+<section id="ou-j-en-suis" class="level3">
+<h3 class="anchored" data-anchor-id="ou-j-en-suis">Où j’en suis (10 min)</h3>
+<ul>
+<li>Annoncé lundi : 10 minutes pour dire où vous en êtes.</li>
+<li><strong>Ce n’est pas une évaluation</strong> : aucune note, aucun résultat.</li>
+<li>Une feuille : les notions des semaines 7 à 9, une case par ligne.</li>
+<li>« Je sais le faire seul », « avec de l’aide » ou « pas encore ».</li>
+<li>Elle sert au formateur à préparer les deux semaines qui viennent.</li>
+</ul>
+<p>Ces 10 minutes sont annoncées depuis lundi, dans le programme de la semaine. <strong>Ce n’est pas une évaluation</strong> : il n’y a ni note, ni bonne réponse. La feuille sert au formateur à préparer la suite : ce qui sera repris la semaine prochaine, et le contenu de l’ECF du 15 au 18/12, qui ne portera que sur ce qui a vraiment été vu. Elle tient lieu de ticket de sortie pour ce matin.</p>
+<ol type="1">
+<li>Prenez la feuille « Où j’en suis » que le formateur distribue (ou ouvrez le formulaire qu’il indique).</li>
+<li>Pour chaque ligne, cochez <strong>une</strong> case : « je sais le faire seul », « avec de l’aide » ou « pas encore ». Répondez pour aujourd’hui, sans relire vos notes.</li>
+<li>Si vous le souhaitez, écrivez en bas la notion que vous voulez revoir en premier.</li>
+<li>Remettez la feuille au formateur.</li>
+</ol>
+<p><strong>Réussi si</strong> : chaque ligne a une case cochée, et la feuille est remise.</p>
+<table class="caption-top table">
+<caption>Feuille « Où j’en suis » — semaines 7 à 9 (à imprimer : une feuille par personne, sans nom à écrire dans ce tableau)</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Notion</th>
+<th>Semaine</th>
+<th>Je sais le faire seul</th>
+<th>Avec de l’aide</th>
+<th>Pas encore</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Passer une fonction à une autre (callback) et <code translate="no">map</code></td>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code translate="no">filter</code> et <code translate="no">find</code></td>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Les objets : lire et écrire une propriété</td>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code translate="no">reduce</code> et l’accumulateur</td>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Trier sans modifier le tableau reçu : <code translate="no">toSorted</code></td>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Copier sans modifier : le <em>spread</em></td>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Le DOM : trouver un élément, écrire dans la page</td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Les événements : <code translate="no">addEventListener</code></td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Séparer la logique (testée) et l’affichage</td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>La décomposition d’un objet</td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Valider un formulaire côté client</td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Livrer avec une branche et une Pull Request</td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>La faille XSS : <code translate="no">textContent</code> plutôt qu’<code translate="no">innerHTML</code></td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code translate="no">setTimeout</code> et l’ordre d’exécution</td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Les promesses et <code translate="no">then</code></td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code translate="no">async</code> / <code translate="no">await</code></td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Gérer les erreurs : <code translate="no">throw</code>, <code translate="no">try</code> / <code translate="no">catch</code></td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code translate="no">fetch</code> et <code translate="no">response.ok</code></td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Le message de chargement du projet (US-4)</td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>JSON et <code translate="no">localStorage</code></td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="à-retenir" class="level3">
+<h3 class="anchored" data-anchor-id="à-retenir">À retenir</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong><code translate="no">localStorage</code></strong> ne garde que du texte : <code translate="no">setItem</code>, <code translate="no">getItem</code>, <code translate="no">removeItem</code>.</li>
+<li><strong><code translate="no">JSON.stringify</code></strong> pour enregistrer un tableau ou un objet ; <strong><code translate="no">JSON.parse</code></strong> pour le relire.</li>
+<li><strong>Rien d’enregistré</strong> : <code translate="no">getItem</code> renvoie <code translate="no">null</code> ; traitez ce cas d’abord.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled type-ressource" title="Ressource">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ressource
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">JSON.stringify()</a></strong> — MDN, en français <span class="citation" data-cites="mdn-json-stringify">(<a href="#ref-mdn-json-stringify" role="doc-biblioref">MDN Web Docs, s.&nbsp;d.-b</a>)</span> - <strong>Pourquoi</strong> : la même notion que ce matin, dans la documentation. - <strong>Quoi</strong> : dans « Exemples », la partie « Utiliser JSON.stringify() avec localStorage ». - <strong>Durée</strong> : 10 min · <strong>Langue</strong> : français · <strong>Niveau</strong> : débutant. - <strong>Mission</strong> : repérez dans l’exemple la ligne qui enregistre et celle qui relit. Dans <code translate="no">pas-a-pas-favoris/app.js</code>, écrivez au-dessus de vos deux lignes équivalentes le commentaire <code translate="no">// Comme dans l'exemple de MDN</code>. Puis ouvrez la page avec Live Preview : la console (F12) ne doit afficher aucune erreur.</p>
+</div>
+</div>
+</section>
+<section id="si-le-temps-le-permet" class="level3">
+<h3 class="anchored" data-anchor-id="si-le-temps-le-permet">Si le temps le permet</h3>
+<ul>
+<li>Les paliers 2 et 3 non terminés.</li>
+<li>Le <a href="../../semaines/s09-asynchrone-api/mercredi.html#parcours-dautonomie-de-la-semaine">parcours d’autonomie</a>, là où vous en êtes.</li>
+</ul>
+</section>
+<section id="débrief" class="level3">
+<h3 class="anchored" data-anchor-id="débrief">Débrief</h3>
+<ul>
+<li>Pourquoi <code translate="no">JSON.stringify</code> avant <code translate="no">setItem</code> ?</li>
+<li>Que ne faut-il jamais ranger dans <code translate="no">localStorage</code> ?</li>
+</ul>
+</section>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-cnil-cookies-loi" class="csl-entry" role="listitem">
+CNIL. s.&nbsp;d.-a. <span>«&nbsp;Cookies et traceurs : que dit la loi ?&nbsp;»</span> Consulté le 27 septembre 2026. <a href="https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/que-dit-la-loi">https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/que-dit-la-loi</a>.
+</div>
+<div id="ref-cnil-lignes-directrices-2020" class="csl-entry" role="listitem">
+CNIL. s.&nbsp;d.-b. <span>«&nbsp;Délibération n° 2020-091 du 17 septembre 2020 portant adoption de lignes directrices relatives à l’application de l’article 82 de la loi du 6 janvier 1978 modifiée aux opérations de lecture et écriture dans le terminal d’un utilisateur (notamment aux « cookies et autres traceurs »)&nbsp;»</span>. Consulté le 27 septembre 2026. <a href="https://www.cnil.fr/sites/cnil/files/atoms/files/lignes_directrices_de_la_cnil_sur_les_cookies_et_autres_traceurs.pdf">https://www.cnil.fr/sites/cnil/files/atoms/files/lignes_directrices_de_la_cnil_sur_les_cookies_et_autres_traceurs.pdf</a>.
+</div>
+<div id="ref-mdn-json-parse" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-a. <span>«&nbsp;JSON : méthode statique parse() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse</a>.
+</div>
+<div id="ref-mdn-json-stringify" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-b. <span>«&nbsp;JSON : méthode statique stringify() - JavaScript&nbsp;»</span>. Consulté le 26 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify</a>.
+</div>
+<div id="ref-mdn-web-storage" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-c. <span>«&nbsp;Web Storage API&nbsp;»</span>. Consulté le 27 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Web_Storage_API">https://developer.mozilla.org/fr/docs/Web/API/Web_Storage_API</a>.
+</div>
+<div id="ref-mdn-localstorage" class="csl-entry" role="listitem">
+MDN Web Docs. s.&nbsp;d.-d. <span>«&nbsp;Window : propriété localStorage&nbsp;»</span>. Consulté le 27 septembre 2026. <a href="https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage">https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage</a>.
+</div>
+<div id="ref-datagouv-museofile" class="csl-entry" role="listitem">
+Ministère de la Culture. s.&nbsp;d. <span>«&nbsp;Répertoire des Musées de France : base Muséofile&nbsp;»</span>. Consulté le 12 novembre 2026. <a href="https://www.data.gouv.fr/datasets/musees-de-france-base-museofile">https://www.data.gouv.fr/datasets/musees-de-france-base-museofile</a>.
+</div>
+<div id="ref-owasp-html5-cheatsheet" class="csl-entry" role="listitem">
+OWASP Foundation. s.&nbsp;d. <span>«&nbsp;HTML5 Security Cheat Sheet&nbsp;»</span>. Consulté le 27 septembre 2026. <a href="https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../semaines/s09-asynchrone-api/jeudi-apres-midi.html" class="pagination-link" aria-label="Jeudi 03/12, après-midi — fetch et response.ok : appeler une API REST ouverte (documentation en anglais) · projet #1 : US-4">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Jeudi 03/12, après-midi — fetch et response.ok : appeler une API REST ouverte (documentation en anglais) · projet #1 : US-4</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../semaines/s09-asynchrone-api/vendredi-apres-midi.html" class="pagination-link" aria-label="Vendredi 04/12, après-midi — Groupe A : projet &amp; consolidation">
+        <span class="nav-page-text">Vendredi 04/12, après-midi — Groupe A : projet &amp; consolidation</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>DWWM 2026-2027 — Kevin Bardoux</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-labelledby="json-t json-d">
+  <title id="json-t">JSON et localStorage : du tableau au texte, et retour</title>
+  <desc id="json-d">À gauche, dans la page, un tableau JavaScript de deux identifiants : M0194 et M0213. À droite, dans le navigateur, localStorage : sous la clé favoris, un texte qui contient ce tableau écrit en JSON. Flèche du haut, de gauche à droite : JSON.stringify transforme le tableau en texte, puis setItem range ce texte. Flèche du bas, de droite à gauche : getItem relit le texte, puis JSON.parse le retransforme en tableau. localStorage ne garde que du texte ; s’il n’y a rien sous la clé, getItem renvoie null.</desc>
+  <defs><marker id="json-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="json-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+  <text x="180" y="45" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1f5fbf" text-anchor="middle">Dans la page</text>
+  <text x="820" y="45" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#a24c00" text-anchor="middle">Dans le navigateur</text>
+  <rect x="20" y="65" width="320" height="330" rx="12" fill="#eef4fc" stroke="#1f5fbf" stroke-width="4"/>
+  <text x="180" y="115" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">un tableau</text>
+  <text x="180" y="180" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">[</text>
+  <text x="180" y="225" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">'M0194',</text>
+  <text x="180" y="270" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">'M0213'</text>
+  <text x="180" y="315" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">]</text>
+  <text x="180" y="370" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#525860" text-anchor="middle">favorites.length : 2</text>
+  <rect x="660" y="65" width="320" height="330" rx="12" fill="#fdf3e7" stroke="#a24c00" stroke-width="4"/>
+  <text x="820" y="115" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1c1e21" text-anchor="middle">localStorage</text>
+  <text x="820" y="165" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#525860" text-anchor="middle">clé : favoris</text>
+  <rect x="668" y="195" width="304" height="70" rx="8" fill="#ffffff" stroke="#a24c00" stroke-width="3"/>
+  <text x="820" y="240" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="middle">'[&quot;M0194&quot;,&quot;M0213&quot;]'</text>
+  <text x="820" y="315" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="middle">un texte</text>
+  <text x="820" y="370" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">gardé après la fermeture</text>
+  <path d="M350 150 L650 150" stroke="#1f5fbf" stroke-width="4" fill="none" marker-end="url(#json-p-accent)"/>
+  <text x="500" y="105" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="middle">JSON.stringify</text>
+  <text x="500" y="137" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1f5fbf" text-anchor="middle">puis setItem</text>
+  <path d="M650 310 L350 310" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#json-p-ok)"/>
+  <text x="500" y="265" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#17703a" text-anchor="middle">getItem</text>
+  <text x="500" y="297" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#17703a" text-anchor="middle">puis JSON.parse</text>
+  <text x="20" y="445" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1c1e21" text-anchor="start">localStorage ne garde que du texte : un tableau ou un objet passe par JSON.</text>
+  <text x="20" y="495" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="start">Rien sous la clé : getItem renvoie null.</text>
+</svg>

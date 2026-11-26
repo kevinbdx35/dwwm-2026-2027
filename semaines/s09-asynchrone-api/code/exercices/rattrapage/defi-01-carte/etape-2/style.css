@@ -1,0 +1,66 @@
+/* Défi de la semaine 9 - le musée du jour : la feuille de style. */
+/* Palier 1 : écrivez vos règles sous cette ligne, une étape à la fois. */
+
+/* @font-face : la police, rangée dans le dossier fonts */
+@font-face {
+  /* Le nom que l'on donne à la police */
+  font-family: "Atkinson";
+  /* Le fichier de la police, pour le texte normal */
+  src: url("fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2");
+  /* Ce fichier sert au texte normal */
+  font-weight: 400;
+}
+
+/* La même police, en gras */
+@font-face {
+  /* Le même nom : c'est la même famille */
+  font-family: "Atkinson";
+  /* Le fichier du gras */
+  src: url("fonts/AtkinsonHyperlegible-Bold.woff2") format("woff2");
+  /* Ce fichier sert au gras */
+  font-weight: 700;
+}
+
+/* Les couleurs et les espaces du guide de style */
+:root {
+  /* Le texte */
+  --couleur-encre: #1c1e21;
+  /* Le texte discret : la ville, le pied de page */
+  --couleur-discret: #5b5f66;
+  /* Le fond de la page, couleur papier */
+  --couleur-papier: #faf6ef;
+  /* Le bord des cartes */
+  --couleur-bord: #e4dccd;
+  /* Les liens et les boutons */
+  --couleur-brique: #9c3d1f;
+  /* La brique plus foncée : le survol */
+  --couleur-brique-fonce: #6e2a14;
+  /* Le fond du badge */
+  --couleur-soleil: #f2c14e;
+  /* Le petit espace : 8 px */
+  --espace-petit: 0.5rem;
+  /* L'espace moyen : 16 px */
+  --espace-moyen: 1rem;
+  /* Le grand espace : 32 px */
+  --espace-grand: 2rem;
+}
+
+/* La page : la police, les couleurs */
+body {
+  /* La police du guide, sinon celle du système */
+  font-family: "Atkinson", sans-serif;
+  /* Un interligne confortable */
+  line-height: 1.5;
+  /* La couleur du texte */
+  color: var(--couleur-encre);
+  /* Le fond couleur papier */
+  background: var(--couleur-papier);
+  /* Pas de marge autour de la page */
+  margin: 0;
+}
+
+/* Le contenu : de l'espace sur les bords */
+main {
+  /* L'espace intérieur */
+  padding: var(--espace-moyen);
+}

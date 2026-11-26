@@ -1,0 +1,13 @@
+Prédire l'ordre — écrivez vos réponses AVANT de cliquer sur le bouton.
+
+1. Lisez app.js. Après un clic, dans quel ordre les trois lignes s'affichent-elles ?
+   Ma prédiction (trois lettres, par exemple B, A, C) :
+
+2. Cliquez sur « Lancer ». L'ordre affiché :
+
+3. En une phrase : pourquoi la ligne B n'est-elle pas la deuxième, alors que son délai est 0 ?
+   Ma réponse :
+
+4. Dans app.js, remplacez le délai 0 par 2000. Avant de cliquer : l'ordre change-t-il ?
+   Ma prédiction :
+   Ce que je vois :

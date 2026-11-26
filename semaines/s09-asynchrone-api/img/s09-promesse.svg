@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" width="1000" height="525" role="img" aria-labelledby="promesse-t promesse-d">
+  <title id="promesse-t">Une promesse : en attente, puis tenue ; then reçoit la valeur</title>
+  <desc id="promesse-d">Trois moments : 1. loadMuseum renvoie tout de suite une promesse, en attente, sans le musée ; 2. 300 millisecondes plus tard, le musée arrive, la promesse est tenue ; 3. la fonction donnée à then s’exécute, avec le musée. Attention : écrire la promesse elle-même dans la page affiche [object Promise] ; c’est dans then que l’on reçoit le musée.</desc>
+  <defs><marker id="promesse-p-line" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#525860"/></marker><marker id="promesse-p-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fbf"/></marker><marker id="promesse-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker><marker id="promesse-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="promesse-p-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#a24c00"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="525" fill="#ffffff"/>
+  <text x="40" y="45" font-size="28" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">loadMuseum('M0207').then((museum) =&gt; { … })</text>
+  <rect x="30" y="95" width="260" height="90" rx="8" fill="#fdf3e8" stroke="#a24c00" stroke-width="3"/>
+  <text x="160" y="150" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#a24c00" text-anchor="middle">1. en attente</text>
+  <rect x="370" y="95" width="260" height="90" rx="8" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="500" y="150" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">2. tenue</text>
+  <rect x="710" y="95" width="260" height="90" rx="8" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="840" y="150" font-size="30" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#1f5fbf" text-anchor="middle">3. then</text>
+  <path d="M295 140 L365 140" stroke="#a24c00" stroke-width="4" fill="none" marker-end="url(#promesse-p-warn)"/>
+  <path d="M635 140 L705 140" stroke="#17703a" stroke-width="4" fill="none" marker-end="url(#promesse-p-ok)"/>
+  <text x="330" y="85" font-size="24" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="middle">300 ms</text>
+  <text x="160" y="225" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">tout de suite :</text>
+  <text x="160" y="260" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">pas encore de musée</text>
+  <text x="500" y="225" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">le musée</text>
+  <text x="500" y="260" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">est arrivé</text>
+  <text x="840" y="225" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">la fonction s’exécute,</text>
+  <text x="840" y="260" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#1c1e21" text-anchor="middle">avec le musée</text>
+  <rect x="30" y="300" width="940" height="200" rx="12" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="50" y="345" font-size="28" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">Attention : une promesse n’est pas le musée</text>
+  <text x="50" y="390" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#b91c1c" text-anchor="start">status.textContent = loadMuseum('M0207');</text>
+  <text x="950" y="390" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#b91c1c" text-anchor="end">→ [object Promise]</text>
+  <text x="50" y="435" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">loadMuseum('M0207').then((museum) =&gt; {</text>
+  <text x="50" y="470" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">  status.textContent = museum.Nom_officiel; });</text>
+  <text x="950" y="470" font-size="24" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#17703a" text-anchor="end">→ le nom</text>
+</svg>

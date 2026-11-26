@@ -1,0 +1,48 @@
+/* The page of Monday morning (week 9): the same style for every exercise. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+button {
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  color: #ffffff;
+  background: #1f5fbf;
+  border: 2px solid #1f5fbf;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #1f5fbf;
+  outline-offset: 2px;
+}
+
+.message {
+  min-height: 1.5rem;
+  font-weight: 700;
+  border-left: 4px solid #1f5fbf;
+  padding-left: 0.5rem;
+}
+
+/* An empty message is not shown: no blue bar without text. */
+.message:empty {
+  display: none;
+}
+
+.compteur {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f5fbf;
+}

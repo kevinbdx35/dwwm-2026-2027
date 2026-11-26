@@ -1,0 +1,72 @@
+/* R4 — La carte réagit. Styles déjà écrits : ne les modifiez pas. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+.carte {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid #8a8f98;
+  border-radius: 8px;
+}
+
+.carte h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.carte p {
+  margin: 0.25rem 0 0;
+}
+
+.carte-lien {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  background: #1f5fbf;
+  border-radius: 6px;
+}
+
+#fiche {
+  margin-top: 3rem;
+  padding: 1rem;
+  background: #f6f7f9;
+  border-radius: 8px;
+}
+
+/* Écrivez vos règles sous cette ligne, une étape à la fois. */
+
+/* Souris ou clavier (:focus-visible) : le même effet */
+.carte-lien:hover,
+.carte-lien:focus-visible {
+  /* Un bleu plus foncé : le lien réagit */
+  background: #143f80;
+}
+
+/* :hover sur la carte : le pointeur est sur la carte */
+.carte:hover {
+  /* La bordure de la carte devient bleue */
+  border-color: #1f5fbf;
+}
+
+/* :focus-visible : le lien a le focus du clavier (Tab) */
+.carte-lien:focus-visible {
+  /* outline : un contour épais autour du lien */
+  outline: 3px solid #1c1e21;
+  /* outline-offset : l'écart entre le lien et le contour */
+  outline-offset: 3px;
+}

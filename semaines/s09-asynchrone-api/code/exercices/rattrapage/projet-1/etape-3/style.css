@@ -1,0 +1,113 @@
+/* Project #1 — a simple, readable style. Change it as you like. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --couleur-texte: #1c1e21;
+  --couleur-fond: #ffffff;
+  --couleur-surface: #f6f7f9;
+  --couleur-bordure: #8a8f98;
+  --couleur-accent: #1f5fbf;
+  --couleur-erreur: #b91c1c;
+  --espace-1: 0.5rem;
+  --espace-2: 1rem;
+  --espace-3: 1.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+}
+
+.entete,
+.contenu,
+.pied {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: var(--espace-2);
+}
+
+.entete h1 {
+  margin-bottom: 0;
+}
+
+.recherche label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: var(--espace-1);
+}
+
+.recherche-ligne {
+  display: flex;
+  gap: var(--espace-1);
+}
+
+.recherche input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--espace-1);
+  font: inherit;
+  border: 2px solid var(--couleur-bordure);
+  border-radius: 6px;
+}
+
+button {
+  padding: var(--espace-1) var(--espace-2);
+  font: inherit;
+  color: #ffffff;
+  background: var(--couleur-accent);
+  border: 2px solid var(--couleur-accent);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--couleur-accent);
+  outline-offset: 2px;
+}
+
+.erreur {
+  min-height: 1.5em;
+  color: var(--couleur-erreur);
+  font-weight: 700;
+}
+
+.resume {
+  font-weight: 700;
+}
+
+.liste {
+  padding: 0;
+  list-style: none;
+}
+
+.liste li {
+  padding: var(--espace-1) 0;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.liste li button {
+  width: 100%;
+  text-align: left;
+  color: var(--couleur-texte);
+  background: var(--couleur-surface);
+  border-color: var(--couleur-surface);
+}
+
+.detail:not(:empty) {
+  margin-top: var(--espace-3);
+  padding: var(--espace-2);
+  background: var(--couleur-surface);
+  border-left: 4px solid var(--couleur-accent);
+}
+
+.pied {
+  font-size: 0.9rem;
+}

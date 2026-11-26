@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" width="1000" height="525" role="img" aria-labelledby="err-t err-d">
+  <title id="err-t">throw, try et catch : le trajet d’une erreur</title>
+  <desc id="err-d">Un bloc try contient deux lignes. La première, const id = checkId(text), lève une erreur avec throw. La deuxième ligne du try, show(id), est sautée. L’erreur part directement dans le bloc catch (error), qui affiche error.message dans la page. Ensuite, le programme continue : la page ne plante pas.</desc>
+  <defs><marker id="err-p-ko" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b91c1c"/></marker><marker id="err-p-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17703a"/></marker></defs>
+  <rect x="0" y="0" width="1000" height="525" fill="#ffffff"/>
+  <rect x="30" y="30" width="600" height="240" rx="10" fill="#eef4fc" stroke="#1f5fbf" stroke-width="3"/>
+  <text x="55" y="80" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="start">try {</text>
+  <text x="90" y="135" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">const id = checkId(text);</text>
+  <text x="90" y="195" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#525860" text-anchor="start" text-decoration="line-through">show(id);</text>
+  <text x="55" y="250" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#1f5fbf" text-anchor="start">}</text>
+  <text x="660" y="115" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">1. throw : checkId</text>
+  <text x="660" y="150" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">lève une erreur</text>
+  <text x="660" y="205" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" fill="#525860" text-anchor="start">2. ligne sautée</text>
+  <path d="M500 150 C 585 170, 590 250, 565 318" stroke="#b91c1c" stroke-width="5" fill="none" marker-end="url(#err-p-ko)"/>
+  <rect x="30" y="325" width="600" height="170" rx="10" fill="#fdf0f0" stroke="#b91c1c" stroke-width="3"/>
+  <text x="55" y="375" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#b91c1c" text-anchor="start">catch (error) {</text>
+  <text x="90" y="425" font-size="26" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" fill="#1c1e21" text-anchor="start">show(error.message);</text>
+  <text x="55" y="475" font-size="30" font-family="Atkinson Hyperlegible Mono, DejaVu Sans Mono, Consolas, monospace" font-weight="bold" fill="#b91c1c" text-anchor="start">}</text>
+  <text x="660" y="330" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">3. catch attrape</text>
+  <text x="660" y="365" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#b91c1c" text-anchor="start">l’erreur</text>
+  <path d="M635 440 L685 440" stroke="#17703a" stroke-width="5" fill="none" marker-end="url(#err-p-ok)"/>
+  <rect x="690" y="395" width="290" height="100" rx="10" fill="#edf7f0" stroke="#17703a" stroke-width="3"/>
+  <text x="835" y="438" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">4. le programme</text>
+  <text x="835" y="473" font-size="26" font-family="Atkinson Hyperlegible Next, Atkinson Hyperlegible, Verdana, sans-serif" font-weight="bold" fill="#17703a" text-anchor="middle">continue</text>
+</svg>

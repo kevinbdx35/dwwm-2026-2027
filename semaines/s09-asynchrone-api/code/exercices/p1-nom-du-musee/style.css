@@ -1,0 +1,38 @@
+/* A small shared style for the exercises of the week. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+button {
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  color: #ffffff;
+  background: #1f5fbf;
+  border: 2px solid #1f5fbf;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #1f5fbf;
+  outline-offset: 2px;
+}
+
+/* The message under the button: "Chargement...", then the result. */
+.etat {
+  min-height: 1.5em;
+  font-weight: 700;
+  border-left: 4px solid #1f5fbf;
+  padding-left: 0.5rem;
+}
